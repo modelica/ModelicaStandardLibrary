@@ -60,10 +60,10 @@ equation
         LossPower = D.i*(D.v - S.v);
         annotation (defaultComponentName="pMOS",
           Documentation(info="<html>
-<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
+<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
-<p><strong>References:</strong> [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
+<p><strong>References:</strong> [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
 <p>Some typical parameter sets are:</p>
 <blockquote><pre>
 W       L      Beta        Vt    K2     K5      dW       dL

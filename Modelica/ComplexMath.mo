@@ -40,7 +40,7 @@ With the optional
 second argument \"p\", any other p-norm can be computed:
 </p>
 <center>
-<img src=\"modelica://Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" alt=\"function Vectors.norm\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" alt=\"function Vectors.norm\">
 </center>
 <p>
 Besides the Euclidean norm (p=2), also the 1-norm and the
@@ -79,7 +79,7 @@ v = {2, -4, -2, -1};
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
+<a href=\"modelica:/Modelica.Math.Matrices.norm\">Matrices.norm</a>
 </p>
 </html>"));
 end norm;
@@ -117,7 +117,7 @@ v = {2, -4, -2, -1};
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Vectors.norm\">Vectors.norm</a>
+<a href=\"modelica:/Modelica.Math.Vectors.norm\">Vectors.norm</a>
 </p>
 </html>"));
 end length;
@@ -173,7 +173,7 @@ possible.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Vectors.length\">Vectors.length</a>
+<a href=\"modelica:/Modelica.Math.Vectors.length\">Vectors.length</a>
 </p>
 </html>"));
 end normalize;

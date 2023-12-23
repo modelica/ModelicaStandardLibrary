@@ -128,7 +128,7 @@ slip between the wheel and the ground.
 The wheel can not take off but it can incline toward the ground.
 The frame frame_a is placed in the wheel center point and rotates
 with the wheel itself. Therefore, a
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Revolute\">rotational joint</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Joints.Revolute\">rotational joint</a>
 with rotation axis <code>n={0,1,0}</code> should be used to
 connect the wheel to a carrier.
 </p>

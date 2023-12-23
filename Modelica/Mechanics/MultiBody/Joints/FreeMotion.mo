@@ -274,7 +274,7 @@ frame_b of the joint.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png\">
 </div>
 
 </html>"),

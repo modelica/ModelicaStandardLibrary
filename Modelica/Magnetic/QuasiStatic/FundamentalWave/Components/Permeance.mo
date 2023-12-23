@@ -23,11 +23,11 @@ equation
                   Documentation(info="<html>
 <p>
 The salient permeance models the relationship between the complex magnetic potential difference
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">:
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/permeance.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/permeance.png\"
       alt=\"reluctance.png\">
 </blockquote>
 

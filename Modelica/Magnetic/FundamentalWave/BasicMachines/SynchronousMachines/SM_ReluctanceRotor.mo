@@ -28,7 +28,7 @@ model SM_ReluctanceRotor "Reluctance machine with optional damper cage"
   parameter SI.Inductance Lmd(start=2.9*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance, d-axis" annotation (Dialog(tab=
           "Nominal resistances and inductances", groupImage=
-          "modelica://Modelica/Resources/Images/Electrical/Machines/SMR.png"));
+          "modelica:/Modelica/Resources/Images/Electrical/Machines/SMR.png"));
   parameter SI.Inductance Lmq(start=0.9*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance, q-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -141,8 +141,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
 </p>
 </html>"));
 end SM_ReluctanceRotor;

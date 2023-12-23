@@ -69,7 +69,7 @@ the connector <code>r_head</code> (<code><strong>Real</strong> r_head[3]</code>)
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.SignalArrow\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.SignalArrow\">
 </div>
 <p>
 The <code>quantity</code> parameter defines what the vector represents, allowing

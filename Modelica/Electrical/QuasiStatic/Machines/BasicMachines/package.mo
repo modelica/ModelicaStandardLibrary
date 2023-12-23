@@ -36,9 +36,9 @@ package BasicMachines "Basic machine models"
 <h4>Note</h4>
 <p>
 Quasi-static AC machines (induction machines and synchronous machines) based on space phasor therory are not implemented. 
-Use <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">quasi-static fundamental wave machines</a> instead. 
+Use <a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave\">quasi-static fundamental wave machines</a> instead. 
 Fundamental wave machines (transient and quasi-static) are compatible with models based on space phasor theory with respect to connectors and parameters.
-For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a>.
+For a discrimination of various machine models, see <a href=\"modelica:/Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a>.
 </p>
 </html>"));
 end BasicMachines;

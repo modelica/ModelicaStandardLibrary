@@ -360,7 +360,7 @@ When converting between units (in the user-interface for plotting and entering p
 
 <h4>Example usage</h4>
 <p>
-This annotation is used in the Modelica Standard Library for example in <a href=\"modelica://Modelica.Units.SI\">Modelica.Units.SI</a> for the type definition TemperatureDifference.
+This annotation is used in the Modelica Standard Library for example in <a href=\"modelica:/Modelica.Units.SI\">Modelica.Units.SI</a> for the type definition TemperatureDifference.
 </p>
 </html>"));
   end absoluteValue;
@@ -472,10 +472,10 @@ This can be recommended by having <code><strong>annotation</strong> choicesAllMa
 </pre></blockquote>
 <h5>Related annotations</h5>
 <ul>
-  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.uses\">uses</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.versionDate\">versionDate</a></li>
 </ul>
 </html>"));
   end dateModified;
@@ -759,7 +759,7 @@ Define graphical layout of the parameter menu.
                    <strong>group</strong> = \"Parameters\",
       <strong>showStartAttribute</strong> = false,
            <strong>colorSelector</strong> = false,
-              <strong>groupImage</strong> = \"modelica://MyPackage/Resources/Images/image.png\",
+              <strong>groupImage</strong> = \"modelica:/MyPackage/Resources/Images/image.png\",
          <strong>connectorSizing</strong> = false));
 </pre></blockquote>
 
@@ -841,13 +841,13 @@ documentation_annotation:
 The \"Documentation\" annotation can contain the \"info\" annotation giving a textual description, the \"revisions\" annotation giving a list of revisions and other annotations defined by a tool [The \"revisions\" documentation may be omitted in printed documentation]. How the tool interprets the information in \"Documentation\" is unspecified. Within a string of the \"Documentation\" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define the start and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme \"Modelica\", e.g.,
 </p>
 <blockquote><pre>
-    &lt;a href=\"modelica://ExamplePackage.Tutorial\"&gt;ExamplePackage.Tutorial&lt;/a&gt;
+    &lt;a href=\"modelica:/ExamplePackage.Tutorial\"&gt;ExamplePackage.Tutorial&lt;/a&gt;
 </pre></blockquote>
 <p>
 Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info, #text, #icon may be used to reference different layers. Example:
 </p>
 <blockquote><pre>
-   &lt;a href=\"modelica://ExamplePackage.SimpleModel#info\"&gt;SimpleModel&lt;/a&gt;
+   &lt;a href=\"modelica:/ExamplePackage.SimpleModel#info\"&gt;SimpleModel&lt;/a&gt;
 </pre></blockquote>
 </html>"));
   end Documentation;
@@ -1048,7 +1048,7 @@ If \"Inline = false\", the model developer proposes to not inline the function.
 <h4>Example usage</h4>
 
 <p>
-Inline = true is for example used in  <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames\">Modelica.Mechanics.MultiBody.Frames</a> and in functions of <a href=\"modelica://Modelica.Media\">Modelica.Media</a> to have no overhead for function calls such as resolving a vector in a different coordinate system and at the same time the function can be analytically differentiated, e.g., for index reduction needed for mechanical systems.
+Inline = true is for example used in  <a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames\">Modelica.Mechanics.MultiBody.Frames</a> and in functions of <a href=\"modelica:/Modelica.Media\">Modelica.Media</a> to have no overhead for function calls such as resolving a vector in a different coordinate system and at the same time the function can be analytically differentiated, e.g., for index reduction needed for mechanical systems.
 </p>
 </html>"));
   end Inline;
@@ -1074,12 +1074,12 @@ Has only an effect within a function declaration.
 If true, the model developer proposes to inline the function after the function is differentiated for index reduction, and before any other symbolic transformations are performed.
 </p>
 <p>
-<em>This annotation cannot be combined with annotations <a href=\"modelica://ModelicaReference.Annotations.Inline\">Inline</a> and <a href=\"modelica://ModelicaReference.Annotations.LateInline\">LateInline</a>!</em>
+<em>This annotation cannot be combined with annotations <a href=\"modelica:/ModelicaReference.Annotations.Inline\">Inline</a> and <a href=\"modelica:/ModelicaReference.Annotations.LateInline\">LateInline</a>!</em>
 </p>
 
 <h4>Example usage</h4>
 <p>
-<code>InlineAfterIndexReduction = true</code> is for example used in <a href=\"modelica://Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor\">Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor</a> to define that an input signal is the derivative of another input signal.
+<code>InlineAfterIndexReduction = true</code> is for example used in <a href=\"modelica:/Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor\">Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor</a> to define that an input signal is the derivative of another input signal.
 </p>
 </html>"));
   end InlineAfterIndexReduction;
@@ -1156,7 +1156,7 @@ If \"LateInline = false\", the model developer proposes to not inline the functi
 
 <h4>Example usage</h4>
 <p>
-This annotation is for example used in  <a href=\"modelica://Modelica.Media.Water.IF97_Utilities.T_props_ph\">Modelica.Media.Water.IF97_Utilities.T_props_ph</a> to provide in combination with common subexpression elimination the automatic caching of function calls. Furthermore, it is used in order that a tool is able to propagate specific enthalpy over connectors in the <a href=\"modelica://Modelica.Fluid\">Modelica.Fluid</a> library.
+This annotation is for example used in  <a href=\"modelica:/Modelica.Media.Water.IF97_Utilities.T_props_ph\">Modelica.Media.Water.IF97_Utilities.T_props_ph</a> to provide in combination with common subexpression elimination the automatic caching of function calls. Furthermore, it is used in order that a tool is able to propagate specific enthalpy over connectors in the <a href=\"modelica:/Modelica.Fluid\">Modelica.Fluid</a> library.
 </p>
 </html>"));
   end LateInline;
@@ -1265,9 +1265,9 @@ The preferredView annotation defines the default view when selecting the class. 
   <strong>end</strong> Modelica;</pre></blockquote>
 <h5>Related annotations</h5>
 <ul>
-  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.versionDate\">versionDate</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.dateModified\">dateModified</a></li>
 </ul>
 </html>"));
   end revisionId;
@@ -1305,7 +1305,7 @@ The optional argument <code>normallyConstant</code> of <code>smoothOrder</code> 
 
 <h4>Examples</h4>
 <p>
-This annotation is used by many functions of the <a href=\"modelica://Modelica.Fluid\">Modelica.Fluid</a> library, such as <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\">Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP</a>, since geometric arguments to these functions are usually constant.
+This annotation is used by many functions of the <a href=\"modelica:/Modelica.Fluid\">Modelica.Fluid</a> library, such as <a href=\"modelica:/Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\">Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP</a>, since geometric arguments to these functions are usually constant.
 </p>
 <blockquote><pre>
 <strong>function</strong> SpecialPolynomial
@@ -1398,10 +1398,10 @@ Defines that classes within this top-level class uses a specific version of anot
 
 <h5>Related annotations</h5>
 <ul>
-  <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.dateModified\">dateModified</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.versionDate\">versionDate</a></li>
 </ul>
 </html>"));
   end uses;
@@ -1509,10 +1509,10 @@ This allows a tool to access multiple versions of the same package.
 </p>
 <h5>Related annotations</h5>
 <ul>
-  <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.dateModified\">dateModified</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.uses\">uses</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.version\">version</a></li>
 </ul>
 </html>"));
   end version;
@@ -1552,11 +1552,11 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
 </pre></blockquote>
 <h5>Related annotations</h5>
 <ul>
-  <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.dateModified\">dateModified</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.uses\">uses</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.versionDate\">versionDate</a></li>
 </ul>
 </html>"));
   end versionBuild;
@@ -1583,10 +1583,10 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
   <strong>end</strong> Modelica;</pre></blockquote>
 <h5>Related annotations</h5>
 <ul>
-  <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.uses\">uses</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.dateModified\">dateModified</a></li>
+  <li><a href=\"modelica:/ModelicaReference.Annotations.revisionId\">revisionId</a></li>
 </ul>
 </html>"));
   end versionDate;
@@ -1630,7 +1630,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
+<p>See <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 <p>
@@ -1674,7 +1674,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
+<p>See <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 
@@ -1682,15 +1682,15 @@ class_specifier :
 The keyword class is used to define general classes (without any restrictions).
 It is identical to the keyword model.
 In most cases, it is recommended to use specialized classes as
-<a href=\"modelica://ModelicaReference.Classes.'connector'\">connector</a>,
-<a href=\"modelica://ModelicaReference.Classes.'model'\">model</a>,
-<a href=\"modelica://ModelicaReference.Classes.'block'\">block</a>,
-<a href=\"modelica://ModelicaReference.Classes.'package'\">package</a>,
-<a href=\"modelica://ModelicaReference.Classes.'record'\">record</a>,
-<a href=\"modelica://ModelicaReference.Classes.'function'\">function</a>,
-<a href=\"modelica://ModelicaReference.Classes.'type'\">type</a>.
+<a href=\"modelica:/ModelicaReference.Classes.'connector'\">connector</a>,
+<a href=\"modelica:/ModelicaReference.Classes.'model'\">model</a>,
+<a href=\"modelica:/ModelicaReference.Classes.'block'\">block</a>,
+<a href=\"modelica:/ModelicaReference.Classes.'package'\">package</a>,
+<a href=\"modelica:/ModelicaReference.Classes.'record'\">record</a>,
+<a href=\"modelica:/ModelicaReference.Classes.'function'\">function</a>,
+<a href=\"modelica:/ModelicaReference.Classes.'type'\">type</a>.
 \"class\" should be used to define
-<a href=\"modelica://ModelicaReference.Classes.ExternalObject\">ExternalObject</a>s,
+<a href=\"modelica:/ModelicaReference.Classes.ExternalObject\">ExternalObject</a>s,
 and can be used for classes merely containing documentation and/or graphics.
 </p>
 </html>"));
@@ -1719,12 +1719,12 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
+<p>See <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 <p>The keyword connector is used to define connectors, which are used
 in
-<a href=\"modelica://ModelicaReference.Operators.'connect()'\">connect()</a>
+<a href=\"modelica:/ModelicaReference.Operators.'connect()'\">connect()</a>
 statements. In connectors, no equations are allowed in the
 definition or in any of its components.
 With respect to \"class\", it is enhanced to allow connect(..) to components
@@ -1733,13 +1733,13 @@ of connector classes.
 
 <p>
 Variable declarations in a connector can have the additional prefixes
-<a href=\"modelica://ModelicaReference.'flow'\">flow</a> or
-<a href=\"modelica://ModelicaReference.'stream'\">stream</a>, besides
+<a href=\"modelica:/ModelicaReference.'flow'\">flow</a> or
+<a href=\"modelica:/ModelicaReference.'stream'\">stream</a>, besides
 the prefixes
-<a href=\"modelica://ModelicaReference.'input'\">input</a> and
-<a href=\"modelica://ModelicaReference.'output'\">output</a>, that are
+<a href=\"modelica:/ModelicaReference.'input'\">input</a> and
+<a href=\"modelica:/ModelicaReference.'output'\">output</a>, that are
 also allowed outside of a connector. Based on the prefix, a
-<a href=\"modelica://ModelicaReference.Operators.'connect()'\">connect()</a>
+<a href=\"modelica:/ModelicaReference.Operators.'connect()'\">connect()</a>
 statement leads to specific connection equations, that describe the
 balance equations in the infinitesimal connection points.
 </p>
@@ -2089,7 +2089,7 @@ Define specialized class <em>function</em>
 <strong>end</strong> si;</pre></blockquote>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </div>
 
 <h4>Syntax</h4>
@@ -2102,7 +2102,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
+<p>See <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 
@@ -2287,7 +2287,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
+<p>See <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 <p>
@@ -2329,7 +2329,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
+<p>See <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 <p>May only contain declarations of classes and constants.
@@ -2375,7 +2375,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
+<p>See <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 
@@ -2413,7 +2413,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
+<p>See <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 <p>The keyword type is used to define types, which may only be extensions to the predefined types, enumerations, array of type, or classes extending from type.
@@ -2705,7 +2705,7 @@ The acos function can also be accessed as Modelica.Math.acos.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/acos.png\" alt=\"acos\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/acos.png\" alt=\"acos\">
 </div>
 
 <h4>Examples</h4>
@@ -2719,7 +2719,7 @@ The acos function can also be accessed as Modelica.Math.acos.
         ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-This operator returns true if state is active in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+This operator returns true if state is active in a <a href=\"modelica:/ModelicaReference.StateMachines\">state machine</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>activeState</strong>(state)</pre></blockquote>
@@ -2818,7 +2818,7 @@ The asin function can also be accessed as Modelica.Math.asin.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/asin.png\" alt=\"asin\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/asin.png\" alt=\"asin\">
 </div>
 
 <h4>Examples</h4>
@@ -2905,7 +2905,7 @@ The atan function can also be accessed as Modelica.Math.atan.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/atan.png\" alt=\"atan\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/atan.png\" alt=\"atan\">
 </div>
 
 <h4>Examples</h4>
@@ -2937,7 +2937,7 @@ The atan2 function can also be accessed as Modelica.Math.atan2.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/atan2.png\" alt=\"atan2\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/atan2.png\" alt=\"atan2\">
 </div>
 
 <h4>Examples</h4>
@@ -2950,7 +2950,7 @@ The atan2 function can also be accessed as Modelica.Math.atan2.
   extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Shifts a clocked expressions to undo a delay as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Shifts a clocked expressions to undo a delay as part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>backSample</strong>(u, shiftCounter, resolution)</pre></blockquote>
@@ -3092,7 +3092,7 @@ The same restrictions as for the pre() operator apply.</p>
 <strong>end</strong> BothEdges;</pre></blockquote>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/change.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/change.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </div>
 </html>"));
   end 'change()';
@@ -3101,7 +3101,7 @@ The same restrictions as for the pre() operator apply.</p>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Generates clocks as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Generates clocks as part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Examples</h4>
 <blockquote><pre>
@@ -3178,7 +3178,7 @@ Connect objects
 
 <h4>Syntax</h4>
 
-<p>See section on <code>connect_clause</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
+<p>See section on <code>connect_clause</code> in the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -3245,7 +3245,7 @@ whereas connect-statements are optional for the spanning-tree (and generate diff
 </p>
 <h4>Examples</h4>
 <p>
-This function can be used at all places where a <a href=\"modelica://ModelicaReference.Operators.'connect()'\">connect(...)</a> statement is allowed.
+This function can be used at all places where a <a href=\"modelica:/ModelicaReference.Operators.'connect()'\">connect(...)</a> statement is allowed.
 </p>
 <p>
 E.g., it is not allowed to use this function in a when-clause.
@@ -3293,7 +3293,7 @@ Connections.potentialRoot(A.R, priority = p);
 <p>
 The overdetermined type or record instance <code>R</code> in connector instance <code>A</code> is a potential root node in a virtual connection graph with priority <code>p</code> (with <code>p &ge; 0</code>).
 If no second argument is provided, the priority is zero. <code>p</code> shall be a parameter expression of type Integer.
-In a virtual connection subgraph without a  <a href=\"modelica://ModelicaReference.Operators.'Connections.root()'\">Connections.root()</a> definition, one of the potential roots with the lowest priority number is selected as root.
+In a virtual connection subgraph without a  <a href=\"modelica:/ModelicaReference.Operators.'Connections.root()'\">Connections.root()</a> definition, one of the potential roots with the lowest priority number is selected as root.
 </p>
 
 <h4>Examples</h4>
@@ -3340,7 +3340,7 @@ In that case <code>Connections.rooted(A.R)</code> returns <em>true</em>, if <cod
 </p>
 <h4>Examples</h4>
 <p>
-This operator can be used to avoid equation systems by providing analytic inverses, see <a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.FixedRotation\">Modelica.Mechanics.MultiBody.Parts.FixedRotation</a>.
+This operator can be used to avoid equation systems by providing analytic inverses, see <a href=\"modelica:/Modelica.Mechanics.MultiBody.Parts.FixedRotation\">Modelica.Mechanics.MultiBody.Parts.FixedRotation</a>.
 </p>
 </html>"));
   end 'Connections.rooted()';
@@ -3362,7 +3362,7 @@ The cosine function can also be accessed as Modelica.Math.cos.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/cos.png\" alt=\"cos\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/cos.png\" alt=\"cos\">
 </div>
 
 <h4>Examples</h4>
@@ -3388,7 +3388,7 @@ The cosh function can also be accessed as Modelica.Math.cosh.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/cosh.png\" alt=\"cosh\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/cosh.png\" alt=\"cosh\">
 </div>
 
 <h4>Examples</h4>
@@ -3463,7 +3463,7 @@ time in order to avoid extrapolation in the delay buffer.]</em></p>
 <strong>end</strong> Delay;</pre></blockquote>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/delay.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/delay.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </div>
 </html>"));
   end 'delay()';
@@ -3594,7 +3594,7 @@ classes).</p>
 <strong>end</strong> RisingEdge;</pre></blockquote>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/edge.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/edge.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </div>
 </html>"));
   end 'edge()';
@@ -3616,7 +3616,7 @@ The exponential function can also be accessed as Modelica.Math.exp.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/exp.png\" alt=\"exp\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/exp.png\" alt=\"exp\">
 </div>
 
 <h4>Examples</h4>
@@ -3655,7 +3655,7 @@ Boolean vb[3]   = fill(true,3);  // = {true, true, true}
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Returns true for the first tick of the clock, part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Returns true for the first tick of the clock, part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>firstTick</strong>(u)</pre></blockquote>
@@ -3730,7 +3730,7 @@ returns <code>Vehicle.engine.controller</code>.
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Returns a piecewise constant signal based on a clocked variable as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Returns a piecewise constant signal based on a clocked variable as part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>hold</strong>(u)</pre></blockquote>
@@ -3946,7 +3946,7 @@ True during initialization
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Defines the initially active block instance of the <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+Defines the initially active block instance of the <a href=\"modelica:/ModelicaReference.StateMachines\">state machine</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>initialState</strong>(state)</pre></blockquote>
@@ -3966,7 +3966,7 @@ is used.
 
 <p>
 For an introduction into stream variables and an example for the inStream(..) operator, see
-<a href=\"modelica://ModelicaReference.'stream'\">stream</a>.
+<a href=\"modelica:/ModelicaReference.'stream'\">stream</a>.
 </p>
 
 <h4>Syntax</h4>
@@ -3975,7 +3975,7 @@ For an introduction into stream variables and an example for the inStream(..) op
 
 <p>
 where <code>IDENT</code> must be a variable reference in a connector component declared with the
-<a href=\"modelica://ModelicaReference.'stream'\">stream</a> prefix.
+<a href=\"modelica:/ModelicaReference.'stream'\">stream</a> prefix.
 </p>
 
 <h4>Description</h4>
@@ -4142,7 +4142,7 @@ when the return value changes discontinuously.]</em></p>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>interval</strong>(u)</pre></blockquote>
@@ -4198,7 +4198,7 @@ The natural logarithm can also be accessed as Modelica.Math.log.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/log.png\" alt=\"log\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/log.png\" alt=\"log\">
 </div>
 
 <h4>Examples</h4>
@@ -4224,7 +4224,7 @@ The base 10 logarithm can also be accessed as Modelica.Math.log10.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/log10.png\" alt=\"log10\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/log10.png\" alt=\"log10\">
 </div>
 
 <h4>Examples</h4>
@@ -4377,7 +4377,7 @@ Integer n = ndims(A);  // = 3
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>noClock</strong>(u)</pre></blockquote>
@@ -4512,7 +4512,7 @@ for continuous-time variables inside when-clauses.
 <strong>end</strong> Hysteresis;</pre></blockquote>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/pre.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/pre.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </div>
 </html>"));
   end 'pre()';
@@ -4521,7 +4521,7 @@ for continuous-time variables inside when-clauses.
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Gives the previous value of a clocked expression as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Gives the previous value of a clocked expression as part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>previous</strong>(u)</pre></blockquote>
@@ -4529,7 +4529,7 @@ Gives the previous value of a clocked expression as part of the <a href=\"modeli
 <p>
 The return argument has the same type as the input argument.
 Input and return arguments are on the same clock.
-At the first tick of the clock of <strong>u</strong> or after a <a href=\"modelica://ModelicaReference.Operators.'transition()'\">reset transition</a>,
+At the first tick of the clock of <strong>u</strong> or after a <a href=\"modelica:/ModelicaReference.Operators.'transition()'\">reset transition</a>,
 the start value of <strong>u</strong>  is returned.
 At subsequent activations of the clock of <strong>u</strong>, the value of <strong>u</strong> from the previous clock activation is returned.
 </p>
@@ -4660,7 +4660,7 @@ the return value changes discontinuously.]</em></p>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-<strong>Deprecated</strong> operator, see <a href=\"modelica://ModelicaReference.Operators.'Connections.rooted()'\">Connections.rooted()</a> instead.
+<strong>Deprecated</strong> operator, see <a href=\"modelica:/ModelicaReference.Operators.'Connections.rooted()'\">Connections.rooted()</a> instead.
 </p>
 </html>"));
   end 'rooted()';
@@ -4691,7 +4691,7 @@ expressions and need to be a subtype of Real or Integer.
 <strong>end</strong> Sampling;</pre></blockquote>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/sample.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/sample.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </div>
 </html>"));
   end 'sample()';
@@ -4700,7 +4700,7 @@ expressions and need to be a subtype of Real or Integer.
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Samples a value according to a clock as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Samples a value according to a clock as part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>sample</strong>(u)</pre></blockquote>
@@ -4826,7 +4826,7 @@ flow direction.]</em>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Shifts a clocked expressions to delay it as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Shifts a clocked expressions to delay it as part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>shiftSample</strong>(u, shiftCounter, resolution)</pre></blockquote>
@@ -4882,7 +4882,7 @@ The sine function can also be accessed as Modelica.Math.sin.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/sin.png\" alt=\"sin\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/sin.png\" alt=\"sin\">
 </div>
 
 <h4>Examples</h4>
@@ -4908,7 +4908,7 @@ The sinh function can also be accessed as Modelica.Math.sinh.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/sinh.png\" alt=\"sinh\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/sinh.png\" alt=\"sinh\">
 </div>
 
 <h4>Examples</h4>
@@ -5011,7 +5011,7 @@ discontinuously.]</em></p>
 The operator <strong>spatialDistribution</strong> allows the infinite-dimensional problem below to be solved efficiently with good accuracy
 </p>
 <blockquote>
-<img src=\"modelica://ModelicaReference/Resources/Images/spatialdistribution.png\"
+<img src=\"modelica:/ModelicaReference/Resources/Images/spatialdistribution.png\"
      alt=\"spatialdistribution.png\">
 </blockquote>
 where <code>z(x, t)</code> is the transported quantity, <code>x</code> is the
@@ -5152,7 +5152,7 @@ String(123, minimumLength=6, leftJustified=false)  // = \"   123\"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Subsamples a clocked expressions as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Subsamples a clocked expressions as part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>subSample</strong>(u, factor)</pre></blockquote>
@@ -5207,7 +5207,7 @@ u, ..., j <strong>in</strong> v) is the same as the type of e(i,...j).
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Supersamples a clocked expressions as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Supersamples a clocked expressions as part of the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>superSample</strong>(u, factor)</pre></blockquote>
@@ -5263,7 +5263,7 @@ The tangent function can also be accessed as Modelica.Math.tan.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/tan.png\" alt=\"tan\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/tan.png\" alt=\"tan\">
 </div>
 
 <h4>Examples</h4>
@@ -5290,7 +5290,7 @@ The tanh function can also be accessed as Modelica.Math.tanh.
 </p>
 
 <div>
-<img src=\"modelica://ModelicaReference/Resources/Images/tanh.png\" alt=\"tanh\">
+<img src=\"modelica:/ModelicaReference/Resources/Images/tanh.png\" alt=\"tanh\">
 </div>
 
 <h4>Examples</h4>
@@ -5348,7 +5348,7 @@ end</strong> ThrowingBall;</pre></blockquote>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-This operator returns the number of ticks since a transition was made to the active state in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+This operator returns the number of ticks since a transition was made to the active state in a <a href=\"modelica:/ModelicaReference.StateMachines\">state machine</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>ticksInState</strong>()</pre></blockquote>
@@ -5363,7 +5363,7 @@ Returns the number of ticks of the clock of the state machine since a transition
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-This operator returns the time (in seconds) since a transition was made to the active state in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+This operator returns the time (in seconds) since a transition was made to the active state in a <a href=\"modelica:/ModelicaReference.StateMachines\">state machine</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>timeInState</strong>()</pre></blockquote>
@@ -5378,7 +5378,7 @@ Returns the time duration as Real in [s] since a transition was made to the curr
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-This operator defines a transition in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+This operator defines a transition in a <a href=\"modelica:/ModelicaReference.StateMachines\">state machine</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>transition</strong>(from, to, condition, immediate, reset, synchronize, priority)</pre></blockquote>
@@ -5461,7 +5461,7 @@ In this chapter <strong>operators</strong> of Modelica are documented.
 Elementary operators, such as \"+\" or \"-\" are overloaded and
 operate on scalar and array variables. Other operators
 have the same syntax as a
-<a href=\"modelica://ModelicaReference.Classes.'function'\">Modelica function</a>
+<a href=\"modelica:/ModelicaReference.Classes.'function'\">Modelica function</a>
 call. However, they do not behave as a Modelica function,
 either because the result depends not only on the input arguments but
 also on the status of the simulation (such as \"pre(..)\"), or
@@ -5891,7 +5891,7 @@ Break lookup in hierarchy
 
 <h4>Syntax</h4>
 
-<p>See section on <code>class_definition</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
+<p>See section on <code>class_definition</code> in the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -5947,7 +5947,7 @@ classes A and B defined above,</p>
 
 <h4>Syntax</h4>
 
-<p>See section on <code>extends_clause</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
+<p>See section on <code>extends_clause</code> in the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6200,7 +6200,7 @@ a.p.i + b.p.i + c.p.i = 0;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<p>See section on <code>type_prefix</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
+<p>See section on <code>type_prefix</code> in the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6418,7 +6418,7 @@ Import classes
 
 <h4>Syntax</h4>
 
-<p>See section on <code>import_clause</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
+<p>See section on <code>import_clause</code> in the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6459,7 +6459,7 @@ Define causality and/or block diagram connection semantic
 
 <h4>Syntax</h4>
 
-<p>See section on <code>type_prefix</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
+<p>See section on <code>type_prefix</code> in the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6543,7 +6543,7 @@ Define causality and/or block diagram connection semantic
 
 <h4>Syntax</h4>
 
-<p>See section on <code>type_prefix</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
+<p>See section on <code>type_prefix</code> in the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6640,7 +6640,7 @@ Prohibit instantiation of components of the class
 
 <h4>Syntax</h4>
 
-<p>See section on <code>class_definition</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
+<p>See section on <code>class_definition</code> in the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6663,7 +6663,7 @@ class StateMachines "State Machines"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
-The state machines defined in the Modelica Language are based on the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+The state machines defined in the Modelica Language are based on the <a href=\"modelica:/ModelicaReference.Synchronous\">synchronous language elements</a>.
 Note that the state machines defined in the Modelica Standard Library are not based on this.
 </p>
 <h4>Examples</h4>
@@ -6717,9 +6717,9 @@ The stream variable h_outflow is the stream property inside the component
 close to the boundary, when fluid flows out of the component into
 the connection point. The stream properties for the other flow direction
 can be inquired with the built-in operator
-<a href=\"modelica://ModelicaReference.Operators.'inStream()'\">'inStream()'</a>. The value of the
+<a href=\"modelica:/ModelicaReference.Operators.'inStream()'\">'inStream()'</a>. The value of the
 stream variable corresponding to the actual flow direction can be
-inquired through the built-in operator <a href=\"modelica://ModelicaReference.Operators.'actualStream()'\">'actualStream()'</a>.
+inquired through the built-in operator <a href=\"modelica:/ModelicaReference.Operators.'actualStream()'\">'actualStream()'</a>.
 </p>
 
 <blockquote><pre><strong>model</strong> IsenthalpicFlow \"No energy storage/losses, e.g., pressure drop, valve, ...\"
@@ -6783,7 +6783,7 @@ operators inside the components provide the \"ideal mixing\" equations:
 
 <h4>Syntax</h4>
 
-<p>See section on <code>type_prefix</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
+<p>See section on <code>type_prefix</code> in the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6793,7 +6793,7 @@ in <a href=\"https://specification.modelica.org/v3.4/Ch15.html\">Chapter 15 (Str
 and <a href=\"https://specification.modelica.org/v3.4/A4.html\">Appendix D (Derivation of Stream Equations)</a>
 of the Modelica 3.4 specification.
 An overview and a rational is provided in a
-<a href=\"modelica://Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">slide set</a>.
+<a href=\"modelica:/Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">slide set</a>.
 </p>
 
 <p>
@@ -6893,7 +6893,7 @@ is called <strong>stream connector</strong> and the corresponding variable is ca
 
 <p>
 For further details, see the definition of the
-<a href=\"modelica://ModelicaReference.Operators.'inStream()'\">'inStream()'</a> operator.
+<a href=\"modelica:/ModelicaReference.Operators.'inStream()'\">'inStream()'</a> operator.
 </p>
 
 </html>"));
@@ -6903,7 +6903,7 @@ class Synchronous "Synchronous Language Elements"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
-Synchronous language elements are added to Modelica as an alternative to normal <a href=\"modelica://ModelicaReference.'when'\">when</a>-clauses to
+Synchronous language elements are added to Modelica as an alternative to normal <a href=\"modelica:/ModelicaReference.'when'\">when</a>-clauses to
 making modeling of complex sampled systems safer and easier.
 </p>
 <h4>Examples</h4>
@@ -7316,8 +7316,8 @@ annotation (
   Documentation(info="<html>
 <p>
 This package is a reference to Modelica keywords,
-<a href=\"modelica://ModelicaReference.Operators\">Modelica builtin operators</a>,
-and the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica grammar</a>.
+<a href=\"modelica:/ModelicaReference.Operators\">Modelica builtin operators</a>,
+and the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica grammar</a>.
 It is based on the
 <a href=\"https://www.modelica.org/documents/ModelicaSpec34.pdf\">Modelica Language Specification version 3.4</a> from 10th April 2017. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
 </p>
@@ -7436,14 +7436,14 @@ Copyright &copy; 2003-2020, Modelica Association and contributors
       <td><a href=\"https://github.com/modelica/ModelicaStandardLibrary/commit/ba34d1a53de471a689e0582b766ace2ac462edd9\">r4145</a></td>
       <td>2010-09-07</td>
       <td><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
-      <td>Added an update of the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
+      <td>Added an update of the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
                        from Stefan Vorkoetter (Maplesoft).</td>
     </tr>
     <tr>
       <td><a href=\"https://github.com/modelica/ModelicaStandardLibrary/commit/1d033f42c988e62f418dd2cc817a9f4055569941\">r3742</a></td>
       <td>2010-04-13</td>
       <td><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
-      <td>Added the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
+      <td>Added the <a href=\"modelica:/ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
                        from Stefan Vorkoetter (Maplesoft).<br>
                        Introduced a \"Contact\" subpackage with updated contact and
                        acknowledgment information.</td>

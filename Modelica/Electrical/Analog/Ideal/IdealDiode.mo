@@ -6,7 +6,7 @@ equation
   annotation (defaultComponentName="diode",
     Documentation(info="<html>
 <p>
-This is an ideal diode, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
+This is an ideal diode, for details see partial model <a href=\"modelica:/Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
 The diode is conducting if voltage &gt; Vknee.<br>
 The diode is locking if current &lt; Vknee*Goff.
 </p>

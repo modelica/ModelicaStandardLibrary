@@ -94,7 +94,7 @@ it must be connected, and if it is not enabled, it must not be connected.
 Independently, whether the heatPort is enabled or not,
 the dissipated power is available from the new variable \"<strong>lossPower</strong>\" (which is
 positive if heat is flowing out of the heatPort). For an example, see
-<a href=\"modelica://Modelica.Mechanics.Translational.Examples.HeatLosses\">Examples.HeatLosses</a>.
+<a href=\"modelica:/Modelica.Mechanics.Translational.Examples.HeatLosses\">Examples.HeatLosses</a>.
 </p>
 
 <p>

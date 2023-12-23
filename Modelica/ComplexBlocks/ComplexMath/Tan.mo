@@ -34,7 +34,7 @@ y = <strong>tan</strong>(uInternal);
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/tan.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/tan.png\"
      alt=\"tan.png\">
 </div>
 

@@ -83,11 +83,11 @@ equation
     Documentation(info="<html>
 <p>
 The battery is modeled by open-circuit voltage (OCV) dependent on state of charge (SOC), a self-discharge component and an inner resistance.<br>
-Parameters are collected in parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">cellData</a>.<br>
+Parameters are collected in parameter record <a href=\"modelica:/Modelica.Electrical.Batteries.ParameterRecords.CellData\">cellData</a>.<br>
 All losses are dissipated to the optional <code>heatPort</code>.
 </p>
 <p>
-For details, see <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
+For details, see <a href=\"modelica:/Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica:/Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
 </p>
 <h4>Note</h4>
 <p>

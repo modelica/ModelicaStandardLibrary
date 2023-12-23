@@ -523,7 +523,7 @@ Exchange input and output signals of a block, i.e., the previous
 block inputs become block outputs and the previous block outputs become
 block inputs. This block is used to construct inverse models.
 Its usage is demonstrated in example:
-<a href=\"modelica://Modelica.Blocks.Examples.InverseModel\">Modelica.Blocks.Examples.InverseModel</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.InverseModel\">Modelica.Blocks.Examples.InverseModel</a>.
 </p>
 
 <p>
@@ -649,7 +649,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
 </p>
 
 <p>
@@ -690,7 +690,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
 </p>
 
 <p>
@@ -778,7 +778,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
 </p>
 
 </html>"));
@@ -1211,7 +1211,7 @@ y = <strong>sin</strong>( u );
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/sin.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/sin.png\"
      alt=\"sin.png\">
 </div>
 
@@ -1259,7 +1259,7 @@ y = <strong>cos</strong>( u );
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/cos.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/cos.png\"
      alt=\"cos.png\">
 </div>
 
@@ -1306,7 +1306,7 @@ y = <strong>tan</strong>( u );
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/tan.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/tan.png\"
      alt=\"tan.png\">
 </div>
 
@@ -1357,7 +1357,7 @@ Otherwise an error occurs.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/asin.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/asin.png\"
      alt=\"atan.png\">
 </div>
 
@@ -1407,7 +1407,7 @@ Otherwise an error occurs.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/acos.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/acos.png\"
      alt=\"acos.png\">
 </div>
 
@@ -1453,7 +1453,7 @@ y= <strong>atan</strong>( u );
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/atan.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/atan.png\"
      alt=\"atan.png\">
 </div>
 
@@ -1514,7 +1514,7 @@ block <strong>Atan</strong> gives a solution in the range
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/atan2.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/atan2.png\"
      alt=\"atan2.png\">
 </div>
 
@@ -1561,7 +1561,7 @@ y = <strong>sinh</strong>( u );
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/sinh.png\"
      alt=\"sinh.png\">
 </div>
 
@@ -1609,7 +1609,7 @@ y = <strong>cosh</strong>( u );
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/cosh.png\"
      alt=\"cosh.png\">
 </div>
 
@@ -1655,7 +1655,7 @@ y = <strong>tanh</strong>( u );
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/tanh.png\"
      alt=\"tanh.png\">
 </div>
 
@@ -1702,7 +1702,7 @@ y = <strong>exp</strong>( u );
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/exp.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/exp.png\"
      alt=\"exp.png\">
 </div>
 
@@ -1841,7 +1841,7 @@ zero or negative.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/log.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/log.png\"
      alt=\"log.png\">
 </div>
 
@@ -1891,7 +1891,7 @@ zero or negative.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/log10.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/log10.png\"
      alt=\"log10.png\">
 </div>
 
@@ -2320,7 +2320,7 @@ explicitly set to 0.0, if the mean value results in a negative value.
     annotation (Documentation(info="<html>
 <p>
 This block calculates the rectified mean of the input signal u over the given period 1/f, using the
-<a href=\"modelica://Modelica.Blocks.Math.Mean\">mean block</a>.
+<a href=\"modelica:/Modelica.Blocks.Math.Mean\">mean block</a>.
 </p>
 <p>
 Note: The output is updated after each period defined by 1/f.
@@ -2365,7 +2365,7 @@ Note: The output is updated after each period defined by 1/f.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2381,15 +2381,15 @@ Note: The output is updated after each period defined by 1/f.
 y = ------------------------
         time - startTime
 </pre></blockquote>
-<p>This can be used to determine the empirical expectation value of a random signal, such as generated by the <a href=\"modelica://Modelica.Blocks.Noise\">Noise</a> blocks.</p>
+<p>This can be used to determine the empirical expectation value of a random signal, such as generated by the <a href=\"modelica:/Modelica.Blocks.Noise\">Noise</a> blocks.</p>
 <p>The parameter t_eps is used to avoid large fluctuations but can be set to zero (the mean value computation
 starts at &lt;<em>simulation start time</em>&gt; but is only returned after an additional t_eps and before that time instant y = u).</p>
-<p>See also the <a href=\"modelica://Modelica.Blocks.Math.Mean\">Mean</a> block for a sampled implementation.</p>
+<p>See also the <a href=\"modelica:/Modelica.Blocks.Math.Mean\">Mean</a> block for a sampled implementation.</p>
 
 <p>
 This block is demonstrated in the examples
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">UniformNoiseProperties</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">NormalNoiseProperties</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">UniformNoiseProperties</a> and
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
@@ -2447,7 +2447,7 @@ This block is demonstrated in the examples
     annotation (Documentation(info="<html>
 <p>
 This block calculates the root mean square of the input signal u over the given period 1/f, using the
-<a href=\"modelica://Modelica.Blocks.Math.Mean\">mean block</a>.
+<a href=\"modelica:/Modelica.Blocks.Math.Mean\">mean block</a>.
 </p>
 <p>
 Note: The output is updated after each period defined by 1/f.
@@ -2608,7 +2608,7 @@ For differentiable input signals, an extremum is detected if the derivative of t
 </p>
 <p>
 To handle non-differentiable input signals, the input signal <code>u</code> is conditioned by a first order with time constant <code>T</code>. 
-Like in the <a href=\"modelica://Modelica.Blocks.Continuous.Derivative\">derivative block</a>, 
+Like in the <a href=\"modelica:/Modelica.Blocks.Continuous.Derivative\">derivative block</a>, 
 the derivative of the input signal is approximated by <code>(u - x)/T</code>. 
 This way even steps with local extrema just before and after the step are taken into account.
 </p>
@@ -2686,7 +2686,7 @@ Additionally, when the simulation terminates, <code>y_min</code> and <code>y_max
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2710,8 +2710,8 @@ starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time in
 
 <p>
 This block is demonstrated in the examples
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">UniformNoiseProperties</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">NormalNoiseProperties</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">UniformNoiseProperties</a> and
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -2777,7 +2777,7 @@ This block is demonstrated in the examples
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2792,7 +2792,7 @@ This block is demonstrated in the examples
 y = sqrt( variance(u) )
 </pre></blockquote>
 <p>
-The <a href=\"modelica://Modelica.Blocks.Math.Variance\">Variance</a> block is used to
+The <a href=\"modelica:/Modelica.Blocks.Math.Variance\">Variance</a> block is used to
 calculate variance(u).
 </p>
 <p>The parameter t_eps is used to guard against division by zero (the computation of the standard deviation
@@ -2801,8 +2801,8 @@ starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time in
 
 <p>
 This block is demonstrated in the examples
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">UniformNoiseProperties</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">NormalNoiseProperties</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">UniformNoiseProperties</a> and
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
 </html>"),
       Icon(graphics={
@@ -2911,7 +2911,7 @@ This block is demonstrated in the examples
     annotation (Documentation(info="<html>
 <p>
 This block calculates the root mean square and the phase angle of a single harmonic <em>k</em> of the input signal u over the given period 1/f, using the
-<a href=\"modelica://Modelica.Blocks.Math.Mean\">mean block</a>.
+<a href=\"modelica:/Modelica.Blocks.Math.Mean\">mean block</a>.
 </p>
 <p>
 Note: The output is updated after each period defined by 1/f.
@@ -3012,7 +3012,7 @@ Consider that the input <code>u</code> consists of harmonic RMS components
 The total RMS component is then determined by:</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Math/Urms.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Math/Urms.png\">
 </div>
 
 <p>
@@ -3026,13 +3026,13 @@ calculates the THD typically used for the assessment of audio signals.
 <p>
 If <code>useFirstHarmonic = true</code>, the total higher harmonic content (harmonic order numbers &gt; 1)
 refers to the RMS value of the fundamental wave:<br>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THD1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Math/THD1.png\">
 </p>
 
 <p>
 If <code>useFirstHarmonic = false</code>, the total higher harmonic content (harmonic order numbers &gt; 1)
 refers to the total RMS:<br>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THDrms.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Math/THDrms.png\">
 </p>
 
 <p>
@@ -3077,8 +3077,8 @@ calculations are indicated by <code>valid = true</code>.
     end when;
     annotation (Documentation(info="<html>
 <p>
-This block samples the input signal, calculates the Fast Fourier Transform by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">Math.realFFT</a>,
-and (when simulation terminates) writes the output to result file resultFileName by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">Math.realFFTwriteToFile</a>.
+This block samples the input signal, calculates the Fast Fourier Transform by function <a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFT\">Math.realFFT</a>,
+and (when simulation terminates) writes the output to result file resultFileName by function <a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTwriteToFile\">Math.realFFTwriteToFile</a>.
 </p>
 <p>
 The number of sampling points as well as the samplePeriod is calculated from desired maximum frequency f_max and frequency resolution f_res.

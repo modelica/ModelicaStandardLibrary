@@ -102,13 +102,13 @@ a stiff spring and a small mass at the connection point.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings.png\"
 alt=\"model Examples.Elementary.ThreeSprings\">
 </blockquote>
 
 <p>
 For a more thorough explanation, see
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces\">MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces\">MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces</a>.
 </p>
 </html>"));
 end ThreeSprings;

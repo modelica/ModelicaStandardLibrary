@@ -42,8 +42,8 @@ equation
   connect(r4.n, constantVoltage.n) annotation (Line(points={{80,-30},{80,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
   annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
-A test example for the two switches <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch\">IdealTwoWaySwitch</a>
-and <a href=\"modelica://Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch\">ControlledIdealTwoWaySwitch</a>
+A test example for the two switches <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch\">IdealTwoWaySwitch</a>
+and <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch\">ControlledIdealTwoWaySwitch</a>
 </p>
 </html>"));
 end IdealTwoWaySwitches;

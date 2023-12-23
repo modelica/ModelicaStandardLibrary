@@ -289,13 +289,13 @@ frame_b of the joint.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png\">
 </div>
 
 <p>
 A example to use this joint for the initialization of a planar double pendulum by providing
 its tip position, is shown in
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip\">Examples.Elementary.DoublePendulumInitTip</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip\">Examples.Elementary.DoublePendulumInitTip</a>.
 </p>
 </html>"),
          Icon(coordinateSystem(

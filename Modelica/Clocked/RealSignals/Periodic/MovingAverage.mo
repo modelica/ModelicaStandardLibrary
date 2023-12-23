@@ -41,7 +41,7 @@ u and past u values that are taken into account.
 
 <p>
 This block could also be implemented with block
-<a href=\"modelica://Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients\">FIRbyCoefficients</a>
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients\">FIRbyCoefficients</a>
 by using the coefficients a = fill(1/n, n). However, block <em>MovingAverage</em> is
 a more efficient implementation since it can be implemented recursively,
 contrary to a general FIR filter.

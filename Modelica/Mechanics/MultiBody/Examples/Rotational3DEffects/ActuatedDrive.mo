@@ -66,8 +66,8 @@ equation
   annotation (experiment(StopTime=1.1), Documentation(info="<html>
 <p>
 This example demonstrates how to utilize the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Rotor1D\">Rotor1D</a>
-and <a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Mounting1D\">Mounting1D</a> models and
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Parts.Rotor1D\">Rotor1D</a>
+and <a href=\"modelica:/Modelica.Mechanics.MultiBody.Parts.Mounting1D\">Mounting1D</a> models and
 compares the implementation with a standard multi-body implementation.
 Note, the solution with Rotor1D is much more efficient.
 </p>

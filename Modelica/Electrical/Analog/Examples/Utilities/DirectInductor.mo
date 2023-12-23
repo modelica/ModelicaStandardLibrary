@@ -57,7 +57,7 @@ equation
           textString="di"),     Text(
                 extent={{-150,-110},{150,-140}},
           textString="L=%L"),      Bitmap(extent={{-96,-42},{64,54}},
-            fileName="modelica://Modelica/Resources/Images/Electrical/Analog/DirectInductor.png"),
+            fileName="modelica:/Modelica/Resources/Images/Electrical/Analog/DirectInductor.png"),
           Text( extent={{10,-60},{94,-90}},
                 horizontalAlignment=TextAlignment.Right,
           textString="i")}));

@@ -27,7 +27,7 @@ equation
   connect(n1, opAmp.in_p) annotation (Line(points={{-100,-100},{-10,-100},{
           -10,-6}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>Inverting differentiator = der, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
+<p>Inverting differentiator = der, based on the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p><code>vOut = -k*der(vIn)</code></p>
 </html>"), Icon(graphics={Text(
           extent={{-60,40},{20,-40}},

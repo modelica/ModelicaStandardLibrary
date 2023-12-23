@@ -22,7 +22,7 @@ record Vacodur50 "Vacodur50"
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_Vacodur50.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_Vacodur50.png\">
    </td>
   </tr>
 </table>

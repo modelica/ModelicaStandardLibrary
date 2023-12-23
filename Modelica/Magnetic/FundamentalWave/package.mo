@@ -3,10 +3,10 @@ package FundamentalWave "Library for magnetic fundamental wave effects in electr
   extends Modelica.Icons.Package;
   annotation (preferredView="info", Documentation(revisions="<html>
 
-<p>A detailed list of changes is summarized in the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes\">release notes</a>.</p>
+<p>A detailed list of changes is summarized in the <a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes\">release notes</a>.</p>
 
 </html>", info="<html>
-  <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
+  <p><strong>For a discrimination of various machine models, see <a href=\"modelica:/Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
 Copyright &copy; 2009-2020, Modelica Association and contributors
 </p>

@@ -31,7 +31,7 @@ equation
   connect(opAmp.out, c.p)
     annotation (Line(points={{10,0},{60,0},{60,30}}, color={0,0,255}));
   annotation (defaultComponentName="PI", Documentation(info="<html>
-<p>Inverting proportional-integral controller = PI, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
+<p>Inverting proportional-integral controller = PI, based on the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p>Transfer function: <code>vOut/vIn = -k*s/(1 + s*T)</code></p>
 </html>"), Icon(graphics={
         Polygon(

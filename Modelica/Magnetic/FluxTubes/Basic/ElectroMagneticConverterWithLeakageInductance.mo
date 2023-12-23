@@ -158,7 +158,7 @@ equation
         Line(points={{-30,-100},{-30,-60}}, color={28,108,200})}),
     Documentation(info="<html>
 <p>
-Same as <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electromagnetic converter.
+Same as <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electromagnetic converter.
 </p>
 </html>"));
 end ElectroMagneticConverterWithLeakageInductance;

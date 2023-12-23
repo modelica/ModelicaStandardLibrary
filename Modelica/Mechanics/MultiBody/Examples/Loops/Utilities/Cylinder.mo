@@ -240,7 +240,7 @@ equation
           thickness=1)}),   Documentation(info="<html>
 <p>
 Cylinder with rod and crank of a combustion engine.
-Used as submodel in <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6\">Loops.EngineV6</a>.
+Used as submodel in <a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6\">Loops.EngineV6</a>.
 </p>
 </html>"));
 end Cylinder;

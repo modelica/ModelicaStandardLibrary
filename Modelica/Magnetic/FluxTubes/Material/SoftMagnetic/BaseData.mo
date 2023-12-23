@@ -15,7 +15,7 @@ record BaseData
   annotation (defaultComponentPrefixes="parameter",
     Documentation(info="<html>
 <p>
-The parameters needed for <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox\">approximation of the magnetisation characteristics</a> of included soft magnetic materials are declared in this record.
+The parameters needed for <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox\">approximation of the magnetisation characteristics</a> of included soft magnetic materials are declared in this record.
 </p>
 </html>"), Icon(graphics={Text(
           extent={{-100,-10},{100,-40}},

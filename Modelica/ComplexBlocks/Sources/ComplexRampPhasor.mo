@@ -3,7 +3,7 @@ block ComplexRampPhasor "Generate a phasor with ramped magnitude and constant an
   extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
   import Modelica.Constants.eps;
   parameter Real magnitude1(final min=0,start=1) "Magnitude of complex phasor at startTime"
-    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasor.png"));
+    annotation(Dialog(groupImage="modelica:/Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasor.png"));
   parameter Real magnitude2(final min=0,start=1) "Magnitude of complex phasor at startTime+duration";
   parameter Boolean useLogRamp = false "Ramp appears linear on a logarithmic scale, if true";
   parameter Modelica.Units.SI.Angle phi(start=0) "Angle of complex phasor";
@@ -65,7 +65,7 @@ The output y is a complex phasor with constant angle and a ramped magnitude.
 In case of <code>useLogRamp == false</code> the magnitude ramp is linear:
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasorLinear.png\"
+<img src=\"modelica:/Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasorLinear.png\"
      alt=\"ComplexRampPhasorLinear.png\">
 </div>
 
@@ -73,7 +73,7 @@ In case of <code>useLogRamp == false</code> the magnitude ramp is linear:
 In case of <code>useLogRamp == true</code> the magnitude ramp appears linear on a logarithmic scale:
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasorLog.png\"
+<img src=\"modelica:/Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasorLog.png\"
      alt=\"ComplexRampPhasorLog.png\">
 </div>
 

@@ -53,7 +53,7 @@ equation
 <p>
 Contains m cosine voltage sources (Modelica.Electrical.Analog.Sources.CosineVoltage)
 with a default phase shift determined by
-<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </html>"));
 end CosineVoltage;

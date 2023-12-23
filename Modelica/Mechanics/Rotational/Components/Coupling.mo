@@ -64,7 +64,7 @@ i.e., the angular velocity if <code>flange_b</code> is exactly in opposite direc
 and the torque of both flanges is identical.
 </p>
 <p>
-The usage is demonstrated in an <a href=\"modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive\">example in Modelica.Electrical.Machines</a>.
+The usage is demonstrated in an <a href=\"modelica:/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive\">example in Modelica.Electrical.Machines</a>.
 </p>
 <p>
 Variable <code>w</code> represents the angular velocity of <code>flange_a</code>

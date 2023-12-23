@@ -13,6 +13,6 @@ block ConjunctiveClock
         textString = "∧")}),
     Documentation(info="<html>
 For a simple example cf. the
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample\">logical sampling example</a>.
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample\">logical sampling example</a>.
 </html>"));
 end ConjunctiveClock;

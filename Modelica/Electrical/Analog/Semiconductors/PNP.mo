@@ -100,7 +100,7 @@ Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc    
 -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
 50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15
 </pre></blockquote>
-<p><strong>References:</strong> [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Vlach1983</a>]</p>
+<p><strong>References:</strong> [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Vlach1983</a>]</p>
 </html>",revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>

@@ -5,9 +5,9 @@ class FlangeConnectors "Flange Connectors"
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 A flange is described by the connector class
-<strong><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_a\">Flange_a</a></strong>
-or <strong><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_b\">Flange_b</a></strong>.
-As already noted in section <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.Overview\">Overview</a>,
+<strong><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.Flange_a\">Flange_a</a></strong>
+or <strong><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.Flange_b\">Flange_b</a></strong>.
+As already noted in section <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.Overview\">Overview</a>,
 the two connector
 classes are completely identical. There is only a difference in the icons,
 in order to easier identify a flange variable in a diagram.

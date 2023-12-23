@@ -35,7 +35,7 @@ This component is used to provide a pure signal interface around an Electrical m
 and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
-<a href=\"modelica://Modelica.Electrical.Analog.Examples.GenerationOfFMUs\">Electrical.Analog.Examples.GenerationOfFMUs</a>.
+<a href=\"modelica:/Modelica.Electrical.Analog.Examples.GenerationOfFMUs\">Electrical.Analog.Examples.GenerationOfFMUs</a>.
 This adaptor has voltage and derivative of voltage as input signals and current and derivative of current as output signal.
 </p>
 <p>
@@ -45,7 +45,7 @@ Note, the input signals must be consistent to each other
 <p>
 Note, the adaptor contains <strong>no ground</strong>.
 Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
-<a href=\"modelica://Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
+<a href=\"modelica:/Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
 </p>
 </html>"),
          Icon(graphics={

@@ -193,11 +193,11 @@ This is a model of a complete inverter drive comprising:
 </p>
 <ul>
 <li>a grid model and a line choke</li>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse\">a diode rectifier</a></li>
+<li><a href=\"modelica:/Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse\">a diode rectifier</a></li>
 <li>a buffer capacitor</li>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level\">a switching inverter</a></li>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.PWM\">a pulse width modulation</a></li>
-<li><a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">a voltage/frequency characteristic</a></li>
+<li><a href=\"modelica:/Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level\">a switching inverter</a></li>
+<li><a href=\"modelica:/Modelica.Electrical.PowerConverters.DCAC.Control.PWM\">a pulse width modulation</a></li>
+<li><a href=\"modelica:/Modelica.Electrical.Machines.Utilities.VfController\">a voltage/frequency characteristic</a></li>
 <li>the reference frequency ramped up</li>
 <li>an induction machine with squirrel cage</li>
 <li>a load inertia and quadratic speed dependent load torque (like a fan or pump)</li>

@@ -90,11 +90,11 @@ package Tanks "Library demonstrating the usage of the tank model"
 
     annotation (experiment(StopTime=200),
       __Dymola_Commands(file=
-            "modelica://Modelica/Resources/Scripts/Dymola/Fluid/ThreeTanks/plot level and port.m_flow.mos"
+            "modelica:/Modelica/Resources/Scripts/Dymola/Fluid/ThreeTanks/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
       Documentation(info="<html>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/Tanks/ThreeTanks.png\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/Tanks/ThreeTanks.png\" border=\"1\"
      alt=\"ThreeTanks.png\">
 </html>"));
   end ThreeTanks;
@@ -195,7 +195,7 @@ package Tanks "Library demonstrating the usage of the tank model"
 
     annotation (experiment(StopTime=25000, Interval=5.0),
       __Dymola_Commands(file=
-            "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
+            "modelica:/Modelica/Resources/Scripts/Dymola/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
       Documentation(info="<html>
 <p>The mass flow rate to the upper tank is controlled by the static pressure at its bottom.
@@ -211,7 +211,7 @@ Otherwise the simulation may fail due to too large steps subject to events. Alte
 simulation accuracy could be increased in order to avoid errors.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/Tanks/TanksWithOverflow.png\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/Tanks/TanksWithOverflow.png\" border=\"1\"
      alt=\"TanksWithOverflow.png\">
 </html>"),
       Diagram(coordinateSystem(extent={{-160,-120},{100,100}})));
@@ -262,10 +262,10 @@ simulation accuracy could be increased in order to avoid errors.
 
     annotation (
       experiment(StopTime=50),
-      __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Fluid/EmptyTanks/plot level and port.p.mos"
+      __Dymola_Commands(file="modelica:/Modelica/Resources/Scripts/Dymola/Fluid/EmptyTanks/plot level and port.p.mos"
           "plot level and port.p"),
       Documentation(info="<html>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/Tanks/EmptyTanks.png\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/Tanks/EmptyTanks.png\" border=\"1\"
      alt=\"EmptyTanks.png\">
 </html>"));
   end EmptyTanks;

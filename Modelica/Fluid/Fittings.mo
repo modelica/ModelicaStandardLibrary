@@ -41,7 +41,7 @@ might use this inverse function instead, in order to avoid the solution of a non
 
 <p>
 The details of the model are described in the
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">documentation of the underlying function</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">documentation of the underlying function</a>.
 </p>
 </html>"));
     end CurvedBend;
@@ -90,7 +90,7 @@ might use this inverse function instead, in order to avoid the solution of a non
 
 <p>
 The details of the model are described in the
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">documentation of the underlying function</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">documentation of the underlying function</a>.
 </p>
 
 </html>"));
@@ -154,7 +154,7 @@ might use this inverse function instead, in order to avoid the solution of a non
 
 <p>
 The details of the model are described in the
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">documentation of the underlying function</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">documentation of the underlying function</a>.
 </p>
 
 </html>"));
@@ -255,7 +255,7 @@ might use this inverse function instead, in order to avoid the solution of a non
 
 <p>
 The details of the model are described in the
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">documentation of the underlying function</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">documentation of the underlying function</a>.
 </p>
 
 </html>"));
@@ -2128,7 +2128,7 @@ where
 <p>
 This function returns the mass flow rate m_flow as function of pressure loss dp for a curved bend.
 The details of the function are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">here</a>.
 </p>
 
 <p>
@@ -2174,7 +2174,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 <p>
 This function returns the pressure loss dp as function of mass flow rate m_flow for a curved bend.
 The details of the function are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">here</a>.
 </p>
 
 <p>
@@ -2202,7 +2202,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 <p>
 This record is used to define the geometric (constant) data of a curved bend.
 The details of the record are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">here</a>.
 </p>
 </html>"));
         end Geometry;
@@ -2255,7 +2255,7 @@ for the CurvedBend fitting component.
 <p>
 This function returns the mass flow rate m_flow as function of pressure loss dp for an edged bend.
 The details of the function are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">here</a>.
 </p>
 
 <p>
@@ -2304,7 +2304,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 <p>
 This function returns the pressure loss dp as function of mass flow rate m_flow for an edged bend.
 The details of the function are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">here</a>.
 </p>
 
 <p>
@@ -2331,7 +2331,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 <p>
 This record is used to define the geometric (constant) data of an edged bend.
 The details of the record are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">here</a>.
 </p>
 </html>"));
         end Geometry;
@@ -2390,7 +2390,7 @@ for the EdgedBend fitting component.
 <p>
 This function returns the mass flow rate m_flow as function of pressure loss dp for a thick edged orifice.
 The details of the function are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">here</a>.
 </p>
 
 <p>
@@ -2442,7 +2442,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 <p>
 This function returns the pressure loss dp as function of mass flow rate m_flow for a thick edged orifice.
 The details of the function are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">here</a>.
 </p>
 
 <p>
@@ -2475,7 +2475,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 <p>
 This record is used to define the geometric (constant) data of a thick edged orifice.
 The details of the record are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">here</a>.
 </p>
 </html>"));
         end Geometry;
@@ -2646,7 +2646,7 @@ for the ThickEdgedOrifice fitting component.
 <p>
 This function returns the mass flow rate m_flow as function of pressure loss dp for an edged bend.
 The details of the function are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">here</a>.
 </p>
 
 <p>
@@ -2693,7 +2693,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 <p>
 This function returns the pressure loss dp as function of mass flow rate m_flow for an edged bend.
 The details of the function are described
-<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">here</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">here</a>.
 </p>
 
 <p>

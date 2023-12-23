@@ -52,13 +52,13 @@ equation
           textString="m=%m")}), Documentation(info="<html>
 <p>
 Delta (polygon) connection of a polyphase circuit consisting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>).
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>).
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star\">Star</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta\">Delta</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar\">MultiStar</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star\">Star</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta\">Delta</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar\">MultiStar</a>
 </p>
 </html>"));
 end MultiDelta;

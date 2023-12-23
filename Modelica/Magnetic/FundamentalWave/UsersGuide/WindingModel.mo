@@ -3,7 +3,7 @@ class WindingModel "Polyphase winding model"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
-The <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">SymmetricPolyphaseWinding</a> model shown in Fig. 1
+The <a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">SymmetricPolyphaseWinding</a> model shown in Fig. 1
 has an electric circuit with <code>m</code> phase currents and voltages and a magnetic circuit with the phasors representing the fundamental wave of
 magnetic potential and magnetic flux.
 </p>
@@ -12,7 +12,7 @@ magnetic potential and magnetic flux.
   <caption><strong>Fig. 1: </strong>Symmetric polyphase winding</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/WindingModel/SymmetricPolyphaseWinding.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/WindingModel/SymmetricPolyphaseWinding.png\"
            alt=\"SymmetricPolyphaseWinding.png\">
     </td>
   </tr>
@@ -26,7 +26,7 @@ i.e., induced voltages caused by the derivative of the sum of all phase currents
 
 <h4>Electromagnetic coupling</h4>
 <p>
-The <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">PolyphaseElectroMagneticConverter</a>
+The <a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">PolyphaseElectroMagneticConverter</a>
 calculates the magnetic voltages (MMF) caused by the currents of the <code>m</code> phases according to the spatial orientation of the phases.
 To complete the coupling, the induced voltages caused by the derivative of magentic flux are calculated, again according to the spatial orientation of the phases.
 </p>
@@ -34,7 +34,7 @@ To complete the coupling, the induced voltages caused by the derivative of magen
 <h4>Magnetic circuit</h4>
 <p>
 The magnetic circuit models individual and common stray (leakage) flux as well as
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core loss</a>.
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core loss</a>.
 Note that up to now only the eddy current loss is taken into account, since the hysteresis loss require the detection of the re-magnetization frequency.
 </p>
 
@@ -60,7 +60,7 @@ For a model with <code>ratioCommonLeakage &lt; 1 - eps</code> (including individ
 typically more states have to be initialized than
 for a model with <code>ratioCommonLeakage = 1</code> (without individual stray inductances).
 See: <code>initial equation</code> section of example
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage\">IMC_DOL_CommonLeakage</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage\">IMC_DOL_CommonLeakage</a>,
 which compares the behaviour of three identical machines except <code>ratioCommonLeakage={0, 0.5, 1}</code>.
 </p>
 

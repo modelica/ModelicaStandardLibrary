@@ -313,11 +313,11 @@ equation
 and several single lines. Each segment consists of resistors and inductors that 
 are connected in series in each single line, and of capacitors and conductors both 
 between the lines and to the ground. The inductors are coupled to each other like in the
-<a href=\"modelica://Modelica.Electrical.Analog.Basic.M_Transformer\">M_Transformer</a> model. 
+<a href=\"modelica:/Modelica.Electrical.Analog.Basic.M_Transformer\">M_Transformer</a> model. 
 The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/segment.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Lines/segment.png\"
      alt=\"segment.png\">
 </blockquote>
 
@@ -342,7 +342,7 @@ the auxiliary <code>segment_last</code>. For the example with 4 lines the schema
 <code>segment_last</code> is like this:</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/segment_last.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Lines/segment_last.png\"
      alt=\"segment_last.png\">
 </blockquote>
 
@@ -352,7 +352,7 @@ One line consists of <strong>at least two segments</strong>.
 Inside the model <code>M_OLine</code> the model <code>segment</code> is used. 
 This model represents one segment which is build as described above. 
 For modelling the inductances and their mutual couplings the model 
-<a href=\"modelica://Modelica.Electrical.Analog.Basic.M_Transformer\">M_Transformer</a> is used. 
+<a href=\"modelica:/Modelica.Electrical.Analog.Basic.M_Transformer\">M_Transformer</a> is used. 
 To fill the resistance vector, resistance values as many as lines are needed, e.g., 
 if there are four lines, four resistances are needed. For example for a microelectronic line 
 of 0.1m length, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
@@ -378,7 +378,7 @@ values from the main diagonal and from the positions that are below the main dia
 To get the following matrix</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\"/>
 </blockquote>
 
 <p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: 
@@ -389,21 +389,21 @@ which is used as default example for the <code>M_OLine</code> model,
 a sensible inductance-matrix would be:</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png\" alt=\"L\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png\" alt=\"L\"/>
 </blockquote>
 
 <p>For the example of a microelectronic line of 0.1m length, which is used as default example 
 for the <code>M_OLine</code> model, a sensible capacitance-matrix would be:</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png\" alt=\"C\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png\" alt=\"C\"/>
 </blockquote>
 
 <p>For the example of a microelectronic line of 0.1m length, which is used as default example 
 for the <code>M_OLine</code> model, a sensible conductance-matrix would be:</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/>
 </blockquote>
 
 <p>The user has the possibility to enable a conditional heatport. If so, the <code>M_OLine</code> 

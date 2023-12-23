@@ -31,7 +31,7 @@ algorithm
   annotation (Documentation(info="<html>
 <p>
 Function <strong>torus</strong> computes the X, Y and Z arrays to visualize a torus
-with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a>.
+with model <a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a>.
 The left image below shows a torus with <var>R</var>&nbsp;=&nbsp;0.5&nbsp;m and
 <var>r</var>&nbsp;=&nbsp;0.2&nbsp;m.
 The right images below shows the torus with the additional parameter
@@ -44,7 +44,7 @@ stopAngle  =  135 degree
 </pre></blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png\">
 </blockquote>
 </html>"));
 end torus;

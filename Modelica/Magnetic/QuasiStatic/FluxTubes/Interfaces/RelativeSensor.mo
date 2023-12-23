@@ -21,7 +21,7 @@ partial model RelativeSensor "Partial magnetic voltage or flux sensor"
       Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPort\">TwoPort</a>
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPort\">TwoPort</a>
 to measure the complex magnetic voltage, flux or power. Additionally this model contains a base icon and a definition
 of the angular frequency.
 </p></html>"));

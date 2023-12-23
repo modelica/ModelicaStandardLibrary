@@ -153,7 +153,7 @@ equation
           textString="%name")}),     Documentation(info="<html>
 
 <p>
-Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">.
+Each phase <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">.
 </p>
 
 <p>
@@ -161,31 +161,31 @@ The total complex magnetic potential difference of the polyphase winding is dete
 </p>
 
 <p>
-&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Components/polyphaseconverter_vm.png\">
+&nbsp;&nbsp;<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Components/polyphaseconverter_vm.png\">
 </p>
 
 <p>
 In this equation
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/i_sc1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/i_sc1.png\">
 is the positive symmetrical component of the currents.
 </p>
 
 <p>
 The positive sequence of the voltages
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/v_sc1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/v_sc1.png\">
 induced in each winding is directly proportional to the complex magnetic flux and the number of turns. This relationship can be modeled by means of</p>
 
 <p>
-&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Components/polyphaseconverter_phi.png\">.
+&nbsp;&nbsp;<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Components/polyphaseconverter_phi.png\">.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">
 Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">
 Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter</a>,
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.QuasiStaticAnalogElectroMagneticConverter\">
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.QuasiStaticAnalogElectroMagneticConverter\">
 QuasiStaticAnalogElectroMagneticConverter</a>
 </p>
 </html>"));

@@ -39,11 +39,11 @@ protected
 Model <strong>Arrow</strong> defines an arrow that is dynamically
 visualized at the defined location (see variables below).
 If you want an arrow representing something that is not a&nbsp;relative position, use
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a> instead.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a> instead.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.Advanced.Arrow\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.Advanced.Arrow\">
 </div>
 
 <p>
@@ -65,7 +65,7 @@ Variable <code>color</code> is an Integer vector with 3&nbsp;elements,
 {r,&nbsp;g,&nbsp;b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot; color parts.
 Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
 The predefined type
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
 contains a&nbsp;menu definition of the colors used in the MultiBody
 library together with a&nbsp;color editor.
 </p>

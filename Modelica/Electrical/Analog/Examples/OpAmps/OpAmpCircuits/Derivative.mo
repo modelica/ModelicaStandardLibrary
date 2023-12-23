@@ -32,7 +32,7 @@ equation
   connect(c.p, p1)
     annotation (Line(points={{-80,30},{-80,100},{-100,100}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>Inverting highpass filter = derivative, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
+<p>Inverting highpass filter = derivative, based on the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p>Transfer function: <code>vOut/vIn = -k*s/(1 + s*T)</code></p>
 </html>"),
        Icon(graphics={

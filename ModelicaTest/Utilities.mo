@@ -323,7 +323,7 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
     import Modelica.Utilities.Files;
-    input String file1 = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
+    input String file1 = Modelica.Utilities.Files.loadResource("modelica:/ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
     input String logFile = "ModelicaTestLog.txt"
       "Filename where the log is stored";
     output Boolean ok;
@@ -459,8 +459,8 @@ extends Modelica.Icons.ExamplesPackage;
 
     input String logFile="ModelicaTestLog.txt"
       "Filename where the log is stored";
-    input String dirPath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data");
-    input String filePath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
+    input String dirPath = Modelica.Utilities.Files.loadResource("modelica:/ModelicaTest/Resources/Data");
+    input String filePath = Modelica.Utilities.Files.loadResource("modelica:/ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
 
     output Boolean ok;
   protected
@@ -538,7 +538,7 @@ extends Modelica.Icons.ExamplesPackage;
 
   model TestReadFile
     extends Modelica.Icons.Example;
-    parameter String file = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
+    parameter String file = Modelica.Utilities.Files.loadResource("modelica:/ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
     Boolean result;
   algorithm
     when initial() then
@@ -563,8 +563,8 @@ extends Modelica.Icons.ExamplesPackage;
   model TestFiles
     extends Modelica.Icons.Example;
 
-    parameter String dirPath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data");
-    parameter String filePath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
+    parameter String dirPath = Modelica.Utilities.Files.loadResource("modelica:/ModelicaTest/Resources/Data");
+    parameter String filePath = Modelica.Utilities.Files.loadResource("modelica:/ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
 
     Boolean result;
   algorithm

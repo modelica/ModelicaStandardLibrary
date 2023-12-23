@@ -121,7 +121,7 @@ A call to this function of the form
 <p>
 computes the rotation angles \"<strong>angles</strong>[1:3]\" to rotate frame 1
 into frame 2 along axes <strong>sequence</strong>[1:3], given the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 from frame 1 to frame 2. Therefore, the result of
 this function fulfills the following equation:
 </p>
@@ -156,7 +156,7 @@ sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.axesRotationsAngles\">Frames.axesRotationsAngles</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.axesRotationsAngles\">Frames.axesRotationsAngles</a>.
 </p>
 </html>"));
 end axesRotationsAngles;

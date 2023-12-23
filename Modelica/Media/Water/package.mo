@@ -886,7 +886,7 @@ This model calculates medium properties
 for water in the <strong>liquid</strong>, <strong>gas</strong> and <strong>two phase</strong> regions
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
-For more details see <a href=\"modelica://Modelica.Media.Water.IF97_Utilities\">
+For more details see <a href=\"modelica:/Modelica.Media.Water.IF97_Utilities\">
 Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the
 independent variables of the model:
 </p>
@@ -922,9 +922,9 @@ The following quantities are always computed:
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in
-<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+<a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
-<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+<a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.
@@ -1162,7 +1162,7 @@ one of the following functions:
       <td>molar mass</td></tr>
 </table>
 <p>More details are given in
-<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+<a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a>.
 
 Many additional optional functions are defined to compute properties of
@@ -1220,7 +1220,7 @@ SaturationProperties record sat, the following functions are provided:
       <td>Surface tension between liquid and vapour phase</td></tr>
 </table>
 <p>Details on usage and some examples are given in:
-<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+<a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables,
@@ -1232,13 +1232,13 @@ distributed with computer implementations and are included here
 (in directory Modelica/Resources/Documentation/Media/Water/IF97documentation):
 </p>
 <ul>
-<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/crits.pdf\">crits.pdf</a> The critical point data.</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (not implemented)</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a> The surface tension standard definition</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a> The thermal conductivity standard definition</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a> The viscosity standard definition</li>
+<li><a href=\"modelica:/Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
+<li><a href=\"modelica:/Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
+<li><a href=\"modelica:/Modelica/Resources/Documentation/Media/Water/IF97documentation/crits.pdf\">crits.pdf</a> The critical point data.</li>
+<li><a href=\"modelica:/Modelica/Resources/Documentation/Media/Water/IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (not implemented)</li>
+<li><a href=\"modelica:/Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a> The surface tension standard definition</li>
+<li><a href=\"modelica:/Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a> The thermal conductivity standard definition</li>
+<li><a href=\"modelica:/Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a> The viscosity standard definition</li>
 </ul>
 </html>"));
 end Water;

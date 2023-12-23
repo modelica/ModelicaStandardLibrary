@@ -61,7 +61,7 @@ This example demonstrates at hand of a double pendulum,
 how non-standard initialization can be defined:
 The absolute position of the pendulum tip, and its absolute speed
 shall be initially defined. This can be performed with the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit\">Joints.FreeMotionScalarInit</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit\">Joints.FreeMotionScalarInit</a>
 joint that allows to initialize individual elements of its relative vectors.
 In this case, the x-, and y-coordinates of the relative position vector
 (visualized by the yellow arrow in the figure below) and of its
@@ -85,7 +85,7 @@ To clearly indicate the preferred solution, guess initial angles can be addition
 In this example, it is simply done by <code>revolute2.phi.start&nbsp;=&nbsp;Modelica.Constants.pi/2</code>.
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumInitTip.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumInitTip.png\">
 </blockquote>
 </html>"));
 end DoublePendulumInitTip;

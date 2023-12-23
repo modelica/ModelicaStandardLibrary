@@ -171,7 +171,7 @@ used to solve the non-linear equations of coupled planar loops analytically.
 In the mechanism below no non-linear equation occurs any more from the tool
 view, since these equations are solved analytically in the JointRRR joints.
 For more details, see
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
 MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 
@@ -180,7 +180,7 @@ In the following figure the parameter vectors of this example are visualized in 
 animation view.
 </p>
 
-<div><img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/PlanarLoops2.png\" alt=\"model Examples.Loops.PlanarLoops2\"></div>
+<div><img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/PlanarLoops2.png\" alt=\"model Examples.Loops.PlanarLoops2\"></div>
 </html>"),
     Diagram(coordinateSystem(extent={{-120,-100},{120,100}})),
     Icon(coordinateSystem(extent={{-120,-100},{120,100}})));

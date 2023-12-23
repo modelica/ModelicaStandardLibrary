@@ -7,7 +7,7 @@ model GenericFluxTube
 
   parameter SI.Length l=0.01 "Length in direction of flux"
     annotation(Dialog(group="Fixed geometry", groupImage=
-      "modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/GenericFluxTube_qs.png"));
+      "modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/GenericFluxTube_qs.png"));
   parameter SI.CrossSection area=0.0001 "Area of cross section"
     annotation (Dialog(group="Fixed geometry"));
 equation
@@ -20,11 +20,11 @@ The generic flux tube models the reluctance with constant
 <code>area</code> of cross section, and length, <code>l</code>
 the magnetic reluctance by:</p>
 <dl><dd>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m_generic.png\">,
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m_generic.png\">,
 </dd></dl>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/GenericFluxTube_qs.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/GenericFluxTube_qs.png\">
 </div></html>",
     revisions="<html>
 <h5>Version 3.2.2, 2014-01-15 (Christian&nbsp;Kral)</h5>

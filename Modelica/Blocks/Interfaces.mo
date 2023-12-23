@@ -198,7 +198,7 @@ Connector with one output signal of type Integer.
     Documentation(info="<html>
 <p>
 Real input connector that is used for a vector of connectors,
-for example <a href=\"modelica://Modelica.Blocks.Interfaces.PartialRealMISO\">PartialRealMISO</a>,
+for example <a href=\"modelica:/Modelica.Blocks.Interfaces.PartialRealMISO\">PartialRealMISO</a>,
 and has therefore a different icon as RealInput connector.
 </p>
 </html>"));
@@ -229,7 +229,7 @@ and has therefore a different icon as RealInput connector.
 
 <p>
 Integer input connector that is used for a vector of connectors,
-for example <a href=\"modelica://Modelica.Blocks.Interfaces.PartialIntegerMISO\">PartialIntegerMISO</a>,
+for example <a href=\"modelica:/Modelica.Blocks.Interfaces.PartialIntegerMISO\">PartialIntegerMISO</a>,
 and has therefore a different icon as IntegerInput connector.
 </p>
 </html>"));
@@ -259,7 +259,7 @@ and has therefore a different icon as IntegerInput connector.
     Documentation(info="<html>
 <p>
 Boolean input connector that is used for a vector of connectors,
-for example <a href=\"modelica://Modelica.Blocks.Interfaces.PartialBooleanMISO\">PartialBooleanMISO</a>,
+for example <a href=\"modelica:/Modelica.Blocks.Interfaces.PartialBooleanMISO\">PartialBooleanMISO</a>,
 and has therefore a different icon as BooleanInput connector.
 </p>
 </html>"));
@@ -289,7 +289,7 @@ and has therefore a different icon as BooleanInput connector.
     Documentation(info="<html>
 <p>
 Real output connector that is used for a vector of connectors,
-for example <a href=\"modelica://Modelica.Blocks.Routing.DeMultiplex\">DeMultiplex</a>,
+for example <a href=\"modelica:/Modelica.Blocks.Routing.DeMultiplex\">DeMultiplex</a>,
 and has therefore a different icon as RealOutput connector.
 </p>
 </html>"));
@@ -581,7 +581,7 @@ Modelica 3.3 introduced synchronous operators that avoid the need to manually pr
 <p>
 Block has one input and one output signal
 which are sampled due to the defined <strong>samplePeriod</strong> parameter.
-See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
+See the base-class <a href=\"modelica:/Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end DiscreteSISO;
@@ -602,7 +602,7 @@ See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock
 <p>
 Block has a input and a output signal vector
 which are sampled due to the defined <strong>samplePeriod</strong> parameter.
-See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
+See the base-class <a href=\"modelica:/Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end DiscreteMIMO;
@@ -622,7 +622,7 @@ See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock
 Block has a input and a output signal vector
 where the signal sizes of the input and output vector are identical.
 These signals are sampled due to the defined <strong>samplePeriod</strong> parameter.
-See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
+See the base-class <a href=\"modelica:/Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
 
@@ -662,7 +662,7 @@ Real output signal
 that are sampled due to the defined <strong>samplePeriod</strong> parameter.
 The block is designed
 to be used as base class for a corresponding controller.
-See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
+See the base-class <a href=\"modelica:/Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end SVdiscrete;
@@ -707,7 +707,7 @@ Real output signal vector. The vector signals
 are sampled due to the defined <strong>samplePeriod</strong> parameter.
 The block is designed
 to be used as base class for a corresponding controller.
-See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
+See the base-class <a href=\"modelica:/Modelica.Blocks.Interfaces.DiscreteBlock\">DiscreteBlock</a> for more information.
 </p>
 </html>"));
   end MVdiscrete;
@@ -1399,7 +1399,7 @@ of noise blocks.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>

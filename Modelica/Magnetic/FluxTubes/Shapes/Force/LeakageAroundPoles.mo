@@ -5,7 +5,7 @@ model LeakageAroundPoles
   extends BaseClasses.Force;
   SI.Length l=s "Axial length (in direction of flux)" annotation (Dialog(
         group="Variable geometry", groupImage=
-          "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/LeakageAroundPoles.png"));
+          "modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/LeakageAroundPoles.png"));
   parameter SI.Length w=0.1
     "Width orthogonal to flux; mean circumference of flux tube in case of cylindrical poles";
   parameter SI.Radius r=0.01 "Radius of leakage field";
@@ -22,7 +22,7 @@ equation
 
   annotation (defaultComponentName="force", Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force\">Force</a> for a description of all elements of this package.
+Please refer to the description of  the enclosing sub-package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.Force\">Force</a> for a description of all elements of this package.
 </p>
 
 <p>
@@ -30,7 +30,7 @@ Leakage flux around a prismatic or cylindric air gap between to poles can be des
 </p>
 
 <p>
-Note that in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ka08]</a> the equation for G_m is accidentally swapped with that of a similar element.
+Note that in <a href=\"modelica:/Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ka08]</a> the equation for G_m is accidentally swapped with that of a similar element.
 </p>
 </html>"));
 end LeakageAroundPoles;

@@ -14,10 +14,10 @@ class ReleaseNotes "Release Notes"
 <li>Fixed wrong initial conditions of
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2277\">#2277</a></li>
 <li>Added more examples from
-    <a href=\"modelica://Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see
+    <a href=\"modelica:/Modelica.Electrical.Machines.Examples\">Machines.Examples</a>, see
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2276\">#2276</a></li>
 <li>Added
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle\">RotorDisplacementAngle</a>, see
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle\">RotorDisplacementAngle</a>, see
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2050\">#2050</a></li>
 </ul>
 
@@ -28,7 +28,7 @@ class ReleaseNotes "Release Notes"
 <li>Update and improvement of documentation</li>
 <li>Added new component:
 <ul>
-    <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permeance</a></li>
+    <li><a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permeance</a></li>
 </ul></li>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Fixed issues of ticket
@@ -41,7 +41,7 @@ class ReleaseNotes "Release Notes"
 <li>Added active, reactive and apparent power and power factor in interface and machine models, see
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Added new interface model
-    <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortExtended\">TwoPortExtended</a>
+    <a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortExtended\">TwoPortExtended</a>
     to simplify consistent inclusion of variables, see
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Changed icon and location of terminal box according to
@@ -108,7 +108,7 @@ class ReleaseNotes "Release Notes"
 
 <h5>Version 0.1.0, 2013-08-27</h5>
 <ul>
-<li>Documentation of <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept\">phasor concept</a></li>
+<li>Documentation of <a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept\">phasor concept</a></li>
 <li>Connections.branch between electric and magnetic quasi-static connectors to handle open circuit and motor operation of machines</li>
 <li>Saliency effects are properly considered</li>
 <li>Electromagnetic coupling with Analog domain is implemented fully quasi-static with v = 0 at the electric connectors -- this may have to be changed in the future</li>

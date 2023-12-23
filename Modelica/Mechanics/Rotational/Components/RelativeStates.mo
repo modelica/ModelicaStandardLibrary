@@ -42,7 +42,7 @@ An example is given in the next figure
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/Components/relativeStates.png\" alt=\"Model with relative states\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/Components/relativeStates.png\" alt=\"Model with relative states\">
 </div>
 
 <p>
@@ -54,7 +54,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
 
 <p>
 See also the discussion
-<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
 </html>"),

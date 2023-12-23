@@ -126,6 +126,6 @@ equation
         color = {0,0,127})}),
     Documentation(info="<html>
     For a simple example cf. the
-    <a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample\">rotational sampling example</a>.
+    <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample\">rotational sampling example</a>.
     </html>"));
 end RotationalClock;

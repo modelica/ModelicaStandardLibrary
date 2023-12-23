@@ -34,7 +34,7 @@ Coulomb friction elements such as
 when the elements become stuck:
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveConnections3.png\" alt=\"driveConnections3\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveConnections3.png\" alt=\"driveConnections3\">
 </div>
 <p>
 In the figure above, two typical situations are shown: In the upper part of

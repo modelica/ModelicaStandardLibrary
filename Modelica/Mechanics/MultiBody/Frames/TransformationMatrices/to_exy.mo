@@ -18,15 +18,15 @@ exy = TransformationMatrices.<strong>to_exy</strong>(T);
 <h4>Description</h4>
 <p>
 This function returns unit vectors e_x and e_y which define axes of frame&nbsp;2 resolved in frame&nbsp;1,
-provided&nbsp;T is a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>
+provided&nbsp;T is a <a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>
 to rotate frame&nbsp;1 into &nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxy\">from_nxy</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz\">from_nxz</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_exy\">Frames.to_exy</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxy\">from_nxy</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz\">from_nxz</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.to_exy\">Frames.to_exy</a>.
 </p>
 </html>"));
 end to_exy;

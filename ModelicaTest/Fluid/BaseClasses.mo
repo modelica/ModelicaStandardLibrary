@@ -352,7 +352,7 @@ It is assumed that no mass or energy is stored in the pipe.
 Correlations of different complexity and validity can be
 selected via the replaceable package <strong>WallFriction</strong> (see parameter menu below).
 The details of the pipe wall friction model are described in the
-<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
+<a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 Basically, different variants of the equation
 </p>
 
@@ -366,7 +366,7 @@ in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
 </div>
 

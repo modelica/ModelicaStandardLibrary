@@ -24,19 +24,19 @@ connector PositiveMagneticPort "Positive quasi-static magnetic port"
     Documentation(info="<html>
 <p>
 The positive magnetic port is based on the
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>.
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>.
 Additionally the reference angle is specified in the connector. The time derivative of the
 reference angle is the actual angular frequency of the quasi-static magnetic potential and flux.
 The symbol is also designed such way to look different than the
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>.
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort\">Magnetic.FluxTubes.Interfaces.PositiveMagneticPort</a>
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.MagneticPort\">MagneticPort</a>,
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort\">Magnetic.FluxTubes.Interfaces.PositiveMagneticPort</a>
 </p>
 </html>"));
 end PositiveMagneticPort;

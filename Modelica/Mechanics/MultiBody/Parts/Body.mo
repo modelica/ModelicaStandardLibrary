@@ -296,7 +296,7 @@ center of mass, the cylinder is not displayed. Note, that
 the animation may be switched off via parameter animation = <strong>false</strong>.
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Body.png\" alt=\"Parts.Body\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Parts/Body.png\" alt=\"Parts.Body\">
 </div>
 
 <p>

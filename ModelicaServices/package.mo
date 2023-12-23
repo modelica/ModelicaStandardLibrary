@@ -13,7 +13,7 @@ package ModelicaServices "ModelicaServices (Default implementation) - Models and
 
 <ul>
 <li> New animation visualizer
-     <a href=\"modelica://ModelicaServices.Animation.Vector\">Vector</a>
+     <a href=\"modelica:/ModelicaServices.Animation.Vector\">Vector</a>
      for 3D animation of a vector quantity (force, torque etc), see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1891\">#1891</a>.
      </li>
 </ul>
@@ -22,7 +22,7 @@ package ModelicaServices "ModelicaServices (Default implementation) - Models and
 
 <ul>
 <li> New function
-     <a href=\"modelica://ModelicaServices.System.exit\">exit</a>
+     <a href=\"modelica:/ModelicaServices.System.exit\">exit</a>
      to terminate the Modelica environment, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2211\">#2211</a>.
      </li>
 </ul>
@@ -33,25 +33,25 @@ package ModelicaServices "ModelicaServices (Default implementation) - Models and
 <li> Version numbering adapted to the corresponding version number of
      package Modelica (= Modelica Standard Library).</li>
 <li> New function
-     <a href=\"modelica://ModelicaServices.ExternalReferences.loadResource\">loadResource</a>
+     <a href=\"modelica:/ModelicaServices.ExternalReferences.loadResource\">loadResource</a>
      to determine the absolute, local file name from an URI path name.
      </li>
 <li> New String type with tool dependent choices
-     <a href=\"modelica://ModelicaServices.Types.SolverMethod\">SolverMethod</a>
+     <a href=\"modelica:/ModelicaServices.Types.SolverMethod\">SolverMethod</a>
      to define the integration method to solve differential equations in a
      clocked discretized continuous-time partition.
      </li>
 <li> New package
-     <a href=\"modelica://ModelicaServices.Machine\">Machine</a>
+     <a href=\"modelica:/ModelicaServices.Machine\">Machine</a>
      to define the processor dependent constants as used in
-     <a href=\"modelica://Modelica.Constants\">Modelica.Constants</a>.
+     <a href=\"modelica:/Modelica.Constants\">Modelica.Constants</a>.
      </li>
 </ul>
 
 <h4>Version 1.1, 2010-07-30</h4>
 
 <ul>
-<li> New model <a href=\"modelica://ModelicaServices.Animation.Surface\">Surface</a>
+<li> New model <a href=\"modelica:/ModelicaServices.Animation.Surface\">Surface</a>
      to describe movable, parameterized surfaces.</li>
 <li> New string constant ModelicaServices.target to define the
      target of the corresponding ModelicaServices implementation</li>
@@ -122,7 +122,7 @@ The design of the Animation.Shape component is from Hilding Elmqvist, previously
             textString="default")}), Documentation(info="<html>
 <p>
 The interface of this model is documented at
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
 
 </html>"));
@@ -135,9 +135,9 @@ The interface of this model is documented at
       annotation (Documentation(info="<html>
 <p>
 The interface of this model is documented at
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>.<br>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>.<br>
 The interface of this model is defined at
-<a href=\"modelica://Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface</a>.
+<a href=\"modelica:/Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface</a>.
 </p>
 
 </html>"));
@@ -149,9 +149,9 @@ The interface of this model is defined at
   annotation (Documentation(info="<html>
 <p>
 The interface of this model is documented at
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>.<br>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>.<br>
 The interface of this model is defined at
-<a href=\"modelica://Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector</a>.
+<a href=\"modelica:/Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector</a>.
 </p>
 
 </html>"));
@@ -170,7 +170,7 @@ The interface of this model is defined at
       annotation (Documentation(info="<html>
 <p>
 The interface of this model is documented at
-<a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>.
+<a href=\"modelica:/Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>.
 </p>
 </html>"));
     end loadResource;
@@ -190,7 +190,7 @@ The interface of this model is documented at
 Package in which processor specific constants are defined that are needed
 by numerical algorithms. Typically these constants are not directly used,
 but indirectly via the alias definition in
-<a href=\"modelica://Modelica.Constants\">Modelica.Constants</a>.
+<a href=\"modelica:/Modelica.Constants\">Modelica.Constants</a>.
 </p>
 </html>"));
   end Machine;
@@ -202,7 +202,7 @@ but indirectly via the alias definition in
       external "C" exit(status) annotation(Include="#include <stdlib.h>", Library="ModelicaExternalC");
       annotation(Documentation(info="<html>
 <p>
-Tool-specific implementation of <a href=\"modelica://Modelica.Utilities.System.exit\">Modelica.Utilities.System.exit</a>.
+Tool-specific implementation of <a href=\"modelica:/Modelica.Utilities.System.exit\">Modelica.Utilities.System.exit</a>.
 </p>
 </html>"));
     end exit;
@@ -252,35 +252,35 @@ These are:
 </p>
 
 <ul>
-<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">Animation.Shape</a>
+<li> <a href=\"modelica:/ModelicaServices.Animation.Shape\">Animation.Shape</a>
      provides a 3-dim. visualization of elementary
      mechanical objects. It is used in
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
      via inheritance.</li>
 
-<li> <a href=\"modelica://ModelicaServices.Animation.Surface\">Animation.Surface</a>
+<li> <a href=\"modelica:/ModelicaServices.Animation.Surface\">Animation.Surface</a>
      provides a 3-dim. visualization of
      moveable parameterized surface. It is used in
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
      via inheritance.</li>
 
-<li> <a href=\"modelica://ModelicaServices.Animation.Vector\">Animation.Vector</a>
+<li> <a href=\"modelica:/ModelicaServices.Animation.Vector\">Animation.Vector</a>
      provides a 3-dim. visualization of vector quantities. It is used in
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow</a>, <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow</a> and <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedArrow\">Modelica.Mechanics.MultiBody.Visualizers.FixedArrow</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow</a>, <a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow</a> and <a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.FixedArrow\">Modelica.Mechanics.MultiBody.Visualizers.FixedArrow</a>
      via inheritance.</li>
 
-<li> <a href=\"modelica://ModelicaServices.ExternalReferences.loadResource\">ExternalReferences.loadResource</a>
+<li> <a href=\"modelica:/ModelicaServices.ExternalReferences.loadResource\">ExternalReferences.loadResource</a>
      provides a function to return the absolute path name of an URI or a local file name. It is used in
-<a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>
+<a href=\"modelica:/Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>
      via inheritance.</li>
 
-<li> <a href=\"modelica://ModelicaServices.Machine\">Machine</a>
+<li> <a href=\"modelica:/ModelicaServices.Machine\">Machine</a>
      provides a package of machine constants. It is used in
-<a href=\"modelica://Modelica.Constants\">Modelica.Constants</a>.</li>
+<a href=\"modelica:/Modelica.Constants\">Modelica.Constants</a>.</li>
 
-<li> <a href=\"modelica://ModelicaServices.System.exit\">System.exit</a> provides a function to terminate the execution of the Modelica environment. It is used in <a href=\"modelica://Modelica.Utilities.System.exit\">Modelica.Utilities.System.exit</a> via inheritance.</li>
+<li> <a href=\"modelica:/ModelicaServices.System.exit\">System.exit</a> provides a function to terminate the execution of the Modelica environment. It is used in <a href=\"modelica:/Modelica.Utilities.System.exit\">Modelica.Utilities.System.exit</a> via inheritance.</li>
 
-<li> <a href=\"modelica://ModelicaServices.Types.SolverMethod\">Types.SolverMethod</a>
+<li> <a href=\"modelica:/ModelicaServices.Types.SolverMethod\">Types.SolverMethod</a>
      provides a string defining the integration method to solve differential equations in
      a clocked discretized continuous-time partition
      (see <a href=\"https://specification.modelica.org/v3.4/Ch16.html#solver-methods\">Section 16.8.2 (Solver Methods) of the Modelica 3.4 specification</a>).</li>

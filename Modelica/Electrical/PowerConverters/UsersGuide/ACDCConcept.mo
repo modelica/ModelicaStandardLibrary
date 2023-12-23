@@ -17,12 +17,12 @@ class ACDCConcept "AC/DC converter concept"
 <h4>Topology classification</h4>
 
 <p>The PowerConverters library provides bridge and center tap rectifiers for single and polyphase supply, see
-<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC\">AC/DC converters</a>.</p>
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.ACDC\">AC/DC converters</a>.</p>
 
 <h4>Control</h4>
 
 <p>For each of the provided rectifiers a
-<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">control model</a> is available.
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.ACDC.Control\">control model</a> is available.
 These control models have electrical connectors to be connected with the AC supply.
 The firing angle of thyristor rectifiers can either be set by a parameter or a signal input.
 </p>
@@ -30,7 +30,7 @@ The firing angle of thyristor rectifiers can either be set by a parameter or a s
 <h4>Examples</h4>
 
 <p>A variety of examples is provided at
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC\">Examples.ACDC</a>.
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.Examples.ACDC\">Examples.ACDC</a>.
 These examples include different kinds of DC loads. Even the control characteristics
 of the rectifiers can be obtained experimentally; the names of these models
 contain <code>_Characteristic</code>.

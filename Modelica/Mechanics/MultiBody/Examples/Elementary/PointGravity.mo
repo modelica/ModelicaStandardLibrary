@@ -41,7 +41,7 @@ the other body rotates on an ellipse around the center of the
 point gravity field.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravity.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravity.png\"
 alt=\"model Examples.Elementary.PointGravity\">
 </html>"));
 end PointGravity;

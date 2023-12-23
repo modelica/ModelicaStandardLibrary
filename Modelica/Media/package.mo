@@ -88,7 +88,7 @@ In a component, the most basic usage of a medium model is as follows
 <p>
 The second way is to use the setState_XXX functions to compute the thermodynamic state
 record from which all other thermodynamic state variables can be computed (see
-<a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition\">
+<a href=\"modelica:/Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition\">
 Basic definition of medium</a> for further details on ThermodynamicState). The setState_XXX functions
 accept either X or Xi (see explanation below) and will decide internally which of these two compositions
 is provided by the user. The four fundamental setState_XXX functions are provided in PartialMedium
@@ -134,7 +134,7 @@ is given in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumUsage/mediumMenu.png\" alt=\"medium selection menu\">
+<img src=\"modelica:/Modelica/Resources/Images/Media/UsersGuide/MediumUsage/mediumMenu.png\" alt=\"medium selection menu\">
 </div>
 
 <p>
@@ -249,7 +249,7 @@ port that fulfill the mass and energy balance and on a different grid components
 fulfill the momentum balance. A balance volume component, called junction
 volume below, should be primarily implemented in the following way
 (see also the implementation in
-<a href=\"modelica://Modelica.Media.Examples.Utilities.PortVolume\">
+<a href=\"modelica:/Modelica.Media.Examples.Utilities.PortVolume\">
 Modelica.Media.Examples.Utilities.PortVolume</a>):
 </p>
 <blockquote><pre>
@@ -364,7 +364,7 @@ other port. Since no mass or energy is stored, no differential
 equations for thermodynamic variables are present. A component model of this type
 has therefore usually the following structure
 (see also the implementation in
-<a href=\"modelica://Modelica.Media.Examples.Utilities.ShortPipe\">
+<a href=\"modelica:/Modelica.Media.Examples.Utilities.ShortPipe\">
 Modelica.Media.Examples.Utilities.ShortPipe</a>):
 </p>
 <blockquote><pre>
@@ -417,7 +417,7 @@ semiLinear(m_flow, ha, hb) = if m_flow &ge; 0 then m_flow*ha else m_flow*hb;
 that is, it computes the enthalpy flow rate either from the port_a or
 from the port_b properties, depending on flow direction. The exact
 details of this operator are given in
-<a href=\"modelica://ModelicaReference.Operators.'semiLinear()'\">
+<a href=\"modelica:/ModelicaReference.Operators.'semiLinear()'\">
 ModelicaReference.Operators.'semiLinear()'</a>. Especially, rules
 are defined in the Modelica specification that m_flow = 0 can be treated
 in a \"meaningful way\". Especially, if n fluid components (such as pipes)
@@ -461,7 +461,7 @@ In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in the following table. They are
 defined as partial functions within package
-<a href=\"modelica://Modelica.Media.Interfaces.PartialMedium\">PartialMedium</a>,
+<a href=\"modelica:/Modelica.Media.Interfaces.PartialMedium\">PartialMedium</a>,
 and then (optionally) implemented in actual medium packages.
 If a component calls such an optional function and the
 medium package does not provide a new implementation for this
@@ -826,7 +826,7 @@ elements</p>
       annotation (Documentation(info="<html>
 <p>
 Models for media which can exist in one-phase or two-phase conditions inherit
-from <a href=\"modelica://Modelica.Media.Interfaces.PartialTwoPhaseMedium\">
+from <a href=\"modelica:/Modelica.Media.Interfaces.PartialTwoPhaseMedium\">
 Modelica.Media.Interfaces.PartialTwoPhaseMedium</a>
 (which inherits from PartialMedium). The basic usage of these
 media models is the same as described in the previous sections. However, additional
@@ -1106,19 +1106,19 @@ exist:
 Content:
 </p>
 <ol>
-<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.BasicUsage\">Basic usage of medium model</a></li>
-<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.BalanceVolume\">Medium model for a balance volume</a></li>
-<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.ShortPipe\">Medium model for a pressure loss</a></li>
-<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">Optional medium properties</a></li>
-<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.Constants\">Constants provided by medium model</a></li>
-<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">Two-phase media</a></li>
-<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.Initialization\">Initialization</a></li>
+<li><a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.BasicUsage\">Basic usage of medium model</a></li>
+<li><a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.BalanceVolume\">Medium model for a balance volume</a></li>
+<li><a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.ShortPipe\">Medium model for a pressure loss</a></li>
+<li><a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">Optional medium properties</a></li>
+<li><a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.Constants\">Constants provided by medium model</a></li>
+<li><a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">Two-phase media</a></li>
+<li><a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.Initialization\">Initialization</a></li>
 </ol>
 
 <p>
 A good demonstration how to use the media from Modelica.Media is
 given in package ModelicaTest.Media.TestsWithFluid. Under
-<a href=\"modelica://Modelica.Media.Examples.Utilities\">
+<a href=\"modelica:/Modelica.Media.Examples.Utilities\">
 Modelica.Media.Examples.Utilities</a> the most basic components of a Fluid library
 are defined. Additional media models with some very simple piping networks can be found in the
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/tree/master/ModelicaTest\">ModelicaTest library</a> under
@@ -1383,7 +1383,7 @@ possible to connect connectors with different media models together.</p>
       annotation (Documentation(info="<html>
 <p>
 Let's now walk through the definition of a new medium model. Please refer to
-<a href=\"modelica://Modelica.Media.Interfaces.TemplateMedium\">
+<a href=\"modelica:/Modelica.Media.Interfaces.TemplateMedium\">
 Modelica.Media.Interfaces.TemplateMedium</a> to obtain a template of the new
 medium model code. For the moment being, consider a single-substance medium
 model.
@@ -1507,9 +1507,9 @@ in the Modelica.Fluid library:</p>
 </pre></blockquote>
 <p>
 For further details, refer to the implementation of
-<a href=\"modelica://Modelica.Media.IdealGases.Common.MixtureGasNasa\">
+<a href=\"modelica:/Modelica.Media.IdealGases.Common.MixtureGasNasa\">
       MixtureGasNasa model</a> and
-<a href=\"modelica://Modelica.Media.Air.MoistAir\">
+<a href=\"modelica:/Modelica.Media.Air.MoistAir\">
       MoistAir model</a>.
 </p>
 </html>"));
@@ -1562,7 +1562,7 @@ flow direction of a pipe:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/BalanceEquations1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/BalanceEquations1.png\">
 </div>
 
 <p>
@@ -1572,7 +1572,7 @@ Usually, it is given as:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/EnergyBalance1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/EnergyBalance1.png\">
 </div>
 
 <p>
@@ -1585,7 +1585,7 @@ of the energy balance:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/EnergyBalance2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/EnergyBalance2.png\">
 </div>
 
 <p>
@@ -1953,7 +1953,7 @@ properties. Of course, more tests should be performed.
     annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 If a new medium model shall be introduced, copy package
-<a href=\"modelica://Modelica.Media.Interfaces.TemplateMedium\">
+<a href=\"modelica:/Modelica.Media.Interfaces.TemplateMedium\">
 Modelica.Media.Interfaces.TemplateMedium</a> to the desired
 location, remove the
 \"partial\" keyword from the package and provide
@@ -1963,17 +1963,17 @@ A more detailed description for the different parts of the
 TemplateMedium package is given here:
 </p>
 <ol>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.BasicStructure\">
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.MediumDefinition.BasicStructure\">
       Basic structure of medium interface</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition\">
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition\">
       Basic definition of medium model</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.MultipleSubstances\">
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.MediumDefinition.MultipleSubstances\">
       Multiple Substances</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.SpecificEnthalpyAsFunction\">
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.MediumDefinition.SpecificEnthalpyAsFunction\">
       Specific enthalpy as function</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">
       Static State Selection</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.TestOfMedium\">
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.MediumDefinition.TestOfMedium\">
       Test of medium model</a></li>
 </ol>
 </html>"));
@@ -2102,7 +2102,7 @@ main features:
      generate as efficient code as a traditional
      (coupled) definition. This feature is described in more
      detail in section
-     <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static State Selection</a>.</li>
+     <a href=\"modelica:/Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static State Selection</a>.</li>
 <li> Optional variables, such as dynamic viscosity, are only computed if
      needed in the corresponding component.</li>
 <li> The independent variables of a medium model do not
@@ -2126,15 +2126,15 @@ main features:
 This User's Guide has the following main parts:
 </p>
 <ul>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage\">Medium usage</a>
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage\">Medium usage</a>
      describes how to use a medium model from
      this library in a component model.</li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition\">Medium definition</a>
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.MediumDefinition\">Medium definition</a>
      describes how a new fluid medium
      model has to be implemented.</li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.ReleaseNotes\">ReleaseNotes</a>
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.ReleaseNotes\">ReleaseNotes</a>
      summarizes the changes of the library releases.</li>
-<li><a href=\"modelica://Modelica.Media.UsersGuide.Contact\">Contact</a>
+<li><a href=\"modelica:/Modelica.Media.UsersGuide.Contact\">Contact</a>
     provides information about the authors of the library as well as
     acknowledgements.</li>
 </ul>
@@ -2514,14 +2514,14 @@ is given to compare the approximation.
 It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0 &deg;C. For better reading and in order to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g., heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0 &deg;C and zero humidity.</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Media/Air/PsycroChart.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
+<img src=\"modelica:/Modelica/Resources/Images/Media/Air/PsycroChart.png\">
 </div>
 
 <p>
 <strong>Legend:</strong> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
 
-<p>The model provides data for lines of constant specific enthalpy, temperature and relative humidity in a Mollier Diagram or Psychrometric Chart as they were used for the figures above. For limitations and ranges of validity please refer to the <a href=\"modelica://Modelica.Media.Air.MoistAir\">MoistAir package description</a>. Absolute humidity <strong>x</strong> is increased with time in this model. The specific enthalpies adjusted for plotting are then obtained from:</p>
+<p>The model provides data for lines of constant specific enthalpy, temperature and relative humidity in a Mollier Diagram or Psychrometric Chart as they were used for the figures above. For limitations and ranges of validity please refer to the <a href=\"modelica:/Modelica.Media.Air.MoistAir\">MoistAir package description</a>. Absolute humidity <strong>x</strong> is increased with time in this model. The specific enthalpies adjusted for plotting are then obtained from:</p>
 <ul>
 <li><strong>y_h</strong>: constant specific enthalpy</li>
 <li><strong>y_T</strong>: constant temperature</li>
@@ -3005,17 +3005,17 @@ output window.
       s2 = Medium.specificEntropy(Medium.setState_pT(p, Ts));
       annotation (experiment(StopTime=1), Documentation(info="<html>
 <p>
-This models computes the temperature <code>Th</code> for predefined specific enthalpy <code>h1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.IdealGases.Common.Functions.h_T\">Modelica.Media.IdealGases.Common.Functions.h_T</a>.
+This models computes the temperature <code>Th</code> for predefined specific enthalpy <code>h1</code> via numerical inversion of function <a href=\"modelica:/Modelica.Media.IdealGases.Common.Functions.h_T\">Modelica.Media.IdealGases.Common.Functions.h_T</a>.
 The specific enthalpy <code>h2</code> is computed as check variable from temperature <code>Th</code> and must be identical to <code>h1</code>.
 </p>
 
 <p>
-In an analogous manner, the temperature <code>Ts</code> is computed for predefined specific entropy <code>s1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.IdealGases.Common.Functions.s0_T\">Modelica.Media.IdealGases.Common.Functions.s0_T</a>.
+In an analogous manner, the temperature <code>Ts</code> is computed for predefined specific entropy <code>s1</code> via numerical inversion of function <a href=\"modelica:/Modelica.Media.IdealGases.Common.Functions.s0_T\">Modelica.Media.IdealGases.Common.Functions.s0_T</a>.
 The specific entropy <code>s2</code> is computed as check variable from temperature <code>Ts</code> and must be identical to <code>s1</code>.
 </p>
 
 <p>
-The numerical computation of the inverse function is performed by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">Modelica.Math.Nonlinear.solveOneNonlinearEquation</a> in both cases.
+The numerical computation of the inverse function is performed by function <a href=\"modelica:/Modelica.Math.Nonlinear.solveOneNonlinearEquation\">Modelica.Math.Nonlinear.solveOneNonlinearEquation</a> in both cases.
 </p>
 
 </html>"));
@@ -3070,17 +3070,17 @@ The numerical computation of the inverse function is performed by function <a hr
       s2 = Medium.specificEntropy(Medium.setState_pT(p, Ts));
       annotation (experiment(StopTime=1), Documentation(info="<html>
 <p>
-This models computes the temperature <code>Th</code> for predefined specific enthalpy <code>h1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.Incompressible.TableBased.h_T\">Modelica.Media.Incompressible.TableBased.h_T</a>.
+This models computes the temperature <code>Th</code> for predefined specific enthalpy <code>h1</code> via numerical inversion of function <a href=\"modelica:/Modelica.Media.Incompressible.TableBased.h_T\">Modelica.Media.Incompressible.TableBased.h_T</a>.
 The specific enthalpy <code>h2</code> is computed as check variable from temperature <code>Th</code> and must be identical to <code>h1</code>.
 </p>
 
 <p>
-In an analogous manner, the temperature <code>Ts</code> is computed for predefined specific entropy <code>s1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.Incompressible.TableBased.s_T\">Modelica.Media.Incompressible.TableBased.s_T</a>.
+In an analogous manner, the temperature <code>Ts</code> is computed for predefined specific entropy <code>s1</code> via numerical inversion of function <a href=\"modelica:/Modelica.Media.Incompressible.TableBased.s_T\">Modelica.Media.Incompressible.TableBased.s_T</a>.
 The specific entropy <code>s2</code> is computed as check variable from temperature <code>Ts</code> and must be identical to <code>s1</code>.
 </p>
 
 <p>
-The numerical computation of the inverse function is performed by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">Modelica.Math.Nonlinear.solveOneNonlinearEquation</a> in both cases.
+The numerical computation of the inverse function is performed by function <a href=\"modelica:/Modelica.Math.Nonlinear.solveOneNonlinearEquation\">Modelica.Math.Nonlinear.solveOneNonlinearEquation</a> in both cases.
 </p>
 
 </html>"));
@@ -3136,17 +3136,17 @@ The numerical computation of the inverse function is performed by function <a hr
       s2 = Medium.specificEntropy(Medium.setState_pTX(p, Ts, X));
       annotation (experiment(StopTime=1), Documentation(info="<html>
 <p>
-This models computes the temperature <code>Th</code> for predefined specific enthalpy <code>h1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.IdealGases.Common.Functions.h_T\">Modelica.Media.IdealGases.Common.Functions.h_T</a>.
+This models computes the temperature <code>Th</code> for predefined specific enthalpy <code>h1</code> via numerical inversion of function <a href=\"modelica:/Modelica.Media.IdealGases.Common.Functions.h_T\">Modelica.Media.IdealGases.Common.Functions.h_T</a>.
 The specific enthalpy <code>h2</code> is computed as check variable from temperature <code>Th</code> and must be identical to <code>h1</code>.
 </p>
 
 <p>
-In an analogous manner, the temperature <code>Ts</code> is computed for predefined specific entropy <code>s1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.IdealGases.Common.Functions.s0_T\">Modelica.Media.IdealGases.Common.Functions.s0_T</a>.
+In an analogous manner, the temperature <code>Ts</code> is computed for predefined specific entropy <code>s1</code> via numerical inversion of function <a href=\"modelica:/Modelica.Media.IdealGases.Common.Functions.s0_T\">Modelica.Media.IdealGases.Common.Functions.s0_T</a>.
 The specific entropy <code>s2</code> is computed as check variable from temperature <code>Ts</code> and must be identical to <code>s1</code>.
 </p>
 
 <p>
-The numerical computation of the inverse function is performed by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">Modelica.Math.Nonlinear.solveOneNonlinearEquation</a> in both cases.
+The numerical computation of the inverse function is performed by function <a href=\"modelica:/Modelica.Math.Nonlinear.solveOneNonlinearEquation\">Modelica.Math.Nonlinear.solveOneNonlinearEquation</a> in both cases.
 </p>
 
 </html>"));
@@ -3155,7 +3155,7 @@ The numerical computation of the inverse function is performed by function <a hr
     annotation (Documentation(info="<html>
 <p>
 This package demonstrates how to solve one non-linear algebraic
-equation in one unknown with function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>.
+equation in one unknown with function <a href=\"modelica:/Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>.
 </p>
 
 </html>"));
@@ -4095,7 +4095,7 @@ permitting advanced equation balance checking by Modelica tools.
 Please note that this doesn't mean that the additional equations
 should be connection equations, nor that exactly those variables
 should be supplied, in order to complete the model.
-For further information, see the <a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media User's guide</a>, and
+For further information, see the <a href=\"modelica:/Modelica.Media.UsersGuide\">Modelica.Media User's guide</a>, and
 <a href=\"https://specification.modelica.org/v3.4/Ch4.html#balanced-models\">Section 4.7 (Balanced Models) of the Modelica 3.4 specification</a>.</p>
 </html>"));
     end BaseProperties;
@@ -4553,7 +4553,7 @@ are defined that every medium is supposed to support
 inherits from <strong>PartialMedium</strong> and provides the
 equations for the medium. The details of this package
 are described in
-<a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.
+<a href=\"modelica:/Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.
 </p>
 </html>", revisions="<html>
 
@@ -8450,41 +8450,41 @@ sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
 end Common;
 annotation (preferredView="info",Documentation(info="<html>
 <p>
-This library contains <a href=\"modelica://Modelica.Media.Interfaces\">interface</a>
+This library contains <a href=\"modelica:/Modelica.Media.Interfaces\">interface</a>
 definitions for media and the following <strong>property</strong> models for
 single and multiple substance fluids with one and multiple phases:
 </p>
 <ul>
-<li> <a href=\"modelica://Modelica.Media.IdealGases\">Ideal gases:</a><br>
+<li> <a href=\"modelica:/Modelica.Media.IdealGases\">Ideal gases:</a><br>
      1241 high precision gas models based on the
      NASA Glenn coefficients, plus ideal gas mixture models based
      on the same data.</li>
-<li> <a href=\"modelica://Modelica.Media.Water\">Water models:</a><br>
+<li> <a href=\"modelica:/Modelica.Media.Water\">Water models:</a><br>
      ConstantPropertyLiquidWater, WaterIF97 (high precision
      water model according to the IAPWS/IF97 standard)</li>
-<li> <a href=\"modelica://Modelica.Media.Air\">Air models:</a><br>
+<li> <a href=\"modelica:/Modelica.Media.Air\">Air models:</a><br>
      SimpleAir, DryAirNasa, ReferenceAir, MoistAir, ReferenceMoistAir.</li>
-<li> <a href=\"modelica://Modelica.Media.Incompressible\">
+<li> <a href=\"modelica:/Modelica.Media.Incompressible\">
      Incompressible media:</a><br>
      TableBased incompressible fluid models (properties are defined by tables rho(T),
      HeatCapacity_cp(T), etc.)</li>
-<li> <a href=\"modelica://Modelica.Media.CompressibleLiquids\">
+<li> <a href=\"modelica:/Modelica.Media.CompressibleLiquids\">
      Compressible liquids:</a><br>
      Simple liquid models with linear compressibility</li>
-<li> <a href=\"modelica://Modelica.Media.R134a\">Refrigerant Tetrafluoroethane (R134a)</a>.</li>
+<li> <a href=\"modelica:/Modelica.Media.R134a\">Refrigerant Tetrafluoroethane (R134a)</a>.</li>
 </ul>
 <p>
 The following parts are useful, when newly starting with this library:</p>
 <ul>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.</li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage\">Modelica.Media.UsersGuide.MediumUsage</a>
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.</li>
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage\">Modelica.Media.UsersGuide.MediumUsage</a>
      describes how to use a medium model in a component model.</li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition\">
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.MediumDefinition\">
      Modelica.Media.UsersGuide.MediumDefinition</a>
      describes how a new fluid medium model has to be implemented.</li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.ReleaseNotes\">Modelica.Media.UsersGuide.ReleaseNotes</a>
+<li> <a href=\"modelica:/Modelica.Media.UsersGuide.ReleaseNotes\">Modelica.Media.UsersGuide.ReleaseNotes</a>
      summarizes the changes of the library releases.</li>
-<li> <a href=\"modelica://Modelica.Media.Examples\">Modelica.Media.Examples</a>
+<li> <a href=\"modelica:/Modelica.Media.Examples\">Modelica.Media.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>

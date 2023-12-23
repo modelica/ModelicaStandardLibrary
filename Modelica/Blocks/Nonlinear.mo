@@ -481,7 +481,7 @@ in a large norm of the system matrix [A,B;C,D] and therefore in unreliable
 numerical computations. When setting parameter <strong>balance</strong> = true, a state
 transformation is performed that considerably reduces the norm of the system matrix.
 This is performed without introducing round-off errors. For details see
-function <a href=\"modelica://Modelica.Math.Matrices.balanceABC\">balanceABC</a>.
+function <a href=\"modelica:/Modelica.Math.Matrices.balanceABC\">balanceABC</a>.
 As a result, both the simulation of the PadeDelay block, and especially
 its linearization becomes more reliable.
 </p>

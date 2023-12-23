@@ -86,8 +86,8 @@ and/or a division by zero will occur.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation\">planarRotation</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.planarRotationAngle\">Frames.planarRotationAngle</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation\">planarRotation</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.planarRotationAngle\">Frames.planarRotationAngle</a>.
 </p>
 </html>"));
 end planarRotationAngle;

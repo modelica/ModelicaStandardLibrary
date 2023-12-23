@@ -35,18 +35,18 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Extends the model <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">CellStack</a> by a series of RC-elements, describing the transient behaviour of the battery.
+Extends the model <a href=\"modelica:/Modelica.Electrical.Batteries.BatteryStacks.CellStack\">CellStack</a> by a series of RC-elements, describing the transient behaviour of the battery.
 </p>
 <p>
 This model can be used for a single cell <code>Ns = Np = 1</code> as well as a stack built from identical cells.
 </p>
 <p>
-For details, see <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
+For details, see <a href=\"modelica:/Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica:/Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
 </p>
 <h4>Note</h4>
 <p>
-Parameter record array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">rcData</a> contained in
-parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">cellData</a> has to be specified.
+Parameter record array <a href=\"modelica:/Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">rcData</a> contained in
+parameter record <a href=\"modelica:/Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">cellData</a> has to be specified.
 </p>
 <p>
 The total inner resistance is the sum of the resistance of resistor <code>r0</code> and the sum of the resistances of the resistors of the RC-elements.

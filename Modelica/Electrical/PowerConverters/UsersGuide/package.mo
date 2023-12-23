@@ -21,8 +21,8 @@ AC/AC converters currently only provide dimmer and soft starter with triacs.
 
 <ul>
   <li>All converter models rely on existing diode, thyristor and switch models provided in the
-      <a href=\"modelica://Modelica.Electrical.Analog.Ideal\">Analog.Ideal</a> and the
-      <a href=\"modelica://Modelica.Electrical.Polyphase.Ideal\">Polyphase.Ideal</a>
+      <a href=\"modelica:/Modelica.Electrical.Analog.Ideal\">Analog.Ideal</a> and the
+      <a href=\"modelica:/Modelica.Electrical.Polyphase.Ideal\">Polyphase.Ideal</a>
       package of the Modelica Standard Library.</li>
   <li>Switching losses and recovery effects are not considered</li>
   <li>Only conduction losses are taken into account</li>
@@ -46,10 +46,10 @@ AC/AC converters currently only provide dimmer and soft starter with triacs.
 
 <p>
 General background knowledge on power converters and power electronics can be found in
-<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Skvarenina01]</a> and
-<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Luo05]</a>.
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.UsersGuide.References\">[Skvarenina01]</a> and
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.UsersGuide.References\">[Luo05]</a>.
 A freely available book is available in
-<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Williams2006]</a>.
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.UsersGuide.References\">[Williams2006]</a>.
 </p>
 </html>"));
 end UsersGuide;

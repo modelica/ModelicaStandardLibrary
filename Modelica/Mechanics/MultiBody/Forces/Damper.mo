@@ -73,7 +73,7 @@ where a mass is hanging on a damper.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Damper.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Forces/Damper.png\">
 </div>
 
 </html>"),

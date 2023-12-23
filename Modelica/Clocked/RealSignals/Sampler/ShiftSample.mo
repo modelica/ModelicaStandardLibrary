@@ -84,7 +84,7 @@ the operator returns the value of u from the last tick of the clock of u.
 
 <p>
 Note, for
-<a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks.EventClock\">EventClock</a>s
+<a href=\"modelica:/Modelica.Clocked.ClockSignals.Clocks.EventClock\">EventClock</a>s
 there is the restriction that
 block <strong>ShiftSample</strong> can only shift the number of ticks of the EventClock clock,
 but cannot introduce new ticks, due to the restriction of operator <strong>superSample</strong> on
@@ -95,7 +95,7 @@ EventClocks.
 Also note, that this block does not simply shift the signal in time,
 since only the value of u from the last tick of the clock of u is used for the output.
 If a time-delayed clock is desired, use instead block
-<a href=\"modelica://Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay\">NonPeriodic.FractionalDelay</a>
+<a href=\"modelica:/Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay\">NonPeriodic.FractionalDelay</a>
 where the input signal is delayed by a time period and old values of u are stored in a buffer.
 If the time delay is less than one period, the two blocks, ShiftSample and FractionalDelay,
 give the same result.
@@ -105,16 +105,16 @@ give the same result.
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.ShiftSample\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.ShiftSample\">example</a>
 samples a sine signal with a periodic clock of 20 ms period, and
 then shifts it with shiftCounter = 4 and resolution = 3:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/ShiftSample_Model.png\" alt=\"ShiftSample_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/ShiftSample_Model.png\" alt=\"ShiftSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/ShiftSample_Result.png\" alt=\"ShiftSample_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/ShiftSample_Result.png\" alt=\"ShiftSample_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

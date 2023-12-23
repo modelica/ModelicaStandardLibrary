@@ -47,7 +47,7 @@ a Modelica sampled-data system, by automatically discretizing
 this model and providing it as a clocked partition. This allows
 a convenient definition of certain nonlinear control systems,
 see example
-<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
+<a href=\"modelica:/Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 Several practical details to use nonlinear inverse plant models in
 a control system are discussed in the following reference:</em>
 <br>

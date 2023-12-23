@@ -21,7 +21,7 @@ equation
               textString="%name")}), Documentation(info="<html>
 <p>
 This is an adapter model to utilize a&nbsp;conditional
-<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Support\">support connector</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.Support\">support connector</a>
 in a&nbsp;component. It could be applied to both textually (equations based) and graphically
 defined components:
 </p>
@@ -41,9 +41,9 @@ This approach of internal support is utilized, e.g., via the following partial m
 </p>
 
 <ul>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,</li>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>,</li>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>.</li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,</li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>,</li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>.</li>
 </ul>
 
 <p>

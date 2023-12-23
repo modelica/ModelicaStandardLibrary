@@ -74,7 +74,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheel.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheel.png\">
 </blockquote>
 </html>", revisions="<html>
   <ul>

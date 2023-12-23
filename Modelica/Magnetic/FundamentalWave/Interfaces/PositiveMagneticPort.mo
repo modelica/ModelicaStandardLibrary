@@ -20,13 +20,13 @@ connector PositiveMagneticPort "Positive magnetic port of fundamental wave machi
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
-Positive magnetic <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">port</a>.
+Positive magnetic <a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">port</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>
 </p>
 
 </html>"));

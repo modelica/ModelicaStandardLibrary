@@ -15,10 +15,10 @@ equation
   annotation (defaultComponentName="switch",
     Documentation(info="<html>
 <p>
-This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch\">ControlledIdealClosingSwitch</a>.
+This model is an extension to the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch\">ControlledIdealClosingSwitch</a>.
 </p>
 <p>
-For details of the arc effect, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc\">IdealSwitchWithArc</a>.
+For details of the arc effect, see partial model <a href=\"modelica:/Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc\">IdealSwitchWithArc</a>.
 </p>
 </html>",
         revisions="<html>

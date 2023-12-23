@@ -54,7 +54,7 @@ this parameter is displayed below the icon.
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.Hold\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.Hold\">example</a>
 samples a sine signal with a periodic clock of 20 ms period and delays it for 2 sample periods.
 The resulting signal is hold with the Hold block. As a result, the clock of hold.u starts
 ticking at 40 ms. The output hold.y of the block is a continuous-time signal that is present
@@ -64,9 +64,9 @@ to -1.0 (= the value of parameter hold.y_start).<br>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/Hold_Model.png\" alt=\"Hold_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/Hold_Model.png\" alt=\"Hold_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/Hold_Result.png\" alt=\"Hold_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/Hold_Result.png\" alt=\"Hold_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

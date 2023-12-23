@@ -18,9 +18,9 @@ equation
          textString="w_rel_b")}), Documentation(info="<html>
 <p>
 Compute relative angular velocity w_rel_b of an
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a> R_b
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a> R_b
 relative to an
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a> R_a,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a> R_a,
 resolved in orientation object R_b, i.e.
 </p>
 <blockquote><pre>

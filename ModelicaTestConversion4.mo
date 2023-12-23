@@ -2168,7 +2168,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
             experiment(StopTime=3),
             Documentation(info="<html>
 Demonstrates sensors visualization in vectors -
-based on <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum\">DoublePendulum</a>.
+based on <a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum\">DoublePendulum</a>.
 </html>"));
         end DoublePendulum;
 

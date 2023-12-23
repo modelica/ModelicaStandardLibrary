@@ -118,17 +118,17 @@ equation
       extent={{-72,100},{-31,80}},
       textString="y")}),
 Documentation(info="<html>
-<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.Step\">Modelica.Blocks.Sources.Step</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
+<p>The block is similar to the block in <a href=\"modelica:/Modelica.Blocks.Sources.Step\">Modelica.Blocks.Sources.Step</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
 <p>
 The Real output y is a step signal:
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Step.png\" alt=\"Step.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Sources/Step.png\" alt=\"Step.png\">
 </div>
 
 <h4>Example</h4>
 <p>
-See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedStep</a>.
+See model <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedStep</a>.
 <br>
 </p>
 

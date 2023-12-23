@@ -86,7 +86,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
 </html>"));
@@ -124,7 +124,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
 <p>
@@ -164,7 +164,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
 <p>
@@ -272,7 +272,7 @@ port has a rising edge.
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
 </html>"));

@@ -59,7 +59,7 @@ equation
             fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
-This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
+This model is an extension to the <a href=\"modelica:/Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
 </p>
 <p>
 The basic model interrupts the current through the switch in an infinitesimal time span.

@@ -68,7 +68,7 @@ At time=2.3 s a load torque step is applied, causing the drive to slightly leave
 </p>
 <p>
 Further reading:
-<a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
+<a href=\"modelica:/Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
 </html>"),
     Diagram(coordinateSystem(extent={{-200,-100},{100,100}})));

@@ -230,7 +230,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v4.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v4.mat")));
     Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.ContinuousClock clock2
@@ -248,7 +248,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v6.mat")));
     Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.ContinuousClock clock2
@@ -266,7 +266,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v7.mat")));
     Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.ContinuousClock clock2
@@ -285,7 +285,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v7.3.mat")));
   equation
     t_new.u1 = time;
     t_new.u2 = time;
@@ -297,7 +297,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test.txt")));
     Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.ContinuousClock clock2
@@ -314,7 +314,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
     extends Modelica.Icons.Example;
   protected
     parameter String fileName=loadResource(
-        "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
+        "modelica:/Modelica/Resources/Data/Tables/test_v4.mat");
     parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
@@ -364,7 +364,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
     extends Modelica.Icons.Example;
   protected
     parameter String fileName=loadResource(
-        "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
+        "modelica:/Modelica/Resources/Data/Tables/test_v4.mat");
     parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
@@ -414,7 +414,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
     extends Modelica.Icons.Example;
   protected
     parameter String fileName=loadResource(
-        "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
+        "modelica:/Modelica/Resources/Data/Tables/test_v4.mat");
     parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
@@ -500,7 +500,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
       input Real dummy_u;
       output Real dummy_y;
       external "C" dummy_y = mydummyfunc(dummy_u)
-      annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
+      annotation(IncludeDirectory="modelica:/Modelica/Resources/Data/Tables",
              Include = "#include \"usertab.c\"
 double mydummyfunc(double dummy_in) {
     return 0.;
@@ -1064,7 +1064,7 @@ double mydummyfunc(double dummy_in) {
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
+        fileName=loadResource("modelica:/ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
     Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.ContinuousClock clock2
@@ -1083,7 +1083,7 @@ double mydummyfunc(double dummy_in) {
         tableOnFile=true,
         delimiter=";",
         nHeaderLines=0,
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test2D.csv")));
+        fileName=loadResource("modelica:/ModelicaTest/Resources/Data/Tables/test2D.csv")));
     Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.ContinuousClock clock2

@@ -25,7 +25,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Uniform.density.png\">
 </blockquote>
 
 <p>
@@ -41,8 +41,8 @@ density(0,-1,1) // = 0.5
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.Uniform.cumulative\">Uniform.cumulative</a>,
-<a href=\"modelica://Modelica.Math.Distributions.Uniform.quantile\">Uniform.quantile</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.Uniform.cumulative\">Uniform.cumulative</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.Uniform.quantile\">Uniform.quantile</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -53,7 +53,7 @@ density(0,-1,1) // = 0.5
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -96,7 +96,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.cumulative.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Uniform.cumulative.png\">
 </blockquote>
 
 <p>
@@ -112,8 +112,8 @@ cumulative(0,-1,1) // = 0.5
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.Uniform.density\">Uniform.density</a>,
-<a href=\"modelica://Modelica.Math.Distributions.Uniform.quantile\">Uniform.quantile</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.Uniform.density\">Uniform.density</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.Uniform.quantile\">Uniform.quantile</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -124,7 +124,7 @@ cumulative(0,-1,1) // = 0.5
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -175,7 +175,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Uniform.quantile.png\">
 </blockquote>
 
 <p>
@@ -191,8 +191,8 @@ quantile(0.5,-1,1) // = 0
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.Uniform.density\">Uniform.density</a>,
-<a href=\"modelica://Modelica.Math.Distributions.Uniform.cumulative\">Uniform.cumulative</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.Uniform.density\">Uniform.density</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.Uniform.cumulative\">Uniform.cumulative</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -203,7 +203,7 @@ quantile(0.5,-1,1) // = 0
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -230,15 +230,15 @@ of the <strong>uniform</strong> distribution. Examples:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Uniform.density.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.cumulative.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Uniform.cumulative.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Uniform.quantile.png\">
 </blockquote>
 
 <p>
@@ -254,7 +254,7 @@ For more details of this distribution see
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -290,7 +290,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Normal.density.png\">
 </blockquote>
 
 <p>
@@ -306,8 +306,8 @@ density(3,1,0.5) // = 0.00026766045152977074
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.Normal.cumulative\">Normal.cumulative</a>,
-<a href=\"modelica://Modelica.Math.Distributions.Normal.quantile\">Normal.quantile</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.Normal.cumulative\">Normal.cumulative</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.Normal.quantile\">Normal.quantile</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -318,7 +318,7 @@ density(3,1,0.5) // = 0.00026766045152977074
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -361,7 +361,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.cumulative.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Normal.cumulative.png\">
 </blockquote>
 
 <p>
@@ -377,8 +377,8 @@ cumulative(0,1,0.5)  // = 0.15865525393145707
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.Normal.density\">Normal.density</a>,
-<a href=\"modelica://Modelica.Math.Distributions.Normal.quantile\">Normal.quantile</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.Normal.density\">Normal.density</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.Normal.quantile\">Normal.quantile</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -389,7 +389,7 @@ cumulative(0,1,0.5)  // = 0.15865525393145707
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -445,7 +445,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Normal.quantile.png\">
 </blockquote>
 
 <p>
@@ -461,8 +461,8 @@ quantile(0.5,1,0.5) // = 1
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.Normal.density\">Normal.density</a>,
-<a href=\"modelica://Modelica.Math.Distributions.Normal.cumulative\">Normal.cumulative</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.Normal.density\">Normal.density</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.Normal.cumulative\">Normal.cumulative</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -473,7 +473,7 @@ quantile(0.5,1,0.5) // = 1
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -510,15 +510,15 @@ of the <strong>normal</strong> distribution. Examples:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Normal.density.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.cumulative.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Normal.cumulative.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Normal.quantile.png\">
 </blockquote>
 
 <p>
@@ -534,7 +534,7 @@ For more details of this distribution see
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -586,7 +586,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
 </blockquote>
 
 <p>
@@ -605,8 +605,8 @@ density(0.5,-1.5,1.5,1,0.9) // = 0.5365495585520803
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.TruncatedNormal.cumulative\">TruncatedNormal.cumulative</a>,
-<a href=\"modelica://Modelica.Math.Distributions.TruncatedNormal.quantile\">TruncatedNormal.quantile</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.TruncatedNormal.cumulative\">TruncatedNormal.cumulative</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.TruncatedNormal.quantile\">TruncatedNormal.quantile</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -617,7 +617,7 @@ density(0.5,-1.5,1.5,1,0.9) // = 0.5365495585520803
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -678,7 +678,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.cumulative.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedNormal.cumulative.png\">
 </blockquote>
 
 <p>
@@ -697,8 +697,8 @@ cumulative(0.5,-1.5,1.5,1,0.9)  // = 0.4046868865634537
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.Normal.density\">TruncatedNormal.density</a>,
-<a href=\"modelica://Modelica.Math.Distributions.Normal.quantile\">TruncatedNormal.quantile</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.Normal.density\">TruncatedNormal.density</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.Normal.quantile\">TruncatedNormal.quantile</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -709,7 +709,7 @@ cumulative(0.5,-1.5,1.5,1,0.9)  // = 0.4046868865634537
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -778,7 +778,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png\">
 </blockquote>
 
 <p>
@@ -797,8 +797,8 @@ quantile(0.5,0,1,0.5,0.9) // = 0.5
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.TruncatedNormal.density\">TruncatedNormal.density</a>,
-<a href=\"modelica://Modelica.Math.Distributions.TruncatedNormal.cumulative\">TruncatedNormal.cumulative</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.TruncatedNormal.density\">TruncatedNormal.density</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.TruncatedNormal.cumulative\">TruncatedNormal.cumulative</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -809,7 +809,7 @@ quantile(0.5,0,1,0.5,0.9) // = 0.5
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -854,15 +854,15 @@ of the <strong>truncated normal</strong> distribution. Examples:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.cumulative.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedNormal.cumulative.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png\">
 </blockquote>
 
 <p>
@@ -881,7 +881,7 @@ of truncated distributions, see
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -926,7 +926,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Weibull.density.png\">
 </blockquote>
 
 <p>
@@ -942,8 +942,8 @@ density(1,0.5,2) // = 0.14652511110987343
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.Weibull.cumulative\">Weibull.cumulative</a>,
-<a href=\"modelica://Modelica.Math.Distributions.Weibull.quantile\">Weibull.quantile</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.Weibull.cumulative\">Weibull.cumulative</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.Weibull.quantile\">Weibull.quantile</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -954,7 +954,7 @@ density(1,0.5,2) // = 0.14652511110987343
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1006,7 +1006,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.cumulative.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Weibull.cumulative.png\">
 </blockquote>
 
 <p>
@@ -1022,8 +1022,8 @@ cumulative(0.5,0.5,1) // = 0.6321205588285577
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.Weibull.density\">Weibull.density</a>,
-<a href=\"modelica://Modelica.Math.Distributions.Weibull.quantile\">Weibull.quantile</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.Weibull.density\">Weibull.density</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.Weibull.quantile\">Weibull.quantile</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1034,7 +1034,7 @@ cumulative(0.5,0.5,1) // = 0.6321205588285577
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1085,7 +1085,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Weibull.quantile.png\">
 </blockquote>
 
 <p>
@@ -1101,8 +1101,8 @@ quantile(0.5,1,0.5) // = 0.41627730557884884
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.Weibull.density\">Weibull.density</a>,
-<a href=\"modelica://Modelica.Math.Distributions.Weibull.cumulative\">Weibull.cumulative</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.Weibull.density\">Weibull.density</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.Weibull.cumulative\">Weibull.cumulative</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1113,7 +1113,7 @@ quantile(0.5,1,0.5) // = 0.41627730557884884
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1145,15 +1145,15 @@ of the <strong>Weibull</strong> distribution. Examples:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Weibull.density.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.cumulative.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Weibull.cumulative.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/Weibull.quantile.png\">
 </blockquote>
 
 <p>
@@ -1169,7 +1169,7 @@ For more details of this distribution see
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1221,7 +1221,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.density.png\">
 </blockquote>
 
 <p>
@@ -1240,8 +1240,8 @@ density(0.5,0,0.8,0.5,2) // = 1.5948036466479143
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.TruncatedWeibull.cumulative\">TruncatedWeibull.cumulative</a>,
-<a href=\"modelica://Modelica.Math.Distributions.TruncatedWeibull.quantile\">TruncatedWeibull.quantile</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.TruncatedWeibull.cumulative\">TruncatedWeibull.cumulative</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.TruncatedWeibull.quantile\">TruncatedWeibull.quantile</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1252,7 +1252,7 @@ density(0.5,0,0.8,0.5,2) // = 1.5948036466479143
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1312,7 +1312,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.cumulative.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.cumulative.png\">
 </blockquote>
 
 <p>
@@ -1331,8 +1331,8 @@ cumulative(0.5,0,0.8,0.5,2) // = 0.6850805314988328
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.TruncatedWeibull.density\">TruncatedWeibull.density</a>,
-<a href=\"modelica://Modelica.Math.Distributions.TruncatedWeibull.quantile\">TruncatedWeibull.quantile</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.TruncatedWeibull.density\">TruncatedWeibull.density</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.TruncatedWeibull.quantile\">TruncatedWeibull.quantile</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1343,7 +1343,7 @@ cumulative(0.5,0,0.8,0.5,2) // = 0.6850805314988328
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1413,7 +1413,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.quantile.png\">
 </blockquote>
 
 <p>
@@ -1432,8 +1432,8 @@ quantile(0.5,0,1,0.5,0.9) // = 0.256951787882498
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Distributions.TruncatedWeibull.density\">TruncatedWeibull.density</a>,
-<a href=\"modelica://Modelica.Math.Distributions.TruncatedWeibull.cumulative\">TruncatedWeibull.cumulative</a>.
+<a href=\"modelica:/Modelica.Math.Distributions.TruncatedWeibull.density\">TruncatedWeibull.density</a>,
+<a href=\"modelica:/Modelica.Math.Distributions.TruncatedWeibull.cumulative\">TruncatedWeibull.cumulative</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1444,7 +1444,7 @@ quantile(0.5,0,1,0.5,0.9) // = 0.256951787882498
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1486,15 +1486,15 @@ of the <strong>truncated Weibull</strong> distribution. Examples:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.density.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.cumulative.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.cumulative.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.quantile.png\">
 </blockquote>
 
 <p>
@@ -1513,7 +1513,7 @@ of truncated distributions, see
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1547,7 +1547,7 @@ arguments of the probability density functions.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1578,7 +1578,7 @@ arguments of the cumulative distribution functions.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1610,7 +1610,7 @@ arguments of the quantile functions.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1641,7 +1641,7 @@ arguments of the probability density functions of truncated distributions.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1672,7 +1672,7 @@ arguments of the cumulative distribution functions for a truncated distribution.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1703,7 +1703,7 @@ arguments of the quantile functions for truncated distributions.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1729,7 +1729,7 @@ truncated distribution functions.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1789,7 +1789,7 @@ and the result is then limited to &plusmn; 0.1 Volt, or (b) the normal distribut
 so that it is within the band of &plusmn; 0.1 Volt. Approach (a) is a brute force method that
 changes the statistical properties of the signal in an unknown way. Approach (b)
 is a \"clean\" mathematical description. The blocks in package
-<a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>
+<a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a>
 give the user the freedom to choose: Either compute a normal (unlimited) noise, or
 a truncated normal noise (truncated distribution).
 </p>
@@ -1859,7 +1859,7 @@ compared with its truncated distribution:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
 </blockquote>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1870,7 +1870,7 @@ compared with its truncated distribution:
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>

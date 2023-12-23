@@ -108,10 +108,10 @@ equation
     Documentation(info="<html>
 <p>
 This block for Integer signals works similarly as the corresponding block for Real signals (see
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">RealSignals.Sampler.Utilities.UpSample</a>).
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">RealSignals.Sampler.Utilities.UpSample</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.IntegerSignals.UpSample\">example</a> for this Integer block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.IntegerSignals.UpSample\">example</a> for this Integer block.
 </p>
 
 </html>"));

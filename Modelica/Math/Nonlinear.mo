@@ -68,7 +68,7 @@ package Nonlinear "Library of functions operating on nonlinear equations"
       annotation (Documentation(info="<html>
 <p>
 This example integrates the following integrands with function
-<a href=\"modelica://Modelica.Math.Nonlinear.quadratureLobatto\">quadratureLobatto</a>
+<a href=\"modelica:/Modelica.Math.Nonlinear.quadratureLobatto\">quadratureLobatto</a>
 and compares the result with an analytical solution.
 The examples also demonstrate how additional input arguments to the integrand
 function can be passed as additional arguments.
@@ -141,7 +141,7 @@ The following integrals are computed:
       annotation (Documentation(info="<html>
 <p>
 This example solves the following integrands with function
-<a href=\"modelica://Modelica.Math.Nonlinear.quadratureLobatto\">quadratureLobatto</a>.
+<a href=\"modelica:/Modelica.Math.Nonlinear.quadratureLobatto\">quadratureLobatto</a>.
 The user can set the parameters, like \"w\" or \"k\", and can experiment with
 different integration intervals.
 The following integrals are computed:
@@ -216,7 +216,7 @@ The following integrals are computed:
       annotation (Documentation(info="<html>
 <p>
 This example solves the following nonlinear equations with function
-<a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>
+<a href=\"modelica:/Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>
 and compares the result with the available analytical solution.
 The examples also demonstrate how additional input arguments to the nonlinear equation
 function can be passes as additional arguments.
@@ -297,7 +297,7 @@ The following nonlinear equations are solved:
       annotation (Documentation(info="<html>
 <p>
 This example solves the following nonlinear equations with function
-<a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>.
+<a href=\"modelica:/Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>.
 The user can set the parameters, like \"w\" or \"m\", and can experiment with
 different start intervals.
 The following nonlinear equations are solved:
@@ -335,7 +335,7 @@ to a function in a model.
 
 <p>
 From a modeling point of view, the example demonstrates in very simplified way the basic approach to model distributed systems with the Ritz method.
-The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> is the undeformed position and <code>t</code> is time) is hereby approximated by space-dependent mode shapes <code>&Phi;(c)</code> and time-dependent modal amplitudes <code>q(t)</code>, that is <code>u</code> = <code>&Phi;(c)*q(t)</code>. When inserting this decomposition in the equations of motion and then integrating over all particles, terms such as <code>&int;(&Phi;(c) dc)*q(t)</code> appear, where the time-invariant integral term can be computed beforehand once with the <a href=\"modelica://Modelica.Math.Nonlinear.quadratureLobatto\">Lobatto method</a>. By this approach the partial differential equations are transformed to a system of ordinary differential equations.
+The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> is the undeformed position and <code>t</code> is time) is hereby approximated by space-dependent mode shapes <code>&Phi;(c)</code> and time-dependent modal amplitudes <code>q(t)</code>, that is <code>u</code> = <code>&Phi;(c)*q(t)</code>. When inserting this decomposition in the equations of motion and then integrating over all particles, terms such as <code>&int;(&Phi;(c) dc)*q(t)</code> appear, where the time-invariant integral term can be computed beforehand once with the <a href=\"modelica:/Modelica.Math.Nonlinear.quadratureLobatto\">Lobatto method</a>. By this approach the partial differential equations are transformed to a system of ordinary differential equations.
 </p>
 </html>"),
         experiment(StopTime=5));
@@ -415,11 +415,11 @@ arguments to the example functions.
 <p>
 This partial function defines the interface of a function with
 one input and one output Real signal. The scalar functions
-of <a href=\"modelica://Modelica.Math.Nonlinear\">Modelica.Math.Nonlinear</a>
+of <a href=\"modelica:/Modelica.Math.Nonlinear\">Modelica.Math.Nonlinear</a>
 are derived from this base type by inheritance.
 This allows to use these functions directly as function arguments
 to a function, see, .e.g.,
-<a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Math.Nonlinear.Examples</a>.
+<a href=\"modelica:/Modelica.Math.Nonlinear.Examples\">Math.Nonlinear.Examples</a>.
 </p>
 
 </html>"));
@@ -429,7 +429,7 @@ to a function, see, .e.g.,
 Interface definitions of functions. The main purpose is to use functions
 derived from these interface definitions as function arguments
 to a function, see, .e.g.,
-<a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Math.Nonlinear.Examples</a>.
+<a href=\"modelica:/Modelica.Math.Nonlinear.Examples\">Math.Nonlinear.Examples</a>.
 </p>
 </html>"));
   end Interfaces;
@@ -619,7 +619,7 @@ using the adaptive Lobatto rule according to:
 <h4>Example</h4>
 
 <p>
-See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Modelica.Math.Nonlinear.Examples</a>.
+See the examples in <a href=\"modelica:/Modelica.Math.Nonlinear.Examples\">Modelica.Math.Nonlinear.Examples</a>.
 </p>
 
 </html>"));
@@ -794,7 +794,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
 <h4>Example</h4>
 
 <p>
-See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Modelica.Math.Nonlinear.Examples</a>.
+See the examples in <a href=\"modelica:/Modelica.Math.Nonlinear.Examples\">Modelica.Math.Nonlinear.Examples</a>.
 </p>
 </html>"));
   end solveOneNonlinearEquation;
@@ -811,7 +811,7 @@ functions.
 <p>
 For details about how to define and to use functions as input arguments
 to functions, see
-<a href=\"modelica://ModelicaReference.Classes.'function'\">ModelicaReference.Classes.'function'</a>
+<a href=\"modelica:/ModelicaReference.Classes.'function'\">ModelicaReference.Classes.'function'</a>
 or <a href=\"https://specification.modelica.org/v3.4/Ch12.html#functional-input-arguments-to-functions\">Section 12.4.2
 (Functional Input Arguments to Functions) of the Modelica 3.4 specification</a>.
 </p>

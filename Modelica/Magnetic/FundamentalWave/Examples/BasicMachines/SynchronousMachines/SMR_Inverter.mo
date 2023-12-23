@@ -198,10 +198,10 @@ equation
 <h4>Synchronous machine with reluctance rotor fed by an ideal inverter</h4>
 <p>
 An ideal frequency inverter is modeled by using a
-<a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
-and a three-phase <a href=\"modelica://Modelica.Electrical.Polyphase.Sources.SignalVoltage\">SignalVoltage</a>.
+<a href=\"modelica:/Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
+and a three-phase <a href=\"modelica:/Modelica.Electrical.Polyphase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">reluctance machine</a> to start,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">reluctance machine</a> to start,
 and accelerating inertias. At time <code>tStep</code> a load step is applied.
 </p>
 

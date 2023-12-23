@@ -189,7 +189,7 @@ conductance law in a target system between two inductors.
 </p>
 <p>
 Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
-<a href=\"modelica://Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
+<a href=\"modelica:/Modelica.Electrical.Analog.Basic.Ground\">ground components</a> to define electric potential within the subcircuits.
 </p>
 </html>"));
 end GenerationOfFMUs;

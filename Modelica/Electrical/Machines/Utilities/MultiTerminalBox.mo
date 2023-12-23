@@ -59,7 +59,7 @@ The parameter <code>terminalConnection</code> is used to switch between star
 The star point is a plug with
 <code>mSystem = Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)</code> phases,
 representing the star points of each base system; see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase</a>.
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase</a>.
 </p>
 </html>"));
 end MultiTerminalBox;

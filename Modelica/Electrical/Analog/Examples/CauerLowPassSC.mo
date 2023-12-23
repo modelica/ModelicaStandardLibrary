@@ -278,7 +278,7 @@ equation
 </html>", info="<html>
 <p>The example CauerLowPassSC is a low-pass-filter of the fifth order. It is realized using an switched-capacitor network with operational amplifiers. The voltage source V is the input voltage (step), and the OP5.out.v is the filter output voltage. The pulse response is calculated.</p>
 <p>This model is identical to the CauerLowPassAnalog example, but inverting. To get the same response as that of the CauerLowPassAnalog example, a negative voltage step is used as input.</p>
-<p>This model is identical to the CauerLowPassOPV example. But the resistors are realized by switched capacitors (see <a href=\"modelica://Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor\">SwitchedCapacitor</a>). There are two different types of instances, one with a value of <code>R=1</code> and one with a value of <code>R=-1</code>.</p>
+<p>This model is identical to the CauerLowPassOPV example. But the resistors are realized by switched capacitors (see <a href=\"modelica:/Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor\">SwitchedCapacitor</a>). There are two different types of instances, one with a value of <code>R=1</code> and one with a value of <code>R=-1</code>.</p>
 <p>The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.out.v (output voltage). Compare this result with the CauerLowPassAnalog result.</p>
 <p>Due to the recharging of the capacitances after switching the performance of simulation is not as good as in the CauerLowPassOPV example.</p>
 </html>"));

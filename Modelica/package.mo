@@ -18,10 +18,10 @@ main sub-libraries:
 <tr><th>Library Components</th> <th>Description</th></tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Electrical.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Electrical.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Electrical.Analog\">Analog</a><br>
+ <a href=\"modelica:/Modelica.Electrical.Analog\">Analog</a><br>
  Analog electric and electronic components, such as
  resistor, capacitor, transformers, diodes, transistors,
  transmission lines, switches, sources, sensors.
@@ -29,10 +29,10 @@ main sub-libraries:
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Digital.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Digital.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Electrical.Digital\">Digital</a><br>
+ <a href=\"modelica:/Modelica.Electrical.Digital\">Digital</a><br>
  Digital electrical components based on the VHDL standard,
  like basic logic blocks with 9-value logic, delays, gates,
  sources, converters between 2-, 3-, 4-, and 9-valued logic.
@@ -40,39 +40,39 @@ main sub-libraries:
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Machines.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Machines.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a><br>
+ <a href=\"modelica:/Modelica.Electrical.Machines\">Machines</a><br>
             Electrical asynchronous-, synchronous-, and DC-machines
  (motors and generators) as well as three-phase transformers.
  </td>
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-FluxTubes.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-FluxTubes.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a><br>
+ <a href=\"modelica:/Modelica.Magnetic.FluxTubes\">FluxTubes</a><br>
 Based on magnetic flux tubes concepts. Especially to model electromagnetic actuators. Nonlinear shape, force, leakage, and material models. Material data for steel, electric sheet, pure iron, Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
  </td>
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Translational.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Translational.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Mechanics.Translational\">Translational</a><br>
+ <a href=\"modelica:/Modelica.Mechanics.Translational\">Translational</a><br>
  1-dim. mechanical, translational systems, e.g.,
  sliding mass, mass with stops, spring, damper.
  </td>
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Rotational.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Rotational.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Mechanics.Rotational\">Rotational</a><br>
+ <a href=\"modelica:/Modelica.Mechanics.Rotational\">Rotational</a><br>
  1-dim. mechanical, rotational systems, e.g., inertias, gears,
  planetary gears, convenient definition of speed/torque dependent friction
  (clutches, brakes, bearings, ..)
@@ -80,11 +80,11 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 </tr>
 
 <tr><td width=\"100\">
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-MultiBody1.png\"><br>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-MultiBody2.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-MultiBody1.png\"><br>
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-MultiBody2.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Mechanics.MultiBody\">MultiBody</a>
+ <a href=\"modelica:/Modelica.Mechanics.MultiBody\">MultiBody</a>
  3-dim. mechanical systems consisting of joints, bodies, force and
  sensor elements. Joints can be driven by drive trains defined by
  1-dim. mechanical system library (Rotational).
@@ -94,10 +94,10 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Fluid.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Fluid.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Fluid\">Fluid</a><br>
+ <a href=\"modelica:/Modelica.Fluid\">Fluid</a><br>
         1-dim. thermo-fluid flow in networks of vessels, pipes,
         fluid machines, valves and fittings. All media from the
         Modelica.Media library can be used (so incompressible or compressible,
@@ -106,10 +106,10 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Media.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Media.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Media\">Media</a><br>
+ <a href=\"modelica:/Modelica.Media\">Media</a><br>
  Large media library providing models and functions
  to compute media properties, such as h = h(p,T), d = d(p,T),
  for the following media:
@@ -124,11 +124,11 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Thermal.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Thermal.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Thermal.FluidHeatFlow\">FluidHeatFlow</a>,
- <a href=\"modelica://Modelica.Thermal.HeatTransfer\">HeatTransfer</a>
+ <a href=\"modelica:/Modelica.Thermal.FluidHeatFlow\">FluidHeatFlow</a>,
+ <a href=\"modelica:/Modelica.Thermal.HeatTransfer\">HeatTransfer</a>
  Simple thermo-fluid pipe flow, especially to model cooling of machines
  with air or water (pipes, pumps, valves, ambient, sensors, sources) and
  lumped heat transfer with heat capacitors, thermal conductors, convection,
@@ -137,11 +137,11 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Blocks1.png\"><br>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Blocks2.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Blocks1.png\"><br>
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Blocks2.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Blocks\">Blocks</a><br>
+ <a href=\"modelica:/Modelica.Blocks\">Blocks</a><br>
  Input/output blocks to model block diagrams and logical networks, e.g.,
  integrator, PI, PID, transfer function, linear state space system,
  sampler, unit delay, discrete transfer function, and/or blocks,
@@ -150,10 +150,10 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Clocked.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-Clocked.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.Clocked\">Clocked</a><br>
+ <a href=\"modelica:/Modelica.Clocked\">Clocked</a><br>
  Blocks to precisely define and synchronize sampled data systems with different
  sampling rates. Continuous-time equations can be automatically discretized and
  utilized in a sampled data system. The library is based on the clocked
@@ -162,10 +162,10 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 </tr>
 
 <tr><td>
- <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-StateGraph.png\">
+ <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Lib-StateGraph.png\">
  </td>
  <td>
- <a href=\"modelica://Modelica.StateGraph\">StateGraph</a><br>
+ <a href=\"modelica:/Modelica.StateGraph\">StateGraph</a><br>
  Hierarchical state machines with a similar modeling power as Statecharts.
  Modelica is used as synchronous action language, i.e., deterministic
  behavior is guaranteed
@@ -183,8 +183,8 @@ Matrices.eigenValues(A);
  </pre></blockquote>
  </td>
  <td>
- <a href=\"modelica://Modelica.Math\">Math</a>,
- <a href=\"modelica://Modelica.Utilities\">Utilities</a><br>
+ <a href=\"modelica:/Modelica.Math\">Math</a>,
+ <a href=\"modelica:/Modelica.Utilities\">Utilities</a><br>
  Functions operating on vectors and matrices, such as for solving
  linear systems, eigen and singular values etc.,  and
  functions operating on strings, streams, files, e.g.,
@@ -225,80 +225,80 @@ variables is explained in section \"Connector Equations\" below):
    <td>electrical potential</td>
    <td>electrical current</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Electrical.Analog.Interfaces\">Modelica.Electrical.Analog.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Electrical.Analog.Interfaces\">Modelica.Electrical.Analog.Interfaces</a>
      <br>Pin, PositivePin, NegativePin</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPins.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/ElectricalPins.png\"></td></tr>
 
 <tr><td><strong>electrical<br>polyphase</strong></td>
    <td colspan=\"3\">vector of electrical pins</td>
-   <td><a href=\"modelica://Modelica.Electrical.Polyphase.Interfaces\">Modelica.Electrical.Polyphase.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Electrical.Polyphase.Interfaces\">Modelica.Electrical.Polyphase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
 
 <tr><td><strong>electrical<br>space phasor</strong></td>
    <td>2 electrical potentials</td>
    <td>2 electrical currents</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Electrical.Machines.Interfaces\">Modelica.Electrical.Machines.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Electrical.Machines.Interfaces\">Modelica.Electrical.Machines.Interfaces</a>
      <br>SpacePhasor</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
 <tr><td><strong>quasi-static<br>single-phase</strong></td>
    <td>complex electrical potential</td>
    <td>complex electrical current</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces\">
+   <td><a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces\">
                                        Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces</a>
      <br>Pin, PositivePin, NegativePin</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticSinglePhasePins.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/QuasiStaticSinglePhasePins.png\"></td></tr>
 
 <tr><td><strong>quasi-static<br>polyphase</strong></td>
    <td colspan=\"3\">vector of quasi-static single-phase pins</td>
-   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces\">Modelica.Electrical.QuasiStatic.Polyphase.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces\">Modelica.Electrical.QuasiStatic.Polyphase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticPolyphasePlugs.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/QuasiStaticPolyphasePlugs.png\"></td></tr>
 
 <tr><td><strong>electrical<br>digital</strong></td>
    <td>Integer (1..9)</td>
    <td></td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Electrical.Digital.Interfaces\">Modelica.Electrical.Digital.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Electrical.Digital.Interfaces\">Modelica.Electrical.Digital.Interfaces</a>
      <br>DigitalSignal, DigitalInput, DigitalOutput</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Digital.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Digital.png\"></td></tr>
 
 <tr><td><strong>magnetic<br>flux tubes</strong></td>
    <td>magnetic potential</td>
    <td>magnetic flux</td>
    <td></td>
    <td>
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces\">Modelica.Magnetic.FluxTubes.Interfaces</a>
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Interfaces\">Modelica.Magnetic.FluxTubes.Interfaces</a>
      <br>MagneticPort, PositiveMagneticPort,<br>NegativeMagneticPort</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MagneticPorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/MagneticPorts.png\"></td></tr>
 
 <tr><td><strong>magnetic<br>fundamental<br>wave</strong></td>
    <td>complex magnetic potential</td>
    <td>complex magnetic flux</td>
    <td></td>
    <td>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces\">Modelica.Magnetic.FundamentalWave.Interfaces</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Interfaces\">Modelica.Magnetic.FundamentalWave.Interfaces</a>
      <br>MagneticPort, PositiveMagneticPort,<br>NegativeMagneticPort</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FundamentalWavePorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/FundamentalWavePorts.png\"></td></tr>
 
 <tr><td><strong>translational</strong></td>
    <td>distance</td>
    <td>cut-force</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces\">Modelica.Mechanics.Translational.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Mechanics.Translational.Interfaces\">Modelica.Mechanics.Translational.Interfaces</a>
      <br>Flange_a, Flange_b</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
 
 <tr><td><strong>rotational</strong></td>
    <td>angle</td>
    <td>cut-torque</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces\">Modelica.Mechanics.Rotational.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces\">Modelica.Mechanics.Rotational.Interfaces</a>
      <br>Flange_a, Flange_b</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/RotationalFlanges.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/RotationalFlanges.png\"></td></tr>
 
 <tr><td><strong>3-dim.<br>mechanics</strong></td>
    <td>position vector<br>
@@ -306,9 +306,9 @@ variables is explained in section \"Connector Equations\" below):
    <td>cut-force vector<br>
     cut-torque vector</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Mechanics.MultiBody.Interfaces\">Modelica.Mechanics.MultiBody.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Interfaces\">Modelica.Mechanics.MultiBody.Interfaces</a>
      <br>Frame, Frame_a, Frame_b, Frame_resolve</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MultiBodyFrames.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/MultiBodyFrames.png\"></td></tr>
 
 <tr><td><strong>simple<br>fluid flow</strong></td>
    <td>pressure<br>
@@ -316,26 +316,26 @@ variables is explained in section \"Connector Equations\" below):
    <td>mass flow rate<br>
     enthalpy flow rate</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces\">Modelica.Thermal.FluidHeatFlow.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Thermal.FluidHeatFlow.Interfaces\">Modelica.Thermal.FluidHeatFlow.Interfaces</a>
      <br>FlowPort, FlowPort_a, FlowPort_b</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
 
 <tr><td><strong>thermo<br>fluid flow</strong></td>
    <td>pressure</td>
    <td>mass flow rate</td>
    <td>specific enthalpy<br>mass fractions</td>
    <td>
-<a href=\"modelica://Modelica.Fluid.Interfaces\">Modelica.Fluid.Interfaces</a>
+<a href=\"modelica:/Modelica.Fluid.Interfaces\">Modelica.Fluid.Interfaces</a>
      <br>FluidPort, FluidPort_a, FluidPort_b</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FluidPorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/FluidPorts.png\"></td></tr>
 
 <tr><td><strong>heat<br>transfer</strong></td>
    <td>temperature</td>
    <td>heat flow rate</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces\">Modelica.Thermal.HeatTransfer.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Thermal.HeatTransfer.Interfaces\">Modelica.Thermal.HeatTransfer.Interfaces</a>
      <br>HeatPort, HeatPort_a, HeatPort_b</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
 
 <tr><td><strong>blocks</strong></td>
    <td>
@@ -344,21 +344,21 @@ variables is explained in section \"Connector Equations\" below):
     Boolean variable</td>
    <td></td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Blocks.Interfaces\">Modelica.Blocks.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Blocks.Interfaces\">Modelica.Blocks.Interfaces</a>
      <br>
       RealSignal, RealInput, RealOutput<br>
       IntegerSignal, IntegerInput, IntegerOutput<br>
       BooleanSignal, BooleanInput, BooleanOutput</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Signals.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Signals.png\"></td></tr>
 
 <tr><td><strong>complex<br>blocks</strong></td>
    <td>
     Complex variable</td>
    <td></td>
    <td></td>
-   <td><a href=\"modelica://Modelica.ComplexBlocks.Interfaces\">Modelica.ComplexBlocks.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.ComplexBlocks.Interfaces\">Modelica.ComplexBlocks.Interfaces</a>
      <br>ComplexSignal, ComplexInput, ComplexOutput</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ComplexSignals.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/ComplexSignals.png\"></td></tr>
 
 <tr><td><strong>state<br>machine</strong></td>
    <td>Boolean variables<br>
@@ -366,9 +366,9 @@ variables is explained in section \"Connector Equations\" below):
      available, reset)</td>
    <td></td>
    <td></td>
-   <td><a href=\"modelica://Modelica.StateGraph.Interfaces\">Modelica.StateGraph.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.StateGraph.Interfaces\">Modelica.StateGraph.Interfaces</a>
      <br>Step_in, Step_out, Transition_in, Transition_out</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/StateGraphPorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/StateGraphPorts.png\"></td></tr>
 </table>
 
 <p>
@@ -550,15 +550,15 @@ In a more equation oriented case, additional equations or code segments can be a
 <ul>
   <li>if <code>usePolar == true</code>, assign magnitude and angle to output<br>
 
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"
+  <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"
        alt=\"y[i,1] = sqrt( a[i]^2 + b[i]^2 )\"><br>
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\"
+  <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\"
        alt=\"y[i,2] = atan2( b[i], a[i] )\">
   </li>
   <li>if <code>usePolar == false</code>, assign cosine and sine to output<br>
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"
+  <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"
        alt=\"y[i,1] = a[i]\"><br>
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\"
+  <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\"
        alt=\" y[i,2] = b[i]\">
   </li>
 </ul>
@@ -571,7 +571,7 @@ In a more equation oriented case, additional equations or code segments can be a
 
           annotation (Documentation(info="<html>
 <p>
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> conventions of class and instance names,
+<a href=\"modelica:/Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> conventions of class and instance names,
 parameters and variables are specified separately. In this section it is summarized how to refer to
 Modelica code in the HTML documentation.
 </p>
@@ -642,15 +642,15 @@ or <a href=\"http://www.codecogs.com/latex/eqneditor.php\">codecogs</a> can be u
 <p>
 A typical equation, e.g., of a Fourier synthesis, could look like<br>
 <img
- src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"><br>
+ src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"><br>
 or<br>
 <img
- src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
+ src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
  alt=\"y=a_1+a_2\"><br>
 In an <code>alt</code> tag the original equation should be stored, e.g.,</p>
 <blockquote><pre>
 &lt;img
-&nbsp;src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+&nbsp;src=&quot;modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
 &nbsp;alt=&quot;y=a_1+a_2&quot;&gt;
 </pre></blockquote>
 
@@ -676,7 +676,7 @@ Vector and array indices should be typeset as subscripts using the
 &lt;table border=&quot;0&quot; cellspacing=&quot;10&quot; cellpadding=&quot;2&quot;&gt;
   &lt;tr&gt;
     &lt;td&gt;&lt;img
-    src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+    src=&quot;modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
     alt=&quot;y=a_1+a_2&quot;&gt; &lt;/td&gt;
     &lt;td&gt;(1)&lt;/td&gt;
   &lt;/tr&gt;
@@ -688,7 +688,7 @@ Vector and array indices should be typeset as subscripts using the
 <table border=\"0\" cellspacing=\"10\" cellpadding=\"2\">
   <tr>
     <td><img
-         src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
+         src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
          alt=\"y=a_1+a_2\"></td>
     <td>(1)</td>
   </tr>
@@ -723,12 +723,12 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <h5>Example 1</h5>
 
 <p>This example shows how an illustration should be embedded in the Example
-<a href=\"modelica://Modelica.Blocks.Examples.PID_Controller\">PID_Controller</a> of the
-<a href=\"modelica://Modelica.Blocks\">Blocks</a> package.
+<a href=\"modelica:/Modelica.Blocks.Examples.PID_Controller\">PID_Controller</a> of the
+<a href=\"modelica:/Modelica.Blocks\">Blocks</a> package.
 </p>
 
 <blockquote><pre>
-&lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+&lt;img src=&quot;modelica:/Modelica/Resources/Images/Blocks/PID_controller.png&quot;
      alt=&quot;PID_controller.png&quot;&gt;
 </pre></blockquote>
 
@@ -741,7 +741,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   &lt;caption&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+      &lt;img src=&quot;modelica:/Modelica/Resources/Images/Blocks/PID_controller.png&quot;
            alt=&quot;PID_controller.png&quot;&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
@@ -759,7 +759,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   &lt;caption&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+      &lt;img src=&quot;modelica:/Modelica/Resources/Images/Blocks/PID_controller.png&quot;
            alt=&quot;PID_controller.png&quot;&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
@@ -776,7 +776,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <li> Hyperlinks should always be made when referring to a component or package.</li>
 <li> The hyperlink text in between <code>&lt;a href=&quot;...&quot;&gt;</code> and <code>&lt;/a&gt;</code> should include the full main package name.</li>
 <li> A link to an external component should include the full name of the package that it is referred to.</li>
-<li> Modelica hyperlinks have to use the scheme <code>&quot;modelica://...&quot;</code></li>
+<li> Modelica hyperlinks have to use the scheme <code>&quot;modelica:/...&quot;</code></li>
 <li> For hyperlinks referring to a Modelica component, see Example 1 and 2.</li>
 <li> No links to commercial web sites are allowed.</li>
 </ol>
@@ -786,11 +786,11 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <h5>Example 1</h5>
 
 <blockquote><pre>
-&lt;a href=&quot;modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&quot;&gt;
+&lt;a href=&quot;modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&quot;&gt;
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;
 </pre></blockquote>
 <p>appears as</p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
 
 <h5>Example 2</h5>
@@ -798,14 +798,14 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <blockquote><pre>
 &lt;p&gt;
   The feeder cables are connected to an
-  &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage&quot;&gt;
+  &lt;a href=&quot;modelica:/Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage&quot;&gt;
   induction machine&lt;/a&gt;.
 &lt;/p&gt;
 </pre></blockquote>
 <p>appears as</p>
 <p>
   The feeder cables are connected to an
-  <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage\">
+  <a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage\">
   induction machine</a>.
 </p>
 </html>"));
@@ -866,7 +866,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
           annotation (Documentation(info="<html>
 <ol>
 <li> Refer to references by [1], [Andronov1973], etc. by hyperlink and summarize literature in the references subsection of
-     <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Conventions.UsersGuide.References</a>.</li>
+     <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References\">Conventions.UsersGuide.References</a>.</li>
 <li> There has to be made at least one citation to each reference.</li>
 </ol>
 
@@ -877,17 +877,17 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <blockquote><pre>
 &lt;p&gt;
 More details about electric machine modeling
-can be found in [&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Gao2008&lt;/a&gt;]
+can be found in [&lt;a href=&quot;modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Gao2008&lt;/a&gt;]
 and
-[&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Kral2018&lt;/a&gt;, p. 149].
+[&lt;a href=&quot;modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Kral2018&lt;/a&gt;, p. 149].
 &lt;/p&gt;
 </pre></blockquote>
 <p>appears as</p>
 <p>
 More details about electric machine modeling
-can be found in [<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Gao2008</a>]
+can be found in [<a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References\">Gao2008</a>]
 and
-[<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Kral2018</a>, p. 149].
+[<a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References\">Kral2018</a>, p. 149].
 </p>
 </html>"));
         end References;
@@ -989,7 +989,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
 
 <p>
 In this section the format UsersGuide of the HTML documentation are specified.
-The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Structure\">structure</a> of the documentation is specified separately.
+The <a href=\"modelica:/Modelica.UsersGuide.Conventions.Documentation.Structure\">structure</a> of the documentation is specified separately.
 </p>
 
 <h4>Paragraphs</h4>
@@ -1261,7 +1261,7 @@ For Boolean parameters, the description string should start with &quot;= true, &
 
 <li> A <strong>connector class</strong> has the instance
      name definition in the diagram layer and not in the
-     <a href=\"modelica://Modelica.UsersGuide.Conventions.Icons\">icon</a> layer.</li>
+     <a href=\"modelica:/Modelica.UsersGuide.Conventions.Icons\">icon</a> layer.</li>
 </ol>
 
 <h4>Variable names</h4>
@@ -1554,7 +1554,7 @@ This class summarizes general information about the implementation which is not 
 <li> Technical report [Marlino2005]</li>
 </ul>
 
-<p>The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Format.References\">citation</a> is also explained.</p>
+<p>The <a href=\"modelica:/Modelica.UsersGuide.Conventions.Documentation.Format.References\">citation</a> is also explained.</p>
 
 <h4>Example</h4>
 
@@ -1676,7 +1676,7 @@ This class summarizes contact information of the contributing persons.
 &lt;p&gt;
 Library officers responsible for the maintenance and for the
 organization of the development of this library are listed in
-&lt;a href=\"modelica://Modelica.UsersGuide.Contact\"&gt;Modelica.UsersGuide.Contact&lt;/a&gt;.
+&lt;a href=\"modelica:/Modelica.UsersGuide.Contact\"&gt;Modelica.UsersGuide.Contact&lt;/a&gt;.
 &lt;/p&gt;
 
 &lt;h4&gt;Main authors&lt;/h4&gt;
@@ -1728,7 +1728,7 @@ OR whatever
 <p>
 Library officers responsible for the maintenance and for the
 organization of the development of this library are listed in
-<a href=\"modelica://Modelica.UsersGuide.Contact\">Modelica.UsersGuide.Contact</a>.
+<a href=\"modelica:/Modelica.UsersGuide.Contact\">Modelica.UsersGuide.Contact</a>.
 </p>
 
 <h4>Main authors</h4>
@@ -1832,7 +1832,7 @@ The authors would like to thank following persons for their support ...
       <td>1.0.5</td>
       <td>2010-03-11</td>
       <td>D. Winkler</td>
-      <td>Updated image links guide to new 'modelica://' URIs, added contact details</td>
+      <td>Updated image links guide to new 'modelica:/' URIs, added contact details</td>
     </tr>
     <tr>
       <td>1.0.4</td>
@@ -1865,11 +1865,11 @@ The authors would like to thank following persons for their support ...
     annotation (Documentation(info="<html>
 <p>The UsersGuide of each package should consist of the following classes</p>
 <ol>
-<li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.Contact\">Contact</a> information of
+<li> <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.Contact\">Contact</a> information of
      the library officer and the co-authors</li>
-<li> Optional <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.Implementation\">Implementation Notes</a> to give general information about the implementation</li>
-<li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">References</a> for summarizing the literature of the package</li>
-<li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.RevisionHistory\">Revision history </a> to summarize the most important changes and improvements of the package</li>
+<li> Optional <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.Implementation\">Implementation Notes</a> to give general information about the implementation</li>
+<li> <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References\">References</a> for summarizing the literature of the package</li>
+<li> <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.RevisionHistory\">Revision history </a> to summarize the most important changes and improvements of the package</li>
 </ol>
 </html>"));
     end UsersGuide;
@@ -1896,87 +1896,87 @@ In the Modelica Standard Library the following color schemes apply:</p>
   <tr>
     <td>Modelica.Blocks</td>
     <td>{0,0,127}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleBlocks.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleBlocks.png\"></td>
   </tr>
   <tr>
     <td>Modelica.ComplexBlocks</td>
     <td>{85,170,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleComplexBlocks.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleComplexBlocks.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Clocked</td>
     <td>{95,95,95}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleClocked.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleClocked.png\"></td>
   </tr>
   <tr>
     <td>Modelica.StateGraph</td>
     <td>{0,0,0}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleStateGraph.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleStateGraph.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Analog</td>
     <td>{0,0,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalAnalog.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalAnalog.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Digital</td>
     <td>{128,0,128}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalDigital.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalDigital.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Machines</td>
     <td>{0,0,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalMachines.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalMachines.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Polyphase</td>
     <td>{0,0,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalPolyphase.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalPolyphase.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.QuasiStatic</td>
     <td>{85,170,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalQuasiStatic.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalQuasiStatic.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Spice3</td>
     <td> {170,85,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalSpice3.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalSpice3.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Magnetic.FluxTubes</td>
     <td>{255,127,0}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticFluxTubes.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticFluxTubes.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Magnetic.FundamentalWave</td>
     <td>{255,127,0}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticFundamentalWave.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticFundamentalWave.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Magnetic.QuasiStatic</td>
     <td>{255,170,85}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticQuasiStatic.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticQuasiStatic.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Mechanics.MultiBody</td>
     <td>{192,192,192}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsMultiBody.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsMultiBody.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Mechanics.Rotational</td>
     <td>{95,95,95}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsRotational.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsRotational.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Mechanics.Translational</td>
     <td>{0,127,0}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsTranslational.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsTranslational.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Fluid</td>
     <td>{0,127,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleFluid.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleFluid.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Media</td>
@@ -1986,12 +1986,12 @@ In the Modelica Standard Library the following color schemes apply:</p>
   <tr>
     <td>Modelica.Thermal.FluidHeatFlow</td>
     <td>{0,0,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleThermalFluidHeatFlow.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleThermalFluidHeatFlow.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Thermal.HeatTransfer</td>
     <td>{191,0,0}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleThermalHeatTransfer.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleThermalHeatTransfer.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Math</td>
@@ -2039,11 +2039,11 @@ and the most significant parameter can be displayed within the vertical Diagram 
   <caption><strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions</caption>
   <tr>
     <td> (a)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
            alt=\"Typical placement of component name\">
     </td>
     <td> (b)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"
            alt=\"Typical dimensions of icon and its entities\">
     </td>
   </tr>
@@ -2066,7 +2066,7 @@ the component name shall be placed above the icon with vertical 10 units of spac
   <caption><strong>Fig. 2</strong>: Block component name</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"
            alt=\"Placement of block component name\">
     </td>
   </tr>
@@ -2081,7 +2081,7 @@ the line shall be interrupted such that this line does not interfere with compon
   <caption><strong>Fig. 3</strong>: Component name between actual icon and connector</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"
            alt=\"Component name placed between actual icon and connector\">
     </td>
   </tr>
@@ -2093,7 +2093,7 @@ the line shall be interrupted such that this line does not interfere with compon
   <caption><strong>Fig. 4</strong>: Component name below actual icon</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"
            alt=\"Icon with name placed below it\">
     </td>
   </tr>
@@ -2123,7 +2123,7 @@ Preferred connector locations are:</p>
   <caption><strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"
            alt=\"Icon of connector corner\">
     </td>
   </tr>
@@ -2138,19 +2138,19 @@ design of sensors apply:
 
 <ul>
 <li>The sensor outputs shall be indicated by its SI unit, not its quantity; the proper SI unit shall be compliant with the unit definitions of
-    <a href=\"modelica://Modelica.Units.SI\">Modelica.Units.SI</a>,
+    <a href=\"modelica:/Modelica.Units.SI\">Modelica.Units.SI</a>,
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
 <li>For a sensor with a single output signal the SI unit shall be placed within the sensor,
     see <strong>Fig.&nbsp;6</strong> and <strong>7</strong>
     <ul>
-    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be
+    <li>In a <a href=\"modelica:/Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be
         <ul>
         <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
         <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readability</li>
         </ul></li>
 
-    <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be
+    <li>In a <a href=\"modelica:/Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be
         <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
     </ul></li>
 <li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal;
@@ -2165,11 +2165,11 @@ design of sensors apply:
   <caption><strong>Fig. 6</strong>: Round sensor with (a) short and (b) longer SI unit</caption>
   <tr>
     <td> (a)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
            alt=\"Icon of connector corner\">
     </td>
     <td> (b)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round2.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round2.png\"
            alt=\"Icon of connector corner\">
     </td>
   </tr>
@@ -2179,7 +2179,7 @@ design of sensors apply:
   <caption><strong>Fig. 7</strong>: Rectangular sensor </caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
            alt=\"Icon of connector corner\">
     </td>
   </tr>
@@ -2189,7 +2189,7 @@ design of sensors apply:
   <caption><strong>Fig. 8</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
            alt=\"Icon of connector corner\">
     </td>
   </tr>
@@ -2205,11 +2205,11 @@ Graphical illustrations shall not be added in the diagram layer, but can be adde
     annotation (DocumentationClass=true,Documentation(info="<html>
 <p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
-<li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a></li>
-<li> Consistent <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">HTML documentation</a></li>
+<li> Conventions of the <a href=\"modelica:/Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a></li>
+<li> Consistent <a href=\"modelica:/Modelica.UsersGuide.Conventions.Documentation\">HTML documentation</a></li>
 <li> Structure to be provided by a main package
 <ul>
-     <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
+     <li> <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
      <li> <strong>Examples</strong> containing models demonstrating the usage of the library.</li>
      <li> <strong>Components</strong> -- in case of a complex library a more detailed structure can be established.</li>
      <li> <strong>Sensors</strong></li>
@@ -2399,12 +2399,12 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
         the comparison between dutyCycle and reference signal is either applied common or separated for both fire ports.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>BearingFriction</td>
-    <td>The table interpolation in <code>tau_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
+    <td>The table interpolation in <code>tau_pos</code> utilizes the interpolation based on <a href=\"modelica:/Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
 <tr><td>LossyGear</td>
-    <td>The table interpolation in <code>lossTable</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
+    <td>The table interpolation in <code>lossTable</code> utilizes the interpolation based on <a href=\"modelica:/Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
 <tr><td>SupportFriction</td>
-    <td>The table interpolation in <code>f_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
+    <td>The table interpolation in <code>f_pos</code> utilizes the interpolation based on <a href=\"modelica:/Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
 </table>
 
 <p><br>
@@ -2414,10 +2414,10 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>Brake<br>Clutch<br>OneWayClutch</td>
-    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
+    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica:/Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
 <tr><td>Brake</td>
-    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
+    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica:/Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
 </table>
 
 <p><br>
@@ -2443,10 +2443,10 @@ A tested conversion script is provided to transform models and libraries of prev
 Short Overview:
 </p>
 <ul>
-<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">649 issues (including 432 pull requests)</a> have been addressed for this release.</li>
+<li>About <a href=\"modelica:/Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">649 issues (including 432 pull requests)</a> have been addressed for this release.</li>
 <li>This version is based on the recent Modelica language standard version 3.4.</li>
 <li>The library version (i.e., \"4.0.0\") follows semantic versioning using the convention <code>MAJOR.MINOR.BUGFIX</code>
-(see <a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.VersionManagement\">Version Management</a> for details)
+(see <a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.VersionManagement\">Version Management</a> for details)
  and was decoupled from the version of the utilized version of the Modelica language standard.</li>
 <li>Obsolete classes of previous versions 3.x.y have been replaced.</li>
 <li>Obsolete classes, that could not be automatically converted to alternative implementations, have been moved to library ObsoleteModelica4.</li>
@@ -2456,12 +2456,12 @@ Short Overview:
     <li>Modelica.Electrical.MultiPhase &rarr; Modelica.Electrical.Polyphase</li>
     <li>Modelica.Electrical.QuasiStationary &rarr; Modelica.Electrical.QuasiStatic</li>
   </ol></li>
-<li>The licenses of the utilized open-source third-party software components as well as the BSD 3-clause license of the Modelica Standard Library itself are available as separate <a href=\"modelica://Modelica/Resources/Licenses\">resources</a>.</li>
+<li>The licenses of the utilized open-source third-party software components as well as the BSD 3-clause license of the Modelica Standard Library itself are available as separate <a href=\"modelica:/Modelica/Resources/Licenses\">resources</a>.</li>
 </ul>
 
 <p>
 The exact difference between package Modelica version 4.0.0 and version 3.2.3 is
-summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/DifferencesTo323.html\">comparison table</a>.
+summarized in a <a href=\"modelica:/Modelica/Resources/Documentation/Version-4.0.0/DifferencesTo323.html\">comparison table</a>.
 </p>
 
 <p>
@@ -2614,12 +2614,12 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Modelica.Clocked\">Modelica.Clocked</a></td>
+<tr><td><a href=\"modelica:/Modelica.Clocked\">Modelica.Clocked</a></td>
     <td>This library can be used to precisely define and synchronize sampled data systems with different sampling rates.<br>The library previously was
     available as separate package <a href=\"https://github.com/modelica/Modelica_Synchronous\">Modelica_Synchronous</a>.
     (This library was developed by DLR in close cooperation with Dassault Syst&egrave;mes Lund.)
     </td></tr>
-<tr><td><a href=\"modelica://Modelica.Electrical.Batteries\">Modelica.Electrical.Batteries</a></td>
+<tr><td><a href=\"modelica:/Modelica.Electrical.Batteries\">Modelica.Electrical.Batteries</a></td>
     <td>This library offers simple battery models.<br>
     (This library was developed by Anton Haumer and Christian Kral.)
     </td></tr>
@@ -2714,13 +2714,13 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>The enumeration type has been converted to <code>Types.Init</code> with exception of the alternative <code>InitPID.DoNotUse_InitialIntegratorState</code>, that was converted to <code>Init.InitialState</code> leading to a different initialization behaviour.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Utilities</strong></td></tr>
 <tr><td>SwitchYD</td>
-    <td>The <a href=\"modelica://Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch\">IdealCommutingSwitch</a> is replaced by an <a href=\"modelica://Modelica.Electrical.Polyphase.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a> and an <a href=\"modelica://Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a> to allow a time delay between the two switching actions.</td></tr>
+    <td>The <a href=\"modelica:/Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch\">IdealCommutingSwitch</a> is replaced by an <a href=\"modelica:/Modelica.Electrical.Polyphase.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a> and an <a href=\"modelica:/Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a> to allow a time delay between the two switching actions.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3</strong></td></tr>
 <tr><td>Internal.MOS2<br>Semiconductors.M_NMOS2<br>Semiconductors.M_PMOS2</td>
     <td>The final parameter <code>vp</code> has been removed.<br>The obsolete variables <code>cc_obsolete</code>, <code>icqmGB</code>, <code>icqmGS</code>, <code>icqmGD</code>, <code>MOScapgd</code>, <code>MOScapgs</code>, <code>MOScapgb</code>, <code>qm</code> and <code>vDS</code> have been removed.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</strong></td></tr>
 <tr><td>SwitchYD</td>
-    <td>The <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch\">IdealCommutingSwitch</a> is replaced by an <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a> and an <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a> to allow a time delay between the two switching actions.</td></tr>
+    <td>The <a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch\">IdealCommutingSwitch</a> is replaced by an <a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a> and an <a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a> to allow a time delay between the two switching actions.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Forces</strong></td></tr>
 <tr><td>WorldForce</td>
     <td>The parameters <code>diameter</code> and <code>N_to_m</code> have been removed.</td></tr>
@@ -2823,7 +2823,7 @@ and will interpret it in the same way. Short Overview:
 </p>
 
 <ul>
-<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">557 issues (including pull requests)</a>
+<li>About <a href=\"modelica:/Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">557 issues (including pull requests)</a>
     have been addressed for this release.</li>
 <li><strong>94</strong> component models and blocks, <strong>36</strong> example models and <strong>9</strong> functions are newly included.</li>
 <li>The license has been changed to BSD 3-clause, visit: <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
@@ -2831,7 +2831,7 @@ and will interpret it in the same way. Short Overview:
 
 <p>
 The exact difference between package Modelica version 3.2.3 and version 3.2.2 is
-summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/DifferencesTo322.html\">comparison table</a>.
+summarized in a <a href=\"modelica:/Modelica/Resources/Documentation/Version-3.2.3/DifferencesTo322.html\">comparison table</a>.
 </p>
 
 <p><br>
@@ -2839,13 +2839,13 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes\">Modelica.Magnetic.QuasiStatic.FluxTubes</a></td>
+<tr><td><a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FluxTubes\">Modelica.Magnetic.QuasiStatic.FluxTubes</a></td>
     <td>
     This library provides models for the investigation of quasi-static electromagnetic devices with lumped magnetic networks
-    in a comparable way as <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a>.<br>
+    in a comparable way as <a href=\"modelica:/Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a>.<br>
     (This library was developed by Christian Kral.)
     </td></tr>
-<tr><td><a href=\"modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives\">Modelica.Electrical.Machines.Examples.ControlledDCDrives</a></td>
+<tr><td><a href=\"modelica:/Modelica.Electrical.Machines.Examples.ControlledDCDrives\">Modelica.Electrical.Machines.Examples.ControlledDCDrives</a></td>
     <td>
     This library demonstrates the control of a permanent magnet dc machine: current control, speed control and position control
     along with the necessary components in sublibrary Utilities.<br>
@@ -2941,7 +2941,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.<br>
          Note: These adaptors give the same results as:<br>
          AngleToTorqueAdaptor<br>TorqueToAngleAdaptor<br>
-         but extend from <a href=\"modelica://Modelica.Blocks.Interfaces.Adaptors\">Modelica.Blocks.Interfaces.Adaptors</a>
+         but extend from <a href=\"modelica:/Modelica.Blocks.Interfaces.Adaptors\">Modelica.Blocks.Interfaces.Adaptors</a>
          like adaptors in other domains.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Sources</strong></td></tr>
 <tr><td width=\"150\">EddyCurrentTorque</td>
@@ -3152,21 +3152,21 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
 <li> About <strong>240</strong> tickets have been fixed in this release and the previous maintenance releases:
      <ul>
      <li> <strong>Version 3.2.1 Build.3</strong> (July 30, 2015) with respect to 3.2.1 Build.2 (August 14, 2013):<br>
-          About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a>
+          About <a href=\"modelica:/Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a>
           have been fixed for this maintenance release.<br>&nbsp;</li>
 
      <li> <strong>Version 3.2.1 Build.4</strong> (September 30, 2015) with respect to 3.2.1 Build.3 (July 30, 2015):
           <ul>
-            <li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10 tickets</a>
+            <li> About <a href=\"modelica:/Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10 tickets</a>
                  have been fixed for this maintenance release. Critical tickets:</li>
 
             <li> Ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1768\">1768</a>
-                 fixes an issue with block <a href=\"modelica://Modelica.Blocks.Sources.CombiTimeTable\">CombiTimeTable</a>
+                 fixes an issue with block <a href=\"modelica:/Modelica.Blocks.Sources.CombiTimeTable\">CombiTimeTable</a>
                  (wrong output when using fixed time step integrator with time step greater than table resolution).</li>
 
             <li> Ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1758\">1758</a>
                  states that simulation of
-                 <a href=\"modelica://Modelica.Fluid.Examples.HeatingSystem\">Modelica.Fluid.Examples.HeatingSystem</a>
+                 <a href=\"modelica:/Modelica.Fluid.Examples.HeatingSystem\">Modelica.Fluid.Examples.HeatingSystem</a>
                  fails in Dymola 2016 if option \"pedantic mode for checking Modelica semantics\" is set.
                  This issue was not fixed in the library due to the following reasons:<br>
                  The Modelica.Fluid library uses a particular pattern to define some parameters resulting
@@ -3186,7 +3186,7 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
                  Modelica.Fluid library in version 3.2.1 build 4 and any previous version).</li>
 
             <li> In ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1757\">1757</a> it is (correctly) stated
-                 that the example model <a href=\"modelica://Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a>
+                 that the example model <a href=\"modelica:/Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a>
                  was moved from Modelica.Media.Air.MoistAir.PsychrometricData and that this is a non-backwards compatible change.
                  This non-backwards compatible change is accepted, because it fixes a circular dependency (a model references
                  a package in which it resides), for details see ticket
@@ -3198,14 +3198,14 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
           </ul>
      </li>
      <li> <strong>Version 3.2.2 Build.2</strong> (March 16, 2016) with respect to 3.2.1 Build.4 (September 30, 2015):<br>
-          About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">130 tickets</a>
+          About <a href=\"modelica:/Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">130 tickets</a>
           have been fixed for this release.<br>
           The ModelicaStandardTables object library (.lib, .dll, .a, .so, depending on tool) has
           been split into the libraries <strong>ModelicaStandardTables</strong>, <strong>ModelicaMatIO</strong>, <strong>zlib</strong> and the new
           object library <strong>ModelicaIO</strong> has been added.<br>
           For a <strong>tool vendor</strong> this can be a non-backwards compatible change if the same object libraries have been used in the past
           for different releases of package Modelica.
-          In <a href=\"modelica://Modelica/Resources/C-Sources/readme.txt\">Resources/C-Sources/readme.txt</a>
+          In <a href=\"modelica:/Modelica/Resources/C-Sources/readme.txt\">Resources/C-Sources/readme.txt</a>
           the issue is explained in detail and how to resolve it.
           For a <strong>user</strong> this might be a non-backwards compatible change if he/she implemented an
           own external C interface function to one of the functions in the ModelicaStandardTables,
@@ -3234,8 +3234,8 @@ The exact difference between package Modelica version 3.2.2 and version 3.2.1 is
 summarized in the following two comparison tables:
 </p>
 <ul>
-<li><a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/Differences322To321Build4.html\">Difference 3.2.2 to 3.2.1 Build 4</a>,</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/Differences321Build4toBuild2.html\">Difference 3.2.1 Build 4 to 3.2.1 Build 2</a>.</li>
+<li><a href=\"modelica:/Modelica/Resources/Documentation/Version-3.2.2/Differences322To321Build4.html\">Difference 3.2.2 to 3.2.1 Build 4</a>,</li>
+<li><a href=\"modelica:/Modelica/Resources/Documentation/Version-3.2.2/Differences321Build4toBuild2.html\">Difference 3.2.1 Build 4 to 3.2.1 Build 2</a>.</li>
 </ul>
 
 <p>
@@ -3297,34 +3297,34 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Modelica.Electrical.PowerConverters\">Modelica.Electrical.PowerConverters</a></td>
+<tr><td><a href=\"modelica:/Modelica.Electrical.PowerConverters\">Modelica.Electrical.PowerConverters</a></td>
     <td>
     This library offers models for rectifiers, inverters and DC/DC-converters.<br>
     (This library was developed by Christian Kral and Anton Haumer.)
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">Modelica.Magnetic.QuasiStatic.FundamentalWave</a></td>
+<tr><td><a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave\">Modelica.Magnetic.QuasiStatic.FundamentalWave</a></td>
     <td>
     This library provides quasi-static models of polyphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
-    to the transient models in <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a>.<br>
+    to the transient models in <a href=\"modelica:/Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a>.<br>
     Quasistatic means that electric transients are neglected, voltages and currents are supposed to be sinusoidal. Mechanical and thermal transients are taken into account.<br>
-    This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
+    This library is especially useful in combination with the <a href=\"modelica:/Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
     library in order to build up very fast simulations of electrical circuits with sinusoidal currents and voltages.<br>
     (This library was developed by Christian Kral and Anton Haumer.)
     </td></tr>
 
-<tr><td>Sublibraries of <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a></td>
+<tr><td>Sublibraries of <a href=\"modelica:/Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a></td>
     <td>
    New elements for modeling ferromagnetic (static) and eddy current (dynamic) hysteresis effects and permanent magnets have been added.
    The FluxTubes.Material package is also extended to provide hysteresis data for several magnetic materials. These data is partly based on own measurements.
    For modeling of ferromagnetic hysteresis, two different hysteresis models have been implemented: The simple Tellinen model and the considerably
    more detailed Preisach hysteresis model. The following packages have been added:
   <ul>
-  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a></li>
-  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">FluxTubes.Examples.Hysteresis</a></li>
-  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
-  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a></li>
-  <li><a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a></li>
+  <li><a href=\"modelica:/Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a></li>
+  <li><a href=\"modelica:/Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">FluxTubes.Examples.Hysteresis</a></li>
+  <li><a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
+  <li><a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a></li>
+  <li><a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a></li>
   </ul>
     (These extensions have been developed by Johannes Ziske and Thomas B&ouml;drich as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project;
      project number: 296369; Theme:
@@ -3338,29 +3338,29 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
    Several new sublibraries have been added allowing the modeling of reproducible noise.
    The most important new sublibraries are (for more details see below):
   <ul>
-  <li><a href=\"modelica://Modelica.Blocks.Noise\">Modelica.Blocks.Noise</a></li>
-  <li><a href=\"modelica://Modelica.Math.Random\">Modelica.Math.Random</a></li>
-  <li><a href=\"modelica://Modelica.Math.Distributions\">Modelica.Math.Distributions</a></li>
-  <li><a href=\"modelica://Modelica.Math.Special\">Modelica.Math.Special</a></li>
+  <li><a href=\"modelica:/Modelica.Blocks.Noise\">Modelica.Blocks.Noise</a></li>
+  <li><a href=\"modelica:/Modelica.Math.Random\">Modelica.Math.Random</a></li>
+  <li><a href=\"modelica:/Modelica.Math.Distributions\">Modelica.Math.Distributions</a></li>
+  <li><a href=\"modelica:/Modelica.Math.Special\">Modelica.Math.Special</a></li>
   </ul>
   (These extensions have been developed by Andreas Kl&ouml;ckner, Frans van der Linden, Dirk Zimmer, and Martin Otter from
   DLR Institute of System Dynamics and Control).
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.Utilities\">Modelica.Utilities</a> functions for <strong>matrix read/write</strong></td>
+<tr><td><a href=\"modelica:/Modelica.Utilities\">Modelica.Utilities</a> functions for <strong>matrix read/write</strong></td>
     <td>
-   New functions are provided in the <a href=\"modelica://Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a>
+   New functions are provided in the <a href=\"modelica:/Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a>
    sublibrary to write matrices in MATLAB MAT format on file and read matrices in this format from file.
    The MATLAB MAT formats v4, v6, v7 and v7.3 (in case the tool supports HDF5) are supported by these functions.
    Additionally, example models are provided under
-   <a href=\"modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
+   <a href=\"modelica:/Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
    to demonstrate the usage of these functions in models. For more details see below.<br>
    (These extensions have been developed by Thomas Beutlich from ITI GmbH).
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.Math\">Modelica.Math</a> sublibrary for <strong>FFT</strong></td>
+<tr><td><a href=\"modelica:/Modelica.Math\">Modelica.Math</a> sublibrary for <strong>FFT</strong></td>
     <td>
-   The new sublibrary <a href=\"modelica://Modelica.Math.FastFourierTransform\">FastFourierTransform</a>
+   The new sublibrary <a href=\"modelica:/Modelica.Math.FastFourierTransform\">FastFourierTransform</a>
    provides utility and convenience functions to compute the Fast Fourier Transform (FFT).
    Additionally two examples are present to demonstrate how to compute an FFT during continuous-time
    simulation and store the result on file. For more details see below.<br>
@@ -3562,7 +3562,7 @@ and will interpret it in the same way. Short Overview:
      without relying on tool heuristics).
      </li>
 
-<li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html\">400 tickets</a>
+<li> About <a href=\"modelica:/Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html\">400 tickets</a>
      have been fixed for this release, and
      especially all compliance issues and all relevant defect issues.
      </li>
@@ -3675,12 +3675,12 @@ The new open source tables have been tested by T. Beutlich (ITI):
 <p>
 The exact difference between package Modelica version 3.2 and version 3.2.1 is
 summarized in a
-<a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/DifferencesTo32.html\">comparison table</a>.
+<a href=\"modelica:/Modelica/Resources/Documentation/Version-3.2.1/DifferencesTo32.html\">comparison table</a>.
 </p>
 
 <p>
 About <strong>400</strong> trac tickets have been fixed for this release. An overview is given
-<a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html\">here</a>.
+<a href=\"modelica:/Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html\">here</a>.
 Clicking on a ticket gives all information about it.
 </p>
 
@@ -3885,14 +3885,14 @@ This version is a major improvement:
 <li><strong>7</strong> new libraries are included.</li>
 
 <li> The icons of the library are newly designed to provide a modern, unified view,
-     see <a href=\"modelica://Modelica.Icons\">Modelica.Icons</a>.</li>
+     see <a href=\"modelica:/Modelica.Icons\">Modelica.Icons</a>.</li>
 
 <li> All non-Modelica files, such as images, pdf-files, C-source files,
      scripts are moved to the new directory \"Modelica\\Resources\".
      Furthermore, all file references are changed to URIs as introduced in
      Modelica 3.1 (e.g., a file with the file name
      \"Modelica/Resources/Images/xxx\" is referenced as
-     \"modelica://Modelica/Resources/Images/xxx\").</li>
+     \"modelica:/Modelica/Resources/Images/xxx\").</li>
 
 <li> All physical models that dissipate heat (such as electrical elements,
      electrical machines, bearings, dampers, etc.), have now an optional heat port
@@ -3901,13 +3901,13 @@ This version is a major improvement:
      of technical systems.</li>
 
 <li> All electrical machines in the
-     <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a>
+     <a href=\"modelica:/Modelica.Electrical.Machines\">Machines</a>
      library have now a \"Losses\" tab in the parameter menu to optionally
      model machines losses such as frictional losses, stator core losses
      or stray load losses, respectively.</li>
 
 <li> All electrical machines in the
-     <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a>
+     <a href=\"modelica:/Modelica.Electrical.Machines\">Machines</a>
      library have now a \"powerBalance\" result record,
      summarizing converted power and losses.</li>
 </ul>
@@ -3937,7 +3937,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Complex\">Complex</a></td>
+<tr><td><a href=\"modelica:/Complex\">Complex</a></td>
     <td>
     This is a top-level record outside of the Modelica Standard Library.
     It is used for complex numbers and contains overloaded operators.
@@ -3952,17 +3952,17 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     (This library was developed by Marcus Baur, DLR.)
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.ComplexBlocks\">Modelica.ComplexBlocks</a></td>
+<tr><td><a href=\"modelica:/Modelica.ComplexBlocks\">Modelica.ComplexBlocks</a></td>
     <td>
     Library of basic input/output control blocks with Complex signals.<br>
     This library is especially useful in combination with the new
-    <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
+    <a href=\"modelica:/Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
     library in order to build up very fast simulations of electrical circuits with periodic
     currents and voltages.<br>
     (This library was developed by Anton Haumer.)
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a></td>
+<tr><td><a href=\"modelica:/Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a></td>
     <td>
     Library for quasi-static electrical single-phase and polyphase AC simulation.<br>
     This library allows very fast simulations of electrical circuits with sinusoidal
@@ -3971,7 +3971,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     (This library was developed by Anton Haumer and Christian Kral.)
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.Electrical.Spice3\">Modelica.Electrical.Spice3</a></td>
+<tr><td><a href=\"modelica:/Modelica.Electrical.Spice3\">Modelica.Electrical.Spice3</a></td>
     <td>
     Library with components of the Berkeley
     <a href=\"http://bwrc.eecs.berkeley.edu/Classes/IcBook/SPICE/\">SPICE3</a>
@@ -3990,7 +3990,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     (This library was developed by Fraunhofer Gesellschaft, Dresden.)
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a></td>
+<tr><td><a href=\"modelica:/Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a></td>
     <td>
      Library for magnetic fundamental wave effects in electric machines for the
      application in three phase electric machines.
@@ -4005,14 +4005,14 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
      ideas and source code of a library from Michael Beuschel from 2000.)
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.Fluid.Dissipation\">Modelica.Fluid.Dissipation</a></td>
+<tr><td><a href=\"modelica:/Modelica.Fluid.Dissipation\">Modelica.Fluid.Dissipation</a></td>
     <td>
      Library with functions to compute convective heat transfer and pressure loss characteristics.<br>
      (This library was developed by Thorben Vahlenkamp and Stefan Wischhusen from
      XRG Simulation GmbH.)
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.ComplexMath\">Modelica.ComplexMath</a></td>
+<tr><td><a href=\"modelica:/Modelica.ComplexMath\">Modelica.ComplexMath</a></td>
     <td>
     Library of complex mathematical functions (e.g., sin, cos) and of functions operating
     on complex vectors.<br>
@@ -4095,11 +4095,11 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
                       OnDelay</td>
     <td> Mathematical blocks for Boolean signals.
                       Some of these blocks are available also in library
-                      <a href=\"modelica://Modelica.Blocks.Logical\">Logical</a>.
+                      <a href=\"modelica:/Modelica.Blocks.Logical\">Logical</a>.
                       The new design is based on the connectorSizing annotation that allows
                       the convenient handling of an arbitrary number of input signals
                       (e.g., the \"And\" block has 1,2,...,N inputs, instead of only 2 inputs
-                      in the <a href=\"modelica://Modelica.Blocks.Logical\">Logical</a> library).
+                      in the <a href=\"modelica:/Modelica.Blocks.Logical\">Logical</a> library).
                       Additionally, the icons are smaller so that the diagram area is
                       better utilized</td></tr>
 
@@ -4503,8 +4503,8 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
                       ComplexAdmittance<br>
                       ComplexPower</td>
     <td> SIunits to be used in physical models using complex variables, e.g.,<br>
-                      <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>,
-                      <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> </td></tr>
+                      <a href=\"modelica:/Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>,
+                      <a href=\"modelica:/Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> </td></tr>
 <tr><td> ImpulseFlowRate<br>
                       AngularImpulseFlowRate</td>
     <td> New SIunits for mechanics.</td></tr>
@@ -4540,7 +4540,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
                       To all electric machines (asynchronous and synchronous induction machines, DC machines)
                       and transformers conditional thermal ports have been added,
                       to which the dissipated losses are flowing, if activated.
-                      The thermal port contains a <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort\">HeatPort</a>
+                      The thermal port contains a <a href=\"modelica:/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort\">HeatPort</a>
                       for each loss source of the specific machine type.<br><br>
                       To all electric machines (asynchronous and synchronous induction machines, DC machines)
                       a \"powerBalance\" result record has been added, summarizing converted power and losses.
@@ -4650,7 +4650,7 @@ that can lead to wrong simulation results):
                       (a detailed description is provided in ticket
                       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/108\">#108</a>
                       and in the
-                      <a href=\"modelica://Modelica/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf\">attachment</a>
+                      <a href=\"modelica:/Modelica/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf\">attachment</a>
                       of this ticket).</td></tr>
 
 <tr><td> Gearbox</td>
@@ -4723,7 +4723,7 @@ The following trac tickets have been fixed:
 
 <tr><td>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/218\">#218</a></td>
-    <td>Replace `Modelica://`-URIs by `modelica://`-URIs</td>
+    <td>Replace `Modelica://`-URIs by `modelica:/`-URIs</td>
 </tr>
 
 <tr><td>
@@ -5144,7 +5144,7 @@ the following new language elements (compared to Modelica Specification 3.0):
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Modelica.Fluid\">Modelica.Fluid</a></td>
+<tr><td><a href=\"modelica:/Modelica.Fluid\">Modelica.Fluid</a></td>
     <td>
      Components to model 1-dim. thermo-fluid flow in networks of vessels, pipes,
      fluid machines, valves and fittings. All media from the
@@ -5153,7 +5153,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     The library is using the stream-concept from Modelica Specification 3.1.
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a></td>
+<tr><td><a href=\"modelica:/Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a></td>
     <td>
      Components to model magnetic devices based on the magnetic flux tubes concepts.
      Especially to model
@@ -5162,7 +5162,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
      Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
     </td></tr>
 
-<tr><td><a href=\"modelica://ModelicaServices\">ModelicaServices</a></td>
+<tr><td><a href=\"modelica:/ModelicaServices\">ModelicaServices</a></td>
     <td>
      New top level package that shall contain functions and models to be used in the
      Modelica Standard Library that requires a tool specific implementation.
@@ -6445,7 +6445,7 @@ the following exceptions:
          to Modelica.Media.Interfaces.PartialMedium, because a FluidConstants
          record definition is missing,
          for details, see
-          <a href=\"modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>
+          <a href=\"modelica:/Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>
          (this is seen as a bug fix).</li>
 </ul>
 
@@ -6453,7 +6453,7 @@ the following exceptions:
 An overview of the differences between version 2.2.2 and the previous
 version 2.2.1 is given below. The exact differences (but without
 differences in the documentation) are available in
-<a href=\"modelica://Modelica/Resources/Documentation/Differences-Modelica-221-222.html\">Differences-Modelica-221-222.html</a>.
+<a href=\"modelica:/Modelica/Resources/Documentation/Differences-Modelica-221-222.html\">Differences-Modelica-221-222.html</a>.
 This comparison file was generated automatically with Dymola's
 ModelManagement.compare function.
 </p>
@@ -7802,7 +7802,7 @@ The following <strong>new libraries</strong> have been added:
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Modelica.Media\">Modelica.Media</a></td>
+<tr><td><a href=\"modelica:/Modelica.Media\">Modelica.Media</a></td>
           <td> Property models of liquids and gases, especially
                    <ul>
                    <li>1241 detailed gas models,</li>
@@ -7827,7 +7827,7 @@ The following <strong>new libraries</strong> have been added:
                                 dynamic simulation.</li>
                    </ul>
           </td></tr>
-<tr><td><a href=\"modelica://Modelica.Thermal.FluidHeatFlow\">Modelica.Thermal.FluidHeatFlow</a></td>
+<tr><td><a href=\"modelica:/Modelica.Thermal.FluidHeatFlow\">Modelica.Thermal.FluidHeatFlow</a></td>
           <td> Simple components for 1-dim., incompressible thermo-fluid flow
                    to model coolant flows, e.g., of electrical machines.
                    Components can be connected arbitrarily together (= ideal mixing
@@ -7898,27 +7898,27 @@ before automatic conversion is performed.
 The following <strong>new libraries</strong> have been added:
 </p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Modelica.Electrical.Digital\">Modelica.Electrical.Digital</a></td>
+<tr><td><a href=\"modelica:/Modelica.Electrical.Digital\">Modelica.Electrical.Digital</a></td>
           <td>Digital electrical components based on 2-,3-,4-, and 9-valued logic<br>
                   according to the VHDL standard</td></tr>
-<tr><td><a href=\"modelica://Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a></td>
+<tr><td><a href=\"modelica:/Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a></td>
           <td>Asynchronous, synchronous and DC motor and generator models</td></tr>
-<tr><td><a href=\"modelica://Modelica.Math.Matrices\">Modelica.Math.Matrices</a></td>
+<tr><td><a href=\"modelica:/Modelica.Math.Matrices\">Modelica.Math.Matrices</a></td>
           <td>Functions operating on matrices such as solve() (A*x=b), leastSquares(),<br>
                   norm(), LU(), QR(),  eigenValues(), singularValues(), exp(), ...</td></tr>
-<tr><td><a href=\"modelica://Modelica.StateGraph\">Modelica.StateGraph</a></td>
+<tr><td><a href=\"modelica:/Modelica.StateGraph\">Modelica.StateGraph</a></td>
           <td> Modeling of <strong>discrete event</strong> and <strong>reactive</strong> systems in a convenient way using<br>
                    <strong>hierarchical state machines</strong> and <strong>Modelica</strong> as <strong>action language</strong>.<br>
                    It is based on JGrafchart and Grafcet and  has a similar modeling power as<br>
                    StateCharts. It avoids deficiencies of usually used action languages.<br>
                    This library makes the ModelicaAdditions.PetriNets library obsolete.</td></tr>
-<tr><td><a href=\"modelica://Modelica.Utilities.Files\">Modelica.Utilities.Files</a></td>
+<tr><td><a href=\"modelica:/Modelica.Utilities.Files\">Modelica.Utilities.Files</a></td>
           <td>Functions to operate on files and directories (copy, move, remove files etc.)</td></tr>
-<tr><td><a href=\"modelica://Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a></td>
+<tr><td><a href=\"modelica:/Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a></td>
           <td>Read from files and write to files (print, readLine, readFile, error, ...)</td></tr>
-<tr><td><a href=\"modelica://Modelica.Utilities.Strings\">Modelica.Utilities.Strings</a></td>
+<tr><td><a href=\"modelica:/Modelica.Utilities.Strings\">Modelica.Utilities.Strings</a></td>
           <td>Operations on strings (substring, find, replace, sort, scanToken, ...)</td></tr>
-<tr><td><a href=\"modelica://Modelica.Utilities.System\">Modelica.Utilities.System</a></td>
+<tr><td><a href=\"modelica:/Modelica.Utilities.System\">Modelica.Utilities.System</a></td>
           <td>Get/set current directory, get/set environment variable, execute shell command, etc.</td></tr>
 </table>
 <p>
@@ -7928,22 +7928,22 @@ have been improved and added as <strong>new libraries</strong>
 to the new sublibraries inside package Modelica):
 </p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Modelica.Blocks.Discrete\">Modelica.Blocks.Discrete</a></td>
+<tr><td><a href=\"modelica:/Modelica.Blocks.Discrete\">Modelica.Blocks.Discrete</a></td>
           <td> Discrete input/output blocks with fixed sample period<br>
                    (from ModelicaAdditions.Blocks.Discrete)</td></tr>
-<tr><td><a href=\"modelica://Modelica.Blocks.Logical\">Modelica.Blocks.Logical</a></td>
+<tr><td><a href=\"modelica:/Modelica.Blocks.Logical\">Modelica.Blocks.Logical</a></td>
           <td> Logical components with Boolean input and output signals<br>
                    (from ModelicaAdditions.Blocks.Logical)</td></tr>
-<tr><td><a href=\"modelica://Modelica.Blocks.Nonlinear\">Modelica.Blocks.Nonlinear</a></td>
+<tr><td><a href=\"modelica:/Modelica.Blocks.Nonlinear\">Modelica.Blocks.Nonlinear</a></td>
           <td> Discontinuous or non-differentiable algebraic control blocks such as variable limiter,<br>
                    fixed, variable and Pade delay etc. (from ModelicaAdditions.Blocks.Nonlinear)</td></tr>
-<tr><td><a href=\"modelica://Modelica.Blocks.Routing\">Modelica.Blocks.Routing</a></td>
+<tr><td><a href=\"modelica:/Modelica.Blocks.Routing\">Modelica.Blocks.Routing</a></td>
           <td> Blocks to combine and extract signals, such as multiplexer<br>
                    (from ModelicaAdditions.Blocks.Multiplexer)</td></tr>
-<tr><td><a href=\"modelica://Modelica.Blocks.Tables\">Modelica.Blocks.Tables</a></td>
+<tr><td><a href=\"modelica:/Modelica.Blocks.Tables\">Modelica.Blocks.Tables</a></td>
           <td> One and two-dimensional interpolation in tables. CombiTimeTable is available<br>
                    in Modelica.Blocks.Sources (from ModelicaAdditions.Tables)</td></tr>
-<tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody\">Modelica.Mechanics.MultiBody</a></td>
+<tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody\">Modelica.Mechanics.MultiBody</a></td>
           <td> Components to model the movement of 3-dimensional mechanical systems. Contains<br>
                    body, joint, force and sensor components, analytic handling of kinematic loops,<br>
                    force elements with mass, series/parallel connection of 3D force elements etc.<br>
@@ -8404,29 +8404,29 @@ end Version_1_4;
 <p>
 This section summarizes the changes that have been performed
 on the Modelica standard library. Furthermore, it is explained in
-<a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.VersionManagement\">Modelica.UsersGuide.ReleaseNotes.VersionManagement</a>
+<a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.VersionManagement\">Modelica.UsersGuide.ReleaseNotes.VersionManagement</a>
 how the versions are managed.
 This is especially important for maintenance (bug fix) releases where the
 main version number is not changed.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_X_Y_0\">Version X.Y.0</a></td><td>Month D, 20YY</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_4_0_0\">Version 4.0.0</a></td><td>June 4, 2020</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>January 23, 2019</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_2\">Version 3.2.2</a></td><td>April 3, 2016</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_1\">Version 3.2.1</a></td><td>August 14, 2013</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2\">Version 3.2</a></td><td>Oct. 25, 2010</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_1\">Version 3.1</a></td><td>August 14, 2009</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_0_1\">Version 3.0.1</a></td><td>Jan. 27, 2009</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_0\">Version 3.0</a></td><td>March 1, 2008</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_2\">Version 2.2.2</a></td><td>Aug. 31, 2007</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a></td><td>March 24, 2006</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a></td><td>April 6, 2005</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a></td><td>Nov. 11, 2004</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_6\">Version 1.6</a></td><td>June 21, 2004</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_5\">Version 1.5</a></td><td>Dec. 16, 2002</td></tr>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_1_4\">Version 1.4</a></td><td>June 28, 2001</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_X_Y_0\">Version X.Y.0</a></td><td>Month D, 20YY</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_4_0_0\">Version 4.0.0</a></td><td>June 4, 2020</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>January 23, 2019</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_3_2_2\">Version 3.2.2</a></td><td>April 3, 2016</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_3_2_1\">Version 3.2.1</a></td><td>August 14, 2013</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_3_2\">Version 3.2</a></td><td>Oct. 25, 2010</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_3_1\">Version 3.1</a></td><td>August 14, 2009</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_3_0_1\">Version 3.0.1</a></td><td>Jan. 27, 2009</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_3_0\">Version 3.0</a></td><td>March 1, 2008</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_2_2_2\">Version 2.2.2</a></td><td>Aug. 31, 2007</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a></td><td>March 24, 2006</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a></td><td>April 6, 2005</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_2_1\">Version 2.1</a></td><td>Nov. 11, 2004</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_1_6\">Version 1.6</a></td><td>June 21, 2004</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_1_5\">Version 1.5</a></td><td>Dec. 16, 2002</td></tr>
+<tr><td><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes.Version_1_4\">Version 1.4</a></td><td>June 28, 2001</td></tr>
 </table>
 </html>"));
 end ReleaseNotes;
@@ -8900,100 +8900,100 @@ User's Guides that can be accessed by the following links:
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr>
-  <td><a href=\"modelica://Modelica.ComplexBlocks.UsersGuide\">ComplexBlocks</a></td>
+  <td><a href=\"modelica:/Modelica.ComplexBlocks.UsersGuide\">ComplexBlocks</a></td>
   <td>Library of basic input/output control blocks with Complex signals</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.Electrical.Digital.UsersGuide\">Digital</a>
+<tr><td><a href=\"modelica:/Modelica.Electrical.Digital.UsersGuide\">Digital</a>
    </td>
    <td>Library for digital electrical components based on the VHDL standard
    (2-,3-,4-,9-valued logic)</td>
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Fluid.Dissipation.UsersGuide\">Dissipation</a></td>
+  <td><a href=\"modelica:/Modelica.Fluid.Dissipation.UsersGuide\">Dissipation</a></td>
   <td>Library of functions for convective heat transfer and pressure loss characteristics</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.Fluid.UsersGuide\">Fluid</a></td>
+<tr><td><a href=\"modelica:/Modelica.Fluid.UsersGuide\">Fluid</a></td>
     <td>Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description</td>
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Thermal.FluidHeatFlow.UsersGuide\">FluidHeatFlow</a></td>
+  <td><a href=\"modelica:/Modelica.Thermal.FluidHeatFlow.UsersGuide\">FluidHeatFlow</a></td>
   <td>Library of simple components for 1-dimensional incompressible thermo-fluid flow models</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide\">FluxTubes</a>
+<tr><td><a href=\"modelica:/Modelica.Magnetic.FluxTubes.UsersGuide\">FluxTubes</a>
     </td>
    <td>Library for modelling of electromagnetic devices with lumped magnetic networks</td>
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide\">FundamentalWave</a></td>
+  <td><a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide\">FundamentalWave</a></td>
   <td>Library for magnetic fundamental wave effects in electric machines</td>
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide\">FundamentalWave</a></td>
+  <td><a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide\">FundamentalWave</a></td>
   <td>Library for quasi-static fundamental wave electric machines</td>
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Electrical.Machines.UsersGuide\">Machines</a></td>
+  <td><a href=\"modelica:/Modelica.Electrical.Machines.UsersGuide\">Machines</a></td>
   <td>Library for electric machines</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.Media.UsersGuide\">Media</a>
+<tr><td><a href=\"modelica:/Modelica.Media.UsersGuide\">Media</a>
     </td>
    <td>Library of media property models</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody</a>
+<tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody</a>
     </td>
    <td>Library to model 3-dimensional mechanical systems</td>
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide\">Polyphase</a></td>
+  <td><a href=\"modelica:/Modelica.Electrical.Polyphase.UsersGuide\">Polyphase</a></td>
   <td>Library for electrical components of one or more phases</td>
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide\">PowerConverters</a></td>
+  <td><a href=\"modelica:/Modelica.Electrical.PowerConverters.UsersGuide\">PowerConverters</a></td>
   <td>Library for rectifiers, inverters and DC/DC converters</td>
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide\">QuasiStatic</a></td>
+  <td><a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide\">QuasiStatic</a></td>
   <td>Library for quasi-static electrical single-phase and polyphase AC simulation</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>
+<tr><td><a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>
     </td>
    <td>Library to model 1-dimensional, rotational mechanical systems</td>
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Electrical.Spice3.UsersGuide\">Spice3</a></td>
+  <td><a href=\"modelica:/Modelica.Electrical.Spice3.UsersGuide\">Spice3</a></td>
   <td>Library for components of the Berkeley SPICE3 simulator</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.StateGraph.UsersGuide\">StateGraph</a>
+<tr><td><a href=\"modelica:/Modelica.StateGraph.UsersGuide\">StateGraph</a>
     </td>
    <td>Library to model discrete event and reactive systems by hierarchical state machines</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide\">Translational</a>
+<tr><td><a href=\"modelica:/Modelica.Mechanics.Translational.UsersGuide\">Translational</a>
     </td>
    <td>Library to model 1-dimensional, translational mechanical systems</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.Units.UsersGuide\">Units</a> </td>
+<tr><td><a href=\"modelica:/Modelica.Units.UsersGuide\">Units</a> </td>
    <td>Library of type definitions</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.Utilities.UsersGuide\">Utilities</a>
+<tr><td><a href=\"modelica:/Modelica.Utilities.UsersGuide\">Utilities</a>
     </td>
    <td>Library of utility functions especially for scripting (Files, Streams, Strings, System)</td>
 </tr>
@@ -9010,7 +9010,7 @@ dateModified = "2020-06-04 11:00:00Z",
 revisionId="$Format:%h %ci$",
 uses(Complex(version="4.0.0"), ModelicaServices(version="4.0.0")),
 conversion(
- from(version={"3.0", "3.0.1", "3.1", "3.2", "3.2.1", "3.2.2", "3.2.3"}, script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_3.2.3_to_4.0.0.mos")),
+ from(version={"3.0", "3.0.1", "3.1", "3.2", "3.2.1", "3.2.2", "3.2.3"}, script="modelica:/Modelica/Resources/Scripts/Conversion/ConvertModelica_from_3.2.3_to_4.0.0.mos")),
 Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
   Polygon(
     origin={-6.9888,20.048},
@@ -9026,7 +9026,7 @@ Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     extent={{-17.8562,-17.8563},{17.8563,17.8562}})}),
 Documentation(info="<html>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Logos/Modelica_Libraries.svg\" width=\"250\">
+<img src=\"modelica:/Modelica/Resources/Images/Logos/Modelica_Libraries.svg\" width=\"250\">
 </div>
 
 <p>
@@ -9042,19 +9042,19 @@ in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png\">
+<img src=\"modelica:/Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png\">
 </div>
 
 <p>
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"modelica://Modelica.UsersGuide.Overview\">Overview</a>
+<li> <a href=\"modelica:/Modelica.UsersGuide.Overview\">Overview</a>
   provides an overview of the Modelica Standard Library
-  inside the <a href=\"modelica://Modelica.UsersGuide\">User's Guide</a>.</li>
-<li><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
+  inside the <a href=\"modelica:/Modelica.UsersGuide\">User's Guide</a>.</li>
+<li><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
  summarizes the changes of new versions of this package.</li>
-<li> <a href=\"modelica://Modelica.UsersGuide.Contact\">Contact</a>
+<li> <a href=\"modelica:/Modelica.UsersGuide.Contact\">Contact</a>
   lists the contributors of the Modelica Standard Library.</li>
 <li> The <strong>Examples</strong> packages in the various libraries, demonstrate
   how to use the components of the corresponding sublibrary.</li>
@@ -9076,7 +9076,7 @@ and it has been tested with Modelica tools from different vendors.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 1998-2020, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
+Copyright &copy; 1998-2020, Modelica Association and <a href=\"modelica:/Modelica.UsersGuide.Contact\">contributors</a>.
 </p>
 
 <p>

@@ -41,7 +41,7 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Machines.Utilities.ToDQ\">ToDQ</a>
+<a href=\"modelica:/Modelica.Electrical.Machines.Utilities.ToDQ\">ToDQ</a>
 </p>
 </html>"));
 end FromDQ;

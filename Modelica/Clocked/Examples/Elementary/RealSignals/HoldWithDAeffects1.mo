@@ -37,7 +37,7 @@ equation
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects\">Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects</a>.
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects\">Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects</a>.
 </p>
 </html>"));
 end HoldWithDAeffects1;

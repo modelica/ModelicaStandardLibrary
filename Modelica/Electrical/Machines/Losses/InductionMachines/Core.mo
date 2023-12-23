@@ -78,7 +78,7 @@ The current implementation has thus the drawback over a model that considers <co
 </ul>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesVw.png\"
+  <tr><td> <img src=\"modelica:/Modelica/Resources/Images/Electrical/Machines/corelossesVw.png\"
                 alt=\"corelossesVw.png\"> </td>
   </tr>
   <tr><td> <strong> Fig. 1: </strong>Voltage versus angular velocity</td>
@@ -86,7 +86,7 @@ The current implementation has thus the drawback over a model that considers <co
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesPcw.png\"
+  <tr><td> <img src=\"modelica:/Modelica/Resources/Images/Electrical/Machines/corelossesPcw.png\"
                 alt=\"corelossesPcw.png\"> </td>
   </tr>
   <tr><td> <strong> Fig. 2: </strong>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
@@ -98,7 +98,7 @@ The current implementation has thus the drawback over a model that considers <co
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.CoreParameters\">Core loss parameters</a>
+<a href=\"modelica:/Modelica.Electrical.Machines.Losses.CoreParameters\">Core loss parameters</a>
 </p>
 
 </html>"));

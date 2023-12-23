@@ -17,15 +17,15 @@ v1 = TransformationMatrices.<strong>resolve1</strong>(T, v2);
 <p>
 This function returns vector&nbsp;v resolved in frame&nbsp;1 (=v1) from vector&nbsp;v
 resolved in frame&nbsp;2 (=v2) using the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve2\">resolve2</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.resolve1\">Frames.resolve1</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1\">Quaternions.resolve1</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve2\">resolve2</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.resolve1\">Frames.resolve1</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1\">Quaternions.resolve1</a>.
 </p>
 </html>"));
 end resolve1;

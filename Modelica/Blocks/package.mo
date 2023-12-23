@@ -137,10 +137,10 @@ to initialize the angle and the angular acceleration of \"inertia1\".
 In the following figure, results of a typical simulation are shown:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/PID_controller.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/PID_controller.png\"
      alt=\"PID_controller.png\"><br>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/PID_controller2.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/PID_controller2.png\"
      alt=\"PID_controller2.png\">
 
 <p>
@@ -222,7 +222,7 @@ is forced back to its limit after a transient phase.
 
 <p>
 This example demonstrates various options of the
-<a href=\"modelica://Modelica.Blocks.Continuous.Filter\">Filter</a> block.
+<a href=\"modelica:/Modelica.Blocks.Continuous.Filter\">Filter</a> block.
 A step input starts at 0.1 s with an offset of 0.1, in order to demonstrate
 the initialization options. This step input drives 4 filter blocks that
 have identical parameters, with the only exception of the used analog filter type
@@ -232,7 +232,7 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
 2 Hz resulting in the following outputs:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Filter1.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Filter1.png\"
      alt=\"Filter1.png\">
 </html>"));
   end Filter;
@@ -272,7 +272,7 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
 
 <p>
 This example demonstrates that the output of the
-<a href=\"modelica://Modelica.Blocks.Continuous.Filter\">Filter</a> block
+<a href=\"modelica:/Modelica.Blocks.Continuous.Filter\">Filter</a> block
 can be differentiated up to the order of the filter. This feature can be
 used in order to make an inverse model realizable or to \"smooth\" a potential
 discontinuous control signal.
@@ -321,7 +321,7 @@ the results of a simulation of this example model
 (riseTime = 2 s, fac=3, 4, and 5):
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/FilterWithRiseTime.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/FilterWithRiseTime.png\"
      alt=\"FilterWithRiseTime.png\">
 
 <p>
@@ -516,7 +516,7 @@ Modelica model. The basic construction mechanism is explained at hand
 of this example:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/InverseModelSchematic.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/InverseModelSchematic.png\"
      alt=\"InverseModelSchematic.png\">
 
 <p>
@@ -540,7 +540,7 @@ is zero. The higher the cut-off frequency of the filter, the closer is the
 agreement. A typical simulation result is shown in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/InverseModel.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/InverseModel.png\"
      alt=\"InverseModel.png\">
 </html>"), experiment(StopTime=1.0));
   end InverseModel;
@@ -564,7 +564,7 @@ agreement. A typical simulation result is shown in the next figure:
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This simple example demonstrates the logical sources in
-<a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a> and demonstrate
+<a href=\"modelica:/Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a> and demonstrate
 their diagram animation (see \"small circle\" close to the output connector).
 The \"booleanExpression\" source shows how a logical expression can be defined
 in its parameter menu referring to variables available on this level of the
@@ -682,7 +682,7 @@ equation
     Documentation(info="<html>
 <p>
 This example demonstrates a network of mathematical Real blocks.
-from package <a href=\"modelica://Modelica.Blocks.Math\">Modelica.Blocks.Math</a>.
+from package <a href=\"modelica:/Modelica.Blocks.Math\">Modelica.Blocks.Math</a>.
 Note, that
 </p>
 
@@ -768,7 +768,7 @@ end RealNetwork1;
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of Integer blocks.
-from package <a href=\"modelica://Modelica.Blocks.MathInteger\">Modelica.Blocks.MathInteger</a>.
+from package <a href=\"modelica:/Modelica.Blocks.MathInteger\">Modelica.Blocks.MathInteger</a>.
 Note, that
 </p>
 
@@ -908,7 +908,7 @@ Note, that
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of Boolean blocks
-from package <a href=\"modelica://Modelica.Blocks.MathBoolean\">Modelica.Blocks.MathBoolean</a>.
+from package <a href=\"modelica:/Modelica.Blocks.MathBoolean\">Modelica.Blocks.MathBoolean</a>.
 Note, that
 </p>
 
@@ -959,7 +959,7 @@ Note, that
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of blocks
-from package <a href=\"modelica://Modelica.Blocks.Interaction\">Modelica.Blocks.Interaction</a>
+from package <a href=\"modelica:/Modelica.Blocks.Interaction\">Modelica.Blocks.Interaction</a>
 to show how diagram animations can be constructed.
 </p>
 
@@ -1022,7 +1022,7 @@ to use a \"signal bus\" concept also in a Modelica model. This is demonstrated
 at hand of this model (Modelica.Blocks.Examples.BusUsage):
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/BusUsage.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/BusUsage.png\"
      alt=\"BusUsage.png\">
 
 <ul>
@@ -1039,10 +1039,10 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 
 <p>
 The control and sub-control bus icons are provided within Modelica.Icons.
-In <a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
+In <a href=\"modelica:/Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
 the buses for this example are defined. Both the \"ControlBus\" and the \"SubControlBus\" are
 <strong>expandable</strong> connectors that do not define any variable. For example,
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus#text\">Interfaces.ControlBus</a>
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus#text\">Interfaces.ControlBus</a>
 is defined as:
 </p>
 <blockquote><pre>
@@ -1067,7 +1067,7 @@ is constructed by the variables connected to instances of this connector.
 For example, if \"sine.y\" is connected to the \"controlBus\", a pop-up menu may appear:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/BusUsage2.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/BusUsage2.png\"
      alt=\"BusUsage2.png\">
 
 <p>
@@ -1082,7 +1082,7 @@ the \"controlBus\". When typing \"realSignal1\" as \"New name\", a connection of
 <p>
 is generated and the \"controlBus\" contains the new signal \"realSignal1\". Modelica tools
 may give more support in order to list potential signals for a connection. Therefore, in
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">BusUsage_Utilities.Interfaces</a>
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">BusUsage_Utilities.Interfaces</a>
 the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" are given.
 For example \"Internal.ControlBus\" is defined as:
 </p>
@@ -1105,7 +1105,7 @@ Consequently, when connecting now from \"sine.y\" to \"controlBus\", the menu
 looks differently:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/BusUsage3.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/BusUsage3.png\"
      alt=\"BusUsage3.png\">
 
 <p>
@@ -1134,8 +1134,8 @@ just potential signals. The user might still add different signal names.
     annotation (experiment(StopTime=0.25, Interval=0.0001),
       Documentation(info="<html>
 <p>
-This example is based on a&nbsp;<a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse\">6-pulse rectifier example</a>,
-calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
+This example is based on a&nbsp;<a href=\"modelica:/Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse\">6-pulse rectifier example</a>,
+calculating the harmonics with the <a href=\"modelica:/Modelica.Blocks.Math.RealFFT\">FFT block</a>.
 </p>
 <p>
 Sampling starts after the initial transients are settled - waiting for
@@ -1179,8 +1179,8 @@ As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>,
     annotation (experiment(StopTime=0.25, Interval=0.0001),
       Documentation(info="<html>
 <p>
-This example is based on a&nbsp;<a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse\">12-pulse rectifier example</a>,
-calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
+This example is based on a&nbsp;<a href=\"modelica:/Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse\">12-pulse rectifier example</a>,
+calculating the harmonics with the <a href=\"modelica:/Modelica.Blocks.Math.RealFFT\">FFT block</a>.
 </p>
 <p>
 Sampling starts after the initial transients are settled - waiting for
@@ -1240,7 +1240,7 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
         Interval=0.0001,
         Tolerance=1e-06), Documentation(info="<html>
 <p>This example compares the result of the
-<a href=\"modelica://Modelica.Blocks.Math.TotalHarmonicDistortion\">total harmonic distortion (THD)</a>
+<a href=\"modelica:/Modelica.Blocks.Math.TotalHarmonicDistortion\">total harmonic distortion (THD)</a>
 with respect to the fundamental wave and with respect to the total root mean square (RMS).
 In this simulation model a non-sinusoidal voltage
 wave form is created by the superposition two voltage waves:</p>
@@ -1681,15 +1681,15 @@ The output is constant from the beginning.
      annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates the most simple usage of the
-<a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a>
+<a href=\"modelica:/Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a>
 block:
 </p>
 
 <ul>
-<li> <strong>globalSeed</strong> is the <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
+<li> <strong>globalSeed</strong> is the <a href=\"modelica:/Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
      block with default options (just dragged from sublibrary Noise).</li>
 <li> <strong>uniformNoise1</strong> is an instance of
-     <a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a> with
+     <a href=\"modelica:/Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a> with
      samplePeriod = 0.02 s and a Uniform distribution with limits y_min=-1, y_max=3.</li>
 <li> <strong>uniformNoise2</strong> is identical to uniformNoise1 with the exception that
       useAutomaticLocalSeed=false and fixedLocalSeed=10.</li>
@@ -1702,7 +1702,7 @@ The result of a simulation is shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/UniformNoise.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/UniformNoise.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1713,7 +1713,7 @@ The result of a simulation is shown in the next diagram:
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1779,7 +1779,7 @@ The result of a simulation is shown in the next diagram:
      annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates manual and automatic seed selection of
-<a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">UniformNoise</a> blocks, as well
+<a href=\"modelica:/Modelica.Blocks.Noise.UniformNoise\">UniformNoise</a> blocks, as well
 as starting the noise at startTime = 0.5 s with an output value of y = -1 before this
 time. All noise blocks in this example generate uniform noise in the
 band y_min=-1 .. y_max=3 with samplePeriod = 0.01 s.
@@ -1793,7 +1793,7 @@ diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/AutomaticSeed1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/AutomaticSeed1.png\">
 </blockquote>
 
 <p>
@@ -1803,7 +1803,7 @@ Again, different noise is generated, see next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/AutomaticSeed2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/AutomaticSeed2.png\">
 </blockquote>
 
 <p>
@@ -1819,7 +1819,7 @@ manualSeed2 will produce exactly the same noise.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1871,7 +1871,7 @@ Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/Distributions.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/Distributions.png\">
 </blockquote>
 
 <p>
@@ -1887,7 +1887,7 @@ truncated normal distribution has more values centered around the mean value 1.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1966,15 +1966,15 @@ truncated normal distribution has more values centered around the mean value 1.
         Documentation(info="<html>
 <p>
 This example demonstrates statistical properties of the
-<a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Blocks.Noise.UniformNoise</a> block
+<a href=\"modelica:/Modelica.Blocks.Noise.UniformNoise\">Blocks.Noise.UniformNoise</a> block
 using a <strong>uniform</strong> random number distribution.
 Block &quot;noise&quot; defines a band of 0 .. 6 and from the generated noise the mean and the variance
-is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Math\">Blocks.Math</a>.
+is computed with blocks of package <a href=\"modelica:/Modelica.Blocks.Math\">Blocks.Math</a>.
 Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/UniformNoiseProperties1.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/UniformNoiseProperties1.png\"/>
 </blockquote>
 
 <p>
@@ -1992,7 +1992,7 @@ distribution have good statistical properties.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2070,15 +2070,15 @@ distribution have good statistical properties.
     Documentation(info="<html>
 <p>
 This example demonstrates statistical properties of the
-<a href=\"modelica://Modelica.Blocks.Noise.NormalNoise\">Blocks.Noise.NormalNoise</a> block
+<a href=\"modelica:/Modelica.Blocks.Noise.NormalNoise\">Blocks.Noise.NormalNoise</a> block
 using a <strong>normal</strong> random number distribution with mu=3, sigma=1.
 From the generated noise the mean and the variance
-is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Math\">Blocks.Math</a>.
+is computed with blocks of package <a href=\"modelica:/Modelica.Blocks.Math\">Blocks.Math</a>.
 Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/NormalNoiseProperties1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/NormalNoiseProperties1.png\">
 </blockquote>
 
 <p>
@@ -2096,7 +2096,7 @@ distribution have good statistical properties.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2152,7 +2152,7 @@ inputs:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/Densities.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/Densities.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2163,7 +2163,7 @@ inputs:
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2188,14 +2188,14 @@ inputs:
      annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates how to use the
-<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom(..)</a> function
+<a href=\"modelica:/Modelica.Math.Random.Utilities.impureRandom\">impureRandom(..)</a> function
 to generate random values at event instants. Typically, this approach is only
 used when implementing an own, specialized block that needs a random number
 generator. Simulation results are shown in the next figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/ImpureGenerator.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/ImpureGenerator.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2206,7 +2206,7 @@ generator. Simulation results are shown in the next figure:
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2283,7 +2283,7 @@ This example models an actuator with a noisy sensor (which is in the motor compo
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/ActuatorNoiseDiagram.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/ActuatorNoiseDiagram.png\"/>
 </div>
 
 <p>
@@ -2305,7 +2305,7 @@ on the position of the actuator. The effect of the noise can be seen in the moto
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/ActuatorNoise.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/ActuatorNoise.png\"/>
 </div>
 
 <p>
@@ -2321,7 +2321,7 @@ enableNoise = false in the globalSeed component.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2368,7 +2368,7 @@ enableNoise = false in the globalSeed component.
      Documentation(info="<html>
 <p>
 This example shows how to use the
-<a href=\"modelica://Modelica.Blocks.Noise.BandLimitedWhiteNoise\">BandLimitedWhiteNoise</a>
+<a href=\"modelica:/Modelica.Blocks.Noise.BandLimitedWhiteNoise\">BandLimitedWhiteNoise</a>
 to feed a Dryden continuous turbulence model. This model is used to describe turbulent wind at low altitudes
 that varies randomly in space
 (see also <a href=\"https://en.wikipedia.org/wiki/Continuous_gusts\">wikipedia</a>).
@@ -2381,7 +2381,7 @@ The turbulence model of the Dryden form is defined by the power spectral density
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/equation-erVWhiWU.png\" alt=\"Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/equation-erVWhiWU.png\" alt=\"Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)\"/>
 </div>
 
 <p>
@@ -2402,7 +2402,7 @@ Using spectral factorization and a fixed airspeed V of the aircraft, a concrete 
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/equation-W0zl2Gay.png\" alt=\"H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)\"/>,
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/equation-W0zl2Gay.png\" alt=\"H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)\"/>,
 </div>
 
 <p>
@@ -2416,13 +2416,13 @@ The input to the filter is white noise with a normal distribution, zero mean, an
 That means, for a sampling time of 1s, it is parameterized with mean=0 and variance=1.
 However, in order to account for the change of noise power due to sampling, the noise must be scaled with sqrt(samplePeriod).
 This is done automatically in the
-<a href=\"modelica://Modelica.Blocks.Noise.BandLimitedWhiteNoise\">BandLimitedWhiteNoise</a> block.
+<a href=\"modelica:/Modelica.Blocks.Noise.BandLimitedWhiteNoise\">BandLimitedWhiteNoise</a> block.
 </p>
 
 <h4>Example output</h4>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/DrydenContinuousTurbulence.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/DrydenContinuousTurbulence.png\"/>
 </div>
 
 <h4>Reference</h4>
@@ -2480,12 +2480,12 @@ This is done automatically in the
 <p>
 This block determines the probability density y of a uniform distribution for the given input signal u
 (for details of this density function see
-<a href=\"modelica://Modelica.Math.Distributions.Uniform.density\">Math.Distributions.Uniform.density</a>).
+<a href=\"modelica:/Modelica.Math.Distributions.Uniform.density\">Math.Distributions.Uniform.density</a>).
 </p>
 
 <p>
 This block is demonstrated in the example
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.Densities\">Examples.Noise.Densities</a> .
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.Densities\">Examples.Noise.Densities</a> .
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2496,7 +2496,7 @@ This block is demonstrated in the example
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2551,12 +2551,12 @@ This block is demonstrated in the example
 <p>
 This block determines the probability density y of a normal distribution for the given input signal u
 (for details of this density function see
-<a href=\"modelica://Modelica.Math.Distributions.Normal.density\">Math.Distributions.Normal.density</a>).
+<a href=\"modelica:/Modelica.Math.Distributions.Normal.density\">Math.Distributions.Normal.density</a>).
 </p>
 
 <p>
 This block is demonstrated in the example
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.Densities\">Examples.Noise.Densities</a> .
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.Densities\">Examples.Noise.Densities</a> .
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2567,7 +2567,7 @@ This block is demonstrated in the example
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2623,12 +2623,12 @@ This block is demonstrated in the example
 <p>
 This block determines the probability density y of a Weibull distribution for the given input signal u
 (for details of this density function see
-<a href=\"modelica://Modelica.Math.Distributions.Weibull.density\">Math.Distributions.Weibull.density</a>).
+<a href=\"modelica:/Modelica.Math.Distributions.Weibull.density\">Math.Distributions.Weibull.density</a>).
 </p>
 
 <p>
 This block is demonstrated in the example
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.Densities\">Examples.Noise.Densities</a> .
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.Densities\">Examples.Noise.Densities</a> .
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2639,7 +2639,7 @@ This block is demonstrated in the example
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2669,7 +2669,7 @@ This block is demonstrated in the example
 <p>
 This block demonstrates how to implement a block using the impure
 random number generator. This block is used in the example
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.ImpureGenerator\">Examples.Noise.ImpureGenerator</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.ImpureGenerator\">Examples.Noise.ImpureGenerator</a>.
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2680,7 +2680,7 @@ random number generator. This block is used in the example
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2887,13 +2887,13 @@ whereas the stator voltage is influenced by the d-current.
 
 <p>
 Default machine parameters of model
-<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>
+<a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>
 are used.
 </p>
 
 <p>
 This motor is used in the
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise\">Examples.Noise.ActuatorWithNoise</a>
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.ActuatorWithNoise\">Examples.Noise.ActuatorWithNoise</a>
 actuator example
 </p>
 </html>",         revisions="<html>
@@ -2905,7 +2905,7 @@ actuator example
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2986,7 +2986,7 @@ actuator example
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -2999,7 +2999,7 @@ actuator example
 <p>
 A simple position controller for a drive system.
 This controller is used in the
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise\">Examples.Noise.ActuatorWithNoise</a>
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.ActuatorWithNoise\">Examples.Noise.ActuatorWithNoise</a>
 actuator example
 </p>
 </html>"));
@@ -3013,7 +3013,7 @@ actuator example
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -3025,7 +3025,7 @@ actuator example
 </html>",       info="<html>
 <p>
 Parts used in the
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise\">Examples.Noise.ActuatorWithNoise</a>
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.ActuatorWithNoise\">Examples.Noise.ActuatorWithNoise</a>
 actuator example
 </p>
 </html>"));
@@ -3043,7 +3043,7 @@ This package contains utility models that are used for the examples.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -3058,7 +3058,7 @@ This package contains utility models that are used for the examples.
 <p>
 This package contains various example models that demonstrates how
 to utilize the blocks from sublibrary
-<a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
+<a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a>.
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -3069,7 +3069,7 @@ to utilize the blocks from sublibrary
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -3107,7 +3107,7 @@ to utilize the blocks from sublibrary
 <p>
 This connector defines the \"expandable connector\" ControlBus that
 is used as bus in the
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 Note, this connector contains \"default\" signals that might be utilized
 in a connection (the input/output causalities of the signals
 are determined from the connections to this bus).
@@ -3132,7 +3132,7 @@ are determined from the connections to this bus).
 <p>
 This connector defines the \"expandable connector\" SubControlBus that
 is used as sub-bus in the
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 Note, this is an expandable connector which has a \"default\" set of
 signals (the input/output causalities of the signals are
 determined from the connections to this bus).
@@ -3144,7 +3144,7 @@ determined from the connections to this bus).
       annotation (Documentation(info="<html>
 <p>
 This package contains the bus definitions needed for the
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 </p>
 </html>"));
     end Interfaces;
@@ -3177,7 +3177,7 @@ This package contains the bus definitions needed for the
               textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This model is used to demonstrate the bus usage in example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
     end Part;
@@ -3185,7 +3185,7 @@ This model is used to demonstrate the bus usage in example
     annotation (Documentation(info="<html>
 <p>
 This package contains utility models and bus definitions needed for the
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 </p>
 </html>"));
   end BusUsage_Utilities;

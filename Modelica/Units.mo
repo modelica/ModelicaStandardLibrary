@@ -1152,8 +1152,8 @@ end UsersGuide;
 <p>
 Since magnetic material properties like reluctance and permeance often are anisotropic resp. salient,
 a special operator instead of multiplication (compare: tensor vs. vector) is required.
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> uses a
-special record <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> uses a
+special record <a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>
 which is only valid in the rotor-fixed coordinate system.
 </p>
 <p>
@@ -1196,7 +1196,7 @@ on units.
 </p>
 <p>
 For an introduction to the conventions used in this package, have a look at:
-<a href=\"modelica://Modelica.Units.UsersGuide.Conventions\">Conventions</a>.
+<a href=\"modelica:/Modelica.Units.UsersGuide.Conventions\">Conventions</a>.
 </p>
 </html>"));
   end SI;
@@ -1876,13 +1876,13 @@ part have the SI unit Ampere).
 <p>
 Furthermore, conversion functions from non SI-units to SI-units and vice versa
 are provided in subpackage
-<a href=\"modelica://Modelica.Units.Conversions\">Conversions</a>.
+<a href=\"modelica:/Modelica.Units.Conversions\">Conversions</a>.
 </p>
 
 <p>
 For an introduction how units are used in the Modelica Standard Library
 with package Units, have a look at:
-<a href=\"modelica://Modelica.Units.UsersGuide.HowToUseUnits\">How to use Units</a>.
+<a href=\"modelica:/Modelica.Units.UsersGuide.HowToUseUnits\">How to use Units</a>.
 </p>
 
 <p>

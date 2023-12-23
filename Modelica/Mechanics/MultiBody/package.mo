@@ -154,11 +154,11 @@ model World
     Documentation(info="<html>
 <p>Replaceable function to define the gravity field.
    Default is function
-   <a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration\">standardGravityAcceleration</a>
+   <a href=\"modelica:/Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration\">standardGravityAcceleration</a>
    that provides some simple gravity fields (no gravity, constant parallel gravity field,
    point gravity field).
    By redeclaring this function, any type of gravity field can be defined, see example
-     <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField\">Examples.Elementary.UserDefinedGravityField</a>.
+     <a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField\">Examples.Elementary.UserDefinedGravityField</a>.
 </p>
 </html>"));
 
@@ -417,7 +417,7 @@ ground. This model serves several purposes:
      gravity can be selected. Also, function gravityAcceleration can
      be redeclared to a user-defined function that computes the gravity
      acceleration, see example
-     <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField\">Examples.Elementary.UserDefinedGravityField</a>.
+     <a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField\">Examples.Elementary.UserDefinedGravityField</a>.
      </li>
 <li> It is used to define <strong>default settings</strong> of animation properties
      (e.g., the diameter of a sphere representing by default
@@ -426,7 +426,7 @@ ground. This model serves several purposes:
 <li> It is used to define a <strong>visual representation</strong> of the
      world model (= 3 coordinate axes with labels), of the defined
      gravity field and of a ground plane perpendicular to the gravity direction.<br>
-    <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/world.png\" alt=\"MultiBody.World\">
+    <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/world.png\" alt=\"MultiBody.World\">
 </li>
 </ul>
 <p>
@@ -477,16 +477,16 @@ in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/MultiBody.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/MultiBody.png\">
 </div>
 
 <p>
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody.UsersGuide</a>
+<li> <a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody.UsersGuide</a>
      discusses the most important aspects how to use this library.</li>
-<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples\">MultiBody.Examples</a>
+<li> <a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples\">MultiBody.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 

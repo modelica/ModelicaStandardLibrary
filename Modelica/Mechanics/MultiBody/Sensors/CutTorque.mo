@@ -105,7 +105,7 @@ with negative sign at frame_a.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
 </div>
 </html>"));
 end CutTorque;

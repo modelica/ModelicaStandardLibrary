@@ -189,12 +189,12 @@ savematfile tables.mat tab1 tab2 tab3
 </pre></blockquote>
     when the three tables tab1, tab2, tab3 should be used from the model.<br>
     Note, a fileName can be defined as URI by using the helper function
-    <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
+    <a href=\"modelica:/Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>Statically stored in function \"usertab\" in file \"usertab.c\".
     The matrix is identified by \"tableName\". Parameter
     fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
     preferred as otherwise the table is reallocated and transposed.
-    See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+    See the <a href=\"modelica:/Modelica.Blocks.Tables\">Tables</a> package
     documentation for more details.</li>
 </ol>
 <p>
@@ -453,12 +453,12 @@ savematfile tables.mat tab1 tab2 tab3
 </pre></blockquote>
     when the three tables tab1, tab2, tab3 should be used from the model.<br>
     Note, a fileName can be defined as URI by using the helper function
-    <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
+    <a href=\"modelica:/Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>Statically stored in function \"usertab\" in file \"usertab.c\".
     The matrix is identified by \"tableName\". Parameter
     fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
     preferred as otherwise the table is reallocated and transposed.
-    See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+    See the <a href=\"modelica:/Modelica.Blocks.Tables\">Tables</a> package
     documentation for more details.</li>
 </ol>
 <p>
@@ -654,12 +654,12 @@ savematfile tables.mat tab1 tab2 tab3
 </pre></blockquote>
     when the three tables tab1, tab2, tab3 should be used from the model.<br>
     Note, a fileName can be defined as URI by using the helper function
-    <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
+    <a href=\"modelica:/Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>Statically stored in function \"usertab\" in file \"usertab.c\".
     The matrix is identified by \"tableName\". Parameter
     fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
     preferred as otherwise the table is reallocated and transposed.
-    See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+    See the <a href=\"modelica:/Modelica.Blocks.Tables\">Tables</a> package
     documentation for more details.</li>
 </ol>
 <p>
@@ -845,12 +845,12 @@ savematfile tables.mat tab1 tab2 tab3
 </pre></blockquote>
     when the three tables tab1, tab2, tab3 should be used from the model.<br>
     Note, a fileName can be defined as URI by using the helper function
-    <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
+    <a href=\"modelica:/Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>Statically stored in function \"usertab\" in file \"usertab.c\".
     The matrix is identified by \"tableName\". Parameter
     fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
     preferred as otherwise the table is reallocated and transposed.
-    See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+    See the <a href=\"modelica:/Modelica.Blocks.Tables\">Tables</a> package
     documentation for more details.</li>
 </ol>
 <p>
@@ -1007,7 +1007,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       discrete input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
       annotation (derivative(
           noDerivative=nextTimeEvent,
           noDerivative=pre_nextTimeEvent) = getDerTimeTableValue);
@@ -1023,7 +1023,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       discrete input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTimeTableValueNoDer;
 
     pure function getTimeTableValueNoDer2
@@ -1036,7 +1036,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       discrete input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
       annotation (derivative(
           noDerivative=nextTimeEvent,
           noDerivative=pre_nextTimeEvent) = getDerTimeTableValueNoDer);
@@ -1053,7 +1053,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real der_timeIn "Derivative of (scaled) time value";
       output Real der_y "Derivative of interpolated value";
       external "C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
       annotation (derivative(
           order=2,
           noDerivative=nextTimeEvent,
@@ -1071,7 +1071,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real der_timeIn "Derivative of (scaled) time value";
       output Real der_y "Derivative of interpolated value";
       external "C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getDerTimeTableValueNoDer;
 
     pure function getDer2TimeTableValue
@@ -1086,7 +1086,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real der2_timeIn "Second derivative of (scaled) time value";
       output Real der2_y "Second derivative of interpolated value";
       external "C" der2_y = ModelicaStandardTables_CombiTimeTable_getDer2Value(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn, der2_timeIn)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getDer2TimeTableValue;
 
     pure function getTimeTableTmin
@@ -1095,7 +1095,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID "External table object";
       output Real timeMin "Minimum abscissa value in table";
       external "C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(tableID)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTimeTableTmin;
 
     pure function getTimeTableTmax
@@ -1104,7 +1104,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID "External table object";
       output Real timeMax "Maximum abscissa value in table";
       external "C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTimeTableTmax;
 
     pure function getNextTimeEvent
@@ -1114,7 +1114,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real timeIn "(Scaled) time value";
       output Real nextTimeEvent "(Scaled) next time event in table";
       external "C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getNextTimeEvent;
 
     pure function getTable1DValue "Interpolate 1-dim. table defined by matrix"
@@ -1124,7 +1124,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real u "Abscissa value";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
       annotation (derivative = getDerTable1DValue);
     end getTable1DValue;
 
@@ -1136,7 +1136,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real u "Abscissa value";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable1DValueNoDer;
 
     pure function getTable1DValueNoDer2
@@ -1147,7 +1147,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real u "Abscissa value";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
       annotation (derivative = getDerTable1DValueNoDer);
     end getTable1DValueNoDer2;
 
@@ -1160,7 +1160,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real der_u "Derivative of abscissa value";
       output Real der_y "Derivative of interpolated value";
       external "C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
       annotation (derivative(order=2) = getDer2Table1DValue);
     end getDerTable1DValue;
 
@@ -1173,7 +1173,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real der_u "Derivative of abscissa value";
       output Real der_y "Derivative of interpolated value";
       external "C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getDerTable1DValueNoDer;
 
     pure function getDer2Table1DValue
@@ -1186,7 +1186,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real der2_u " Second derivative of abscissa value";
       output Real der2_y "Second derivative of interpolated value";
       external "C" der2_y = ModelicaStandardTables_CombiTable1D_getDer2Value(tableID, icol, u, der_u, der2_u)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getDer2Table1DValue;
 
     pure function getTable1DAbscissaUmin
@@ -1195,7 +1195,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID "External table object";
       output Real uMin "Minimum abscissa value in table";
       external "C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable1DAbscissaUmin;
 
     pure function getTable1DAbscissaUmax
@@ -1204,7 +1204,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID "External table object";
       output Real uMax "Maximum abscissa value in table";
       external "C" uMax = ModelicaStandardTables_CombiTable1D_maximumAbscissa(tableID)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable1DAbscissaUmax;
 
     pure function getTable2DValue "Interpolate 2-dim. table defined by matrix"
@@ -1214,7 +1214,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real u2 "Value of second independent variable";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
       annotation (derivative = getDerTable2DValue);
     end getTable2DValue;
 
@@ -1226,7 +1226,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real u2 "Value of second independent variable";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable2DValueNoDer;
 
     pure function getTable2DValueNoDer2
@@ -1237,7 +1237,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real u2 "Value of second independent variable";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
       annotation (derivative = getDerTable2DValueNoDer);
     end getTable2DValueNoDer2;
 
@@ -1251,7 +1251,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real der_u2 "Derivative of second independent variable";
       output Real der_y "Derivative of interpolated value";
       external "C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
       annotation (derivative(order=2) = getDer2Table2DValue);
     end getDerTable2DValue;
 
@@ -1265,7 +1265,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real der_u2 "Derivative of second independent variable";
       output Real der_y "Derivative of interpolated value";
       external "C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getDerTable2DValueNoDer;
 
     pure function getDer2Table2DValue
@@ -1280,7 +1280,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real der2_u2 "Second derivative of second independent variable";
       output Real der2_y "Second derivative of interpolated value";
       external "C" der2_y = ModelicaStandardTables_CombiTable2D_getDer2Value(tableID, u1, u2, der_u1, der_u2, der2_u1, der2_u2)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getDer2Table2DValue;
 
     pure function getTable2DAbscissaUmin
@@ -1289,7 +1289,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
       output Real uMin[2] "Minimum abscissa value in table";
       external "C" ModelicaStandardTables_CombiTable2D_minimumAbscissa(tableID, uMin)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable2DAbscissaUmin;
 
     pure function getTable2DAbscissaUmax
@@ -1298,7 +1298,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
       output Real uMax[2] "Maximum abscissa value in table";
       external "C" ModelicaStandardTables_CombiTable2D_maximumAbscissa(tableID, uMax)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable2DAbscissaUmax;
   end Internal;
   annotation (Documentation(info="<html>
@@ -1308,7 +1308,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 store tables using a function &quot;usertab&quot; in a file conventionally named &quot;usertab.c&quot;. This can be more efficient than providing the tables as Modelica parameter arrays.</p>
 <p>This is achieved by providing the tables in a specific structure as C-code and compiling that C-code together with the rest of the simulation model into a binary
 that can be executed on the target platform. The &quot;Resources/Data/Tables/&quot; subdirectory of the MSL installation directory contains the files
-<a href=\"modelica://Modelica/Resources/Data/Tables/usertab.c\">&quot;usertab.c&quot;</a> and <a href=\"modelica://Modelica/Resources/Data/Tables/usertab.h\">&quot;usertab.h&quot;</a>
+<a href=\"modelica:/Modelica/Resources/Data/Tables/usertab.c\">&quot;usertab.c&quot;</a> and <a href=\"modelica:/Modelica/Resources/Data/Tables/usertab.h\">&quot;usertab.h&quot;</a>
 that can be used as a template for own developments. While &quot;usertab.c&quot; would be typically used unmodified, the
 &quot;usertab.h&quot; needs to adapted for the own needs.</p>
 <p>In order to work it is necessary that the compiler pulls in the &quot;usertab.c&quot; file. Different Modelica tools might provide different mechanisms to do so.
@@ -1328,7 +1328,7 @@ protected
     input Real dummy_u[:];
     output Real dummy_y;
     external \"C\" dummy_y = mydummyfunc(dummy_u);
-    annotation(IncludeDirectory=\"modelica://Modelica/Resources/Data/Tables\",
+    annotation(IncludeDirectory=\"modelica:/Modelica/Resources/Data/Tables\",
            Include = \"#include \"usertab.c\"
 double mydummyfunc(double* dummy_in) {
    return 0;

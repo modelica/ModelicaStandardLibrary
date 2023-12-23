@@ -28,7 +28,7 @@ equation
   connect(opAmp.in_p, p1) annotation (Line(points={{-10,-6},{-80,-6},{-80,100},{
           -100,100}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>Non-inverting amplifier = buffer, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
+<p>Non-inverting amplifier = buffer, based on the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p><code>vOut = k*vIn</code></p>
 </html>"),
        Icon(graphics={

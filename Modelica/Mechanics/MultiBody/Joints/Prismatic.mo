@@ -164,7 +164,7 @@ Optionally, two additional 1-dimensional mechanical flanges
 flange \"support\" represents the bearing) can be enabled via
 parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
 driven with elements of the
-<a href=\"modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
+<a href=\"modelica:/Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
 library.
 
 </p>
@@ -189,7 +189,7 @@ vector \"n\" defining the translation axis
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
 </div>
 
 </html>"));

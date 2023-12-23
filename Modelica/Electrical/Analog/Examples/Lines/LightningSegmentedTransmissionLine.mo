@@ -82,7 +82,7 @@ After 20 ms, a lightning (10/350 &micro;s) with an amplitude of 10 kA hits the t
 Note that the traveling wave hits source and load approximately 200 &micro;s after the lightning hits the transmission line.
 Plot voltage and current at the load. Without overvoltage protection, the load would be destroyed.
 Note that using a sparse solver saves some simulation time.
-Using a <a href=\"modelica://Modelica.Electrical.Analog.Examples.Lines.LightningLosslessTransmissionLine\">lossless transmission line model</a> simulates even much quicker.
+Using a <a href=\"modelica:/Modelica.Electrical.Analog.Examples.Lines.LightningLosslessTransmissionLine\">lossless transmission line model</a> simulates even much quicker.
 </p>
 </html>",
         revisions="<html>

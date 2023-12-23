@@ -34,7 +34,7 @@ y = <strong>cos</strong>(uInternal);
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/cos.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/cos.png\"
      alt=\"cos.png\">
 </div>
 

@@ -80,7 +80,7 @@ system of equations if friction elements are dynamically coupled
 which has to be solved by appropriate numerical methods.
 The method is described in [Otter1999]
 (see also a&nbsp;short sketch in
-<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>).
+<a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>).
 </p>
 <p>
 The parameter <code>w_small</code> is introduced for particular

@@ -4,7 +4,7 @@ model Cylinder_analytic_CAD
   extends CylinderBase;
   Visualizers.FixedShape crankShape(
     animation=animation,
-    shapeType="modelica://Modelica/Resources/Data/Shapes/Engine/crank.dxf",
+    shapeType="modelica:/Modelica/Resources/Data/Shapes/Engine/crank.dxf",
     lengthDirection={1,0,0},
     extra=1,
     widthDirection={0,1,0},

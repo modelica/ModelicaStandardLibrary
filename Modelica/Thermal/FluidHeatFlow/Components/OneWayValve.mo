@@ -22,7 +22,7 @@ equation
   V_flow = (s*unitPressureDrop)  *(if backward then V_flowBackward/dpNominal else 1);
   Q_flow = frictionLoss*V_flow*dp;
 annotation (Documentation(info="<html>
-<p>Simple one-way valve, comparable to the electrical <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealDiode\">ideal diode</a> model.</p>
+<p>Simple one-way valve, comparable to the electrical <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealDiode\">ideal diode</a> model.</p>
 <ul>
 <li>from flowPort_a to flowPort_b: small pressure drop, linearly dependent on volumeFlow</li>
 <li>from flowPort_b to flowPort_a: small leakage flow, linearly dependent on pressure drop</li>

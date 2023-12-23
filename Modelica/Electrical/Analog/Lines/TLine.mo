@@ -25,7 +25,7 @@ equation
 <p>
 Lossless transmission line with characteristic impedance Z0 and transmission delay TD. The lossless transmission line TLine is a two Port. 
 Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. 
-For further details see [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. 
+For further details see [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. 
 The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39; / C&#39;).
 </p>
 <p>
@@ -41,8 +41,8 @@ There are three possibilities for specifying the transmission delay TD:
 <p>Resistance R&#39; and conductance G&#39; per meter are assumed to be zero.</p>
 
 <p><strong>References:</strong>
-   [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
-   [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
+   [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
+   [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
 </html>",    revisions="<html>
 <ul>
 <li><em> 1998   </em>

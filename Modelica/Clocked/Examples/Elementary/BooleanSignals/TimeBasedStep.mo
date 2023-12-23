@@ -24,7 +24,7 @@ equation
   Documentation(info="<html>
 <p>
 Example for block
-<a href=\"modelica://Modelica.Clocked.BooleanSignals.TimeBasedSources.Step\">Modelica.Clocked.BooleanSignals.TimeBasedSources.Step</a>.
+<a href=\"modelica:/Modelica.Clocked.BooleanSignals.TimeBasedSources.Step\">Modelica.Clocked.BooleanSignals.TimeBasedSources.Step</a>.
 </p>
 </html>"));
 end TimeBasedStep;

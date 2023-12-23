@@ -151,10 +151,10 @@ In such cases one might consider changing the modelStructure.
 In the BranchingDynamicPipes example, {pipe1,pipe3,pipe4}.modelStructure are configured to a_v_b, while pipe2.modelStructure remains av_vb.
 This avoids a high-index DAE and overdetermined initial conditions.
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\"
      alt=\"BranchingDynamicPipes.png\">
 </html>"), experiment(StopTime=10),
     __Dymola_Commands(file(ensureSimulated=true)=
-        "modelica://Modelica/Resources/Scripts/Dymola/Fluid/BranchingDynamicPipes/plotResults.mos"
+        "modelica:/Modelica/Resources/Scripts/Dymola/Fluid/BranchingDynamicPipes/plotResults.mos"
         "plotResults"));
 end BranchingDynamicPipes;
