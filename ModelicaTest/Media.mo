@@ -694,6 +694,7 @@ package Media "Test models for Modelica.Media"
       Real gamma2=Medium.isothermalCompressibility(medium2.state);
       Medium.SpecificEnthalpy h_is=Medium.isentropicEnthalpyApproximation(2.0e5,
           medium.state);
+      Medium.MassFraction Xi[Medium.nXi] = Medium.massFraction(medium.state);
     equation
       der(medium.p) = 1000.0;
       der(medium.T) = 1000;
@@ -789,6 +790,8 @@ is given to compare the approximation.
       Medium.IsentropicExponent gamma=Medium.isentropicExponent(medium.state);
       Medium.SpecificEntropy s=Medium.specificEntropy(medium.state);
       Medium.VelocityOfSound a=Medium.velocityOfSound(medium.state);
+      Medium.MassFraction Xi[Medium.nXi] = Medium.massFraction(medium.state);
+
     equation
 
       m = medium.d*V;
@@ -925,6 +928,7 @@ is given to compare the approximation.
       SI.SpecificEntropy s = Medium.specificEntropy(state);
       SI.SpecificInternalEnergy u = Medium.specificInternalEnergy(state);
       SI.Temperature Tsat = Medium.saturationTemperature(p);
+      Medium.MassFraction Xi[Medium.nXi] = Medium.massFraction(state);
       annotation (experiment(StopTime=1));
     end MoistAir;
 
