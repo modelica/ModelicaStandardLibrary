@@ -4542,7 +4542,7 @@ This function computes an isentropic state transformation:
     replaceable partial function massFraction "Return independent mass fractions (if any)"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
-      output MassFraction Xi[nXi] "(independent) Mass fractions";
+      output MassFraction Xi[nXi] "Independent mass fractions";
     end massFraction;
 	
     type MassFlowRate = SI.MassFlowRate (
