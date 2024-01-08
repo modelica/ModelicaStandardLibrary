@@ -5109,8 +5109,8 @@ to the above list of assumptions</li>
       MassFraction[nX] X(start=reference_X)
         "Mass fractions (= (component mass)/total mass  m_i/m)";
     end ThermodynamicState;
-	
-	redeclare replaceable function massFraction "Return independent mass fractions (if any)"
+
+    redeclare replaceable function massFraction "Return independent mass fractions (if any)"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction Xi[nXi] "Independent mass fractions";
