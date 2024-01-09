@@ -4066,7 +4066,7 @@ Additional equations need to be generated for the stream variables of outside co
 <p>
 Neglecting zero flow conditions, the above implicit equations can be
 analytically solved for the inStream(..) operators.
-The details are given in <a href=\"https://specification.modelica.org/v3.4/Ch15.html#stream-operator-instream-and-connection-equations\">Section 15.2 (Stream Operator inStream and Connection Equations) of the Modelica 3.4 specification</a>.
+The details are given in <a href=\"https://specification.modelica.org/maint/3.6/stream-connectors.html#instream-and-connection-equations\">Section&nbsp;15.2 <em>inStream and Connection Equations</em> of the Modelica&nbsp;3.6 specification</a>.
 The stream connection equations have singularities and/or multiple solutions if one or more
 of the flow variables become zero. When all the flows are zero, a singularity is always
 present, so it is necessary to approximate the solution in an open neighborhood
@@ -6689,7 +6689,7 @@ equation
 In this example we will start in <strong>increase</strong> and increase <strong>v</strong> until a limit, and then decrease it, and repeat.
 
 <h4>Description</h4>
-A detailed description of the State Machines using Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/v3.4/Ch17.html\">Chapter 17 (State Machines) of the Modelica 3.4 specification</a>.
+A detailed description of the State Machines using Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/maint/3.6/state-machines.html\">Chapter&nbsp;17 <em>State Machines</em> of the Modelica&nbsp;3.6 specification</a>.
 </html>"));
 end StateMachines;
 
@@ -6789,9 +6789,9 @@ operators inside the components provide the \"ideal mixing\" equations:
 
 <p>
 A detailed description of the stream keyword and the inStream operator is given
-in <a href=\"https://specification.modelica.org/v3.4/Ch15.html\">Chapter 15 (Stream Connectors)</a>
-and <a href=\"https://specification.modelica.org/v3.4/A4.html\">Appendix D (Derivation of Stream Equations)</a>
-of the Modelica 3.4 specification.
+in <a href=\"https://specification.modelica.org/maint/3.6/stream-connectors.html\">Chapter&nbsp;15 <em>Stream Connectors</em></a>
+and <a href=\"https://specification.modelica.org/maint/3.6/derivation-of-stream-equations.html\">Appendix&nbsp;C <em>Derivation of Stream Equations</em></a>
+of the Modelica&nbsp;3.6 specification.
 An overview and a rational is provided in a
 <a href=\"modelica://Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">slide set</a>.
 </p>
@@ -6928,7 +6928,7 @@ In this example <strong>dc.xd</strong> and <strong>dc.ud</strong> are Clocked va
 At time instants where the associated clock is not active, the value of a clocked variable can be inquired by using an explicit cast operator, e.g., <strong>hold</strong>.
 
 <h4>Description</h4>
-A detailed description of the Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/v3.4/Ch16.html\">Chapter 16 (Synchronous Language Elements) of the Modelica 3.4 specification</a>.
+A detailed description of the Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/maint/3.6/synchronous-language-elements.html\">Chapter&nbsp;16 <em>Synchronous Language Elements</em> of the Modelica&nbsp;3.6 specification</a>.
 </html>"));
 end Synchronous;
 

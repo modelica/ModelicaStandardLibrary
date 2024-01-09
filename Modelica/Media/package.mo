@@ -1798,8 +1798,8 @@ Index reduction leads to the equations:
 <p>
 Note, that <strong>der</strong>(y,x) is the partial derivative of y with respect to x
 and that this operator is available in Modelica only for declaring partial derivative functions,
-see <a href=\"https://specification.modelica.org/v3.4/Ch12.html#partial-derivatives-of-functions\">Section&nbsp;12.7.2
-(Partial Derivatives of Functions) of the Modelica 3.4 specification</a>.
+see <a href=\"https://specification.modelica.org/maint/3.6/functions.html#partial-derivatives-of-functions\">Section&nbsp;12.7.2
+<em>Partial Derivatives of Functions</em> of the Modelica&nbsp;3.6 specification</a>.
 </p>
 <p>
 The above equations imply, that if p,T are provided from the
@@ -4096,7 +4096,7 @@ Please note that this doesn't mean that the additional equations
 should be connection equations, nor that exactly those variables
 should be supplied, in order to complete the model.
 For further information, see the <a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media User's guide</a>, and
-<a href=\"https://specification.modelica.org/v3.4/Ch4.html#balanced-models\">Section 4.7 (Balanced Models) of the Modelica 3.4 specification</a>.</p>
+<a href=\"https://specification.modelica.org/maint/3.6/class-predefined-types-and-declarations.html#balanced-models\">Section&nbsp;4.7 <em>Balanced Models</em> of the Modelica&nbsp;3.6 specification</a>.</p>
 </html>"));
     end BaseProperties;
 

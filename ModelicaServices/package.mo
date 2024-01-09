@@ -283,7 +283,7 @@ These are:
 <li> <a href=\"modelica://ModelicaServices.Types.SolverMethod\">Types.SolverMethod</a>
      provides a string defining the integration method to solve differential equations in
      a clocked discretized continuous-time partition
-     (see <a href=\"https://specification.modelica.org/v3.4/Ch16.html#solver-methods\">Section 16.8.2 (Solver Methods) of the Modelica 3.4 specification</a>).</li>
+     (see <a href=\"https://specification.modelica.org/maint/3.6/synchronous-language-elements.html#solver-methods\">Section&nbsp;16.8.2 <em>Solver Methods</em> of the Modelica 3.6 specification</a>).</li>
 </ul>
 
 <p>
