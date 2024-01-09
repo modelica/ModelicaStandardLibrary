@@ -1902,7 +1902,7 @@ The external C-functions may be defined in the following way:
 } MyTable;
 
 <strong>void</strong>* initMyTable(const char* fileName, const char* tableName) {
-  MyTable* table = malloc(sizeof(MyTable));
+  MyTable* table = (MyTable*) malloc(sizeof(MyTable));
   <strong>if</strong> ( table == NULL ) ModelicaError(\"Not enough memory\");
         // read table from file and store all data in *table
   <strong>return</strong> (void*) table;

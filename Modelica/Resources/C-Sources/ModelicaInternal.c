@@ -1,6 +1,6 @@
 /* ModelicaInternal.c - External functions for Modelica.Utilities
 
-   Copyright (C) 2002-2020, Modelica Association and contributors
+   Copyright (C) 2002-2023, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -37,6 +37,10 @@
       Nov. 11, 2020: by Thomas Beutlich
                      Added getcwd fallback in ModelicaInternal_fullPathName if
                      realpath fails for non-existing path (ticket #3660)
+
+      Dec. 02, 2019: by Thomas Beutlich
+                     Removed call of localtime in ModelicaInternal_getTime
+                     (ticket #3246)
 
       Nov. 13, 2019: by Thomas Beutlich
                      Utilized blockwise I/O in ModelicaInternal_copyFile
@@ -1332,40 +1336,51 @@ void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Ou
     *year = 0;
 #else
     struct tm* tlocal;
-    time_t calendarTime;
     int ms0;
 #if defined(_POSIX_) || (defined(_MSC_VER) && _MSC_VER >= 1400)
     struct tm tres;
 #endif
 
-    time(&calendarTime);                        /* Retrieve sec time */
-#if defined(_POSIX_)
-    tlocal = localtime_r(&calendarTime, &tres); /* Time fields in local time zone */
-#elif defined(_MSC_VER) && _MSC_VER >= 1400
-    localtime_s(&tres, &calendarTime);          /* Time fields in local time zone */
-    tlocal = &tres;
-#else
-    tlocal = localtime(&calendarTime);          /* Time fields in local time zone */
-#endif
-
-    /* Get millisecond resolution depending on platform */
 #if defined(_WIN32)
-    {
 #if defined(__BORLANDC__)
-        struct timeb timebuffer;
+    struct timeb timebuffer;
         ftime( &timebuffer );                   /* Retrieve ms time */
 #else
-        struct _timeb timebuffer;
+    struct _timeb timebuffer;
         _ftime( &timebuffer );                  /* Retrieve ms time */
 #endif
-        ms0 = (int)(timebuffer.millitm);        /* Convert unsigned int to int */
+#if defined(__BORLANDC__)
+    ftime(&timebuffer);
+    timebuffer.time -= 60 * timebuffer.timezone;
+    if (timebuffer.dstflag != 0)
+        timebuffer.time += 3600;
+    tlocal = gmtime(&timebuffer.time);
+#elif defined(_MSC_VER) && _MSC_VER >= 1400
+    _ftime_s(&timebuffer);
+    timebuffer.time -= 60 * timebuffer.timezone;
+    if (timebuffer.dstflag != 0) {
+        int hours = 0;
+        _get_daylight(&hours);
+        timebuffer.time += 3600 * hours;
     }
+    gmtime_s(&tres, &timebuffer.time);
+    tlocal = &tres;
 #else
-    {
-        struct timeval tv;
-        gettimeofday(&tv, NULL);
-        ms0 = (int)(tv.tv_usec/1000); /* Convert microseconds to milliseconds */
-    }
+    _ftime(&timebuffer);
+    timebuffer.time -= 60 * timebuffer.timezone;
+    if (timebuffer.dstflag != 0)
+        timebuffer.time += 3600;
+    tlocal = gmtime(&timebuffer.time);
+#endif
+    ms0 = (int)(timebuffer.millitm); /* Convert unsigned int to int */
+#else
+    struct timeval tv;
+    struct timezone tz;
+    gettimeofday(&tv, &tz);
+    tv.tv_sec -= 60 * tz.tz_minuteswest;
+    gmtime_r(&tv.tv_sec, &tres);
+    tlocal = &tres;
+    ms0 = (int)(tv.tv_usec / 1000); /* Convert microseconds to milliseconds */
 #endif
 
     /* Do not memcpy as you do not know which sizes are in the struct */

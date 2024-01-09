@@ -1225,6 +1225,81 @@ Comments and annotations should start with a capital letter, for example:<br>
 For Boolean parameters, the description string should start with &quot;= true, &hellip;&quot;, for example:<br>
 <code><strong>parameter</strong> Boolean useHeatPort = false &quot;= true, if heatPort is enabled&quot;;</code>.
 </p>
+
+<h4>Tabs and Groups</h4>
+<p>
+The annotations &quot;tab&quot; and &quot;group&quot; define the placement of
+component or of variables in a dialog.
+</p>
+<p>
+Using the <strong>group</strong> annotation, the following rules shall be followed:
+</p>
+<ol>
+  <li>
+    Avoid excessively long group labels.
+  </li>
+  <li>
+    Use nouns rather than verbs, without ending punctuation.
+  </li>
+  <li>
+    Use sentence-style capitalization.
+  </li>
+</ol>
+<p>
+Using the <strong>tab</strong> annotation, the following rules shall be followed:
+</p>
+<ol>
+  <li>
+    Try to group components or variables in the default \"general\" tab first.
+    But feel free to define a&nbsp;new tab it they are so many.
+  </li>
+  <li>
+    Label tabs based on their pattern. The label shall clearly reflect
+    the content of the collected variables.
+  </li>
+  <li>
+    Avoid long tab labels. One or two words are mostly sufficient.
+  </li>
+  <li>
+    Use nouns rather than verbs, without ending punctuation.
+  </li>
+  <li>
+    Use sentence-style capitalization.
+  </li>
+  <li>
+    Visibility of parameters collected in one tab shall not be dependent
+    on parameters shown in another tab.
+  </li>
+</ol>
+
+<h5>Example</h5>
+<p>
+Imagine you define a&nbsp;controlled electric drive being composed of
+a&nbsp;controller and an electrical machine. The latter
+has parameters number of pole pairs&nbsp;<var>p</var>, nominal frequency
+<var>f</var><sub>nom</sub>, rotor's moment of inertia <var>J</var><sub>rotor</sub>
+and others.
+The&nbsp;controller itself is divided into several sub-controllers
+&ndash; such as the one for speed control with parameters like gain&nbsp;<var>k</var>
+or time constant&nbsp;<var>T</var>.
+Then, the above parameters of your electrical drive model could be sorted using tabs
+and groups as follows:&nbsp;<var>p</var>, <var>f</var><sub>nom</sub> and
+<var>J</var><sub>rotor</sub> grouped in the \"Electrical machine\" group in
+the \"general\" tab; <var>k</var> and&nbsp;<var>T</var> in the group
+\"Speed control\" under tab \"Controller\".
+</p>
+<p>
+In the Modelica code, for example the parameter&nbsp;<var>k</var> will then
+be defined like:
+</p>
+
+<blockquote><pre>
+<strong>parameter</strong> Real k=1 \"Gain\"
+  <strong>annotation</strong>(
+    Dialog(
+      tab=\"Controller\",
+      group=\"Speed control\"));
+</pre></blockquote>
 </html>"));
        end Format;
 
