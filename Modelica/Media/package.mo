@@ -4539,6 +4539,12 @@ This function computes an isentropic state transformation:
               X));
     end specificEnthalpy_psX;
 
+    replaceable partial function massFraction "Return independent mass fractions (if any)"
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "Thermodynamic state record";
+      output MassFraction Xi[nXi] "Independent mass fractions";
+    end massFraction;
+	
     type MassFlowRate = SI.MassFlowRate (
         quantity="MassFlowRate." + mediumName,
         min=-1.0e5,
@@ -4722,6 +4728,14 @@ are described in
               T,
               fill(0, 0)));
     end density_pT;
+
+    redeclare replaceable function massFraction "Return independent mass fractions (if any)"
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "Thermodynamic state record";
+      output MassFraction Xi[nXi] "Independent mass fractions";
+    algorithm
+      Xi := fill(0,0);
+    end massFraction;
 
     redeclare replaceable partial model extends BaseProperties(final
         standardOrderComponents=true)
@@ -5095,6 +5109,14 @@ to the above list of assumptions</li>
       MassFraction[nX] X(start=reference_X)
         "Mass fractions (= (component mass)/total mass  m_i/m)";
     end ThermodynamicState;
+
+    redeclare replaceable function massFraction "Return independent mass fractions (if any)"
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "Thermodynamic state record";
+      output MassFraction Xi[nXi] "Independent mass fractions";
+    algorithm
+      Xi := state.X[1:nXi];
+    end massFraction;
 
     constant FluidConstants[nS] fluidConstants "Constant data for the fluid";
 
