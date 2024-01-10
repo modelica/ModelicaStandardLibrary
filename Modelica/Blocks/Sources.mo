@@ -301,7 +301,7 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
     if continuous then
       y = offset + amplitude*smooth(0, (if time < startTime then Modelica.Math.sin(phase)
         else Modelica.Math.sin(2*pi*f*(time - startTime) + phase)));
-    else 
+    else
       y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
        *pi*f*(time - startTime) + phase));
     end if;
@@ -614,7 +614,7 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     SI.Angle x=2*pi*f*(time - startTime);
   equation
     if continuous then
-     y = offset + amplitude*smooth(1, (if time < startTime then 1 else 
+     y = offset + amplitude*smooth(1, (if time < startTime then 1 else
         (if noEvent(time - startTime < eps) then 1 else (sin(x))/x)));
     else
       y = offset + (if time < startTime then 0 else amplitude*
