@@ -35,14 +35,15 @@ model Torque
     annotation (Dialog(group="if animation = true", enable=animation));
 
 protected
-  Visualizers.Advanced.DoubleArrow torqueArrow(
+  Visualizers.Advanced.Vector torqueArrow(
     color=torqueColor,
     specularCoefficient=specularCoefficient,
     R=frame_b.R,
     r=frame_b.r_0,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
     headAtOrigin=true,
-    r_head=-frame_b.t) if world.enableAnimation and animation;
+    twoHeadedArrow=true,
+    coordinates=-frame_b.t) if world.enableAnimation and animation;
   Visualizers.Advanced.Shape connectionLine(
     shapeType="cylinder",
     lengthDirection = to_unit1(basicTorque.r_0),
