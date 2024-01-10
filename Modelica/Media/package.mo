@@ -4544,7 +4544,7 @@ This function computes an isentropic state transformation:
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction Xi[nXi] "Independent mass fractions";
     end massFraction;
-	
+
     type MassFlowRate = SI.MassFlowRate (
         quantity="MassFlowRate." + mediumName,
         min=-1.0e5,
