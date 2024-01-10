@@ -1339,7 +1339,7 @@ initial equation
   dummy = getUsertab(table.y);
 equation
   connect(clock.y, table.u[1]) annotation (Line(points={{-59,10},{-42,10}}, color={0,0,127}));
-  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version=\"4.0.0\")));
+  annotation (experiment(StartTime=0, StopTime=5));
 end ExampleCTable;
 </pre></blockquote>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},

@@ -36,7 +36,7 @@ Since mixing may occur, the outlet temperature may be different from the connect
 Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(

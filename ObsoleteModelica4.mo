@@ -2875,16 +2875,16 @@ Obsolete saliency cage model, see
       end BasicMachines;
     end FundamentalWave;
   end Magnetic;
-  annotation (uses(Modelica(version="4.0.0")),
-              version="4.0.0",
-              versionDate="2020-06-04",
-              dateModified = "2020-06-04 11:00:00Z",
+  annotation (uses(Modelica(version="4.1.0")),
+              version="4.1.0",
+              versionDate="2024-03-15",
+              dateModified = "2024-01-01 11:00:00Z",
               revisionId="$Format:%h %ci$",
 Documentation(info="<html>
 <p>
 This package contains models and blocks from the Modelica Standard Library
 version 3.2.3 that are no longer available in version 4.0.0
-The conversion script for version 4.0.0 changes references in existing
+The conversion script for versions >= 4.0.0 changes references in existing
 user models automatically to the models and blocks of package
 ObsoleteModelica4. The user should <strong>manually</strong> replace all
 references to ObsoleteModelica4 in his/her models to the models
@@ -2897,7 +2897,7 @@ In most cases, this means that a model with the name
 and then a manual adaptation is needed. For example, a reference to
 ObsoleteModelica4.Math.Matrices.LAPACK.dgeqpf
 should be replaced by
-Modelica.Math.Matrices.LAPACK.dgeqp3 (version 4.0.0).
+Modelica.Math.Matrices.LAPACK.dgeqp3 (version >= 4.0.0).
 This usually requires some changes at the place where
 the class is used (besides the renaming of the underlying class).
 </p>
@@ -2915,7 +2915,7 @@ marked in the icon layer with a red box.
 </p>
 
 <p>
-Copyright &copy; 2019-2020, Modelica Association and contributors
+Copyright &copy; 2019-2024, Modelica Association and contributors
 </p>
 
 <p>

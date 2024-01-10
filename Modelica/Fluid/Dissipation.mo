@@ -13140,7 +13140,7 @@ reference 01IS07022B). The project was started in October 2007 and ended in June
 </p>
 
 <p>
-Copyright &copy; 2007-2020, Modelica Association and contributors
+Copyright &copy; 2007-2024, Modelica Association and contributors
 </p>
 
 <h4>Contact</h4>
