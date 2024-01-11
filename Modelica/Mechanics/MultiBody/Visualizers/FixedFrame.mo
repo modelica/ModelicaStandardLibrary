@@ -11,8 +11,8 @@ model FixedFrame
     annotation (Dialog(group="if animation = true", enable=animation));
   input SI.Distance diameter=length/world.defaultFrameDiameterFraction
     "Diameter of axes arrows" annotation (Dialog(group="if animation = true", enable=animation));
-  input Types.Color color_x=Modelica.Mechanics.MultiBody.Types.Defaults.
-      FrameColor "Color of x-arrow"
+  input Types.Color color_x=Modelica.Mechanics.MultiBody.Types.Defaults.FrameColor
+    "Color of x-arrow"
     annotation (Dialog(colorSelector=true,group="if animation = true", enable=animation));
   input Types.Color color_y=color_x "Color of y-arrow"
     annotation (Dialog(colorSelector=true,group="if animation = true", enable=animation));
@@ -26,38 +26,23 @@ protected
   parameter Boolean showLabels2= world.enableAnimation and animation and showLabels;
 
   // Parameters to define axes
-  SI.Length headLength=min(length, diameter*Types.Defaults.FrameHeadLengthFraction);
+  SI.Length headLength=diameter*Types.Defaults.FrameHeadLengthFraction;
   SI.Length headWidth=diameter*Types.Defaults.FrameHeadWidthFraction;
-  SI.Length lineLength=max(0, length - headLength);
-  SI.Length lineWidth=diameter;
 
   // Parameters to define axes labels
-  SI.Length scaledLabel=Modelica.Mechanics.MultiBody.Types.Defaults.FrameLabelHeightFraction*diameter;
+  SI.Length scaledLabel=diameter*Types.Defaults.FrameLabelHeightFraction;
   SI.Length labelStart=1.05*length;
 
   // x-axis
-  Visualizers.Advanced.Shape x_arrowLine(
-    shapeType="cylinder",
-    length=lineLength,
-    width=lineWidth,
-    height=lineWidth,
-    lengthDirection={1,0,0},
-    widthDirection={0,1,0},
-    color=color_x,
-    specularCoefficient=specularCoefficient,
+  Visualizers.Advanced.Arrow x_arrow(
+    R=frame_a.R,
     r=frame_a.r_0,
-    R=frame_a.R) if animation2;
-  Visualizers.Advanced.Shape x_arrowHead(
-    shapeType="cone",
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
-    lengthDirection={1,0,0},
-    widthDirection={0,1,0},
+    r_head=length*{1,0,0},
+    diameter=diameter,
+    headDiameter=headWidth,
+    headLength=headLength,
     color=color_x,
-    specularCoefficient=specularCoefficient,
-    r=frame_a.r_0 + Frames.resolve1(frame_a.R, {lineLength,0,0}),
-    R=frame_a.R) if animation2;
+    specularCoefficient=specularCoefficient) if animation2;
   Visualizers.Internal.Lines x_label(
     lines=scaledLabel*{[0,0; 1,1],[0,1; 1,0]},
     diameter=diameter,
@@ -70,28 +55,15 @@ protected
     R=frame_a.R) if showLabels2;
 
   // y-axis
-  Visualizers.Advanced.Shape y_arrowLine(
-    shapeType="cylinder",
-    length=lineLength,
-    width=lineWidth,
-    height=lineWidth,
-    lengthDirection={0,1,0},
-    widthDirection={1,0,0},
-    color=color_y,
-    specularCoefficient=specularCoefficient,
+  Visualizers.Advanced.Arrow y_arrow(
+    R=frame_a.R,
     r=frame_a.r_0,
-    R=frame_a.R) if animation2;
-  Visualizers.Advanced.Shape y_arrowHead(
-    shapeType="cone",
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
-    lengthDirection={0,1,0},
-    widthDirection={1,0,0},
+    r_head=length*{0,1,0},
+    diameter=diameter,
+    headDiameter=headWidth,
+    headLength=headLength,
     color=color_y,
-    specularCoefficient=specularCoefficient,
-    r=frame_a.r_0 + Frames.resolve1(frame_a.R, {0,lineLength,0}),
-    R=frame_a.R) if animation2;
+    specularCoefficient=specularCoefficient) if animation2;
   Visualizers.Internal.Lines y_label(
     lines=scaledLabel*{[0,0; 1,1.5],[0,1.5; 0.5,0.75]},
     diameter=diameter,
@@ -104,28 +76,15 @@ protected
     R=frame_a.R) if showLabels2;
 
   // z-axis
-  Visualizers.Advanced.Shape z_arrowLine(
-    shapeType="cylinder",
-    length=lineLength,
-    width=lineWidth,
-    height=lineWidth,
-    lengthDirection={0,0,1},
-    widthDirection={0,1,0},
-    color=color_z,
-    specularCoefficient=specularCoefficient,
+  Visualizers.Advanced.Arrow z_arrow(
+    R=frame_a.R,
     r=frame_a.r_0,
-    R=frame_a.R) if animation2;
-  Visualizers.Advanced.Shape z_arrowHead(
-    shapeType="cone",
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
-    lengthDirection={0,0,1},
-    widthDirection={0,1,0},
+    r_head=length*{0,0,1},
+    diameter=diameter,
+    headDiameter=headWidth,
+    headLength=headLength,
     color=color_z,
-    specularCoefficient=specularCoefficient,
-    r=frame_a.r_0 + Frames.resolve1(frame_a.R, {0,0,lineLength}),
-    R=frame_a.R) if animation2;
+    specularCoefficient=specularCoefficient) if animation2;
   Visualizers.Internal.Lines z_label(
     lines=scaledLabel*{[0,0; 1,0],[0,1; 1,1],[0,1; 1,0]},
     diameter=diameter,
