@@ -119,7 +119,7 @@ Note, since |f_d|&nbsp;&le;&nbsp;|f_c|, pulling forces cannot occur and the cont
 is always continuous, especially around the start of the penetration at s_rel&nbsp;= s_rel0.
 On the contrary, this leads to the contact force <code>f&nbsp;=&nbsp;0</code> even if
 <code>contact&nbsp;= true</code> is still indicated around the end of the penetration.
-This is because <code>contact</code> indicates only the occurance of geometry penetration.
+This is because <code>contact</code> indicates only the occurrence of geometry penetration.
 </p>
 
 <p>
