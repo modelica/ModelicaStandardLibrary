@@ -2278,7 +2278,7 @@ Graphical illustrations shall not be added in the diagram layer, but can be adde
 </html>"));
     end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
-<p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
+<p>Every main package of the Modelica Standard Library should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
 <li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a></li>
 <li> Consistent <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">HTML documentation</a></li>
@@ -2295,6 +2295,7 @@ Graphical illustrations shall not be added in the diagram layer, but can be adde
 </ul></li>
 <li> These packages should appear in the listed order.</li>
 </ol>
+<p>Other Modelica libraries may also take advantage of these guidelines, for example by referencing this documentation as <code>modelica:/Modelica.UsersGuide.Conventions#info</code>, or by using it as a source of inspiration for an independent set of guidelines.</p>
 </html>"));
   end Conventions;
 
