@@ -2893,7 +2893,7 @@ that are recommended in the documentation of the respective model.
 
 <p>
 In most cases, this means that a model with the name
-\"ObsoleteModelica4.XXX\" should be renamed to \"Modelica.XXX\" (version 4.0.0)
+\"ObsoleteModelica4.XXX\" should be renamed to \"Modelica.XXX\"
 and then a manual adaptation is needed. For example, a reference to
 ObsoleteModelica4.Math.Matrices.LAPACK.dgeqpf
 should be replaced by
