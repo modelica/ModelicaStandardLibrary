@@ -2897,7 +2897,7 @@ In most cases, this means that a model with the name
 and then a manual adaptation is needed. For example, a reference to
 ObsoleteModelica4.Math.Matrices.LAPACK.dgeqpf
 should be replaced by
-Modelica.Math.Matrices.LAPACK.dgeqp3 (version >= 4.0.0).
+Modelica.Math.Matrices.LAPACK.dgeqp3.
 This usually requires some changes at the place where
 the class is used (besides the renaming of the underlying class).
 </p>
