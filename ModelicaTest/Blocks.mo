@@ -2103,4 +2103,56 @@ the whole homotopy transformation.</p>
             -50,-96},{-42,-96}}, color={0,0,127}));
     annotation (experiment(StopTime=1.0));
   end Exponentiation;
+
+  model ZeroThresholds
+    extends Modelica.Icons.Example;
+
+    Modelica.Blocks.Logical.GreaterThreshold greaterThreshold(
+      threshold=0) annotation (Placement(transformation(
+          origin={70,70},
+          extent={{-10,-10},{10,10}},
+          rotation=0)));
+    Modelica.Blocks.Logical.GreaterEqualThreshold greaterEqualThreshold(
+      threshold=0) annotation (Placement(transformation(
+          origin={70,30},
+          extent={{-10,-10},{10,10}},
+          rotation=0)));
+    Modelica.Blocks.Logical.LessThreshold lessThreshold(
+      threshold=0) annotation (Placement(transformation(
+          origin={70,-30},
+          extent={{-10,-10},{10,10}},
+          rotation=0)));
+    Modelica.Blocks.Logical.LessEqualThreshold lessEqualThreshold(
+      threshold=0) annotation (Placement(transformation(
+          origin={70,-70},
+          extent={{-10,-10},{10,10}},
+          rotation=0)));
+    Modelica.Blocks.Nonlinear.Limiter limiterMinZero(
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy,
+      strict=true,
+      uMax=1e5,
+      uMin=0.0) annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
+    Modelica.Blocks.Nonlinear.Limiter limiterMaxZero(
+      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy,
+      strict=true,
+      uMax=0.0,
+      uMin=-1e5) annotation (Placement(transformation(extent={{20,-40},{40,-20}}, rotation=0)));
+    Modelica.Blocks.Sources.Ramp ramp(
+      duration = 0.2,
+      height = -1.0,
+      offset = 1,
+      startTime = 0.3) annotation (
+      Placement(transformation(extent={{-80,-10},{-60,10}})));
+    Modelica.Blocks.Math.Gain gain(
+      k=-1) annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+  equation
+    connect(limiterMinZero.y, greaterThreshold.u) annotation (Line(points={{41,70},{58,70}}, color={0,0,127}));
+    connect(limiterMinZero.y, greaterEqualThreshold.u) annotation (Line(points={{41,70},{50,70},{50,30},{58,30}}, color={0,0,127}));
+    connect(limiterMaxZero.y, lessThreshold.u) annotation (Line(points={{41,-30},{58,-30}}, color={0,0,127}));
+    connect(limiterMaxZero.y, lessEqualThreshold.u) annotation (Line(points={{41,-30},{50,-30},{50,-70},{58,-70}}, color={0,0,127}));
+    connect(ramp.y, limiterMinZero.u) annotation (Line(points={{-59,0},{-40,0},{-40,70},{18,70}}, color={0,0,127}));
+    connect(ramp.y, gain.u) annotation (Line(points={{-59,0},{-40,0},{-40,-30},{-22,-30}}, color={0,0,127}));
+    connect(gain.y, limiterMaxZero.u) annotation (Line(points={{1,-30},{10,-30},{10,-30},{18,-30}}, color={0,0,127}));
+    annotation (experiment(StopTime=1.0));
+  end ZeroThresholds;
 end Blocks;
