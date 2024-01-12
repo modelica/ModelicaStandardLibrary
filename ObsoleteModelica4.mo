@@ -2884,7 +2884,7 @@ Documentation(info="<html>
 <p>
 This package contains models and blocks from the Modelica Standard Library
 version 3.2.3 that are no longer available in version 4.0.0
-The conversion script for versions >= 4.0.0 changes references in existing
+The conversion script for version 4.0.0 changes references in existing
 user models automatically to the models and blocks of package
 ObsoleteModelica4. The user should <strong>manually</strong> replace all
 references to ObsoleteModelica4 in his/her models to the models
