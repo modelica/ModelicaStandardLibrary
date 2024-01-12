@@ -2153,5 +2153,6 @@ the whole homotopy transformation.</p>
     connect(ramp.y, limiterMinZero.u) annotation (Line(points={{-59,0},{-40,0},{-40,70},{18,70}}, color={0,0,127}));
     connect(ramp.y, gain.u) annotation (Line(points={{-59,0},{-40,0},{-40,-30},{-22,-30}}, color={0,0,127}));
     connect(gain.y, limiterMaxZero.u) annotation (Line(points={{1,-30},{10,-30},{10,-30},{18,-30}}, color={0,0,127}));
+    annotation (experiment(StopTime=1.0));
   end ZeroThresholds;
 end Blocks;
