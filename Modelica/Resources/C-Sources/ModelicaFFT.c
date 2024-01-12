@@ -1,7 +1,7 @@
 /* ModelicaFFT.c - FFT functions
 
    Copyright (C) 2015-2024, Modelica Association and contributors
-   Copyright (C) 2003-2024, Mark Borgerding
+   Copyright (C) 2003-2010, Mark Borgerding
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
