@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Copyright (C) 2018-2020, Modelica Association and contributors
+Copyright (C) 2018-2024, Modelica Association and contributors
 All rights reserved.
 
 Generate MSL release notes from closed GitHub issues:
