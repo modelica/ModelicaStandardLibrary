@@ -1,5 +1,5 @@
 within ;
-package ModelicaTest "Library to test components of package Modelica - Version 4.1.0"
+package ModelicaTest "Library to test components of package Modelica"
 extends Modelica.Icons.Package;
 
   import Modelica.Units.SI;
