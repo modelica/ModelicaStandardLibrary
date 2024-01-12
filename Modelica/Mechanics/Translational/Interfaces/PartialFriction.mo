@@ -54,6 +54,8 @@ equation
   a_relfric/unitAcceleration = if locked then 0 else if free then sa
     else if startForward then sa - f0_max/unitForce
     else if startBackward then sa + f0_max/unitForce
+    else if pre(mode) == Forward then sa - f0_max/unitForce
+    else if pre(mode) == Backward then sa + f0_max/unitForce
     else sa - sign(v_relfric)*f0_max/unitForce;
 
   /* Friction force "f" has to be defined in a subclass. Example for possible
