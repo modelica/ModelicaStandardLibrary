@@ -2217,12 +2217,21 @@ package Examples
     Real m_flow_ext;
     Real der_p;
     Real der_T;
+  protected
+    parameter SI.AbsolutePressure p01 = 100000.0 "state.p at time 0";
+    parameter Real pRate1(unit = "Pa/s") = 0 "state.p rate of change";
+    parameter SI.Temperature T01 = 200 "state.T at time 0";
+    parameter SI.TemperatureSlope Trate1 = 1000 "state.T rate of change";
+    parameter SI.AbsolutePressure p02 = 2.0e5 "state2.p at time 0";
+    parameter Real pRate2(unit = "Pa/s") = 0 "state2.p rate of change";
+    parameter SI.Temperature T02 = 500 "state2.T at time 0";
+    parameter SI.TemperatureSlope Trate2 = 0 "state2.T rate of change";
 
   equation
-    state.p = 100000.0;
-    state.T = 200 + 1000*time;
-    state2.p = 2.0e5;
-    state2.T = 500.0;
+    state.p = p01 + pRate1*time;
+    state.T = T01 + Trate1*time;
+    state2.p = p02 + pRate2*time;
+    state2.T = T02 + Trate2*time;
     //  s2 = s;
 
     // Smooth state
