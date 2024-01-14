@@ -53,7 +53,7 @@ end testAllFunctions;
   annotation (preferredView="info",
        version="4.1.0",
        versionDate="2024-01-12",
-       dateModified = "2024-01-01 11:00:00Z",
+       dateModified = "2024-01-12 19:40:00Z",
        revisionId="$Format:%h %ci$",
        uses(Modelica(version="4.1.0")),
     Documentation(info="<html>
