@@ -2149,6 +2149,7 @@ package Examples
   model SimpleLiquidWater "Example for Water.SimpleLiquidWater medium model"
     extends Modelica.Icons.Example;
 
+    constant SI.PressureRate pressureRate = 1e5/10;
     parameter SI.Volume V=1 "Volume";
     parameter SI.EnthalpyFlowRate H_flow_ext=1.e6
       "Constant enthalpy flow rate into the volume";
@@ -2182,7 +2183,7 @@ package Examples
     der(U) = H_flow_ext;
 
     // Smooth state
-    medium2.p = 1e5*time/10;
+    medium2.p = pressureRate*time;
     medium2.T = 330;
     m_flow_ext2 = time - 30;
     state = Medium.setSmoothState(
