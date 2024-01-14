@@ -250,7 +250,7 @@ operator record Complex "Complex number with overloaded operators"
 
 annotation (
 version="4.1.0",
-versionDate="2024-03-15",
+versionDate="2024-01-12",
 dateModified = "2024-01-10 11:00:00Z",
 revisionId="$Format:%h %ci$",
 conversion(
