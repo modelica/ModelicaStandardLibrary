@@ -2878,7 +2878,7 @@ Obsolete saliency cage model, see
   annotation (uses(Modelica(version="4.1.0")),
               version="4.1.0",
               versionDate="2024-01-12",
-              dateModified = "2024-01-01 11:00:00Z",
+              dateModified = "2024-01-12 19:40:00Z",
               revisionId="$Format:%h %ci$",
 Documentation(info="<html>
 <p>
