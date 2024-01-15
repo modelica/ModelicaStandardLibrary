@@ -1591,7 +1591,6 @@ they were not deleted yet.")}));
   model TestFrictionPosition
     extends Modelica.Icons.Example;
 
-    parameter Real fric=155.9218;
     Modelica.Mechanics.Rotational.Sources.Position    position(exact=true)
       annotation (Placement(transformation(extent={{-10,30},{10,50}})));
 

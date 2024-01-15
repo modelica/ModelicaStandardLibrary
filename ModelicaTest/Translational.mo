@@ -317,7 +317,6 @@ extends Modelica.Icons.ExamplesPackage;
   model TestFrictionPosition
     extends Modelica.Icons.Example;
 
-    parameter Real fric=155.9218;
     Modelica.Mechanics.Translational.Sources.Position position(exact=true)
       annotation (Placement(transformation(extent={{-10,30},{10,50}})));
 
