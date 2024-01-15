@@ -1,6 +1,6 @@
 /* ModelicaStrings.c - External functions for Modelica.Utilities.Strings
 
-   Copyright (C) 2002-2020, Modelica Association and contributors
+   Copyright (C) 2002-2024, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -30,6 +30,10 @@
 */
 
 /* Changelog:
+      Jan. 15, 2024: by Thomas Beutlich
+                     Utilized ModelicaDuplicateString and
+                     ModelicaDuplicateStringWithErrorReturn (ticket #3686)
+
       Mar. 15, 2020: by Thomas Beutlich
                      Improved fault-tolerance of ModelicaStrings_substring w.r.t.
                      index arguments (ticket #3503)
@@ -231,9 +235,7 @@ void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
     /* Token missing or not identifier. */
     *nextIndex  = startIndex;
     {
-        char* s = ModelicaAllocateString(0);
-        s[0] = '\0';
-        *identifier = s;
+        *identifier = ModelicaDuplicateString("");
     }
     return;
 }
@@ -458,9 +460,7 @@ void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
 
 Modelica_ERROR:
     {
-        char* s = ModelicaAllocateString(0);
-        s[0] = '\0';
-        *result = s;
+        *result = ModelicaDuplicateString("");
     }
     *nextIndex = startIndex;
     return;

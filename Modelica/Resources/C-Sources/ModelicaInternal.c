@@ -1,6 +1,6 @@
 /* ModelicaInternal.c - External functions for Modelica.Utilities
 
-   Copyright (C) 2002-2023, Modelica Association and contributors
+   Copyright (C) 2002-2024, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -30,6 +30,10 @@
 */
 
 /* Changelog:
+      Jan. 15, 2024: by Thomas Beutlich
+                     Utilized ModelicaDuplicateString and
+                     ModelicaDuplicateStringWithErrorReturn (ticket #3686)
+
       Nov. 17, 2020: by Thomas Beutlich
                      Fixed reading files with Unix-style line endings on Windows
                      for ModelicaInternal_readLine/_readFile (ticket #3631)
@@ -633,8 +637,7 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     if (tempName == NULL) {
         goto FALLBACK_getcwd;
     }
-    fullName = ModelicaAllocateString(strlen(tempName) + 1);
-    strcpy(fullName, tempName);
+    fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
     /* Retain trailing slash to match _fullpath behaviour */
     len = strlen(name);
@@ -1073,8 +1076,7 @@ END_OF_FILE:
     fclose(fp);
     CloseCachedFile(fileName);
     *endOfFile = 1;
-    line = ModelicaAllocateString(0);
-    line[0] = '\0';
+    line = ModelicaDuplicateString("");
     return line;
 
 Modelica_OOM_ERROR2:
@@ -1150,18 +1152,16 @@ void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
 #endif
 
     if (value == NULL) {
-        result = ModelicaAllocateString(0);
-        result[0] = '\0';
+        result = ModelicaDuplicateString("");
         *exist = 0;
     }
     else {
 #if defined(_MSC_VER) && _MSC_VER >= 1400
-        result = ModelicaAllocateStringWithErrorReturn(len); /* (len - 1) actually is sufficient */
+        result = ModelicaDuplicateStringWithErrorReturn(value);
         if (result) {
 #else
-        result = ModelicaAllocateString(strlen(value));
+        result = ModelicaDuplicateString(value);
 #endif
-            strcpy(result, value);
             if ( convertToSlash == 1 ) {
                 ModelicaConvertToUnixDirectorySeparator(result);
             }
