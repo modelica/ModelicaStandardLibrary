@@ -27,7 +27,9 @@ it can be redistributed and/or modified under the terms of the [3-Clause BSD Lic
 
 ## Status
 
-[![CI checks](https://github.com/modelica/ModelicaStandardLibrary/workflows/CI/badge.svg)](https://github.com/modelica/ModelicaStandardLibrary/actions) [![CLA assistant](https://cla-assistant.io/readme/badge/modelica/ModelicaStandardLibrary)](https://cla-assistant.io/modelica/ModelicaStandardLibrary)
+[![CI checks](https://github.com/modelica/ModelicaStandardLibrary/workflows/CI/badge.svg)](https://github.com/modelica/ModelicaStandardLibrary/actions) [![CLA assistant](https://cla-assistant.io/readme/badge/modelica/ModelicaStandardLibrary)](https://cla-assistant.io/modelica/ModelicaStandardLibrary) 
+[![Modelica v4.1.0-dev regression test](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fwww.ltx.de%2Fdownload%2FMA%2FCompare_MSL_v4.1.0%2FTestruns%2FDymola%2FModelica%2Ftestrun_report.html&query=%2F%2Fspan%5B%40class%3D'has-text-success'%5D%20%7C%20%2F%2Fspan%5B%40class%3D'has-text-danger'%5D%20%7C%20%2F%2Fspan%5B%40class%3D'has-text-warning'%5D%20%7C%20%2F%2Fspan%5B%40class%3D'has-text-timeout'%5D%20%7C%20%2F%2Fspan%5B%40class%3D'has-text-grey'%5D&label=Modelica%20v4.1.0-dev%20regression%20test)](https://www.ltx.de/download/MA/Compare_MSL_v4.1.0/comparison_report_overview.html)
+[![ModelicaTest v4.1.0-dev regression test](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fwww.ltx.de%2Fdownload%2FMA%2FCompare_MSL_v4.1.0%2FTestruns%2FDymola%2FModelicaTest%2Ftestrun_report.html&query=%2F%2Fspan%5B%40class%3D'has-text-success'%5D%20%7C%20%2F%2Fspan%5B%40class%3D'has-text-danger'%5D%20%7C%20%2F%2Fspan%5B%40class%3D'has-text-warning'%5D%20%7C%20%2F%2Fspan%5B%40class%3D'has-text-timeout'%5D%20%7C%20%2F%2Fspan%5B%40class%3D'has-text-grey'%5D&label=ModelicaTest%20v4.1.0-dev%20regression%20test)](https://www.ltx.de/download/MA/Compare_MSL_v4.1.0/comparison_report_overview.html)
 
 ## Development and contribution
 
