@@ -1,6 +1,9 @@
 within Modelica.Mechanics.Rotational.Interfaces;
 partial model PartialFriction "Partial model of Coulomb friction elements"
 
+  parameter Real J_inv_fixed(unit="kg-1.m-2")=0
+    "Virtual inverse moment of inertia in locked state to handle fix point iteration problems if the velocity is not selected as state"
+    annotation (Dialog(tab="Advanced"));
   parameter SI.AngularVelocity w_small=1.0e10
     "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
     annotation (Dialog(tab="Advanced"));
@@ -52,7 +55,7 @@ equation
   locked = not free and not (pre(mode) == Forward or startForward or pre(
     mode) == Backward or startBackward);
 
-  a_relfric/unitAngularAcceleration = if locked then 0 else if free then sa
+  a_relfric/unitAngularAcceleration = if locked then J_inv_fixed*sa*unitTorque else if free then sa
     else if startForward then sa - tau0_max/unitTorque
     else if startBackward then sa + tau0_max/unitTorque
     else if pre(mode) == Forward then sa - tau0_max/unitTorque

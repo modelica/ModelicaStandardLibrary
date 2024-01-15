@@ -1651,7 +1651,8 @@ they were not deleted yet.")}));
 
     Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
       tau_pos=[0,5; 100,5],
-      peak=1.001) annotation (Placement(transformation(extent={{46,30},{66,50}})));
+      peak=1.001,
+      J_inv_fixed=1e-15) annotation (Placement(transformation(extent={{46,30},{66,50}})));
     Modelica.Mechanics.Rotational.Sources.Position position1(exact=true)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     Modelica.Blocks.Sources.Cosine cosine1(
@@ -1663,7 +1664,8 @@ they were not deleted yet.")}));
       startTime=0.1) annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
     Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction2(
       tau_pos=[0,5; 100,5],
-      peak=1.001) annotation (Placement(transformation(extent={{46,-10},{66,10}})));
+      peak=1.001,
+      J_inv_fixed=1e-15) annotation (Placement(transformation(extent={{46,-10},{66,10}})));
   equation
 
     connect(cosine.y, position.phi_ref) annotation (Line(points={{-49,40},{-12,40}}, color={0,0,127}));

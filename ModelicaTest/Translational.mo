@@ -405,7 +405,8 @@ extends Modelica.Icons.ExamplesPackage;
           1,
           12,
           50),
-      peak=1.001) annotation (Placement(transformation(extent={{46,30},{66,50}})));
+      peak=1.001,
+      m_inv_fixed=1e-15) annotation (Placement(transformation(extent={{46,30},{66,50}})));
     Modelica.Mechanics.Translational.Sources.Speed speed1(exact=true)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     Modelica.Blocks.Sources.Cosine cosine1(
@@ -423,7 +424,8 @@ extends Modelica.Icons.ExamplesPackage;
           1,
           12,
           50),
-      peak=1.001) annotation (Placement(transformation(extent={{46,-10},{66,10}})));
+      peak=1.001,
+      m_inv_fixed=1e-15) annotation (Placement(transformation(extent={{46,-10},{66,10}})));
   equation
 
     connect(speed.flange, supportFriction.flange_a) annotation (Line(points={{10,40},{46,40}}, color={0,127,0}));
