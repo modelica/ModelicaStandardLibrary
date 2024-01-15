@@ -359,7 +359,7 @@ extends Modelica.Icons.ExamplesPackage;
     Modelica.Blocks.Sources.Sine sine2(
       amplitude=0.3,
       f=1,
-      phase=0.78539816339745,
+      phase=2.3561944901923,
       offset=0.5) annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
     Modelica.Mechanics.Translational.Components.SupportFriction supportFriction2(f_pos=
           Modelica.Mechanics.Translational.Examples.Utilities.GenerateStribeckFrictionTable(
