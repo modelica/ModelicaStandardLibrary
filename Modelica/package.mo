@@ -2562,7 +2562,7 @@ Short Overview:
 </p>
 <ul>
 <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">649 issues (including 432 pull requests)</a> have been addressed for this release.</li>
-<li>This version is based on the recent Modelica language standard version 3.6.</li>
+<li>This version is based on the recent Modelica language standard version 3.4.</li>
 <li>The library version (i.e., \"4.0.0\") follows semantic versioning using the convention <code>MAJOR.MINOR.BUGFIX</code>
 (see <a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.VersionManagement\">Version Management</a> for details)
  and was decoupled from the version of the utilized version of the Modelica language standard.</li>
