@@ -2295,7 +2295,7 @@ Graphical illustrations shall not be added in the diagram layer, but can be adde
 </ul></li>
 <li> These packages should appear in the listed order.</li>
 </ol>
-<p>Other Modelica libraries may also take advantage of these guidelines, for example by referencing this documentation as <code>modelica:/Modelica.UsersGuide.Conventions#info</code>, or by using it as a source of inspiration for an independent set of guidelines.</p>
+<p>Other Modelica libraries may also take advantage of these guidelines, for example by referencing this documentation as <a href=\"modelica:/Modelica.UsersGuide.Conventions#info\"><code>modelica:/Modelica.UsersGuide.Conventions#info</code></a>, or by using it as a source of inspiration for an independent set of guidelines.</p>
 </html>"));
   end Conventions;
 
