@@ -1,6 +1,6 @@
 /* ModelicaStandardTables.c - External table functions
 
-   Copyright (C) 2013-2022, Modelica Association and contributors
+   Copyright (C) 2013-2024, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -653,10 +653,10 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
 
 void* ModelicaStandardTables_CombiTimeTable_init3(_In_z_ const char* fileName,
                                                   _In_z_ const char* tableName,
-                                                  _In_ double* table, size_t nRow,
+                                                  _In_ const double* table, size_t nRow,
                                                   size_t nColumn,
                                                   double startTime,
-                                                  _In_ int* columns,
+                                                  _In_ const int* columns,
                                                   size_t nCols, int smoothness,
                                                   int extrapolation,
                                                   double shiftTime,
@@ -2114,9 +2114,9 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
 
 void* ModelicaStandardTables_CombiTable1D_init3(_In_z_ const char* fileName,
                                                 _In_z_ const char* tableName,
-                                                _In_ double* table, size_t nRow,
+                                                _In_ const double* table, size_t nRow,
                                                 size_t nColumn,
-                                                _In_ int* columns,
+                                                _In_ const int* columns,
                                                 size_t nCols, int smoothness,
                                                 int extrapolation,
                                                 int verbose,
@@ -2920,7 +2920,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
 
 void* ModelicaStandardTables_CombiTable2D_init3(_In_z_ const char* fileName,
                                                 _In_z_ const char* tableName,
-                                                _In_ double* table, size_t nRow,
+                                                _In_ const double* table, size_t nRow,
                                                 size_t nColumn, int smoothness,
                                                 int extrapolation,
                                                 int verbose,
