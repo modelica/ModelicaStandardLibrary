@@ -484,9 +484,6 @@ could be additionally introduced to model the fitting between the heater and the
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/HeatingSystem.png\" border=\"1\"
      alt=\"HeatingSystem.png\">
-</html>"),   experiment(StopTime=6000),
-      __Dymola_Commands(file(ensureSimulated=true)=
-          "modelica://Modelica/Resources/Scripts/Dymola/Fluid/HeatingSystem/plotResults.mos"
-          "plotResults"));
+</html>"),   experiment(StopTime=6000));
   end SimplerHeatingSystem;
 end Explanatory;
