@@ -1,7 +1,6 @@
 within Modelica.Mechanics.Rotational.Interfaces;
 partial model PartialFriction "Partial model of Coulomb friction elements"
 
-  // parameter SI.AngularVelocity w_small=1 "Relative angular velocity near to zero (see model info text)";
   parameter SI.AngularVelocity w_small=1.0e10
     "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
     annotation (Dialog(tab="Advanced"));
