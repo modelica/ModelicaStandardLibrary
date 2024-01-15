@@ -382,4 +382,54 @@ extends Modelica.Icons.ExamplesPackage;
     connect(position1.flange, supportFriction2.flange_a) annotation (Line(points={{10,0},{46,0}}, color={0,127,0}));
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
   end TestFrictionPosition;
+
+  model TestFrictionPositionInertial
+    extends Modelica.Icons.Example;
+
+    Modelica.Mechanics.Translational.Sources.Speed speed(exact=true)
+      annotation (Placement(transformation(extent={{-10,30},{10,50}})));
+
+    Modelica.Blocks.Sources.Cosine cosine(
+      amplitude=0.1,
+      f=1,
+      phase=0,
+      continuous=true,
+      offset=0.5,
+      startTime=0.1) annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
+
+    Modelica.Mechanics.Translational.Components.SupportFriction supportFriction(
+      f_pos=Modelica.Mechanics.Translational.Examples.Utilities.GenerateStribeckFrictionTable(
+          1,
+          5,
+          10,
+          1,
+          12,
+          50),
+      peak=1.001) annotation (Placement(transformation(extent={{46,30},{66,50}})));
+    Modelica.Mechanics.Translational.Sources.Speed speed1(exact=true)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    Modelica.Blocks.Sources.Cosine cosine1(
+      amplitude=0.3,
+      f=1,
+      phase=3.1415926535898,
+      continuous=true,
+      offset=0.5,
+      startTime=0.1) annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+    Modelica.Mechanics.Translational.Components.SupportFriction supportFriction2(
+      f_pos=Modelica.Mechanics.Translational.Examples.Utilities.GenerateStribeckFrictionTable(
+          1,
+          5,
+          10,
+          1,
+          12,
+          50),
+      peak=1.001) annotation (Placement(transformation(extent={{46,-10},{66,10}})));
+  equation
+
+    connect(speed.flange, supportFriction.flange_a) annotation (Line(points={{10,40},{46,40}}, color={0,127,0}));
+    connect(speed1.flange, supportFriction2.flange_a) annotation (Line(points={{10,0},{46,0}}, color={0,127,0}));
+    connect(cosine.y, speed.v_ref) annotation (Line(points={{-49,40},{-12,40},{-12,40}}, color={0,0,127}));
+    connect(cosine1.y, speed1.v_ref) annotation (Line(points={{-49,0},{-12,0}}, color={0,0,127}));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+  end TestFrictionPositionInertial;
 end Translational;

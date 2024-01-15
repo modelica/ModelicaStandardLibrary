@@ -1635,6 +1635,44 @@ they were not deleted yet.")}));
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
   end TestFrictionPosition;
 
+  model TestFrictionPositionInertial
+    extends Modelica.Icons.Example;
+
+    Modelica.Mechanics.Rotational.Sources.Position position(exact=true)
+      annotation (Placement(transformation(extent={{-10,30},{10,50}})));
+
+    Modelica.Blocks.Sources.Cosine cosine(
+      amplitude=0.1,
+      f=1,
+      phase=0,
+      continuous=true,
+      offset=0.5,
+      startTime=0.1) annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
+
+    Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
+      tau_pos=[0,5; 100,5],
+      peak=1.001) annotation (Placement(transformation(extent={{46,30},{66,50}})));
+    Modelica.Mechanics.Rotational.Sources.Position position1(exact=true)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    Modelica.Blocks.Sources.Cosine cosine1(
+      amplitude=0.3,
+      f=1,
+      phase=3.1415926535898,
+      continuous=true,
+      offset=0.5,
+      startTime=0.1) annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+    Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction2(
+      tau_pos=[0,5; 100,5],
+      peak=1.001) annotation (Placement(transformation(extent={{46,-10},{66,10}})));
+  equation
+
+    connect(cosine.y, position.phi_ref) annotation (Line(points={{-49,40},{-12,40}}, color={0,0,127}));
+    connect(position.flange, bearingFriction.flange_a) annotation (Line(points={{10,40},{48,40},{48,40},{46,40}}, color={0,0,0}));
+    connect(cosine1.y, position1.phi_ref) annotation (Line(points={{-49,0},{-12,0}}, color={0,0,127}));
+    connect(position1.flange, bearingFriction2.flange_a) annotation (Line(points={{10,0},{46,0}}, color={0,0,0}));
+    annotation (Placement(transformation(extent={{46,-10},{66,10}})));
+  end TestFrictionPositionInertial;
+
   model TestBraking
     extends Modelica.Icons.Example;
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(
