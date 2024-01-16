@@ -3113,8 +3113,8 @@ email: hubertus@modelon.se
       function tsat_der "Derivative function for tsat"
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
-        input Real der_p(unit="Pa/s") "Pressure derivative";
-        output Real der_tsat(unit="K/s") "Temperature derivative";
+        input SI.PressureSlope der_p "Pressure derivative";
+        output SI.TemperatureSlope der_tsat "Temperature derivative";
       protected
         Real dtp;
       algorithm
@@ -3201,8 +3201,8 @@ email: hubertus@modelon.se
       function psat_der "Derivative function for psat"
         extends Modelica.Icons.Function;
         input SI.Temperature T "Temperature (K)";
-        input Real der_T(unit="K/s") "Temperature derivative";
-        output Real der_psat(unit="Pa/s") "Pressure";
+        input SI.TemperatureSlope der_T "Temperature derivative";
+        output SI.PressureSlope der_psat "Pressure derivative";
       protected
         Real dpt;
       algorithm

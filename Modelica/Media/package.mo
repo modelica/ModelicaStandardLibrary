@@ -2149,7 +2149,7 @@ package Examples
   model SimpleLiquidWater "Example for Water.SimpleLiquidWater medium model"
     extends Modelica.Icons.Example;
 
-    constant SI.PressureRate pressureRate = 1e5/10;
+    constant SI.PressureSlope pressureRate = 1e5/10;
     parameter SI.Volume V=1 "Volume";
     parameter SI.EnthalpyFlowRate H_flow_ext=1.e6
       "Constant enthalpy flow rate into the volume";
@@ -2220,11 +2220,11 @@ package Examples
     Real der_T;
   protected
     parameter SI.AbsolutePressure p01 = 100000.0 "state.p at time 0";
-    parameter Real pRate1(unit = "Pa/s") = 0 "state.p rate of change";
+    parameter SI.PressureSlope pRate1 = 0 "state.p rate of change";
     parameter SI.Temperature T01 = 200 "state.T at time 0";
     parameter SI.TemperatureSlope Trate1 = 1000 "state.T rate of change";
     parameter SI.AbsolutePressure p02 = 2.0e5 "state2.p at time 0";
-    parameter Real pRate2(unit = "Pa/s") = 0 "state2.p rate of change";
+    parameter SI.PressureSlope pRate2 = 0 "state2.p rate of change";
     parameter SI.Temperature T02 = 500 "state2.T at time 0";
     parameter SI.TemperatureSlope Trate2 = 0 "state2.T rate of change";
 
@@ -2408,11 +2408,11 @@ is given to compare the approximation.
   protected
     constant SI.Time unitTime=1;
     parameter SI.AbsolutePressure p01 = 1.e5 "state1.p at time 0";
-    parameter Real pRate1(unit = "Pa/s") = 1.e5 "state1.p rate of change";
+    parameter SI.PressureSlope pRate1 = 1.e5 "state1.p rate of change";
     parameter SI.Temperature T01 = 300 "state1.T at time 0";
     parameter SI.TemperatureSlope Trate1 = 10 "state1.T rate of change";
     parameter SI.AbsolutePressure p02 = 1.e5 "state2.p at time 0";
-    parameter Real pRate2(unit = "Pa/s") = 1.e5/2 "state2.p rate of change";
+    parameter SI.PressureSlope pRate2 = 1.e5/2 "state2.p rate of change";
     parameter SI.Temperature T02 = 340 "state2.T at time 0";
     parameter SI.TemperatureSlope Trate2 = -20 "state2.T rate of change";
   equation
@@ -2613,8 +2613,8 @@ It must be noted that the relationship of both axis variables is not right-angle
       extends Modelica.Icons.Example;
       ExtendedProperties medium(p(start=2000.0, fixed=true), h(start=8.0e5,
             fixed=true));
-      parameter Real dh(unit="J/(kg.s)", displayUnit="kJ/(kg.s)")=80000.0 "Derivative of specific enthalpy of medium";
-      parameter Real dp(unit="Pa/s", displayUnit="bar/s")=1.0e6 "Derivative of pressure of medium";
+      parameter Real dh(unit="J/(kg.s)", displayUnit="kJ/(kg.s)") = 80000.0 "Derivative of specific enthalpy of medium";
+      parameter SI.PressureSlope dp = 1.0e6 "Derivative of pressure of medium";
     equation
       der(medium.p) = dp;
       der(medium.h) = dh;
@@ -2717,11 +2717,11 @@ points, e.g., when an isentropic reference state is computed.
     protected
       constant SI.Time unitTime=1;
       parameter SI.AbsolutePressure p01 = 1.e5 "state1.p at time 0";
-      parameter Real pRate1(unit = "Pa/s") = 1.e5 "state1.p rate of change";
+      parameter SI.PressureSlope pRate1 = 1.e5 "state1.p rate of change";
       parameter SI.Temperature T01 = 300 "state1.T at time 0";
       parameter SI.TemperatureSlope Trate1 = 10 "state1.T rate of change";
       parameter SI.AbsolutePressure p02 = 1.e5 "state2.p at time 0";
-      parameter Real pRate2(unit = "Pa/s") = 1.e5/2 "state2.p rate of change";
+      parameter SI.PressureSlope pRate2 = 1.e5/2 "state2.p rate of change";
       parameter SI.Temperature T02 = 340 "state2.T at time 0";
       parameter SI.TemperatureSlope Trate2 = -20 "state2.T rate of change";
     equation
