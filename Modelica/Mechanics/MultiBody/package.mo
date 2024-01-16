@@ -169,10 +169,6 @@ model World
      objects cannot be used.
   */
 protected
-  parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
-  parameter Integer ndim2=if enableAnimation and animateWorld and
-      axisShowLabels then 1 else 0;
-
   // Parameters to define axes
   parameter SI.Length headLength=min(axisLength, axisDiameter*Types.Defaults.
       FrameHeadLengthFraction);
@@ -301,8 +297,6 @@ protected
     specularCoefficient=0) if enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity;
 
   // Point gravity visualization
-  parameter Integer ndim_pointGravity=if enableAnimation and animateGravity
-       and gravityType == GravityTypes.UniformGravity then 1 else 0;
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravitySphere(
     shapeType="sphere",
     r_shape={-gravitySphereDiameter/2,0,0},
