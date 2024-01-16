@@ -1,0 +1,323 @@
+# Copyright (C) 2024, Modelica Association and contributors
+# All rights reserved.
+# This file is distributed under the same license as the Complex package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 4.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/modelica/ModelicaStandardLibrary/issues/new\n"
+"POT-Creation-Date: 2024-01-16 15:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "Complex"
+msgid "<html>\n"
+"<p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>\n"
+"<p>\n"
+"<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>\n"
+"Copyright &copy; 2010-2020, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>\n"
+"</p></html>"
+msgstr ""
+
+msgctxt "Complex"
+msgid "Complex number with overloaded operators"
+msgstr ""
+
+msgctxt "Complex"
+msgid "Imaginary part of complex number"
+msgstr ""
+
+msgctxt "Complex"
+msgid "Real part of complex number"
+msgstr ""
+
+msgctxt "Complex.'*'"
+msgid "<html>\n"
+"<p>Here the multiplication operator(s) is/are defined.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'*'"
+msgid "Multiplication"
+msgstr ""
+
+msgctxt "Complex.'*'.multiply"
+msgid "<html>\n"
+"<p>This function returns the product of two given Complex numbers.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'*'.multiply"
+msgid "= c1*c2"
+msgstr ""
+
+msgctxt "Complex.'*'.multiply"
+msgid "Complex number 1"
+msgstr ""
+
+msgctxt "Complex.'*'.multiply"
+msgid "Complex number 2"
+msgstr ""
+
+msgctxt "Complex.'*'.multiply"
+msgid "Multiply two complex numbers"
+msgstr ""
+
+msgctxt "Complex.'*'.scalarProduct"
+msgid "<html>\n"
+"<p>This function returns the scalar product of two given arrays of Complex numbers.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'*'.scalarProduct"
+msgid "= c1*c2"
+msgstr ""
+
+msgctxt "Complex.'*'.scalarProduct"
+msgid "Scalar product c1*c2 of two complex vectors"
+msgstr ""
+
+msgctxt "Complex.'*'.scalarProduct"
+msgid "Vector of Complex numbers 1"
+msgstr ""
+
+msgctxt "Complex.'*'.scalarProduct"
+msgid "Vector of Complex numbers 2"
+msgstr ""
+
+msgctxt "Complex.'+'"
+msgid "<html>\n"
+"<p>This function returns the sum of two given Complex numbers.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'+'"
+msgid "= c1 + c2"
+msgstr ""
+
+msgctxt "Complex.'+'"
+msgid "Add two complex numbers"
+msgstr ""
+
+msgctxt "Complex.'+'"
+msgid "Complex number 1"
+msgstr ""
+
+msgctxt "Complex.'+'"
+msgid "Complex number 2"
+msgstr ""
+
+msgctxt "Complex.'-'"
+msgid "<html>\n"
+"<p>Here the unary and binary minus operator(s) is/are defined.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'-'"
+msgid "Unary and binary minus"
+msgstr ""
+
+msgctxt "Complex.'-'.negate"
+msgid "<html>\n"
+"<p>This function returns the binary minus of the given Complex number.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'-'.negate"
+msgid "= -c1"
+msgstr ""
+
+msgctxt "Complex.'-'.negate"
+msgid "Complex number"
+msgstr ""
+
+msgctxt "Complex.'-'.negate"
+msgid "Unary minus (multiply complex number by -1)"
+msgstr ""
+
+msgctxt "Complex.'-'.subtract"
+msgid "<html>\n"
+"<p>This function returns the difference of two given Complex numbers.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'-'.subtract"
+msgid "= c1 - c2"
+msgstr ""
+
+msgctxt "Complex.'-'.subtract"
+msgid "Complex number 1"
+msgstr ""
+
+msgctxt "Complex.'-'.subtract"
+msgid "Complex number 2"
+msgstr ""
+
+msgctxt "Complex.'-'.subtract"
+msgid "Subtract two complex numbers"
+msgstr ""
+
+msgctxt "Complex.'/'"
+msgid "<html>\n"
+"<p>This function returns the quotient of two given Complex numbers.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'/'"
+msgid "= c1/c2"
+msgstr ""
+
+msgctxt "Complex.'/'"
+msgid "Complex number 1"
+msgstr ""
+
+msgctxt "Complex.'/'"
+msgid "Complex number 2"
+msgstr ""
+
+msgctxt "Complex.'/'"
+msgid "Divide two complex numbers"
+msgstr ""
+
+msgctxt "Complex.'0'"
+msgid "<html>\n"
+"<p>This function returns the zero-element of Complex, that is, Complex(0) = 0 + j*0.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'0'"
+msgid "Complex(0)"
+msgstr ""
+
+msgctxt "Complex.'0'"
+msgid "Zero-element of addition (= Complex(0))"
+msgstr ""
+
+msgctxt "Complex.'<>'"
+msgid "<html>\n"
+"    <p>This function tests whether two given Complex numbers are not equal.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'<>'"
+msgid "Complex number 1"
+msgstr ""
+
+msgctxt "Complex.'<>'"
+msgid "Complex number 2"
+msgstr ""
+
+msgctxt "Complex.'<>'"
+msgid "Test whether two complex numbers are not identical"
+msgstr ""
+
+msgctxt "Complex.'<>'"
+msgid "c1 <> c2"
+msgstr ""
+
+msgctxt "Complex.'=='"
+msgid "<html>\n"
+"<p>This function tests whether two given Complex numbers are equal.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'=='"
+msgid "Complex number 1"
+msgstr ""
+
+msgctxt "Complex.'=='"
+msgid "Complex number 2"
+msgstr ""
+
+msgctxt "Complex.'=='"
+msgid "Test whether two complex numbers are identical"
+msgstr ""
+
+msgctxt "Complex.'=='"
+msgid "c1 == c2"
+msgstr ""
+
+msgctxt "Complex.'String'"
+msgid "<html>\n"
+"<p>This function converts a given Complex number to String representation.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'String'"
+msgid "Complex number to be transformed in a String representation"
+msgstr ""
+
+msgctxt "Complex.'String'"
+msgid "Name of variable representing sqrt(-1) in the string"
+msgstr ""
+
+msgctxt "Complex.'String'"
+msgid "Number of significant digits that are shown"
+msgstr ""
+
+msgctxt "Complex.'String'"
+msgid "Transform Complex number into a String representation"
+msgstr ""
+
+msgctxt "Complex.'^'"
+msgid "<html>\n"
+"<p>This function returns the given Complex numbers c1 to the power of the Complex number c2.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'^'"
+msgid "= c1^c2"
+msgstr ""
+
+msgctxt "Complex.'^'"
+msgid "Complex exponent"
+msgstr ""
+
+msgctxt "Complex.'^'"
+msgid "Complex number"
+msgstr ""
+
+msgctxt "Complex.'^'"
+msgid "Complex power of complex number"
+msgstr ""
+
+msgctxt "Complex.'constructor'"
+msgid "<html>\n"
+"<p>Here the constructor operator(s) is/are defined.</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'constructor'"
+msgid "Constructor"
+msgstr ""
+
+msgctxt "Complex.'constructor'.fromReal"
+msgid "<html>\n"
+"<p>This function returns a Complex number defined by real part <em>re</em> and optional imaginary part <em>im</em> (default=0).</p>\n"
+"</html>"
+msgstr ""
+
+msgctxt "Complex.'constructor'.fromReal"
+msgid "Complex number"
+msgstr ""
+
+msgctxt "Complex.'constructor'.fromReal"
+msgid "Construct Complex from Real"
+msgstr ""
+
+msgctxt "Complex.'constructor'.fromReal"
+msgid "Imaginary part of complex number"
+msgstr ""
+
+msgctxt "Complex.'constructor'.fromReal"
+msgid "Real part of complex number"
+msgstr ""
