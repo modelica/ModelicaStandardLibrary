@@ -6,7 +6,9 @@
 
 char* ModelicaAllocateString(size_t len) {
     void *data = malloc(len + 1); /* Never free'd in the test programs */
-    assert(data);
+    if (NULL == data) {
+        ModelicaError("Failed to allocate string");
+    }
     return data;
 }
 
@@ -16,7 +18,9 @@ char* ModelicaAllocateStringWithErrorReturn(size_t len) {
 
 char* ModelicaDuplicateString(const char* str) {
     void *data = malloc(strlen(str) + 1); /* Never free'd in the test programs */
-    assert(data);
+    if (NULL == data) {
+        ModelicaError("Failed to duplicate string");
+    }
     strcpy(data, str);
     return data;
 }
