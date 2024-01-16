@@ -209,7 +209,7 @@ char* ModelicaDuplicateStringWithErrorReturn(const char* str);
 Same as ModelicaDuplicateString, except that in case of error, the
 function returns 0. This allows the external function to close files
 and free other open resources in case of error. After cleaning up
-resources use ModelicaError or ModelicaFormatError to signal
+resources use, ModelicaError or ModelicaFormatError to signal
 the error.
 */
 
