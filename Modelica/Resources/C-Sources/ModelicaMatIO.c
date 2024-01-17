@@ -3327,7 +3327,7 @@ Mat_GetDir(mat_t *mat, size_t *n)
                         }
                         if ( NULL != dir ) {
                             mat->dir = dir;
-                            mat->dir[mat->num_datasets++] = strdup(matvar->name);
+                            mat->dir[mat->num_datasets++] = Mat_strdup(matvar->name);
                         } else {
                             Mat_Critical("Couldn't allocate memory for the directory");
                             break;
