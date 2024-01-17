@@ -535,7 +535,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             final state_in = Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)),
             final state = medium.state) "Monitoring model"
        annotation (Placement(transformation(extent={{-64,-42},{-20,0}})));
-    protected
+  protected
     constant SI.Position unitHead = 1;
     constant SI.MassFlowRate unitMassFlowRate = 1;
     parameter Boolean ignoreN = false "= true to ignore N of pump; only use if checkValve=false and use_powerCharacteristic=false"
