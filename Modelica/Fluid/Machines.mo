@@ -538,7 +538,8 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     protected
     constant SI.Position unitHead = 1;
     constant SI.MassFlowRate unitMassFlowRate = 1;
-    parameter Boolean ignoreN = false "Only use if checkValve=false and use_powerCharacteristic=false";
+    parameter Boolean ignoreN = false "= true to ignore N of pump; only use if checkValve=false and use_powerCharacteristic=false"
+      annotation(Dialog(enable=not checkValve and not use_powerCharacteristic));
   equation
     assert(not ignoreN or (not checkValve and not use_powerCharacteristic), "Can only ignore N in simple configuration");
     // Flow equations
