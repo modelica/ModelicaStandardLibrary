@@ -1,6 +1,6 @@
 /* ModelicaInternal.c - External functions for Modelica.Utilities
 
-   Copyright (C) 2002-2023, Modelica Association and contributors
+   Copyright (C) 2002-2024, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -30,6 +30,10 @@
 */
 
 /* Changelog:
+      Jan. 15, 2024: by Thomas Beutlich
+                     Utilized ModelicaDuplicateString and
+                     ModelicaDuplicateStringWithErrorReturn (ticket #3686)
+
       Nov. 17, 2020: by Thomas Beutlich
                      Fixed reading files with Unix-style line endings on Windows
                      for ModelicaInternal_readLine/_readFile (ticket #3631)
@@ -525,7 +529,7 @@ void ModelicaInternal_readDirectory(_In_z_ const char* directory, int nFiles,
             }
 
             /* Allocate Modelica memory for file/directory name and copy name */
-            pName = ModelicaAllocateStringWithErrorReturn(strlen(pinfo->d_name));
+            pName = ModelicaDuplicateStringWithErrorReturn(pinfo->d_name);
             if ( pName == NULL ) {
                 errnoTemp = errno;
                 closedir(pdir);
@@ -538,7 +542,6 @@ void ModelicaInternal_readDirectory(_In_z_ const char* directory, int nFiles,
                         directory, strerror(errnoTemp));
                 }
             }
-            strcpy(pName, pinfo->d_name);
 
             /* Save pointer to file */
             files[iFiles] = pName;
@@ -622,8 +625,7 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
             name, strerror(errno));
         return "";
     }
-    fullName = ModelicaAllocateString(strlen(tempName));
-    strcpy(fullName, tempName);
+    fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
     return fullName;
 #elif (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
@@ -635,8 +637,7 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     if (tempName == NULL) {
         goto FALLBACK_getcwd;
     }
-    fullName = ModelicaAllocateString(strlen(tempName) + 1);
-    strcpy(fullName, tempName);
+    fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
     /* Retain trailing slash to match _fullpath behaviour */
     len = strlen(name);
@@ -688,8 +689,7 @@ _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
         ModelicaFormatError("Not possible to get temporary filename\n%s", strerror(errno));
         return "";
     }
-    fullName = ModelicaAllocateString(strlen(tempName));
-    strcpy(fullName, tempName);
+    fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
 
     return fullName;
@@ -1011,12 +1011,11 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
     while (iLines <= nLines) {
         readLine(&buf, &bufLen, fp);
 
-        line = ModelicaAllocateStringWithErrorReturn(strlen(buf));
+        line = ModelicaDuplicateStringWithErrorReturn(buf);
         if ( line == NULL ) {
             goto Modelica_OOM_ERROR1;
         }
 
-        strcpy(line, buf);
         string[iLines - 1] = line;
         iLines++;
     }
@@ -1063,12 +1062,11 @@ _Ret_z_ const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
         }
     }
 
-    line = ModelicaAllocateStringWithErrorReturn(strlen(buf));
+    line = ModelicaDuplicateStringWithErrorReturn(buf);
     if (line == NULL) {
         goto Modelica_OOM_ERROR2;
     }
 
-    strcpy(line, buf);
     CacheFileForReading(fp, fileName, lineNumber, buf, bufLen);
     *endOfFile = 0;
     return line;
@@ -1078,8 +1076,7 @@ END_OF_FILE:
     fclose(fp);
     CloseCachedFile(fileName);
     *endOfFile = 1;
-    line = ModelicaAllocateString(0);
-    line[0] = '\0';
+    line = ModelicaDuplicateString("");
     return line;
 
 Modelica_OOM_ERROR2:
@@ -1134,8 +1131,7 @@ _Ret_z_ const char* ModelicaInternal_getcwd(int dummy) {
         cwd = "";
     }
 #endif
-    directory = ModelicaAllocateString(strlen(cwd));
-    strcpy(directory, cwd);
+    directory = ModelicaDuplicateString(cwd);
     ModelicaConvertToUnixDirectorySeparator(directory);
     return directory;
 }
@@ -1156,18 +1152,16 @@ void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
 #endif
 
     if (value == NULL) {
-        result = ModelicaAllocateString(0);
-        result[0] = '\0';
+        result = ModelicaDuplicateString("");
         *exist = 0;
     }
     else {
 #if defined(_MSC_VER) && _MSC_VER >= 1400
-        result = ModelicaAllocateStringWithErrorReturn(len); /* (len - 1) actually is sufficient */
+        result = ModelicaDuplicateStringWithErrorReturn(value);
         if (result) {
 #else
-        result = ModelicaAllocateString(strlen(value));
+        result = ModelicaDuplicateString(value);
 #endif
-            strcpy(result, value);
             if ( convertToSlash == 1 ) {
                 ModelicaConvertToUnixDirectorySeparator(result);
             }
