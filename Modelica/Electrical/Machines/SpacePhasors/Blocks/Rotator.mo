@@ -4,6 +4,8 @@ block Rotator "Rotates space phasor"
 protected
   Real RotationMatrix[2, 2]={{+cos(-angle),-sin(-angle)},{+sin(-angle),+
       cos(-angle)}};
+  // Alternative equivalent implementation;
+  //Real InverseRotator[2,2] = {{+cos(+angle),-sin(+angle)},{+sin(+angle),+cos(+angle)}};
 public
   Modelica.Blocks.Interfaces.RealInput angle(unit="rad") annotation (Placement(
         transformation(
@@ -12,6 +14,8 @@ public
         rotation=90)));
 equation
   y = RotationMatrix*u;
+  // Alternative equivalent implementation;
+  //u = InverseRotator*y;
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Line(points={{0,0},{0,80},{-10,
           60},{10,60},{0,80}}, color={0,0,255}),Line(points={{0,0},{80,0},
