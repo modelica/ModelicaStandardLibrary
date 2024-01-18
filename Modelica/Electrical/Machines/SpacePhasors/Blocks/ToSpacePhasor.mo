@@ -15,6 +15,8 @@ public
 equation
   m*zero = sum(u);
   y = TransformationMatrix*u;
+  // Alternative equivalent implementation;
+  //u = fill(zero,m) + InverseTransformation*y;
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={Line(points={{0,0},{80,80},{60,72},{72,
