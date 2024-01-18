@@ -2,16 +2,11 @@ within Modelica.Math;
 package BooleanVectors "Library of functions operating on Boolean vectors"
  extends Modelica.Icons.Package;
 function allTrue
-    "Returns true, if all elements of the Boolean input vector are true ('and')"
+    "Returns true, if Boolean input vector is non-empty and all elements are true ('and')"
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
-  output Boolean result "= true, if all elements of b are true";
-algorithm
-  result := size(b,1) > 0;
-  for i in 1:size(b,1) loop
-     result := result and b[i];
-  end for;
-    annotation (Documentation(info="<html>
+  output Boolean result = size(b, 1) > 0 and min(b) "= true, if all elements of b are true";
+  annotation (Inline = true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 <strong>allTrue</strong>(b);
@@ -52,13 +47,8 @@ function andTrue
     "Returns true, if all elements of the Boolean input vector are true ('and')"
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
-  output Boolean result "= true, if all elements of b are true";
-algorithm
-  result := true;
-  for i in 1:size(b,1) loop
-     result := result and b[i];
-  end for;
-    annotation (Documentation(info="<html>
+  output Boolean result = min(b) "= true, if all elements of b are true";
+  annotation (Inline = true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 <strong>andTrue</strong>(b);
@@ -100,13 +90,8 @@ function anyTrue
 
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
-  output Boolean result "= true, if at least one element of b is true";
-algorithm
-  result := false;
-  for i in 1:size(b,1) loop
-     result := result or b[i];
-  end for;
-  annotation (Documentation(info="<html>
+  output Boolean result = max(b) "= true, if at least one element of b is true";
+  annotation (Inline = true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 <strong>anyTrue</strong>(b);
