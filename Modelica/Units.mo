@@ -782,8 +782,7 @@ end UsersGuide;
     type StoichiometricNumber = Real (final quantity="StoichiometricNumber",
           final unit="1");
     type StoichiometricCoefficient = Real (final quantity="StoichiometricCoefficient",
-          final unit="1",
-          min=0);
+          final unit="1");
     type Affinity = Real (final quantity="Affinity", final unit="J/mol");
     type MassOfMolecule = Real (final quantity="Mass", final unit="kg");
     type ElectricDipoleMomentOfMolecule = Real (final quantity=
