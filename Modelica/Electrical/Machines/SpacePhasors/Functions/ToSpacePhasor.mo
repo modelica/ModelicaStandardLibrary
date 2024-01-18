@@ -11,8 +11,6 @@ protected
   parameter SI.Angle phi[m]=
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
   parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
-  parameter Real InverseTransformation[m, 2]={{+cos(-phi[k]),-sin(-phi[k])}
-      for k in 1:m};
 algorithm
   y := TransformationMatrix*x;
   y0 := 1/m*sum(x);
