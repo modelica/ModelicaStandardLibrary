@@ -14,6 +14,9 @@ public
     annotation (Placement(transformation(extent={{-140,-60},{-100,-100}})));
 equation
   y = fill(zero, m) + InverseTransformation*u;
+  // Alternative equivalent implementation:
+  //m*zero = sum(y);
+  //u = TransformationMatrix *y;
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Line(points={{0,0},{-80,80},{-60,
           72},{-72,60},{-80,80}}, color={0,0,255}),Line(points={{0,0},{-80,
