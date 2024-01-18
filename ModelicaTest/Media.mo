@@ -923,7 +923,7 @@ is given to compare the approximation.
       package Medium = Modelica.Media.Air.MoistAir "Medium model";
       SI.Temperature T = 273.15 + 100;
       parameter SI.AbsolutePressure p0 = 2e5 "p at time 0";
-      parameter Real pRate(unit = "Pa/s") = -1.5e5 "p's rate of change";
+      parameter SI.PressureSlope pRate = -1.5e5 "p's rate of change";
       SI.AbsolutePressure p = p0 + pRate*time;
       Medium.MassFraction X[Medium.nX] = {0.05,0.95};
       Medium.ThermodynamicState state = Medium.setState_pTX(p,T,X);
@@ -939,7 +939,7 @@ is given to compare the approximation.
       replaceable package Medium = Modelica.Media.R134a.R134a_ph "Medium model";
       SI.Temperature T = 273.15 + 25;
       parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
-      parameter Real pRate(unit = "Pa/s") = 20e5 "p's rate of change";
+      parameter SI.PressureSlope pRate = 20e5 "p's rate of change";
       SI.AbsolutePressure p = p0 + pRate*time;
       Medium.ThermodynamicState state = Medium.setState_pTX(p, T);
       SI.SpecificEnthalpy h = Medium.specificEnthalpy(state);
@@ -955,7 +955,7 @@ is given to compare the approximation.
       replaceable package Medium = Modelica.Media.Water.WaterIF97_fixedregion "Medium model";
       SI.Temperature T = 273.15 + 25;
       parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
-      parameter Real pRate(unit = "Pa/s") = 20e5 "p's rate of change";
+      parameter SI.PressureSlope pRate = 20e5 "p's rate of change";
       SI.AbsolutePressure p = p0 + pRate*time;
       Medium.ThermodynamicState state = Medium.setState_pTX(p, T);
       SI.SpecificEnthalpy h_dew = Medium.dewEnthalpy(Medium.SaturationProperties(Tsat=Medium.saturationTemperature(state.p), psat=Medium.pressure(state)));
