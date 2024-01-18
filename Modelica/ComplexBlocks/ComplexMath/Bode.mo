@@ -25,7 +25,7 @@ block Bode "Calculate quantities to plot Bode diagram"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={0,-20})));
-  Blocks.Interfaces.RealOutput dB_y(unit="dB") "Log10 of absolute value of ratio u / divisor in dB" annotation (Placement(transformation(
+  Blocks.Interfaces.RealOutput dB_y(unit="dB") "Log10 of absolute value of ratio u / divisor" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,-110}), iconTransformation(
