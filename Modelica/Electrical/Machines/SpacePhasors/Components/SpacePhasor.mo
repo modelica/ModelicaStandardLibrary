@@ -28,8 +28,12 @@ equation
   i*turnsRatio = -plug_n.pin.i;
   m*zero.v = sum(v);
   spacePhasor.v_ = TransformationMatrix*v;
+  // Alternative equivalent implementation:
+  //v  = fill(zero.v,m) + InverseTransformation*spacePhasor.v_;
   -m*zero.i = sum(i);
   -spacePhasor.i_ = TransformationMatrix*i;
+  // Alternative equivalent implementation:
+  //-i  = fill(zero.i,m) + InverseTransformation*spacePhasor.i_;
   ground.v = 0;
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={
