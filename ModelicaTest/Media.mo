@@ -955,7 +955,7 @@ is given to compare the approximation.
       replaceable package Medium = Modelica.Media.R134a.R134a_ph "Medium model";
       SI.Temperature h = Medium.h_default;
       parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
-      parameter Real pRate(unit = "Pa/s") = 20e5 "p's rate of change";
+      parameter SI.PressureSlope pRate = 20e5 "p's rate of change";
       SI.AbsolutePressure p = p0 + pRate*time;
       Medium.ThermodynamicState state = Medium.setState_phX(p, h);
       SI.SpecificEnthalpy T= Medium.temperature(state);
