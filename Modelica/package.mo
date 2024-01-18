@@ -2530,6 +2530,10 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody</strong></td></tr>
+<tr><td>World</td>
+    <td>The protected parameters <code>ndim</code>, <code>ndim2</code> and
+        <code>ndim_pointGravity</code> have been removed.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>Brake<br>Clutch<br>OneWayClutch</td>
     <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
