@@ -518,7 +518,7 @@ static void mrkiss_fftr(mrkiss_fftr_cfg st, const mrkiss_fft_scalar *timedata, m
     }
 }
 
-int ModelicaFFT_kiss_fftr(_In_ double* u, size_t nu, _In_ double* work, size_t nwork,
+int ModelicaFFT_kiss_fftr(_In_ const double* u, size_t nu, _In_ double* work, size_t nwork,
                           _Out_ double *amplitudes, _Out_ double *phases) {
 
     /* Compute real FFT with mrkiss_fftr
