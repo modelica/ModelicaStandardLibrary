@@ -8537,6 +8537,7 @@ main version number is not changed.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_X_Y_0\">Version X.Y.0</a></td><td>Month D, 20YY</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_4_1_0\">Version 4.1.0</a></td><td>March 15, 2024</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_4_0_0\">Version 4.0.0</a></td><td>June 4, 2020</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>January 23, 2019</td></tr>
@@ -9203,7 +9204,7 @@ and it has been tested with Modelica tools from different vendors.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 1998-2020, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
+Copyright &copy; 1998-2024, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
 </p>
 
 <p>
