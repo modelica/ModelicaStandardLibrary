@@ -2468,15 +2468,19 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_X_Y_0 "Version X.Y.0 (Month D, 20YY) (either 4.1.0 or 5.0.0, depending on compatibility breakage)"
+class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (Documentation(info="<html>
 <p>
-Version X.Y.0 is the new version.
+Version 4.1.0 is backward compatible to version 4.0.0, that is models developed with
+versions 4.0.0 will work without any changes also with version 4.1.0.
 Short Overview:
 </p>
-
+<ul>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">393 issues (including 295 pull requests)</a> have been addressed for this release.</li>
+<li>This version is based on the recent Modelica language standard version 3.6.</li>
+</ul>
 <p>
 The following <font color=\"blue\"><strong>Modelica packages</strong></font> have been tested that they work together with this release of package Modelica (alphabetical list).
 </p>
@@ -2553,7 +2557,7 @@ that can lead to wrong simulation results):
     <td>The derivatives for one-sided extrapolation by constant continuation (i.e., extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) returned a constant zero value. This has been corrected.</td></tr>
 </table>
 </html>"));
-end Version_X_Y_0;
+end Version_4_1_0;
 
 class Version_4_0_0 "Version 4.0.0 (June 4, 2020)"
   extends Modelica.Icons.ReleaseNotes;
