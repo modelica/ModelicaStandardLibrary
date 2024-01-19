@@ -9,13 +9,18 @@ Generate MSL release notes from closed GitHub issues:
 python Generate-ReleaseNotes.py [milestone_number] [version_string]
 '''
 
-import requests
-import json
-import re
-import os
-import sys
-from enum import IntEnum
 from collections import defaultdict
+from enum import IntEnum
+import json
+import os
+import re
+import sys
+
+import docraptor
+import jinja2
+import markdown
+import requests
+import yaml
 
 IssueType = IntEnum(
     value='IssueType',
@@ -31,7 +36,7 @@ IssueType = IntEnum(
 def main(dir, milestone, version, auth):
     owner = 'modelica'
     repo = 'ModelicaStandardLibrary'
-    template = 'Modelica-ReleaseNotes-Template.html'
+    html_template = 'Modelica-ReleaseNotes-Template.html'
 
     # Filter closed issues (including pull requests) on milestone in ascending order
     p = {'state': 'closed', 'milestone': milestone, 'page': 1, 'per_page': 100, 'direction': 'asc'}
@@ -110,36 +115,35 @@ def main(dir, milestone, version, auth):
                     f.write("* [\#{1}]({2}) {0}\n".format(t, n, url))
                 f.write('\n')
 
+    # Read again Markdown
     with open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'r') as f:
-        content = f.read()
+        md = f.read()
 
     # Convert Markdown -> HTML
-    with open(os.path.join(path, 'ResolvedGitHubIssues.html'), 'wb') as f:
-        url = 'http://c.docverter.com/convert'
-        title = 'MSL {0} GitHub issues'.format(version)
-        data = {'to': 'html', 'from': 'markdown', 'template': template, 'title': title}
-        files = { \
-            'input_files[]': open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'rb'), \
-            'other_files[]': open(os.path.join(dir, template), 'rb') \
-        }
-        r = requests.post(url, data=data, files=files)
-        f.write(r.content)
+    with open(os.path.join(dir, html_template), 'r') as f:
+        template = f.read()
+    html = jinja2.Template(template).render(
+        content=markdown.markdown(md),
+        title='MSL {0} GitHub issues'.format(version))
+    with open(os.path.join(path, 'ResolvedGitHubIssues.html'), 'w') as f:
+        f.write(html)
 
     # Convert Markdown -> PDF
-    with open(os.path.join(path, 'ResolvedGitHubIssues.pdf'), 'wb') as f:
-        url = 'http://c.docverter.com/convert'
-        css = 'docverter.css'
-        with open(os.path.join(dir, css), 'w') as c:
-            pageInfo = '@page {size: A4 portrait;}'
-            c.write(pageInfo)
-        data = {'to': 'pdf', 'from': 'markdown', 'css': css, 'template': template}
-        files = [ \
-            ('input_files[]', ('ResolvedGitHubIssues.md', open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'rb'), 'text/markdown')), \
-            ('other_files[]', (template, open(os.path.join(dir, template), 'rb'), 'text/html')), \
-            ('other_files[]', (css, open(os.path.join(dir, css), 'rb'), 'text/css')) \
-        ]
-        r = requests.post(url, data=data, files=files)
-        f.write(r.content)
+    doc_api = docraptor.DocApi()
+    doc_api.api_client.configuration.username = os.getenv('DOCRAPTOR_API_KEY', default='YOUR_API_KEY_HERE')
+    try:
+        pdf = doc_api.create_doc({
+            'test': yaml.load(os.getenv('DOCRAPTOR_TEST', default='True'), yaml.SafeLoader),
+            'name': 'ResolvedGitHubIssues.pdf',
+            'document_content': html,
+            'document_type': 'pdf'})
+        with open(os.path.join(path, 'ResolvedGitHubIssues.pdf'), 'wb') as f:
+            f.write(pdf)
+    except docraptor.rest.ApiException as e:
+        print(e.status)
+        print(e.reason)
+        print(e.body)
+
 
 if __name__ == '__main__':
     module_dir, module_name = os.path.split(__file__)
