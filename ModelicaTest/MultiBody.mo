@@ -3787,7 +3787,6 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-96,40},{-76,60}})));
-      parameter Real tol=1e-4;
       MultiBody.Parts.FixedTranslation fixedTranslation(
           animation=false, r={1,0,0})
         annotation (Placement(transformation(extent={{-26,40},{-6,60}})));
@@ -3845,10 +3844,6 @@ a linear damper is connected here.
           animation=false, r={1,0,0})
         annotation (Placement(transformation(extent={{28,40},{48,60}})));
     equation
-      assert(body.r_0[2] - body.r_0[2] < tol,
-        "Position of the bodies must be equal (less then tolerance)");
-      assert(body.v_0[2] - body.v_0[2] < tol,
-        "Velocity of the bodies must be equal (less then tolerance)");
       connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-76,50},{-26,50}},
           color={95,95,95},
