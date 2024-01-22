@@ -2041,7 +2041,7 @@ a component, according to case (d) above:
 <strong>algorithm</strong>
    // Case (b) and (c)
    integral := quadrature(x1, x2,
-     <strong>function</strong> quadratureOnce(y1=y1, y2=y2, integrand=integrand);
+     <strong>function</strong> quadratureOnce(y1=y1, y2=y2, integrand=integrand));
 <strong>end</strong> surfaceQuadrature;
 </pre></blockquote>
 </html>"));
@@ -2238,7 +2238,7 @@ to the corresponding formal parameter of function type. Example:
 <strong>function</strong> Parabola
    <strong>extends</strong> Integrand;
 <strong>algorithm</strong>
-   y = x*x;
+   y := x*x;
 <strong>end</strong> Parabola;
 
 area = quadrature(0, 1, Parabola);
