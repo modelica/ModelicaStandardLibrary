@@ -13,7 +13,7 @@ protected
                                                      mat.Hsat,-mat.Hsat, mat, false)
     "Saturation polarization";
   //final parameter Real mu0 = mat.K * mu_0;
-  parameter SI.MagneticFluxDensity eps=unitT*mat.M/1000;
+  parameter SI.MagneticFluxDensity eps=Js/1000;
   parameter Real P1 = (mat.M*mat.r*(2/pi*atan(mat.q*(mat.Hsat-mat.Hc))+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*(mat.Hsat-mat.Hc))+exp(-mat.p2*(mat.Hsat-mat.Hc)))));
   parameter Real P4 = (mat.M*mat.r*(2/pi*atan(mat.q*(-mat.Hsat-mat.Hc))+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*(-mat.Hsat-mat.Hc))+exp(-mat.p2*(-mat.Hsat-mat.Hc)))));
 
