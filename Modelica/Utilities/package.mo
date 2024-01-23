@@ -211,7 +211,7 @@ The following main sublibraries are available:
 </ul>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>"));
 end Utilities;

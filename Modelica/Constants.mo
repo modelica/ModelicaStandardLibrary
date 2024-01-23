@@ -91,7 +91,7 @@ dependent constants and constants from nature. The latter constants
 </dl>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>

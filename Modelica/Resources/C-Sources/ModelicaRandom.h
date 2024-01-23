@@ -1,6 +1,6 @@
 /* ModelicaRandom.h - External functions header for Modelica.Math.Random library
 
-   Copyright (C) 2015-2020, Modelica Association and contributors
+   Copyright (C) 2015-2024, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without

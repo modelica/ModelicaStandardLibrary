@@ -21,7 +21,7 @@ email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.co
 <h4>Acknowledgements</h4>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>"));
 end Contact;

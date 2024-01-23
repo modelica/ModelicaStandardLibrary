@@ -18,7 +18,7 @@ This library contains components for modelling of electromagnetic devices with l
 </p>
 
 <p>
-Copyright &copy; 2005-2020, Modelica Association and contributors
+Copyright &copy; 2005-2024, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <p>

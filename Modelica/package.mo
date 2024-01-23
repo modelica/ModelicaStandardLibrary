@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 4.0.0"
+package Modelica "Modelica Standard Library"
 extends Modelica.Icons.Package;
 
 package UsersGuide "User's Guide"
@@ -2379,15 +2379,15 @@ Modelica Standard Library and is not utilized by Modelica users.
 
 <h5>Maintenance branch</h5>
 <p>
-Name: \"maint/4.0.x\"
+Name: \"maint/4.1.x\"
 </p>
 
 <p>
-This branch contains the released Modelica Standard Library version (e.g., v4.0.0)
+This branch contains the released Modelica Standard Library version (e.g., v4.1.0)
 where all bug-fixes since this release date are included
-(also consecutive <code>BUGFIX</code> versions 4.0.1, 4.0.2, etc.,
+(also consecutive <code>BUGFIX</code> versions 4.1.1, 4.1.2, etc.,
 up to when a new <code>MINOR</code> or <code>MAJOR</code>  release becomes available;
-i.e., there will not be any further <code>BUGFIX</code> versions (i.e., 4.0.x) of a previous release).
+i.e., there will not be any further <code>BUGFIX</code> versions (i.e., 4.1.x) of a previous release).
 These bug-fixes might not yet be tested with all test cases or with
 other Modelica libraries. The goal is that a vendor may take this version at
 any time for a new release of its software, in order to incorporate the latest
@@ -8537,7 +8537,7 @@ main version number is not changed.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_X_Y_0\">Version X.Y.0</a></td><td>Month D, 20YY</td></tr>
+<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_4_1_0\">Version 4.1.0</a></td><td>March 15, 2024</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_4_0_0\">Version 4.0.0</a></td><td>June 4, 2020</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>January 23, 2019</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_2\">Version 3.2.2</a></td><td>April 3, 2016</td></tr>
@@ -9130,12 +9130,13 @@ end UsersGuide;
 
 annotation (
 preferredView="info",
-version="4.0.0",
-versionDate="2020-06-04",
-dateModified = "2020-06-04 11:00:00Z",
+version="4.1.0",
+versionDate="2024-01-12",
+dateModified = "2024-01-12 19:40:00Z",
 revisionId="$Format:%h %ci$",
-uses(Complex(version="4.0.0"), ModelicaServices(version="4.0.0")),
+uses(Complex(version="4.1.0"), ModelicaServices(version="4.1.0")),
 conversion(
+ noneFromVersion="4.0.0",
  from(version={"3.0", "3.0.1", "3.1", "3.2", "3.2.1", "3.2.2", "3.2.3"}, script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_3.2.3_to_4.0.0.mos")),
 Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
   Polygon(
@@ -9202,7 +9203,7 @@ and it has been tested with Modelica tools from different vendors.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 1998-2020, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
+Copyright &copy; 1998-2024, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
 </p>
 
 <p>

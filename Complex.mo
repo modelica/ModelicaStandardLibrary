@@ -249,11 +249,12 @@ operator record Complex "Complex number with overloaded operators"
   end 'String';
 
 annotation (
-version="4.0.0",
-versionDate="2020-06-04",
-dateModified = "2020-06-04 11:00:00Z",
+version="4.1.0",
+versionDate="2024-01-12",
+dateModified = "2024-01-12 19:40:00Z",
 revisionId="$Format:%h %ci$",
 conversion(
+ noneFromVersion="4.0.0",
  noneFromVersion="3.2.3",
  noneFromVersion="3.2.2",
  noneFromVersion="3.2.1",
@@ -263,7 +264,7 @@ Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 2010-2020, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>
+Copyright &copy; 2010-2024, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>
 </p>
 
 <p>
