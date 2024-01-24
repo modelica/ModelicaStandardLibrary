@@ -1,6 +1,6 @@
 /* ModelicaUtilities.h - External utility functions header
 
-   Copyright (C) 2010-2020, Modelica Association and contributors
+   Copyright (C) 2010-2024, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
