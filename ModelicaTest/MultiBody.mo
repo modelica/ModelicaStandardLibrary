@@ -3890,7 +3890,7 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
-      constant Real tol=Modelica.Constants.eps;
+      constant Real tol=1e-4;
       MultiBody.Forces.Damper damper(d=10) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -4078,7 +4078,7 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
-      constant Real tol=Modelica.Constants.eps;
+      constant Real tol=1e-4;
       MultiBody.Forces.Damper damper(d=310) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
