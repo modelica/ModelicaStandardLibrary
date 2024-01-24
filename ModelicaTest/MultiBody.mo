@@ -3741,7 +3741,7 @@ a linear damper is connected here.
     equation
       assert(abs(body.r_0[2] - body1.r_0[2]) < tol,
         "Position of the bodies must be equal (less then tolerance)");
-      assert(body.v_0[2] - body1.v_0[2] < tol,
+      assert(abs(body.v_0[2] - body1.v_0[2]) < tol,
         "Velocity of the bodies must be equal (less then tolerance)");
       connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-76,50},{-26,50}},
