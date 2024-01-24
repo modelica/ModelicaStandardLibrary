@@ -213,6 +213,11 @@ resources use, ModelicaError or ModelicaFormatError to signal
 the error.
 */
 
+#undef MODELICA_NORETURN
+#undef MODELICA_NORETURNATTR
+#undef MODELICA_FORMATATTR_PRINTF
+#undef MODELICA_FORMATATTR_VPRINTF
+
 #if defined(__cplusplus)
 }
 #endif

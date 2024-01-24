@@ -209,6 +209,9 @@ static void ModelicaNotExistError(const char* name) {
         "as for dSPACE or xPC systems)", name);
 }
 
+#undef MODELICA_NORETURN
+#undef MODELICA_NORETURNATTR
+
 #ifdef NO_FILE_SYSTEM
 void ModelicaInternal_mkdir(_In_z_ const char* directoryName) {
     ModelicaNotExistError("ModelicaInternal_mkdir"); }

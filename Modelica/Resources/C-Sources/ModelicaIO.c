@@ -158,6 +158,9 @@ static void ModelicaNotExistError(const char* name) {
         "as for dSPACE or xPC systems)\n", name);
 }
 
+#undef MODELICA_NORETURN
+#undef MODELICA_NORETURNATTR
+
 void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
     _In_z_ const char* matrixName, _Out_ int* dim) {
     ModelicaNotExistError("ModelicaIO_readMatrixSizes"); }
