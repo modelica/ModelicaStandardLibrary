@@ -3964,11 +3964,11 @@ a linear damper is connected here.
           color={95,95,95},
           thickness=0.5));
       connect(sine.y, force.force[1]) annotation (Line(
-          points={{69,0},{-46,0},{-46,-8.66667}},                      color={0,0,127}));
+          points={{69,0},{-46,0},{-46,-6.66667}},                      color={0,0,127}));
       connect(const.y, force.force[2]) annotation (Line(
           points={{69,30},{-50,30},{-50,-8},{-46,-8}},     color={0,0,127}));
       connect(const.y, force.force[3]) annotation (Line(
-          points={{69,30},{-50,30},{-50,-7.33333},{-46,-7.33333}},
+          points={{69,30},{-50,30},{-50,-9.33333},{-46,-9.33333}},
                                                                  color={0,0,127}));
       connect(world.frame_b, prismatic1.frame_a) annotation (Line(
           points={{-100,30},{-90,30},{-90,80},{-40,80}},
@@ -3997,10 +3997,10 @@ a linear damper is connected here.
       connect(const.y, force1.force[2]) annotation (Line(
           points={{69,30},{-50,30},{-50,38},{-36,38}},     color={0,0,127}));
       connect(const.y, force1.force[3]) annotation (Line(
-          points={{69,30},{-50,30},{-50,37.3333},{-36,37.3333}},
+          points={{69,30},{-50,30},{-50,39.3333},{-36,39.3333}},
                                                                color={0,0,127}));
       connect(sine.y, force1.force[1]) annotation (Line(
-          points={{69,0},{-36,0},{-36,38.6667}},                     color={0,0,127}));
+          points={{69,0},{-36,0},{-36,36.6667}},                     color={0,0,127}));
       connect(heatCapacitor.port, damper1.heatPort) annotation (Line(
           points={{-80,120},{-40,120}},           color={191,0,0}));
       connect(prismatic2.frame_b, body2.frame_a) annotation (Line(
@@ -4018,9 +4018,9 @@ a linear damper is connected here.
       connect(const.y, force2.force[2]) annotation (Line(
           points={{69,30},{50,30},{50,-28},{44,-28}},        color={0,0,127}));
       connect(const.y, force2.force[3]) annotation (Line(
-          points={{69,30},{50,30},{50,-27.3333},{44,-27.3333}},  color={0,0,127}));
+          points={{69,30},{50,30},{50,-29.3333},{44,-29.3333}},  color={0,0,127}));
       connect(sine.y, force2.force[1]) annotation (Line(
-          points={{69,0},{44,0},{44,-28.6667}},                        color={0,0,127}));
+          points={{69,0},{44,0},{44,-26.6667}},                        color={0,0,127}));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
           points={{-90,0},{-90,30},{-100,30}},
           color={95,95,95},
