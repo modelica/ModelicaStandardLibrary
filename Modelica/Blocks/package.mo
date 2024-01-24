@@ -155,7 +155,29 @@ works reasonably, since the input to the limiter (PI.limiter.u)
 is forced back to its limit after a transient phase.
 </p>
 
-</html>"));
+</html>",
+        figures = {
+          Figure(
+            title = "Anti-windup compensation",
+            identifier = "anti-windup",
+            preferred = true,
+            plots = {
+              Plot(
+                title = "Reference tracking",
+                identifier = "tracking",
+                curves = {
+                  Curve(y = integrator.y, legend = "Reference speed"),
+                  Curve(y = inertia1.w, legend = "Actual speed")}),
+              Plot(
+                title = "Anti-windup limiter",
+                identifier = "limiter",
+                curves = {
+                  Curve(y = PI.limiter.u, legend = "Input to the anti-windup limiter"),
+                  Curve(y = PI.y, legend = "Controller output")})},
+            caption = "%(plot:tracking) Reference speed (%(variable:integrator.y)) and the actual speed (%(variable:inertia1.w)). The system initializes in steady state, since no transients are present. The inertia follows the reference speed quite good until the end of the constant speed phase. Then there is a deviation.
+
+%(plot:limiter) Here the reason for the deviation can be seen: The output of the controller (%(variable:PI.y)) is in its limits. The anti-windup compensation works reasonably, since the input to the limiter (%(variable:PI.limiter.u)) is forced back to its limit after a transient phase.
+")}));
   end PID_Controller;
 
   model Filter "Demonstrates the Continuous.Filter block with various options"
