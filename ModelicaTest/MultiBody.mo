@@ -3739,7 +3739,7 @@ a linear damper is connected here.
             rotation=270,
             origin={-4,16})));
     equation
-      assert(body.r_0[2] - body1.r_0[2] < tol,
+      assert(abs(body.r_0[2] - body1.r_0[2]) < tol,
         "Position of the bodies must be equal (less then tolerance)");
       assert(body.v_0[2] - body1.v_0[2] < tol,
         "Velocity of the bodies must be equal (less then tolerance)");
