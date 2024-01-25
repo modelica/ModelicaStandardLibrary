@@ -2464,9 +2464,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      SI.Force rod_f_diff[3]=abs(rod1.frame_b.f - rod3.frame_b.f)
+      SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
         "Difference of cut-forces in rod1 and rod3";
-      SI.Force body_f_diff[3]=abs(bodyBox1.frame_b.f - bodyBox2.frame_b.f)
+      SI.Force body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f
         "Difference of cut-forces in bodyBox1 and bodyBox2";
       inner MultiBody.World world annotation (Placement(
             transformation(extent={{-80,60},{-60,80}})));
@@ -2518,10 +2518,16 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       MultiBody.Forces.LineForceWithMass lineForceWithMass(m=
            0) annotation (Placement(transformation(extent={{4,-50},{24,-70}})));
     equation
-      assert(rod_f_diff[1] < tol and rod_f_diff[2] < tol and rod_f_diff[3] < tol,
-        "Difference in cut-forces must be less then tolerance");
-      assert(body_f_diff[1] < tol and body_f_diff[2] < tol and body_f_diff[3] < tol,
-        "Difference in cut-forces must be less then tolerance");
+      assert(
+        abs(rod_f_diff[1]) < tol and
+        abs(rod_f_diff[2]) < tol and
+        abs(rod_f_diff[3]) < tol,
+        "Difference in cut-forces in rods must be less then tolerance");
+      assert(
+        abs(body_f_diff[1]) < tol and
+        abs(body_f_diff[2]) < tol and
+        abs(body_f_diff[3]) < tol,
+        "Difference in cut-forces in bodies must be less then tolerance");
 
       connect(jointUPS.bearing, damper1.flange_a) annotation (Line(points={{6,30},{6,20},{0,20},{0,12}},
                                          color={0,127,0}));
@@ -3200,13 +3206,13 @@ a linear damper is connected here.
           points={{180,-20},{160,-20}},
           thickness=0.5));
       connect(Constant3[1:3].y, torque3.force[1:3]) annotation (Line(
-          points={{150,79},{150,70},{158,70},{158,60.6667}}, color={0,0,127}));
+          points={{150,79},{150,70},{158,70},{158,62.6667}}, color={0,0,127}));
       connect(Constant3[4:6].y, torque3.torque[1:3]) annotation (Line(
-          points={{150,79},{150,60.6667}}, color={0,0,127}));
+          points={{150,79},{150,62.6667}}, color={0,0,127}));
       connect(Constant4[1:3].y, torque4.force[1:3]) annotation (Line(
-          points={{170,-59},{170,-48},{158,-48},{158,-30.6667}}, color={0,0,127}));
+          points={{170,-59},{170,-48},{158,-48},{158,-32.6667}}, color={0,0,127}));
       connect(Constant4[4:6].y, torque4.torque[1:3]) annotation (Line(
-          points={{170,-59},{170,-48},{150,-48},{150,-30.6667}}, color={0,0,127}));
+          points={{170,-59},{170,-48},{150,-48},{150,-32.6667}}, color={0,0,127}));
       connect(body2.frame_b, torque2.frame_resolve) annotation (Line(
           points={{-80,-20},{-74,-20},{-74,-42},{-54,-42},{-54,-30}},
           color={95,95,95},
