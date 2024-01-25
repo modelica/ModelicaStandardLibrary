@@ -2616,7 +2616,10 @@ a linear damper is connected here.
       "Example to demonstrate how to construct force elements with masses"
 
       extends Modelica.Icons.Example;
+
+      parameter Real tol=1e-4;
       parameter SI.Mass m=1 "Mass of point masses";
+
       SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
         "Difference of cut-forces in rod1 and rod3";
       SI.Force body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f
@@ -2694,6 +2697,17 @@ a linear damper is connected here.
         m_a=m,
         m_b=m) annotation (Placement(transformation(extent={{0,-54},{20,-74}})));
     equation
+      assert(
+        abs(rod_f_diff[1]) < tol and
+        abs(rod_f_diff[2]) < tol and
+        abs(rod_f_diff[3]) < tol,
+        "Difference in cut-forces in rods must be less then tolerance");
+      assert(
+        abs(body_f_diff[1]) < tol and
+        abs(body_f_diff[2]) < tol and
+        abs(body_f_diff[3]) < tol,
+        "Difference in cut-forces in bodies must be less then tolerance");
+
       connect(jointUPS.bearing, damper1.flange_a) annotation (Line(points={{6,
               30},{6,20},{0,20},{0,14}}, color={0,127,0}));
       connect(jointUPS.axis, damper1.flange_b) annotation (Line(points={{14,30},
