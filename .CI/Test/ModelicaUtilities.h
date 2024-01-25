@@ -31,14 +31,11 @@
 
 /* Utility functions which can be called by external Modelica functions.
 
-   These functions are defined in section 12.8.6 of the
-   Modelica Specification 3.0 and section 12.9.6 of the
-   Modelica Specification 3.1 and later.
+   These functions are defined in section 12.9.6 of the Modelica Specification 3.6.
 
    A generic C-implementation of these functions cannot be given,
    because it is tool dependent how strings are output in a
-   window of the respective simulation tool. Therefore, only
-   this header file is shipped with the Modelica Standard Library.
+   console or window of the respective simulation tool.
 */
 
 #ifndef MODELICA_UTILITIES_H
