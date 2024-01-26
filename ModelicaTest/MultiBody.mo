@@ -1629,7 +1629,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model ForceWithTwoMasses2
       extends Modelica.Icons.Example;
       parameter Real m=2;
-      parameter Real tol=1e-4;
+      parameter Real phitol=1e-4;
+      parameter Real wtol=1e-4;
+
       inner MultiBody.World world annotation (Placement(
             transformation(extent={{-90,0},{-70,20}})));
       MultiBody.Joints.Revolute revolute1(phi(fixed=true), w(
@@ -1699,8 +1701,13 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         m_a=m,
         m_b=m) annotation (Placement(transformation(extent={{0,-50},{20,-70}})));
     equation
-      assert(abs(revolute1.phi - revolute2.phi) < tol, "Angles of joints must be equal");
-      assert(abs(revolute1.w - revolute2.w) < tol, "Angular velocities of joints must be equal");
+      assert(
+        abs(revolute1.phi - revolute2.phi) < phitol,
+        "Angles of revolute joints must be equal");
+      assert(
+        abs(revolute1.w - revolute2.w) < wtol,
+        "Angular velocities of revolute joints must be equal");
+
       connect(jointUPS.bearing, damper1.flange_a) annotation (Line(points={{5.2,28},{5.2,16},{0,16},{0,4}},
                                            color={0,127,0}));
       connect(jointUPS.axis, damper1.flange_b) annotation (Line(points={{14.8,28},{14.8,16},{20,16},{20,4}},
@@ -1837,7 +1844,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameForces2
       extends Modelica.Icons.Example;
-      parameter Real tol=1e-4;
+      parameter Real phitol=1e-4;
+      parameter Real wtol=1e-4;
+
       inner MultiBody.World world annotation (Placement(transformation(extent={{-90,-50},{-70,-30}})));
       MultiBody.Joints.Revolute Revolute1(
         phi(fixed=true),
@@ -1880,10 +1889,19 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-70},{40,-50}})));
     equation
-      assert(abs(Revolute1.phi - Revolute2.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute1.w - Revolute2.w) < tol, "Angular velocities of joints must be equal");
-      assert(abs(Revolute3.phi - Revolute4.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute3.w - Revolute4.w) < tol, "Angular velocities of joints must be equal");
+      assert(
+        abs(Revolute1.phi - Revolute2.phi) < phitol,
+        "Angles of joints 1 and 2 must be equal");
+      assert(
+        abs(Revolute3.phi - Revolute4.phi) < phitol,
+        "Angles of joints 3 and 4 must be equal");
+      assert(
+        abs(Revolute1.w - Revolute2.w) < wtol,
+        "Angular velocities of joints 1 and 2 must be equal");
+      assert(
+        abs(Revolute3.w - Revolute4.w) < wtol,
+        "Angular velocities of joints 3 and 4 must be equal");
+
       connect(BodyCylinder1.frame_a, Revolute1.frame_b)
         annotation (Line(points={{0,70},{-20,70}},
           color={95,95,95},
@@ -2055,7 +2073,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameForcesAndTorques2
       extends Modelica.Icons.Example;
-      parameter Real tol=1e-4;
+      parameter Real phitol=1e-4;
+      parameter Real wtol=1e-4;
+
       inner MultiBody.World world(defaultN_to_m=600,
          defaultNm_to_m=120) annotation (Placement(transformation(extent={{-100,80},
                 {-80,100}})));
@@ -2096,10 +2116,18 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       MultiBody.Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-60,-70},{-40,-50}})));
     equation
-      assert(abs(Revolute1.phi - Revolute2.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute1.w - Revolute2.w) < tol, "Angular velocities of joints must be equal");
-      assert(abs(Revolute3.phi - Revolute4.phi) < tol,"Angles of joints must be equal");
-      assert(abs(Revolute3.w - Revolute4.w) < tol, "Angular velocities of joints must be equal");
+      assert(
+        abs(Revolute1.phi - Revolute2.phi) < phitol,
+        "Angles of joints 1 and 2 must be equal");
+      assert(
+        abs(Revolute3.phi - Revolute4.phi) < phitol,
+        "Angles of joints 3 and 4 must be equal");
+      assert(
+        abs(Revolute1.w - Revolute2.w) < wtol,
+        "Angular velocities of joints 1 and 2 must be equal");
+      assert(
+        abs(Revolute3.w - Revolute4.w) < wtol,
+        "Angular velocities of joints 3 and 4 must be equal");
 
       connect(frameTorque1.frame_b, body1.frame_b)
         annotation (Line(points={{40,70},{20,70}},
@@ -2150,7 +2178,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameForcesAndTorques3
       extends Modelica.Icons.Example;
-      parameter Real tol=1e-4;
+      parameter Real phitol=1e-4;
+      parameter Real wtol=1e-4;
+
       inner MultiBody.World world(defaultN_to_m=600,
          defaultNm_to_m=120) annotation (Placement(transformation(extent={{-100,20},
                 {-80,40}})));
@@ -2192,10 +2222,19 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             rotation=270,
             origin={-70,0})));
     equation
-      assert(abs(Revolute1.phi - Revolute2.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute1.w - Revolute2.w) < tol, "Angular velocities of joints must be equal");
-      assert(abs(Revolute3.phi - Revolute4.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute3.w - Revolute4.w) < tol, "Angular velocities of joints must be equal");
+      assert(
+        abs(Revolute1.phi - Revolute2.phi) < phitol,
+        "Angles of joints 1 and 2 must be equal");
+      assert(
+        abs(Revolute3.phi - Revolute4.phi) < phitol,
+        "Angles of joints 3 and 4 must be equal");
+      assert(
+        abs(Revolute1.w - Revolute2.w) < wtol,
+        "Angular velocities of joints 1 and 2 must be equal");
+      assert(
+        abs(Revolute3.w - Revolute4.w) < wtol,
+        "Angular velocities of joints 3 and 4 must be equal");
+
       connect(frameTorque1.frame_b, body1.frame_b)
         annotation (Line(points={{40,70},{20,70}},
           color={95,95,95},
@@ -2328,7 +2367,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameTorques2
       extends Modelica.Icons.Example;
-      parameter Real tol=1e-4;
+      parameter Real phitol=1e-4;
+      parameter Real wtol=1e-4;
+
       inner MultiBody.World world(defaultNm_to_m=120)
           annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
       MultiBody.Joints.Revolute Revolute1(
@@ -2388,10 +2429,19 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Blocks.Sources.Constant Constant4[3](k={0,100,0}) annotation (
           Placement(transformation(extent={{100,-70},{80,-50}})));
     equation
-      assert(abs(Revolute1.phi - Revolute2.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute1.w - Revolute2.w) < tol, "Angular velocities of joints must be equal");
-      assert(abs(Revolute3.phi - Revolute4.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute3.w - Revolute4.w) < tol, "Angular velocities of joints must be equal");
+      assert(
+        abs(Revolute1.phi - Revolute2.phi) < phitol,
+        "Angles of joints 1 and 2 must be equal");
+      assert(
+        abs(Revolute3.phi - Revolute4.phi) < phitol,
+        "Angles of joints 3 and 4 must be equal");
+      assert(
+        abs(Revolute1.w - Revolute2.w) < wtol,
+        "Angular velocities of joints 1 and 2 must be equal");
+      assert(
+        abs(Revolute3.w - Revolute4.w) < wtol,
+        "Angular velocities of joints 3 and 4 must be equal");
+
       connect(frameTorque1.frame_b, body1.frame_b)
         annotation (Line(points={{40,90},{20,90}},
           color={95,95,95},
@@ -3075,7 +3125,9 @@ a linear damper is connected here.
 
     model Torque3
       extends Modelica.Icons.Example;
-      parameter Real tol=1e-4;
+      parameter Real phitol=1e-4;
+      parameter Real wtol=1e-4;
+
       inner MultiBody.World world(defaultNm_to_m=120)
           annotation (Placement(transformation(extent={{10,-32},{30,-12}})));
       MultiBody.Joints.Revolute Revolute1(
@@ -3167,14 +3219,31 @@ a linear damper is connected here.
       MultiBody.Parts.Fixed fixed8(animation=false, r={1.5,-0.25,0}) annotation (
           Placement(transformation(extent={{200,-30},{180,-10}})));
     equation
-      assert(abs(Revolute1.phi - Revolute2.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute1.w - Revolute2.w) < tol, "Angular velocities of joints must be equal");
-      assert(abs(Revolute3.phi - Revolute4.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute3.w - Revolute4.w) < tol, "Angular velocities of joints must be equal");
-      assert(abs(Revolute5.phi - Revolute6.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute5.w - Revolute6.w) < tol, "Angular velocities of joints must be equal");
-      assert(abs(Revolute7.phi - Revolute8.phi) < tol, "Angles of joints must be equal");
-      assert(abs(Revolute7.w - Revolute8.w) < tol, "Angular velocities of joints must be equal");
+      assert(
+        abs(Revolute1.phi - Revolute2.phi) < phitol,
+        "Angles of joints 1 and 2 must be equal");
+      assert(
+        abs(Revolute3.phi - Revolute4.phi) < phitol,
+        "Angles of joints 3 and 4 must be equal");
+      assert(
+        abs(Revolute5.phi - Revolute6.phi) < phitol,
+        "Angles of joints 5 and 6 must be equal");
+      assert(
+        abs(Revolute7.phi - Revolute8.phi) < phitol,
+        "Angles of joints 7 and 8 must be equal");
+      assert(
+        abs(Revolute1.w - Revolute2.w) < wtol,
+        "Angular velocities of joints 1 and 2 must be equal");
+      assert(
+        abs(Revolute3.w - Revolute4.w) < wtol,
+        "Angular velocities of joints 3 and 4 must be equal");
+      assert(
+        abs(Revolute5.w - Revolute6.w) < wtol,
+        "Angular velocities of joints 5 and 6 must be equal");
+      assert(
+        abs(Revolute7.w - Revolute8.w) < wtol,
+        "Angular velocities of joints 7 and 8 must be equal");
+
       connect(torque1.frame_b, body1.frame_b)
         annotation (Line(points={{-58,50},{-80,50}}));
       connect(Revolute1.frame_b, body1.frame_a)
@@ -3358,7 +3427,9 @@ a linear damper is connected here.
             extent={{10,-10},{-10,10}},
             origin={86,-10})));
 
-      parameter Real tol=1e-4;
+      parameter Real phitol=1e-4;
+      parameter Real wtol=1e-4;
+
       MultiBody.Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-40,60},{-20,80}})));
       MultiBody.Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
@@ -3396,9 +3467,11 @@ a linear damper is connected here.
       Modelica.Blocks.Sources.Constant const(k=0)
         annotation (Placement(transformation(extent={{100,-94},{80,-74}})));
     equation
-      assert(abs(Revolute1.phi - Revolute2.phi) < tol,
+      assert(
+        abs(Revolute1.phi - Revolute2.phi) < phitol,
         "Angles of Revolute1 and Revolute2 must be equal (diff<tol)");
-      assert(abs(Revolute1.w - Revolute2.w) < tol,
+      assert(
+        abs(Revolute1.w - Revolute2.w) < wtol,
         "Angular velocities of Revolute1 and Revolute2 must be equal (diff<tol)");
       connect(BodyCylinder1.frame_a, Revolute1.frame_b)
         annotation (Line(points={{0,70},{-20,70}},
@@ -3455,7 +3528,9 @@ a linear damper is connected here.
 
     model WorldTorques
       extends Modelica.Icons.Example;
-      parameter Real tol=1e-4;
+      parameter Real phitol=1e-4;
+      parameter Real wtol=1e-4;
+
       inner MultiBody.World world(defaultNm_to_m=200)
         annotation (Placement(transformation(extent={{10,-10},{-10,10}},
             origin={80,18})));
@@ -3504,10 +3579,13 @@ a linear damper is connected here.
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{50,-70},{30,-50}})));
     equation
-      assert(abs(Revolute1.phi - Revolute2.phi) < tol,
+      assert(
+        abs(Revolute1.phi - Revolute2.phi) < phitol,
         "Angles of Revolute1 and Revolute2 must be equal (diff<tol)");
-      assert(abs(Revolute1.w - Revolute2.w) < tol,
+      assert(
+        abs(Revolute1.w - Revolute2.w) < wtol,
         "Angular velocities of Revolute1 and Revolute2 must be equal (diff<tol)");
+
       connect(fixed2.frame_b, Revolute2.frame_a)
         annotation (Line(points={{-60,50},{-50,50}},
           color={95,95,95},
@@ -3560,7 +3638,8 @@ a linear damper is connected here.
     model WorldForceAndTorque
       extends Modelica.Icons.Example;
 
-      parameter Real tol=1e-4;
+      parameter Real phitol=1e-4;
+      parameter Real wtol=1e-4;
 
       inner MultiBody.World world annotation (Placement(transformation(extent={{94,-32},{74,-12}})));
       MultiBody.Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true)) annotation (
@@ -3624,15 +3703,19 @@ a linear damper is connected here.
             rotation=180,
             origin={46,-60})));
     equation
+      assert(
+        abs(Revolute1.phi - Revolute3.phi) < phitol,
+        "Angles of Revolute1 and Revolute3 must be equal (diff<tol)");
+      assert(
+        abs(Revolute2.phi - Revolute4.phi) < phitol,
+        "Angles of Revolute2 and Revolute4 must be equal (diff<tol)");
+      assert(
+        abs(Revolute1.w - Revolute3.w) < wtol,
+        "Angular velocities of Revolute1 and Revolute3 must be equal (diff<tol)");
+      assert(
+        abs(Revolute2.w - Revolute4.w) < wtol,
+        "Angular velocities of Revolute2 and Revolute4 must be equal (diff<tol)");
 
-      assert(abs(Revolute1.phi - Revolute3.phi) < tol,
-        "Angles of Revolute1 and Revolute2 must be equal (diff<tol)");
-      assert(abs(Revolute2.phi - Revolute4.phi) < tol,
-        "Angles of Revolute1 and Revolute2 must be equal (diff<tol)");
-      assert(abs(Revolute1.w - Revolute3.w) < tol,
-        "Angular velocities of Revolute1 and Revolute2 must be equal (diff<tol)");
-      assert(abs(Revolute2.w - Revolute4.w) < tol,
-        "Angular velocities of Revolute1 and Revolute2 must be equal (diff<tol)");
       connect(fixed3.frame_b, Revolute3.frame_a)
         annotation (Line(points={{-80,62},{-70,62}},
           color={95,95,95},
@@ -3705,7 +3788,9 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-96,40},{-76,60}})));
-      constant Real tol=1e-4;
+      parameter Real rtol=1e-4;
+      parameter Real vtol=1e-4;
+
       MultiBody.Parts.FixedTranslation fixedTranslation(
           animation=false, r={1,0,0})
         annotation (Placement(transformation(extent={{-26,40},{-6,60}})));
@@ -3745,10 +3830,13 @@ a linear damper is connected here.
             rotation=270,
             origin={-4,16})));
     equation
-      assert(abs(body.r_0[2] - body1.r_0[2]) < tol,
-        "Position of the bodies must be equal (less then tolerance)");
-      assert(abs(body.v_0[2] - body1.v_0[2]) < tol,
-        "Velocity of the bodies must be equal (less then tolerance)");
+      assert(
+        abs(body.r_0[2] - body1.r_0[2]) < rtol,
+        "Position of bodies must be equal (less then tolerance)");
+      assert(
+        abs(body.v_0[2] - body1.v_0[2]) < vtol,
+        "Velocity of bodies must be equal (less then tolerance)");
+
       connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-76,50},{-26,50}},
           color={95,95,95},
@@ -3891,7 +3979,9 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
-      parameter Real tol=1e-4;
+      parameter Real rtol=1e-4;
+      parameter Real vtol=1e-4;
+
       MultiBody.Forces.Damper damper(d=10) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -3961,14 +4051,14 @@ a linear damper is connected here.
             origin={0,-100})));
     equation
       assert(
-        abs(body.r_0[1] - body1.r_0[1]) < tol and
-        abs(body1.r_0[1] - body2.r_0[1]) < tol and
-        abs(body.r_0[1] - body2.r_0[1]) < tol,
+        abs(body.r_0[1] - body1.r_0[1]) < rtol and
+        abs(body1.r_0[1] - body2.r_0[1]) < rtol and
+        abs(body.r_0[1] - body2.r_0[1]) < rtol,
         "Positions of bodies must be equal (diff<tol)");
       assert(
-        abs(body.v_0[1] - body1.v_0[1]) < tol and
-        abs(body1.v_0[1] - body2.v_0[1]) < tol and
-        abs(body.v_0[1] - body2.v_0[1]) < tol,
+        abs(body.v_0[1] - body1.v_0[1]) < vtol and
+        abs(body1.v_0[1] - body2.v_0[1]) < vtol and
+        abs(body.v_0[1] - body2.v_0[1]) < vtol,
         "Velocities of bodies must be equal (diff<tol)");
 
       connect(prismatic.frame_b, body.frame_a) annotation (Line(
@@ -4083,7 +4173,9 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
-      parameter Real tol=1e-4;
+      parameter Real rtol=1e-4;
+      parameter Real vtol=1e-4;
+
       MultiBody.Forces.Damper damper(d=310) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -4152,14 +4244,14 @@ a linear damper is connected here.
             origin={0,-100})));
     equation
       assert(
-        abs(body.r_0[1] - body1.r_0[1]) < tol and
-        abs(body1.r_0[1] - body2.r_0[1]) < tol and
-        abs(body.r_0[1] - body2.r_0[1]) < tol,
+        abs(body.r_0[1] - body1.r_0[1]) < rtol and
+        abs(body1.r_0[1] - body2.r_0[1]) < rtol and
+        abs(body.r_0[1] - body2.r_0[1]) < rtol,
         "Positions of bodies must be equal (diff<tol)");
       assert(
-        abs(body.v_0[1] - body1.v_0[1]) < tol and
-        abs(body1.v_0[1] - body2.v_0[1]) < tol and
-        abs(body.v_0[1] - body2.v_0[1]) < tol,
+        abs(body.v_0[1] - body1.v_0[1]) < vtol and
+        abs(body1.v_0[1] - body2.v_0[1]) < vtol and
+        abs(body.v_0[1] - body2.v_0[1]) < vtol,
         "Velocities of bodies must be equal (diff<tol)");
 
       connect(prismatic.frame_b, body.frame_a) annotation (Line(
