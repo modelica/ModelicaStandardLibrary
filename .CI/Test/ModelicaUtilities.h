@@ -1,6 +1,6 @@
 /* ModelicaUtilities.h - External utility functions header
 
-   Copyright (C) 2010-2020, Modelica Association and contributors
+   Copyright (C) 2010-2024, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,11 @@
 
 /* Utility functions which can be called by external Modelica functions.
 
-   These functions are defined in section 12.8.6 of the
-   Modelica Specification 3.0 and section 12.9.6 of the
-   Modelica Specification 3.1 and later.
+   These functions are defined in section 12.9.6 of the Modelica Specification 3.6.
 
    A generic C-implementation of these functions cannot be given,
    because it is tool dependent how strings are output in a
-   window of the respective simulation tool. Therefore, only
-   this header file is shipped with the Modelica Standard Library.
+   console or window of the respective simulation tool.
 */
 
 #ifndef MODELICA_UTILITIES_H
@@ -212,6 +209,11 @@ and free other open resources in case of error. After cleaning up
 resources use, ModelicaError or ModelicaFormatError to signal
 the error.
 */
+
+#undef MODELICA_NORETURN
+#undef MODELICA_NORETURNATTR
+#undef MODELICA_FORMATATTR_PRINTF
+#undef MODELICA_FORMATATTR_VPRINTF
 
 #if defined(__cplusplus)
 }
