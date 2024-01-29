@@ -1628,9 +1628,10 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model ForceWithTwoMasses2
       extends Modelica.Icons.Example;
-      parameter Real m=2;
-      parameter Real phitol=1e-4;
-      parameter Real wtol=1e-4;
+
+      parameter SI.Mass m=2;
+      parameter SI.Angle phitol=1e-4;
+      parameter SI.AngularVelocity wtol=1e-4;
 
       inner MultiBody.World world annotation (Placement(
             transformation(extent={{-90,0},{-70,20}})));
@@ -1844,8 +1845,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameForces2
       extends Modelica.Icons.Example;
-      parameter Real phitol=1e-4;
-      parameter Real wtol=1e-4;
+
+      parameter SI.Angle phitol=1e-4;
+      parameter SI.AngularVelocity wtol=1e-4;
 
       inner MultiBody.World world annotation (Placement(transformation(extent={{-90,-50},{-70,-30}})));
       MultiBody.Joints.Revolute Revolute1(
@@ -2073,8 +2075,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameForcesAndTorques2
       extends Modelica.Icons.Example;
-      parameter Real phitol=1e-4;
-      parameter Real wtol=1e-4;
+
+      parameter SI.Angle phitol=1e-4;
+      parameter SI.AngularVelocity wtol=1e-4;
 
       inner MultiBody.World world(defaultN_to_m=600,
          defaultNm_to_m=120) annotation (Placement(transformation(extent={{-100,80},
@@ -2178,8 +2181,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameForcesAndTorques3
       extends Modelica.Icons.Example;
-      parameter Real phitol=1e-4;
-      parameter Real wtol=1e-4;
+
+      parameter SI.Angle phitol=1e-4;
+      parameter SI.AngularVelocity wtol=1e-4;
 
       inner MultiBody.World world(defaultN_to_m=600,
          defaultNm_to_m=120) annotation (Placement(transformation(extent={{-100,20},
@@ -2367,8 +2371,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameTorques2
       extends Modelica.Icons.Example;
-      parameter Real phitol=1e-4;
-      parameter Real wtol=1e-4;
+
+      parameter SI.Angle phitol=1e-4;
+      parameter SI.AngularVelocity wtol=1e-4;
 
       inner MultiBody.World world(defaultNm_to_m=120)
           annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
@@ -2513,7 +2518,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       "Example to demonstrate how to construct force elements with masses"
 
       extends Modelica.Icons.Example;
-      parameter Real tol=1e-4;
+      parameter SI.Force tol=1e-4;
       SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
         "Difference of cut-forces in rod1 and rod3";
       SI.Force body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f
@@ -2667,7 +2672,7 @@ a linear damper is connected here.
 
       extends Modelica.Icons.Example;
 
-      parameter Real tol=1e-4;
+      parameter SI.Force tol=1e-4;
       parameter SI.Mass m=1 "Mass of point masses";
 
       SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
@@ -3125,8 +3130,9 @@ a linear damper is connected here.
 
     model Torque3
       extends Modelica.Icons.Example;
-      parameter Real phitol=1e-4;
-      parameter Real wtol=1e-4;
+
+      parameter SI.Angle phitol=1e-4;
+      parameter SI.AngularVelocity wtol=1e-4;
 
       inner MultiBody.World world(defaultNm_to_m=120)
           annotation (Placement(transformation(extent={{10,-32},{30,-12}})));
@@ -3423,12 +3429,12 @@ a linear damper is connected here.
     model WorldForces2
       extends Modelica.Icons.Example;
       inner MultiBody.World world(defaultN_to_m=600)
-          annotation (Placement(transformation(
+        annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             origin={86,-10})));
 
-      parameter Real phitol=1e-4;
-      parameter Real wtol=1e-4;
+      parameter SI.Angle phitol=1e-4;
+      parameter SI.AngularVelocity wtol=1e-4;
 
       MultiBody.Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-40,60},{-20,80}})));
@@ -3528,8 +3534,9 @@ a linear damper is connected here.
 
     model WorldTorques
       extends Modelica.Icons.Example;
-      parameter Real phitol=1e-4;
-      parameter Real wtol=1e-4;
+
+      parameter SI.Angle phitol=1e-4;
+      parameter SI.AngularVelocity wtol=1e-4;
 
       inner MultiBody.World world(defaultNm_to_m=200)
         annotation (Placement(transformation(extent={{10,-10},{-10,10}},
@@ -3638,8 +3645,8 @@ a linear damper is connected here.
     model WorldForceAndTorque
       extends Modelica.Icons.Example;
 
-      parameter Real phitol=1e-4;
-      parameter Real wtol=1e-4;
+      parameter SI.Angle phitol=1e-4;
+      parameter SI.AngularVelocity wtol=1e-4;
 
       inner MultiBody.World world annotation (Placement(transformation(extent={{94,-32},{74,-12}})));
       MultiBody.Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true)) annotation (
@@ -3788,8 +3795,8 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-96,40},{-76,60}})));
-      parameter Real rtol=1e-4;
-      parameter Real vtol=1e-4;
+      parameter SI.Position rtol=1e-4;
+      parameter SI.Velocity vtol=1e-4;
 
       MultiBody.Parts.FixedTranslation fixedTranslation(
           animation=false, r={1,0,0})
@@ -3979,8 +3986,8 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
-      parameter Real rtol=1e-4;
-      parameter Real vtol=1e-4;
+      parameter SI.Position rtol=1e-4;
+      parameter SI.Velocity vtol=1e-4;
 
       MultiBody.Forces.Damper damper(d=10) annotation (
           Placement(transformation(
@@ -4173,8 +4180,8 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
-      parameter Real rtol=1e-4;
-      parameter Real vtol=1e-4;
+      parameter SI.Position rtol=1e-4;
+      parameter SI.Velocity vtol=1e-4;
 
       MultiBody.Forces.Damper damper(d=310) annotation (
           Placement(transformation(
@@ -4360,8 +4367,8 @@ a linear damper is connected here.
 
     model SpringDamperParallel
       extends Modelica.Icons.Example;
-      parameter Real tol=1e-4;
-      final parameter Real d(fixed=false, start=2);
+      parameter SI.Velocity tol=1e-4;
+      final parameter SI.TranslationalDampingConstant d(fixed=false, start=2);
 
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
