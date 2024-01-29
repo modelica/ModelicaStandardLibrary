@@ -1956,7 +1956,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameForcesAndTorques
       extends Modelica.Icons.Example;
-      parameter Real tol=1e-4;
+
       inner MultiBody.World world(defaultN_to_m=600,
          defaultNm_to_m=120) annotation (Placement(transformation(extent={{-100,80},
                 {-80,100}})));
