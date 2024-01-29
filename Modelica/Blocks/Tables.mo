@@ -158,9 +158,9 @@ extrapolation = 1: Hold the first or last value of the table,
                    two table points.).
               = 3: Periodically repeat the table data (periodical function), 
                    where the repetition period is table[end,1]-table[1,1].
-			             For u = table[end,1] the result is table[end,2]. However for the limit of u downwards 
-                   to table[end,1] the result is table[<strong>1</strong>,2].
-			             This implies that for correct reproduction of a periodic function
+                   For u = table[end,1] the result is table[end,2]. However for the
+                   limit of u downwards to table[end,1] the result is table[<strong>1</strong>,2].
+                   This implies that for correct reproduction of a periodic function
                    the first and last data values should be the same 
                    (table[1,2] = table[end,2]).
               = 4: No extrapolation, i.e. extrapolation triggers an error
