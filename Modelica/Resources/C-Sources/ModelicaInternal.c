@@ -147,6 +147,59 @@
 #include "ModelicaInternal.h"
 #include "ModelicaUtilities.h"
 
+/*
+  ModelicaNotExistError never returns to the caller. In order to compile
+  external Modelica C-code in most compilers, noreturn attributes need to
+  be present to avoid warnings or errors.
+
+  The following macros handle noreturn attributes according to the
+  C11/C++11 standard with fallback to GNU, Clang or MSVC extensions if using
+  an older compiler.
+*/
+#undef MODELICA_NORETURN
+#undef MODELICA_NORETURNATTR
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+#define MODELICA_NORETURN _Noreturn
+#define MODELICA_NORETURNATTR
+#elif defined(__cplusplus) && __cplusplus >= 201103L
+#if (defined(__GNUC__) && __GNUC__ >= 5) || \
+    (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 4 && __GNUC_MINOR__ >= 8)
+#define MODELICA_NORETURN [[noreturn]]
+#define MODELICA_NORETURNATTR
+#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
+      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#elif defined(__GNUC__)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#else
+#define MODELICA_NORETURN [[noreturn]]
+#define MODELICA_NORETURNATTR
+#endif
+#elif defined(__clang__)
+/* Encapsulated for Clang since GCC fails to process __has_attribute */
+#if __has_attribute(noreturn)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#else
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#endif
+#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
+      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8) || \
+      (defined(__SUNPRO_C) && __SUNPRO_C >= 0x5110)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#elif (defined(_MSC_VER) && _MSC_VER >= 1200) || \
+       defined(__BORLANDC__)
+#define MODELICA_NORETURN __declspec(noreturn)
+#define MODELICA_NORETURNATTR
+#else
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#endif
+
 MODELICA_NORETURN static void ModelicaNotExistError(const char* name) MODELICA_NORETURNATTR;
 static void ModelicaNotExistError(const char* name) {
   /* Print error message if a function is not implemented */
@@ -155,6 +208,9 @@ static void ModelicaNotExistError(const char* name) {
         "(e.g., because there is no file system available on the machine\n"
         "as for dSPACE or xPC systems)", name);
 }
+
+#undef MODELICA_NORETURN
+#undef MODELICA_NORETURNATTR
 
 #ifdef NO_FILE_SYSTEM
 void ModelicaInternal_mkdir(_In_z_ const char* directoryName) {
