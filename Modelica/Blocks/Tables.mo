@@ -159,7 +159,7 @@ extrapolation = 1: Hold the first or last value of the table,
               = 3: Periodically repeat the table data (periodical function), 
                    where the repetition period is table[end,1]-table[1,1].
 			             For u = table[end,1] the result is table[end,2]. However for the limit of u downwards 
-                   to table[end,1] the result is table[<b>1</b>,2].
+                   to table[end,1] the result is table[<strong>1</strong>,2].
 			             This implies that for correct reproduction of a periodic function
                    the first and last data values should be the same 
                    (table[1,2] = table[end,2]).
@@ -429,7 +429,7 @@ extrapolation = 1: Hold the first or last value of the table,
               = 3: Periodically repeat the table data (periodical function), 
                    where the repetition period is table[end,1]-table[1,1].
 			             For u = table[end,1] the result is table[end,2]. However for the limit of u downwards 
-                   to table[end,1] the result is table[<b>1</b>,2].
+                   to table[end,1] the result is table[<strong>1</strong>,2].
 			             This implies that for correct reproduction of a periodic function
                    the first and last data values should be the same 
                    (table[1,2] = table[end,2]).
@@ -637,7 +637,7 @@ extrapolation = 1: Hold the first or last values of the table,
                    table[1,end]-table[1,2] for columns and rows respectively.
 			             Assuming u1 is one of the abscissa values: for u2 = table[1,end]
                    the result is table[u1,end]. However for the lim of u2 downwards 
-                   to table[1,end] the result is table[u1,<b>2</b>].
+                   to table[1,end] the result is table[u1,<strong>2</strong>].
 			             This implies that for correct reproduction of a periodic function 
                    the first and last rows/columns should be the same (table[2,2:] = table[end,2:] 
                    and table[2:,2] = table[2:,end]).
@@ -836,7 +836,7 @@ extrapolation = 1: Hold the first or last values of the table,
                    table[1,end]-table[1,2] for columns and rows respectively.
 			             Assuming u1 is one of the abscissa values: for u2 = table[1,end]
                    the result is table[u1,end]. However for the lim of u2 downwards 
-                   to table[1,end] the result is table[u1,<b>2</b>].
+                   to table[1,end] the result is table[u1,<strong>2</strong>].
 			             This implies that for correct reproduction of a periodic function 
                    the first and last rows/columns should be the same (table[2,2:] = table[end,2:] 
                    and table[2:,2] = table[2:,end]).
