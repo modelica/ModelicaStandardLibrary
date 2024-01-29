@@ -1,13 +1,21 @@
 name: CI
 
-on: [pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   external_c_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 5
       - name: Build libraries
@@ -30,11 +38,62 @@ jobs:
         env:
           LIBDIR: linux64
           CC: gcc
+
+  external_c_checks_cmake:
+    name: external_c_checks_cmake_${{ matrix.toolchain }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        toolchain:
+          - linux-gcc
+          - macos-clang
+          - windows-msvc
+          - windows-mingw
+        configuration:
+          - Debug
+        include:
+          - toolchain: linux-gcc
+            os: ubuntu-latest
+            compiler: gcc
+          - toolchain: macos-clang
+            os: macos-latest
+            compiler: clang
+          - toolchain: windows-msvc
+            os: windows-latest
+            compiler: msvc
+          - toolchain: windows-mingw
+            os: windows-latest
+            compiler: mingw
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 5
+      - name: Build libraries with ${{ matrix.compiler }}
+        run: |
+          if [ "${{ matrix.compiler }}" == "msvc" ]; then
+            cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON
+            cmake --build build --config ${{ matrix.configuration }}
+          elif [ "${{ matrix.compiler }}" == "mingw" ]; then
+            cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -G "MinGW Makefiles"
+            cmake --build build
+          else
+            cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -DCMAKE_C_FLAGS="-std=c89 -Wall -Wextra"
+            cmake --build build
+          fi
+        env:
+          SRCDIR: ${{ github.workspace }}/Modelica/Resources/BuildProjects/CMake
+          TESTDIR: ${{ github.workspace }}/.CI/Test
+      - name: Run tests
+        run: ctest --test-dir build --build-config ${{ matrix.configuration }} --verbose
+
   html_documentation_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 5
       - name: Setup python environment
@@ -64,11 +123,13 @@ jobs:
           echo "::add-matcher::./.github/checkTags.json"
           python ./.CI/check_html.py checkTags ./
           echo "::remove-matcher owner=checkTags::"
+
   syntax_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 5
       - name: Get moparser
@@ -82,11 +143,13 @@ jobs:
           echo "::add-matcher::./.github/moparser.json"
           ModelicaSyntaxChecker/Linux64/moparser -v 3.6 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
           echo "::remove-matcher owner=moparser::"
+
   deprecation_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 5
       - name: Setup python environment
