@@ -1798,8 +1798,8 @@ Index reduction leads to the equations:
 <p>
 Note, that <strong>der</strong>(y,x) is the partial derivative of y with respect to x
 and that this operator is available in Modelica only for declaring partial derivative functions,
-see <a href=\"https://specification.modelica.org/v3.4/Ch12.html#partial-derivatives-of-functions\">Section&nbsp;12.7.2
-(Partial Derivatives of Functions) of the Modelica 3.4 specification</a>.
+see <a href=\"https://specification.modelica.org/maint/3.6/functions.html#partial-derivatives-of-functions\">Section&nbsp;12.7.2
+<em>Partial Derivatives of Functions</em> of the Modelica&nbsp;3.6 specification</a>.
 </p>
 <p>
 The above equations imply, that if p,T are provided from the
@@ -2149,6 +2149,7 @@ package Examples
   model SimpleLiquidWater "Example for Water.SimpleLiquidWater medium model"
     extends Modelica.Icons.Example;
 
+    constant SI.PressureSlope pressureRate = 1e5/10;
     parameter SI.Volume V=1 "Volume";
     parameter SI.EnthalpyFlowRate H_flow_ext=1.e6
       "Constant enthalpy flow rate into the volume";
@@ -2182,7 +2183,7 @@ package Examples
     der(U) = H_flow_ext;
 
     // Smooth state
-    medium2.p = 1e5*time/10;
+    medium2.p = pressureRate*time;
     medium2.T = 330;
     m_flow_ext2 = time - 30;
     state = Medium.setSmoothState(
@@ -2217,12 +2218,21 @@ package Examples
     Real m_flow_ext;
     Real der_p;
     Real der_T;
+  protected
+    parameter SI.AbsolutePressure p01 = 100000.0 "state.p at time 0";
+    parameter SI.PressureSlope pRate1 = 0 "state.p rate of change";
+    parameter SI.Temperature T01 = 200 "state.T at time 0";
+    parameter SI.TemperatureSlope Trate1 = 1000 "state.T rate of change";
+    parameter SI.AbsolutePressure p02 = 2.0e5 "state2.p at time 0";
+    parameter SI.PressureSlope pRate2 = 0 "state2.p rate of change";
+    parameter SI.Temperature T02 = 500 "state2.T at time 0";
+    parameter SI.TemperatureSlope Trate2 = 0 "state2.T rate of change";
 
   equation
-    state.p = 100000.0;
-    state.T = 200 + 1000*time;
-    state2.p = 2.0e5;
-    state2.T = 500.0;
+    state.p = p01 + pRate1*time;
+    state.T = T01 + Trate1*time;
+    state2.p = p02 + pRate2*time;
+    state2.T = T02 + Trate2*time;
     //  s2 = s;
 
     // Smooth state
@@ -2316,7 +2326,7 @@ is given to compare the approximation.
         fixed=true,
         stateSelect=StateSelect.prefer),
       X(start={0.8,0.2}));
-    Real m1(quantity=Medium1.mediumName, start=1.0);
+    SI.Mass m1(start=1.0) "Mass of volume 1";
     SI.InternalEnergy U1;
     Medium1.SpecificHeatCapacity cp1=Medium1.specificHeatCapacityCp(medium1.state);
     Medium1.DynamicViscosity eta1=Medium1.dynamicViscosity(medium1.state);
@@ -2332,7 +2342,7 @@ is given to compare the approximation.
         fixed=true,
         stateSelect=StateSelect.prefer),
       X(start={0.1,0.1,0.1,0.2,0.2,0.3}));
-    Real m2(quantity=Medium2.mediumName, start=1.0);
+    SI.Mass m2(start=1.0) "Mass of volume 2";
     SI.InternalEnergy U2;
     Medium2.SpecificHeatCapacity cp2=Medium2.specificHeatCapacityCp(medium2.state);
     Medium2.DynamicViscosity eta2=Medium2.dynamicViscosity(medium2.state);
@@ -2397,6 +2407,14 @@ is given to compare the approximation.
     Real der_T;
   protected
     constant SI.Time unitTime=1;
+    parameter SI.AbsolutePressure p01 = 1.e5 "state1.p at time 0";
+    parameter SI.PressureSlope pRate1 = 1.e5 "state1.p rate of change";
+    parameter SI.Temperature T01 = 300 "state1.T at time 0";
+    parameter SI.TemperatureSlope Trate1 = 10 "state1.T rate of change";
+    parameter SI.AbsolutePressure p02 = 1.e5 "state2.p at time 0";
+    parameter SI.PressureSlope pRate2 = 1.e5/2 "state2.p rate of change";
+    parameter SI.Temperature T02 = 340 "state2.T at time 0";
+    parameter SI.TemperatureSlope Trate2 = -20 "state2.T rate of change";
   equation
     der(medium.p) = 0.0;
     der(medium.T) = 90;
@@ -2406,12 +2424,12 @@ is given to compare the approximation.
     //  medium.X_liquidWater = if medium.X_sat < medium.X[2] then medium.X[2] - medium.X_sat else 0.0;
 
     // Smooth state
-    m_flow_ext = time - 0.5;
-    state1.p = 1.e5*(1 + time);
-    state1.T = 300 + 10*time;
+    m_flow_ext = time/unitTime - 0.5;
+    state1.p = p01 + pRate1*time;
+    state1.T = T01 + Trate1*time;
     state1.X = {time,1 - time}/unitTime;
-    state2.p = 1.e5*(1 + time/2);
-    state2.T = 340 - 20*time;
+    state2.p = p02 + pRate2*time;
+    state2.T = T02 + Trate2*time;
     state2.X = {0.5*time,1 - 0.5*time}/unitTime;
     smoothState = Medium.setSmoothState(
           m_flow_ext,
@@ -2595,8 +2613,8 @@ It must be noted that the relationship of both axis variables is not right-angle
       extends Modelica.Icons.Example;
       ExtendedProperties medium(p(start=2000.0, fixed=true), h(start=8.0e5,
             fixed=true));
-      parameter Real dh(unit="J/(kg.s)", displayUnit="kJ/(kg.s)")=80000.0 "Derivative of specific enthalpy of medium";
-      parameter Real dp(unit="Pa/s", displayUnit="bar/s")=1.0e6 "Derivative of pressure of medium";
+      parameter Real dh(unit="J/(kg.s)", displayUnit="kJ/(kg.s)") = 80000.0 "Derivative of specific enthalpy of medium";
+      parameter SI.PressureSlope dp = 1.0e6 "Derivative of pressure of medium";
     equation
       der(medium.p) = dp;
       der(medium.h) = dh;
@@ -2698,16 +2716,24 @@ points, e.g., when an isentropic reference state is computed.
       Real der_T;
     protected
       constant SI.Time unitTime=1;
+      parameter SI.AbsolutePressure p01 = 1.e5 "state1.p at time 0";
+      parameter SI.PressureSlope pRate1 = 1.e5 "state1.p rate of change";
+      parameter SI.Temperature T01 = 300 "state1.T at time 0";
+      parameter SI.TemperatureSlope Trate1 = 10 "state1.T rate of change";
+      parameter SI.AbsolutePressure p02 = 1.e5 "state2.p at time 0";
+      parameter SI.PressureSlope pRate2 = 1.e5/2 "state2.p rate of change";
+      parameter SI.Temperature T02 = 340 "state2.T at time 0";
+      parameter SI.TemperatureSlope Trate2 = -20 "state2.T rate of change";
     equation
       der(medium.p) = 0.0;
       der(medium.T) = 90;
       medium.X[Medium.Air] = 0.95;
       m_flow_ext = time - 0.5;
-      state1.p = 1.e5*(1 + time);
-      state1.T = 300 + 10*time;
+      state1.p = p01 + pRate1*time;
+      state1.T = T01 + Trate1*time;
       state1.X = {time,1 - time}/unitTime;
-      state2.p = 1.e5*(1 + time/2);
-      state2.T = 340 - 20*time;
+      state2.p = p02 + pRate2*time;
+      state2.T = T02 + Trate2*time;
       state2.X = {0.5*time,1 - 0.5*time}/unitTime;
       smoothState = Medium.setSmoothState(
               m_flow_ext,
@@ -4096,7 +4122,7 @@ Please note that this doesn't mean that the additional equations
 should be connection equations, nor that exactly those variables
 should be supplied, in order to complete the model.
 For further information, see the <a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media User's guide</a>, and
-<a href=\"https://specification.modelica.org/v3.4/Ch4.html#balanced-models\">Section 4.7 (Balanced Models) of the Modelica 3.4 specification</a>.</p>
+<a href=\"https://specification.modelica.org/maint/3.6/class-predefined-types-and-declarations.html#balanced-models\">Section&nbsp;4.7 <em>Balanced Models</em> of the Modelica&nbsp;3.6 specification</a>.</p>
 </html>"));
     end BaseProperties;
 
@@ -4539,6 +4565,12 @@ This function computes an isentropic state transformation:
               X));
     end specificEnthalpy_psX;
 
+    replaceable partial function massFraction "Return independent mass fractions (if any)"
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "Thermodynamic state record";
+      output MassFraction Xi[nXi] "Independent mass fractions";
+    end massFraction;
+
     type MassFlowRate = SI.MassFlowRate (
         quantity="MassFlowRate." + mediumName,
         min=-1.0e5,
@@ -4722,6 +4754,14 @@ are described in
               T,
               fill(0, 0)));
     end density_pT;
+
+    redeclare replaceable function massFraction "Return independent mass fractions (if any)"
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "Thermodynamic state record";
+      output MassFraction Xi[nXi] "Independent mass fractions";
+    algorithm
+      Xi := fill(0,0);
+    end massFraction;
 
     redeclare replaceable partial model extends BaseProperties(final
         standardOrderComponents=true)
@@ -5095,6 +5135,14 @@ to the above list of assumptions</li>
       MassFraction[nX] X(start=reference_X)
         "Mass fractions (= (component mass)/total mass  m_i/m)";
     end ThermodynamicState;
+
+    redeclare replaceable function massFraction "Return independent mass fractions (if any)"
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "Thermodynamic state record";
+      output MassFraction Xi[nXi] "Independent mass fractions";
+    algorithm
+      Xi := state.X[1:nXi];
+    end massFraction;
 
     constant FluidConstants[nS] fluidConstants "Constant data for the fluid";
 
@@ -8488,7 +8536,7 @@ The following parts are useful, when newly starting with this library:</p>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>

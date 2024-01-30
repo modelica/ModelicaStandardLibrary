@@ -211,8 +211,7 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
     output Real matrix[nrow, ncol] "2D Real array";
     external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), verboseRead)
     annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaIO.h\"", Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-    annotation(
-Documentation(info="<html>
+    annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 matrix = Streams.<strong>readRealMatrix</strong>(fileName, matrixName, nrow, ncol, verboseRead)

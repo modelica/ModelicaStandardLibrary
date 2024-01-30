@@ -13,7 +13,8 @@ partial model PartialElementaryTwoFlangesAndSupport2
         transformation(extent={{90,-10},{110,10}})));
   Support support(phi=phi_support, tau=-flange_a.tau - flange_b.tau) if
     useSupport "Support/housing of component"
-    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})),
+    mustBeConnected="An enabled support connector should be connected");
 protected
   SI.Angle phi_support "Absolute angle of support flange";
 equation

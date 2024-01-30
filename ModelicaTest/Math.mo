@@ -762,7 +762,7 @@ extends Modelica.Icons.ExamplesPackage;
 
   model TestMatricesExamplesSolveLinearEquations
     extends Modelica.Icons.Example;
-    equation
+  equation
       Modelica.Math.Matrices.Examples.solveLinearEquations();
     annotation (experiment(StopTime=0));
   end TestMatricesExamplesSolveLinearEquations;
@@ -828,9 +828,9 @@ extends Modelica.Icons.ExamplesPackage;
     Real x, y, xIntegrated;
     Integer i;
     parameter Real p=1 "So that the variable is integrated";
-    initial equation
+  initial equation
     xIntegrated=x;
-    equation
+  equation
     (x,i)=Modelica.Math.Vectors.interpolate(tabx, taby, time);
     y=der(x);
     der(xIntegrated)=p*y;

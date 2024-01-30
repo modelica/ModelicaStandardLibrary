@@ -22,7 +22,7 @@ package QuasiStatic "Library for quasi-static electrical single-phase and polyph
 </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">

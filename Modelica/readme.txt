@@ -2,7 +2,7 @@ All files in this directory ("Modelica") and in all subdirectories,
 especially all files that build package "Modelica" and the contents
 of the directory "Modelica/Resources" are licensed by the
 Modelica Association under the 3-Clause BSD License.
-Copyright © 1998-2020, Modelica Association and contributors
+Copyright © 1998-2024, Modelica Association and contributors
 
 These files are free software and the use is completely at your own risk;
 they can be redistributed and/or modified under the terms of the

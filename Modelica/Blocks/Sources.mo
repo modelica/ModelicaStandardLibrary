@@ -122,7 +122,7 @@ variable <strong>y</strong> is both a variable and a connector.
     extends Interfaces.SignalSource;
 
   equation
-    y = offset + (if time < startTime then 0 else time - startTime);
+    y = offset + smooth(0, (if time < startTime then 0 else time - startTime));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -242,7 +242,7 @@ The Real output y is a step signal:
   end Step;
 
   block Ramp "Generate ramp signal"
-    parameter Real height=1 "Height of ramps"
+    parameter Real height=1 "Height of ramp"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png"));
     parameter SI.Time duration(min=0.0, start=2)
       "Duration of ramp (= 0.0 gives a Step)";
@@ -294,10 +294,17 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
+    parameter Boolean continuous = false "Make output continuous by starting at offset + amplitude*sin(phase)"
+    annotation(Evaluate=true);
     extends Interfaces.SignalSource;
   equation
-    y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
-      *pi*f*(time - startTime) + phase));
+    if continuous then
+      y = offset + amplitude*smooth(0, (if time < startTime then Modelica.Math.sin(phase)
+        else Modelica.Math.sin(2*pi*f*(time - startTime) + phase)));
+    else
+      y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
+       *pi*f*(time - startTime) + phase));
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -340,10 +347,17 @@ The Real output y is a sine signal:
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png"));
     parameter SI.Frequency f(start=1) "Frequency of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
+    parameter Boolean continuous = false "Make output continuous by starting at offset + amplitude*cos(phase)"
+    annotation(Evaluate=true);
     extends Interfaces.SignalSource;
   equation
-    y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
-      *pi*f*(time - startTime) + phase));
+    if continuous then
+      y = offset + smooth(0, amplitude*(if time < startTime then Modelica.Math.cos(phase)
+       else Modelica.Math.cos(2*pi*f*(time - startTime) + phase)));
+    else
+      y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
+        *pi*f*(time - startTime) + phase));
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -593,12 +607,19 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     parameter Real amplitude=1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sinc.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
+    parameter Boolean continuous = false "Make output (continuously) differentiable by starting at offset + amplitude rather than just offset"
+    annotation(Evaluate=true);
     extends Interfaces.SignalSource;
   protected
     SI.Angle x=2*pi*f*(time - startTime);
   equation
-    y = offset + (if time < startTime then 0 else amplitude*
-      (if noEvent(time - startTime < eps) then 1 else (sin(x))/x));
+    if continuous then
+     y = offset + amplitude*smooth(1, (if time < startTime then 1 else
+        (if noEvent(time - startTime < eps) then 1 else (sin(x))/x)));
+    else
+      y = offset + (if time < startTime then 0 else amplitude*
+        (if noEvent(time - startTime < eps) then 1 else (sin(x))/x));
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -768,7 +789,10 @@ by a falling exponential signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
-    when integer((time - startTime)/period) > pre(count) then
+    //The following formulation causes a state event
+    //when integer((time - startTime)/period) > pre(count) then
+    //A formulation causing a time event is more efficient:
+    when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
     end when;
@@ -823,7 +847,10 @@ The Real output y is a pulse signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
-    when integer((time - startTime)/period) > pre(count) then
+    //The following formulation causes a state event
+    //when integer((time - startTime)/period) > pre(count) then
+    //A formulation causing a time event is more efficient:
+    when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
     end when;
@@ -888,7 +915,10 @@ The Real output y is a saw tooth signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
-    when integer((time - startTime)/period) > pre(count) then
+    //The following formulation causes a state event
+    //when integer((time - startTime)/period) > pre(count) then
+    //A formulation causing a time event is more efficient:
+    when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
     end when;
@@ -941,13 +971,14 @@ The Real output y is a trapezoid signal:
   equation
     y = if time < startTime then wMin else
       if time < (startTime + max(duration,eps)) then
-        10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, (time-startTime)/max(duration,eps)))
+        wMin * (wMax/wMin)^min(1, (time-startTime)/max(duration,eps))
       else
         wMax;
      annotation (defaultComponentName="logSweep",
        Documentation(info="<html>
 <p>The output <code>y</code> performs a logarithmic frequency sweep.
 The logarithm of frequency <code>w</code> performs a linear ramp from <code>log10(wMin)</code> to <code>log10(wMax)</code>.
+It uses <code>wMin*(wMax/wMin)^x</code> instead of the equivalent <code>10^(log10(wMin)+log10(wMax)-log10(wMin)*x)</code> to help with unit-checking.
 The output is the decimal power of this logarithmic ramp.
 </p>
 <p>For <code>time &lt; startTime</code> the output is equal to <code>wMin</code>.</p>
@@ -1433,7 +1464,7 @@ a flange according to a given acceleration.
       b := b - a*shiftTimeScaled;
     end getInterpolationCoefficients;
   algorithm
-    if noEvent(size(table, 1) > 1) then
+    if size(table, 1) > 1 then
       assert(not (table[1, 1] > 0.0 or table[1, 1] < 0.0), "The first point in time has to be set to 0, but is table[1,1] = " + String(table[1, 1]));
     end if;
     when {time >= pre(nextEvent),initial()} then

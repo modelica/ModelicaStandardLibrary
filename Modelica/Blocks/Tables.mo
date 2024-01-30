@@ -1003,8 +1003,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID "External table object";
       input Integer icol "Column number";
       input Real timeIn "(Scaled) time value";
-      discrete input Real nextTimeEvent "(Scaled) next time event in table";
-      discrete input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
+      input Real nextTimeEvent "(Scaled) next time event in table";
+      input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
         annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -1019,8 +1019,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID "External table object";
       input Integer icol "Column number";
       input Real timeIn "(Scaled) time value";
-      discrete input Real nextTimeEvent "(Scaled) next time event in table";
-      discrete input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
+      input Real nextTimeEvent "(Scaled) next time event in table";
+      input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
         annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -1032,8 +1032,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID "External table object";
       input Integer icol "Column number";
       input Real timeIn "(Scaled) time value";
-      discrete input Real nextTimeEvent "(Scaled) next time event in table";
-      discrete input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
+      input Real nextTimeEvent "(Scaled) next time event in table";
+      input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
       output Real y "Interpolated value";
       external "C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
         annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -1048,8 +1048,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID "External table object";
       input Integer icol "Column number";
       input Real timeIn "(Scaled) time value";
-      discrete input Real nextTimeEvent "(Scaled) next time event in table";
-      discrete input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
+      input Real nextTimeEvent "(Scaled) next time event in table";
+      input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
       input Real der_timeIn "Derivative of (scaled) time value";
       output Real der_y "Derivative of interpolated value";
       external "C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
@@ -1066,8 +1066,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID "External table object";
       input Integer icol "Column number";
       input Real timeIn "(Scaled) time value";
-      discrete input Real nextTimeEvent "(Scaled) next time event in table";
-      discrete input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
+      input Real nextTimeEvent "(Scaled) next time event in table";
+      input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
       input Real der_timeIn "Derivative of (scaled) time value";
       output Real der_y "Derivative of interpolated value";
       external "C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
@@ -1080,8 +1080,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID "External table object";
       input Integer icol "Column number";
       input Real timeIn "(Scaled) time value";
-      discrete input Real nextTimeEvent "(Scaled) next time event in table";
-      discrete input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
+      input Real nextTimeEvent "(Scaled) next time event in table";
+      input Real pre_nextTimeEvent "Pre-value of (scaled) next time event in table";
       input Real der_timeIn "Derivative of (scaled) time value";
       input Real der2_timeIn "Second derivative of (scaled) time value";
       output Real der2_y "Second derivative of interpolated value";
@@ -1330,7 +1330,7 @@ protected
     external \"C\" dummy_y = mydummyfunc(dummy_u);
     annotation(IncludeDirectory=\"modelica://Modelica/Resources/Data/Tables\",
            Include = \"#include \"usertab.c\"
-double mydummyfunc(double* dummy_in) {
+double mydummyfunc(const double* dummy_in) {
    return 0;
 }
 \");
@@ -1339,7 +1339,7 @@ initial equation
   dummy = getUsertab(table.y);
 equation
   connect(clock.y, table.u[1]) annotation (Line(points={{-59,10},{-42,10}}, color={0,0,127}));
-  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version=\"4.0.0\")));
+  annotation (experiment(StartTime=0, StopTime=5));
 end ExampleCTable;
 </pre></blockquote>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},

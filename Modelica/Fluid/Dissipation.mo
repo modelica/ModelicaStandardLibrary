@@ -970,7 +970,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties;
         SI.DynamicViscosity eta_wall
           "Dynamic viscosity of fluid at wall temperature" annotation (Dialog(group=
-                "Fluid properties", enable= target == 2));
+                "Fluid properties"));
 
         //input variable (mass flow rate)
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
@@ -10381,7 +10381,9 @@ documentation available in this package.
               annotation (Dialog);
             input Real epsilon_A(min=0,max=1)
               "Void fraction (cross sectional averaged)"
-              annotation (Dialog(enable=not (twoPhaseDensityApproach == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseDensityApproach.Homogeneous)));
+              annotation (Dialog(enable=true));
+            // It should be enable=not (voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous)
+            // But then there is no value for epsilon_A
             input Real x_flow(min=0,max=1) "Mass flow rate quality" annotation (Dialog);
 
             output SI.Density rho_2ph "Mean density of two phase flow";
@@ -12464,11 +12466,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           extends Modelica.Icons.Record;
 
           SI.Density rho_m "Mean density of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
+            annotation (Dialog(group="Fluid properties"));
           SI.Temperature T_m "Mean temperature of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
           SI.Pressure p_m "Mean pressure of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
 
         end IdealGas_var;
 
@@ -12605,11 +12607,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]"
             annotation (Dialog(group="Generic variables"));
           SI.Density rho_m=p_m/(R_s*T_m) "Mean density of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
+            annotation (Dialog(group="Fluid properties"));
           SI.Temperature T_m "Mean temperature of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
           SI.Pressure p_m "Mean pressure of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
 
         end IdealGas;
 
@@ -12663,17 +12665,17 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Density rho_l "Density of liquid"
             annotation (Dialog(group="Fluid properties"));
           SI.Density rho_g "Density of gas" annotation (Dialog(group=
-                  "Fluid properties", enable= (KC == 1 or KC == 2)));
+                  "Fluid properties"));
           SI.DynamicViscosity eta_l "Dynamic viscosity of liquid"
             annotation (Dialog(group="Fluid properties"));
           SI.DynamicViscosity eta_g "Dynamic viscosity of gas" annotation (
-              Dialog(group="Fluid properties", enable= (KC == 1 or KC == 2)));
+              Dialog(group="Fluid properties"));
           SI.MassFraction x=0.5 "Vapour fraction"
             annotation (Dialog(group="Fluid properties"));
           SI.SurfaceTension sigma "Surface Tension" annotation (Dialog(group=
-                  "Fluid properties", enable= DP_fric == 1));
+                  "Fluid properties"));
           Real n=0.25 "Exponent in Blasius equation (0.2-0.25)" annotation (Dialog(
-                group="others", enable= DP_fric == 2));
+                group="others"));
         end TwoPhaseFlow;
       end General;
 
@@ -13131,13 +13133,14 @@ Wischhusen.
 </p>
 
 <p>
-The development of the Fluid.Dissipation library was founded within the ITEA research
-project EuroSysLib-D by German Federal Ministry of Education and Research (promotional
+The development of this library was founded within the
+ITEA <a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> research project
+by German Federal Ministry of Education and Research (promotional
 reference 01IS07022B). The project was started in October 2007 and ended in June 2010.
 </p>
 
 <p>
-Copyright &copy; 2007-2020, Modelica Association and contributors
+Copyright &copy; 2007-2024, Modelica Association and contributors
 </p>
 
 <h4>Contact</h4>

@@ -26,14 +26,15 @@ model WorldTorque
     annotation (Dialog(group="if animation = true", enable=animation));
 
 protected
-  Visualizers.Advanced.DoubleArrow arrow(
+  Visualizers.Advanced.Vector arrow(
     color=color,
     specularCoefficient=specularCoefficient,
     R=frame_b.R,
     r=frame_b.r_0,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
     headAtOrigin=true,
-    r_head=-frame_b.t) if world.enableAnimation and animation;
+    twoHeadedArrow=true,
+    coordinates=-frame_b.t) if world.enableAnimation and animation;
 public
   Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));

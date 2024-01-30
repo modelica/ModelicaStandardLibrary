@@ -255,7 +255,7 @@ v = {2, -4, -2, -1};
     input Real v[:] "Real vector";
     input Real eps(min=0.0)=100*Modelica.Constants.eps
       "if |v| < eps then result = v/eps";
-    output Real result[size(v, 1)] "Input vector v normalized to length=1";
+    output Real result[size(v, 1)](each final unit="1") "Input vector v normalized to length=1";
 
   algorithm
     /* This function has the inline annotation. If the function is inlined:
@@ -11672,7 +11672,7 @@ email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
 </p>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>

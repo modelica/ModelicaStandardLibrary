@@ -523,7 +523,7 @@ Simulating another machine (with different parameters), the machine parameter re
       parameter Modelica.Units.SI.Time TiI
         "Integral time constant of current controller";
       parameter Modelica.Units.SI.Time Tsub "Substitute time constant";
-      parameter Real kpw "Porportional gain of speed controller";
+      parameter Real kpw "Proportional gain of speed controller";
       parameter Modelica.Units.SI.Time Tiw
         "Integral time constant of speed controller";
       annotation(defaultComponentPrefixes="parameter", defaultComponentName="controllerData",

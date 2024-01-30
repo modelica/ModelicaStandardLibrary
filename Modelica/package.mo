@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 4.0.0"
+package Modelica "Modelica Standard Library"
 extends Modelica.Icons.Package;
 
 package UsersGuide "User's Guide"
@@ -1225,6 +1225,124 @@ Comments and annotations should start with a capital letter, for example:<br>
 For Boolean parameters, the description string should start with &quot;= true, &hellip;&quot;, for example:<br>
 <code><strong>parameter</strong> Boolean useHeatPort = false &quot;= true, if heatPort is enabled&quot;;</code>.
 </p>
+
+<h4>Tabs and Groups</h4>
+<p>
+The annotations &quot;tab&quot; and &quot;group&quot; define the placement of
+component or of variables in a dialog.
+</p>
+<p>
+Using the <strong>group</strong> annotation, the following rules shall be followed:
+</p>
+<ol>
+  <li>
+    Avoid excessively long group labels.
+  </li>
+  <li>
+    Use nouns rather than verbs, without ending punctuation.
+  </li>
+  <li>
+    Use sentence-style capitalization.
+  </li>
+</ol>
+<p>
+Using the <strong>tab</strong> annotation, the following rules shall be followed:
+</p>
+<ol>
+  <li>
+    Try to group components or variables in the default \"general\" tab first.
+    But feel free to define a&nbsp;new tab it they are so many.
+  </li>
+  <li>
+    Label tabs based on their pattern. The label shall clearly reflect
+    the content of the collected variables.
+  </li>
+  <li>
+    Avoid long tab labels. One or two words are mostly sufficient.
+  </li>
+  <li>
+    Use nouns rather than verbs, without ending punctuation.
+  </li>
+  <li>
+    Use sentence-style capitalization.
+  </li>
+  <li>
+    Visibility of parameters collected in one tab shall not be dependent
+    on parameters shown in another tab.
+  </li>
+</ol>
+
+<h5>Example</h5>
+<p>
+Imagine you define a&nbsp;controlled electric drive being composed of
+a&nbsp;controller and an electrical machine. The latter
+has parameters number of pole pairs&nbsp;<var>p</var>, nominal frequency
+<var>f</var><sub>nom</sub>, rotor's moment of inertia <var>J</var><sub>rotor</sub>
+and others.
+The&nbsp;controller itself is divided into several sub-controllers
+&ndash; such as the one for speed control with parameters like gain&nbsp;<var>k</var>
+or time constant&nbsp;<var>T</var>.
+Then, the above parameters of your electrical drive model could be sorted using tabs
+and groups as follows:&nbsp;<var>p</var>, <var>f</var><sub>nom</sub> and
+<var>J</var><sub>rotor</sub> grouped in the \"Electrical machine\" group in
+the \"general\" tab; <var>k</var> and&nbsp;<var>T</var> in the group
+\"Speed control\" under tab \"Controller\".
+</p>
+<p>
+In the Modelica code, for example the parameter&nbsp;<var>k</var> will then
+be defined like:
+</p>
+
+<blockquote><pre>
+<strong>parameter</strong> Real k=1 \"Gain\"
+  <strong>annotation</strong>(
+    Dialog(
+      tab=\"Controller\",
+      group=\"Speed control\"));
+</pre></blockquote>
+
+<h4>Whitespace and Indentation</h4>
+<p>
+Trailing white-space (i.e., white-space at the end of the lines) shall not be used.
+The tab-character shall not be used, since the tab-stops are not standardized.
+</p>
+<p>
+The code in a&nbsp;class shall be indented relative to the class in steps of two spaces;
+except that the headings <code>public</code>, <code>protected</code>, <code>equation</code>,
+<code>algorithm</code>, and <code>end</code> of class marker shall not be indented.
+The keywords <code>public</code> and <code>protected</code> are headings for a&nbsp;group
+of declarations.
+</p>
+<p>
+Long modifier lists shall be split into several indented lines with at most one modifier per line.
+</p>
+<p>
+Full class definitions shall be separated by an empty line.
+</p>
+
+<h5>Example</h5>
+
+<blockquote><pre>
+<strong>package</strong> MyPackage
+  <strong>partial</strong> <strong>model</strong> BaseModel
+    <strong>parameter</strong> Real p;
+    <strong>input</strong> Real u(unit=\"m/s\");
+  <strong>protected</strong>
+    Real y;
+    Real x(
+      start=1,
+      unit=\"m\",
+      nominal=10);
+  <strong>equation</strong>
+    <strong>der</strong>(x) = u;
+    y = 2*x;
+  <strong>end</strong> BaseModel;
+
+  <strong>model</strong> ModelP2
+    <strong>extends</strong> BaseModel(p=2);
+  <strong>end</strong> ModelP2;
+<strong>end</strong> MyPackage;
+</pre></blockquote>
 </html>"));
        end Format;
 
@@ -2261,15 +2379,15 @@ Modelica Standard Library and is not utilized by Modelica users.
 
 <h5>Maintenance branch</h5>
 <p>
-Name: \"maint/4.0.x\"
+Name: \"maint/4.1.x\"
 </p>
 
 <p>
-This branch contains the released Modelica Standard Library version (e.g., v4.0.0)
+This branch contains the released Modelica Standard Library version (e.g., v4.1.0)
 where all bug-fixes since this release date are included
-(also consecutive <code>BUGFIX</code> versions 4.0.1, 4.0.2, etc.,
+(also consecutive <code>BUGFIX</code> versions 4.1.1, 4.1.2, etc.,
 up to when a new <code>MINOR</code> or <code>MAJOR</code>  release becomes available;
-i.e., there will not be any further <code>BUGFIX</code> versions (i.e., 4.0.x) of a previous release).
+i.e., there will not be any further <code>BUGFIX</code> versions (i.e., 4.1.x) of a previous release).
 These bug-fixes might not yet be tested with all test cases or with
 other Modelica libraries. The goal is that a vendor may take this version at
 any time for a new release of its software, in order to incorporate the latest
@@ -2350,15 +2468,19 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_X_Y_0 "Version X.Y.0 (Month D, 20YY) (either 4.1.0 or 5.0.0, depending on compatibility breakage)"
+class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (Documentation(info="<html>
 <p>
-Version X.Y.0 is the new version.
+Version 4.1.0 is backward compatible to version 4.0.0, that is models developed with
+versions 4.0.0 will work without any changes also with version 4.1.0.
 Short Overview:
 </p>
-
+<ul>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">393 issues (including 295 pull requests)</a> have been addressed for this release.</li>
+<li>This version is based on the recent Modelica language standard version 3.6.</li>
+</ul>
 <p>
 The following <font color=\"blue\"><strong>Modelica packages</strong></font> have been tested that they work together with this release of package Modelica (alphabetical list).
 </p>
@@ -2412,6 +2534,10 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Mechanics.MultiBody</strong></td></tr>
+<tr><td>World</td>
+    <td>The protected parameters <code>ndim</code>, <code>ndim2</code> and
+        <code>ndim_pointGravity</code> have been removed.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>Brake<br>Clutch<br>OneWayClutch</td>
     <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
@@ -2431,7 +2557,7 @@ that can lead to wrong simulation results):
     <td>The derivatives for one-sided extrapolation by constant continuation (i.e., extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) returned a constant zero value. This has been corrected.</td></tr>
 </table>
 </html>"));
-end Version_X_Y_0;
+end Version_4_1_0;
 
 class Version_4_0_0 "Version 4.0.0 (June 4, 2020)"
   extends Modelica.Icons.ReleaseNotes;
@@ -3925,11 +4051,10 @@ the following new language elements (compared to Modelica Specification 3.1):
 </ul>
 
 <p>
-A large part of the new classes have been developed with
+A large part of the new classes has been developed with
 partial financial support by
 BMBF (BMBF F&ouml;rderkennzeichen: 01IS07022F)
-within the <a href=\"http://www.itea2.org\">ITEA2</a> project
-EUROSYSLIB.
+within the ITEA <a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> research project.
 We highly appreciate this funding.
 </p>
 
@@ -8412,7 +8537,7 @@ main version number is not changed.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_X_Y_0\">Version X.Y.0</a></td><td>Month D, 20YY</td></tr>
+<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_4_1_0\">Version 4.1.0</a></td><td>March 15, 2024</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_4_0_0\">Version 4.0.0</a></td><td>June 4, 2020</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>January 23, 2019</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_2\">Version 3.2.2</a></td><td>April 3, 2016</td></tr>
@@ -9005,12 +9130,13 @@ end UsersGuide;
 
 annotation (
 preferredView="info",
-version="4.0.0",
-versionDate="2020-06-04",
-dateModified = "2020-06-04 11:00:00Z",
+version="4.1.0",
+versionDate="2024-01-12",
+dateModified = "2024-01-12 19:40:00Z",
 revisionId="$Format:%h %ci$",
-uses(Complex(version="4.0.0"), ModelicaServices(version="4.0.0")),
+uses(Complex(version="4.1.0"), ModelicaServices(version="4.1.0")),
 conversion(
+ noneFromVersion="4.0.0",
  from(version={"3.0", "3.0.1", "3.1", "3.2", "3.2.1", "3.2.2", "3.2.3"}, script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_3.2.3_to_4.0.0.mos")),
 Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
   Polygon(
@@ -9071,13 +9197,13 @@ This version of the Modelica Standard Library consists of
 </ul>
 <p>
 that are directly usable (= number of public, non-partial, non-internal and non-obsolete classes). It is fully compliant
-to <a href=\"https://modelica.org/documents/ModelicaSpec34.pdf\">Modelica Specification version 3.4</a>
+to <a href=\"https://specification.modelica.org/maint/3.6/MLS.html\">Modelica Specification version 3.6</a>
 and it has been tested with Modelica tools from different vendors.
 </p>
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 1998-2020, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
+Copyright &copy; 1998-2024, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
 </p>
 
 <p>

@@ -155,7 +155,29 @@ works reasonably, since the input to the limiter (PI.limiter.u)
 is forced back to its limit after a transient phase.
 </p>
 
-</html>"));
+</html>",
+        figures = {
+          Figure(
+            title = "Anti-windup compensation",
+            identifier = "anti-windup",
+            preferred = true,
+            plots = {
+              Plot(
+                title = "Reference tracking",
+                identifier = "tracking",
+                curves = {
+                  Curve(y = integrator.y, legend = "Reference speed"),
+                  Curve(y = inertia1.w, legend = "Actual speed")}),
+              Plot(
+                title = "Anti-windup limiter",
+                identifier = "limiter",
+                curves = {
+                  Curve(y = PI.limiter.u, legend = "Input to the anti-windup limiter"),
+                  Curve(y = PI.y, legend = "Controller output")})},
+            caption = "%(plot:tracking) Reference speed (%(variable:integrator.y)) and the actual speed (%(variable:inertia1.w)). The system initializes in steady state, since no transients are present. The inertia follows the reference speed quite good until the end of the constant speed phase. Then there is a deviation.
+
+%(plot:limiter) Here the reason for the deviation can be seen: The output of the controller (%(variable:PI.y)) is in its limits. The anti-windup compensation works reasonably, since the input to the limiter (%(variable:PI.limiter.u)) is forced back to its limit after a transient phase.
+")}));
   end PID_Controller;
 
   model Filter "Demonstrates the Continuous.Filter block with various options"
@@ -1030,7 +1052,7 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
      used to exchange signals between different components. It is
      defined as \"expandable connector\" in order that <strong>no</strong> central definition
      of the connector is needed but is automatically constructed by the
-     signals connected to it (see also <a href=\"https://specification.modelica.org/v3.4/Ch9.html#expandable-connectors\">Section 9.1.3 (Expandable Connectors) of the Modelica 3.4 specification</a>).</li>
+     signals connected to it (see also <a href=\"https://specification.modelica.org/maint/3.6/connectors-and-connections.html#expandable-connectors\">Section&nbsp;9.1.3 <em>Expandable Connectors</em> of the Modelica&nbsp;3.6 specification</a>).</li>
 <li> Input/output signals can be directly connected to the \"controlBus\".</li>
 <li> A component, such as \"part\", can be directly connected to the \"controlBus\",
      provided it has also a bus connector, or the \"part\" connector is a
@@ -1489,6 +1511,89 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
 </p>
 </html>"));
   end DemonstrateSignalExtrema;
+
+  model DemonstrateContinuousSignalExtrema
+    "Test the ContinuousSignalExtrema block"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.Sine sine(
+      amplitude=1,
+      f=9,
+      offset=-2)
+      annotation (Placement(transformation(extent={{-60,70},{-40,90}})));
+    Modelica.Blocks.Sources.SawTooth sawTooth(
+      amplitude=2,
+      period=1/9,
+      offset=1)
+      annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
+    Modelica.Blocks.Sources.Sine amplitude(
+      amplitude=1,
+      f=1.75,
+      offset=0)
+      annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+    Modelica.Blocks.Math.Product product1
+      annotation (Placement(transformation(extent={{0,70},{20,90}})));
+    Modelica.Blocks.Math.Product product2
+      annotation (Placement(transformation(extent={{0,10},{20,30}})));
+    Modelica.Blocks.Math.ContinuousSignalExtrema signalExtrema1
+      annotation (Placement(transformation(extent={{60,70},{80,90}})));
+    Modelica.Blocks.Math.ContinuousSignalExtrema signalExtrema2
+      annotation (Placement(transformation(extent={{60,10},{80,30}})));
+    Sources.Sine                 sine1(
+      amplitude=1,
+      f=7,
+      offset=-2)
+      annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
+    Sources.Pulse                    pulse(
+      amplitude=2,
+      period=1/9,
+      offset=1)
+      annotation (Placement(transformation(extent={{-60,-90},{-40,-70}})));
+    Math.Add add
+      annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
+    Math.Product                 product3
+      annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
+    Sources.SawTooth                 sawTooth1(
+      amplitude=2,
+      period=1/13,
+      offset=-1)
+      annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+    Math.ContinuousSignalExtrema                 signalExtrema3
+      annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
+  equation
+    connect(amplitude.y, product1.u2) annotation (Line(points={{-19,50},{-10,50},
+            {-10,74},{-2,74}}, color={0,0,127}));
+    connect(amplitude.y, product2.u1) annotation (Line(points={{-19,50},{-10,50},
+            {-10,26},{-2,26}},   color={0,0,127}));
+    connect(sine.y, product1.u1) annotation (Line(points={{-39,80},{-20,80},{-20,
+            86},{-2,86}},  color={0,0,127}));
+    connect(sawTooth.y, product2.u2) annotation (Line(points={{-39,20},{-20,20},
+            {-20,14},{-2,14}},    color={0,0,127}));
+    connect(product1.y, signalExtrema1.u)
+      annotation (Line(points={{21,80},{58,80}},color={0,0,127}));
+    connect(product2.y, signalExtrema2.u)
+      annotation (Line(points={{21,20},{58,20}},  color={0,0,127}));
+    connect(sine1.y, add.u1) annotation (Line(points={{-39,-40},{-32,-40},{-32,
+            -54},{-22,-54}}, color={0,0,127}));
+    connect(pulse.y, add.u2) annotation (Line(points={{-39,-80},{-32,-80},{-32,
+            -66},{-22,-66}}, color={0,0,127}));
+    connect(add.y, product3.u2) annotation (Line(points={{1,-60},{10,-60},{10,
+            -46},{18,-46}}, color={0,0,127}));
+    connect(sawTooth1.y, product3.u1) annotation (Line(points={{1,-20},{10,-20},
+            {10,-34},{18,-34}}, color={0,0,127}));
+    connect(product3.y, signalExtrema3.u)
+      annotation (Line(points={{41,-40},{58,-40}}, color={0,0,127}));
+    annotation (experiment(
+        StopTime=1,
+        Interval=0.0001,
+        Tolerance=1e-06), Documentation(info="<html>
+<p>
+The amplitude of both a differentiable sinusoidal signal (frequency 9 Hz) and a non-differentiable sawtooth signal (period 1/9 s) is modulated sinusoidally /frequency 0.75 Hz).
+</p>
+<p>
+Note that the ContinuousSignalExtremaBlock detects extrema of both signals without sampling.
+</p>
+</html>"));
+  end DemonstrateContinuousSignalExtrema;
 
   model DemoSignalCharacteristic
     "Demonstrate characteristic values of a signal"
@@ -3154,7 +3259,7 @@ This library contains input/output blocks to build up block diagrams.
     email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a><br></dd>
 </dl>
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>

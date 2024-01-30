@@ -1902,7 +1902,7 @@ The external C-functions may be defined in the following way:
 } MyTable;
 
 <strong>void</strong>* initMyTable(const char* fileName, const char* tableName) {
-  MyTable* table = malloc(sizeof(MyTable));
+  MyTable* table = (MyTable*) malloc(sizeof(MyTable));
   <strong>if</strong> ( table == NULL ) ModelicaError(\"Not enough memory\");
         // read table from file and store all data in *table
   <strong>return</strong> (void*) table;
@@ -4066,7 +4066,7 @@ Additional equations need to be generated for the stream variables of outside co
 <p>
 Neglecting zero flow conditions, the above implicit equations can be
 analytically solved for the inStream(..) operators.
-The details are given in <a href=\"https://specification.modelica.org/v3.4/Ch15.html#stream-operator-instream-and-connection-equations\">Section 15.2 (Stream Operator inStream and Connection Equations) of the Modelica 3.4 specification</a>.
+The details are given in <a href=\"https://specification.modelica.org/maint/3.6/stream-connectors.html#instream-and-connection-equations\">Section&nbsp;15.2 <em>inStream and Connection Equations</em> of the Modelica&nbsp;3.6 specification</a>.
 The stream connection equations have singularities and/or multiple solutions if one or more
 of the flow variables become zero. When all the flows are zero, a singularity is always
 present, so it is necessary to approximate the solution in an open neighborhood
@@ -4802,7 +4802,7 @@ useful (this follows from the definition):</em>
 <strong>semiLinear</strong>(m_flow, port_h, h);
 </pre></blockquote>
 <p>
-is identical to
+<em>is identical to</em>
 </p>
 <blockquote><pre>
 -<strong>semiLinear</strong>(-m_flow, h, port_h);
@@ -4815,7 +4815,7 @@ flow in fluid systems, such as</em>
 H_flow = <strong>semiLinear</strong>(m_flow, port.h, h);
 </pre></blockquote>
 <p>
-<em> i.e., the enthalpy flow rate H _flow is computed from the mass flow
+<em> i.e., the enthalpy flow rate H_flow is computed from the mass flow
 rate m_flow and the upstream specific enthalpy depending on the
 flow direction.]</em>
 </p>
@@ -5013,7 +5013,7 @@ The operator <strong>spatialDistribution</strong> allows the infinite-dimensiona
 <blockquote>
 <img src=\"modelica://ModelicaReference/Resources/Images/spatialdistribution.png\"
      alt=\"spatialdistribution.png\">
-</blockquote> 
+</blockquote>
 where <code>z(x, t)</code> is the transported quantity, <code>x</code> is the
 normalized spatial coordinate (0.0 &le; <code>x</code> &le; 1.0), <code>t</code> is the
 time, <code>v(t)</code> = <code>der(x)</code> is the normalized
@@ -5024,22 +5024,22 @@ transport velocity and the boundary conditions are set at either
 <blockquote><pre>
 (out0, out1) = <strong>spatialDistribution</strong>(in0, in1, x, positiveVelocity,
                                initialPoints = {0.0, 1.0},
-                               initialValues = {0.0, 0.0}); 
+                               initialValues = {0.0, 0.0});
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Many applications involve the modelling of variable-speed transport of properties. 
-One option to model this infinite-dimensional system is to approximate it by an ODE, 
-but this requires a large number of state variables and might introduce either 
-numerical diffusion or numerical oscillations. Another option is to use a built-in 
+Many applications involve the modelling of variable-speed transport of properties.
+One option to model this infinite-dimensional system is to approximate it by an ODE,
+but this requires a large number of state variables and might introduce either
+numerical diffusion or numerical oscillations. Another option is to use a built-in
 operator that keeps track of the spatial distribution of <code>z⁢(x,t)</code>,
-by suitable sampling, interpolation, and shifting of the stored distribution. 
+by suitable sampling, interpolation, and shifting of the stored distribution.
 In this case, the internal state of the operator is hidden from the ODE solver.
 </p>
 
 <p>
 See <a href=\"https://specification.modelica.org/maint/3.4/Ch3.html#spatialdistribution\">
-Section 3.7.2.2 of the Modelica Language Specification 3.4</a> for a more in-depth description 
+Section 3.7.2.2 of the Modelica Language Specification 3.4</a> for a more in-depth description
 and elaborate example.
 </p>
 </html>"));
@@ -6689,7 +6689,7 @@ equation
 In this example we will start in <strong>increase</strong> and increase <strong>v</strong> until a limit, and then decrease it, and repeat.
 
 <h4>Description</h4>
-A detailed description of the State Machines using Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/v3.4/Ch17.html\">Chapter 17 (State Machines) of the Modelica 3.4 specification</a>.
+A detailed description of the State Machines using Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/maint/3.6/state-machines.html\">Chapter&nbsp;17 <em>State Machines</em> of the Modelica&nbsp;3.6 specification</a>.
 </html>"));
 end StateMachines;
 
@@ -6789,9 +6789,9 @@ operators inside the components provide the \"ideal mixing\" equations:
 
 <p>
 A detailed description of the stream keyword and the inStream operator is given
-in <a href=\"https://specification.modelica.org/v3.4/Ch15.html\">Chapter 15 (Stream Connectors)</a>
-and <a href=\"https://specification.modelica.org/v3.4/A4.html\">Appendix D (Derivation of Stream Equations)</a>
-of the Modelica 3.4 specification.
+in <a href=\"https://specification.modelica.org/maint/3.6/stream-connectors.html\">Chapter&nbsp;15 <em>Stream Connectors</em></a>
+and <a href=\"https://specification.modelica.org/maint/3.6/derivation-of-stream-equations.html\">Appendix&nbsp;C <em>Derivation of Stream Equations</em></a>
+of the Modelica&nbsp;3.6 specification.
 An overview and a rational is provided in a
 <a href=\"modelica://Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">slide set</a>.
 </p>
@@ -6928,7 +6928,7 @@ In this example <strong>dc.xd</strong> and <strong>dc.ud</strong> are Clocked va
 At time instants where the associated clock is not active, the value of a clocked variable can be inquired by using an explicit cast operator, e.g., <strong>hold</strong>.
 
 <h4>Description</h4>
-A detailed description of the Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/v3.4/Ch16.html\">Chapter 16 (Synchronous Language Elements) of the Modelica 3.4 specification</a>.
+A detailed description of the Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/maint/3.6/synchronous-language-elements.html\">Chapter&nbsp;16 <em>Synchronous Language Elements</em> of the Modelica&nbsp;3.6 specification</a>.
 </html>"));
 end Synchronous;
 
@@ -7309,9 +7309,9 @@ end Icons;
 
 annotation (
   DocumentationClass=true,
-  version="4.0.0",
-  versionDate="2020-06-04",
-  dateModified = "2020-06-04 11:00:00Z",
+  version="4.1.0",
+  versionDate="2024-01-12",
+  dateModified = "2024-01-12 19:40:00Z",
   revisionId="$Format:%h %ci$",
   Documentation(info="<html>
 <p>
@@ -7323,7 +7323,7 @@ It is based on the
 </p>
 
 <p>
-Copyright &copy; 2003-2020, Modelica Association and contributors
+Copyright &copy; 2003-2024, Modelica Association and contributors
 </p>
 
 <p>
