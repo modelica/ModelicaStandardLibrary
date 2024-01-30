@@ -85,9 +85,13 @@ A clocked partition is a set of equations that depend
 on each other and where the boundary variables are marked
 with sample and hold operators (boundary with other clocked partitions
 or with the global continuous-time partition).
+
+A sub-clock partition is a part of clock partition that use a specific derived clock,
+separated from other sub-clock partions by operators like <strong>subSample</strong> and <strong>superSample</strong>.
+All equations within a sub-clock partition are active at the same time.
 </p>
 <p>
-There are two types of clocked partitions:
+There are two types of sub-clock partitions:
 </p>
 <ul>
     <li>A <strong>clocked discrete-time</strong> partition shall contain
@@ -96,7 +100,7 @@ There are two types of clocked partitions:
     no event-related operators (with exception of <strong>noEvent</strong>(&hellip;)),
     and no <strong>when</strong>-clause with a Boolean condition.
     A clocked discrete-time partition is thus a standard sampled data system described by difference equations
-    (it can typically contain the <strong>previous</strong> operator).</li>
+    (it can contain calls of the <strong>previous</strong> operator).</li>
     <li>A <strong>clocked discretized continuous-time</strong> partition shall contain
     neither operator <strong>previous</strong> nor operator <strong>interval</strong> (i.e. discrete-time operators).
     It can contain continuous time operators (<strong>der</strong>&hellip;) and it has to be solved with a <strong>solver</strong> (see below).
