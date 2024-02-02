@@ -10,18 +10,42 @@ Chapter 16 (for Modelica Language Version &ge; 3.3).
 </p>
 
 <p>
-A <strong>Clock</strong> type is a base data type (introduced in Modelica 3.3, additionally to Real, Integer, Boolean, String) that defines when a particular partition consisting of a set of equations is active. Starting with Modelica Language Version 3.3, every variable and every equation is either continuous-time or is associated exactly to one clock. This feature is visualized in the figure below where c(ti) is a clock that is active at particular time instants ti and r(ti) is a variable that is associated to this clock. A clocked variable has only a value when the corresponding clock is active:
+The <strong>Clock</strong> type is a base data type introduced in Modelica 3.3 (additionally to Real, Boolean&hellip;)
+which can be understood as a <em>specialized Boolean</em> type:
+Clock variables are either true (also called \"active\") or false (\"inactive\").
+It is specialized in the sense that each Clock variable generates a <strong>partition</strong>
+consisting of a set of equations which gets activated when the clock is active.
+In fact, every variable and every equation of a Modelica model (starting with Modelica Language Version 3.3)
+is assigned to a partition:
+</p>
+<ul>
+    <li>either the global continuous-time partition (no associated clock)</li>
+    <li>or a <strong>clocked partition</strong>, associated to <em>exactly one</em> clock (see more details below).</li>
+</ul>
+<p>
+This feature is visualized in the figure below where c(ti) is a clock that is active
+at particular time instants ti and r(ti) is a variable that is associated to this clock.
+Notice that a clocked variable has <em>only a value when the corresponding clock is active</em>:
 </p>
 
 <div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clockSignals.png\" alt=\"Clock variables and clocked variables\">
 </div>
 
+<h4>Clock blocks and connectors</h4>
+<p>
+The Clock type introduced above is a base type of the Modelica language
+and it is mostly intended for textual model description.
+The Clocked library encapsulates this base type and allows for
+graphical modeling thanks to the clock blocks and connectors it provides.
+</p>
 <p>
 Similarly to RealInput, RealOutput etc., clock input and output connectors, called ClockInput and ClockOutput, are defined in sublibrary
 <a href=\"modelica://Modelica.Clocked.ClockSignals.Interfaces\">ClockSignal.Interfaces</a>
-in order to propagate clocks via connections. A clock signal can be generated with
-one of the blocks of sublibrary
+in order to propagate clocks via connections.
+</p>
+<p>
+A clock signal can be generated with one of the blocks of sublibrary
 <a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks\">ClockSignals.Clocks</a>:
 </p>
 
@@ -34,6 +58,7 @@ The output signals of the blocks in the above figure are clock signals,
 by default visualized with dotted grey lines.
 </p>
 
+<h4>Derived clocks (sub/super/shift-sampling)</h4>
 <p>
 With the blocks of sublibrary
 <a href=\"modelica://Modelica.Clocked.ClockSignals.Sampler\">ClockSignals.Sampler</a>
@@ -49,44 +74,65 @@ is generated:
 </div>
 
 <p>
-As usual in synchronous languages, a clock is represented by a <strong>true</strong> value
-when the clock is active. The relationship between such derived
+The relationship between such derived
 clocks is <strong>exact</strong>, so it is guaranteed that at every 3rd tick of clock
 \"periodicRealClock.y\", the clock \"subSample.y\" is active.
 </p>
 
+<h4>The two types of clocked partitions</h4>
+<p>
+A clocked partition is a set of equations that depend
+on each other and where the boundary variables are marked
+with sample and hold operators (boundary with other clocked partitions
+or with the global continuous-time partition).
+
+A sub-clock partition is a part of clock partition that use a specific derived clock,
+separated from other sub-clock partions by operators like <strong>subSample</strong> and <strong>superSample</strong>.
+All equations within a sub-clock partition are active at the same time.
+</p>
+<p>
+There are two types of sub-clock partitions:
+</p>
+<ul>
+    <li>A <strong>clocked discrete-time</strong> partition shall contain
+    <em>no operator relating to continuous time</em>:
+    <strong>der</strong>, <strong>delay</strong>, <strong>spatialDistribution</strong>,
+    no event-related operators (with exception of <strong>noEvent</strong>(&hellip;)),
+    and no <strong>when</strong>-clause with a Boolean condition.
+    A clocked discrete-time partition is thus a standard sampled data system described by difference equations
+    (it can contain calls of the <strong>previous</strong> operator).</li>
+    <li>A <strong>clocked discretized continuous-time</strong> partition shall contain
+    neither operator <strong>previous</strong> nor operator <strong>interval</strong> (i.e. discrete-time operators).
+    It can contain continuous time operators (<strong>der</strong>&hellip;) and it has to be solved with a <strong>solver</strong> (see below).
+    </li>
+</ul>
+<p>
+Notice that it is an error if a partition doesn't fall into one of these two categories, e.g., if operators
+<strong>previous</strong> and <strong>der</strong> are both used in the same partition.
+This means it is <em>not allowed to mix continuous time and discrete-time operators</em> in a clocked partition
+(unlike in the global continuous time partition).
+</p>
+<p>
+Also notice that in a clocked discrete-time partition all event-generating mechanisms
+do no longer apply. Especially neither relations, nor one of the built-in event
+triggering operators will trigger an event.
+</p>
+
+<h4>Solver for clocked discretized continuous-time partitions</h4>
 <p>
 If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
 has to be defined that is used to integrate the partition from the previous
-to the current clock tick. This is performed by setting parameter <strong>useSolver</strong>
-= <strong>true</strong> and defining the integration method as String with
-parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>
-of one of the clock signal generating blocks.
+to the current clock tick.
+This is performed by setting, for the corresponding clock signal generating block,
+parameter <strong>useSolver</strong> = <strong>true</strong>
+and defining the integration method as String with parameter <strong>solver</strong>.
+Both parameters are to be found in tab <strong>Advanced</strong>
+of clock signal generating blocks.
 The possible integration methods are tool dependent. It is expected that
 at least the solvers \"External\" (= use the integrator selected in the
 simulation environment) and \"ExplicitEuler\" (= explicit Euler method)
 are supported by every tool. For an example, see
 <a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
-</p>
-
-<p>
-A clocked partition is a set of equations that depend
-on each other and where the boundary variables are marked
-with sample and hold operators.
-If a clocked partition contains no operator <strong>der</strong>, <strong>delay</strong>,
-<strong>spatialDistribution</strong>, no event related operators (with exception of <strong>noEvent</strong>(&hellip;)),
-and no <strong>when</strong>-clause with a Boolean condition, it is a <strong>clocked discrete-time</strong>
-partition, that is, it is a standard sampled data system that is described by difference equations.
-If a clocked partition is <strong>not</strong> a <strong>clocked discrete-time</strong> partition and
-it contains neither operator <strong>previous</strong> nor operator
-<strong>interval</strong>, it is a
-<strong>clocked discretized continuous-time</strong> partition.
-Such a partition has to be solved with a <strong>solver</strong> method.
-It is an error, if none of the two properties hold, e.g., if operators
-<strong>previous</strong> and <strong>der</strong> are both used in the same partition.
-In a clocked discrete-time partition all event generating mechanisms
-do no longer apply. Especially neither relations, nor one of the built-in event
-triggering operators will trigger an event.
 </p>
 </html>"));
 end Clocks;
