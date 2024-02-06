@@ -1980,7 +1980,7 @@ Example of function partial application as argument, positional argument passing
   <strong>input</strong> Real A;
   <strong>input</strong> Real w;
 <strong>algorithm</strong>
-  y:=A*Modelica.Math.sin(w*x);
+  y := A*Modelica.Math.sin(w*x);
 <strong>end</strong> Sine;
 
 //Call with function partial application as named input argument:
@@ -2000,7 +2000,7 @@ application:
   <strong>input</strong> Real x; // Note: x is now last in argument list.
   <strong>output</strong> Real y;
 <strong>algorithm</strong>
-  y:=A*Modelica.Math.sin(w*x);
+  y := A*Modelica.Math.sin(w*x);
 <strong>end</strong> Sine2;
 
 // The partially evaluated Sine2 has only one argument:
@@ -2041,7 +2041,7 @@ a component, according to case (d) above:
 <strong>algorithm</strong>
    // Case (b) and (c)
    integral := quadrature(x1, x2,
-     <strong>function</strong> quadratureOnce(y1=y1, y2=y2, integrand=integrand);
+     <strong>function</strong> quadratureOnce(y1=y1, y2=y2, integrand=integrand));
 <strong>end</strong> surfaceQuadrature;
 </pre></blockquote>
 </html>"));
@@ -2085,7 +2085,7 @@ Define specialized class <em>function</em>
   <strong>input</strong> Real x;
   <strong>output</strong> Real y;
 <strong>algorithm</strong>
-  y = <strong>if abs</strong>(x) &lt; Modelica.Constants.eps <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
+  y := <strong>if abs</strong>(x) &lt; Modelica.Constants.eps <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
 <strong>end</strong> si;</pre></blockquote>
 
 <div>
@@ -2207,7 +2207,7 @@ can also have an optional functional default value. Example:
   // With default: input Integrand integrand := Modelica.Math.sin;
   <strong>output</strong> Real integral;
 <strong>algorithm</strong>
-  integral :=(x2-x1)*(integrand(x1) + integrand(x2))/2;
+  integral := (x2-x1)*(integrand(x1) + integrand(x2))/2;
 <strong>end</strong> quadrature;
 
 <strong>partial function</strong> Integrand
@@ -2238,7 +2238,7 @@ to the corresponding formal parameter of function type. Example:
 <strong>function</strong> Parabola
    <strong>extends</strong> Integrand;
 <strong>algorithm</strong>
-   y = x*x;
+   y := x*x;
 <strong>end</strong> Parabola;
 
 area = quadrature(0, 1, Parabola);
