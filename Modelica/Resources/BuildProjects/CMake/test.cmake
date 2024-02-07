@@ -16,7 +16,12 @@ if(BUILD_TESTING)
     )
     foreach(TEST ${MODELICA_TESTS})
       add_executable(Test${TEST} "${ABSOLUTE_MODELICA_TEST_SOURCE_DIR}/${TEST}.c")
-      target_link_libraries(Test${TEST} ModelicaExternalC ModelicaStandardTables ModelicaIO ModelicaMatIO)
+      target_link_libraries(Test${TEST}
+        ModelicaExternalC
+        ModelicaStandardTables
+        ModelicaIO
+        ModelicaMatIO
+      )
       if(MODELICA_BUILD_ZLIB)
         target_link_libraries(Test${TEST} zlib)
       else()
@@ -25,7 +30,11 @@ if(BUILD_TESTING)
       if(UNIX)
         target_link_libraries(Test${TEST} m)
       endif()
-      add_test(NAME Test${TEST} COMMAND Test${TEST} WORKING_DIRECTORY "${ABSOLUTE_MODELICA_TEST_SOURCE_DIR}")
+      add_test(
+        NAME Test${TEST}
+        COMMAND Test${TEST}
+        WORKING_DIRECTORY "${ABSOLUTE_MODELICA_TEST_SOURCE_DIR}"
+      )
     endforeach()
   else()
     message(WARNING

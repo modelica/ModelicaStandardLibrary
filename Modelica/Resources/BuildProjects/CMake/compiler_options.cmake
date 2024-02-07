@@ -24,7 +24,7 @@ check_c_source_compiles(
   "
   HAVE_ATTRIBUTE_VISIBILITY_HIDDEN
 )
-if (HAVE_UNISTD_H)
+if(HAVE_UNISTD_H)
   check_c_source_compiles(
     "
       #include <unistd.h>
