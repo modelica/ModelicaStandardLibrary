@@ -774,7 +774,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
           annotation (Documentation(info="<html>
 <ol>
 <li> Hyperlinks should always be made when referring to a component or package.</li>
-<li> The hyperlink text in between <code>&lt;a href=&quot;...&quot;&gt;</code> and <code>&lt;/a&gt;</code> should include the full main package name.</li>
+<li> The hyperlink text in between <code>&lt;a href=&quot;...&quot;&gt;</code> and <code>&lt;/a&gt;</code> should include the full package name.</li>
 <li> A link to an external component should include the full name of the package that it is referred to.</li>
 <li> Modelica hyperlinks have to use the scheme <code>&quot;modelica://...&quot;</code></li>
 <li> For hyperlinks referring to a Modelica component, see Example 1 and 2.</li>
@@ -2321,11 +2321,11 @@ Graphical illustrations shall not be added in the diagram layer, but can be adde
 </html>"));
     end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
-<p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
+<p>User-facing packages of the Modelica Standard Library (such as <em>Modelica</em> or <em>Complex</em>) should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
 <li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a></li>
 <li> Consistent <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">HTML documentation</a></li>
-<li> Structure to be provided by a main package
+<li> Structure to be provided by the package
 <ul>
      <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
      <li> <strong>Examples</strong> containing models demonstrating the usage of the library.</li>
@@ -2338,6 +2338,7 @@ Graphical illustrations shall not be added in the diagram layer, but can be adde
 </ul></li>
 <li> These packages should appear in the listed order.</li>
 </ol>
+<p>Other Modelica libraries may also take advantage of these guidelines, for example by referencing this documentation as <a href=\"modelica:/Modelica.UsersGuide.Conventions#info\"><code>modelica:/Modelica.UsersGuide.Conventions#info</code></a>, or by using it as a source of inspiration for an independent set of guidelines.</p>
 </html>"));
   end Conventions;
 
