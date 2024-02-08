@@ -671,6 +671,13 @@ Modelica_ERROR:
 
 _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     /* Get full path name of file or directory */
+#undef MODELICA_INTERNAL_HAVE_POSIX_REALPATH
+#if defined(_BSD_SOURCE) || \
+    (defined(_XOPEN_SOURCE) && _XOPEN_SOURCE >= 500) || \
+    (defined(_XOPEN_SOURCE) && defined(_XOPEN_SOURCE_EXTENDED)) || \
+    _POSIX_VERSION >= 200112L
+#define MODELICA_INTERNAL_HAVE_POSIX_REALPATH
+#endif
 
 #if defined(_WIN32)
     char* fullName;
@@ -684,7 +691,7 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
     return fullName;
-#elif (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
+#elif defined(MODELICA_INTERNAL_HAVE_POSIX_REALPATH)
     char* fullName;
     char localbuf[BUFFER_LENGTH];
     size_t len;
@@ -710,10 +717,10 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     return fullName;
 #endif
 
-#if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
+#if defined(MODELICA_INTERNAL_HAVE_POSIX_REALPATH)
 FALLBACK_getcwd:
 #endif
-#if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L || _POSIX_)
+#if defined(MODELICA_INTERNAL_HAVE_POSIX_REALPATH) || defined(_POSIX_)
     {
         /* No such system call in _POSIX_ available (except realpath for existing paths) */
         char* cwd = getcwd(localbuf, sizeof(localbuf));
@@ -734,6 +741,7 @@ FALLBACK_getcwd:
     }
     return fullName;
 #endif
+#undef MODELICA_INTERNAL_HAVE_POSIX_REALPATH
 }
 
 _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
