@@ -6,22 +6,22 @@
 <meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <link href="style.css" rel="stylesheet" type="text/css"/>
-<title>Modelica.UsersGuide.ReleaseNotes.Version_4_0_0</title>
+<title>Modelica.UsersGuide.ReleaseNotes.Version_4_1_0</title>
 </head>
 <body>
-<h1>ReleaseNotes</a>.<span class="omc-h1">Version_4_0_0</span></h1>
+<h1>ReleaseNotes</a>.<span class="omc-h1">Version_4_1_0</span></h1>
 <h2><a id="info" name="info">Information</a></h2>
-<p>Version 4.0.0 is <strong>not</strong> backward compatible to
+<p>Version 4.1.0 is <strong>not</strong> backward compatible to
 previous versions. A tested conversion script is provided to
 transform models and libraries of previous versions 3.x.y to the
 new version. Short Overview:</p>
 <ul>
-<li>About <a href="../Documentation/Version-4.0.0/ResolvedGitHubIssues.html">
-649 issues (including 432 pull requests)</a> have been addressed
+<li>About <a href="../Documentation/Version-4.1.0/ResolvedGitHubIssues.html">
+407 issues (including 308 pull requests)</a> have been addressed
 for this release.</li>
 <li>This version is based on the recent Modelica language standard
 version 3.4.</li>
-<li>The library version (i.e., "4.0.0") follows semantic versioning
+<li>The library version (i.e., "4.1.0") follows semantic versioning
 using the convention <code>MAJOR.MINOR.BUGFIX</code> (see Version
 Management for details) and was decoupled from the version of
 the utilized version of the Modelica language standard.</li>
@@ -46,14 +46,14 @@ Modelica.Electrical.QuasiStatic</li>
 components as well as the BSD 3-clause license of the Modelica
 Standard Library itself are available as separate <a href="../Licenses">resources</a>.</li>
 </ul>
-<p>The exact difference between package Modelica version 4.0.0 and
-version 3.2.3 is summarized in a <a href="../Documentation/Version-4.0.0/DifferencesTo323.html">
+<p>The exact difference between package Modelica version 4.1.0 and
+version 4.1.0 is summarized in a <a href="../Documentation/Version-4.1.0/DifferencesTo400.html">
 comparison table</a>.</p>
 <p>The following <font color="blue"><strong>Modelica
 packages</strong></font> have been tested that they work together
 with this release of package Modelica (alphabetical list). Hereby
 simulation results of the listed packages have been produced with
-package Modelica version 3.2.3 and compared with the simulation
+package Modelica version 4.1.0 and compared with the simulation
 results produced with version 4.0.0 Beta.1. The tests have been
 performed with Dymola 2020/2020x/2021:</p>
 <table border="1" cellpadding="2" cellspacing="0">
@@ -389,10 +389,8 @@ components</strong></font> have been <font color="blue"><strong>changed</strong>
 <td colspan="2"><strong>Modelica.Blocks</strong></td>
 </tr>
 <tr>
-<td>Nonlinear.Limiter<br/>
-Nonlinear.VariableLimiter</td>
-<td>The superfluous parameter <code>limitsAtInit</code> has been
-removed.</td>
+<td>Discrete.Sampler<br> Discrete.ZeroOrderHold</td>
+<td> Add info here <code> ADDn </code>--------.</td>
 </tr>
 <tr>
 <td>Continuous.PID</td>
@@ -404,193 +402,45 @@ and the derivative state, i.e.,
 <code>initType</code> = <code>Init.InitialState</code>.</td>
 </tr>
 <tr>
-<td>Continuous.LimPID</td>
-<td>The superfluous parameter <code>limitsAtInit</code> has been
-removed.<br/>
-The initialization option
-<code>initType</code> = <code>InitPID.DoNotUse_InitialIntegratorState</code>
-to only initialize the integrator state has been removed. This
-option has been converted to both initialize the integrator state
-and the derivative state, i.e.,
-<code>initType</code> = <code>Init.InitialState</code>.</td>
+<td>Math.ContinuousMean</td>
+<td>--------------Add content here------</td>
+
+
+
+
 </tr>
 <tr>
-<td>Nonlinear.DeadZone</td>
-<td>The superfluous parameter <code>deadZoneAtInit</code> has been
-removed.</td>
-</tr>
-<tr>
-<td>Interfaces.PartialNoise<br/>
-Noise.UniformNoise<br/>
-Noise.NormalNoise<br/>
-Noise.TruncatedNormalNoise<br/>
-Noise.BandLimitedWhiteNoise</td>
-<td>As a side-effect of the updated computation in
-Modelica.Math.Random.Utilities.automaticLocalSeed the
-<code>localSeed</code> parameter is computed differently if
-<code>useAutomaticLocalSeed</code> is set to true.</td>
-</tr>
-<tr>
-<td>Types.InitPID</td>
-<td>The enumeration type has been converted to
-<code>Types.Init</code> with exception of the alternative
-<code>InitPID.DoNotUse_InitialIntegratorState</code>, that was
-converted to <code>Init.InitialState</code> leading to a different
-initialization behaviour.</td>
+<td>Sources.ContinuousClock</td>
+<td>-----------
+<code>add</code> content
+<code>here</code>-----<code>------</code> -----</td>
 </tr>
 <tr>
 <td colspan="2">
-<strong>Modelica.Electrical.Machines.Utilities</strong></td>
+<strong>Modelica.Electrical.PowerConverters.DCAC.Control</strong></td>
 </tr>
 <tr>
-<td>SwitchYD</td>
-<td>The
-IdealCommutingSwitch is replaced by an
-IdealOpeningSwitch and an
-IdealClosingSwitch to allow a time delay between the two
-switching actions.</td>
+<td>SVPWM</td>
+<td>add ccontent here</td>
 </tr>
 <tr>
-<td colspan="2"><strong>Modelica.Electrical.Spice3</strong></td>
+<td colspan="2"><strong>Modelica.Magnetic.FundamentalWave.BaseClasses</strong></td>
 </tr>
 <tr>
-<td>Internal.MOS2<br/>
-Semiconductors.M_NMOS2<br/>
-Semiconductors.M_PMOS2</td>
-<td>The final parameter <code>vp</code> has been removed.<br/>
-The obsolete variables <code>cc_obsolete</code>,
-<code>icqmGB</code>, <code>icqmGS</code>, <code>icqmGD</code>,
-<code>MOScapgd</code>, <code>MOScapgs</code>,
-<code>MOScapgb</code>, <code>qm</code> and <code>vDS</code> have
-been removed.</td>
+<td>Machine</td>
+<td>add content here</td>
 </tr>
 <tr>
 <td colspan="2">
-<strong>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</strong></td>
+<strong>Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses</strong></td>
 </tr>
 <tr>
-<td>SwitchYD</td>
-<td>The
-IdealCommutingSwitch is replaced by an
-IdealOpeningSwitch and an
-IdealClosingSwitch to allow a time delay between the two
-switching actions.</td>
+<td>Machine</td>
+<td>Add content here.............</td>
 </tr>
-<tr>
-<td colspan="2">
-<strong>Modelica.Mechanics.MultiBody.Forces</strong></td>
-</tr>
-<tr>
-<td>WorldForce</td>
-<td>The parameters <code>diameter</code> and <code>N_to_m</code>
-have been removed.</td>
-</tr>
-<tr>
-<td>WorldTorque</td>
-<td>The parameters <code>diameter</code> and <code>Nm_to_m</code>
-have been removed.</td>
-</tr>
-<tr>
-<td>WorldForceAndTorque</td>
-<td>The parameters <code>forceDiameter</code>,
-<code>torqueDiameter</code>, <code>N_to_m</code>, and
-<code>Nm_to_m</code> have been removed.</td>
-</tr>
-<tr>
-<td>Force</td>
-<td>The parameter <code>N_to_m</code> has been removed.</td>
-</tr>
-<tr>
-<td>Torque</td>
-<td>The parameter <code>Nm_to_m</code> has been removed.</td>
-</tr>
-<tr>
-<td>ForceAndTorque</td>
-<td>The parameters <code>N_to_m</code> and <code>Nm_to_m</code>
-have been removed.</td>
-</tr>
-<tr>
-<td colspan="2">
-<strong>Modelica.Mechanics.MultiBody.Joints</strong></td>
-</tr>
-<tr>
-<td>Prismatic</td>
-<td>The superfluous constant <code>s_offset</code> has been
-removed.</td>
-</tr>
-<tr>
-<td>Revolute</td>
-<td>The superfluous constant <code>phi_offset</code> has been
-removed.</td>
-</tr>
-<tr>
-<td>FreeMotion<br/>
-FreeMotionScalarInit</td>
-<td>The parameter <code>arrowDiameter</code> has been removed.</td>
-</tr>
-<tr>
-<td colspan="2">
-<strong>Modelica.Mechanics.MultiBody.Parts</strong></td>
-</tr>
-<tr>
-<td>Body</td>
-<td>The superfluous parameter <code>z_a_start</code> has been
-removed.</td>
-</tr>
-<tr>
-<td colspan="2">
-<strong>Modelica.Mechanics.MultiBody.Sensors</strong></td>
-</tr>
-<tr>
-<td>AbsoluteSensor<br/>
-RelativeSensor<br/>
-Distance</td>
-<td>The parameter <code>arrowDiameter</code> has been removed.</td>
-</tr>
-<tr>
-<td>CutForce</td>
-<td>The parameters <code>forceDiameter</code> and
-<code>N_to_m</code> have been removed.</td>
-</tr>
-<tr>
-<td>CutForce</td>
-<td>The parameters <code>torqueDiameter</code> and
-<code>Nm_to_m</code> have been removed.</td>
-</tr>
-<tr>
-<td>CutForceAndTorque</td>
-<td>The parameters <code>forceDiameter</code>,
-<code>torqueDiameter</code>, <code>N_to_m</code>, and
-<code>Nm_to_m</code> have been removed.</td>
-</tr>
-<tr>
-<td colspan="2">
-<strong>Modelica.Mechanics.MultiBody.Visualizers</strong></td>
-</tr>
-<tr>
-<td>Advanced.Arrow<br/>
-Advanced.DoubleArrow<br/>
-FixedArrow<br/>
-SignalArrow</td>
-<td>The parameter <code>diameter</code> has been removed.</td>
-</tr>
-<tr>
-<td colspan="2"><strong>Modelica.Fluid.Machines</strong></td>
-</tr>
-<tr>
-<td>PartialPump</td>
-<td>The superfluous parameter <code>show_NPSHa</code> has been
-removed.</td>
-</tr>
-<tr>
-<td colspan="2"><strong>Modelica.Thermal.HeatTransfer</strong></td>
-</tr>
-<tr>
-<td>Fahrenheit.FromKelvin<br/>
-Rankine.FromKelvin<br/>
-Rankine.ToKelvin</td>
-<td>The superfluous parameter <code>n</code> has been removed.</td>
-</tr>
+
+
+
 </table>
 <p><br/>
 The following <font color="red"><strong>critical
