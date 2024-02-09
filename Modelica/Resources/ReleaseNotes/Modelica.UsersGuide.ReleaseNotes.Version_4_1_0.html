@@ -390,20 +390,16 @@ components</strong></font> have been <font color="blue"><strong>changed</strong>
 </tr>
 <tr>
 <td>Discrete.Sampler<br> Discrete.ZeroOrderHold</td>
-<td> Add info here <code> ADDn </code>--------.</td>
+<td> Fixed the start time of <code> ZeroOrderHold</code> and  <code>Sampler</code> . parameter startTime was implemented but ignored.
+</td>
 </tr>
 <tr>
 <td>Continuous.PID</td>
-<td>The initialization option
-<code>initType</code> = <code>InitPID.DoNotUse_InitialIntegratorState</code>
-to only initialize the integrator state has been removed. This
-option has been converted to both initialize the integrator state
-and the derivative state, i.e.,
-<code>initType</code> = <code>Init.InitialState</code>.</td>
+<td>Removed the  min attribute of gain in Blocks.Continuous.LimPID</td>
 </tr>
 <tr>
 <td>Math.ContinuousMean</td>
-<td>--------------Add content here------</td>
+<td>simplifie the mean formula</td>
 
 
 
@@ -421,14 +417,14 @@ and the derivative state, i.e.,
 </tr>
 <tr>
 <td>SVPWM</td>
-<td>add ccontent here</td>
+<td>corrected a bug in the equation </td>
 </tr>
 <tr>
 <td colspan="2"><strong>Modelica.Magnetic.FundamentalWave.BaseClasses</strong></td>
 </tr>
 <tr>
 <td>Machine</td>
-<td>add content here</td>
+<td> internal used ports of the optional mechanical housing port and the optional thermal port is made protected </td>
 </tr>
 <tr>
 <td colspan="2">
@@ -436,7 +432,7 @@ and the derivative state, i.e.,
 </tr>
 <tr>
 <td>Machine</td>
-<td>Add content here.............</td>
+<td>internal used ports of the optional mechanical housing port and the optional thermal port is made protected</td>
 </tr>
 
 
@@ -448,111 +444,133 @@ errors</strong></font> have been fixed (i.e., errors that can lead
 to wrong simulation results):</p>
 <table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><strong>Modelica.Blocks.Math</strong></td>
+<td colspan="2"><strong>Modelica.ComplexBlocks.ComplexMath</strong></td>
 </tr>
 <tr>
-<td>Pythagoras</td>
-<td>The case with negative <code>y2</code> was not correctly
-considered if <code>u1IsHypotenuse</code> is <code>true</code>.
-This has been corrected.</td>
+<td>TransferFunction</td>
+<td>Fixed interpretation of coefficients of complex transfer function</td>
 </tr>
 <tr>
 <td colspan="2">
-<strong>Modelica.Electrical.Semiconductors</strong></td>
+<strong>Modelica.ComplexBlocks.Sources.</strong></td>
 </tr>
 <tr>
-<td>Diode</td>
-<td>Fixed unit error in current equations.</td>
-</tr>
-<tr>
-<td colspan="2">
-<strong>Modelica.Electrical.Spice3.Additionals</strong></td>
-</tr>
-<tr>
-<td>poly</td>
-<td>The case with one coefficient and one variable was not
-correctly considered. This has been corrected.</td>
+<td>ComplexRampPhasor</td>
+<td>Simplify ComplexRampPhasor.</td>
 </tr>
 <tr>
 <td colspan="2">
-<strong>Modelica.Fluid.Dissipation.PressureLoss.General</strong></td>
+<strong>Modelica.Electrical.Batteries.Utilities</strong></td>
 </tr>
 <tr>
-<td>dp_volumeFlowRate_DP<br/>
-dp_volumeFlowRate_MFLOW</td>
-<td>The mass flow rate was not correctly computed if the pressure
-drop is a linear function of the volume flow rate. This has been
-corrected.</td>
-</tr>
-<tr>
-<td colspan="2"><strong>Modelica.Media.Air.MoistAir</strong></td>
-</tr>
-<tr>
-<td>density_derX<br/>
-s_pTX<br/>
-s_pTX_der</td>
-<td>The calculation was wrong. This has been corrected.</td>
+<td>PulseSeries</td>
+<td>Add content here</td>
 </tr>
 <tr>
 <td colspan="2">
-<strong>Modelica.Media.Air.ReferenceAir.Air_Base</strong></td>
+<strong>Modelica.Electrical.Polyphase.Basic</strong></td>
 </tr>
 <tr>
-<td>BaseProperties</td>
-<td>The unit of the specific gas constant <code>R_s</code> was not
-correctly considered. This has been corrected.</td>
+<td>Resistor <br/>
+    Conductor<br/>
+    VariableResistor<br/>
+    VariableConductor
+
+</td>
+<td>Propagate parameter T in <code>Resistors</code> and <code> Conductor</code> 
+</tr>
+
+
+</td>
+<tr>
+<td colspan="2"><strong>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</strong></td>
 </tr>
 <tr>
-<td colspan="2">
-<strong>Modelica.Media.IdealGases.Common.Functions</strong></td>
-</tr>
-<tr>
-<td>s0_Tlow_der</td>
-<td>The calculation was wrong. This has been corrected.</td>
-</tr>
-<tr>
-<td colspan="2">
-<strong>Modelica.Media.IdealGases.Common.MixtureGasNasa</strong></td>
-</tr>
-<tr>
-<td>T_hX</td>
-<td>The function inputs <code>exclEnthForm</code>,
-<code>refChoice</code> and <code>h_off</code> were not considered.
-This has been corrected.</td>
+<td>HollowCylinderAxialFlux<br/>
+    HollowCylinderRadialFlux
+</td>
+
 </tr>
 <tr>
 <td colspan="2">
-<strong>Modelica.Media.Incompressible.TableBased</strong></td>
+<strong>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.</strong></td>
 </tr>
 <tr>
-<td>T_ph</td>
-<td>The pressure negligence was not considered. This has been
-corrected.</td>
+<td>HollowCylinderAxialFlux <br/>
+    HollowCylinderRadialFlux</td>
+<td>Propagated the angle alpha also in the calculation of A in <code>HollowCylinderRadialFlux.</code></td>
 </tr>
 <tr>
-<td colspan="2"><strong>Modelica.Media.R134a.R134a_ph</strong></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.MultiBody.Frames.Quaternions</strong></td>
 </tr>
 <tr>
-<td>setState_pTX</td>
-<td>Only applicable in one-phase regime: The Newton iteration for
-the calculation of the density may possibly converge to the wrong
-root. This has been improved.</td>
+<td>from_T</td>
+<td>The calculation was not stable. This has been corrected.</td>
 </tr>
 <tr>
-<td>setState_dTX<br/>
-setState_psX</td>
-<td>The calculation was wrong in two-phase regime. This has been
-corrected.</td>
+<td colspan="2">
+<strong>Modelica.Mechanics.MultiBody.Sensors.Internal</strong></td>
 </tr>
 <tr>
-<td colspan="2"><strong>Modelica.Utilities.System</strong></td>
+<td>BasicAbsoluteAngularVelocity</td>
+<td>corrected the error with frame_resolve math in BasicAbsoluteAngularVelocity sensor</td>
 </tr>
 <tr>
-<td>getTime</td>
-<td>The month and year was only correctly returned if the
-implementing source file (ModelicaInternal.c) was compiled for
-Windows OS. This has been corrected.</td>
+<td colspan="2">
+<strong>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.</strong></td>
 </tr>
+<tr>
+<td>sharpEdgedOrifice</td>
+<td>Bug in <code>SharpEdgedOrifice</code> for Loss factors resolved</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Modelica.Fluid.Utilities</strong></td>
+</tr>
+<tr>
+<td>regFun3</td>
+<td>add data here</td>
+</tr>
+
+<tr>
+<td colspan="2"><strong>Modelica.Media.Air.MoistAir.Utilities</strong></td>
+</tr>
+<tr>
+<td>spliceFunction <br/>
+    spliceFunction_der</td>
+<td>Refactor <code>
+    spliceFunction_der
+</code> </td>
+</tr>
+
+<tr>
+<td colspan="2"><strong>Modelica.Media.Air.ReferenceMoistAir.Utilities</strong></td></tr>
+<tr>
+    <td>pd_pTX_der </td>
+    <td>corrected the error </td>
+    </tr>
+
+ <tr>
+    td colspan="2"><strong>Modelica.Media.ReferenceMoistAir.Utilities</strong></td></tr>
+
+ <tr>
+    <td colspan="2"><strong>Modelica.Media.R134a.R134a_ph</strong></td>
+     </tr>
+    <tr>
+    <td>dofpT</td>
+    <td>Changed code for function <code> dofpT 
+    </code> </td>
+    </tr>
+
+    <tr>
+        <td colspan="2"><strong>Modelica.Math</strong></td>
+         </tr>
+        <tr>
+        <td>isPowerOf2</td>
+        <td> corrected the issue of wrong results for large inputs </td>
+        </tr>
+
+
 </table>
 <hr/>
 Generated at 2020-06-04T16:16:44Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-371-geb234c0</a>
