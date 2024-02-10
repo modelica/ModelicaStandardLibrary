@@ -43,4 +43,3 @@ inverter.ac.pin[6].i
 currentSensor.i[1]
 currentSensor.i[2]
 currentSensor.i[3]
-
