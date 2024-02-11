@@ -14,7 +14,8 @@ model RelativeAngularVelocity
   Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
     "Coordinate system in which w_rel is optionally resolved"
-    annotation (Placement(transformation(extent={{84,64},{116,96}})));
+    annotation (Placement(transformation(extent={{84,64},{116,96}})),
+      mustBeConnected="An enabled frame_resolve connector should be connected");
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
@@ -88,10 +89,10 @@ the angular velocity is resolved:
 </table>
 
 <p>
-In this basic sensor model, <strong>the connector frame_resolve
-is always enabled</strong>.
-If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the vector&nbsp;w_rel is
-resolved in the frame to which frame_resolve is connected.
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
+\"frame_resolve\" is enabled and w_rel is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
 </p>
 
 <h4>Example</h4>
