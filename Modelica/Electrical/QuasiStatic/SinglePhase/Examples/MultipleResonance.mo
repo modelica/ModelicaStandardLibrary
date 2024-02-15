@@ -80,7 +80,9 @@ equation
     annotation (Line(points={{-10,20},{0,20}}, color={85,170,255}));
   connect(currentSensor.pin_n, transformer.pin_p1)
     annotation (Line(points={{20,20},{30,20},{30,10}}, color={85,170,255}));
-  annotation (experiment(Interval=0.0001),
+  annotation (experiment(
+      StopTime=1.0,
+      Interval=0.0001),
       Documentation(info="<html>
 <p>
 The series resonance load circuit is fed by a voltage source with inner impedance. 
