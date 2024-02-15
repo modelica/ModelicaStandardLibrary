@@ -87,7 +87,7 @@ with sample and hold operators (boundary with other clocked partitions
 or with the global continuous-time partition).
 
 A sub-clock partition is a part of clock partition that use a specific derived clock,
-separated from other sub-clock partions by operators like <strong>subSample</strong> and <strong>superSample</strong>.
+separated from other sub-clock partitions by operators like <strong>subSample</strong> and <strong>superSample</strong>.
 All equations within a sub-clock partition are active at the same time.
 </p>
 <p>
