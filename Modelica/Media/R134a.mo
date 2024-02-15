@@ -280,7 +280,9 @@ package R134a "R134a: Medium model for R134a"
     redeclare function extends setState_phX
       "Set state for pressure and specific enthalpy (X not used since single substance)"
     algorithm
-      state := ThermodynamicState(phase=getPhase_ph(p, h), p=p, h=h, d=density_ph(p, h), T=temperature_ph(p, h));
+      state := ThermodynamicState(
+         phase=if ((h < bubbleEnthalpy(SaturationProperties(psat=p,Tsat=0)) or (h > dewEnthalpy(SaturationProperties(psat=p,Tsat=0)))
+          or (p > R134aData.data.FPCRIT))) then 1 else 2, p=p, h=h, d=density_ph(p, h), T=temperature_ph(p, h));
       annotation (GenerateEvents=true, Inline=true, Documentation(info="<html>
 <p>This function should be used by default in order to calculate the thermodynamic state record used as input by many functions.</p>
 <p>
