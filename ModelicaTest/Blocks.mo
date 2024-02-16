@@ -2064,13 +2064,13 @@ the whole homotopy transformation.</p>
     Modelica.Blocks.Math.Exponentiation oneExponent(exponent=1)
       annotation (Placement(transformation(extent={{0,20},{20,40}})));
     Modelica.Blocks.Math.Exponentiation zeroExponent(exponent=0)
-      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-    Modelica.Blocks.Math.Abs abs1
-      annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
-    Modelica.Blocks.Math.Exponentiation nonInteger(exponent=2.1)
-      annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
-    Modelica.Blocks.Math.Exponentiation sqrtExponent(exponent=0.5)
       annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
+    Modelica.Blocks.Math.Abs abs1
+      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    Modelica.Blocks.Math.Exponentiation nonInteger(exponent=2.1)
+      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    Modelica.Blocks.Math.Exponentiation sqrtExponent(exponent=0.5)
+      annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
     Modelica.Blocks.Math.Max max1
       annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
     Modelica.Blocks.Sources.Constant oneTenth(k=0.1)
@@ -2080,27 +2080,27 @@ the whole homotopy transformation.</p>
   equation
     connect(negativeToPositiveRamp.y, evenExponent.u)
       annotation (Line(points={{-79,90},{-2,90}}, color={0,0,127}));
-    connect(abs1.u, evenExponent.u) annotation (Line(points={{-42,-30},{-50,-30},
-            {-50,90},{-2,90}},
+    connect(abs1.u, evenExponent.u) annotation (Line(points={{-42,0},{-50,0},{
+            -50,90},{-2,90}},
                            color={0,0,127}));
     connect(abs1.y, nonInteger.u)
-      annotation (Line(points={{-19,-30},{-2,-30}},color={0,0,127}));
+      annotation (Line(points={{-19,0},{-2,0}},    color={0,0,127}));
     connect(oddExponent.u, evenExponent.u) annotation (Line(points={{-2,60},{
             -20,60},{-20,90},{-2,90}},
                                     color={0,0,127}));
     connect(oneExponent.u, evenExponent.u) annotation (Line(points={{-2,30},{
             -20,30},{-20,90},{-2,90}},
                                 color={0,0,127}));
-    connect(sqrtExponent.u, nonInteger.u) annotation (Line(points={{-2,-60},{
-            -10,-60},{-10,-30},{-2,-30}}, color={0,0,127}));
+    connect(sqrtExponent.u, nonInteger.u) annotation (Line(points={{-2,-30},{
+            -10,-30},{-10,0},{-2,0}},     color={0,0,127}));
     connect(max1.y, inverse.u)
       annotation (Line(points={{-19,-90},{-2,-90}}, color={0,0,127}));
-    connect(zeroExponent.u, evenExponent.u) annotation (Line(points={{-2,0},{
-            -20,0},{-20,90},{-2,90}}, color={0,0,127}));
     connect(max1.u1, evenExponent.u) annotation (Line(points={{-42,-84},{-50,
             -84},{-50,90},{-2,90}}, color={0,0,127}));
     connect(oneTenth.y, max1.u2) annotation (Line(points={{-59,-90},{-50,-90},{
             -50,-96},{-42,-96}}, color={0,0,127}));
+    connect(max1.y, zeroExponent.u) annotation (Line(points={{-19,-90},{-10,-90},
+            {-10,-60},{-2,-60}}, color={0,0,127}));
     annotation (experiment(StopTime=1.0));
   end Exponentiation;
 
