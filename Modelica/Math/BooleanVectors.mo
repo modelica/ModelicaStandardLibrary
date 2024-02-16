@@ -48,7 +48,7 @@ function andTrue
     "Returns true, if all elements of the Boolean input vector are true ('and')"
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
-  output Boolean result = min(b) "= true, if all elements of b are true";
+  output Boolean result = size(b, 1) ==0 or min(b) "= true, if all elements of b are true";
 algorithm
   annotation (Inline = true, Documentation(info="<html>
 <h4>Syntax</h4>
@@ -92,7 +92,7 @@ function anyTrue
 
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
-  output Boolean result = max(b) "= true, if at least one element of b is true";
+  output Boolean result = size(b, 1) > 0 and max(b) "= true, if at least one element of b is true";
 algorithm
   annotation (Inline = true, Documentation(info="<html>
 <h4>Syntax</h4>
