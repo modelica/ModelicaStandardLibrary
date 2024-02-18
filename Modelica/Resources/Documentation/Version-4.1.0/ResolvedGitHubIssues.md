@@ -1,6 +1,6 @@
 # GitHub issues resolved for v4.1.0
 
-As part of this release 407 [issues](https://github.com/modelica/ModelicaStandardLibrary/milestone/61) (including 308 pull requests (PR)) were closed.
+As part of this release 414 [issues](https://github.com/modelica/ModelicaStandardLibrary/milestone/61) (including 312 pull requests (PR)) were closed.
 
 ## --MSL-general--
 
@@ -40,7 +40,6 @@ As part of this release 407 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4181](https://github.com/modelica/ModelicaStandardLibrary/pull/4181) (PR) Update text annotations to not use deprecated features
 * [\#4183](https://github.com/modelica/ModelicaStandardLibrary/pull/4183) (PR) Fix regex to optionally ignore quoted strings when checking for deprecated Text.lineColor annotation (CI)
 * [\#4203](https://github.com/modelica/ModelicaStandardLibrary/pull/4203) (PR) Fix codespell exceptions (CI)
-* [\#4235](https://github.com/modelica/ModelicaStandardLibrary/pull/4235) (PR) Bump used Modelica language version to 3.6 for MapleSim moparser (CI)
 * [\#4247](https://github.com/modelica/ModelicaStandardLibrary/pull/4247) (PR) Update version, uses annotation and copyright year
 
 ## Blocks
@@ -119,7 +118,6 @@ As part of this release 407 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3691](https://github.com/modelica/ModelicaStandardLibrary/pull/3691) (PR) Add reading of CSV files from ModelicaTableAdditions to ModelicaStandardTables
 * [\#3700](https://github.com/modelica/ModelicaStandardLibrary/pull/3700) (PR) Make array inputs of external C functions const (introduced in Modelica 3.5)
 * [\#3839](https://github.com/modelica/ModelicaStandardLibrary/issues/3839) External ModelicaStandardTables lack const qualifiers for array inputs (Modelica Language Specification version 3.5)
-* [\#4047](https://github.com/modelica/ModelicaStandardLibrary/pull/4047) (PR) Upgrade zlib to v1.3
 * [\#4222](https://github.com/modelica/ModelicaStandardLibrary/pull/4222) (PR) Update matio library to 1.5.24
 
 ### Miscellaneous
@@ -522,6 +520,7 @@ As part of this release 407 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3849](https://github.com/modelica/ModelicaStandardLibrary/issues/3849) Invalid function Modelica.Math.Matrices.nullSpace calculating max({})
 * [\#4036](https://github.com/modelica/ModelicaStandardLibrary/issues/4036) Illegal value of 'lwork' in LAPACK.dtrsen
 * [\#4039](https://github.com/modelica/ModelicaStandardLibrary/pull/4039) (PR) Most LAPACK routines don't want lwork=0 and/or work with size zero
+* [\#4314](https://github.com/modelica/ModelicaStandardLibrary/pull/4314) (PR) Compatibility fix for Dymola 2024x; not needed in coming release.
 
 ## Mechanics.MultiBody
 
@@ -750,6 +749,8 @@ As part of this release 407 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4167](https://github.com/modelica/ModelicaStandardLibrary/pull/4167) (PR) Remove voltageSensor.v from the comparison list
 * [\#4179](https://github.com/modelica/ModelicaStandardLibrary/pull/4179) (PR) Remove duplicates in SignalNames of 10 examples of ModelicaTest
 * [\#4268](https://github.com/modelica/ModelicaStandardLibrary/pull/4268) (PR) Make third-party licenses explicit
+* [\#4316](https://github.com/modelica/ModelicaStandardLibrary/issues/4316) MSL v4.1.0-beta.1 feedback: broken Dymola plot scripts
+* [\#4322](https://github.com/modelica/ModelicaStandardLibrary/pull/4322) (PR) Fix plot scripts
 
 ## StateGraph
 
