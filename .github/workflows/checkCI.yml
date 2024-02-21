@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 5
-      - name: Build libraries
+      - name: Configure
         run: |
           rm -rf Modelica/Resources/Library/*
           mkdir -p Modelica/Resources/Library/$LIBDIR
@@ -26,6 +26,12 @@ jobs:
           git clean -fdx .
           ./autogen.sh
           ./configure --libdir="$PWD/../../Library/$LIBDIR" --enable-static --disable-shared --enable-static-zlib --disable-hdf5 CPPFLAGS="-I${GITHUB_WORKSPACE}/.CI/Test"
+          popd
+        env:
+          LIBDIR: linux64
+      - name: Build
+        run: |
+          pushd Modelica/Resources/BuildProjects/autotools
           make --output-sync
           sudo make install
           popd
@@ -70,21 +76,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 5
-      - name: Build libraries with ${{ matrix.compiler }}
+      - name: Configure
         run: |
           if [ "${{ matrix.compiler }}" == "msvc" ]; then
             cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON
-            cmake --build build --config ${{ matrix.configuration }}
           elif [ "${{ matrix.compiler }}" == "mingw" ]; then
             cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -G "MinGW Makefiles"
-            cmake --build build
           else
             cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -DCMAKE_C_FLAGS="-std=c89 -Wall -Wextra"
-            cmake --build build
           fi
         env:
           SRCDIR: ${{ github.workspace }}/Modelica/Resources/BuildProjects/CMake
           TESTDIR: ${{ github.workspace }}/.CI/Test
+      - name: Build with ${{ matrix.compiler }}
+        run: |
+          if [ "${{ matrix.compiler }}" == "msvc" ]; then
+            cmake --build build --config ${{ matrix.configuration }}
+          else
+            cmake --build build -- -j8
+          fi
       - name: Run tests
         run: ctest --test-dir build --build-config ${{ matrix.configuration }} --verbose
 
