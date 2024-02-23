@@ -2488,21 +2488,21 @@ The following <font color=\"blue\"><strong>Modelica packages</strong></font> hav
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 </table>
 
-<p><br>
+<p><br/>
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 </table>
 
-<p><br>
+<p><br/>
 The following <font color=\"blue\"><strong>new components</strong></font> have been added to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 </table>
 
-<p><br>
+<p><br/>
 The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>improved</strong></font> in a <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
@@ -2511,7 +2511,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <tr><td>CombiTimeTable</td>
     <td>Added support of reading CSV files.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
-<tr><td>CombiTable1Ds<br>CombiTable1Dv<br>CombiTable2Ds<br>CombiTable2Dv</td>
+<tr><td>CombiTable1Ds<br/>CombiTable1Dv<br/>CombiTable2Ds<br/>CombiTable2Dv</td>
     <td>Added support of reading CSV files.</td></tr>
 <tr><td colspan=\"2\"><strong>Electrical.PowerConverters.DCDC</strong></td></tr>
 <tr><td>HBridge</td>
@@ -2529,7 +2529,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>The table interpolation in <code>f_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
 </table>
 
-<p><br>
+<p><br/>
 The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
 </p>
 
@@ -2539,13 +2539,13 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>The protected parameters <code>ndim</code>, <code>ndim2</code> and
         <code>ndim_pointGravity</code> have been removed.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
-<tr><td>Brake<br>Clutch<br>OneWayClutch</td>
-    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
+<tr><td>Brake<br/>Clutch<br/>OneWayClutch</td>
+    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br/>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
 <tr><td>Brake</td>
-    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
+    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br/>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
-<tr><td>Discrete.Sampler<br> Discrete.ZeroOrderHold</td>
+<tr><td>Discrete.Sampler<br/> Discrete.ZeroOrderHold</td>
     <td> Fixed the start time of <code> ZeroOrderHold</code> and  <code>Sampler</code> . parameter startTime was implemented but ignored.</td></tr>
 <tr><td>Continuous.PID</td>
     <td>Removed the  min attribute of gain in Blocks.Continuous.LimPID</td></tr>
@@ -2566,14 +2566,14 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 
 </table>
 
-<p><br>
+<p><br/>
 The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
 that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
-<tr><td>CombiTable2Ds<br>CombiTable2Dv</td>
+<tr><td>CombiTable2Ds<br/>CombiTable2Dv</td>
     <td>The derivatives for one-sided extrapolation by constant continuation (i.e., extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) returned a constant zero value. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.ComplexMath</strong></td></tr>
 <tr><td>TransferFunction</td>
@@ -2619,7 +2619,8 @@ that can lead to wrong simulation results):
     <td> corrected the issue of wrong results for large inputs </td></tr>
  
 </table>
-</html>"));
+</html>
+"));
 end Version_4_1_0;
 
 class Version_4_0_0 "Version 4.0.0 (June 4, 2020)"
