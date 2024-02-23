@@ -2589,7 +2589,7 @@ that can lead to wrong simulation results):
     <td>Propagate parameter T in <code>Resistors</code> and <code> Conductor</code></td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</strong></td></tr>
 <tr><td>HollowCylinderAxialFlux<br/>HollowCylinderRadialFlux</td>
-    <td>Add content Here</code></td></tr>
+    <td>Add content Here </td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.</strong></td></tr>
 <tr><td>HollowCylinderAxialFlux <br/>HollowCylinderRadialFlux</td>
     <td>Propagated the angle alpha also in the calculation of A in  HollowCylinderRadialFlux </td></tr>
