@@ -1685,12 +1685,12 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
       extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
       extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
       assert(noEvent(time >= t_min + shiftTime), "
-Extrapolation warning: Time (=" + String(time) + ") must be greater or equal
-than the minimum abscissa value t_min (=" + String(t_min) + ") defined in the table.
+Extrapolation warning: Time must be greater or equal
+than the shifted minimum abscissa value defined in the table.
 ", level=AssertionLevel.warning);
       assert(noEvent(time <= t_max + shiftTime), "
-Extrapolation warning: Time (=" + String(time) + ") must be less or equal
-than the maximum abscissa value t_max (=" + String(t_max) + ") defined in the table.
+Extrapolation warning: Time must be less or equal
+than the shifted maximum abscissa value defined in the table.
 ", level=AssertionLevel.warning);
     end if;
 
