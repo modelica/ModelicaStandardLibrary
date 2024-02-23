@@ -2585,13 +2585,13 @@ that can lead to wrong simulation results):
 <tr><td>PulseSeries</td>
      <td>Add content here</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Basic</strong></td></tr>
-<tr><td>Resistor <br/>Conductor<br/>VariableResistor<br/>VariableConductor</td>
+<tr><td>Resistor <br>Conductor<br>VariableResistor<br>VariableConductor</td>
     <td>Propagate parameter T in <code>Resistor</code> and <code>Conductor</code></td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</strong></td></tr>
-<tr><td>HollowCylinderAxialFlux<br/>HollowCylinderRadialFlux</td>
+<tr><td>HollowCylinderAxialFlux<br>HollowCylinderRadialFlux</td>
   <td>Add content Here</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.</strong></td></tr>
-<tr><td>HollowCylinderAxialFlux<br/>HollowCylinderRadialFlux</td>
+<tr><td>HollowCylinderAxialFlux<br>HollowCylinderRadialFlux</td>
   <td>Propagated the angle alpha also in the calculation of A in HollowCylinderRadialFlux</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Frames.Quaternions</strong></td></tr>
 <tr><td>from_T</td>
@@ -2606,7 +2606,7 @@ that can lead to wrong simulation results):
 <tr><td>regFun3</td>
     <td>add data here</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.Air.MoistAir.Utilities</strong></td></tr>
-<tr><td>spliceFunction <br/>spliceFunction_der</td>
+<tr><td>spliceFunction <br>spliceFunction_der</td>
     <td>Refactor spliceFunction_der </td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.Air.ReferenceMoistAir.Utilities</strong></td></tr>
 <tr><td>pd_pTX_der </td>
