@@ -2478,7 +2478,7 @@ versions 4.0.0 will work without any changes also with version 4.1.0.
 Short Overview:
 </p>
 <ul>
-<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">393 issues (including 295 pull requests)</a> have been addressed for this release.</li>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">414 issues (including 312 pull requests)</a> have been addressed for this release.</li>
 <li>This version is based on the recent Modelica language standard version 3.6.</li>
 </ul>
 <p>
@@ -2544,6 +2544,26 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
 <tr><td>Brake</td>
     <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
+<tr><td>Discrete.Sampler<br> Discrete.ZeroOrderHold</td>
+    <td> Fixed the start time of <code> ZeroOrderHold</code> and  <code>Sampler</code> . parameter startTime was implemented but ignored.</td></tr>
+<tr><td>Continuous.PID</td>
+    <td>Removed the  min attribute of gain in Blocks.Continuous.LimPID</td></tr>
+<tr><td>Math.ContinuousMean</td>
+    <td>simplifie the mean formula</td></tr>
+<tr><td>Sources.ContinuousClock</td>
+    <td>-----------add content here---------</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters.DCAC.Control</strong></td></tr>
+<tr><td>SVPWM</td>
+    <td>corrected a bug in the equation </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.FundamentalWave.BaseClasses</strong></td></tr>
+<tr><td>Machine</td>
+    <td> internal used ports of the optional mechanical housing port and the optional thermal port is made protected </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses</strong></td></tr>
+<tr><td>Machine</td>
+    <td>internal used ports of the optional mechanical housing port and the optional thermal port is made protected</td></tr>
+
+
 </table>
 
 <p><br>
@@ -2555,6 +2575,49 @@ that can lead to wrong simulation results):
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
 <tr><td>CombiTable2Ds<br>CombiTable2Dv</td>
     <td>The derivatives for one-sided extrapolation by constant continuation (i.e., extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) returned a constant zero value. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.ComplexMath</strong></td></tr>
+<tr><td>TransferFunction</td>
+    <td>Fixed interpretation of coefficients of complex transfer function</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Sources.</strong></td></tr>
+<tr><td>ComplexRampPhasor</td>
+    <td>Simplify ComplexRampPhasor.</td></tr>   
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Batteries.Utilities</strong></td></tr>
+<tr><td>PulseSeries</td>
+     <td>Add content here</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Basic</strong></td></tr>
+<tr><td>Resistor <br/>Conductor<br/>VariableResistor<br/>VariableConductor</td>
+    <td>Propagate parameter T in <code>Resistors</code> and <code> Conductor</code></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</strong></td></tr>
+<tr><td>HollowCylinderAxialFlux<br/>HollowCylinderRadialFlux</td>
+    <td>Add content Here</code></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.</strong></td></tr>
+<tr><td>HollowCylinderAxialFlux <br/>HollowCylinderRadialFlux</td>
+    <td>Propagated the angle alpha also in the calculation of A in  HollowCylinderRadialFlux </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Frames.Quaternions</strong></td></tr>
+<tr><td>from_T</td>
+    <td>The calculation was not stable. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Sensors.Internal</strong></td></tr>
+<tr><td>BasicAbsoluteAngularVelocity</td>
+    <td>corrected the error with frame_resolve math in BasicAbsoluteAngularVelocity sensor</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.</strong></td></tr>
+<tr><td>sharpEdgedOrifice</td>
+    <td>Bug in SharpEdgedOrifice for Loss factors resolved</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Utilities</strong></td></tr>
+<tr><td>regFun3</td>
+    <td>add data here</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.MoistAir.Utilities</strong></td></tr>
+<tr><td>spliceFunction <br/>spliceFunction_der</td>
+    <td>Refactor spliceFunction_der </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.ReferenceMoistAir.Utilities</strong></td></tr>
+<tr><td>pd_pTX_der </td>
+    <td>corrected the error </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.R134a.R134a_ph</strong></td></tr>
+<tr><td>dofpT</td>
+    <td>Changed code for function  dofpT  </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
+<tr><td>isPowerOf2</td>
+    <td> corrected the issue of wrong results for large inputs </td></tr>
+ 
 </table>
 </html>"));
 end Version_4_1_0;
