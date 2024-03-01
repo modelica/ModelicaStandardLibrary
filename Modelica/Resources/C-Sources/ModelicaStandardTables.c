@@ -1167,13 +1167,11 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                             break;
 
                         case NO_EXTRAPOLATION:
-                            ModelicaFormatError("Extrapolation error: Time "
-                                "(=%lf) must be %s or equal\nthan the %s abscissa "
-                                "value %s (=%lf) defined in the table.\n", tOld,
+                            ModelicaFormatError("Extrapolation error: Time must be "
+                                "%s or equal\nthan the shifted %s abscissa "
+                                "value defined in the table.\n",
                                 (extrapolate == LEFT) ? "greater" : "less",
-                                (extrapolate == LEFT) ? "minimum" : "maximum",
-                                (extrapolate == LEFT) ? "t_min" : "t_max",
-                                (extrapolate == LEFT) ? tMin : tMax);
+                                (extrapolate == LEFT) ? "minimum" : "maximum");
                             return y;
 
                         case PERIODIC:
@@ -1425,13 +1423,11 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                             break;
 
                         case NO_EXTRAPOLATION:
-                            ModelicaFormatError("Extrapolation error: Time "
-                                "(=%lf) must be %s or equal\nthan the %s abscissa "
-                                "value %s (=%lf) defined in the table.\n", tOld,
+                            ModelicaFormatError("Extrapolation error: Time must be "
+                                "%s or equal\nthan the shifted %s abscissa "
+                                "value defined in the table.\n",
                                 (extrapolate == LEFT) ? "greater" : "less",
-                                (extrapolate == LEFT) ? "minimum" : "maximum",
-                                (extrapolate == LEFT) ? "t_min" : "t_max",
-                                (extrapolate == LEFT) ? tMin : tMax);
+                                (extrapolate == LEFT) ? "minimum" : "maximum");
                             return der_y;
 
                         case PERIODIC:
@@ -1685,13 +1681,11 @@ double ModelicaStandardTables_CombiTimeTable_getDer2Value(void* _tableID, int iC
                             break;
 
                         case NO_EXTRAPOLATION:
-                            ModelicaFormatError("Extrapolation error: Time "
-                                "(=%lf) must be %s or equal\nthan the %s abscissa "
-                                "value %s (=%lf) defined in the table.\n", tOld,
+                            ModelicaFormatError("Extrapolation error: Time must be "
+                                "%s or equal\nthan the shifted %s abscissa "
+                                "value defined in the table.\n",
                                 (extrapolate == LEFT) ? "greater" : "less",
-                                (extrapolate == LEFT) ? "minimum" : "maximum",
-                                (extrapolate == LEFT) ? "t_min" : "t_max",
-                                (extrapolate == LEFT) ? tMin : tMax);
+                                (extrapolate == LEFT) ? "minimum" : "maximum");
                             return der2_y;
 
                         case PERIODIC:
