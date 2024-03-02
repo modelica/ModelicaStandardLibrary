@@ -718,26 +718,36 @@ package Matrices "Library of functions operating on matrices"
       Real B3[3, 2]=[b3, -3*b3];
       Real X3[3, 2];
 
+      Real diff;
     algorithm
       print("\nDemonstrate how to solve linear equation systems:\n");
 
       // Solve regular linear equation with a right hand side vector
       x1 := Math.Matrices.solve(A1, b1);
-      print("diff1 = " + String(Vectors.norm(x1 - x1_ref)));
+      diff := Vectors.norm(x1 - x1_ref);
+      print("diff1 = " + String(diff));
+      assert(abs(diff)<1e-10, "Solution should be close to desired");
 
       // Solve regular linear equation with a right hand side matrix
       X2 := Math.Matrices.solve2(A1, B2);
-      print("diff2 = " + String(Matrices.norm(X2 - [x1_ref, 2*x1_ref, -3*x1_ref])));
+      diff := Matrices.norm(X2 - [x1_ref, 2*x1_ref, -3*x1_ref]);
+      print("diff2 = " + String(diff));
+      assert(abs(diff)<1e-10, "Solution should be close to desired");
 
       // Solve singular linear equation with a right hand side vector
       (x3,rank) := Math.Matrices.leastSquares(A3, b3);
-      print("diff3 = " + String(Vectors.norm(A3*x3 - b3)) + ", n = " + String(
+      diff := Vectors.norm(A3*x3 - b3);
+      print("diff3 = " + String(diff) + ", n = " + String(
         size(A3, 1)) + ", rank = " + String(rank));
+      assert(abs(diff)<1e-10, "Solution should be close to desired");
+
 
       // Solve singular linear equation with a right hand side matrix
       (X3,rank) := Math.Matrices.leastSquares2(A3, B3);
-      print("diff4 = " + String(Matrices.norm(A3*X3 - B3)) + ", n = " + String(
+      diff := Matrices.norm(A3*X3 - B3);
+      print("diff4 = " + String(diff) + ", n = " + String(
         size(A3, 1)) + ", rank = " + String(rank));
+      assert(abs(diff)<1e-10, "Solution should be close to desired");
 
       annotation (Documentation(info="<html>
 <p>
