@@ -175,7 +175,7 @@ fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". CSV, text and MATLAB MAT-file format is possible.
-    (The text format is described below).
+    (Both the limitations on the CSV format and the text format are described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -201,6 +201,13 @@ savematfile tables.mat tab1 tab2 tab3
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
+<p>
+If the table is read from a CSV file, the following limitations apply
+</p>
+<ol>
+<li>Non-numeric data is not supported (in the lines following the header lines), even if such columns are excluded.</li>
+<li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
+</ol>
 <p>
 If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
@@ -439,7 +446,7 @@ fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". CSV, text and MATLAB MAT-file format is possible.
-    (The text format is described below).
+    (Both the limitations on the CSV format and the text format are described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -465,6 +472,13 @@ savematfile tables.mat tab1 tab2 tab3
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
+<p>
+If the table is read from a CSV file, the following limitations apply
+</p>
+<ol>
+<li>Non-numeric data is not supported (in the lines following the header lines), even if such columns are excluded.</li>
+<li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
+</ol>
 <p>
 If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
@@ -640,7 +654,7 @@ fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". CSV, text and MATLAB MAT-file format is possible.
-    (The text format is described below).
+    (Both the limitations on the CSV format and the text format are described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -666,6 +680,13 @@ savematfile tables.mat tab1 tab2 tab3
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
+<p>
+If the table is read from a CSV file, the following limitations apply
+</p>
+<ol>
+<li>Non-numeric data is not supported (in the lines following the header lines).</li>
+<li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
+</ol>
 <p>
 If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
@@ -831,7 +852,7 @@ fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". CSV, text and MATLAB MAT-file format is possible.
-    (The text format is described below).
+    (Both the limitations on the CSV format and the text format are described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -857,6 +878,13 @@ savematfile tables.mat tab1 tab2 tab3
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
+<p>
+If the table is read from a CSV file, the following limitations apply
+</p>
+<ol>
+<li>Non-numeric data is not supported (in the lines following the header lines).</li>
+<li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
+</ol>
 <p>
 If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
