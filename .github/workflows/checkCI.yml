@@ -98,6 +98,45 @@ jobs:
       - name: Run tests
         run: ctest --test-dir build --build-config ${{ matrix.configuration }} --verbose
 
+  external_c_checks_cmake_cygwin:
+    name: external_c_checks_cmake_windows-cygwin
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+      - name: Set git to use LF
+        run: git config --global core.autocrlf input
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 5
+      - name: Setup cygwin
+        uses: cygwin/cygwin-install-action@master
+        with:
+          packages: >-
+            cmake
+            gcc-core
+            make
+            ninja
+      - name: Configure
+        run: |
+          export PATH=/usr/bin:$PATH
+          cmake -S "$(cygpath ${SRCDIR})" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$(cygpath ${TESTDIR})" -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=Debug -G Ninja
+        shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
+        env:
+          CYGWIN_NOWINPATH: 1
+          SRCDIR: ${{ github.workspace }}/Modelica/Resources/BuildProjects/CMake
+          TESTDIR: ${{ github.workspace }}/.CI/Test
+      - name: Build with gcc
+        run: |
+          export PATH=/usr/bin:$PATH
+          cmake --build build -- -j8
+        shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
+      - name: Run tests
+        run: |
+          export PATH=/usr/bin:$PATH
+          ctest --test-dir build --build-config Debug --verbose
+        shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
+
   html_documentation_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
