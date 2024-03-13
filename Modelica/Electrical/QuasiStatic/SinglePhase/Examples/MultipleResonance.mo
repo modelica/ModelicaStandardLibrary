@@ -2,13 +2,12 @@ within Modelica.Electrical.QuasiStatic.SinglePhase.Examples;
 model MultipleResonance
   "Demonstrates series and parallel resonance using a transformer"
   extends Icons.Example;
-  import Modelica.Constants.pi;
   import Modelica.ComplexMath.j;
   import Modelica.Constants.small;
   parameter Modelica.Units.SI.Voltage V=0.5 "Source rms voltage";
   parameter Modelica.Units.SI.Frequency fLo=5.e6 "Lower source frequency";
   parameter Modelica.Units.SI.Frequency fUp=15e6 "Upper source frequency";
-  parameter Modelica.Units.SI.ComplexImpedance Zi=100 +j*0 "Source inner impedance";
+  parameter Modelica.Units.SI.ComplexImpedance Zi=Modelica.Units.SI.ComplexImpedance(100 +j*0) "Source inner impedance";
   parameter Modelica.Units.SI.Inductance L1=30e-6 "Transformer primary inductance";
   parameter Modelica.Units.SI.Inductance L2=1.e-6 "Transformer secondary inductance";
   parameter Real k(min=small, max=1)=0.95 "Transformer coupling factor";
