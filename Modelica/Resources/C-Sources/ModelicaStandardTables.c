@@ -39,6 +39,10 @@
       Modelica.Blocks.Tables.CombiTable2Dv
 
    Changelog:
+      Mar. 23, 2024: by Thomas Beutlich
+                     Restored checks for extrapolation detection in CombiTable2D as
+                     regression of ticket #3893 (ticket #4343)
+
       May 03, 2022:  by Hans Olsson, Dassault Systemes
                      Fixed index-out-of-bounds exception in spline
                      initialization of 2D tables that actually degrade
@@ -4258,11 +4262,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (isLessOrEqualWNegativeSlope(u2, der_u2, u2Min)) {
+                else if (u2 < u2Min) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (isLessOrEqualWNegativeSlope(u2Max, -der_u2, u2)) {
+                else if (u2 > u2Max) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
@@ -4403,11 +4407,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                     tableID->last1, u1, der_u1);
                 tableID->last1 = last1;
             }
-            else if (isLessOrEqualWNegativeSlope(u1, der_u1, u1Min)) {
+            else if (u1 < u1Min) {
                 extrapolate1 = LEFT;
                 last1 = 0;
             }
-            else if (isLessOrEqualWNegativeSlope(u1Max, -der_u1, u1)) {
+            else if (u1 > u1Max) {
                 extrapolate1 = RIGHT;
                 last1 = nRow - 3;
             }
@@ -4547,11 +4551,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (isLessOrEqualWNegativeSlope(u2, der_u2, u2Min)) {
+                else if (u2 < u2Min) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (isLessOrEqualWNegativeSlope(u2Max, -der_u2, u2)) {
+                else if (u2 > u2Max) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
@@ -5179,11 +5183,11 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                         tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (isLessOrEqualWNegativeSlope(u2, der_u2, u2Min)) {
+                else if (u2 < u2Min) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (isLessOrEqualWNegativeSlope(u2Max, -der_u2, u2)) {
+                else if (u2 > u2Max) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
@@ -5325,11 +5329,11 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                     tableID->last1, u1, der_u1);
                 tableID->last1 = last1;
             }
-            else if (isLessOrEqualWNegativeSlope(u1, der_u1, u1Min)) {
+            else if (u1 < u1Min) {
                 extrapolate1 = LEFT;
                 last1 = 0;
             }
-            else if (isLessOrEqualWNegativeSlope(u1Max, -der_u1, u1)) {
+            else if (u1 > u1Max) {
                 extrapolate1 = RIGHT;
                 last1 = nRow - 3;
             }
@@ -5470,11 +5474,11 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                         tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (isLessOrEqualWNegativeSlope(u2, der_u2, u2Min)) {
+                else if (u2 < u2Min) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (isLessOrEqualWNegativeSlope(u2Max, -der_u2, u2)) {
+                else if (u2 > u2Max) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
