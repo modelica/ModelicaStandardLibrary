@@ -9147,7 +9147,7 @@ Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     smooth=Smooth.Bezier),
   Ellipse(
     origin={40.8208,-37.7602},
-    fillColor={161,0,4},
+    fillColor={200,16,46},
     pattern=LinePattern.None,
     fillPattern=FillPattern.Solid,
     extent={{-17.8562,-17.8563},{17.8563,17.8562}})}),
