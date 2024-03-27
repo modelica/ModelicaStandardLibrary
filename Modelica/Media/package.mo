@@ -7398,8 +7398,8 @@ critical pressure.
       pro.cp := -pro.R_s*g.tau*g.tau*g.gtautau;
       pro.cv := pro.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/(g.gpipi));
-      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
-        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
+      pro.a := sqrt(abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi))));
       vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       pro.kappa := -1/(pro.d*g.p)*pro.cp/(vp*pro.cp + vt*vt*g.T);
@@ -7461,8 +7461,8 @@ critical pressure.
       vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       pro.kappa := -1/((g.p/(pro.R_s*g.T*g.pi*g.gpi))*g.p)*pro.cp/(vp*pro.cp + vt
         *vt*g.T);
-      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
-        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
+      pro.a := sqrt(abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi))));
 
       d := g.p/(pro.R_s*g.T*g.pi*g.gpi);
       pro.dudT := (pro.p - g.T*vt/vp)/(d*d);
@@ -7492,8 +7492,8 @@ critical pressure.
       vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       pro.kappa := -1/(pro.d*g.p)*pro.cp/(vp*pro.cp + vt*vt*g.T);
-      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
-        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
+      pro.a := sqrt(abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi))));
       pro.ddpT := -(pro.d*pro.d)*vp;
       pro.ddTp := -(pro.d*pro.d)*vt;
       pro.duTp := pro.cp - g.p*vt;
@@ -7530,9 +7530,9 @@ critical pressure.
       pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
       pro.kappa := 1/(f.d*f.R_s*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
         /(pro.cv));
-      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := sqrt(abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
-        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
+        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau))));
       pro.ddph := (f.d*(pro.cv*f.d + pt))/(f.d*f.d*pd*pro.cv + f.T*pt*pt);
       pro.ddhp := -f.d*f.d*pt/(f.d*f.d*pd*pro.cv + f.T*pt*pt);
       pro.duph := -1/pro.d + p/(pro.d*pro.d)*pro.ddph;
@@ -7575,9 +7575,9 @@ critical pressure.
       pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
       pro.kappa := 1/(f.d*f.R_s*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
         /(pro.cv));
-      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := sqrt(abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
-        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
+        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau))));
       pro.ddTp := -pt/pd;
       pro.ddpT := 1/pd;
       //problem with units in last two lines
@@ -7609,9 +7609,9 @@ critical pressure.
         *f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
       pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
       pro.kappa := 1/(f.d*pro.p)*((-pv*pro.cv + pt*pt*f.T)/(pro.cv));
-      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := sqrt(abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
-        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
+        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau))));
       pro.dudT := (pro.p - f.T*pt)/(f.d*f.d);
     end helmholtzToProps_dT;
 
