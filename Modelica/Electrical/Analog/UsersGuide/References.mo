@@ -12,6 +12,12 @@ class References "References"
   </tr>
 
   <tr>
+    <td>[<a href=\"https://ieeexplore.ieee.org/document/8076707\">Ceraolo2018</a>]</td>
+    <td>M. Ceraolo, <em>Modelling and Simulation of AC Railway Electric Supply Lines Including Ground Return</em>, 
+        IEEE Transactions on Transportation Electrification  Vol. 4, issue N. 1, pp. 202-210, March 2018</td>
+  </tr>
+
+  <tr>
     <td>[Conelly1992]</td>
     <td>J.A. Conelly, <em>Macromodelling with SPICE</em>, Englewood Cliffs: Prentice-Hall, 1992</td>
   </tr>
@@ -25,7 +31,7 @@ class References "References"
   <tr>
     <td>[Johnson1991]</td>
     <td>B. Johnson, T. Quarles, A. R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli,
-        <em>SPICE3 Version 3e User&#39;s Manual</em>,
+        <em>SPICE3 Version 3e User&apos;s Manual</em>,
         Department of Electrical Engineering and Computer Sciences,
         University of California, Berkeley p. 12, p. 106 - 107, April 1, 1991</td>
   </tr>
@@ -33,6 +39,12 @@ class References "References"
   <tr>
     <td>[Spiro1990]</td>
     <td>H. Spiro, H, <em>Simulation integrierter Schaltungen</em>, R. Oldenbourg Verlag M&uuml;nchen Wien, 1990</td>
+  </tr>
+
+  <tr>
+    <td>[<a href=\"https://www.academia.edu/38437649/EMTP_Theory_Book\">Theory Book</a>]</td>
+    <td>Various authors, &quot;Emtp theory book&quot;, <em>Proceedings of the IEEE</em>,
+        vol. 55, pp. 2012-2013, 1967</td>
   </tr>
 
   <tr>
