@@ -2478,12 +2478,158 @@ versions 4.0.0 will work without any changes also with version 4.1.0.
 Short Overview:
 </p>
 <ul>
-<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">393 issues (including 295 pull requests)</a> have been addressed for this release.</li>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">426 issues (including 320 pull requests)</a> have been addressed for this release.</li>
 <li>This version is based on the recent Modelica language standard version 3.6.</li>
 </ul>
 <p>
-The following <font color=\"blue\"><strong>Modelica packages</strong></font> have been tested that they work together with this release of package Modelica (alphabetical list).
+The following <font color=\"blue\"><strong>Modelica packages</strong></font> have been tested that they work together with this release of package Modelica
+(alphabetical list).
+Hereby simulation results of the listed packages have been produced with package Modelica version 4.0.0 and
+compared with the simulation results produced with version 4.1.0 Beta.1. The tests have been performed with Dymola 2020/2020x/2021:
 </p>
+
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <th>Library</th>
+    <th>Version</th>
+    <th>Library provider</th>
+  </tr>
+  <tr>
+    <td><a href=\"https://github.com/lbl-srg/modelica-buildings/issues/1789\">Buildings</a></td>
+    <td>&nbsp;&gt;&nbsp;6.0.0</td>
+    <td>LBNL</td>
+  </tr>
+  <tr>
+    <td>BrushlessDCDrives</td>
+    <td>1.1.1</td>
+    <td>Dassault Syst&egrave;mes</td>
+  </tr>
+  <tr>
+    <td>Clara</td>
+    <td>1.5.0</td>
+    <td>XRG Simulation GmbH and TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>ClaraPlus</td>
+    <td>1.3.0</td>
+    <td>XRG Simulation GmbH and TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>DriveControl</td>
+    <td>4.0.0</td>
+    <td>Anton Haumer</td>
+  </tr>
+  <tr>
+    <td>DymolaModels</td>
+    <td>1.1</td>
+    <td>Dassault Syst&egrave;mes</td>
+  </tr>
+  <tr>
+    <td>EDrives</td>
+    <td>1.0.1</td>
+    <td>Anton Haumer and Christian Kral</td>
+  </tr>
+  <tr>
+    <td>ElectricalMachines</td>
+    <td>0.9.1</td>
+    <td>Anton Haumer</td>
+  </tr>
+  <tr>
+    <td>ElectricPowerSystems</td>
+    <td>1.3.1</td>
+    <td>Dassault Syst&egrave;mes</td>
+  </tr>
+  <tr>
+    <td>ElectrifiedPowertrains</td>
+    <td>1.3.2</td>
+    <td>Dassault Syst&egrave;mes</td>
+  </tr>
+  <tr>
+    <td>ElectroMechanicalDrives</td>
+    <td>2.2.0</td>
+    <td>Christian Kral</td>
+  </tr>
+  <tr>
+    <td>EMOTH</td>
+    <td>1.4.1</td>
+    <td>Anton Haumer</td>
+  </tr>
+  <tr>
+    <td>HanserModelica</td>
+    <td>1.1.0</td>
+    <td>Christian Kral</td>
+  </tr>
+  <tr>
+    <td>IBPSA</td>
+    <td>&nbsp;&gt;&nbsp;3.0.0</td>
+    <td>IBPSA Project 1</td>
+  </tr>
+  <tr>
+    <td>KeywordIO</td>
+    <td>0.9.0</td>
+    <td>Christian Kral</td>
+  </tr>
+  <tr>
+    <td>Modelica_DeviceDrivers</td>
+    <td>1.8.1</td>
+    <td>DLR, ESI ITI, and Linköping University (PELAB)</td>
+  </tr>
+  <tr>
+    <td>Optimization</td>
+    <td>2.2.4</td>
+    <td>DLR</td>
+  </tr>
+  <tr>
+    <td>PhotoVoltaics</td>
+    <td>1.6.0</td>
+    <td>Christian Kral</td>
+  </tr>
+  <tr>
+    <td>PlanarMechanics</td>
+    <td>1.4.1</td>
+    <td>Dirk Zimmer</td>
+  </tr>
+  <tr>
+    <td>Testing</td>
+    <td>1.3</td>
+    <td>Dassault Syst&egrave;mes</td>
+  </tr>
+  <tr>
+    <td>ThermalSystems</td>
+    <td>1.6.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>TIL</td>
+    <td>3.9.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>TILMedia</td>
+    <td>3.9.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>TSMedia</td>
+    <td>1.6.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>VehicleInterfaces</td>
+    <td>1.2.5</td>
+    <td>Modelica Association</td>
+  </tr>
+  <tr>
+    <td>WindPowerPlants</td>
+    <td>1.2.0</td>
+    <td>Christian Kral</td>
+  </tr>
+</table>
+
+
+
+
+
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 </table>
@@ -2544,6 +2690,26 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
 <tr><td>Brake</td>
     <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
+<tr><td>Discrete.Sampler<br> Discrete.ZeroOrderHold</td>
+    <td> Fixed the start time of <code> ZeroOrderHold</code> and  <code>Sampler</code> . parameter startTime was implemented but ignored.</td></tr>
+<tr><td>Continuous.PID</td>
+    <td>Removed the  min attribute of gain in Blocks.Continuous.LimPID</td></tr>
+<tr><td>Math.ContinuousMean</td>
+    <td>simplifie the mean formula</td></tr>
+<tr><td>Sources.ContinuousClock</td>
+    <td>-----------add content here---------</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters.DCAC.Control</strong></td></tr>
+<tr><td>SVPWM</td>
+    <td>corrected a bug in the equation </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.FundamentalWave.BaseClasses</strong></td></tr>
+<tr><td>Machine</td>
+    <td> internal used ports of the optional mechanical housing port and the optional thermal port is made protected </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses</strong></td></tr>
+<tr><td>Machine</td>
+    <td>internal used ports of the optional mechanical housing port and the optional thermal port is made protected</td></tr>
+
+
 </table>
 
 <p><br>
@@ -2555,6 +2721,49 @@ that can lead to wrong simulation results):
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
 <tr><td>CombiTable2Ds<br>CombiTable2Dv</td>
     <td>The derivatives for one-sided extrapolation by constant continuation (i.e., extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) returned a constant zero value. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.ComplexMath</strong></td></tr>
+<tr><td>TransferFunction</td>
+    <td>Fixed interpretation of coefficients of complex transfer function</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Sources.</strong></td></tr>
+<tr><td>ComplexRampPhasor</td>
+    <td>Simplify ComplexRampPhasor.</td></tr>   
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Batteries.Utilities</strong></td></tr>
+<tr><td>PulseSeries</td>
+     <td>Add content here</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Basic</strong></td></tr>
+<tr><td>Resistor <br>Conductor<br>VariableResistor<br>VariableConductor</td>
+    <td>Propagate parameter T in <code>Resistor</code> and <code>Conductor</code></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</strong></td></tr>
+<tr><td>HollowCylinderAxialFlux<br>HollowCylinderRadialFlux</td>
+  <td>Add content Here</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.</strong></td></tr>
+<tr><td>HollowCylinderAxialFlux<br>HollowCylinderRadialFlux</td>
+  <td>Propagated the angle alpha also in the calculation of A in HollowCylinderRadialFlux</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Frames.Quaternions</strong></td></tr>
+<tr><td>from_T</td>
+    <td>The calculation was not stable. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Sensors.Internal</strong></td></tr>
+<tr><td>BasicAbsoluteAngularVelocity</td>
+    <td>corrected the error with frame_resolve math in BasicAbsoluteAngularVelocity sensor</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.</strong></td></tr>
+<tr><td>sharpEdgedOrifice</td>
+    <td>Bug in SharpEdgedOrifice for Loss factors resolved</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Utilities</strong></td></tr>
+<tr><td>regFun3</td>
+    <td>add data here</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.MoistAir.Utilities</strong></td></tr>
+<tr><td>spliceFunction <br>spliceFunction_der</td>
+    <td>Refactor spliceFunction_der </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.ReferenceMoistAir.Utilities</strong></td></tr>
+<tr><td>pd_pTX_der </td>
+    <td>corrected the error </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.R134a.R134a_ph</strong></td></tr>
+<tr><td>dofpT</td>
+    <td>Changed code for function  dofpT  </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
+<tr><td>isPowerOf2</td>
+    <td> corrected the issue of wrong results for large inputs </td></tr>
+ 
 </table>
 </html>"));
 end Version_4_1_0;
