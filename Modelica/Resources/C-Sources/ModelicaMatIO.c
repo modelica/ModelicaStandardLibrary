@@ -81,18 +81,6 @@
 /* Extended sparse matrix data types */
 /* #undef EXTENDED_SPARSE */
 
-/* Define to 1 if you have the `fseeko' function. */
-#undef HAVE_FSEEKO
-
-/* Define to 1 if you have the `ftello' function. */
-#undef HAVE_FTELLO
-
-/* Define to 1 if you have the `fseeko64' function. */
-#undef HAVE_FSEEKO64
-
-/* Define to 1 if you have the `ftello64' function. */
-#undef HAVE_FTELLO64
-
 /* Define to 1 if you have the `_fseeki64' function. */
 #if defined(_MSC_VER) && _MSC_VER >= 1400
 #define HAVE__FSEEKI64 1
@@ -106,12 +94,6 @@
 #else
 #undef HAVE__FTELLI64
 #endif
-
-/* Define if 64-bit file address support in 32-bit OS. */
-#undef _FILE_OFFSET_BITS
-
-/* Define if 64-bit file address support in 32-bit OS. */
-#undef _LARGEFILE64_SOURCE
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #if defined(_WIN32)
@@ -291,8 +273,7 @@
 #define MATIO_LFS
 #define fseeko _fseeki64
 #define ftello _ftelli64
-#elif !defined(HAVE_FSEEKO) && !defined(HAVE_FTELLO) && defined(HAVE_FSEEKO64) && \
-    defined(HAVE_FTELLO64)
+#elif defined(HAVE_FSEEKO64) && defined(HAVE_FTELLO64)
 #define MATIO_LFS
 #define fseeko fseeko64
 #define ftello ftello64
@@ -12465,11 +12446,7 @@ Mat_H5ReadVarInfo(matvar_t *matvar, hid_t dset_id)
     type_id = H5Aget_type(attr_id);
     class_str = (char *)calloc(H5Tget_size(type_id) + 1, 1);
     if ( NULL != class_str ) {
-        herr_t herr;
-        hid_t class_id = H5Tcopy(H5T_C_S1);
-        H5Tset_size(class_id, H5Tget_size(type_id));
-        herr = H5Aread(attr_id, class_id, class_str);
-        H5Tclose(class_id);
+        herr_t herr = H5Aread(attr_id, type_id, class_str);
         if ( herr < 0 ) {
             free(class_str);
             H5Tclose(type_id);
@@ -15718,7 +15695,8 @@ Mat_VarGetStructFieldByIndex(matvar_t *matvar, size_t field_index, size_t index)
     matvar_t *field = NULL;
     size_t nelems = 1, nfields;
 
-    if ( matvar == NULL || matvar->data == NULL || matvar->class_type != MAT_C_STRUCT || matvar->data_size == 0 )
+    if ( matvar == NULL || matvar->data == NULL || matvar->class_type != MAT_C_STRUCT ||
+         matvar->data_size == 0 )
         return NULL;
 
     err = Mat_MulDims(matvar, &nelems);
