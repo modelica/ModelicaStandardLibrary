@@ -653,7 +653,7 @@ extrapolation = 1: Hold the first or last values of the table,
                    the result is table[u1,end]. However for the lim of u2 downwards 
                    to table[1,end] the result is table[u1,<strong>2</strong>].
                    This implies that for correct reproduction of a periodic function 
-                   the first and last rows/columns should be the same
+                   the first and last data rows/columns should be the same
                    (table[2,2:end] = table[end,2:end] and table[2:end,2] = table[2:end,end]).
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
@@ -859,7 +859,7 @@ extrapolation = 1: Hold the first or last values of the table,
                    the result is table[u1,end]. However for the lim of u2 downwards 
                    to table[1,end] the result is table[u1,<strong>2</strong>].
                    This implies that for correct reproduction of a periodic function 
-                   the first and last rows/columns should be the same
+                   the first and last data rows/columns should be the same
                    (table[2,2:end] = table[end,2:end] and table[2:end,2] = table[2:end,end]).
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
