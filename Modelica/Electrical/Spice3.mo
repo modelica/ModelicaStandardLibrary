@@ -7581,7 +7581,7 @@ This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).
                 end if;
                 wkfngs := wkfng - (3.25 +0.5  * egfet1 + fermis);
                 if (not (in_p.m_gammaIsGiven > 0.5)) then
-                  out_v.m_gamma := sqrt(2 * 11.70 * 8.854214871e-12 * SpiceConstants.CHARGE *
+                  out_v.m_gamma := sqrt(2 * SpiceConstants.EPSSIL * SpiceConstants.CHARGE *
                                    in_p.m_substrateDoping * 1e6 / out_v.m_oxideCapFactor);         // (cm**3/m**3)
                 end if;
                 if (not (in_p.m_vtOIsGiven > 0.5)) then
