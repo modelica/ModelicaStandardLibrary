@@ -654,7 +654,7 @@ extrapolation = 1: Hold the first or last values of the table,
                    to table[1,end] the result is table[u1,<strong>2</strong>].
                    This implies that for correct reproduction of a periodic function 
                    the first and last rows/columns should be the same
-                   (table[2,2:] = table[end,2:] and table[2:,2] = table[2:,end]).
+                   (table[2,2:end] = table[end,2:end] and table[2:end,2] = table[2:end,end]).
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one element</strong>, the table value is returned,
