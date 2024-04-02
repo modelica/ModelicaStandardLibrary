@@ -6528,7 +6528,7 @@ This function mosfetRenameParametersDev assigns the external (given by the user)
          SI.Voltage m_phi(                 start = 0.6)
           "PHI, Surface potential";
          Real m_phiIsGiven "Phi IsGivenValue";
-         SI.Voltage m_gamma(               start = 0.0)
+         Real m_gamma(final unit="V(1/2)",               start = 0.0)
           "GAMMA, Bulk threshold parameter";
          Real m_gammaIsGiven "Gamma IsGivenValue";
          SI.InversePotential m_lambda "Channel-length modulation";
