@@ -6568,7 +6568,7 @@ This function mosfetRenameParametersDev assigns the external (given by the user)
         Real m_oxideCapFactor;
         SI.Voltage m_vt0;
         SI.Voltage m_phi;
-        Real m_gamma;
+        Real m_gamma(final unit="V(1/2)");
         SI.Transconductance m_transconductance;
 
         annotation (Documentation(info="<html>
