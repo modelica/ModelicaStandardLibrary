@@ -435,11 +435,12 @@ extrapolation = 1: Hold the first or last value of the table,
                    two table points.).
               = 3: Periodically repeat the table data (periodical function), 
                    where the repetition period is table[end,1]-table[1,1].
-                   For u = table[end,1] the result is table[end,2]. However for the
-                   limit of u downwards to table[end,1] the result is table[<strong>1</strong>,2].
+                   For input u[i] = table[end,1] the output value is table[end,columns[i]]. 
+                   However for the limit of u downwards to table[end,1] the result is 
+                   table[<strong>1</strong>,columns[i]].
                    This implies that for correct reproduction of a periodic function
-                   the first and last data values should be the same 
-                   (table[1,2] = table[end,2]).
+                   the first and last data rows should be the same 
+                   (table[1,2:end] = table[end,2:end]).
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, the table value is returned,
