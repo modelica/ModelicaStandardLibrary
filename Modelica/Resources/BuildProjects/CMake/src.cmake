@@ -41,8 +41,10 @@ elseif(MSVC)
   add_definitions(-D_CRT_SECURE_NO_WARNINGS /W3)
 endif()
 
+set(MODELICA_SOURCE_DIR "${MODELICA_RESOURCES_DIR}/C-Sources")
+
 if(MODELICA_BUILD_ZLIB)
-  set(ZLIB_INCLUDE_DIR "${MODELICA_RESOURCES_DIR}/C-Sources/zlib")
+  set(ZLIB_INCLUDE_DIR "${MODELICA_SOURCE_DIR}/zlib")
   file(TO_CMAKE_PATH ${ZLIB_INCLUDE_DIR} ZLIB_INCLUDE_DIR)
   include_directories(${ZLIB_INCLUDE_DIR})
 elseif(DEFINED ZLIB_INCLUDE_DIR)
@@ -63,57 +65,57 @@ else()
 endif()
 
 set(EXTC_SOURCES
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaFFT.c"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaFFT.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaInternal.c"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaInternal.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaRandom.c"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaRandom.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaStrings.c"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaStrings.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/gconstructor.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/stdint_msvc.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/stdint_wrap.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/uthash.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/win32_dirent.c"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/win32_dirent.h"
+  "${MODELICA_SOURCE_DIR}/ModelicaFFT.c"
+  "${MODELICA_SOURCE_DIR}/ModelicaFFT.h"
+  "${MODELICA_SOURCE_DIR}/ModelicaInternal.c"
+  "${MODELICA_SOURCE_DIR}/ModelicaInternal.h"
+  "${MODELICA_SOURCE_DIR}/ModelicaRandom.c"
+  "${MODELICA_SOURCE_DIR}/ModelicaRandom.h"
+  "${MODELICA_SOURCE_DIR}/ModelicaStrings.c"
+  "${MODELICA_SOURCE_DIR}/ModelicaStrings.h"
+  "${MODELICA_SOURCE_DIR}/gconstructor.h"
+  "${MODELICA_SOURCE_DIR}/stdint_msvc.h"
+  "${MODELICA_SOURCE_DIR}/stdint_wrap.h"
+  "${MODELICA_SOURCE_DIR}/uthash.h"
+  "${MODELICA_SOURCE_DIR}/win32_dirent.c"
+  "${MODELICA_SOURCE_DIR}/win32_dirent.h"
   "${MODELICA_UTILITIES_INCLUDE_DIR}/ModelicaUtilities.h"
 )
 
 set(TABLES_SOURCES
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaStandardTables.c"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaStandardTables.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaStandardTablesUsertab.c"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaMatIO.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/gconstructor.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/stdint_msvc.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/stdint_wrap.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/uthash.h"
+  "${MODELICA_SOURCE_DIR}/ModelicaStandardTables.c"
+  "${MODELICA_SOURCE_DIR}/ModelicaStandardTables.h"
+  "${MODELICA_SOURCE_DIR}/ModelicaStandardTablesUsertab.c"
+  "${MODELICA_SOURCE_DIR}/ModelicaMatIO.h"
+  "${MODELICA_SOURCE_DIR}/gconstructor.h"
+  "${MODELICA_SOURCE_DIR}/stdint_msvc.h"
+  "${MODELICA_SOURCE_DIR}/stdint_wrap.h"
+  "${MODELICA_SOURCE_DIR}/uthash.h"
   "${MODELICA_UTILITIES_INCLUDE_DIR}/ModelicaUtilities.h"
 )
 
 set(MATIO_SOURCES
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaMatIO.c"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaMatIO.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/read_data_impl.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/safe-math.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/snprintf.c"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/stdint_msvc.h"
+  "${MODELICA_SOURCE_DIR}/ModelicaMatIO.c"
+  "${MODELICA_SOURCE_DIR}/ModelicaMatIO.h"
+  "${MODELICA_SOURCE_DIR}/read_data_impl.h"
+  "${MODELICA_SOURCE_DIR}/safe-math.h"
+  "${MODELICA_SOURCE_DIR}/snprintf.c"
+  "${MODELICA_SOURCE_DIR}/stdint_msvc.h"
   "${ZLIB_INCLUDE_DIR}/zlib.h"
   "${MODELICA_UTILITIES_INCLUDE_DIR}/ModelicaUtilities.h"
 )
 
 set(IO_SOURCES
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaIO.c"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaIO.h"
-  "${MODELICA_RESOURCES_DIR}/C-Sources/ModelicaMatIO.h"
+  "${MODELICA_SOURCE_DIR}/ModelicaIO.c"
+  "${MODELICA_SOURCE_DIR}/ModelicaIO.h"
+  "${MODELICA_SOURCE_DIR}/ModelicaMatIO.h"
   "${MODELICA_UTILITIES_INCLUDE_DIR}/ModelicaUtilities.h"
 )
 
 if(MODELICA_BUILD_ZLIB)
   file(GLOB ZLIB_SOURCES
-    "${MODELICA_RESOURCES_DIR}/C-Sources/zlib/*.c"
-    "${MODELICA_RESOURCES_DIR}/C-Sources/zlib/*.h"
+    "${MODELICA_SOURCE_DIR}/zlib/*.c"
+    "${MODELICA_SOURCE_DIR}/zlib/*.h"
   )
 endif()
 

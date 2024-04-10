@@ -86,7 +86,7 @@ jobs:
             cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -DCMAKE_C_FLAGS="-std=c89 -Wall -Wextra"
           fi
         env:
-          SRCDIR: ${{ github.workspace }}/Modelica/Resources/BuildProjects/CMake
+          SRCDIR: ${{ github.workspace }}/Modelica/Resources
           TESTDIR: ${{ github.workspace }}/.CI/Test
       - name: Build with ${{ matrix.compiler }}
         run: |
@@ -124,7 +124,7 @@ jobs:
         shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
         env:
           CYGWIN_NOWINPATH: 1
-          SRCDIR: ${{ github.workspace }}/Modelica/Resources/BuildProjects/CMake
+          SRCDIR: ${{ github.workspace }}/Modelica/Resources
           TESTDIR: ${{ github.workspace }}/.CI/Test
       - name: Build with gcc
         run: |
