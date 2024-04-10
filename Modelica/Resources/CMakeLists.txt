@@ -9,13 +9,12 @@ endif()
 
 project(Modelica_Standard_Library_Tables C)
 
-include(Modelica_platform.cmake)
-include(Modelica_utilities.cmake)
+include(BuildProjects/CMake/Modelica_platform.cmake)
+include(BuildProjects/CMake/Modelica_utilities.cmake)
 
-set(MODELICA_RESOURCES_DIR "${PROJECT_SOURCE_DIR}/../..")
-get_filename_component(ABSOLUTE_MODELICA_RESOURCES_DIR "${MODELICA_RESOURCES_DIR}" ABSOLUTE)
+set(MODELICA_RESOURCES_DIR "${PROJECT_SOURCE_DIR}")
 set(
-  CMAKE_INSTALL_PREFIX "${ABSOLUTE_MODELICA_RESOURCES_DIR}"
+  CMAKE_INSTALL_PREFIX "${MODELICA_RESOURCES_DIR}"
   CACHE PATH
   "Library installation prefix path (don't change)" FORCE
 )
@@ -27,7 +26,7 @@ set(
   "Library installation path (don't change)" FORCE
 )
 
-include(compiler_options.cmake)
-include(options.cmake)
-include(test.cmake)
-include(src.cmake)
+include(BuildProjects/CMake/compiler_options.cmake)
+include(BuildProjects/CMake/options.cmake)
+include(BuildProjects/CMake/test.cmake)
+include(BuildProjects/CMake/src.cmake)
