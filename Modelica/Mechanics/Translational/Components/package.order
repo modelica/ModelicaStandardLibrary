@@ -8,6 +8,7 @@ ElastoGap
 SupportFriction
 Brake
 IdealGearR2T
+IdealLever
 IdealRollingWheel
 RollingResistance
 Vehicle
