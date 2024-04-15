@@ -1204,8 +1204,8 @@ This class summarizes general information about the implementation which is not 
   &lt;tr&gt;
     &lt;td&gt;[Gao2008]&lt;/td&gt;
     &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &amp;quot;&lt;a href=&quot;https://ieeexplore.ieee.org/document/4401132&quot;&gt;A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral estimation scheme&lt;/a&gt;,&amp;quot;
+        &amp;ldquo;&lt;a href=&quot;https://ieeexplore.ieee.org/document/4401132&quot;&gt;A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral estimation scheme&lt;/a&gt;,&amp;rdquo;
         &lt;em&gt;IEEE Transactions on Industrial Electronics&lt;/em&gt;,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     &lt;/td&gt;
@@ -1221,8 +1221,8 @@ This class summarizes general information about the implementation which is not 
   &lt;tr&gt;
     &lt;td&gt;[Woehrnschimmel1998]&lt;/td&gt;
     &lt;td&gt;R. W&amp;ouml;hrnschimmel,
-        &amp;quot;Simulation, modeling and fault detection for vector
-        controlled induction machines,&amp;quot;
+        &amp;ldquo;Simulation, modeling and fault detection for vector
+        controlled induction machines,&amp;rdquo;
         Master&amp;apos;s thesis, Vienna University of Technology,
         Vienna, Austria, 1998.
     &lt;/td&gt;
@@ -1230,8 +1230,8 @@ This class summarizes general information about the implementation which is not 
   &lt;tr&gt;
     &lt;td&gt;[Farnleitner1999]&lt;/td&gt;
     &lt;td&gt;E. Farnleitner,
-      &amp;quot;Computational Fluid dynamics analysis for rotating
-      electrical machinery,&amp;quot;
+      &amp;ldquo;Computational Fluid dynamics analysis for rotating
+      electrical machinery,&amp;rdquo;
       Ph.D. dissertation, University of Leoben,
       Department of Applied Mathematics, Leoben, Austria, 1999.
     &lt;/td&gt;
@@ -1239,8 +1239,8 @@ This class summarizes general information about the implementation which is not 
   &lt;tr&gt;
     &lt;td&gt;[Marlino2005]&lt;/td&gt;
     &lt;td&gt;L. D. Marlino,
-      &amp;quot;Oak ridge national laboratory annual progress report for the
-      power electronics and electric machinery program,&amp;quot;
+      &amp;ldquo;Oak ridge national laboratory annual progress report for the
+      power electronics and electric machinery program,&amp;rdquo;
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
       Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
       &lt;a href=&quot;https://doi.org/10.2172/974618&quot;&gt;DOI 10.2172/974618&lt;/a&gt;.
@@ -1255,8 +1255,8 @@ This class summarizes general information about the implementation which is not 
   <tr>
     <td>[Gao2008]</td>
     <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &quot;<a href=\"https://ieeexplore.ieee.org/document/4401132\">A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral estimation scheme</a>,&quot;
+        &ldquo;<a href=\"https://ieeexplore.ieee.org/document/4401132\">A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral estimation scheme</a>,&rdquo;
         <em>IEEE Transactions on Industrial Electronics</em>,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     </td>
@@ -1272,8 +1272,8 @@ This class summarizes general information about the implementation which is not 
   <tr>
     <td>[Woehrnschimmel1998]</td>
     <td>R. W&ouml;hrnschimmel,
-        &quot;Simulation, modeling and fault detection for vector
-        controlled induction machines,&quot;
+        &ldquo;Simulation, modeling and fault detection for vector
+        controlled induction machines,&rdquo;
         Master&apos;s thesis, Vienna University of Technology,
         Vienna, Austria, 1998.
     </td>
@@ -1281,8 +1281,8 @@ This class summarizes general information about the implementation which is not 
   <tr>
     <td>[Farnleitner1999]</td>
     <td>E. Farnleitner,
-      &quot;Computational Fluid dynamics analysis for rotating
-      electrical machinery,&quot;
+      &ldquo;Computational Fluid dynamics analysis for rotating
+      electrical machinery,&rdquo;
       Ph.D. dissertation, University of Leoben,
       Department of Applied Mathematics, Leoben, Austria, 1999.
     </td>
@@ -1290,8 +1290,8 @@ This class summarizes general information about the implementation which is not 
   <tr>
     <td>[Marlino2005]</td>
     <td>L. D. Marlino,
-      &quot;Oak ridge national laboratory annual progress report for the
-      power electronics and electric machinery program,&quot;
+      &ldquo;Oak ridge national laboratory annual progress report for the
+      power electronics and electric machinery program,&rdquo;
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
       Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
       <a href=\"https://doi.org/10.2172/974618\">DOI 10.2172/974618</a>.
