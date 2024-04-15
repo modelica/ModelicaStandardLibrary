@@ -1205,7 +1205,7 @@ This class summarizes general information about the implementation which is not 
     &lt;td&gt;[Gao2008]&lt;/td&gt;
     &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
         &amp;quot;&lt;a href=&quot;https://ieeexplore.ieee.org/document/4401132&quot;&gt;A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral estimation scheme&lt;/a&gt;&amp;quot;,
+        machines based on a current harmonic spectral estimation scheme&lt;/a&gt;,&amp;quot;
         &lt;em&gt;IEEE Transactions on Industrial Electronics&lt;/em&gt;,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     &lt;/td&gt;
@@ -1222,7 +1222,7 @@ This class summarizes general information about the implementation which is not 
     &lt;td&gt;[Woehrnschimmel1998]&lt;/td&gt;
     &lt;td&gt;R. W&amp;ouml;hrnschimmel,
         &amp;quot;Simulation, modeling and fault detection for vector
-        controlled induction machines&amp;quot;,
+        controlled induction machines,&amp;quot;
         Master&amp;apos;s thesis, Vienna University of Technology,
         Vienna, Austria, 1998.
     &lt;/td&gt;
@@ -1231,7 +1231,7 @@ This class summarizes general information about the implementation which is not 
     &lt;td&gt;[Farnleitner1999]&lt;/td&gt;
     &lt;td&gt;E. Farnleitner,
       &amp;quot;Computational Fluid dynamics analysis for rotating
-      electrical machinery&amp;quot;,
+      electrical machinery,&amp;quot;
       Ph.D. dissertation, University of Leoben,
       Department of Applied Mathematics, Leoben, Austria, 1999.
     &lt;/td&gt;
@@ -1240,7 +1240,7 @@ This class summarizes general information about the implementation which is not 
     &lt;td&gt;[Marlino2005]&lt;/td&gt;
     &lt;td&gt;L. D. Marlino,
       &amp;quot;Oak ridge national laboratory annual progress report for the
-      power electronics and electric machinery program&amp;quot;,
+      power electronics and electric machinery program,&amp;quot;
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
       Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
       &lt;a href=&quot;https://doi.org/10.2172/974618&quot;&gt;DOI 10.2172/974618&lt;/a&gt;.
@@ -1256,7 +1256,7 @@ This class summarizes general information about the implementation which is not 
     <td>[Gao2008]</td>
     <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
         &quot;<a href=\"https://ieeexplore.ieee.org/document/4401132\">A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral estimation scheme</a>&quot;,
+        machines based on a current harmonic spectral estimation scheme</a>,&quot;
         <em>IEEE Transactions on Industrial Electronics</em>,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     </td>
@@ -1273,7 +1273,7 @@ This class summarizes general information about the implementation which is not 
     <td>[Woehrnschimmel1998]</td>
     <td>R. W&ouml;hrnschimmel,
         &quot;Simulation, modeling and fault detection for vector
-        controlled induction machines&quot;,
+        controlled induction machines,&quot;
         Master&apos;s thesis, Vienna University of Technology,
         Vienna, Austria, 1998.
     </td>
@@ -1282,7 +1282,7 @@ This class summarizes general information about the implementation which is not 
     <td>[Farnleitner1999]</td>
     <td>E. Farnleitner,
       &quot;Computational Fluid dynamics analysis for rotating
-      electrical machinery&quot;,
+      electrical machinery,&quot;
       Ph.D. dissertation, University of Leoben,
       Department of Applied Mathematics, Leoben, Austria, 1999.
     </td>
@@ -1291,7 +1291,7 @@ This class summarizes general information about the implementation which is not 
     <td>[Marlino2005]</td>
     <td>L. D. Marlino,
       &quot;Oak ridge national laboratory annual progress report for the
-      power electronics and electric machinery program&quot;,
+      power electronics and electric machinery program,&quot;
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
       Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
       <a href=\"https://doi.org/10.2172/974618\">DOI 10.2172/974618</a>.
