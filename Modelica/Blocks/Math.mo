@@ -1935,11 +1935,8 @@ Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
       annotation (Line(points={{61,0},{110,0}}, color={0,0,127}));
     connect(gain.y, w) annotation (Line(points={{21,0},{30,0},{30,-60},{110,-60}},
           color={0,0,127}));
-    annotation (Icon(graphics={
-          Text(
-            extent={{58,-40},{100,-80}},
-            textColor={28,108,200},
-            textString="w"),
+    annotation (
+      Icon(graphics={
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
@@ -1953,7 +1950,9 @@ Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
             fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Line(points={{-72,20},{-72,20},{-40,60},{-40,-40},{40,60},{40,-60},{56,-40}}),
-          Line(points={{56,80},{-72,-80}}, color={28,108,200},
+          Line(
+            points={{56,80},{-72,-80}},
+            color={0,0,127},
             thickness=0.5)}),
         Documentation(info="<html>
 <p>
@@ -1972,10 +1971,10 @@ angle interval. Note: the angles are often wrapped within the interval ]-&pi;, +
 [0, 2&pi;[.
 </p>
 <p>
-The angle of a complex space phasor is controlled such way that its imaginary part is euqal to zero. 
-The controlled angle&nbsp;<code>y</code> is the unwrapped continuos angle. 
+The angle of a complex space phasor is controlled in such a way that its imaginary part is equal to zero. 
+The controlled angle&nbsp;<code>y</code> is the unwrapped continuous angle. 
 The output&nbsp;<code>y</code> approximates the desired angle by a first order system
-whose time constant is the integral time constant of the controller:
+which time constant is the integral time constant of the controller:
 </p>
 <blockquote><pre>
 Im(e<sup><code>j*(u-y)</code></sup>) = sin(u - y)
@@ -1988,7 +1987,8 @@ determined as:
 <code>y&nbsp;=&nbsp;u&nbsp;/&nbsp;(1&nbsp;+&nbsp;s*Ti)</code>.
 </p>
 <p>
-The derivative of the output&nbsp;<code>y</code> is the angular velocity&nbsp;<code>w</code>, provided as signal output.
+The derivative of the output&nbsp;<code>y</code> is the angular velocity&nbsp;<code>w</code>,
+provided as an output signal as well.
 </p>
 </html>"));
   end UnwrapAngle;
