@@ -6,7 +6,7 @@ function factorY2DC "Calculates factor of DC-voltage from RMS Y-voltage"
   input Integer m=3 "Number of phases";
   output Real y "Factor Yrms to DC";
 protected
-  parameter Integer mBasic=integer(m/numberOfSymmetricBaseSystems(m));
+  Integer mBasic=integer(m/numberOfSymmetricBaseSystems(m));
 algorithm
   if mBasic==2 then
     y := 4/pi;
