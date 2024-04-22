@@ -156,13 +156,11 @@ extrapolation = 1: Hold the first or last value of the table,
                    (If smoothness is LinearSegments or ConstantSegments
                    this means to extrapolate linearly through the first/last
                    two table points.).
-              = 3: Periodically repeat the table data (periodical function), 
-                   where the repetition period is table[end,1]-table[1,1].
-                   For u = table[end,1] the output(-array) is table[end,columns]. However for the
-                   limit of u downwards to table[end,1] the result is table[<strong>1</strong>,columns].
-                   This implies that for correct reproduction of a periodic function
-                   the first and last data rows should be the same 
-                   (table[1,2:end] = table[end,2:end]).
+              = 3: Periodically repeat the table data (periodical function).
+                   Because no assumption can be made about the spacing of the
+                   samples -- defined in the first column -- the repetition period
+                   is table[end,1]-table[1,1]. See 'ContinuityPeriodicTableExtrapolation'
+                   in the examples.
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, the table value is returned,
@@ -433,14 +431,11 @@ extrapolation = 1: Hold the first or last value of the table,
                    (If smoothness is LinearSegments or ConstantSegments
                    this means to extrapolate linearly through the first/last
                    two table points.).
-              = 3: Periodically repeat the table data (periodical function), 
-                   where the repetition period is table[end,1]-table[1,1].
-                   For input u[i] = table[end,1] the output value is table[end,columns[i]]. 
-                   However for the limit of u downwards to table[end,1] the result is 
-                   table[<strong>1</strong>,columns[i]].
-                   This implies that for correct reproduction of a periodic function
-                   the first and last data rows should be the same 
-                   (table[1,2:end] = table[end,2:end]).
+              = 3: Periodically repeat the table data (periodical function).
+                   Because no assumption can be made about the spacing of the
+                   samples -- defined in the first column -- the repetition period
+                   is table[end,1]-table[1,1]. See 'ContinuityPeriodicTableExtrapolation'
+                   in the examples.
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, the table value is returned,
@@ -647,15 +642,11 @@ extrapolation = 1: Hold the first or last values of the table,
                    (If smoothness is LinearSegments or ConstantSegments
                    this means to extrapolate linearly through the first/last
                    two table points.).
-              = 3: Periodically repeat the table data (periodical function), 
-                   where the repetition period is table[end,1]-table[2,1] and 
-                   table[1,end]-table[1,2] for columns and rows respectively.
-                   Assuming u1 is one of the abscissa values: for u2 = table[1,end]
-                   the result is table[u1,end]. However for the lim of u2 downwards 
-                   to table[1,end] the result is table[u1,<strong>2</strong>].
-                   This implies that for correct reproduction of a periodic function 
-                   the first and last data rows/columns should be the same
-                   (table[2,2:end] = table[end,2:end] and table[2:end,2] = table[2:end,end]).
+              = 3: Periodically repeat the table data (periodical function).
+                   Because no assumption can be made about the spacing of the
+                   samples, the repetition period is table[end,1]-table[2,1]
+                   and table[1,end]-table[1,2] for columns and rows respectively. 
+                   See 'ContinuityPeriodicTableExtrapolation' in the examples.
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one element</strong>, the table value is returned,
@@ -853,15 +844,11 @@ extrapolation = 1: Hold the first or last values of the table,
                    (If smoothness is LinearSegments or ConstantSegments
                    this means to extrapolate linearly through the first/last
                    two table points.).
-              = 3: Periodically repeat the table data (periodical function), 
-                   where the repetition period is table[end,1]-table[2,1] and 
-                   table[1,end]-table[1,2] for columns and rows respectively.
-                   Assuming u1 is one of the abscissa values: for u2 = table[1,end]
-                   the result is table[u1,end]. However for the lim of u2 downwards 
-                   to table[1,end] the result is table[u1,<strong>2</strong>].
-                   This implies that for correct reproduction of a periodic function 
-                   the first and last data rows/columns should be the same
-                   (table[2,2:end] = table[end,2:end] and table[2:end,2] = table[2:end,end]).
+              = 3: Periodically repeat the table data (periodical function).
+                   Because no assumption can be made about the spacing of the
+                   samples, the repetition period is table[end,1]-table[2,1]
+                   and table[1,end]-table[1,2] for columns and rows respectively. 
+                   See 'ContinuityPeriodicTableExtrapolation' in the examples.
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one element</strong>, the table value is returned,
