@@ -1679,7 +1679,30 @@ we can compare the numerical solution with the analytical solution:
 The output is constant from the beginning.
 </p>
 </html>"));
-  end DemoSignalCharacteristic;
+    end DemoSignalCharacteristic;
+
+    model ContinuityPeriodicTableExtrapolation "Compare continuity of period extrapolation of CombiTable1Ds/CombiTable1Dv"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Sources.Ramp ramp(height = 15, offset = -5, duration = 1.5) annotation(
+        Placement(transformation(origin = {-18, 0}, extent = {{-10, -10}, {10, 10}})));
+      Modelica.Blocks.Tables.CombiTable1Ds discontinuousExtrapol(table = [0, -1; 4, 1], extrapolation = Modelica.Blocks.Types.Extrapolation.Periodic, smoothness = Modelica.Blocks.Types.Smoothness.ModifiedContinuousDerivative) "Table block with discontinuous periodic extrapolation" annotation(
+        Placement(transformation(origin = {22, 30}, extent = {{-10, -10}, {10, 10}})));
+      Modelica.Blocks.Tables.CombiTable1Ds continuousC0ExtraPol(table = [0, -1; 1, 0; 2, 1; 3, 0; 4, -1], extrapolation = Modelica.Blocks.Types.Extrapolation.Periodic, smoothness = Modelica.Blocks.Types.Smoothness.ModifiedContinuousDerivative) "Table block with C0 periodic extrapolation" annotation(
+        Placement(transformation(extent = {{12, -10}, {32, 10}})));
+      Modelica.Blocks.Tables.CombiTable1Ds continuousC1Extrapol(table = [0, -1; 0.25, -1; 0.5, -1; 2, 1; 3.5, -1; 3.75, -1; 4, -1], extrapolation = Modelica.Blocks.Types.Extrapolation.Periodic, smoothness = Modelica.Blocks.Types.Smoothness.ModifiedContinuousDerivative) "Table block with C1 periodic extrapolation" annotation(
+        Placement(transformation(origin = {22, -30}, extent = {{-10, -10}, {10, 10}})));
+    equation
+      connect(continuousC0ExtraPol.u, ramp.y) annotation(
+        Line(points = {{10, 0}, {-7, 0}}, color = {0, 0, 127}));
+      connect(discontinuousExtrapol.u, ramp.y) annotation(
+        Line(points = {{10, 30}, {0, 30}, {0, 0}, {-7, 0}}, color = {0, 0, 127}));
+      connect(continuousC1Extrapol.u, ramp.y) annotation(
+        Line(points = {{10, -30}, {0, -30}, {0, 0}, {-7, 0}}, color = {0, 0, 127}));
+      annotation(
+        experiment(StartTime = 0, StopTime = 1.5, Tolerance = 1e-06, Interval = 0.01),
+        Documentation(info = "<html><head></head><body>This model demonstrates the less obvious charactristics of <u>periodic</u> table interpolation.<div>This is relevant to both 1D and 2D tables.</div><div><br></div><div><strong>Periodicity</strong></div><div>The periodicity of a one-dimensional table is defined as table[end,1]-table[1,1].</div><div>This implies that the first and last points in the table 'overlap' when extrapolating.&nbsp;</div><div>The top model in this example, 'discontinuousExtrapol', illustrates how this works out during simulation. It defines a saw-tooth function by its minimum and maximum value and linear interpolation.</div><div>The values at both ends of the definition interval (at&nbsp;<em>t</em>=0.5s and&nbsp;<em>t</em>=0.9s) are equal to the values defined in table[1,2] and table[end,2] respectively. Thus the table is evaluated including the interval limits: [start, end]</div><div><br></div><div>Outside of the definition interval, the <em>limit</em> towards the definition interval is used. On the left side, the table is evaluated excluding the end value: [start, end&gt;. On the right side it is evaluated excluding the start value: &lt;start, end].</div><div>This effect is deliberately exaggerated in this model by choosing a large simulation interval.</div><div>It is clear that for <em>t</em> &gt; 0.9s, the table output approaches -1 when <em>t</em> decreases, but <em>at</em>&nbsp;t=0.9s (and t=1.3s, etc.), the output will be exactly equal to 1.</div><div>Likewise, for&nbsp;<em>t</em>&lt;0.5s the table output will be&nbsp;&lt;1 &nbsp;but never equal to 1. Instead at <iem>t</em>=0.5 (and <em>t</em>=0.1 etc.), the output will be exactly -1.</div><div><br></div><div><strong>Differentiability</strong></div><div>The second model 'continuousC0Extrapolation' demonstrates that the derivative is not defined in the edges of the definition interval. The table definition [0, -1; 1, 0; 2, 1; 3, 0; 4, -1] defines a function that would be a triangle with linear interpolation.</div><div>With continuous derivative, it is smooth in the interval, but not in the edges (<em>t</em>=0.5s,&nbsp;<em>t</em>= 0.9s, etc.).</div><div><br></div><div>The bottom model 'continuousC1Extrapol' with table [0, -1; 0.25, -1; 0.5, -1; 2, 1; 3.5, -1; 3.75, -1; 4, -1] defines a function which is continuous in the interval edge, as well as its first 2 derivatives: around the interval edge there are 5 consequtive points at -1.</div><div>This results in a smooth function.</div><div><br></div><div><br></div><div>For more information, see&nbsp;<em>Proceedings of&nbsp;</em><em>the 10th International Modelica Conference</em>. Ed. by Hubertus Tummescheit and Karl-Erik Årzén. Lund, Sweden, March 2014.</div>
+    DOI: <a href=\"https://doi.org/10.3384/ecp14096893\" rel=\"nofollow\">10.3384/ecp14096893</a>.<!--EndFragment--></body></html>"));
+    end ContinuityPeriodicTableExtrapolation;
 
   package Noise "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
