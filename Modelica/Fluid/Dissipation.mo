@@ -4419,7 +4419,7 @@ This record is used as <strong>input record</strong> for the pressure loss funct
                 m_flow,
                 sqrt(IN_con.dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.rho))*IN_var.rho
             *IN_con.A_cross,
-                2)/(IN_var.rho*sqrt(IN_con.A_cross));
+                2)/(IN_var.rho*(IN_con.A_cross)^2);
       annotation (Inline=true, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW(
                 IN_con,
