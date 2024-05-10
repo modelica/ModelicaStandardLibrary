@@ -14,10 +14,11 @@ protected
   Boolean result;
   String file;
 algorithm
+  ok := false;
   file :=Modelica.Utilities.Files.fullPathName(logFile);
   print("... testAllFunctions(..) is logged in " + file);
 
-  if file <> "" then
+  if not Modelica.Utilities.Strings.isEmpty(file) then
      Modelica.Utilities.Files.removeFile(file);
   end if;
 
