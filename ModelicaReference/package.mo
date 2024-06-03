@@ -7473,5 +7473,6 @@ Copyright &copy; 2003-2024, Modelica Association and contributors
       <td>Implemented.</td>
     </tr>
 </table>
-</html>"));
+</html>"),
+License="modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaStandardLibrary.txt");
 end ModelicaReference;
