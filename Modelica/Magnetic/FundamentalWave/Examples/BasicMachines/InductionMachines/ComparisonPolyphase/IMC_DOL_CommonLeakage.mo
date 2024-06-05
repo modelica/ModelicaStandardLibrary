@@ -270,21 +270,15 @@ Only when fed by switching power electronics, parameter <code>ratioCommonLeakage
 </html>"),
     Diagram(graphics={       Text(
                 extent={{10,80},{90,72}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
           textString="ratioCommonLeakage=0",
           textColor={0,0,0}),             Text(
                 extent={{10,22},{90,14}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
           textColor={0,0,0},
           textString="ratioCommonLeakage=0.5"),
                                           Text(
                 extent={{10,-38},{90,-46}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
           textColor={0,0,0},
           textString="ratioCommonLeakage=1")}));

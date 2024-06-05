@@ -77,7 +77,7 @@ whose losses v**2/r are dissipated via a
 thermal conductance of 0.1 W/K to ambient temperature 20 degree C.
 The resistor is assumed to have a thermal capacity of 1 J/K,
 having ambient temperature at the beginning of the experiment.
-The temperature of this heating resistor is held by an OnOff-controller
+The temperature of this heating resistor is held by an OnOff controller
 at reference temperature within a given bandwidth +/- 1 K
 by switching on and off the voltage source.
 The reference temperature starts at 25 degree C

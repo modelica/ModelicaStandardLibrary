@@ -1,6 +1,6 @@
 /* ModelicaIO.c - Array I/O functions
 
-   Copyright (C) 2016-2020, Modelica Association and contributors
+   Copyright (C) 2016-2024, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -95,6 +95,60 @@
 #include "ModelicaUtilities.h"
 
 #ifdef NO_FILE_SYSTEM
+
+/*
+  ModelicaNotExistError never returns to the caller. In order to compile
+  external Modelica C-code in most compilers, noreturn attributes need to
+  be present to avoid warnings or errors.
+
+  The following macros handle noreturn attributes according to the
+  C11/C++11 standard with fallback to GNU, Clang or MSVC extensions if using
+  an older compiler.
+*/
+#undef MODELICA_NORETURN
+#undef MODELICA_NORETURNATTR
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+#define MODELICA_NORETURN _Noreturn
+#define MODELICA_NORETURNATTR
+#elif defined(__cplusplus) && __cplusplus >= 201103L
+#if (defined(__GNUC__) && __GNUC__ >= 5) || \
+    (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 4 && __GNUC_MINOR__ >= 8)
+#define MODELICA_NORETURN [[noreturn]]
+#define MODELICA_NORETURNATTR
+#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
+      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#elif defined(__GNUC__)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#else
+#define MODELICA_NORETURN [[noreturn]]
+#define MODELICA_NORETURNATTR
+#endif
+#elif defined(__clang__)
+/* Encapsulated for Clang since GCC fails to process __has_attribute */
+#if __has_attribute(noreturn)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#else
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#endif
+#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
+      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8) || \
+      (defined(__SUNPRO_C) && __SUNPRO_C >= 0x5110)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#elif (defined(_MSC_VER) && _MSC_VER >= 1200) || \
+       defined(__BORLANDC__)
+#define MODELICA_NORETURN __declspec(noreturn)
+#define MODELICA_NORETURNATTR
+#else
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#endif
+
 MODELICA_NORETURN static void ModelicaNotExistError(const char* name) MODELICA_NORETURNATTR;
 static void ModelicaNotExistError(const char* name) {
   /* Print error message if a function is not implemented */
@@ -104,6 +158,9 @@ static void ModelicaNotExistError(const char* name) {
         "as for dSPACE or xPC systems)\n", name);
 }
 
+#undef MODELICA_NORETURN
+#undef MODELICA_NORETURNATTR
+
 void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
     _In_z_ const char* matrixName, _Out_ int* dim) {
     ModelicaNotExistError("ModelicaIO_readMatrixSizes"); }
@@ -112,7 +169,7 @@ void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
     int verbose) {
     ModelicaNotExistError("ModelicaIO_readRealMatrix"); }
 int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
-    _In_z_ const char* matrixName, _In_ double* matrix, size_t m, size_t n,
+    _In_z_ const char* matrixName, _In_ const double* matrix, size_t m, size_t n,
     int append, _In_z_ const char* version) {
     ModelicaNotExistError("ModelicaIO_writeRealMatrix"); return 0; }
 double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
@@ -290,7 +347,7 @@ void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
 
 int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
                                _In_z_ const char* matrixName,
-                               _In_ double* matrix, size_t m, size_t n,
+                               _In_ const double* matrix, size_t m, size_t n,
                                int append,
                                _In_z_ const char* version) {
     int status;

@@ -60,23 +60,23 @@ model CompareLineTrunks "Compares oLine and tLine splitting lines into trunks"
         extent={{-10,10},{10,-10}},
         rotation=-90)));
   Basic.Ground ground2 annotation (Placement(transformation(extent={{-50,-70},{-30,-50}})));
-  Modelica.Electrical.Analog.Lines.TLine  tLine1(Z0=z0, TD=td,
+  Modelica.Electrical.Analog.Lines.TLine tLine1(Z0=z0, TD=td,
     er(start=0),
     v2(start=0)) annotation (
       Placement(transformation(extent={{-30,-40},{-10,-20}})));
-  Modelica.Electrical.Analog.Lines.TLine  tline2(Z0=z0, TD=td,
+  Modelica.Electrical.Analog.Lines.TLine tLine2(Z0=z0, TD=td,
     er(start=0),
     v2(start=0)) annotation (
       Placement(transformation(
         origin={32,4},
         extent={{-32,-44},{-12,-24}})));
-  Modelica.Electrical.Analog.Lines.TLine  tline3(Z0=z0, TD=td,
+  Modelica.Electrical.Analog.Lines.TLine tLine3(Z0=z0, TD=td,
     er(start=0),
     v2(start=0)) annotation (
       Placement(transformation(
         origin={62,4},
         extent={{-32,-44},{-12,-24}})));
-  Modelica.Electrical.Analog.Lines.TLine  tline4(Z0=z0, TD=td,
+  Modelica.Electrical.Analog.Lines.TLine tLine4(Z0=z0, TD=td,
     er(start=0),
     v2(start=0)) annotation (
       Placement(transformation(
@@ -116,17 +116,17 @@ equation
     annotation (Line(points={{80,40},{90,40}}, color={0,0,255}));
   connect(srcDistr.v, ramp.y) annotation (Line(points={{-52,-30},{-60,-30},{-60,
           0},{-67,0}}, color={0,0,127}));
-  connect(tline2.n1, tLine1.n2) annotation (
+  connect(tLine2.n1, tLine1.n2) annotation (
     Line(points={{0,-40},{-10,-40}}, color={0,0,255}));
-  connect(tline2.p1, tLine1.p2) annotation (
+  connect(tLine2.p1, tLine1.p2) annotation (
     Line(points={{0,-20},{-10,-20}}, color={0,0,255}));
-  connect(tline3.n1, tline2.n2) annotation (
+  connect(tLine3.n1, tLine2.n2) annotation (
     Line(points={{30,-40},{20,-40}}, color={0,0,255}));
-  connect(tline3.p1, tline2.p2) annotation (
+  connect(tLine3.p1, tLine2.p2) annotation (
     Line(points={{30,-20},{20,-20}}, color={0,0,255}));
-  connect(tline4.n1, tline3.n2) annotation (
+  connect(tLine4.n1, tLine3.n2) annotation (
     Line(points={{60,-40},{50,-40}}, color={0,0,255}));
-  connect(tline4.p1, tline3.p2) annotation (
+  connect(tLine4.p1, tLine3.p2) annotation (
     Line(points={{60,-20},{50,-20}}, color={0,0,255}));
   connect(srcLump.n, ground1.p)
     annotation (Line(points={{-40,20},{-40,10}}, color={0,0,255}));
@@ -140,17 +140,17 @@ equation
     annotation (Line(points={{-40,10},{70,10},{70,30}}, color={0,0,255}));
   connect(ground1.p, R1.n)
     annotation (Line(points={{-40,10},{90,10},{90,20}}, color={0,0,255}));
-  connect(tline4.p2, R2.p)
+  connect(tLine4.p2, R2.p)
     annotation (Line(points={{80,-20},{90,-20}}, color={0,0,255}));
-  connect(tline4.n2, R2.n)
+  connect(tLine4.n2, R2.n)
     annotation (Line(points={{80,-40},{90,-40}}, color={0,0,255}));
   connect(srcDistr.n, ground2.p)
     annotation (Line(points={{-40,-40},{-40,-50}}, color={0,0,255}));
-  connect(ground2.p, tline2.n2)
+  connect(ground2.p, tLine2.n2)
     annotation (Line(points={{-40,-50},{20,-50},{20,-40}}, color={0,0,255}));
-  connect(ground2.p, tline3.n2)
+  connect(ground2.p, tLine3.n2)
     annotation (Line(points={{-40,-50},{50,-50},{50,-40}}, color={0,0,255}));
-  connect(ground2.p, tline4.n2)
+  connect(ground2.p, tLine4.n2)
     annotation (Line(points={{-40,-50},{80,-50},{80,-40}}, color={0,0,255}));
   connect(ground2.p, tLine1.n2)
     annotation (Line(points={{-40,-50},{-10,-50},{-10,-40}}, color={0,0,255}));

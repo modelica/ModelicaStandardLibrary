@@ -109,10 +109,7 @@ equation
     annotation (Line(points={{-60,-20},{-50,-20},{-50,-10}}, color={0,0,255}));
   connect(capacitorLV.n, dcdc.dc_n1) annotation (Line(points={{-50,-10},{-50,-20},
           {0,-20},{0,-4},{10,-4}},   color={0,0,255}));
-  annotation (experiment(
-      StopTime=1,
-      Interval=1e-05,
-      Tolerance=1e-06), Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 Buck/boost chopper example template including both voltage sources; control not included.
 </p>

@@ -14,26 +14,19 @@ package Polyphase "Polyphase quasi-static package"
                                                                              annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
     Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance admittance(Y_ref=fill(Complex(0.5,0.5),m), m=m)
                                                                                                     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor variableResistor(m=m)
-                                                                                           annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor variableConductor(m=m)
-                                                                                             annotation (Placement(transformation(extent={{0,20},{20,40}})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor conductor(G_ref=fill(1,m), m=m)
-                                                                                              annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor variableResistor(m=m) annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
+    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor variableConductor(m=m) annotation (Placement(transformation(extent={{0,20},{20,40}})));
+    Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor conductor(G_ref=fill(1,m), m=m) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-90,10})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor variableCapacitor(m=m)
-                                                                                             annotation (Placement(transformation(extent={{30,20},{50,40}})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor variableInductor(m=m)
-                                                                                           annotation (Placement(transformation(extent={{60,20},{80,40}})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance variableImpedance(m=m)
-                                                                                             annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor variableCapacitor(m=m) annotation (Placement(transformation(extent={{30,20},{50,40}})));
+    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor variableInductor(m=m) annotation (Placement(transformation(extent={{60,20},{80,40}})));
+    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance variableImpedance(m=m) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
           origin={70,-40})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance variableAdmittance(m=m)
-                                                                                               annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance variableAdmittance(m=m) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
           origin={40,-40})));
@@ -54,8 +47,7 @@ package Polyphase "Polyphase quasi-static package"
       duration=1,
       offset=10,
       startTime=0) annotation (Placement(transformation(extent={{-100,-30},{-80,-10}})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star star(m=m)
-                                                                   annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star star(m=m) annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
           rotation=90,
           origin={-50,-60})));
@@ -94,16 +86,14 @@ package Polyphase "Polyphase quasi-static package"
     extends Modelica.Icons.Example;
     parameter Integer m = 3 "Number of phases" annotation(Evaluate=true);
     output SI.ComplexCurrent I[m] = currentSensor.i "Current";
-    Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Idle idle(m=m)
-                                                                   annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Idle idle(m=m) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-50,10})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Short short(m=m)
-                                                                     annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Short short(m=m) annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch idealCommutingSwitch(m=m,
       Ron=fill(1E-5, m),
-      Goff=fill(1E-5, m))                                                                          annotation (Placement(transformation(extent={{30,20},{50,40}})));
+      Goff=fill(1E-5, m)) annotation (Placement(transformation(extent={{30,20},{50,40}})));
     Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealIntermediateSwitch idealIntermediateSwitch(m=m,
       Ron=fill(1E-5, m),
       Goff=fill(1E-5, m))                                                                             annotation (Placement(transformation(extent={{60,20},{80,40}})));
@@ -163,8 +153,7 @@ package Polyphase "Polyphase quasi-static package"
     Modelica.ComplexBlocks.Sources.ComplexConstant const_admittance[m](k=fill(Complex(0.5, 0.5), m)) annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const_impedance[m](k=fill(Complex(2, 2), m)) annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
     Modelica.Electrical.QuasiStatic.Polyphase.Sensors.CurrentSensor currentSensor annotation (Placement(transformation(extent={{-60,-30},{-80,-10}})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star star(m=m)
-                                                                   annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star star(m=m) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-90,-40})));
@@ -226,8 +215,7 @@ package Polyphase "Polyphase quasi-static package"
       fStart=0.01,
       fStop=100) annotation (Placement(transformation(extent={{-20,-60},{-40,-40}})));
     Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor capacitor(C=fill(1, 3)) annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-    Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star starI
-                                                                   annotation (Placement(transformation(extent={{-20,-90},{-40,-70}})));
+    Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star starI     annotation (Placement(transformation(extent={{-20,-90},{-40,-70}})));
     Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundI annotation (Placement(transformation(extent={{-70,-100},{-50,-80}})));
   equation
     connect(voltageSource.plug_p, inductor.plug_p) annotation (Line(points={{-40,50},{-50,50},{-50,80},{-40,80}}, color={85,170,255}));

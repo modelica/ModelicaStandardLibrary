@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.BasicMachines.SynchronousMachines;
 model SM_ElectricalExcited
   "Electrical excited synchronous machine with damper cage"
   extends Machines.Interfaces.PartialBasicInductionMachine(
-    Lssigma(start=0.1/(2*pi*fsNominal)),
+    Lssigma(start=0.1*ZsRef/(2*pi*fsNominal)),
     final idq_ss=airGap.i_ss,
     final idq_sr=airGap.i_sr,
     final idq_rs=airGap.i_rs,
@@ -45,16 +45,16 @@ model SM_ElectricalExcited
     "Operational temperature of (optional) damper cage" annotation (
       Dialog(group="Operational temperatures", enable=not useThermalPort
            and useDamperCage));
-  parameter SI.Inductance Lmd(start=1.5/(2*pi*fsNominal))
+  parameter SI.Inductance Lmd(start=1.5*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance per phase in d-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Inductance Lmq(start=1.5/(2*pi*fsNominal))
+  parameter SI.Inductance Lmq(start=1.5*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance per phase in q-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Boolean useDamperCage(start=true)
     "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
           "Nominal resistances and inductances", group="Damper cage"));
-  parameter SI.Inductance Lrsigmad(start=0.05/(2*pi*
+  parameter SI.Inductance Lrsigmad(start=0.05*ZsRef/(2*pi*
         fsNominal)) "Damper stray inductance in d-axis" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
@@ -65,7 +65,7 @@ model SM_ElectricalExcited
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter SI.Resistance Rrd(start=0.04)
+  parameter SI.Resistance Rrd(start=0.04*ZsRef)
     "Damper resistance in d-axis at TRef" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",

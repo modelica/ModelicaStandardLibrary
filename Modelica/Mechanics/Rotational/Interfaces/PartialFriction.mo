@@ -54,9 +54,11 @@ equation
     mode) == Backward or startBackward);
 
   a_relfric/unitAngularAcceleration = if locked then 0 else if free then sa
-     else if startForward then sa - tau0_max/unitTorque else if
-    startBackward then sa + tau0_max/unitTorque else if pre(mode) ==
-    Forward then sa - tau0_max/unitTorque else sa + tau0_max/unitTorque;
+    else if startForward then sa - tau0_max/unitTorque
+    else if startBackward then sa + tau0_max/unitTorque
+    else if pre(mode) == Forward then sa - tau0_max/unitTorque
+    else if pre(mode) == Backward then sa + tau0_max/unitTorque
+    else sa - sign(w_relfric)*tau0_max/unitTorque;
 
   /* Friction torque "tau" has to be defined in a subclass. Example for possible
      realization of a clutch utilizing interpolation by ExternalCombiTable1D see:

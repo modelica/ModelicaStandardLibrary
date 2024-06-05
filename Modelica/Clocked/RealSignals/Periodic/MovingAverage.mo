@@ -75,11 +75,8 @@ contrary to a general FIR filter.
         Text(
           extent={{-26,88},{88,48}},
           textColor={175,175,175},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Backward,
           textString="MA"),
         Text(
           extent={{-150,-110},{150,-150}},
-          fillPattern=FillPattern.Solid,
           textString="n=%n")}));
 end MovingAverage;

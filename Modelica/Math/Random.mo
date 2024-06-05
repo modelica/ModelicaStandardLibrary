@@ -1013,7 +1013,7 @@ seed = Utilities.<strong>automaticLocalSeed</strong>(path);
 <p>
 Returns an automatically computed seed (Integer) from the hash value of
 the full path name of an instance (has to be inquired in the model or block
-where this function is called by the Modelica built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName()</a>).
+where this function is called by the Modelica built-in operator <a href=\"https://specification.modelica.org/maint/3.6/operators-and-expressions.html#getinstancename\">getInstanceName()</a>).
 Contrary to <a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed()</a>,
 this is a pure function, that is, the same seed is returned, if an identical
 path is provided.
@@ -1031,7 +1031,7 @@ path is provided.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed</a>, <a href=\"modelica://Modelica.Utilities.Strings.hashString\">hashString</a> and <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName</a>.
+<a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed</a>, <a href=\"modelica://Modelica.Utilities.Strings.hashString\">hashString</a> and <a href=\"https://specification.modelica.org/maint/3.6/operators-and-expressions.html#getinstancename\">getInstanceName</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">

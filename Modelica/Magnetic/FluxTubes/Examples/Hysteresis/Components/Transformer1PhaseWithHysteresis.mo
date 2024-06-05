@@ -191,14 +191,16 @@ equation
           fillPattern=FillPattern.VerticalCylinder),
         Rectangle(
           extent={{-68,36},{-12,-36}},
-          lineColor={0,128,255},
+          lineColor={0,0,0},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={0,128,255}),
+          fillColor={0,128,255},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{20,20},{60,-20}},
-          lineColor={128,0,255},
+          lineColor={0,0,0},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={128,0,255}),
+          fillColor={128,0,255},
+          pattern=LinePattern.None),
         Text(
           extent={{150,150},{-150,110}},
           textColor={0,0,255},

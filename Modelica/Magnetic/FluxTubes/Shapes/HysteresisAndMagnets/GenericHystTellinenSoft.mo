@@ -17,8 +17,8 @@ protected
   constant SI.MagneticFieldStrength unitH = 1;
 
 equation
-  hystR = Js*tanh((M*Hstat - H0)/unitH) + mu0*Hstat - eps/2;
-  hystF = Js*tanh((M*Hstat + H0)/unitH) + mu0*Hstat + eps/2;
+  hystR = Js*tanh(M*Hstat - H0) + mu0*Hstat - eps/2;
+  hystF = Js*tanh(M*Hstat + H0) + mu0*Hstat + eps/2;
 
   annotation (defaultComponentName="core", Documentation(info="<html>
 <p>Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop (see Fig. 1) is described by simple hyperbolic tangent functions with 4 parameters. Therefore, the hysteresis shape variety is limited but the parameterization of the model is very simple and the model is relatively fast and robust. The rising (hyst<sub>R</sub>) and falling (hyst<sub>F</sub>) branches of the limiting hysteresis loop are defined by the following equations.</p>

@@ -353,15 +353,16 @@ equation
           fillPattern=FillPattern.VerticalCylinder),
         Rectangle(
           extent={{-74,36},{-46,-36}},
-          lineColor={128,0,255},
+          lineColor={0,0,0},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={128,0,255}),
+          fillColor={128,0,255},
+          pattern=LinePattern.None),
         Text(
           extent={{150,130},{-150,90}},
           textColor={0,0,255},
           textString="%name"),
         Polygon(
-          points={{-20,10},{0,-10},{1.22465e-016,-50},{-10,-60},{-20,-60},{-20,10}},
+          points={{-20,10},{0,-10},{0,-50},{-10,-60},{-20,-60},{-20,10}},
           fillColor={255,128,0},
           fillPattern=FillPattern.VerticalCylinder,
           origin={-60,-40},
@@ -390,29 +391,34 @@ equation
           rotation=90),
         Rectangle(
           extent={{-80,26},{-40,-26}},
-          lineColor={0,128,255},
+          lineColor={0,0,0},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={0,128,255}),
+          fillColor={0,128,255},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-14,36},{14,-36}},
-          lineColor={128,0,255},
+          lineColor={0,0,0},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={128,0,255}),
+          fillColor={128,0,255},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-20,26},{20,-26}},
-          lineColor={0,128,255},
+          lineColor={0,0,0},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={0,128,255}),
+          fillColor={0,128,255},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{46,36},{74,-36}},
-          lineColor={128,0,255},
+          lineColor={0,0,0},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={128,0,255}),
+          fillColor={128,0,255},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{40,26},{80,-26}},
-          lineColor={0,128,255},
+          lineColor={0,0,0},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={0,128,255})}),
+          fillColor={0,128,255},
+          pattern=LinePattern.None)}),
     Documentation(info="<html>
 <p>
 Simple model of a three-phase transformer with primary and a secondary windings and a magnetic E-I shaped core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this model considers static and dynamic hysteresis as well as initial flux.
