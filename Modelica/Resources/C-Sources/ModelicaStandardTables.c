@@ -39,6 +39,11 @@
       Modelica.Blocks.Tables.CombiTable2Dv
 
    Changelog:
+      Jun. 04, 2024: by Thomas Beutlich
+                     Restored derivatives for one-sided extrapolation by constant
+                     continuation of 2D tables that actually degrade to 1D tables as
+                     regression of ticket #3894 (ticket #4343)
+
       May 03, 2022:  by Hans Olsson, Dassault Systemes
                      Fixed index-out-of-bounds exception in spline
                      initialization of 2D tables that actually degrade
@@ -4355,9 +4360,6 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                             break;
 
                         case HOLD_LAST_POINT:
-                            der_y = (TABLE(1, last2 + 2) - TABLE(1, last2 + 1))/
-                                (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
-                            der_y *= der_u2;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -4500,9 +4502,6 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                             break;
 
                         case HOLD_LAST_POINT:
-                            der_y = (TABLE(last1 + 2, 1) - TABLE(last1 + 1, 1))/
-                                (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
-                            der_y *= der_u1;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -5277,9 +5276,6 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                             break;
 
                         case HOLD_LAST_POINT:
-                            der2_y = (TABLE(1, last2 + 2) - TABLE(1, last2 + 1))/
-                                (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
-                            der2_y *= der2_u2;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -5423,9 +5419,6 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                             break;
 
                         case HOLD_LAST_POINT:
-                            der2_y = (TABLE(last1 + 2, 1) - TABLE(last1 + 1, 1))/
-                                (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
-                            der2_y *= der2_u1;
                             break;
 
                         case NO_EXTRAPOLATION:
