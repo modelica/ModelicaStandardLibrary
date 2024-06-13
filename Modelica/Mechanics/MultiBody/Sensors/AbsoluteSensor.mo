@@ -52,8 +52,9 @@ model AbsoluteSensor
 
   Interfaces.Frame_resolve frame_resolve if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the output signals are resolved in this frame"
-     annotation (Placement(transformation(
-          extent={{84,-16},{116,16}})));
+    annotation (
+      Placement(transformation(extent={{84,-16},{116,16}})),
+      mustBeConnected="An enabled frame_resolve connector should be connected");
 
   parameter Boolean animation=true
     "= true, if animation shall be enabled (show arrow)";
