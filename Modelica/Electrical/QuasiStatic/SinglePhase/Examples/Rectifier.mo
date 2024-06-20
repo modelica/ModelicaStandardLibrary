@@ -10,8 +10,7 @@ model Rectifier "Rectifier example"
     f=50,
     V=VAC,
     phi=0,
-    i(re(start=0), im(start=0)),
-    gamma(fixed=true, start=0)) annotation (Placement(transformation(
+    i(re(start=0), im(start=0))) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-80,50})));
