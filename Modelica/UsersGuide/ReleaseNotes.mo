@@ -1758,7 +1758,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 <tr><td><a href=\"modelica://Modelica.Electrical.Spice3\">Modelica.Electrical.Spice3</a></td>
     <td>
     Library with components of the Berkeley
-    <a href=\"http://bwrc.eecs.berkeley.edu/Classes/IcBook/SPICE/\">SPICE3</a>
+    <a href=\"https://web.archive.org/web/20231004060901/http://bwrcs.eecs.berkeley.edu/Classes/IcBook/SPICE/\">SPICE3</a>
     simulator:<br>
     R, C, L, controlled and independent sources, semiconductor device models
     (MOSFET Level 1, Bipolar junction transistor, Diode, Semiconductor resistor).
