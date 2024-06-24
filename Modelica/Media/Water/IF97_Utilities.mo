@@ -229,7 +229,7 @@ email: hubertus@modelon.se
           "IF97 medium function boundary23ofp called with too low pressure\n"
            + "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
           " Pa (triple point pressure)");
-        t := n[4] + ((pi - n[5])/n[3])^0.5;
+        t := n[4] + sqrt((pi - n[5])/n[3]);
       end boundary23ofp;
 
       function hlowerofp5
@@ -423,7 +423,7 @@ email: hubertus@modelon.se
           "IF97 medium function hlowerofp2 called with too low pressure\n" +
           "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
           " Pa (triple point pressure)");
-        q1 := 572.54459862746 + 31.3220101646784*(-13.91883977887 + pi)^0.5;
+        q1 := 572.54459862746 + 31.3220101646784*sqrt(-13.91883977887 + pi);
         q2 := -0.5 + 540./q1;
         o[1] := q1*q1;
         o[2] := o[1]*o[1];
@@ -514,7 +514,7 @@ email: hubertus@modelon.se
           "IF97 medium function slowerofp2 called with too low pressure\n" +
           "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
           " Pa (triple point pressure)");
-        q1 := 572.54459862746 + 31.3220101646784*(-13.91883977887 + pi)^0.5;
+        q1 := 572.54459862746 + 31.3220101646784*sqrt(-13.91883977887 + pi);
         q2 := -0.5 + 540.0/q1;
         o[1] := pi*pi;
         o[2] := o[1]*pi;
@@ -3143,9 +3143,9 @@ email: hubertus@modelon.se
         o[7] := 14.9151086135300*o[6];
         o[8] := 405113.40542057 + o[5] + o[7];
         p_sat := 16.0e6*o[8]*o[8]*o[8]*o[8]*1/(3.2325550322333e6 -
-          12020.8247024700*o[4] + 17.0738469400920*o[6] + (-4.0*(-724213.16703206
+          12020.8247024700*o[4] + 17.0738469400920*o[6] + sqrt(-4.0*(-724213.16703206
            + 1167.05214527670*o[4] + o[6])*o[8] + (-3.2325550322333e6 +
-          12020.8247024700*o[4] - 17.0738469400920*o[6])^2.0)^0.5)^4.0;
+          12020.8247024700*o[4] - 17.0738469400920*o[6])^2.0))^4.0;
         annotation (derivative=psat_der);
       end psat;
 
@@ -4093,7 +4093,7 @@ Ordinary Water Substance<br>
         deltam1 := delta - 1.0;
         tau := tstar/T;
         taum1 := tau - 1.0;
-        Psi0 := 1/(n0 + (n1 + (n2 + n3*tau)*tau)*tau)/(tau^0.5);
+        Psi0 := 1/(n0 + (n1 + (n2 + n3*tau)*tau)*tau)/(sqrt(tau));
         Psi1 := 0.0;
         tfun := 1.0;
         for i in 1:6 loop
