@@ -21,8 +21,4 @@ a
 MM
 h2
 d2
-err_T
-err_d
-err_u
 s_is
-err_h_is
