@@ -14,7 +14,6 @@ protected
   Boolean result;
   String file;
 algorithm
-  ok := false;
   file :=Modelica.Utilities.Files.fullPathName(logFile);
   print("... testAllFunctions(..) is logged in " + file);
 
