@@ -176,9 +176,9 @@ package R134a "R134a: Medium model for R134a"
       sat.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
       sat.pt := f.R_s*f.d*(f.delta*(f.fdelta - f.tau*f.fdeltatau));
       sat.pd := f.R_s*f.T*(f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
-      sat.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      sat.a := sqrt(abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
-        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
+        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau))));
       sat.kappa := 1/(f.d*f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
       sat.beta := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau)*sat.kappa;
       sat.gamma := sat.a^2/f.R_s/f.T;
@@ -1591,9 +1591,9 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
         // assert(getPhase_ph(state.p, state.h)==1, "Function for velocity of sound is only valid for one-phase regime!");
       else
         f := f_R134a(state.d, state.T);
-        a := abs(R134aData.data.R_s*state.T*(2*f.delta*f.fdelta + f.delta*f.delta
+        a := sqrt(abs(R134aData.data.R_s*state.T*(2*f.delta*f.fdelta + f.delta*f.delta
           *f.fdeltadelta - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta
-          *f.fdelta - f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
+          *f.fdelta - f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau))));
       end if;
       annotation (Documentation(info="<html>
 <p>This function calculates the velocity of sound of R134a from the state record (e.g., use setState_phX function for input). The velocity of sound is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>

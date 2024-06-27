@@ -11609,7 +11609,7 @@ algorithm
           textString="log")}),
     Documentation(info="<html>
 <p>
-This function returns y = log(10) (the natural logarithm of u),
+This function returns y = log(u) (the natural logarithm of u),
 with u &gt; 0:
 </p>
 
