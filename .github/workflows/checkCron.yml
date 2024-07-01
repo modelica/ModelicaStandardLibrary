@@ -40,7 +40,9 @@ jobs:
       - name: Check for spelling errors
         run: |
           printf "[codespell]\nenable-colors=\n" >> .codespellrc
-          codespell -L additionals,inport,manuel ./Modelica/package.mo
+          codespell -L inport ./Modelica/package.mo
+          codespell -L manuel ./Modelica/UsersGuide/Contact.mo
+          codespell -L additionals,inport ./Modelica/UsersGuide/ReleaseNotes.mo
           codespell -L bu,nin ./Modelica/Clocked/RealSignals/Periodic/StateSpace.mo
           codespell -L mesures ./Modelica/Constants.mo
           codespell -L nin,inport,fo ./Modelica/StateGraph.mo
@@ -59,6 +61,8 @@ jobs:
           codespell -L delt ./Modelica/Media/Air/ReferenceAir.mo
           codespell -L scrit,delt ./Modelica/Media/R134a.mo
           codespell -L dout,scrit,delt ./Modelica/Media/Water/IF97_Utilities.mo
+          codespell -L rin ./Modelica/Electrical/Analog/Ideal/AD_Converter.mo
+          codespell -L rin ./Modelica/Electrical/Analog/Examples/AD_DA_conversion.mo
           codespell -L archiv ./Modelica/Electrical/Polyphase/UsersGuide/References.mo
           codespell -L additionals,vie ./Modelica/Electrical/Spice3.mo
           codespell -L vai ./Modelica/Electrical/Machines/BasicMachines/Components/PartialAirGapDC.mo
@@ -73,7 +77,7 @@ jobs:
           codespell -L technik ./Modelica/Magnetic/FundamentalWave/UsersGuide/References.mo
           codespell -L supportt ./ModelicaTest/Rotational.mo
           codespell -L lamda,inport ./ModelicaTestConversion4.mo
-          codespell --skip ./ObsoleteModelica4.mo,./Modelica/package.mo,./Modelica/Clocked/RealSignals/Periodic/StateSpace.mo,./Modelica/Constants.mo,./Modelica/Blocks/Continuous.mo,./Modelica/StateGraph.mo,./Modelica/Electrical/Digital.mo,./Modelica/Electrical/Polyphase/Examples/PolyphaseRectifier.mo,./Modelica/Electrical/Polyphase/Examples/Utilities/PolyphaseRectifierData.mo,./Modelica/Fluid/package.mo,./Modelica/Fluid/Dissipation.mo,./Modelica/Fluid/Vessels.mo,./Modelica/Fluid/Examples/AST_BatchPlant.mo,./Modelica/Resources,./Modelica/Media/IdealGases/package.mo,./Modelica/Media/IdealGases/Common/SingleGasesData.mo,./Modelica/Media/IdealGases/Common/Functions.mo,./Modelica/Media/IdealGases/Common/package.mo,./Modelica/Media/Air/ReferenceAir.mo,./Modelica/Media/R134a.mo,./Modelica/Media/Water/IF97_Utilities.mo,./Modelica/Electrical/Polyphase/UsersGuide/References.mo,./Modelica/Electrical/Spice3.mo,./Modelica/Electrical/Machines/BasicMachines/Components/PartialAirGapDC.mo,./Modelica/Electrical/Machines/Examples/ControlledDCDrives,./Modelica/Electrical/Analog/UsersGuide/References.mo,./Modelica/Math/package.mo,./Modelica/Mechanics/Rotational,./Modelica/Mechanics/Translational,./Modelica/Mechanics/MultiBody,./Modelica/Magnetic/FluxTubes/UsersGuide/Contact.mo,./Modelica/Magnetic/FluxTubes/Material/SoftMagnetic/NickelIron,./Modelica/Magnetic/FundamentalWave/UsersGuide/References.mo,./ModelicaTest/Rotational.mo,./ModelicaTestConversion4.mo,./.CI,./.github,./.git,*.png -L nin,inport,te,sinc,vie,commutating
+          codespell --skip ./ObsoleteModelica4.mo,./Modelica/package.mo,./Modelica/UsersGuide/Contact.mo,./Modelica/UsersGuide/ReleaseNotes.mo,./Modelica/Clocked/RealSignals/Periodic/StateSpace.mo,./Modelica/Constants.mo,./Modelica/Blocks/Continuous.mo,./Modelica/StateGraph.mo,./Modelica/Electrical/Digital.mo,./Modelica/Electrical/Polyphase/Examples/PolyphaseRectifier.mo,./Modelica/Electrical/Polyphase/Examples/Utilities/PolyphaseRectifierData.mo,./Modelica/Fluid/package.mo,./Modelica/Fluid/Dissipation.mo,./Modelica/Fluid/Vessels.mo,./Modelica/Fluid/Examples/AST_BatchPlant.mo,./Modelica/Resources,./Modelica/Media/IdealGases/package.mo,./Modelica/Media/IdealGases/Common/SingleGasesData.mo,./Modelica/Media/IdealGases/Common/Functions.mo,./Modelica/Media/IdealGases/Common/package.mo,./Modelica/Media/Air/ReferenceAir.mo,./Modelica/Media/R134a.mo,./Modelica/Media/Water/IF97_Utilities.mo,./Modelica/Electrical/Analog/Ideal/AD_Converter.mo,./Modelica/Electrical/Analog/Examples/AD_DA_conversion.mo,./Modelica/Electrical/Polyphase/UsersGuide/References.mo,./Modelica/Electrical/Spice3.mo,./Modelica/Electrical/Machines/BasicMachines/Components/PartialAirGapDC.mo,./Modelica/Electrical/Machines/Examples/ControlledDCDrives,./Modelica/Electrical/Analog/UsersGuide/References.mo,./Modelica/Math/package.mo,./Modelica/Mechanics/Rotational,./Modelica/Mechanics/Translational,./Modelica/Mechanics/MultiBody,./Modelica/Magnetic/FluxTubes/UsersGuide/Contact.mo,./Modelica/Magnetic/FluxTubes/Material/SoftMagnetic/NickelIron,./Modelica/Magnetic/FundamentalWave/UsersGuide/References.mo,./ModelicaTest/Rotational.mo,./ModelicaTestConversion4.mo,./.CI,./.github,./.git,*.png -L nin,inport,te,sinc,vie,commutating
   clean_workflow_runs:
     timeout-minutes: 5
     if: github.repository_owner == 'modelica'
