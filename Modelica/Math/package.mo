@@ -4909,24 +4909,24 @@ Lapack documentation
 
     N       (input) INTEGER
             The number of linear equations, i.e., the order of the
-            matrix A.  N &gt;= 0.
+            matrix A.  N &ge; 0.
 
     KL      (input) INTEGER
-            The number of subdiagonals within the band of A.  KL &gt;= 0.
+            The number of subdiagonals within the band of A.  KL &ge; 0.
 
     KU      (input) INTEGER
-            The number of superdiagonals within the band of A.  KU &gt;= 0.
+            The number of superdiagonals within the band of A.  KU &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of columns
-            of the matrix B.  NRHS &gt;= 0.
+            of the matrix B.  NRHS &ge; 0.
 
     AB      (input/output) DOUBLE PRECISION array, dimension (LDAB,N)
             On entry, the matrix A in band storage, in rows KL+1 to
             2*KL+KU+1; rows 1 to KL of the array need not be set.
             The j-th column of A is stored in the j-th column of the
             array AB as follows:
-            AB(KL+KU+1+i-j,j) = A(i,j) for max(1,j-KU)&lt;=i&lt;=min(N,j+KL)
+            AB(KL+KU+1+i-j,j) = A(i,j) for max(1,j-KU) &le; i &le; min(N,j+KL)
             On exit, details of the factorization: U is stored as an
             upper triangular band matrix with KL+KU superdiagonals in
             rows 1 to KL+KU+1, and the multipliers used during the
@@ -4934,7 +4934,7 @@ Lapack documentation
             See below for further details.
 
     LDAB    (input) INTEGER
-            The leading dimension of the array AB.  LDAB &gt;= 2*KL+KU+1.
+            The leading dimension of the array AB.  LDAB &ge; 2*KL+KU+1.
 
     IPIV    (output) INTEGER array, dimension (N)
             The pivot indices that define the permutation matrix P;
@@ -4945,7 +4945,7 @@ Lapack documentation
             On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB &gt;= max(1,N).
+            The leading dimension of the array B.  LDB &ge; max(1,N).
 
     INFO    (output) INTEGER
             = 0:  successful exit
@@ -5065,14 +5065,14 @@ Lapack documentation
             = 'I':         Infinity-norm.
 
     N       (input) INTEGER
-            The order of the matrix A.  N &gt;= 0.
+            The order of the matrix A.  N &ge; 0.
 
     A       (input) DOUBLE PRECISION array, dimension (LDA,N)
             The factors L and U from the factorization A = P*L*U
             as computed by DGETRF.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     ANORM   (input) DOUBLE PRECISION
             If NORM = '1' or 'O', the 1-norm of the original matrix A.
@@ -5185,14 +5185,14 @@ Lapack documentation
             case INFO is set to N+2 (see INFO below).
 
     N       (input) INTEGER
-            The order of the matrix A. N &gt;= 0.
+            The order of the matrix A. N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N matrix A.
             On exit, A has been overwritten by its real Schur form T.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     SDIM    (output) INTEGER
             If SORT = 'N', SDIM = 0.
@@ -5216,14 +5216,14 @@ Lapack documentation
             If JOBVS = 'N', VS is not referenced.
 
     LDVS    (input) INTEGER
-            The leading dimension of the array VS.  LDVS &gt;= 1; if
-            JOBVS = 'V', LDVS &gt;= N.
+            The leading dimension of the array VS.  LDVS &ge; 1; if
+            JOBVS = 'V', LDVS &ge; N.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) contains the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK &gt;= max(1,3*N).
+            The dimension of the array WORK.  LWORK &ge; max(1,3*N).
             For good performance, LWORK must generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5238,7 +5238,7 @@ Lapack documentation
             = 0: successful exit
             &lt; 0: if INFO = -i, the i-th argument had an illegal value.
             &gt; 0: if INFO = i, and i is
-               &lt;= N: the QR algorithm failed to compute all the
+               &le; N: the QR algorithm failed to compute all the
                      eigenvalues; elements 1:ILO-1 and i+1:N of WR and WI
                      contain those eigenvalues which have converged; if
                      JOBVS = 'V', VS contains the matrix which reduces A
@@ -5325,14 +5325,14 @@ Lapack documentation
             = 'V': right eigenvectors of A are computed.
 
     N       (input) INTEGER
-            The order of the matrix A. N &gt;= 0.
+            The order of the matrix A. N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N matrix A.
             On exit, A has been overwritten.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     WR      (output) DOUBLE PRECISION array, dimension (N)
     WI      (output) DOUBLE PRECISION array, dimension (N)
@@ -5354,8 +5354,8 @@ Lapack documentation
             u(j+1) = VL(:,j) - i*VL(:,j+1).
 
     LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL &gt;= 1; if
-            JOBVL = 'V', LDVL &gt;= N.
+            The leading dimension of the array VL.  LDVL &ge; 1; if
+            JOBVL = 'V', LDVL &ge; N.
 
     VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
             If JOBVR = 'V', the right eigenvectors v(j) are stored one
@@ -5369,15 +5369,15 @@ Lapack documentation
             v(j+1) = VR(:,j) - i*VR(:,j+1).
 
     LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR &gt;= 1; if
-            JOBVR = 'V', LDVR &gt;= N.
+            The leading dimension of the array VR.  LDVR &ge; 1; if
+            JOBVR = 'V', LDVR &ge; N.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK &gt;= max(1,3*N), and
-            if JOBVL = 'V' or JOBVR = 'V', LWORK &gt;= 4*N.  For good
+            The dimension of the array WORK.  LWORK &ge; max(1,3*N), and
+            if JOBVL = 'V' or JOBVR = 'V', LWORK &ge; 4*N.  For good
             performance, LWORK must generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5469,14 +5469,14 @@ Lapack documentation
             = 'V': right eigenvectors of A are computed.
 
     N       (input) INTEGER
-            The order of the matrix A. N &gt;= 0.
+            The order of the matrix A. N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N matrix A.
             On exit, A has been overwritten.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     WR      (output) DOUBLE PRECISION array, dimension (N)
     WI      (output) DOUBLE PRECISION array, dimension (N)
@@ -5498,8 +5498,8 @@ Lapack documentation
             u(j+1) = VL(:,j) - i*VL(:,j+1).
 
     LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL &gt;= 1; if
-            JOBVL = 'V', LDVL &gt;= N.
+            The leading dimension of the array VL.  LDVL &ge; 1; if
+            JOBVL = 'V', LDVL &ge; N.
 
     VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
             If JOBVR = 'V', the right eigenvectors v(j) are stored one
@@ -5513,15 +5513,15 @@ Lapack documentation
             v(j+1) = VR(:,j) - i*VR(:,j+1).
 
     LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR &gt;= 1; if
-            JOBVR = 'V', LDVR &gt;= N.
+            The leading dimension of the array VR.  LDVR &ge; 1; if
+            JOBVR = 'V', LDVR &ge; N.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK &gt;= max(1,3*N), and
-            if JOBVL = 'V' or JOBVR = 'V', LWORK &gt;= 4*N.  For good
+            The dimension of the array WORK.  LWORK &ge; max(1,3*N), and
+            if JOBVL = 'V' or JOBVR = 'V', LWORK &ge; 4*N.  For good
             performance, LWORK must generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5671,7 +5671,7 @@ Lapack documentation
             must also be computed (JOBVL = 'V' and JOBVR = 'V').
 
     N       (input) INTEGER
-            The order of the matrix A. N &gt;= 0.
+            The order of the matrix A. N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N matrix A.
@@ -5680,7 +5680,7 @@ Lapack documentation
             version of the input matrix A.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     WR      (output) DOUBLE PRECISION array, dimension (N)
     WI      (output) DOUBLE PRECISION array, dimension (N)
@@ -5702,8 +5702,8 @@ Lapack documentation
             u(j+1) = VL(:,j) - i*VL(:,j+1).
 
     LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL &gt;= 1; if
-            JOBVL = 'V', LDVL &gt;= N.
+            The leading dimension of the array VL.  LDVL &ge; 1; if
+            JOBVL = 'V', LDVL &ge; N.
 
     VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
             If JOBVR = 'V', the right eigenvectors v(j) are stored one
@@ -5717,8 +5717,8 @@ Lapack documentation
             v(j+1) = VR(:,j) - i*VR(:,j+1).
 
     LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR &gt;= 1, and if
-            JOBVR = 'V', LDVR &gt;= N.
+            The leading dimension of the array VR.  LDVR &ge; 1, and if
+            JOBVR = 'V', LDVR &ge; N.
 
     ILO     (output) INTEGER
     IHI     (output) INTEGER
@@ -5754,8 +5754,8 @@ Lapack documentation
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.   If SENSE = 'N' or 'E',
-            LWORK &gt;= max(1,2*N), and if JOBVL = 'V' or JOBVR = 'V',
-            LWORK &gt;= 3*N.  If SENSE = 'V' or 'B', LWORK &gt;= N*(N+6).
+            LWORK &ge; max(1,2*N), and if JOBVL = 'V' or JOBVR = 'V',
+            LWORK &ge; 3*N.  If SENSE = 'V' or 'B', LWORK &ge; N*(N+6).
             For good performance, LWORK must generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5822,7 +5822,7 @@ Lapack documentation
     =========
 
     N       (input) INTEGER
-            The order of the matrix A.  N &gt;= 0.
+            The order of the matrix A.  N &ge; 0.
 
     ILO     (input) INTEGER
     IHI     (input) INTEGER
@@ -5830,7 +5830,7 @@ Lapack documentation
             and columns 1:ILO-1 and IHI+1:N. ILO and IHI are normally
             set by a previous call to DGEBAL; otherwise they should be
             set to 1 and N respectively. See Further Details.
-            1 &lt;= ILO &lt;= IHI &lt;= N, if N &gt; 0; ILO=1 and IHI=0, if N=0.
+            1 &le; ILO &le; IHI &le; N, if N &gt; 0; ILO=1 and IHI=0, if N=0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N general matrix to be reduced.
@@ -5841,7 +5841,7 @@ Lapack documentation
             reflectors. See Further Details.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     TAU     (output) DOUBLE PRECISION array, dimension (N-1)
             The scalar factors of the elementary reflectors (see Further
@@ -5852,8 +5852,8 @@ Lapack documentation
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The length of the array WORK.  LWORK &gt;= max(1,N).
-            For optimum performance LWORK &gt;= N*NB, where NB is the
+            The length of the array WORK.  LWORK &ge; max(1,N).
+            For optimum performance LWORK &ge; N*NB, where NB is the
             optimal blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5947,14 +5947,14 @@ Lapack documentation
 
     The following options are provided:
 
-    1. If TRANS = 'N' and m &gt;= n:  find the least squares solution of
+    1. If TRANS = 'N' and m &ge; n:  find the least squares solution of
        an overdetermined system, i.e., solve the least squares problem
                     minimize || B - A*X ||.
 
     2. If TRANS = 'N' and m &lt; n:  find the minimum norm solution of
        an underdetermined system A * X = B.
 
-    3. If TRANS = 'T' and m &gt;= n:  find the minimum norm solution of
+    3. If TRANS = 'T' and m &ge; n:  find the minimum norm solution of
        an undetermined system A**T * X = B.
 
     4. If TRANS = 'T' and m &lt; n:  find the least squares solution of
@@ -5974,25 +5974,25 @@ Lapack documentation
             = 'T': the linear system involves A**T.
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M &gt;= 0.
+            The number of rows of the matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N &gt;= 0.
+            The number of columns of the matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of
-            columns of the matrices B and X. NRHS &gt;=0.
+            columns of the matrices B and X. NRHS &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
             On exit,
-              if M &gt;= N, A is overwritten by details of its QR
+              if M &ge; N, A is overwritten by details of its QR
                          factorization as returned by DGEQRF;
               if M &lt;  N, A is overwritten by details of its LQ
                          factorization as returned by DGELQF.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
             On entry, the matrix B of right hand side vectors, stored
@@ -6000,13 +6000,13 @@ Lapack documentation
             if TRANS = 'T'.
             On exit, if INFO = 0, B is overwritten by the solution
             vectors, stored columnwise:
-            if TRANS = 'N' and m &gt;= n, rows 1 to n of B contain the least
+            if TRANS = 'N' and m &ge; n, rows 1 to n of B contain the least
             squares solution vectors; the residual sum of squares for the
             solution in each column is given by the sum of squares of
             elements N+1 to M in that column;
             if TRANS = 'N' and m &lt; n, rows 1 to N of B contain the
             minimum norm solution vectors;
-            if TRANS = 'T' and m &gt;= n, rows 1 to M of B contain the
+            if TRANS = 'T' and m &ge; n, rows 1 to M of B contain the
             minimum norm solution vectors;
             if TRANS = 'T' and m &lt; n, rows 1 to M of B contain the
             least squares solution vectors; the residual sum of squares
@@ -6014,16 +6014,16 @@ Lapack documentation
             squares of elements M+1 to N in that column.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B. LDB &gt;= MAX(1,M,N).
+            The leading dimension of the array B. LDB &ge; MAX(1,M,N).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            LWORK &gt;= max( 1, MN + max( MN, NRHS ) ).
+            LWORK &ge; max( 1, MN + max( MN, NRHS ) ).
             For optimal performance,
-            LWORK &gt;= max( 1, MN + max( MN, NRHS )*NB ).
+            LWORK &ge; max( 1, MN + max( MN, NRHS )*NB ).
             where MN = min(M,N) and NB is the optimum block size.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -6130,14 +6130,14 @@ Lapack documentation
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M &gt;= 0.
+            The number of rows of the matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N &gt;= 0.
+            The number of columns of the matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of
-            columns of matrices B and X. NRHS &gt;= 0.
+            columns of matrices B and X. NRHS &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
@@ -6145,14 +6145,14 @@ Lapack documentation
             complete orthogonal factorization.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
             On entry, the M-by-NRHS right hand side matrix B.
             On exit, the N-by-NRHS solution matrix X.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B. LDB &gt;= max(1,M,N).
+            The leading dimension of the array B. LDB &ge; max(1,M,N).
 
     JPVT    (input/output) INTEGER array, dimension (N)
             On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
@@ -6177,10 +6177,10 @@ Lapack documentation
     LWORK   (input) INTEGER
             The dimension of the array WORK.
             The unblocked strategy requires that:
-               LWORK &gt;= MAX( MN+3*N+1, 2*MN+NRHS ),
+               LWORK &ge; MAX( MN+3*N+1, 2*MN+NRHS ),
             where MN = min( M, N ).
             The block algorithm requires that:
-               LWORK &gt;= MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ),
+               LWORK &ge; MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ),
             where NB is an upper bound on the blocksize returned
             by ILAENV for the routines DGEQP3, DTZRZF, STZRQF, DORMQR,
             and DORMRZ.
@@ -6287,10 +6287,10 @@ Lapack documentation
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix A. M &gt;= 0.
+            The number of rows of the matrix A. M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N &gt;= 0.
+            The number of columns of the matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
@@ -6301,7 +6301,7 @@ Lapack documentation
             reflectors.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A. LDA &gt;= max(1,M).
+            The leading dimension of the array A. LDA &ge; max(1,M).
 
     JPVT    (input/output) INTEGER array, dimension (N)
             On entry, if JPVT(J).ne.0, the J-th column of A is permuted
@@ -6317,8 +6317,8 @@ Lapack documentation
             On exit, if INFO=0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK &gt;= 3*N+1.
-            For optimal performance LWORK &gt;= 2*N+( N+1 )*NB, where NB
+            The dimension of the array WORK. LWORK &ge; 3*N+1.
+            For optimal performance LWORK &ge; 2*N+( N+1 )*NB, where NB
             is the optimal blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -6392,22 +6392,22 @@ Lapack documentation
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M &gt;= 0.
+            The number of rows of the matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N &gt;= 0.
+            The number of columns of the matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
             On exit, the elements on and above the diagonal of the array
             contain the min(M,N)-by-N upper trapezoidal matrix R (R is
-            upper triangular if m &gt;= n); the elements below the diagonal,
+            upper triangular if m &ge; n); the elements below the diagonal,
             with the array TAU, represent the orthogonal matrix Q as a
             product of min(m,n) elementary reflectors (see Further
             Details).
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     TAU     (output) DOUBLE PRECISION array, dimension (min(M,N))
             The scalar factors of the elementary reflectors (see Further
@@ -6417,8 +6417,8 @@ Lapack documentation
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK &gt;= max(1,N).
-            For optimum performance LWORK &gt;= N*NB, where NB is
+            The dimension of the array WORK.  LWORK &ge; max(1,N).
+            For optimum performance LWORK &ge; N*NB, where NB is
             the optimal blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -6528,7 +6528,7 @@ Lapack documentation
             = 'S':  the first min(M,N) columns of U and the first
                     min(M,N) rows of V**T are returned in the arrays U
                     and VT;
-            = 'O':  If M &gt;= N, the first N columns of U are overwritten
+            = 'O':  If M &ge; N, the first N columns of U are overwritten
                     on the array A and all rows of V**T are returned in
                     the array VT;
                     otherwise, all columns of U are returned in the
@@ -6537,27 +6537,27 @@ Lapack documentation
             = 'N':  no columns of U or rows of V**T are computed.
 
     M       (input) INTEGER
-            The number of rows of the input matrix A.  M &gt;= 0.
+            The number of rows of the input matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the input matrix A.  N &gt;= 0.
+            The number of columns of the input matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
             On exit,
             if JOBZ = 'O',  A is overwritten with the first N columns
                             of U (the left singular vectors, stored
-                            columnwise) if M &gt;= N;
+                            columnwise) if M &ge; N;
                             A is overwritten with the first M rows
                             of V**T (the right singular vectors, stored
                             rowwise) otherwise.
             if JOBZ .ne. 'O', the contents of A are destroyed.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     S       (output) DOUBLE PRECISION array, dimension (min(M,N))
-            The singular values of A, sorted so that S(i) &gt;= S(i+1).
+            The singular values of A, sorted so that S(i) &ge; S(i+1).
 
     U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
             UCOL = M if JOBZ = 'A' or JOBZ = 'O' and M &lt; N;
@@ -6566,36 +6566,36 @@ Lapack documentation
             orthogonal matrix U;
             if JOBZ = 'S', U contains the first min(M,N) columns of U
             (the left singular vectors, stored columnwise);
-            if JOBZ = 'O' and M &gt;= N, or JOBZ = 'N', U is not referenced.
+            if JOBZ = 'O' and M &ge; N, or JOBZ = 'N', U is not referenced.
 
     LDU     (input) INTEGER
-            The leading dimension of the array U.  LDU &gt;= 1; if
-            JOBZ = 'S' or 'A' or JOBZ = 'O' and M &lt; N, LDU &gt;= M.
+            The leading dimension of the array U.  LDU &ge; 1; if
+            JOBZ = 'S' or 'A' or JOBZ = 'O' and M &lt; N, LDU &ge; M.
 
     VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
-            If JOBZ = 'A' or JOBZ = 'O' and M &gt;= N, VT contains the
+            If JOBZ = 'A' or JOBZ = 'O' and M &ge; N, VT contains the
             N-by-N orthogonal matrix V**T;
             if JOBZ = 'S', VT contains the first min(M,N) rows of
             V**T (the right singular vectors, stored rowwise);
             if JOBZ = 'O' and M &lt; N, or JOBZ = 'N', VT is not referenced.
 
     LDVT    (input) INTEGER
-            The leading dimension of the array VT.  LDVT &gt;= 1; if
-            JOBZ = 'A' or JOBZ = 'O' and M &gt;= N, LDVT &gt;= N;
-            if JOBZ = 'S', LDVT &gt;= min(M,N).
+            The leading dimension of the array VT.  LDVT &ge; 1; if
+            JOBZ = 'A' or JOBZ = 'O' and M &ge; N, LDVT &ge; N;
+            if JOBZ = 'S', LDVT &ge; min(M,N).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK &gt;= 1.
+            The dimension of the array WORK. LWORK &ge; 1.
             If JOBZ = 'N',
-              LWORK &gt;= 3*min(M,N) + max(max(M,N),7*min(M,N)).
+              LWORK &ge; 3*min(M,N) + max(max(M,N),7*min(M,N)).
             If JOBZ = 'O',
-              LWORK &gt;= 3*min(M,N) +
+              LWORK &ge; 3*min(M,N) +
                        max(max(M,N),5*min(M,N)*min(M,N)+4*min(M,N)).
             If JOBZ = 'S' or 'A'
-              LWORK &gt;= 3*min(M,N) +
+              LWORK &ge; 3*min(M,N) +
                        max(max(M,N),4*min(M,N)*min(M,N)+4*min(M,N)).
             For good performance, LWORK should generally be larger.
             If LWORK = -1 but other input arguments are legal, WORK(1)
@@ -6666,11 +6666,11 @@ Lapack documentation
 
     N       (input) INTEGER
             The number of linear equations, i.e., the order of the
-            matrix A.  N &gt;= 0.
+            matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of columns
-            of the matrix B.  NRHS &gt;= 0.
+            of the matrix B.  NRHS &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N coefficient matrix A.
@@ -6678,7 +6678,7 @@ Lapack documentation
             A = P*L*U; the unit diagonal elements of L are not stored.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     IPIV    (output) INTEGER array, dimension (N)
             The pivot indices that define the permutation matrix P;
@@ -6689,7 +6689,7 @@ Lapack documentation
             On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB &gt;= max(1,N).
+            The leading dimension of the array B.  LDB &ge; max(1,N).
 
     INFO    (output) INTEGER
             = 0:  successful exit
@@ -6813,10 +6813,10 @@ Lapack documentation
             JOBVT and JOBU cannot both be 'O'.
 
     M       (input) INTEGER
-            The number of rows of the input matrix A.  M &gt;= 0.
+            The number of rows of the input matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the input matrix A.  N &gt;= 0.
+            The number of columns of the input matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
@@ -6831,10 +6831,10 @@ Lapack documentation
                             are destroyed.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     S       (output) DOUBLE PRECISION array, dimension (min(M,N))
-            The singular values of A, sorted so that S(i) &gt;= S(i+1).
+            The singular values of A, sorted so that S(i) &ge; S(i+1).
 
     U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
             (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
@@ -6844,8 +6844,8 @@ Lapack documentation
             if JOBU = 'N' or 'O', U is not referenced.
 
     LDU     (input) INTEGER
-            The leading dimension of the array U.  LDU &gt;= 1; if
-            JOBU = 'S' or 'A', LDU &gt;= M.
+            The leading dimension of the array U.  LDU &ge; 1; if
+            JOBU = 'S' or 'A', LDU &ge; M.
 
     VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
             If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
@@ -6855,8 +6855,8 @@ Lapack documentation
             if JOBVT = 'N' or 'O', VT is not referenced.
 
     LDVT    (input) INTEGER
-            The leading dimension of the array VT.  LDVT &gt;= 1; if
-            JOBVT = 'A', LDVT &gt;= N; if JOBVT = 'S', LDVT &gt;= min(M,N).
+            The leading dimension of the array VT.  LDVT &ge; 1; if
+            JOBVT = 'A', LDVT &ge; N; if JOBVT = 'S', LDVT &ge; min(M,N).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
@@ -6868,7 +6868,7 @@ Lapack documentation
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            LWORK &gt;= MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
+            LWORK &ge; MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
             For good performance, LWORK should generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -6966,10 +6966,10 @@ Lapack documentation
             JOBVT and JOBU cannot both be 'O'.
 
     M       (input) INTEGER
-            The number of rows of the input matrix A.  M &gt;= 0.
+            The number of rows of the input matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the input matrix A.  N &gt;= 0.
+            The number of columns of the input matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
@@ -6984,10 +6984,10 @@ Lapack documentation
                             are destroyed.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     S       (output) DOUBLE PRECISION array, dimension (min(M,N))
-            The singular values of A, sorted so that S(i) &gt;= S(i+1).
+            The singular values of A, sorted so that S(i) &ge; S(i+1).
 
     U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
             (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
@@ -6997,8 +6997,8 @@ Lapack documentation
             if JOBU = 'N' or 'O', U is not referenced.
 
     LDU     (input) INTEGER
-            The leading dimension of the array U.  LDU &gt;= 1; if
-            JOBU = 'S' or 'A', LDU &gt;= M.
+            The leading dimension of the array U.  LDU &ge; 1; if
+            JOBU = 'S' or 'A', LDU &ge; M.
 
     VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
             If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
@@ -7008,8 +7008,8 @@ Lapack documentation
             if JOBVT = 'N' or 'O', VT is not referenced.
 
     LDVT    (input) INTEGER
-            The leading dimension of the array VT.  LDVT &gt;= 1; if
-            JOBVT = 'A', LDVT &gt;= N; if JOBVT = 'S', LDVT &gt;= min(M,N).
+            The leading dimension of the array VT.  LDVT &ge; 1; if
+            JOBVT = 'A', LDVT &ge; N; if JOBVT = 'S', LDVT &ge; min(M,N).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
@@ -7021,7 +7021,7 @@ Lapack documentation
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            LWORK &gt;= MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
+            LWORK &ge; MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
             For good performance, LWORK should generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -7169,11 +7169,11 @@ Lapack documentation
 
     N       (input) INTEGER
             The number of linear equations, i.e., the order of the
-            matrix A.  N &gt;= 0.
+            matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of columns
-            of the matrices B and X.  NRHS &gt;= 0.
+            of the matrices B and X.  NRHS &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N matrix A.  If FACT = 'F' and EQUED is
@@ -7187,7 +7187,7 @@ Lapack documentation
             EQUED = 'B':  A := diag(R) * A * diag(C).
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     AF      (input or output) DOUBLE PRECISION array, dimension (LDAF,N)
             If FACT = 'F', then AF is an input argument and on entry
@@ -7205,7 +7205,7 @@ Lapack documentation
             the form of the equilibrated matrix).
 
     LDAF    (input) INTEGER
-            The leading dimension of the array AF.  LDAF &gt;= max(1,N).
+            The leading dimension of the array AF.  LDAF &ge; max(1,N).
 
     IPIV    (input or output) INTEGER array, dimension (N)
             If FACT = 'F', then IPIV is an input argument and on entry
@@ -7257,7 +7257,7 @@ Lapack documentation
             overwritten by diag(C)*B.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB &gt;= max(1,N).
+            The leading dimension of the array B.  LDB &ge; max(1,N).
 
     X       (output) DOUBLE PRECISION array, dimension (LDX,NRHS)
             If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X
@@ -7268,7 +7268,7 @@ Lapack documentation
             and EQUED = 'R' or 'B'.
 
     LDX     (input) INTEGER
-            The leading dimension of the array X.  LDX &gt;= max(1,N).
+            The leading dimension of the array X.  LDX &ge; max(1,N).
 
     RCOND   (output) DOUBLE PRECISION
             The estimate of the reciprocal condition number of the matrix
@@ -7299,7 +7299,7 @@ Lapack documentation
             of the LU factorization of the (equilibrated) matrix A
             could be poor. This also means that the solution X, condition
             estimator RCOND, and forward error bound FERR could be
-            unreliable. If factorization fails with 0&lt;INFO&lt;=N, then
+            unreliable. If factorization fails with 0 &lt; INFO &le; N, then
             WORK(1) contains the reciprocal pivot growth factor for the
             leading INFO columns of A.
 
@@ -7309,7 +7309,7 @@ Lapack documentation
             = 0:  successful exit
             &lt; 0:  if INFO = -i, the i-th argument had an illegal value
             &gt; 0:  if INFO = i, and i is
-                  &lt;= N:  U(i,i) is exactly zero.  The factorization has
+                  &le; N:   U(i,i) is exactly zero.  The factorization has
                          been completed, but the factor U is exactly
                          singular, so the solution and error bounds
                          could not be computed. RCOND = 0 is returned.
@@ -7367,10 +7367,10 @@ Lapack documentation
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M &gt;= 0.
+            The number of rows of the matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N &gt;= 0.
+            The number of columns of the matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix to be factored.
@@ -7378,10 +7378,10 @@ Lapack documentation
             A = P*L*U; the unit diagonal elements of L are not stored.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     IPIV    (output) INTEGER array, dimension (min(M,N))
-            The pivot indices; for 1 &lt;= i &lt;= min(M,N), row i of the
+            The pivot indices; for 1 &le; i &le; min(M,N), row i of the
             matrix was interchanged with row IPIV(i).
 
     INFO    (output) INTEGER
@@ -7438,7 +7438,7 @@ Lapack documentation
     =========
 
     N       (input) INTEGER
-            The order of the matrix A.  N &gt;= 0.
+            The order of the matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the factors L and U from the factorization
@@ -7446,18 +7446,18 @@ Lapack documentation
             On exit, if INFO = 0, the inverse of the original matrix A.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     IPIV    (input) INTEGER array, dimension (N)
-            The pivot indices from DGETRF; for 1&lt;=i&lt;=N, row i of the
+            The pivot indices from DGETRF; for 1 &le; i &le; N, row i of the
             matrix was interchanged with row IPIV(i).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO=0, then WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK &gt;= max(1,N).
-            For optimal performance LWORK &gt;= N*NB, where NB is
+            The dimension of the array WORK.  LWORK &ge; max(1,N).
+            For optimal performance LWORK &ge; N*NB, where NB is
             the optimal blocksize returned by ILAENV.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -7524,21 +7524,21 @@ Lapack documentation
             = 'C':  A'* X = B  (Conjugate transpose = Transpose)
 
     N       (input) INTEGER
-            The order of the matrix A.  N &gt;= 0.
+            The order of the matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of columns
-            of the matrix B.  NRHS &gt;= 0.
+            of the matrix B.  NRHS &ge; 0.
 
     A       (input) DOUBLE PRECISION array, dimension (LDA,N)
             The factors L and U from the factorization A = P*L*U
             as computed by DGETRF.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     IPIV    (input) INTEGER array, dimension (N)
-            The pivot indices from DGETRF; for 1&lt;=i&lt;=N, row i of the
+            The pivot indices from DGETRF; for 1 &le; i &le; N, row i of the
             matrix was interchanged with row IPIV(i).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
@@ -7546,7 +7546,7 @@ Lapack documentation
             On exit, the solution matrix X.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB &gt;= max(1,N).
+            The leading dimension of the array B.  LDB &ge; max(1,N).
 
     INFO    (output) INTEGER
             = 0:  successful exit
@@ -7678,21 +7678,21 @@ Lapack documentation
             = 'V':  compute the right generalized eigenvectors.
 
     N       (input) INTEGER
-            The order of the matrices A, B, VL, and VR.  N &gt;= 0.
+            The order of the matrices A, B, VL, and VR.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA, N)
             On entry, the matrix A in the pair (A,B).
             On exit, A has been overwritten.
 
     LDA     (input) INTEGER
-            The leading dimension of A.  LDA &gt;= max(1,N).
+            The leading dimension of A.  LDA &ge; max(1,N).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB, N)
             On entry, the matrix B in the pair (A,B).
             On exit, B has been overwritten.
 
     LDB     (input) INTEGER
-            The leading dimension of B.  LDB &gt;= max(1,N).
+            The leading dimension of B.  LDB &ge; max(1,N).
 
     ALPHAR  (output) DOUBLE PRECISION array, dimension (N)
     ALPHAI  (output) DOUBLE PRECISION array, dimension (N)
@@ -7722,8 +7722,8 @@ Lapack documentation
             Not referenced if JOBVL = 'N'.
 
     LDVL    (input) INTEGER
-            The leading dimension of the matrix VL. LDVL &gt;= 1, and
-            if JOBVL = 'V', LDVL &gt;= N.
+            The leading dimension of the matrix VL. LDVL &ge; 1, and
+            if JOBVL = 'V', LDVL &ge; N.
 
     VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
             If JOBVR = 'V', the right eigenvectors v(j) are stored one
@@ -7737,14 +7737,14 @@ Lapack documentation
             Not referenced if JOBVR = 'N'.
 
     LDVR    (input) INTEGER
-            The leading dimension of the matrix VR. LDVR &gt;= 1, and
-            if JOBVR = 'V', LDVR &gt;= N.
+            The leading dimension of the matrix VR. LDVR &ge; 1, and
+            if JOBVR = 'V', LDVR &ge; N.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK &gt;= max(1,8*N).
+            The dimension of the array WORK.  LWORK &ge; max(1,8*N).
             For good performance, LWORK must generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -7893,7 +7893,7 @@ Lapack documentation
             = 'B': computed for eigenvalues and eigenvectors.
 
     N       (input) INTEGER
-            The order of the matrices A, B, VL, and VR.  N &gt;= 0.
+            The order of the matrices A, B, VL, and VR.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA, N)
             On entry, the matrix A in the pair (A,B).
@@ -7902,7 +7902,7 @@ Lapack documentation
             form of the \"balanced\" versions of the input A and B.
 
     LDA     (input) INTEGER
-            The leading dimension of A.  LDA &gt;= max(1,N).
+            The leading dimension of A.  LDA &ge; max(1,N).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB, N)
             On entry, the matrix B in the pair (A,B).
@@ -7911,7 +7911,7 @@ Lapack documentation
             form of the \"balanced\" versions of the input A and B.
 
     LDB     (input) INTEGER
-            The leading dimension of B.  LDB &gt;= max(1,N).
+            The leading dimension of B.  LDB &ge; max(1,N).
 
     ALPHAR  (output) DOUBLE PRECISION array, dimension (N)
     ALPHAI  (output) DOUBLE PRECISION array, dimension (N)
@@ -7941,8 +7941,8 @@ Lapack documentation
             Not referenced if JOBVL = 'N'.
 
     LDVL    (input) INTEGER
-            The leading dimension of the matrix VL. LDVL &gt;= 1, and
-            if JOBVL = 'V', LDVL &gt;= N.
+            The leading dimension of the matrix VL. LDVL &ge; 1, and
+            if JOBVL = 'V', LDVL &ge; N.
 
     VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
             If JOBVR = 'V', the right eigenvectors v(j) are stored one
@@ -7956,8 +7956,8 @@ Lapack documentation
             Not referenced if JOBVR = 'N'.
 
     LDVR    (input) INTEGER
-            The leading dimension of the matrix VR. LDVR &gt;= 1, and
-            if JOBVR = 'V', LDVR &gt;= N.
+            The leading dimension of the matrix VR. LDVR &ge; 1, and
+            if JOBVR = 'V', LDVR &ge; N.
 
     ILO     (output) INTEGER
     IHI     (output) INTEGER
@@ -8017,11 +8017,11 @@ Lapack documentation
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK &gt;= max(1,2*N).
+            The dimension of the array WORK. LWORK &ge; max(1,2*N).
             If BALANC = 'S' or 'B', or JOBVL = 'V', or JOBVR = 'V',
-            LWORK &gt;= max(1,6*N).
-            If SENSE = 'E' or 'B', LWORK &gt;= max(1,10*N).
-            If SENSE = 'V' or 'B', LWORK &gt;= 2*N*N+8*N+16.
+            LWORK &ge; max(1,6*N).
+            If SENSE = 'E' or 'B', LWORK &ge; max(1,10*N).
+            If SENSE = 'V' or 'B', LWORK &ge; 2*N*N+8*N+16.
 
             If LWORK = -1, then a workspace query is assumed; the routine
             only calculates the optimal size of the WORK array, returns
@@ -8060,7 +8060,7 @@ Lapack documentation
     computed generalized eigenvalue w and the corresponding exact
     eigenvalue lambda is
 
-         chord(w, lambda) &lt;= EPS * norm(ABNRM, BBNRM) / RCONDE(I)
+         chord(w, lambda) &le; EPS * norm(ABNRM, BBNRM) / RCONDE(I)
 
     An approximate error bound for the angle between the i-th computed
     eigenvector VL(i) or VR(i) is given by
@@ -8124,7 +8124,7 @@ Lapack documentation
 
     where A is an M-by-N matrix, B is a P-by-N matrix, c is a given
     M-vector, and d is a given P-vector. It is assumed that
-    P &lt;= N &lt;= M+P, and
+    P &le; N &le; M+P, and
 
              rank(B) = P and  rank( (A) ) = N.
                                   ( (B) )
@@ -8139,13 +8139,13 @@ Lapack documentation
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M &gt;= 0.
+            The number of rows of the matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrices A and B. N &gt;= 0.
+            The number of columns of the matrices A and B. N &ge; 0.
 
     P       (input) INTEGER
-            The number of rows of the matrix B. 0 &lt;= P &lt;= N &lt;= M+P.
+            The number of rows of the matrix B. 0 &le; P &le; N &le; M+P.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
@@ -8153,7 +8153,7 @@ Lapack documentation
             contain the min(M,N)-by-N upper trapezoidal matrix T.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A. LDA &gt;= max(1,M).
+            The leading dimension of the array A. LDA &ge; max(1,M).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB,N)
             On entry, the P-by-N matrix B.
@@ -8161,7 +8161,7 @@ Lapack documentation
             contains the P-by-P upper triangular matrix R.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B. LDB &gt;= max(1,P).
+            The leading dimension of the array B. LDB &ge; max(1,P).
 
     C       (input/output) DOUBLE PRECISION array, dimension (M)
             On entry, C contains the right hand side vector for the
@@ -8182,8 +8182,8 @@ Lapack documentation
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK &gt;= max(1,M+N+P).
-            For optimum performance LWORK &gt;= P+min(M,N)+max(M,N)*NB,
+            The dimension of the array WORK. LWORK &ge; max(1,M+N+P).
+            For optimum performance LWORK &ge; P+min(M,N)+max(M,N)*NB,
             where NB is an upper bound for the optimal blocksizes for
             DGEQRF, SGERQF, DORMQR and SORMRQ.
 
@@ -8258,11 +8258,11 @@ Lapack documentation
     =========
 
     N       (input) INTEGER
-            The order of the matrix A.  N &gt;= 0.
+            The order of the matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of columns
-            of the matrix B.  NRHS &gt;= 0.
+            of the matrix B.  NRHS &ge; 0.
 
     DL      (input/output) DOUBLE PRECISION array, dimension (N-1)
             On entry, DL must contain the (n-1) sub-diagonal elements of
@@ -8289,7 +8289,7 @@ Lapack documentation
             On exit, if INFO = 0, the N by NRHS solution matrix X.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB &gt;= max(1,N).
+            The leading dimension of the array B.  LDB &ge; max(1,N).
 
     INFO    (output) INTEGER
             = 0: successful exit
@@ -8468,14 +8468,14 @@ Lapack documentation
                    the product Z1*Z is returned.
 
     N       (input) INTEGER
-            The order of the matrices H, T, Q, and Z.  N &gt;= 0.
+            The order of the matrices H, T, Q, and Z.  N &ge; 0.
 
     ILO     (input) INTEGER
     IHI     (input) INTEGER
             ILO and IHI mark the rows and columns of H which are in
             Hessenberg form.  It is assumed that A is already upper
             triangular in rows and columns 1:ILO-1 and IHI+1:N.
-            If N &gt; 0, 1 &lt;= ILO &lt;= IHI &lt;= N; if N = 0, ILO=1 and IHI=0.
+            If N &gt; 0, 1 &le; ILO &le; IHI &le; N; if N = 0, ILO=1 and IHI=0.
 
     H       (input/output) DOUBLE PRECISION array, dimension (LDH, N)
             On entry, the N-by-N upper Hessenberg matrix H.
@@ -8488,7 +8488,7 @@ Lapack documentation
             the rest of H is unspecified.
 
     LDH     (input) INTEGER
-            The leading dimension of the array H.  LDH &gt;= max( 1, N ).
+            The leading dimension of the array H.  LDH &ge; max( 1, N ).
 
     T       (input/output) DOUBLE PRECISION array, dimension (LDT, N)
             On entry, the N-by-N upper triangular matrix T.
@@ -8502,7 +8502,7 @@ Lapack documentation
             the rest of T is unspecified.
 
     LDT     (input) INTEGER
-            The leading dimension of the array T.  LDT &gt;= max( 1, N ).
+            The leading dimension of the array T.  LDT &ge; max( 1, N ).
 
     ALPHAR  (output) DOUBLE PRECISION array, dimension (N)
             The real parts of each scalar alpha defining an eigenvalue
@@ -8532,8 +8532,8 @@ Lapack documentation
             Not referenced if COMPZ = 'N'.
 
     LDQ     (input) INTEGER
-            The leading dimension of the array Q.  LDQ &gt;= 1.
-            If COMPQ='V' or 'I', then LDQ &gt;= N.
+            The leading dimension of the array Q.  LDQ &ge; 1.
+            If COMPQ='V' or 'I', then LDQ &ge; N.
 
     Z       (input/output) DOUBLE PRECISION array, dimension (LDZ, N)
             On entry, if COMPZ = 'V', the orthogonal matrix Z1 used in
@@ -8544,14 +8544,14 @@ Lapack documentation
             Not referenced if COMPZ = 'N'.
 
     LDZ     (input) INTEGER
-            The leading dimension of the array Z.  LDZ &gt;= 1.
-            If COMPZ='V' or 'I', then LDZ &gt;= N.
+            The leading dimension of the array Z.  LDZ &ge; 1.
+            If COMPZ='V' or 'I', then LDZ &ge; N.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
-            On exit, if INFO &gt;= 0, WORK(1) returns the optimal LWORK.
+            On exit, if INFO &ge; 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK &gt;= max(1,N).
+            The dimension of the array WORK.  LWORK &ge; max(1,N).
 
             If LWORK = -1, then a workspace query is assumed; the routine
             only calculates the optimal size of the WORK array, returns
@@ -8657,7 +8657,7 @@ Lapack documentation
                   the product Q*Z is returned.
 
     N     (input) INTEGER
-          The order of the matrix H.  N &gt;= 0.
+          The order of the matrix H.  N &ge; 0.
 
     ILO   (input) INTEGER
     IHI   (input) INTEGER
@@ -8666,7 +8666,7 @@ Lapack documentation
           set by a previous call to DGEBAL, and then passed to DGEHRD
           when the matrix output by DGEBAL is reduced to Hessenberg
           form. Otherwise ILO and IHI should be set to 1 and N
-          respectively.  If N&gt;0, then 1&lt;=ILO&lt;=IHI&lt;=N.
+          respectively.  If N &gt; 0, then 1 &le; ILO &le; IHI &le; N.
           If N = 0, then ILO = 1 and IHI = 0.
 
     H     (input/output) DOUBLE PRECISION array, dimension (LDH,N)
@@ -8686,7 +8686,7 @@ Lapack documentation
           or j = IHI+1, IHI+2, ... N.
 
     LDH   (input) INTEGER
-          The leading dimension of the array H. LDH &gt;= max(1,N).
+          The leading dimension of the array H. LDH &ge; max(1,N).
 
     WR    (output) DOUBLE PRECISION array, dimension (N)
     WI    (output) DOUBLE PRECISION array, dimension (N)
@@ -8715,14 +8715,14 @@ Lapack documentation
 
     LDZ   (input) INTEGER
           The leading dimension of the array Z.  if COMPZ = 'I' or
-          COMPZ = 'V', then LDZ&gt;=MAX(1,N).  Otherwise, LDZ&gt;=1.
+          COMPZ = 'V', then LDZ &ge; MAX(1,N).  Otherwise, LDZ &ge; 1.
 
     WORK  (workspace/output) DOUBLE PRECISION array, dimension (LWORK)
           On exit, if INFO = 0, WORK(1) returns an estimate of
           the optimal value for LWORK.
 
     LWORK (input) INTEGER
-          The dimension of the array WORK.  LWORK &gt;= max(1,N)
+          The dimension of the array WORK.  LWORK &ge; max(1,N)
           is sufficient and delivers very good and sometimes
           optimal performance.  However, LWORK as large as 11*N
           may be required for optimal performance.  A workspace
@@ -8834,21 +8834,21 @@ Lapack documentation
             above.
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M &gt;= 0.  When M = 0,
+            The number of rows of the matrix A.  M &ge; 0.  When M = 0,
             DLANGE is set to zero.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N &gt;= 0.  When N = 0,
+            The number of columns of the matrix A.  N &ge; 0.  When N = 0,
             DLANGE is set to zero.
 
     A       (input) DOUBLE PRECISION array, dimension (LDA,N)
             The m by n matrix A.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(M,1).
+            The leading dimension of the array A.  LDA &ge; max(M,1).
 
     WORK    (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
-            where LWORK &gt;= M when NORM = 'I'; otherwise, WORK is not
+            where LWORK &ge; M when NORM = 'I'; otherwise, WORK is not
             referenced.
 </pre>
 </html>"));
@@ -8904,14 +8904,14 @@ Lapack documentation
     =========
 
     N       (input) INTEGER
-            The order of the matrix Q. N &gt;= 0.
+            The order of the matrix Q. N &ge; 0.
 
     ILO     (input) INTEGER
     IHI     (input) INTEGER
             ILO and IHI must have the same values as in the previous call
             of DGEHRD. Q is equal to the unit matrix except in the
             submatrix Q(ilo+1:ihi,ilo+1:ihi).
-            1 &lt;= ILO &lt;= IHI &lt;= N, if N &gt; 0; ILO=1 and IHI=0, if N=0.
+            1 &le; ILO &le; IHI &le; N, if N &gt; 0; ILO=1 and IHI=0, if N=0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the vectors which define the elementary reflectors,
@@ -8919,7 +8919,7 @@ Lapack documentation
             On exit, the N-by-N orthogonal matrix Q.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A. LDA &gt;= max(1,N).
+            The leading dimension of the array A. LDA &ge; max(1,N).
 
     TAU     (input) DOUBLE PRECISION array, dimension (N-1)
             TAU(i) must contain the scalar factor of the elementary
@@ -8929,8 +8929,8 @@ Lapack documentation
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK &gt;= IHI-ILO.
-            For optimum performance LWORK &gt;= (IHI-ILO)*NB, where NB is
+            The dimension of the array WORK. LWORK &ge; IHI-ILO.
+            For optimum performance LWORK &ge; (IHI-ILO)*NB, where NB is
             the optimal blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -8994,14 +8994,14 @@ Lapack documentation
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix Q. M &gt;= 0.
+            The number of rows of the matrix Q. M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix Q. M &gt;= N &gt;= 0.
+            The number of columns of the matrix Q. M &ge; N &ge; 0.
 
     K       (input) INTEGER
             The number of elementary reflectors whose product defines the
-            matrix Q. N &gt;= K &gt;= 0.
+            matrix Q. N &ge; K &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the i-th column must contain the vector which
@@ -9011,7 +9011,7 @@ Lapack documentation
             On exit, the M-by-N matrix Q.
 
     LDA     (input) INTEGER
-            The first dimension of the array A. LDA &gt;= max(1,M).
+            The first dimension of the array A. LDA &ge; max(1,M).
 
     TAU     (input) DOUBLE PRECISION array, dimension (K)
             TAU(i) must contain the scalar factor of the elementary
@@ -9021,8 +9021,8 @@ Lapack documentation
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK &gt;= max(1,N).
-            For optimum performance LWORK &gt;= N*NB, where NB is the
+            The dimension of the array WORK. LWORK &ge; max(1,N).
+            For optimum performance LWORK &ge; N*NB, where NB is the
             optimal blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -9109,19 +9109,19 @@ Lapack documentation
             = 'T':  Transpose, apply Q**T.
 
     M       (input) INTEGER
-            The number of rows of the matrix C. M &gt;= 0.
+            The number of rows of the matrix C. M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix C. N &gt;= 0.
+            The number of columns of the matrix C. N &ge; 0.
 
     ILO     (input) INTEGER
     IHI     (input) INTEGER
             ILO and IHI must have the same values as in the previous call
             of DGEHRD. Q is equal to the unit matrix except in the
             submatrix Q(ilo+1:ihi,ilo+1:ihi).
-            If SIDE = 'L', then 1 &lt;= ILO &lt;= IHI &lt;= M, if M &gt; 0, and
+            If SIDE = 'L', then 1 &le; ILO &le; IHI &le; M, if M &gt; 0, and
             ILO = 1 and IHI = 0, if M = 0;
-            if SIDE = 'R', then 1 &lt;= ILO &lt;= IHI &lt;= N, if N &gt; 0, and
+            if SIDE = 'R', then 1 &le; ILO &le; IHI &le; N, if N &gt; 0, and
             ILO = 1 and IHI = 0, if N = 0.
 
     A       (input) DOUBLE PRECISION array, dimension
@@ -9132,7 +9132,7 @@ Lapack documentation
 
     LDA     (input) INTEGER
             The leading dimension of the array A.
-            LDA &gt;= max(1,M) if SIDE = 'L'; LDA &gt;= max(1,N) if SIDE = 'R'.
+            LDA &ge; max(1,M) if SIDE = 'L'; LDA &ge; max(1,N) if SIDE = 'R'.
 
     TAU     (input) DOUBLE PRECISION array, dimension
                                  (M-1) if SIDE = 'L'
@@ -9145,17 +9145,17 @@ Lapack documentation
             On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 
     LDC     (input) INTEGER
-            The leading dimension of the array C. LDC &gt;= max(1,M).
+            The leading dimension of the array C. LDC &ge; max(1,M).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            If SIDE = 'L', LWORK &gt;= max(1,N);
-            if SIDE = 'R', LWORK &gt;= max(1,M).
-            For optimum performance LWORK &gt;= N*NB if SIDE = 'L', and
-            LWORK &gt;= M*NB if SIDE = 'R', where NB is the optimal
+            If SIDE = 'L', LWORK &ge; max(1,N);
+            if SIDE = 'R', LWORK &ge; max(1,M).
+            For optimum performance LWORK &ge; N*NB if SIDE = 'L', and
+            LWORK &ge; M*NB if SIDE = 'R', where NB is the optimal
             blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -9241,16 +9241,16 @@ Lapack documentation
             = 'T':  Transpose, apply Q**T.
 
     M       (input) INTEGER
-            The number of rows of the matrix C. M &gt;= 0.
+            The number of rows of the matrix C. M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix C. N &gt;= 0.
+            The number of columns of the matrix C. N &ge; 0.
 
     K       (input) INTEGER
             The number of elementary reflectors whose product defines
             the matrix Q.
-            If SIDE = 'L', M &gt;= K &gt;= 0;
-            if SIDE = 'R', N &gt;= K &gt;= 0.
+            If SIDE = 'L', M &ge; K &ge; 0;
+            if SIDE = 'R', N &ge; K &ge; 0.
 
     A       (input) DOUBLE PRECISION array, dimension (LDA,K)
             The i-th column must contain the vector which defines the
@@ -9260,8 +9260,8 @@ Lapack documentation
 
     LDA     (input) INTEGER
             The leading dimension of the array A.
-            If SIDE = 'L', LDA &gt;= max(1,M);
-            if SIDE = 'R', LDA &gt;= max(1,N).
+            If SIDE = 'L', LDA &ge; max(1,M);
+            if SIDE = 'R', LDA &ge; max(1,N).
 
     TAU     (input) DOUBLE PRECISION array, dimension (K)
             TAU(i) must contain the scalar factor of the elementary
@@ -9272,17 +9272,17 @@ Lapack documentation
             On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 
     LDC     (input) INTEGER
-            The leading dimension of the array C. LDC &gt;= max(1,M).
+            The leading dimension of the array C. LDC &ge; max(1,M).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            If SIDE = 'L', LWORK &gt;= max(1,N);
-            if SIDE = 'R', LWORK &gt;= max(1,M).
-            For optimum performance LWORK &gt;= N*NB if SIDE = 'L', and
-            LWORK &gt;= M*NB if SIDE = 'R', where NB is the optimal
+            If SIDE = 'L', LWORK &ge; max(1,N);
+            if SIDE = 'R', LWORK &ge; max(1,M).
+            For optimum performance LWORK &ge; N*NB if SIDE = 'L', and
+            LWORK &ge; M*NB if SIDE = 'R', where NB is the optimal
             blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -9342,7 +9342,7 @@ Lapack documentation
             = 'L':  Lower triangle of A is stored.
 
     N       (input) INTEGER
-            The order of the matrix A.  N &gt;= 0.
+            The order of the matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the symmetric matrix A.  If UPLO = 'U', the leading
@@ -9357,7 +9357,7 @@ Lapack documentation
             factorization A = U**T*U or A = L*L**T.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     INFO    (output) INTEGER
             = 0:  successful exit
@@ -9464,13 +9464,13 @@ Lapack documentation
             Not referenced if HOWMNY = 'A' or 'B'.
 
     N       (input) INTEGER
-            The order of the matrix T. N &gt;= 0.
+            The order of the matrix T. N &ge; 0.
 
     T       (input) DOUBLE PRECISION array, dimension (LDT,N)
             The upper quasi-triangular matrix T in Schur canonical form.
 
     LDT     (input) INTEGER
-            The leading dimension of the array T. LDT &gt;= max(1,N).
+            The leading dimension of the array T. LDT &ge; max(1,N).
 
     VL      (input/output) DOUBLE PRECISION array, dimension (LDVL,MM)
             On entry, if SIDE = 'L' or 'B' and HOWMNY = 'B', VL must
@@ -9489,8 +9489,8 @@ Lapack documentation
             Not referenced if SIDE = 'R'.
 
     LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL &gt;= 1, and if
-            SIDE = 'L' or 'B', LDVL &gt;= N.
+            The leading dimension of the array VL.  LDVL &ge; 1, and if
+            SIDE = 'L' or 'B', LDVL &ge; N.
 
     VR      (input/output) DOUBLE PRECISION array, dimension (LDVR,MM)
             On entry, if SIDE = 'R' or 'B' and HOWMNY = 'B', VR must
@@ -9509,11 +9509,11 @@ Lapack documentation
             Not referenced if SIDE = 'L'.
 
     LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR &gt;= 1, and if
-            SIDE = 'R' or 'B', LDVR &gt;= N.
+            The leading dimension of the array VR.  LDVR &ge; 1, and if
+            SIDE = 'R' or 'B', LDVR &ge; N.
 
     MM      (input) INTEGER
-            The number of columns in the arrays VL and/or VR. MM &gt;= M.
+            The number of columns in the arrays VL and/or VR. MM &ge; M.
 
     M       (output) INTEGER
             The number of columns in the arrays VL and/or VR actually
@@ -9643,7 +9643,7 @@ Lapack documentation
             either both included in the cluster or both excluded.
 
     N       (input) INTEGER
-            The order of the matrix T. N &gt;= 0.
+            The order of the matrix T. N &ge; 0.
 
     T       (input/output) DOUBLE PRECISION array, dimension (LDT,N)
             On entry, the upper quasi-triangular matrix T, in Schur
@@ -9653,7 +9653,7 @@ Lapack documentation
             leading diagonal blocks.
 
     LDT     (input) INTEGER
-            The leading dimension of the array T. LDT &gt;= max(1,N).
+            The leading dimension of the array T. LDT &ge; max(1,N).
 
     Q       (input/output) DOUBLE PRECISION array, dimension (LDQ,N)
             On entry, if COMPQ = 'V', the matrix Q of Schur vectors.
@@ -9665,7 +9665,7 @@ Lapack documentation
 
     LDQ     (input) INTEGER
             The leading dimension of the array Q.
-            LDQ &gt;= 1; and if COMPQ = 'V', LDQ &gt;= N.
+            LDQ &ge; 1; and if COMPQ = 'V', LDQ &ge; N.
 
     WR      (output) DOUBLE PRECISION array, dimension (N)
     WI      (output) DOUBLE PRECISION array, dimension (N)
@@ -9679,7 +9679,7 @@ Lapack documentation
 
     M       (output) INTEGER
             The dimension of the specified invariant subspace.
-            0 &lt; = M &lt;= N.
+            0 &lt; = M &le; N.
 
     S       (output) DOUBLE PRECISION
             If JOB = 'E' or 'B', S is a lower bound on the reciprocal
@@ -9699,9 +9699,9 @@ Lapack documentation
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            If JOB = 'N', LWORK &gt;= max(1,N);
-            if JOB = 'E', LWORK &gt;= max(1,M*(N-M));
-            if JOB = 'V' or 'B', LWORK &gt;= max(1,2*M*(N-M)).
+            If JOB = 'N', LWORK &ge; max(1,N);
+            if JOB = 'E', LWORK &ge; max(1,M*(N-M));
+            if JOB = 'V' or 'B', LWORK &ge; max(1,2*M*(N-M)).
 
             If LWORK = -1, then a workspace query is assumed; the routine
             only calculates the optimal size of the WORK array, returns
@@ -9713,8 +9713,8 @@ Lapack documentation
 
     LIWORK  (input) INTEGER
             The dimension of the array IWORK.
-            If JOB = 'N' or 'E', LIWORK &gt;= 1;
-            if JOB = 'V' or 'B', LIWORK &gt;= max(1,M*(N-M)).
+            If JOB = 'N' or 'E', LIWORK &ge; 1;
+            if JOB = 'V' or 'B', LIWORK &ge; max(1,M*(N-M)).
 
             If LIWORK = -1, then a workspace query is assumed; the
             routine only calculates the optimal size of the IWORK array,
@@ -10043,33 +10043,33 @@ Lapack documentation
 
     M       (input) INTEGER
             The order of the matrix A, and the number of rows in the
-            matrices X and C. M &gt;= 0.
+            matrices X and C. M &ge; 0.
 
     N       (input) INTEGER
             The order of the matrix B, and the number of columns in the
-            matrices X and C. N &gt;= 0.
+            matrices X and C. N &ge; 0.
 
     A       (input) DOUBLE PRECISION array, dimension (LDA,M)
             The upper quasi-triangular matrix A, in Schur canonical form.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A. LDA &gt;= max(1,M).
+            The leading dimension of the array A. LDA &ge; max(1,M).
 
     B       (input) DOUBLE PRECISION array, dimension (LDB,N)
             The upper quasi-triangular matrix B, in Schur canonical form.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B. LDB &gt;= max(1,N).
+            The leading dimension of the array B. LDB &ge; max(1,N).
 
     C       (input/output) DOUBLE PRECISION array, dimension (LDC,N)
             On entry, the M-by-N right hand side matrix C.
             On exit, C is overwritten by the solution matrix X.
 
     LDC     (input) INTEGER
-            The leading dimension of the array C. LDC &gt;= max(1,M)
+            The leading dimension of the array C. LDC &ge; max(1,M)
 
     SCALE   (output) DOUBLE PRECISION
-            The scale factor, scale, set &lt;= 1 to avoid overflow in X.
+            The scale factor, scale, set &le; 1 to avoid overflow in X.
 
     INFO    (output) INTEGER
             = 0: successful exit
