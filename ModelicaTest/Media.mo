@@ -950,6 +950,22 @@ is given to compare the approximation.
       annotation (experiment(StopTime=1));
     end R134a_setState_pTX;
 
+    model R134a_setState_phX "Test setState_phX() of R134a"
+      extends Modelica.Icons.Example;
+      replaceable package Medium = Modelica.Media.R134a.R134a_ph "Medium model";
+      SI.Temperature h = Medium.h_default;
+      parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
+      parameter SI.PressureSlope pRate = 20e5 "p's rate of change";
+      SI.AbsolutePressure p = p0 + pRate*time;
+      Medium.ThermodynamicState state = Medium.setState_phX(p, h);
+      SI.SpecificEnthalpy T= Medium.temperature(state);
+      SI.Density rho = Medium.density(state);
+      SI.DynamicViscosity mu = Medium.dynamicViscosity(state);
+      SI.SpecificHeatCapacity cp = Medium.specificHeatCapacityCp(state);
+      SI.ThermalConductivity k = Medium.thermalConductivity(state);
+      annotation (experiment(StopTime=1));
+    end R134a_setState_phX;
+
     model WaterIF97_dewEnthalpy "Test dewEnthalpy of WaterIF97"
       extends Modelica.Icons.Example;
       replaceable package Medium = Modelica.Media.Water.StandardWater "Medium model";
