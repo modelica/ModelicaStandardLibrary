@@ -7,10 +7,10 @@ function ToSpacePhasor
   output Real y[2] "Space phasor";
   output Real y0 "Zero sequence component (of voltage or current)";
 protected
-  parameter Integer m=size(x, 1) "Number of phases" annotation(Evaluate=true);
-  parameter SI.Angle phi[m]=
+  Integer m=size(x, 1) "Number of phases" annotation(Evaluate=true);
+  SI.Angle phi[m]=
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
-  parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
+  Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
 algorithm
   y := TransformationMatrix*x;
   y0 := 1/m*sum(x);
