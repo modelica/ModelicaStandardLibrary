@@ -714,7 +714,7 @@ this might require copying the resource to a temporary folder and referencing th
 
 <p>
 The implementation of this function is tool specific. However, at least Modelica URIs
-(see \"chapter 13.2.3 External Resources\" of the Modelica Specification),
+(see \"Chapter 13.5 External Resources\" of the Modelica Specification),
 as well as absolute local file path names are supported.
 </p>
 
