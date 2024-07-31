@@ -9,8 +9,8 @@ package Vessels "Devices for storing fluid"
       // Mass and energy balance, ports
       extends Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel(
         final fluidVolume = V,
-        vesselArea = pi*(3/4*V)^(2/3),
-        heatTransfer(surfaceAreas={4*pi*(3/4*V/pi)^(2/3)}));
+        vesselArea = pi*nthRoot(3/4*V, 3)^2,
+        heatTransfer(surfaceAreas={4*pi*nthRoot(3/4*V/pi, 3)^2}));
 
       parameter SI.Volume V "Volume";
 
