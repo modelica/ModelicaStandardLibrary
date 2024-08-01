@@ -47,3 +47,5 @@ Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinder.vsdx export-i
 Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Toroid.vsdx export-ignore
 Modelica/Resources/Reference export-ignore
 ModelicaTest/Resources/Reference export-ignore
+
+*.mo linguist-language=Modelica
