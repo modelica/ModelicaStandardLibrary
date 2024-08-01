@@ -1191,13 +1191,9 @@ As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>,
       f_max=2000,
       f_res=5,
       resultFileName="rectifier12pulseFFTresult.mat")
-                                                annotation (Placement(
-          transformation(
-          extent={{-10,-10},{10,10}},
-          origin={-40,-20})));
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={-40,-20})));
   equation
-    connect(currentSensor.i[1], realFFT.u) annotation (Line(points={{-70,-11},{-70,-20},{-52,-20}},
-                                   color={0,0,127}));
+    connect(currentSensor.i[1], realFFT.u) annotation (Line(points={{-70,-11},{-70,-20},{-52,-20}}, color={0,0,127}));
     annotation (experiment(StopTime=0.25, Interval=0.0001),
       Documentation(info="<html>
 <p>
@@ -1217,7 +1213,7 @@ The resulting sampling interval is <code>samplePeriod&nbsp;=&nbsp;1/(n*f_res)&nb
 Thus, we have to sample for a&nbsp;period of <code>n*samplePeriod = 1/f_res = 0.2 s</code>.
 </p>
 <p>
-The resultfile &quot;rectifier12pulseFFTresult.mat&quot; can be used to plot amplitudes versus frequencies.
+The result file &quot;rectifier12pulseFFTresult.mat&quot; can be used to plot amplitudes versus frequencies.
 Note that for each frequency three rows exit: one with amplitude zero,
 one with the calculated amplitude, one with amplitude zero.
 Thus, the second column (amplitude) can be easily plotted versus the first column (frequency).
@@ -1236,12 +1232,12 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
     final parameter Real THDrms = V3/sqrt(V1^2+V3^2) "Theoretically obtained THD with respect to RMS";
     Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
     Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage3(V=sqrt(2)*V3, f=3*f1,
-      startTime=0.02)                                           annotation (Placement(transformation(
+      startTime=0.02) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-40,10})));
     Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(V=sqrt(2)*V1, f=f1,
-      startTime=0.02)                                           annotation (Placement(transformation(
+      startTime=0.02) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-40,-20})));
@@ -1284,7 +1280,7 @@ theoretical calculations:</p>
 </html>"));
   end TotalHarmonicDistortion;
 
-  model Modulation "Demonstrate amplitude modulation an frequency modulation"
+  model Modulation "Demonstrate amplitude modulation and frequency modulation"
     extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sine(
       useConstantAmplitude=true,
@@ -1503,7 +1499,7 @@ Compare the sinc signal and an exponentially damped sine.
         Tolerance=1e-06), Documentation(info="<html>
 <p>
 This example uses a sinusoidal signal with amplitude varying sinusoidally in the range of [1,5] with a frequency of 63 Hz,
-and frequency varying according to a cosine function in the range of [10, 100] Hz with a frqeuncy of 77 Hz.
+and frequency varying according to a cosine function in the range of [10, 100] Hz with a frequency of 77 Hz.
 </p>
 <p>
 Note that signalExtrema1 doesn't find the extrema exactly since sampling frequency 100 Hz is too small compared to maximum frequency of the input signal,
@@ -1538,40 +1534,40 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
       annotation (Placement(transformation(extent={{60,70},{80,90}})));
     Modelica.Blocks.Math.ContinuousSignalExtrema signalExtrema2
       annotation (Placement(transformation(extent={{60,10},{80,30}})));
-    Sources.Sine                 sine1(
+    Sources.Sine sine1(
       amplitude=1,
       f=7,
       offset=-2)
       annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
-    Sources.Pulse                    pulse(
+    Sources.Pulse pulse(
       amplitude=2,
       period=1/9,
       offset=1)
       annotation (Placement(transformation(extent={{-60,-90},{-40,-70}})));
     Math.Add add
       annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
-    Math.Product                 product3
+    Math.Product product3
       annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
-    Sources.SawTooth                 sawTooth1(
+    Sources.SawTooth sawTooth1(
       amplitude=2,
       period=1/13,
       offset=-1)
       annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-    Math.ContinuousSignalExtrema                 signalExtrema3
+    Math.ContinuousSignalExtrema signalExtrema3
       annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
   equation
     connect(amplitude.y, product1.u2) annotation (Line(points={{-19,50},{-10,50},
             {-10,74},{-2,74}}, color={0,0,127}));
     connect(amplitude.y, product2.u1) annotation (Line(points={{-19,50},{-10,50},
-            {-10,26},{-2,26}},   color={0,0,127}));
+            {-10,26},{-2,26}}, color={0,0,127}));
     connect(sine.y, product1.u1) annotation (Line(points={{-39,80},{-20,80},{-20,
             86},{-2,86}},  color={0,0,127}));
     connect(sawTooth.y, product2.u2) annotation (Line(points={{-39,20},{-20,20},
-            {-20,14},{-2,14}},    color={0,0,127}));
+            {-20,14},{-2,14}}, color={0,0,127}));
     connect(product1.y, signalExtrema1.u)
-      annotation (Line(points={{21,80},{58,80}},color={0,0,127}));
+      annotation (Line(points={{21,80},{58,80}}, color={0,0,127}));
     connect(product2.y, signalExtrema2.u)
-      annotation (Line(points={{21,20},{58,20}},  color={0,0,127}));
+      annotation (Line(points={{21,20},{58,20}}, color={0,0,127}));
     connect(sine1.y, add.u1) annotation (Line(points={{-39,-40},{-32,-40},{-32,
             -54},{-22,-54}}, color={0,0,127}));
     connect(pulse.y, add.u2) annotation (Line(points={{-39,-80},{-32,-80},{-32,
@@ -1587,7 +1583,7 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
         Interval=0.0001,
         Tolerance=1e-06), Documentation(info="<html>
 <p>
-The amplitude of both a differentiable sinusoidal signal (frequency 9 Hz) and a non-differentiable sawtooth signal (period 1/9 s) is modulated sinusoidally /frequency 0.75 Hz).
+The amplitudes of both a differentiable sinusoidal signal (frequency 9 Hz) and a non-differentiable sawtooth signal (period 1/9 s) are modulated sinusoidally (frequency 0.75 Hz).
 </p>
 <p>
 Note that the ContinuousSignalExtremaBlock detects extrema of both signals without sampling.
@@ -1655,7 +1651,7 @@ Note that the ContinuousSignalExtremaBlock detects extrema of both signals witho
 <td><code>y_mean</code></td>
 </tr>
 <tr>
-<td>Rectfied mean</td>
+<td>Rectified mean</td>
 <td><code>rectifiedMean.y</code></td>
 <td><code>y_rect</code></td>
 </tr>
