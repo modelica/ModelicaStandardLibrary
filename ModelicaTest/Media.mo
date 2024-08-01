@@ -952,7 +952,7 @@ is given to compare the approximation.
 
     model WaterIF97_dewEnthalpy "Test dewEnthalpy of WaterIF97"
       extends Modelica.Icons.Example;
-      replaceable package Medium = Modelica.Media.Water.WaterIF97_fixedregion "Medium model";
+      replaceable package Medium = Modelica.Media.Water.StandardWater "Medium model";
       SI.Temperature T = 273.15 + 25;
       parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
       parameter SI.PressureSlope pRate = 20e5 "p's rate of change";
