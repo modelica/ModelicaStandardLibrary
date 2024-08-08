@@ -1,0 +1,4 @@
+[submodule "Modelica/Resources/C-Sources/zlib"]
+	path = Modelica/Resources/C-Sources/zlib
+	url = https://github.com/madler/zlib
+	branch = master
