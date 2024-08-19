@@ -6082,7 +6082,7 @@ Note that the (small) influence of the pressure term p/d is neglected.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy";
     algorithm
       h := cp_const*(T - T0);
@@ -6098,7 +6098,7 @@ This function computes the specific enthalpy of the fluid, but neglects the (sma
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Temperature T "Temperature";
     algorithm
       T := T0 + h/cp_const;
@@ -6108,7 +6108,7 @@ This function computes the specific enthalpy of the fluid, but neglects the (sma
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Density d "Density";
     algorithm
       d := density(setState_phX(
@@ -6403,7 +6403,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy at p, T, X";
     algorithm
       h := cp_const*(T - T0);
@@ -6414,7 +6414,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Temperature T "Temperature";
     algorithm
       T := h/cp_const + T0;
@@ -6424,7 +6424,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Density d "Density";
     algorithm
       d := density(setState_phX(
