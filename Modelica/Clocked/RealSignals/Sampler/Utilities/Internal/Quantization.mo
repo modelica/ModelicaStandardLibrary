@@ -9,12 +9,11 @@ extends Clocked.RealSignals.Interfaces.PartialClockedSISO;
   parameter Integer bits(min=1)=8
     "Number of bits of quantization (if quantized = true)";
 protected
-  parameter Real resolution = if quantized then ((yMax - yMin)/2^bits) else 0;
+  parameter Real resolution = if quantized then ((yMax - yMin)/(2^bits-1)) else 0;
 equation
 
   if quantized then
-    y = resolution*floor(abs(u/resolution) + 0.5)*
-           (if u >= 0 then +1 else -1);
+    y = resolution*floor(((u-yMin)/resolution) + 0.5)+yMin;
   else
     y = u;
   end if;
@@ -22,6 +21,10 @@ equation
 <p>
 The clocked Real input signal is value discretized
 (the discretization is defined by parameter <strong>bits</strong>).
+
+This is a mid-riser quantization, which for a symmetric interval imply that it will not output zero.
 </p>
+</html>", revisions="<html>
+<p>2024-09-04: Corrected off-by-one error in number of output levels, and handle non-symmetric limits.</p>
 </html>"));
 end Quantization;
