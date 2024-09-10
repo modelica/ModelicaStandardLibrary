@@ -28,8 +28,7 @@ model ClockedWithDiscretizedContinuousController
   Clocked.RealSignals.Sampler.Sample sample1
     annotation (Placement(transformation(extent={{30,-26},{18,-14}})));
   Modelica.Blocks.Continuous.PI PI(
-    initType=Modelica.Blocks.Types.Init.InitialOutput,
-    y_start=0,
+    initType=Modelica.Blocks.Types.Init.NoInit,
     T=0.1,
     k=110)
     annotation (Placement(transformation(extent={{-20,0},{0,20}})));
