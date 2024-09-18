@@ -256,7 +256,7 @@ Then, simulation continuous until a new event is triggered,
 With the Modelica \"sample(..)\" operator, a StateGraph might also
 be executed within a discrete controller that is called
 at regular time instants. Furthermore, clocked state machines
-are directly supported by the Modelica language itself, see <a href=\"https://specification.modelica.org/v3.4/Ch17.html\">Section 17 (State Machines) of the Modelica 3.4 specification</a>.
+are directly supported by the Modelica language itself, see <a href=\"https://specification.modelica.org/maint/3.6/state-machines.html\">Chapter&nbsp;17 (State Machines) of the Modelica&nbsp;3.6 specification</a>.
 </p>
 <h4>Parallel and Alternative Execution</h4>
 <p>
@@ -480,7 +480,7 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
 An evolved, but non-standard conforming Modelica library, called \"Modelica_StateGraph2\", is available from <a href=\"https://github.com/HansOlsson/Modelica_StateGraph2\">https://github.com/HansOlsson/Modelica_StateGraph2</a>.
 Find below a comparison with respect to Modelica.StateGraph.
 A third option, especially for modeling of discrete controllers, are the clocked state machines, which
-are available as built-in Modelica language elements, see <a href=\"https://specification.modelica.org/v3.4/Ch17.html\">Section 17 (State Machines) of the Modelica 3.4 specification</a>.
+are available as built-in Modelica language elements, see <a href=\"https://specification.modelica.org/maint/3.6/state-machines.html\">Chapter&nbsp;17 <em>State Machines</em> of the Modelica&nbsp;3.6 specification</a>.
 </p>
 
 <p>
@@ -1535,9 +1535,9 @@ buttons:
                        annotation (Placement(transformation(extent={{55,-50},{
                   65,-40}})));
       Real level(start=0,fixed=true) "Tank level in % of max height";
-      parameter Real A=1 "Ground area of tank in m^2";
-      parameter Real a=0.2 "Area of drain hole in m^2";
-      parameter Real hmax=1 "Max height of tank in m";
+      parameter SI.Area A=1 "Ground area of tank";
+      parameter SI.Area a=0.2 "Area of drain hole";
+      parameter SI.Height hmax=1 "Max height of tank";
       constant Real g=Modelica.Constants.g_n;
     equation
       der(level) = (inflow1.Fi - outflow1.Fo)/(hmax*A);
@@ -2788,7 +2788,7 @@ are nearly always needed).
 </p>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>"), Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(

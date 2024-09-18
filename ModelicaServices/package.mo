@@ -232,18 +232,19 @@ Specification (version &ge; 3.3).
 
   annotation (
     preferredView="info",
-    version="4.0.0",
-    versionDate="2020-06-04",
-    dateModified = "2020-06-04 11:00:00Z",
+    version="4.1.0",
+    versionDate="2024-01-12",
+    dateModified = "2024-01-12 19:40:00Z",
     revisionId="$Format:%h %ci$",
-    uses(Modelica(version="4.0.0")),
+    uses(Modelica(version="4.1.0")),
     conversion(
       noneFromVersion="1.0",
       noneFromVersion="1.1",
       noneFromVersion="1.2",
       noneFromVersion="3.2.1",
       noneFromVersion="3.2.2",
-      noneFromVersion="3.2.3"),
+      noneFromVersion="3.2.3",
+      noneFromVersion="4.0.0"),
     Documentation(info="<html>
 <p>
 This package contains a set of functions and models to be used in the
@@ -283,7 +284,7 @@ These are:
 <li> <a href=\"modelica://ModelicaServices.Types.SolverMethod\">Types.SolverMethod</a>
      provides a string defining the integration method to solve differential equations in
      a clocked discretized continuous-time partition
-     (see <a href=\"https://specification.modelica.org/v3.4/Ch16.html#solver-methods\">Section 16.8.2 (Solver Methods) of the Modelica 3.4 specification</a>).</li>
+     (see <a href=\"https://specification.modelica.org/maint/3.6/synchronous-language-elements.html#solver-methods\">Section&nbsp;16.8.2 <em>Solver Methods</em> of the Modelica 3.6 specification</a>).</li>
 </ul>
 
 <p>
@@ -293,7 +294,7 @@ This ModelicaServices package provides only \"dummy\" models that do nothing.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 2009-2020, Modelica Association and contributors
+Copyright &copy; 2009-2024, Modelica Association and contributors
 </p>
 
 <p>

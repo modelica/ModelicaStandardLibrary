@@ -11,4 +11,3 @@ signalExtrema3.y_min
 signalExtrema3.y_max
 signalExtrema3.t_min
 signalExtrema3.t_max
-

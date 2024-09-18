@@ -1003,7 +1003,7 @@ double mydummyfunc(double dummy_in) {
                -70})));
     Modelica.Blocks.Continuous.Der der3
       annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={30,-70})));
-   equation
+  equation
     connect(combiTable2Dv.y[2], der2.u)
       annotation (Line(points={{44,40},{72,40},{72,30},{78,30}},
                                                  color={0,0,127}));
@@ -1038,5 +1038,5 @@ double mydummyfunc(double dummy_in) {
       experiment(
         StartTime=-1,
         StopTime=4));
-   end OneSidedDerivative2D;
+  end OneSidedDerivative2D;
 end CombiTable2Dv;

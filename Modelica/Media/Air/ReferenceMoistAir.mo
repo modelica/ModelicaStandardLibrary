@@ -1859,7 +1859,7 @@ package ReferenceMoistAir
         rho := max(p/(g.R_s*T*g.pi*g.gpi), 1e-9);
         h_der := (1/rho - T*vt)*p_der - g.R_s*g.tau*g.tau*g.gtautau*T_der;
       end h_pT_der;
-  annotation (Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This is a makeshift package avoiding the region validity checks of the IF97 utility functions
 <a href=\"modelica://Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2\">BaseIF97.Basic.g2</a>,
@@ -4152,7 +4152,7 @@ Some parts of this library refer to the ThermoFluid library developed at Lund Un
 </p>
 
 <p>
-Copyright &copy; 2013-2020, Modelica Association and contributors
+Copyright &copy; 2013-2024, Modelica Association and contributors
 </p>
 </html>"));
 end ReferenceMoistAir;

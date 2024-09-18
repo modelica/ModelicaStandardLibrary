@@ -2875,10 +2875,10 @@ Obsolete saliency cage model, see
       end BasicMachines;
     end FundamentalWave;
   end Magnetic;
-  annotation (uses(Modelica(version="4.0.0")),
-              version="4.0.0",
-              versionDate="2020-06-04",
-              dateModified = "2020-06-04 11:00:00Z",
+  annotation (uses(Modelica(version="4.1.0")),
+              version="4.1.0",
+              versionDate="2024-01-12",
+              dateModified = "2024-01-12 19:40:00Z",
               revisionId="$Format:%h %ci$",
 Documentation(info="<html>
 <p>
@@ -2893,11 +2893,11 @@ that are recommended in the documentation of the respective model.
 
 <p>
 In most cases, this means that a model with the name
-\"ObsoleteModelica4.XXX\" should be renamed to \"Modelica.XXX\" (version 4.0.0)
+\"ObsoleteModelica4.XXX\" should be renamed to \"Modelica.XXX\"
 and then a manual adaptation is needed. For example, a reference to
 ObsoleteModelica4.Math.Matrices.LAPACK.dgeqpf
 should be replaced by
-Modelica.Math.Matrices.LAPACK.dgeqp3 (version 4.0.0).
+Modelica.Math.Matrices.LAPACK.dgeqp3.
 This usually requires some changes at the place where
 the class is used (besides the renaming of the underlying class).
 </p>
@@ -2915,7 +2915,7 @@ marked in the icon layer with a red box.
 </p>
 
 <p>
-Copyright &copy; 2019-2020, Modelica Association and contributors
+Copyright &copy; 2019-2024, Modelica Association and contributors
 </p>
 
 <p>

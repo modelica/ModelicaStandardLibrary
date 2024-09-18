@@ -654,7 +654,7 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
 <h4>References</h4>
 
 <dl><dt>Idelchik I.E. (1994):</dt>
-    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><strong>Handbook
+    <dd><a href=\"https://doi.org/10.1017/S002211209726790X\"><strong>Handbook
         of Hydraulic Resistance</strong></a>. 3rd edition, Begell House, ISBN
         0-8493-9908-4</dd>
 </dl>

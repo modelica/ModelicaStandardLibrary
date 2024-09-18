@@ -535,7 +535,7 @@ double mydummyfunc(double dummy_in) {
     Modelica.Blocks.Tables.CombiTable2Ds combiTable2DT(
       table=transpose([1,0,6;2,4,4;3,9,9;4,16,16]),
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,-60},{-75,-40}})));
-    equation
+  equation
       connect(combiTable1D.u,clock1.y) annotation(Line(
         points={{-97,10},{-102,10},{-104,10},{-104,75},{-109,75}},
         color={0,0,127},
@@ -593,7 +593,7 @@ double mydummyfunc(double dummy_in) {
     Modelica.Blocks.Continuous.Der der3 annotation(Placement(transformation(extent={{-60,0},{-40,20}})));
     Modelica.Blocks.Continuous.Der der4 annotation(Placement(transformation(extent={{-60,-30},{-40,-10}})));
     Modelica.Blocks.Continuous.Der der5 annotation(Placement(transformation(extent={{-60,-60},{-40,-40}})));
-    equation
+  equation
       connect(combiTable1D.u,clock1.y) annotation(Line(
         points={{-97,10},{-102,10},{-104,10},{-104,75},{-109,75}},
         color={0,0,127},
@@ -676,7 +676,7 @@ double mydummyfunc(double dummy_in) {
     Modelica.Blocks.Continuous.Der der3 annotation(Placement(transformation(extent={{-60,0},{-40,20}})));
     Modelica.Blocks.Continuous.Der der4 annotation(Placement(transformation(extent={{-60,-30},{-40,-10}})));
     Modelica.Blocks.Continuous.Der der5 annotation(Placement(transformation(extent={{-60,-60},{-40,-40}})));
-    equation
+  equation
       connect(combiTable1D.u,clock1.y) annotation(Line(
         points={{-97,10},{-102,10},{-104,10},{-104,75},{-109,75}},
         color={0,0,127},
@@ -772,7 +772,7 @@ double mydummyfunc(double dummy_in) {
       phase=Modelica.Constants.pi/2,
       offset=18) annotation(Placement(transformation(extent={{-130,-10},{-110,10}})));
     Modelica.Blocks.Sources.Constant const_L(k=82) annotation(Placement(transformation(extent={{-130,-45},{-110,-25}})));
-    equation
+  equation
       connect(der_1R.u,combiTable2D_1R.y) annotation(Line(
         points={{-32,65},{-37,65},{-44,65},{-49,65}},
         color={0,0,127},
@@ -888,7 +888,7 @@ double mydummyfunc(double dummy_in) {
       f=1/3,
       offset=82,
       startTime=1) annotation(Placement(transformation(extent={{-130,-45},{-110,-25}})));
-    equation
+  equation
       connect(der_1R.u,combiTable2D_1R.y) annotation(Line(
         points={{-32,65},{-37,65},{-44,65},{-49,65}},
         color={0,0,127},

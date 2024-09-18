@@ -23,7 +23,7 @@ Christoph Clau&szlig;
 </dl>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>"), Icon(graphics={
         Line(points={{-12,60},{-12,-60}}),

@@ -39,8 +39,7 @@ equation
   connect(ToSpacePhasor1.y, ToPolar1.u) annotation (Line(
       points={{0,-1},{0,-18}}, color={0,0,127}));
   connect(ToPolar1.y[1], Gain1.u) annotation (Line(
-      points={{0,-41},{0,-50.5},{0,-58}},
-                                                          color={0,0,127}));
+      points={{0,-41},{0,-50.5},{0,-58}}, color={0,0,127}));
   connect(Gain1.y, I) annotation (Line(
       points={{0,-81},{0,-110}}, color={0,0,127}));
   annotation (defaultComponentName="currentRMSSensor",
