@@ -140,6 +140,39 @@ mode = if (pre(mode) == Forward  or startFor)  and v&gt;0 then Forward  elseif
           (pre(mode) == Backward or startBack) and v&lt;0 then Backward else Stuck;
 </pre></blockquote>
 
+
+<p>
+If the velocity of the friction element is not selected as state
+(e. g. if connected to MultiBody elements like a crancshaft), the fix point iteration
+will not be able to solve the set of equations when leaving the stuck mode.
+In this case the acceleration is overdetermined by the external constrait <var>a</var>&nbsp;&lt;&gt;&nbsp;0 and the
+stuck mode equation <var>a</var>&nbsp;=&nbsp;0. Now that we already became comfortable with a
+non-zero but extremly small velocity in stuck mode, we can introduce another assumption:
+When locked, the block is fixed to a extremely huge mass.
+This means it can move in stuck mode, but then implies a huge friction force.
+These high values will not enter the integrator, because they only act during fix point
+iteration and directly lead to leaving the stuck mode. For better parametrization not the mass
+(or the moment of inertia in rotational case) but rather the inverse mass <var>m_inv_fixed</var> will be the input parameter.
+By default it is set to zero and implies exactly the same behaviour as the set of equations above.
+At fix point iteration problems it can be set to a small value (e. g. 1e-15) meaning a huge mass.
+This results in a slightly modified set of equations:
+</p>
+
+<blockquote><pre>
+// part of mixed system of equations
+startFor  = pre(mode) == Stuck and sa &gt;  1;
+startBack = pre(mode) == Stuck and sa &lt; -1;
+        a = der(v);
+        a = if pre(mode) == Forward  or startFor  then  sa - 1    elseif
+               pre(mode) == Backward or startBack then  sa + 1    else m_inv*f;
+        f = if pre(mode) == Forward or startFor   then  f0 + f1*v elseif
+               pre(mode) == Backward or startBack then -f0 + f1*v else f0*sa;
+
+// state machine to determine configuration
+mode = if (pre(mode) == Forward  or startFor)  and v&gt;0 then Forward  elseif
+          (pre(mode) == Backward or startBack) and v&lt;0 then Backward else Stuck;
+</pre></blockquote>
+
 <p>
 The above approach to model a simplified friction element is slightly generalized in model
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialFriction\">Interfaces.PartialFriction</a>:
