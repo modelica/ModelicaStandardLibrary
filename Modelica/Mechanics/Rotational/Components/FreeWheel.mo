@@ -52,46 +52,6 @@ equation
         Text(extent={{-152,60},{148,100}},
           textString="%name",
           textColor={0,0,255})}),
-    Diagram(graphics={
-        Polygon(
-          points={{-4,70},{0,80},{4,70},{-4,70}},
-          lineColor={128,128,128},
-          fillColor={128,128,128},
-          fillPattern=FillPattern.Solid),
-        Line(
-          points={{0,80},{0,-80}},
-          color={128,128,128}),
-        Line(
-          points={{-80,0},{80,0}},
-          color={128,128,128}),
-        Polygon(
-          points={{70,4},{80,0},{70,-4},{70,4}},
-          lineColor={128,128,128},
-          fillColor={128,128,128},
-          fillPattern=FillPattern.Solid),
-        Line(
-          points={{-4,-60},{0,0},{60,4}},
-          thickness=0.5),
-        Text(
-          extent={{60,-10},{80,-20}},
-          textColor={128,128,128},
-          textString="w_rel"),
-        Text(
-          extent={{-20,80},{-10,70}},
-          textColor={128,128,128},
-          textString="tau"),
-        Text(
-          extent={{0,30},{60,10}},
-          textColor={128,128,128},
-          textString=" free = true:
-  residualFriction  "),
-        Text(
-          extent={{-30,10},{30,-10}},
-          textColor={128,128,128},
-          origin={-20,-30},
-          rotation=90,
-          textString=" free = false:
-torqueTransmission")}),
     Documentation(info="<html>
 <p>
 An idealized model of a&nbsp;freewheel. Compared to
