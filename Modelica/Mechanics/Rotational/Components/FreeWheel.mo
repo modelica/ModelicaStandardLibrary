@@ -77,5 +77,8 @@ by the variable <code>free</code> and distinguished as follows.
     <code>tau = w_rel*residualFriction</code>.
   </li>
 </ul>
+
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/Components/FreeWheel.png\"
+     alt=\"FreeWheel.png\">
 </html>"));
 end FreeWheel;
