@@ -48,6 +48,7 @@ package Nonlinear "Library of functions operating on nonlinear equations"
       print("Numerical integral value  = " + String(I_numerical[1], format=
         "2.16f"));
       print("Absolute difference       = " + String(I_err[1], format="2.0e"));
+      assert(abs(I_err[1])<1e-4, "Integral should be close to desired");
 
       print("");
       print("Function 2 (integral(sin(5*x)*dx) from x=0 to x=13): ");
@@ -56,6 +57,7 @@ package Nonlinear "Library of functions operating on nonlinear equations"
       print("Numerical integral value  = " + String(I_numerical[2], format=
         "2.16f"));
       print("Absolute difference       = " + String(I_err[2], format="2.0e"));
+      assert(abs(I_err[2])<1e-4, "Integral should be close to desired");
 
       print("");
       print("Function 3 (Elliptic integral from x=0 to pi/2): ");
@@ -64,6 +66,7 @@ package Nonlinear "Library of functions operating on nonlinear equations"
       print("Numerical integral value  = " + String(I_numerical[3], format=
         "2.16f"));
       print("Absolute difference       = " + String(I_err[3], format="2.0e"));
+      assert(abs(I_err[3])<1e-4, "Integral should be close to desired");
 
       annotation (Documentation(info="<html>
 <p>
@@ -200,18 +203,21 @@ The following integrals are computed:
       print("Analytical zero     = " + String(u_analytical[1], format="2.16f"));
       print("Numerical zero      = " + String(u_numerical[1], format="2.16f"));
       print("Absolute difference = " + String(u_err[1], format="2.0e"));
+      assert(abs(u_err[1])<1e-10, "Solution should be close to desired");
 
       print("");
       print("Function 2 (3*u - sin(3*u) - 1 = 0): ");
       print("Analytical zero     = " + String(u_analytical[2], format="2.16f"));
       print("Numerical zero      = " + String(u_numerical[2], format="2.16f"));
       print("Absolute difference = " + String(u_err[2], format="2.0e"));
+      assert(abs(u_err[2])<1e-10, "Solution should be close to desired");
 
       print("");
       print("Function 3 (5 + log(u) - u = 0): ");
       print("Analytical zero     = " + String(u_analytical[3], format="2.16f"));
       print("Numerical zero      = " + String(u_numerical[3], format="2.16f"));
       print("Absolute difference = " + String(u_err[3], format="2.0e"));
+      assert(abs(u_err[3])<1e-10, "Solution should be close to desired");
 
       annotation (Documentation(info="<html>
 <p>
