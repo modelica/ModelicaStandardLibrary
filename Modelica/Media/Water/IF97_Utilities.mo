@@ -229,7 +229,7 @@ email: hubertus@modelon.se
           "IF97 medium function boundary23ofp called with too low pressure\n"
            + "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
           " Pa (triple point pressure)");
-        t := n[4] + ((pi - n[5])/n[3])^0.5;
+        t := n[4] + sqrt((pi - n[5])/n[3]);
       end boundary23ofp;
 
       function hlowerofp5
