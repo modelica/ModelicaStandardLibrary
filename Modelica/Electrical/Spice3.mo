@@ -4438,7 +4438,7 @@ on the model behaviour.
   package Constants "Spice3-specific constants"
     extends Modelica.Icons.Package;
 
-    constant Modelica.Units.SI.Time infiniteTime= 1e20 "Numerically safe very large time horizon (3e12 years)";
+    constant Modelica.Units.SI.Time infiniteTime= 1e20 "Very large time horizon (3e12 years) avoiding overflow in time computations";
   end Constants;
 
   package Internal
