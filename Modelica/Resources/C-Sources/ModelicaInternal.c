@@ -30,6 +30,10 @@
 */
 
 /* Changelog:
+      Oct. 20, 2024: by Thomas Beutlich
+                     Removed legacy behaviour in ModelicaInternal_stat for
+                     MSVC Visual Studio >= 2015 (ticket #4473)
+
       Jan. 15, 2024: by Thomas Beutlich
                      Utilized ModelicaDuplicateString and
                      ModelicaDuplicateStringWithErrorReturn (ticket #3686)
@@ -402,10 +406,7 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
     struct _stat fileInfo;
     int statReturn = _stat(name, &fileInfo);
     if (0 != statReturn) {
-        /* For some reason _stat requires "a:\" and "a:\test1" but fails
-         * on "a:" and "a:\test1\", respectively. It could be handled in the
-         * Modelica code, but seems better to have it here.
-         */
+        /* _stat requires "a:\" instead of "a:" */
         const char* firstSlash = strpbrk(name, "/\\");
         const char* firstColon = strchr(name, ':');
         const char c = (NULL != firstColon) ? firstColon[1] : '\0';
@@ -419,6 +420,10 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
                 free(nameTmp);
             }
         }
+#if defined(_MSC_VER) && _MSC_VER >= 1900
+        /* _stat accepts both "a:\dir" and "a:\dir\" */
+#else
+        /* _stat requires "a:\dir" instead of "a:\dir\" */
         else if (NULL != firstSlash && len > 1 &&
             ('/' == name[len - 1] || '\\' == name[len - 1])) {
             char* nameTmp = (char*)malloc(len*(sizeof(char)));
@@ -429,6 +434,7 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
                 free(nameTmp);
             }
         }
+#endif
     }
     if ( statReturn != 0 ) {
         type = FileType_NoFile;
