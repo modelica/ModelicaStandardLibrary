@@ -112,8 +112,9 @@ equation
       points={{40,20},{50,20}}));
   annotation (experiment(
       StopTime=2.5,
-      Interval=1E-4,
-      Tolerance=1e-06),                                 Documentation(
+      Interval=0.0001,
+      Tolerance=1e-06,
+      __Dymola_Algorithm="Dassl"),                      Documentation(
         info="<html>
 <p>At start time tStart three-phase voltage is supplied to the induction machine with squirrel cage,
 first star-connected, then delta-connected; the machine starts from standstill,
