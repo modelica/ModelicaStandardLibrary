@@ -1,6 +1,6 @@
 within Modelica.Electrical.Polyphase.Basic;
 model Capacitor "Ideal linear electrical capacitors"
-  extends Interfaces.TwoPlug;
+  extends Interfaces.TwoPlug(v(start=zeros(m), fixed=fill(false,m)));
   parameter SI.Capacitance C[m](start=fill(1, m))
     "Capacitance";
   Modelica.Electrical.Analog.Basic.Capacitor capacitor[m](final C=C)
