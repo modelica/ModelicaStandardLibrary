@@ -13,8 +13,7 @@ model SignalGenerator "Rectangle-Triangle generator"
   Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp1(
     Vps=Vps,
     Vns=Vns,
-    strict=true,
-    homotopyType=Modelica.Blocks.Types.LimiterHomotopy.LowerLimit)
+    strict=true)
     annotation (Placement(transformation(extent={{-60,10},{-40,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=R2, i(start=Vps/R2))
     annotation (Placement(transformation(
@@ -31,7 +30,7 @@ model SignalGenerator "Rectangle-Triangle generator"
     Vps=Vps,
     Vns=Vns,
     v_in(start=0),
-    strict=true)
+    strict=false)
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
   Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(fixed=true, start=0))
     annotation (Placement(transformation(extent={{50,20},{30,40}})));
@@ -47,6 +46,14 @@ model SignalGenerator "Rectangle-Triangle generator"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={60,-18})));
+  Blocks.Sources.Pulse          pulse(
+    amplitude=Vps - Vns,
+    period=1/f,
+    offset=Vns,
+    startTime=0.025)
+    annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+  Blocks.Continuous.Integrator          integrator(k=-4*f*VAmp/Vps)
+    annotation (Placement(transformation(extent={{50,-80},{70,-60}})));
 equation
   connect(opAmp1.out, r2.n) annotation (Line(
       points={{-40,0},{-30,0},{-30,30},{-40,30}}, color={0,0,255}));
@@ -76,6 +83,8 @@ equation
       points={{50,0},{60,0},{60,-8}}, color={0,0,255}));
   connect(ground.p, vOutTriangle.n) annotation (Line(
       points={{0,-40},{60,-40},{60,-28}}, color={0,0,255}));
+  connect(pulse.y,integrator. u)
+    annotation (Line(points={{-19,-70},{48,-70}}, color={0,0,127}));
   annotation (Documentation(info="<html>
 <p>This signal generator consists of a Schmitt trigger and an integrator. The output of the Schmitt trigger part opamp (opAmp1) is a rectangular signal with the amplitude VAmp and the frequency f.
 The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f.</p>
