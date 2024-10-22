@@ -37,7 +37,8 @@ model IMC_YD
     TsOperational=293.15,
     effectiveStatorTurns=aimcData.effectiveStatorTurns,
     alpha20r=aimcData.alpha20r,
-    TrOperational=293.15)
+    TrOperational=293.15,
+    stator(zeroInductor(i0(nominal=10))))
     annotation (Placement(transformation(extent={{20,10},{40,30}})));
   Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
     annotation (Placement(transformation(
