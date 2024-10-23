@@ -41,7 +41,7 @@ model TransformerYY "Test example with polyphase components"
   Basic.Resistor transformerR(m=m, R=fill(RT, m)) annotation (Placement(
         transformation(extent={{0,10},{20,30}})));
   Basic.Inductor transformerL(m=m, L=fill(LT, m),
-    i(start=zeros(m), fixed=cat(1,fill(true,m-1),{false}))) annotation (Placement(
+    iL(start=zeros(m), fixed=cat(1,fill(true,m-1),{false}))) annotation (Placement(
         transformation(extent={{30,10},{50,30}})));
   Basic.Resistor loadR(m=m, R=fill(RL, m)) annotation (Placement(
         transformation(extent={{70,10},{90,30}})));
@@ -94,7 +94,7 @@ If this is not the case, you have to write the code manually:
 </p>
 <p><code>
   Modelica.Electrical.PolyPhase.Basic.Inductor transformerL(m=m, L=fill(LT, m),
-    <strong>i(start=zeros(m), fixed=cat(1,fill(true,m-1),{false}))</strong>);</code>
+    <strong>iL(start=zeros(m), fixed=cat(1,fill(true,m-1),{false}))</strong>);</code>
 </p>
 </html>"),
        experiment(StopTime=1.0, Interval=0.001),
