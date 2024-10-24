@@ -22,11 +22,7 @@ from the C-code under ../C-Sources
 The intention is that interested tool vendors can build these libraries
 by using the provided build projects as a start.
 
-The tool vendors are responsible for building the binary libraries
+Note, the tool vendors are responsible for building the binary libraries
 and including them in their tools.
 
-When building the binary libraries by VisualStudio2005 the environment
-variable MODELICA_UTILITIES_INCLUDE needs to be set to the path of the
-(tool-vendor-specific) ModelicaUtilities.h header file.
-
-September 24, 2021
+May 17, 2018
