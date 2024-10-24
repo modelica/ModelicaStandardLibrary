@@ -4,11 +4,9 @@
 
 The following versions of the Modelica Standard Library are currently being supported with security updates.
 
-| Version       | Supported          |
-| ------------- | ------------------ |
-| 4.0.x         | :white_check_mark: |
-| 3.2.3+build.x | :white_check_mark: |
-| ≤ 3.2.2       | :x:                |
+| Version | Supported |
+| ------- | --------- |
+| ≤ 4.0.0 | :x:       |
 
 ## Reporting a Vulnerability
 
