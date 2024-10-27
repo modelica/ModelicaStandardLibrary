@@ -4,6 +4,9 @@
  * Released to public domain
  */
 
+#ifndef MODELICA_REPL_STR_H_
+#define MODELICA_REPL_STR_H_
+
 #include <string.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -104,3 +107,5 @@ end_repl_str:
     free(pos_cache);
     return ret;
 }
+
+#endif
