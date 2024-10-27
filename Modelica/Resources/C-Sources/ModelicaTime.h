@@ -1,6 +1,6 @@
 /* ModelicaTime.h - External functions header for Modelica.Utilities.Time
 
-   Copyright (C) 2020, Modelica Association and contributors
+   Copyright (C) 2020-2024, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
