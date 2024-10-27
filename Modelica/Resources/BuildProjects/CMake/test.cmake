@@ -7,6 +7,7 @@ if(BUILD_TESTING)
     set(MODELICA_TESTS
       FileSystem
       ModelicaStrings
+      ModelicaTime
       Streams
       Tables
       TablesFromCsvFile
