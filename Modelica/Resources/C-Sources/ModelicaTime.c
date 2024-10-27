@@ -29,9 +29,8 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-// TODO: Remove when ModelicaTime.c will become part of ModelicaExternalC
-#if defined(DYMOSIM)
-#pragma once
+#if defined(__gnu_linux__)
+#define _GNU_SOURCE 1
 #endif
 
 #include "ModelicaTime.h"
