@@ -256,7 +256,7 @@ end FileSystem;
       input Integer epoch_year = 1970 "Reference year";
       output Real seconds "Elapsed seconds since start of epoch_year in the current time zone";
       external "C" seconds = ModelicaTime_difftime(ms, sec, min, hour, day, mon, year, epoch_year)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.h\"", Library="ModelicaExternalC");
       annotation (Documentation(info="<html>
 TODO
 </html>"));
@@ -353,7 +353,7 @@ All returned values are of type Integer and have the following meaning:
       output Integer mon "Month";
       output Integer year "Year";
       external "C90" ModelicaTime_localtime(ms, sec, min, hour, day, mon, year, seconds, epoch_year)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.h\"", Library="ModelicaExternalC");
       annotation (Documentation(info="<html>
 TODO
 </html>"));
@@ -371,7 +371,7 @@ TODO
       output Integer mon "Month";
       output Integer year "Year";
       external "C" ModelicaTime_strptime(ms, sec, min, hour, day, mon, year, str, format)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.h\"", Library="ModelicaExternalC");
       annotation (Documentation(info="<html>
 TODO
 </html>"));
@@ -390,7 +390,7 @@ TODO
       input Integer maxSize = 128 "Maximal length of formatted string";
       output String str "Formatted date and time string";
       external "C" str = ModelicaTime_strftime(ms, sec, min, hour, day, mon, year, format, maxSize)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.h\"", Library="ModelicaExternalC");
       annotation (Documentation(info="<html>
 TODO
 </html>"));
