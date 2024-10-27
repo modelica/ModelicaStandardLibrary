@@ -42,6 +42,8 @@
 #ifndef MODELICA_TIME_H_
 #define MODELICA_TIME_H_
 
+#include <stdlib.h>
+
 #if !defined(MODELICA_EXPORT)
 #if defined(__cplusplus)
 #define MODELICA_EXPORT extern "C"
