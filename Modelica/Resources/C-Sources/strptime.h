@@ -35,6 +35,9 @@
                      the %L format specifier
 */
 
+#ifndef MODELICA_STRPTIME_H_
+#define MODELICA_STRPTIME_H_
+
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
@@ -566,3 +569,5 @@ find_string (const unsigned char *bp, int *tgt, const char * const *n1,
   /* Nothing matched */
   return NULL;
 }
+
+#endif
