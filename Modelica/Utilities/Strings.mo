@@ -206,8 +206,8 @@ isEmpty(\"a\");      // returns false
 
 <h4>Syntax</h4>
 <blockquote><pre>
-Strings.<strong>contains</strong>(string, searchString);
-Strings.<strong>contains</strong>(string, searchString, caseSensitive=true);
+result = Strings.<strong>contains</strong>(string, searchString);
+result = Strings.<strong>contains</strong>(string, searchString, caseSensitive);
 </pre></blockquote>
 
 <h4>Description</h4>
