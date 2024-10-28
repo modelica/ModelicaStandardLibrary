@@ -212,11 +212,11 @@ Strings.<strong>contains</strong>(string, searchString, caseSensitive=true);
 
 <h4>Description</h4>
 <p>
-    Returns true if \"searchString\" is a substring of \"string\". Otherwise, false is returned.
-    The optional argument \"caseSensitive\" controls if substrings match, which differ in case only.
+Returns true if \"searchString\" is a substring of \"string\". Otherwise, false is returned.
+The optional argument \"caseSensitive\" controls if substrings match, which differ in case only.
 </p>
 <p>
-    Empty strings are treated as substring of all strings. Therefore, the result is always true if \"searchString\" is empty.
+Empty strings are treated as substring of all strings. Therefore, the result is always true if \"searchString\" is empty.
 </p>
 
 <h4>Example</h4>
@@ -226,7 +226,6 @@ import Modelica.Utilities.Strings.contains;
 contains(\"foobar\", \"OO\");         // returns false
 contains(\"foobar\", \"OO\", false);  // returns true
 contains(\"foo\", \"bar\");           // returns false
-contains(\"foo\", \"\");              // returns false
 contains(\"\", \"\");                 // returns true
 contains(\"foo\", \"\");              // returns true
 </pre></blockquote>
