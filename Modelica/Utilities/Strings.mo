@@ -203,7 +203,6 @@ isEmpty(\"a\");      // returns false
     end if;
 
     annotation (Documentation(info="<html>
-
 <h4>Syntax</h4>
 <blockquote><pre>
 result = Strings.<strong>contains</strong>(string, searchString);
