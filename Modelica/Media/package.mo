@@ -2015,11 +2015,10 @@ for the Modelica'2003 conference (for evaluation).
 <h4>Library officer and main author</h4>
 
 <p>
-<strong>Hubertus Tummescheit</strong><br>
+<strong>Hubertus Tummescheit</strong>, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22730 Lund, Sweden<br>
-email: <a href=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</a>
 </p>
 
 <h4>Acknowledgements</h4>
@@ -5113,11 +5112,10 @@ to the above list of assumptions</li>
     I-20133 Milano, Italy<br>
     email: <a href=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</a><br>
     and<br>
-    Hubertus Tummescheit<br>
+    Hubertus Tummescheit, previously at<br>
     Modelon AB<br>
     Ideon Science Park<br>
     SE-22730 Lund, Sweden<br>
-    email: <a href=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</a>
 </dd>
 </dl>
 </html>"));
