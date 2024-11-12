@@ -96,7 +96,7 @@ jobs:
             cmake --build build -- -j8
           fi
       - name: Run tests
-        run: ctest --test-dir build --build-config ${{ matrix.configuration }} --verbose
+        run: ctest --no-tests=error --test-dir build --build-config ${{ matrix.configuration }} --verbose
 
   external_c_checks_cmake_cygwin:
     name: external_c_checks_cmake_windows-cygwin
@@ -134,7 +134,7 @@ jobs:
       - name: Run tests
         run: |
           export PATH=/usr/bin:$PATH
-          ctest --test-dir build --build-config Debug --verbose
+          ctest --no-tests=error --test-dir build --build-config Debug --verbose
         shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
 
   html_documentation_checks:
