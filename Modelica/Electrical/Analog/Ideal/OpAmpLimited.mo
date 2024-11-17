@@ -102,15 +102,15 @@ equation
 <p>Supply voltage is either defined by parameter <code>Vps</code> and <code>Vns</code> or by (optional) pins <code>s_p</code> and <code>s_n</code>.<br>
 In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
 <p>
-For most applications it is sufficient ot use default settings <code>useFirstOrder=false</code> (default on the Advanced-tab).
+For most applications it is sufficient to use default settings <code>useFirstOrder=false</code> (default on the Advanced-tab).
 In this case the intermediate voltage <code>v_int</code> is simply <code>V0*v_in</code>.<br>
 In some applications it might be necessary to set <code>useFirstOrder=true</code> 
 to let the intermediate voltage <code>v_int</code> rise according to a firstOrder with time constant <code>Tau</code>. 
 In that case the time constant <code>Tau</code> should fit to the dynamics of the input signal.
 </p>
 <p>
-If this intermediate voltage <code>v_int</code> gets higher than positive supply, Boolean <code>satPos</code> inidicates positive saturation.<br>
-If this intermediate voltage <code>v_int</code> gets lower  than negative supply, Boolean <code>satNeg</code> inidicates negative saturation.<br>
+If this intermediate voltage <code>v_int</code> gets higher than positive supply, Boolean <code>satPos</code> indicates positive saturation.<br>
+If this intermediate voltage <code>v_int</code> gets lower  than negative supply, Boolean <code>satNeg</code> indicates negative saturation.<br>
 Intermediate voltage <code>v_int</code> is limited between positive supply and negative supply to achieve output voltage <code>v_out</code> without further events.
 </p>
 <h4>Initialization</h4>
