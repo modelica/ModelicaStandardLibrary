@@ -424,6 +424,7 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
         /* _stat accepts both "a:\dir" and "a:\dir\" */
 #else
         /* _stat requires "a:\dir" instead of "a:\dir\" */
+        /* required for VS 2013 and earlier */
         else if (NULL != firstSlash && len > 1 &&
             ('/' == name[len - 1] || '\\' == name[len - 1])) {
             char* nameTmp = (char*)malloc(len*(sizeof(char)));
