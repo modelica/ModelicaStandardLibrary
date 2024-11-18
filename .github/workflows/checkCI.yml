@@ -18,8 +18,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 5
+          submodules: true
       - name: Configure
         run: |
+          git submodule status
           rm -rf Modelica/Resources/Library/*
           mkdir -p Modelica/Resources/Library/$LIBDIR
           pushd Modelica/Resources/BuildProjects/autotools
@@ -76,8 +78,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 5
+          submodules: true
       - name: Configure
         run: |
+          git submodule status
           if [ "${{ matrix.compiler }}" == "msvc" ]; then
             cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON
           elif [ "${{ matrix.compiler }}" == "mingw" ]; then
@@ -109,6 +113,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 5
+          submodules: true
       - name: Setup cygwin
         uses: cygwin/cygwin-install-action@master
         with:
@@ -119,6 +124,7 @@ jobs:
             ninja
       - name: Configure
         run: |
+          git submodule status
           export PATH=/usr/bin:$PATH
           cmake -S "$(cygpath ${SRCDIR})" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$(cygpath ${TESTDIR})" -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=Debug -G Ninja
         shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
