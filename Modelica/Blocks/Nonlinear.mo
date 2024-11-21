@@ -250,6 +250,83 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
 </html>"));
   end SlewRateLimiter;
 
+  block ZeroProtection "Limit the input to a minimum value around zero"
+
+    // Base model
+    extends Modelica.Blocks.Interfaces.SISO;
+
+    // Parameter
+    parameter Real threshold(min = 0)
+      "Smallest value around zero, which the output can have";
+
+  equation
+
+    y =
+      if noEvent(u >= threshold or u <= -threshold) then
+        u
+      elseif noEvent(u >= 0) then
+        threshold
+      else
+        -threshold;
+
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}})),
+      Icon(
+        coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}),
+        graphics = {
+          Line(points = {{-78, 0}, {78, 0}}, color = {192, 192, 192}),
+          Line(points = {{0, -80}, {0, 68}}, color = {192, 192, 192}),
+          Text(
+            extent = {{62, 32}, {80, 8}},
+            pattern = LinePattern.None,
+            lineColor = {0, 0, 0},
+            textString = "u"),
+          Text(
+            extent = {{-24, 84}, {-8, 64}},
+            pattern = LinePattern.None,
+            lineColor = {0, 0, 0},
+            textString = "y"),
+          Text(
+            extent = {{-82, 22}, {-12, 6}},
+            pattern = LinePattern.None,
+            lineColor = {0, 0, 0},
+            textString = "%threshold",
+            horizontalAlignment = TextAlignment.Right),
+          Line(points = {{-4, 10}, {2, 10}}, color = {192, 192, 192}),
+          Line(
+            points = {{-2, -10}, {4, -10}},
+            color = {192, 192, 192}),
+          Line(
+            points = {{60, 60}, {10, 10}, {0, 10}},
+            color = {0, 0, 0}),
+          Line(
+            points = {{-60, -60}, {-10, -10}, {0, -10}},
+            color = {0, 0, 0}),
+          Polygon(
+            points = {{0, 80}, {-6, 64}, {6, 64}, {0, 80}},
+            lineColor = {192, 192, 192},
+            fillColor = {192, 192, 192},
+            fillPattern = FillPattern.Solid),
+          Polygon(
+            points = {{0, 8}, {-6, -8}, {6, -8}, {0, 8}},
+            lineColor = {192, 192, 192},
+            fillColor = {192, 192, 192},
+            fillPattern = FillPattern.Solid,
+            origin = {72, 0},
+            rotation = 270),
+          Text(
+            extent = {{8, -8}, {78, -24}},
+            pattern = LinePattern.None,
+            lineColor = {0, 0, 0},
+            horizontalAlignment = TextAlignment.Left,
+            textString = "-%threshold")}),
+      Documentation(
+        info = "<html>
+<p>This block avoids a value of zero and gives +/- <code>threshold</code> as output instead.</p>
+</html>"));
+
+  end ZeroProtection;
+
       block DeadZone "Provide a region of zero output"
         parameter Real uMax(start=1) "Upper limits of dead zones";
         parameter Real uMin=-uMax "Lower limits of dead zones";
