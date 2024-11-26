@@ -211,14 +211,14 @@ package FileSystem
     external "C" ModelicaInternal_readDirectory(directory,nNames,names) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end readDirectory;
 
-impure function getNumberOfFiles
+  impure function getNumberOfFiles
       "Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)"
-  extends Modelica.Icons.Function;
-  input String directory "Directory name";
-  output Integer result
+    extends Modelica.Icons.Function;
+    input String directory "Directory name";
+    output Integer result
         "Number of files and directories present in 'directory'";
-  external "C" result = ModelicaInternal_getNumberOfFiles(directory) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
-end getNumberOfFiles;
+    external "C" result = ModelicaInternal_getNumberOfFiles(directory) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  end getNumberOfFiles;
 
   annotation (
 Documentation(info="<html>
@@ -227,7 +227,7 @@ Package <strong>Internal.FileSystem</strong> is an internal package that contain
 low level functions as interface to the file system.
 These functions should not be called directly in a scripting
 environment since more convenient functions are provided
-in packages Files and Systems.
+in packages <a href=\"modelica://Modelica.Utilities.Files\">Files</a> and <a href=\"modelica://Modelica.Utilities.System\">System</a>.
 </p>
 <p>
 Note, the functions in this package are direct interfaces to
@@ -240,4 +240,233 @@ especially if the operating system supports Unicode characters.
 </p>
 </html>"));
 end FileSystem;
+
+  package Time "Internal package with external functions as interface to date and time"
+    extends Modelica.Icons.InternalPackage;
+
+    pure function diffTime "Convert local time to elapsed seconds since custom epoch year"
+      extends Modelica.Icons.Function;
+      input Integer ms "Millisecond";
+      input Integer sec "Second";
+      input Integer min "Minute";
+      input Integer hour "Hour";
+      input Integer day "Day";
+      input Integer mon "Month";
+      input Integer year "Year";
+      input Integer epoch_year = 1970 "Reference year";
+      output Real seconds "Elapsed seconds since start of epoch_year in the current time zone";
+      external "C" seconds = ModelicaTime_difftime(ms, sec, min, hour, day, mon, year, epoch_year)
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.h\"", Library="ModelicaExternalC");
+      annotation (Documentation(info="<html>
+TODO
+</html>"));
+    end diffTime;
+
+    impure function getTime "Retrieve the local time (in the local time zone)"
+      extends Modelica.Icons.Function;
+      output Integer ms "Millisecond";
+      output Integer sec "Second";
+      output Integer min "Minute";
+      output Integer hour "Hour";
+      output Integer day "Day";
+      output Integer mon "Month";
+      output Integer year "Year";
+      external "C" ModelicaInternal_getTime(ms, sec, min, hour, day, mon, year)
+        annotation(Library="ModelicaExternalC");
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+(ms, sec, min, hour, day, mon, year) = Internal.Time.<strong>getTime</strong>();
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the local time at the time instant this function was called.
+All returned values are of type Integer and have the following meaning:
+</p>
+
+<blockquote>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+<tr><th>Argument</th>
+    <th>Range</th>
+    <th>Description</th></tr>
+
+<tr><td>ms</td> <td>0&nbsp;&hellip;&nbsp;999</td>
+    <td>Milli-seconds after seconds</td></tr>
+
+<tr><td>sec</td> <td>0&nbsp;&hellip;&nbsp;59</td>
+    <td>Seconds after minute</td></tr>
+
+<tr><td>min</td> <td>0&nbsp;&hellip;&nbsp;59</td>
+    <td>Minutes after hour</td></tr>
+
+<tr><td>hour</td> <td>0&nbsp;&hellip;&nbsp;23</td>
+    <td>Hours after midnight</td></tr>
+
+<tr><td>day</td> <td>1&nbsp;&hellip;&nbsp;31</td>
+    <td>Day of month</td></tr>
+
+<tr><td>mon</td> <td>1&nbsp;&hellip;&nbsp;12</td>
+    <td>Current month</td></tr>
+
+<tr><td>year</td> <td>&ge; 1970</td>
+    <td>Current year</td></tr>
+</table>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+(ms, sec, min, hour, mon, year) = getTime()   // = (281, 30, 13, 10, 15, 2, 2015)
+                                              // Feb. 15, 2015 at 10:13 after 30.281 s
+</pre></blockquote>
+<h4>Note</h4>
+<p>This function is impure!</p>
+</html>",   revisions="<html>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td> June 22, 2015 </td>
+    <td>
+
+<table border=\"0\">
+<tr><td>
+         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</html>"));
+    end getTime;
+
+    pure function localTime "Retrieve the local time (in the local time zone) from elapsed seconds since reference year"
+      extends Modelica.Icons.Function;
+      input Real seconds "Elapsed seconds since epoch_year";
+      input Integer epoch_year = 1970 "Reference year";
+      output Integer ms "Millisecond";
+      output Integer sec "Second";
+      output Integer min "Minute";
+      output Integer hour "Hour";
+      output Integer day "Day";
+      output Integer mon "Month";
+      output Integer year "Year";
+      external "C90" ModelicaTime_localtime(ms, sec, min, hour, day, mon, year, seconds, epoch_year)
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.h\"", Library="ModelicaExternalC");
+      annotation (Documentation(info="<html>
+TODO
+</html>"));
+    end localTime;
+
+    pure function stringToTime "Retrieve the local time (in the local time zone) from formatted string"
+      extends Modelica.Icons.Function;
+      input String str "Formatted date and time string";
+      input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strptime";
+      output Integer ms "Millisecond";
+      output Integer sec "Second";
+      output Integer min "Minute";
+      output Integer hour "Hour";
+      output Integer day "Day";
+      output Integer mon "Month";
+      output Integer year "Year";
+      external "C" ModelicaTime_strptime(ms, sec, min, hour, day, mon, year, str, format)
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.h\"", Library="ModelicaExternalC");
+      annotation (Documentation(info="<html>
+TODO
+</html>"));
+    end stringToTime;
+
+    pure function timeToString "Convert the local time (in the local time zone) to string"
+      extends Modelica.Icons.Function;
+      input Integer ms "Millisecond";
+      input Integer sec "Second";
+      input Integer min "Minute";
+      input Integer hour "Hour";
+      input Integer day "Day";
+      input Integer mon "Month";
+      input Integer year "Year";
+      input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strftime";
+      input Integer maxSize = 128 "Maximal length of formatted string";
+      output String str "Formatted date and time string";
+      external "C" str = ModelicaTime_strftime(ms, sec, min, hour, day, mon, year, format, maxSize)
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.h\"", Library="ModelicaExternalC");
+      annotation (Documentation(info="<html>
+TODO
+</html>"));
+    end timeToString;
+
+    function dayOfWeek "Return day of week for given date"
+      extends Modelica.Icons.Function;
+      input Integer year "Year";
+      input Integer mon=1 "Month";
+      input Integer day=1 "Day of month";
+      output Integer dow(min=1, max=7) "Day of week: 1 = Monday, ..., 6 = Saturday, 7 = Sunday";
+    protected
+      constant Integer t[:] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+      Integer y = year;
+    algorithm
+      assert(mon >= 1 and mon <= 12, "Month is out of range.");
+      if mon < 3 then
+        y := y - 1;
+      end if;
+      dow := mod(y + div(y, 4) - div(y, 100) + div(y, 400) + t[mon] + day, 7);
+      // One-based indexing: Sunday is 7
+      if dow == 0 then
+        dow := 7;
+      end if;
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+dow = Internal.Time.<strong>dayOfWeek</strong>(year, mon, day);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the day of the week for a given date using Tomohiko Sakamoto's algorithm.
+The returned Integer number of <code>dow</code> has the following meaning:
+</p>
+
+<blockquote>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+<tr><th>Day of week</th>
+    <th>Number</th></tr>
+
+<tr><td>Monday</td> <td>1</td></tr>
+
+<tr><td>Tuesday</td> <td>2</td></tr>
+
+<tr><td>Wednesday</td> <td>3</td></tr>
+
+<tr><td>Thursday</td> <td>4</td></tr>
+
+<tr><td>Friday</td> <td>5</td></tr>
+
+<tr><td>Saturday</td> <td>6</td></tr>
+
+<tr><td>Sunday</td> <td>7</td></tr>
+
+</table>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+dow = dayOfWeek(2019, 12, 6) // = 5
+                             // Dec. 06, 2019 (Saint Nicholas Day) is a Friday
+dow = dayOfWeek(2020)        // = 3
+                             // Jan. 01, 2020 (New Year's Day) is a Wednesday
+</pre></blockquote>
+</html>"));
+    end dayOfWeek;
+
+  annotation (
+Documentation(info="<html>
+<p>
+Package <strong>Internal.Time</strong> is an internal package that contains
+low level functions as interface to date and time.
+These functions should not be called directly in a scripting
+environment since more convenient functions are provided
+in package <a href=\"modelica://Modelica.Utilities.Time\">Time</a>.
+</p>
+</html>"));
+  end Time;
 end Internal;
