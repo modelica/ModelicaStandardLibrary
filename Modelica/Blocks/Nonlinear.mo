@@ -370,6 +370,370 @@ function of the input with a slope of 1.
             textString="uMax=%uMax")}));
       end DeadZone;
 
+  block LinearShifter
+    "Shifts y between y1 and y2 linearly depending on x"
+
+    // Base model
+    extends Modelica.Blocks.Interfaces.SISO;
+
+    // Parameters
+    parameter Real u1(start = -1)
+      "Lower boundary of input u, switching from constant value y1 to linear interpolation";
+    parameter Real u2(start = 1)
+      "Upper boundary of input u, switching from linear interpolation to constant value y2";
+    parameter Real y1(start = -1)
+      "Minimum value for y";
+    parameter Real y2(start = 1)
+      "Maximum value for y";
+
+    parameter Boolean strict = false
+      "= true, if strict limits with noEvent(..)"
+      annotation (Evaluate = true, choices(checkBox = true), Dialog(group = "Discontinuities"));
+
+    final parameter Real k = (y2 - y1) / (u2 - u1)
+      "Slope of the resulting line equation";
+    final parameter Real y0 = if k > 0 then -k * u1 + y1 else -k * u2 + y2
+      "Offset of the resulting line equation";
+
+    // Components
+    Modelica.Blocks.Math.Gain gradient(k = k)
+      annotation (Placement(transformation(extent = {{-60, -10}, {-40, 10}})));
+    Modelica.Blocks.Math.Add add
+      annotation (Placement(transformation(extent = {{0, -10}, {20, 10}})));
+    Modelica.Blocks.Sources.Constant offset(k = y0)
+      annotation (Placement(transformation(extent = {{-60, 30}, {-40, 50}})));
+    Modelica.Blocks.Nonlinear.Limiter limiter(uMax = max(y1, y2), uMin = min(y1, y2), strict = strict)
+      annotation (Placement(transformation(extent = {{40, -10}, {60, 10}})));
+
+  initial equation
+
+    assert(u1 < u2, "Invalid parameters for " + getInstanceName() + ": Lower point has to be smaller than upper point on the abscissa.");
+
+  equation
+
+    connect(gradient.u, u)
+      annotation (Line(points = {{-62, 0}, {-120, 0}}, color = {0, 0, 127}));
+    connect(add.u2, gradient.y)
+      annotation (Line(points = {{-2, -6}, {-30, -6}, {-30, 0}, {-39, 0}}, color = {0, 0, 127}));
+    connect(offset.y, add.u1)
+      annotation (Line(points = {{-39, 40}, {-20, 40}, {-20, 6}, {-2, 6}}, color = {0, 0, 127}));
+    connect(limiter.u, add.y)
+      annotation (Line(points = {{38, 0}, {21, 0}}, color = {0, 0, 127}));
+    connect(limiter.y, y)
+      annotation (Line(points = {{61, 0}, {110, 0}}, color = {0, 0, 127}));
+
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}})),
+      Documentation(
+        info = "<html>
+<p>The output <code>y</code> is shifted in between the parameters <code>y1</code> and <code>y2</code> depending on the
+    input <code>u</code>. </p>
+<p>If the input <code>u&le;u1</code> then <code>y=y1</code>, if <code>u&ge;u2</code> then <code>y=y2</code>. For
+    values of <code>u</code> between <code>u1</code> and <code>u2</code> the output <code>y</code> is interpolated
+    linearly between <code>y1</code> and <code>y2</code>.</p>
+<hr>
+<h4>Application</h4>
+<p>This block can be useful e.g. to limit the torque (y) of an electric machine if speed (u) gets to high. Usual
+    parameters in such a case could be:</p>
+<ul>
+    <li>Speed at which limiting starts = u1 = 1000rpm</li>
+    <li>Relative possible torque if speed is below u1: y2=1</li>
+    <li>Speed at which no torque shall be available: u2 = 1050rpm</li>
+    <li>Relative possible torque if speed is above u2: y2 = 0</li>
+</ul>
+</html>"),
+      Icon(
+        coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}),
+        graphics = {
+          Line(points = {{0, -66}, {0, 84}}, color = {192, 192, 192}),
+          Line(points = {{-84, 0}, {74, 0}}, color = {192, 192, 192}),
+          Polygon(
+            points = {{90, 0}, {74, 6}, {74, -6}, {90, 0}},
+            lineColor = {192, 192, 192},
+            fillColor = {192, 192, 192},
+            fillPattern = FillPattern.Solid),
+          Polygon(
+            points = {{0, 90}, {-6, 74}, {6, 74}, {0, 90}},
+            lineColor = {192, 192, 192},
+            fillColor = {192, 192, 192},
+            fillPattern = FillPattern.Solid),
+          Line(points = {{-76, -60}, {-32, -60}, {32, 64}, {78, 64}}, color = {0, 86, 134}),
+          Line(points = {{-32, -4}, {-32, 4}}, color = {192, 192, 192}),
+          Line(points = {{32, -8}, {32, 64}}, color = {192, 192, 192}),
+          Text(
+            extent = {{-30, 76}, {-4, 50}},
+            textColor = {0, 86, 134},
+            textString = "%y2"),
+          Text(
+            extent = {{6, -48}, {32, -74}},
+            textColor = {0, 86, 134},
+            textString = "%y1"),
+          Text(
+            extent = {{18, -6}, {44, -32}},
+            textColor = {0, 86, 134},
+            textString = "%u2"),
+          Text(
+            extent = {{-44, -6}, {-20, -32}},
+            textColor = {0, 86, 134},
+            textString = "%u1"),
+          Line(points = {{-4, 64}, {32, 64}}, color = {192, 192, 192}),
+          Line(points = {{-32, -60}, {4, -60}}, color = {192, 192, 192}),
+          Line(points = {{-32, -60}, {-32, -36}}, color = {192, 192, 192})}));
+
+  end LinearShifter;
+
+  model SinSquareShifter
+    "Shifts y between y1 and y2 depending on x"
+
+    import Modelica.Constants.pi;
+
+    // Base model
+    extends Modelica.Blocks.Interfaces.SISO;
+
+    // Parameters
+    parameter Real u1(start = 1)
+      "Lower boundary of input u, switching from constant value y1 to sin^2 interpolation";
+    parameter Real u2(start = 2)
+      "Upper boundary of input u, switching from sin^2 interpolation to constant value y2";
+    parameter Real y1(start = 0)
+      "Minimum value for y";
+    parameter Real y2(start = 1)
+      "Maximum value for y";
+
+  equation
+
+    if noEvent(u <= u1) then
+      y = y1;
+    elseif noEvent(u > u1 and u < u2) then
+      y = y1 + (y2 - y1) * sin((u - u1) / (u2 - u1) * pi / 2) ^ 2;
+    else
+      y = y2;
+    end if;
+
+    annotation (
+      Icon(
+        graphics = {
+          Line(points = {{0, -66}, {0, 84}}, color = {192, 192, 192}),
+          Line(points = {{-84, 0}, {74, 0}}, color = {192, 192, 192}),
+          Polygon(
+            points = {{90, 0}, {74, 6}, {74, -6}, {90, 0}},
+            lineColor = {192, 192, 192},
+            fillColor = {192, 192, 192},
+            fillPattern = FillPattern.Solid),
+          Polygon(
+            points = {{0, 90}, {-6, 74}, {6, 74}, {0, 90}},
+            lineColor = {192, 192, 192},
+            fillColor = {192, 192, 192},
+            fillPattern = FillPattern.Solid),
+          Line(
+            points = {{-76, -60}, {-18, -60}, {20, 64}, {78, 64}},
+            color = {0, 86, 134},
+            smooth = Smooth.Bezier),
+          Line(points = {{-46, -4}, {-46, 4}}, color = {192, 192, 192}),
+          Line(points = {{48, -8}, {48, 64}}, color = {192, 192, 192}),
+          Text(
+            extent = {{-30, 76}, {-4, 50}},
+            textColor = {0, 86, 134},
+            textString = "%y2"),
+          Text(
+            extent = {{6, -48}, {32, -74}},
+            textColor = {0, 86, 134},
+            textString = "%y1"),
+          Text(
+            extent = {{34, -6}, {60, -32}},
+            textColor = {0, 86, 134},
+            textString = "%u2"),
+          Text(
+            extent = {{-58, -6}, {-34, -32}},
+            textColor = {0, 86, 134},
+            textString = "%u1"),
+          Line(points = {{-4, 64}, {48, 64}}, color = {192, 192, 192}),
+          Line(points = {{-46, -60}, {4, -60}}, color = {192, 192, 192}),
+          Line(points = {{-46, -60}, {-46, -36}}, color = {192, 192, 192})}),
+      Documentation(
+        info = "<html>
+<p>The output <code>y</code> is shifted in between the parameters <code>y1</code> and <code>y2</code> depending on the
+    input <code>u</code>. </p>
+<p>If the input <code>u&le;u1</code> then <code>y=y1</code>, if <code>u&ge;u2</code> then <code>y=y2</code>. For
+    values of <code>u</code> between <code>u1</code> and <code>u2</code> the output <code>y</code> is interpolated
+    using a sin&#178; function between <code>y1</code> and <code>y2</code>.</p>
+<hr>
+<h4>Application</h4>
+<p>The block has the same applications as the <a href=\"modelica://DymolaModels.Blocks.NonLinear.LinearShifter\">LinearShifter</a>
+    with potentially improved stability due to the smoother behavior of the output.
+</p>
+</html>"));
+
+  end SinSquareShifter;
+
+  block VariableLinearShifter
+    "Shifting between u1 and u2 depending on x"
+
+    // Base model
+    extends Modelica.Blocks.Interfaces.SISO;
+
+    // Components
+    Modelica.Blocks.Interfaces.RealInput u1
+      annotation (Placement(transformation(extent = {{-140, 40}, {-100, 80}})));
+    Modelica.Blocks.Interfaces.RealInput u2
+      annotation (Placement(transformation(extent = {{-140, -80}, {-100, -40}})));
+    Modelica.Blocks.Math.Product resultFromFirstInput
+      annotation (Placement(transformation(extent = {{20, 30}, {40, 50}})));
+    Modelica.Blocks.Math.Product resultFromSecondInput
+      annotation (Placement(transformation(extent = {{20, -50}, {40, -30}})));
+    Modelica.Blocks.Math.Add valueForInversion(k1 = -1)
+      annotation (Placement(transformation(extent = {{-20, -34}, {0, -14}})));
+    Modelica.Blocks.Sources.Constant negationValue(k = 1)
+      annotation (Placement(transformation(extent = {{-60, -40}, {-40, -20}})));
+    Modelica.Blocks.Nonlinear.Limiter limitedShiftingFactor(
+      uMax = 1,
+      uMin = 0,
+      strict = true)
+      annotation (Placement(transformation(extent = {{-80, -10}, {-60, 10}})));
+    Modelica.Blocks.Math.Add sumOfWheightedInputs
+      annotation (Placement(transformation(extent = {{60, -10}, {80, 10}})));
+
+  equation
+
+    connect(u1, resultFromFirstInput.u1)
+      annotation (
+        Line(
+          points = {{-120, 60}, {-30, 60}, {-30, 46}, {18, 46}},
+          color = {0, 0, 127},
+          smooth = Smooth.None));
+    connect(negationValue.y, valueForInversion.u2)
+      annotation (
+        Line(
+          points = {{-39, -30}, {-22, -30}},
+          color = {0, 0, 127},
+          smooth = Smooth.None));
+    connect(limitedShiftingFactor.u, u)
+      annotation (
+        Line(
+          points = {{-82, 0}, {-120, 0}},
+          color = {0, 0, 127},
+          smooth = Smooth.None));
+    connect(limitedShiftingFactor.y, resultFromFirstInput.u2)
+      annotation (
+        Line(
+          points = {{-59, 0}, {-30, 0}, {-30, 34}, {18, 34}},
+          color = {0, 0, 127},
+          smooth = Smooth.None));
+    connect(valueForInversion.u1, resultFromFirstInput.u2)
+      annotation (
+        Line(
+          points = {{-22, -18}, {-30, -18}, {-30, 34}, {18, 34}},
+          color = {0, 0, 127},
+          smooth = Smooth.None));
+    connect(valueForInversion.y, resultFromSecondInput.u1)
+      annotation (
+        Line(
+          points = {{1, -24}, {8, -24}, {8, -34}, {18, -34}},
+          color = {0, 0, 127},
+          smooth = Smooth.None));
+    connect(u2, resultFromSecondInput.u2)
+      annotation (
+        Line(
+          points = {{-120, -60}, {8, -60}, {8, -46}, {18, -46}},
+          color = {0, 0, 127},
+          smooth = Smooth.None));
+    connect(sumOfWheightedInputs.u1, resultFromFirstInput.y)
+      annotation (
+        Line(
+          points = {{58, 6}, {50, 6}, {50, 40}, {41, 40}},
+          color = {0, 0, 127},
+          smooth = Smooth.None));
+    connect(sumOfWheightedInputs.u2, resultFromSecondInput.y)
+      annotation (
+        Line(
+          points = {{58, -6}, {50, -6}, {50, -40}, {41, -40}},
+          color = {0, 0, 127},
+          smooth = Smooth.None));
+    connect(sumOfWheightedInputs.y, y)
+      annotation (
+        Line(
+          points = {{81, 0}, {110, 0}},
+          color = {0, 0, 127},
+          smooth = Smooth.None));
+
+    annotation (
+      Diagram(
+        coordinateSystem(
+          preserveAspectRatio = false,
+          extent = {
+            {-100, -100},
+            {100, 100}})),
+      Documentation(
+        info = "<html>
+<p>The output <code>y</code> is shifted in between <code>u1</code> and <code>u2</code> depending on the input <code>u</code>.
+</p>
+<p>If the input <code>u&le;0</code> then <code>y=u2</code>, if <code>u&ge;1</code> then
+    <code>y=u1</code>. For values of <code>u</code> between 0 and 1 the output <code>y</code> is interpolated
+    linearly between <code>u1</code> and <code>u2</code>.</p>
+
+<hr>
+<h4>Application</h4>
+<p>This can be useful e.g. to limit the torque(y) of an electric machine if a temperature indicator (u) gets
+    too high. Usual parameters in such a case could be:</p>
+<ul>
+    <li>u2 = maximum possible torque in overload operation</li>
+    <li>u1 = maximum possible torque in continuous operation</li>
+    <li>u = 0 for machine below the critical temperature and 1 when the temperature is too high</li>
+</ul>
+</html>"),
+      Icon(
+        coordinateSystem(
+          preserveAspectRatio = false,
+          extent = {
+            {-100, -100},
+            {100, 100}}),
+        graphics = {
+          Line(
+            points = {{-32, -6}, {-32, 84}},
+            color = {192, 192, 192}),
+          Line(points = {{-84, 0}, {74, 0}}, color = {192, 192, 192}),
+          Polygon(
+            points = {{90, 0}, {74, 6}, {74, -6}, {90, 0}},
+            lineColor = {192, 192, 192},
+            fillColor = {192, 192, 192},
+            fillPattern = FillPattern.Solid),
+          Polygon(
+            points = {{-32, 86}, {-38, 70}, {-26, 70}, {-32, 86}},
+            lineColor = {192, 192, 192},
+            fillColor = {192, 192, 192},
+            fillPattern = FillPattern.Solid),
+          Line(
+            points = {{-76, -64}, {-32, -64}, {32, 60}, {78, 60}},
+            color = {0, 86, 134}),
+          Line(points = {{32, -6}, {32, 60}}, color = {192, 192, 192}),
+          Text(
+            extent = {{-68, 74}, {-42, 48}},
+            textColor = {0, 86, 134},
+            textString = "u1"),
+          Text(
+            extent = {{8, -50}, {34, -76}},
+            textColor = {0, 86, 134},
+            textString = "u2"),
+          Text(
+            extent = {{18, -6}, {44, -32}},
+            textColor = {0, 86, 134},
+            textString = "1"),
+          Text(
+            extent = {{-44, -6}, {-20, -32}},
+            textColor = {0, 86, 134},
+            textString = "0"),
+          Line(
+            points = {{-36, 60}, {32, 60}},
+            color = {192, 192, 192}),
+          Line(
+            points = {{-32, -64}, {4, -64}},
+            color = {192, 192, 192}),
+          Line(
+            points = {{-32, -64}, {-32, -34}},
+            color = {192, 192, 192})}));
+
+  end VariableLinearShifter;
+
   block FixedDelay "Delay block with fixed DelayTime"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Time delayTime(start=1)
