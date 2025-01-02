@@ -264,7 +264,7 @@ Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 2010-2024, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>
+Copyright &copy; 2010-2025, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>
 </p>
 
 <p>
