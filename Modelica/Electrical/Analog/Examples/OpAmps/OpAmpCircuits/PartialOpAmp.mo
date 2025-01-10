@@ -9,8 +9,7 @@ partial model PartialOpAmp
     V0=V0,
     final useSupply=false,
     final Vps=Vps,
-    final Vns=Vns,
-    out(i(start=0, fixed=false)))
+    final Vns=Vns)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Text(
