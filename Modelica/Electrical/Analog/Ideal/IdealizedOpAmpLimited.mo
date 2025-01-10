@@ -122,8 +122,7 @@ equation
 </ul>
 <p>Supply voltage is either defined by parameter Vps and Vns or by (optional) pins s_p and s_n.</p>
 <p>In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
-<p>
-You may choose between different implementations for calculating output voltage from input voltage:
+<p>You may choose between different implementations for calculating output voltage from input voltage:</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <th>regularized</th><th>smoothed</th><th>strict  </th>
@@ -150,8 +149,9 @@ You may choose between different implementations for calculating output voltage 
     <td>uses a linear relationship and saturates at positive resp. negative supply using both smooth and noEvent</td>
   </tr>
 </table>
-Recommendation: 
-Use of the opAmp in the linear range: regularized = false, smoothed = false, strict = false. 
+<p>
+Recommendation:<br>
+Use of the opAmp in the linear range: regularized = false, smoothed = false, strict = false.<br>
 Use of the opAmp as switching device: regularized = true,  smoothed = false, strict = false. 
 </p>
 <p>If initialization is problematic for a model containing this as a component you can set the <strong>homotopyType</strong> parameter.
