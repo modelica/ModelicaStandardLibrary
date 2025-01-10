@@ -9,10 +9,10 @@ LowPass
 HighPass
 ControlCircuit
 VoltageFollower
-LCOscillator
 Comparator
 InvertingSchmittTrigger
 SchmittTrigger
 Multivibrator
+LCOscillator
 SignalGenerator
 OpAmpCircuits

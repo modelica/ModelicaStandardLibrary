@@ -1,22 +1,16 @@
 within Modelica.Electrical.Analog.Examples.OpAmps;
 model VoltageFollower "Reproduce input voltage"
   extends Modelica.Icons.Example;
-  parameter Real V0=15000.0 "No-load amplification";
-  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply";
-  parameter Modelica.Units.SI.Voltage Vns=-15 "Negative supply";
-  parameter Modelica.Units.SI.Voltage Vin=5 "Amplitude of input voltage";
-  parameter Modelica.Units.SI.Frequency f=10 "Frequency of input voltage";
-  parameter Modelica.Units.SI.Resistance Ri=1
+  parameter SI.Voltage Vps=+15 "Positive supply";
+  parameter SI.Voltage Vns=-15 "Negative supply";
+  parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+  parameter SI.Frequency f=10 "Frequency of input voltage";
+  parameter SI.Resistance Ri=1
     "Inner resistance of input voltage source";
-  parameter Modelica.Units.SI.Resistance Rl=1 "Load resistance";
+  parameter SI.Resistance Rl=1 "Load resistance";
   Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
-    V0=V0,
-    useSupply=false,
     Vps=Vps,
-    Vns=Vns,
-    regularized=false,
-    smoothed=false,
-    strict=false)
+    Vns=Vns)
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));

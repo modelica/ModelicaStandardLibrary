@@ -1,9 +1,10 @@
 within Modelica.Electrical.Analog.Examples.OpAmps;
 model DifferentialAmplifier "Differential amplifier"
   extends Modelica.Icons.Example;
-  parameter OpAmps.OpAmpCircuits.DifferentialAmplifierData data
-    "Parameters for source, OpAmp and measurement"
-    annotation (Placement(transformation(extent={{50,10},{70,30}})));
+  parameter
+    Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.DifferentialAmplifierData
+    data "Parameters for source, OpAmp and measurement"
+     annotation (Placement(transformation(extent={{50,10},{70,30}})));
   Modelica.Electrical.Analog.Sources.SineVoltage sourceVoltage1(
     V=sqrt(2/3)*data.VSource,
     phase=1.0471975511966,
@@ -36,18 +37,11 @@ model DifferentialAmplifier "Differential amplifier"
     V0=data.V0,
     useSupply=true,
     Vps=+data.VSupply,
-    Vns=-data.VSupply,
-    regularized=false,
-    smoothed=false,
-    strict=false,
-    vps(start=+data.VSupply),
-    vns(start=-data.VSupply))
+    Vns=-data.VSupply)
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor1(R=data.R1,
-    i(start=0, fixed=false))
+  Modelica.Electrical.Analog.Basic.Resistor resistor1(R=data.R1)
     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor2(R=data.R2,
-    i(start=0, fixed=false))
+  Modelica.Electrical.Analog.Basic.Resistor resistor2(R=data.R2)
     annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor3(R=data.R3)
     annotation (Placement(transformation(extent={{-20,20},{0,40}})));

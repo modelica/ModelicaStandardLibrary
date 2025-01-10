@@ -2,18 +2,14 @@ within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model Buffer "Non inverting operational amplifier circuit"
   extends PartialOpAmp;
   parameter Real k(final min=0)=1 "Desired amplification";
-  parameter Modelica.Units.SI.Resistance R1=1000
-    "Resistance at negative pin(s)";
-  parameter Modelica.Units.SI.Resistance R2=(k - 1)*R1
-    "Calculated resistance to reach desired amplification k";
-  Modelica.Electrical.Analog.Basic.Resistor r1(final R=R1) annotation (
-      Placement(transformation(
-        extent={{-10,-10},{10,10}},
+  parameter SI.Resistance R1=1000 "Resistance at negative pin(s)";
+  parameter SI.Resistance R2=(k - 1)*R1 "Calculated resistance to reach desired amplification k";
+  Basic.Resistor                            r1(final R=R1)
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=270,
         origin={10,-70})));
-  Modelica.Electrical.Analog.Basic.Resistor r2(final R=R2) annotation (
-      Placement(transformation(
-        extent={{10,-10},{-10,10}},
+  Basic.Resistor                            r2(final R=R2)
+    annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         rotation=90,
         origin={10,-30})));
 equation
@@ -52,7 +48,5 @@ equation
         Text(
           extent={{-100,10},{100,-10}},
           textColor={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.None,
           textString="non-inverting")}));
 end Buffer;

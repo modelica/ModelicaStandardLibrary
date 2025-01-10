@@ -3,15 +3,13 @@ model Der "Differentiating operational amplifier circuit"
   extends PartialOpAmp;
   import Modelica.Constants.pi;
   parameter Real k(final min=0)=1 "Desired amplification at frequency f";
-  parameter Modelica.Units.SI.Frequency f "Frequency";
-  parameter Modelica.Units.SI.Resistance R=1000
-    "Resistance at output of OpAmp";
-  parameter Modelica.Units.SI.Capacitance C=k/(2*pi*f*R)
-    "Calculated capacitance to reach desired amplification k";
-  Modelica.Units.SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
-  Modelica.Electrical.Analog.Basic.Capacitor c(final C=C)
+  parameter SI.Frequency f "Frequency";
+  parameter SI.Resistance R=1000 "Resistance at output of OpAmp";
+  parameter SI.Capacitance C=k/(2*pi*f*R) "Calculated capacitance to reach desired amplification k";
+  SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
+  Basic.Capacitor                            c(final C=C)
     annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
-  Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
+  Basic.Resistor                            r(final R=R)
     annotation (Placement(transformation(extent={{30,20},{10,40}})));
 equation
   connect(n1, n2)

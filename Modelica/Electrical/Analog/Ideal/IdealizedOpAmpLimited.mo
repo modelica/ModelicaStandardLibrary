@@ -3,27 +3,27 @@ model IdealizedOpAmpLimited "Idealized operational amplifier with limitation"
   parameter Real V0=15000.0 "No-load amplification";
   parameter Boolean useSupply=false
     "Use supply pins (otherwise constant supply)" annotation (Evaluate=true);
-  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply voltage"
+  parameter SI.Voltage Vps=+15 "Positive supply voltage"
     annotation (Dialog(enable=not useSupply));
-  parameter Modelica.Units.SI.Voltage Vns=-15 "Negative supply voltage"
+  parameter SI.Voltage Vns=-15 "Negative supply voltage"
     annotation (Dialog(enable=not useSupply));
-  parameter Boolean regularized=false "= true, if regularization instead of smoothed / strict"
-    annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-  parameter Boolean smoothed=false "= true, if output is limited with smooth(0, ..)"
-    annotation (Evaluate=true, choices(checkBox=true), Dialog(enable=not regularized, tab="Advanced"));
   parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
-    annotation (Evaluate=true, choices(checkBox=true), Dialog(enable=not regularized, tab="Advanced"));
+    annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+  parameter Boolean smoothed=false "= true, if usage of smooth(0, ..)"
+    annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+  parameter Boolean regularized=false "= true, if regularization instead of strict / smoothed"
+    annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
   parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy "Simplified model for homotopy-based initialization"
     annotation (Evaluate=true, Dialog(group="Initialization"));
-  Modelica.Units.SI.Voltage vps "Positive supply voltage";
-  Modelica.Units.SI.Voltage vns "Negative supply voltage";
-  Modelica.Units.SI.Voltage v_in(start=0)=in_p.v - in_n.v "Input voltage difference";
-  Modelica.Units.SI.Voltage v_out=out.v "Output voltage to ground";
-  Modelica.Units.SI.Current i_out(start=0)=-out.i "Output current";
-  Modelica.Units.SI.Power p_in=in_p.v*in_p.i + in_n.v*in_n.i "Input power";
-  Modelica.Units.SI.Power p_out=out.v*out.i "Output power";
-  Modelica.Units.SI.Power p_s=-(p_in + p_out) "Supply power";
-  Modelica.Units.SI.Current i_s=p_s/(vps - vns) "Supply current";
+  SI.Voltage vps(start=Vps) "Positive supply voltage";
+  SI.Voltage vns(start=Vns) "Negative supply voltage";
+  SI.Voltage v_in(start=0)=in_p.v - in_n.v "Input voltage difference";
+  SI.Voltage v_out=out.v "Output voltage to ground";
+  SI.Current i_out(start=0)=-out.i "Output current";
+  SI.Power p_in=in_p.v*in_p.i + in_n.v*in_n.i "Input power";
+  SI.Power p_out=out.v*out.i "Output power";
+  SI.Power p_s=-(p_in + p_out) "Supply power";
+  SI.Current i_s=p_s/(vps - vns) "Supply current";
   Modelica.Electrical.Analog.Interfaces.PositivePin in_p
     "Positive pin of the input port" annotation (Placement(transformation(
           extent={{-90,-70},{-110,-50}})));
@@ -42,8 +42,7 @@ model IdealizedOpAmpLimited "Idealized operational amplifier with limitation"
        vns) if useSupply "Optional negative supply pin" annotation (Placement(
         transformation(extent={{-10,-110},{10,-90}})));
 protected
-  Modelica.Units.SI.Voltage simplifiedExpr
-    "Simplified expression for homotopy-based initialization";
+  SI.Voltage simplifiedExpr "Simplified expression for homotopy-based initialization";
 equation
   if not useSupply then
     vps = Vps;
@@ -62,33 +61,33 @@ equation
       v_out = homotopy(actual = (if v_in>0 then vps else -vns)*(2/(1 + Modelica.Math.exp(-v_in/(0.01*(if v_in>0 then vps else -vns)/V0)))-1), simplified=simplifiedExpr);
     end if;
   else
-    if smoothed then
-      if strict then
-        if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
-          v_out = smooth(0, noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
-        else
-          v_out = homotopy(actual = smooth(0, noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)), simplified=simplifiedExpr);
-        end if;
+    if strict and smoothed then
+      if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
+        v_out = smooth(0, noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
       else
-        if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
-          v_out = smooth(0, if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in);
-        else
-          v_out = homotopy(actual = smooth(0, if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in), simplified=simplifiedExpr);
-        end if;
+        v_out = homotopy(actual = smooth(0, noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)),
+                         simplified=simplifiedExpr);
       end if;
-    else
-      if strict then
-        if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
-          v_out = noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in);
-        else
-          v_out = homotopy(actual = noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in), simplified=simplifiedExpr);
-        end if;
+    elseif strict and not smoothed then
+      if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
+        v_out = (noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
       else
-        if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
-          v_out = (if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in);
-        else
-          v_out = homotopy(actual = (if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in), simplified=simplifiedExpr);
-        end if;
+        v_out = homotopy(actual = (noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)),
+                         simplified=simplifiedExpr);
+      end if;
+    elseif not strict and smoothed then
+      if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
+        v_out = smooth(0, (if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
+      else
+        v_out = homotopy(actual = smooth(0, (if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)),
+                         simplified=simplifiedExpr);
+      end if;
+    else // neither strict nor smoothed
+      if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
+        v_out = ((if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
+      else
+        v_out = homotopy(actual = (noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)),
+                         simplified=simplifiedExpr);
       end if;
     end if;
   end if;
