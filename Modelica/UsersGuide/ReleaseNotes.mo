@@ -1403,10 +1403,7 @@ tools might not yet supported the complete Modelica package):
      was not standardized when this version of Dymola was released).</li>
 <li> Maplesim Parser</li>
 <li> MWorks 3.2</li>
-<li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)<br>
-     Test reports for the daily builds are available
-     <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.
-     </li>
+<li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)</li>
 <li> SimulationX 3.6</li>
 </ul>
 
