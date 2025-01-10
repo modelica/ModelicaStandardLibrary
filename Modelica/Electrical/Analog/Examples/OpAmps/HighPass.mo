@@ -2,9 +2,9 @@ within Modelica.Electrical.Analog.Examples.OpAmps;
 model HighPass "High-pass filter"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter SI.Voltage Vin=5 "Amplitude of input voltage";
-  parameter SI.Frequency f=10 "Frequency of input voltage";
-  parameter SI.Frequency fG=f/10 "Limiting frequency";
+  parameter Modelica.Units.SI.Voltage Vin=5 "Amplitude of input voltage";
+  parameter Modelica.Units.SI.Frequency f=10 "Frequency of input voltage";
+  parameter Modelica.Units.SI.Frequency fG=f/10 "Limiting frequency";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(
@@ -15,7 +15,7 @@ model HighPass "High-pass filter"
   OpAmpCircuits.Derivative derivative(T=1/(2*pi*fG),
     v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Sources.TrapezoidVoltage vIn(
+  Modelica.Electrical.Analog.Sources.TrapezoidVoltage vIn(
     V=Vin,
     rising=0.2/f,
     width=0.3/f,
@@ -23,8 +23,7 @@ model HighPass "High-pass filter"
     period=1/f,
     nperiod=-1,
     offset=0,
-    startTime=-(vIn.rising + vIn.width/2))
-    annotation (Placement(
+    startTime=-(vIn.rising + vIn.width/2)) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

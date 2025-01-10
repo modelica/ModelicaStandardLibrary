@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog.Examples.OpAmps;
 model NonInvertingAmplifier "Non-inverting amplifier"
   extends Modelica.Icons.Example;
-  parameter SI.Voltage Vin=5 "Amplitude of input voltage";
-  parameter SI.Frequency f=10 "Frequency of input voltage";
+  parameter Modelica.Units.SI.Voltage Vin=5 "Amplitude of input voltage";
+  parameter Modelica.Units.SI.Frequency f=10 "Frequency of input voltage";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   Modelica.Electrical.Analog.Sources.TrapezoidVoltage vIn(

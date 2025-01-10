@@ -1,26 +1,31 @@
 within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model Add "Adding operational amplifier circuit"
   extends PartialOpAmp;
-  SI.Voltage v1_2=p1_2.v - n1.v "Voltage drop of port 1_2 (= p1_2.v - n1.v)";
-  SI.Current i1_2=p1_2.i "Current flowing from pos. to neg. pin of port 1_2";
+  Modelica.Units.SI.Voltage v1_2=p1_2.v - n1.v
+    "Voltage drop of port 1_2 (= p1_2.v - n1.v)";
+  Modelica.Units.SI.Current i1_2=p1_2.i
+    "Current flowing from pos. to neg. pin of port 1_2";
   parameter Real k1(final min=0)=1 "Weight of input 1";
   parameter Real k2(final min=0)=1 "Weight of input 2";
-  parameter SI.Resistance R=1000 "Resistance at output of OpAmp";
-  parameter SI.Resistance R1=R/k1 "Calculated resistance to reach desired weight 1";
-  parameter SI.Resistance R2=R/k2 "Calculated resistance to reach desired weight 2";
-  Basic.Resistor  r1(final R=R1)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        origin={-40,70})));
-  Basic.Resistor  r2(final R=R2)
-    annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+  parameter Modelica.Units.SI.Resistance R=1000
+    "Resistance at output of OpAmp";
+  parameter Modelica.Units.SI.Resistance R1=R/k1
+    "Calculated resistance to reach desired weight 1";
+  parameter Modelica.Units.SI.Resistance R2=R/k2
+    "Calculated resistance to reach desired weight 2";
+  Modelica.Electrical.Analog.Basic.Resistor r1(final R=R1) annotation (
+      Placement(transformation(extent={{-10,-10},{10,10}}, origin={-40,70})));
+  Modelica.Electrical.Analog.Basic.Resistor r2(final R=R2) annotation (
+      Placement(transformation(
+        extent={{10,-10},{-10,10}},
         rotation=180,
         origin={-40,30})));
-  Interfaces.PositivePin p1_2 "Positive electrical pin 1.2" annotation (
-      Placement(transformation(extent={{-110,-10},{-90,10}}),
-        iconTransformation(extent={{-110,-10},{-90,10}})));
-  Basic.Resistor r(final R=R) annotation (Placement(transformation(
-        extent={{10,-10},{-10,10}},
-        origin={20,30})));
+  Modelica.Electrical.Analog.Interfaces.PositivePin p1_2
+    "Positive electrical pin 1.2" annotation (Placement(transformation(
+          extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},
+            {-90,10}})));
+  Modelica.Electrical.Analog.Basic.Resistor r(final R=R) annotation (
+      Placement(transformation(extent={{10,-10},{-10,10}}, origin={20,30})));
 equation
   connect(n1, n2)
     annotation (Line(points={{-100,-100},{100,-100}}, color={0,0,255}));

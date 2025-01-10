@@ -2,20 +2,33 @@ within Modelica.Electrical.Analog.Examples.OpAmps;
 model LCOscillator "LC oscillator"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter SI.Voltage VAmp=10 "Amplitude of output";
-  parameter SI.Frequency f=1000 "Desired frequency";
+  parameter Real V0=15000.0 "No-load amplification";
+  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply";
+  parameter Modelica.Units.SI.Voltage Vns=-15 "Negative supply";
+  parameter Modelica.Units.SI.Voltage VAmp=10 "Amplitude of output";
+  parameter Modelica.Units.SI.Frequency f=1000 "Desired frequency";
   parameter Real A=1.001 "Amplification constant: A > 1 amplification, A = 1 pure sinusoidal oscillation, A < 0 damping";
-  parameter SI.Inductance L=0.001 "Arbitrary inductance > 0";
-  parameter SI.Capacitance C=1/((2*pi*f)^2*L) "Calculated capacitance to reach frequency f";
-  parameter SI.Resistance R=10000.0 "Damping resistance";
-  parameter SI.Resistance R1=10000.0 "Arbitrary high resistance";
-  parameter SI.Resistance R2=(A - 1)*R1 "Calculated resistance to reach amplification A";
+  parameter Modelica.Units.SI.Inductance L=0.001 "Arbitrary inductance > 0";
+  parameter Modelica.Units.SI.Capacitance C=1/((2*pi*f)^2*L)
+    "Calculated capacitance to reach frequency f";
+  parameter Modelica.Units.SI.Resistance R=10000.0 "Damping resistance";
+  parameter Modelica.Units.SI.Resistance R1=10000.0
+    "Arbitrary high resistance";
+  parameter Modelica.Units.SI.Resistance R2=(A - 1)*R1
+    "Calculated resistance to reach amplification A";
   parameter Real gamma=(1 - A)/(2*R*C) "Calculated characteristical parameter";
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(
         origin={20,-50},
         extent={{-10,-10},{10,10}})));
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp
+  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
+    V0=V0,
+    useSupply=false,
+    Vps=Vps,
+    Vns=Vns,
+    regularized=false,
+    smoothed=false,
+    strict=false)
     annotation (Placement(transformation(extent={{-50,10},{-30,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor r(R=R)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -43,6 +56,8 @@ model LCOscillator "LC oscillator"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={60,-20})));
+  Modelica.Blocks.Sources.Cosine cosine(amplitude=VAmp, f=f)
+    annotation (Placement(transformation(extent={{50,40},{70,60}})));
 equation
   connect(opAmp.out, r.p) annotation (Line(
       points={{-30,0},{-10,0}}, color={0,0,255}));
