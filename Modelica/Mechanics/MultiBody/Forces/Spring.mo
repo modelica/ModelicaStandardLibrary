@@ -74,7 +74,7 @@ model Spring "Linear translational spring with optional mass"
     fixedRotationAtFrame_a=fixedRotationAtFrame_a,
     fixedRotationAtFrame_b=fixedRotationAtFrame_b) annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
   Modelica.Mechanics.Translational.Components.Spring spring(
-     s_rel0=s_unstretched,
+     final s_rel0=s_unstretched,
      final c=c) annotation (Placement(transformation(extent={{-8,40},{12,60}})));
 
 equation
