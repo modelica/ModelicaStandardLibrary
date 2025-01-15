@@ -2819,7 +2819,7 @@ points, e.g., when an isentropic reference state is computed.
       s2 = Medium.specificEntropy_pTX(
               p,
               Ts,
-              fill(0, 0));
+              fill(0.0, 0));
       assert(abs(h1 - h2) < 1e-3, "Inverse for h not correctly computed");
       assert(abs(s1 - s2) < 1e-3, "Inverse for s not correctly computed");
       annotation (experiment(StopTime=1));
@@ -4605,7 +4605,7 @@ are described in
       state := setState_pTX(
               p,
               T,
-              fill(0, 0));
+              fill(0.0, 0));
     end setState_pT;
 
     replaceable function setState_ph "Return thermodynamic state from p and h"
@@ -4617,7 +4617,7 @@ are described in
       state := setState_phX(
               p,
               h,
-              fill(0, 0));
+              fill(0.0, 0));
     end setState_ph;
 
     replaceable function setState_ps "Return thermodynamic state from p and s"
@@ -4629,7 +4629,7 @@ are described in
       state := setState_psX(
               p,
               s,
-              fill(0, 0));
+              fill(0.0, 0));
     end setState_ps;
 
     replaceable function setState_dT "Return thermodynamic state from d and T"
@@ -4641,7 +4641,7 @@ are described in
       state := setState_dTX(
               d,
               T,
-              fill(0, 0));
+              fill(0.0, 0));
     end setState_dT;
 
     replaceable function density_ph "Return density from p and h"
@@ -4653,7 +4653,7 @@ are described in
       d := density_phX(
               p,
               h,
-              fill(0, 0));
+              fill(0.0, 0));
     end density_ph;
 
     replaceable function temperature_ph "Return temperature from p and h"
@@ -4665,7 +4665,7 @@ are described in
       T := temperature_phX(
               p,
               h,
-              fill(0, 0));
+              fill(0.0, 0));
     end temperature_ph;
 
     replaceable function pressure_dT "Return pressure from d and T"
@@ -4677,7 +4677,7 @@ are described in
       p := pressure(setState_dTX(
               d,
               T,
-              fill(0, 0)));
+              fill(0.0, 0)));
     end pressure_dT;
 
     replaceable function specificEnthalpy_dT
@@ -4690,7 +4690,7 @@ are described in
       h := specificEnthalpy(setState_dTX(
               d,
               T,
-              fill(0, 0)));
+              fill(0.0, 0)));
     end specificEnthalpy_dT;
 
     replaceable function specificEnthalpy_ps
@@ -4703,7 +4703,7 @@ are described in
       h := specificEnthalpy_psX(
               p,
               s,
-              fill(0, 0));
+              fill(0.0, 0));
     end specificEnthalpy_ps;
 
     replaceable function temperature_ps "Return temperature from p and s"
@@ -4715,7 +4715,7 @@ are described in
       T := temperature_psX(
               p,
               s,
-              fill(0, 0));
+              fill(0.0, 0));
     end temperature_ps;
 
     replaceable function density_ps "Return density from p and s"
@@ -4727,7 +4727,7 @@ are described in
       d := density_psX(
               p,
               s,
-              fill(0, 0));
+              fill(0.0, 0));
     end density_ps;
 
     replaceable function specificEnthalpy_pT
@@ -4740,7 +4740,7 @@ are described in
       h := specificEnthalpy_pTX(
               p,
               T,
-              fill(0, 0));
+              fill(0.0, 0));
     end specificEnthalpy_pT;
 
     replaceable function density_pT "Return density from p and T"
@@ -4752,7 +4752,7 @@ are described in
       d := density(setState_pTX(
               p,
               T,
-              fill(0, 0)));
+              fill(0.0, 0)));
     end density_pT;
 
     redeclare replaceable function massFraction "Return independent mass fractions (if any)"
@@ -5664,7 +5664,7 @@ to the above list of assumptions</li>
       state := setState_pTX(
               p,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end setState_pT;
 
@@ -5680,7 +5680,7 @@ to the above list of assumptions</li>
       state := setState_phX(
               p,
               h,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end setState_ph;
 
@@ -5696,7 +5696,7 @@ to the above list of assumptions</li>
       state := setState_psX(
               p,
               s,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end setState_ps;
 
@@ -5712,7 +5712,7 @@ to the above list of assumptions</li>
       state := setState_dTX(
               d,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end setState_dT;
 
@@ -5765,7 +5765,7 @@ to the above list of assumptions</li>
       d := density_phX(
               p,
               h,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end density_ph;
 
@@ -5781,7 +5781,7 @@ to the above list of assumptions</li>
       T := temperature_phX(
               p,
               h,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end temperature_ph;
 
@@ -5796,7 +5796,7 @@ to the above list of assumptions</li>
       p := pressure(setState_dTX(
               d,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase));
     end pressure_dT;
 
@@ -5812,7 +5812,7 @@ to the above list of assumptions</li>
       h := specificEnthalpy(setState_dTX(
               d,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase));
     end specificEnthalpy_dT;
 
@@ -5828,7 +5828,7 @@ to the above list of assumptions</li>
       h := specificEnthalpy_psX(
               p,
               s,
-              fill(0, 0));
+              fill(0.0, 0));
     end specificEnthalpy_ps;
 
     redeclare replaceable function temperature_ps
@@ -5843,7 +5843,7 @@ to the above list of assumptions</li>
       T := temperature_psX(
               p,
               s,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end temperature_ps;
 
@@ -5858,7 +5858,7 @@ to the above list of assumptions</li>
       d := density_psX(
               p,
               s,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end density_ps;
 
@@ -5874,7 +5874,7 @@ to the above list of assumptions</li>
       h := specificEnthalpy_pTX(
               p,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end specificEnthalpy_pT;
 
@@ -5889,7 +5889,7 @@ to the above list of assumptions</li>
       d := density(setState_pTX(
               p,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase));
     end density_pT;
   end PartialTwoPhaseMedium;

@@ -40,7 +40,8 @@ model TransformerYY "Test example with polyphase components"
         transformation(extent={{-30,-100},{-10,-80}})));
   Basic.Resistor transformerR(m=m, R=fill(RT, m)) annotation (Placement(
         transformation(extent={{0,10},{20,30}})));
-  Basic.Inductor transformerL(m=m, L=fill(LT, m)) annotation (Placement(
+  Basic.Inductor transformerL(m=m, L=fill(LT, m),
+    iL(start=zeros(m), fixed=cat(1,fill(true,m-1),{false}))) annotation (Placement(
         transformation(extent={{30,10},{50,30}})));
   Basic.Resistor loadR(m=m, R=fill(RL, m)) annotation (Placement(
         transformation(extent={{70,10},{90,30}})));
@@ -50,9 +51,6 @@ model TransformerYY "Test example with polyphase components"
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground groundT1 annotation (Placement(
         transformation(extent={{-50,-100},{-30,-80}})));
-initial equation
-  transformerL.i[1:m - 1] = zeros(m - 1) "Y-connection";
-
 equation
   connect(starS.pin_n, groundS.p)
     annotation (Line(points={{-90,-72},{-90,-80}}, color={0,0,255}));
@@ -77,12 +75,32 @@ equation
   connect(loadR.plug_n, starL.plug_p)
     annotation (Line(points={{90,20},{90,-52}}, color={0,0,255}));
   annotation (Documentation(info="<html>
+<p>Test example with polyphase components:</p>
+<p>Star-connected voltage source feeds via a Y-Y-transformer with internal impedance (RT, LT) a load resistor RT.</p>
+<p>Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 &percnt;.</p>
+<p>Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load. </p>
+<h4>Note</h4>
 <p>
-Test example with polyphase components:<br>
-Star-connected voltage source feeds via a Y-Y-transformer with internal impedance (RT, LT) a load resistor RT.<br>
-Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
-Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
+From the <code>m</code> currents <code>m-1</code> have to be initialized with fixed = true, one of the <code>m</code> currents with fixed = false, 
+due to the fact that the star connection enforces sum of the currents = 0.
+</p>
+<p>
+Tools are expected to present a proper initialization section of the menu of <code>transformerL</code> which allows 
+to set the start values of the <code>m</code> currents and the fixed attributes individually, i.e. as an array. 
+Especially, a checkbox for the fixed attributes should be avoided.
+</p>
+<p>
+If this is not the case, you have to write the code manually:
+</p>
+<p><code>
+  Modelica.Electrical.PolyPhase.Basic.Inductor transformerL(m=m, L=fill(LT, m),
+    <strong>iL(start=zeros(m), fixed=cat(1,fill(true,m-1),{false}))</strong>);</code>
 </p>
 </html>"),
-       experiment(StopTime=1.0, Interval=0.001));
+       experiment(StopTime=1.0, Interval=0.001),
+    Diagram(graphics={Text(
+          extent={{0,60},{80,40}},
+          textColor={28,108,200},
+          textString="Regarding initialization:
+see Documentation")}));
 end TransformerYY;

@@ -4417,7 +4417,7 @@ This record is used as <strong>input record</strong> for the pressure loss funct
         DP := 0.5*IN_var.zeta_TOT*
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 m_flow,
-                (IN_con.dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.rho))^0.5*IN_var.rho
+                sqrt(IN_con.dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.rho))*IN_var.rho
             *IN_con.A_cross,
                 2)/(IN_var.rho*(IN_con.A_cross)^2);
       annotation (Inline=true, smoothOrder(normallyConstant=IN_con) = 2,
@@ -4463,7 +4463,7 @@ Generally this function is numerically best used for the <strong>incompressible 
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 dp,
                 IN_con.dp_smooth,
-                0.5)/(0.5*IN_var.zeta_TOT*IN_var.rho)^0.5;
+                0.5)/sqrt(0.5*IN_var.zeta_TOT*IN_var.rho);
       annotation (Inline=true, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP(
                 IN_con,
@@ -12865,7 +12865,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   "Rectangular cross sectional area", enable=geometry ==
                   Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Rectangular));
           //triangular(5)
-          SI.Length a_tri=d_cir*(1 + 2^0.5) "Length of base line" annotation (Dialog(
+          SI.Length a_tri=d_cir*(1 + sqrt(2)) "Length of base line" annotation (Dialog(
                 group="Rectangular cross sectional area", enable=geometry ==
                   Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Rectangular));
           SI.Length h_tri=0.5*a_tri

@@ -280,8 +280,10 @@ package R134a "R134a: Medium model for R134a"
     redeclare function extends setState_phX
       "Set state for pressure and specific enthalpy (X not used since single substance)"
     algorithm
-      state := ThermodynamicState(phase=getPhase_ph(p, h), p=p, h=h, d=density_ph(p, h), T=temperature_ph(p, h));
-      annotation (Documentation(info="<html>
+      state := ThermodynamicState(
+         phase=if ((h < bubbleEnthalpy(SaturationProperties(psat=p,Tsat=0)) or (h > dewEnthalpy(SaturationProperties(psat=p,Tsat=0)))
+          or (p > R134aData.data.FPCRIT))) then 1 else 2, p=p, h=h, d=density_ph(p, h), T=temperature_ph(p, h));
+      annotation (GenerateEvents=true, Inline=true, Documentation(info="<html>
 <p>This function should be used by default in order to calculate the thermodynamic state record used as input by many functions.</p>
 <p>
 Example:
@@ -2228,7 +2230,7 @@ This function computes the residual helmholtz derivatives of the fundamental equ
       phase := if ((h < hl) or (h > hv) or (p > R134aData.data.FPCRIT)) then 1
          else 2;
 
-      annotation (Documentation(info="<html>
+      annotation (GenerateEvents=true, Inline=true, Documentation(info="<html>
 This function computes the number of phases for R134a depending on the inputs for absolute pressure and specific enthalpy. It makes use of cubic spline functions for liquid and vapor specific enthalpy.
 </html>"));
     end getPhase_ph;

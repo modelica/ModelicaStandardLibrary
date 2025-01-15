@@ -1403,10 +1403,7 @@ tools might not yet supported the complete Modelica package):
      was not standardized when this version of Dymola was released).</li>
 <li> Maplesim Parser</li>
 <li> MWorks 3.2</li>
-<li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)<br>
-     Test reports for the daily builds are available
-     <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.
-     </li>
+<li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)</li>
 <li> SimulationX 3.6</li>
 </ul>
 
@@ -1758,7 +1755,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 <tr><td><a href=\"modelica://Modelica.Electrical.Spice3\">Modelica.Electrical.Spice3</a></td>
     <td>
     Library with components of the Berkeley
-    <a href=\"http://bwrc.eecs.berkeley.edu/Classes/IcBook/SPICE/\">SPICE3</a>
+    <a href=\"https://web.archive.org/web/20231004060901/http://bwrcs.eecs.berkeley.edu/Classes/IcBook/SPICE/\">SPICE3</a>
     simulator:<br>
     R, C, L, controlled and independent sources, semiconductor device models
     (MOSFET Level 1, Bipolar junction transistor, Diode, Semiconductor resistor).
