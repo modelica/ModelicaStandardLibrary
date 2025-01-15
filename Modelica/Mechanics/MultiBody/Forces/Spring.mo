@@ -58,21 +58,21 @@ model Spring "Linear translational spring with optional mass"
     "Unit vector in direction from frame_a to frame_b, resolved in world frame";
 
   Forces.LineForceWithMass lineForce(
-    animateLine=animation,
-    animateMass=showMass,
-    m=m,
-    lengthFraction=lengthFraction,
-    lineShapeType="spring",
-    lineShapeHeight=coilWidth*2,
-    lineShapeWidth=width,
-    lineShapeExtra=numberOfWindings,
-    lineShapeColor=color,
-    specularCoefficient=specularCoefficient,
-    massDiameter=massDiameter,
-    massColor=massColor,
-    s_small=s_small,
-    fixedRotationAtFrame_a=fixedRotationAtFrame_a,
-    fixedRotationAtFrame_b=fixedRotationAtFrame_b) annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
+    final animateLine=animation,
+    final animateMass=showMass,
+    final m=m,
+    final lengthFraction=lengthFraction,
+    final lineShapeType="spring",
+    final lineShapeHeight=coilWidth*2,
+    final lineShapeWidth=width,
+    final lineShapeExtra=numberOfWindings,
+    final lineShapeColor=color,
+    final specularCoefficient=specularCoefficient,
+    final massDiameter=massDiameter,
+    final massColor=massColor,
+    final s_small=s_small,
+    final fixedRotationAtFrame_a=fixedRotationAtFrame_a,
+    final fixedRotationAtFrame_b=fixedRotationAtFrame_b) annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
   Modelica.Mechanics.Translational.Components.Spring spring(
      final s_rel0=s_unstretched,
      final c=c) annotation (Placement(transformation(extent={{-8,40},{12,60}})));
