@@ -256,7 +256,7 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
     extends Modelica.Blocks.Interfaces.SISO;
 
     // Parameter
-    parameter Real threshold(min = 0)
+    parameter Real threshold(min = 0, start = Modelica.Constants.eps)
       "Smallest value around zero, which the output can have";
 
   equation
