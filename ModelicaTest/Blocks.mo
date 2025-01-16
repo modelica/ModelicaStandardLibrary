@@ -1157,6 +1157,23 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
     annotation (experiment(StopTime=3));
   end BooleanTable;
 
+  model IntegerSwitch
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.BooleanStep  table1(startTime=1, startValue=true)
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    Modelica.Blocks.Logical.IntegerSwitch integerSwitch annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    Modelica.Blocks.Sources.ContinuousClock continuousClock annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
+    Modelica.Blocks.Sources.IntegerStep integerStep(startTime=2)
+      annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
+    Modelica.Blocks.Math.RealToInteger realToInteger annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
+  equation
+    connect(table1.y, integerSwitch.u2) annotation (Line(points={{-59,0},{-12,0}}, color={255,0,255}));
+    connect(integerStep.y, integerSwitch.u1) annotation (Line(points={{-59,40},{-20,40},{-20,8},{-12,8}}, color={255,127,0}));
+    connect(continuousClock.y, realToInteger.u) annotation (Line(points={{-59,-40},{-52,-40}}, color={0,0,127}));
+    connect(realToInteger.y, integerSwitch.u3) annotation (Line(points={{-29,-40},{-20,-40},{-20,-8},{-12,-8}}, color={255,127,0}));
+    annotation (experiment(StopTime=3.1));
+  end IntegerSwitch;
+
   model RootMeanSquare
     extends Modelica.Icons.Example;
     Modelica.Blocks.Math.Mean mean1(f=expSine.f)
