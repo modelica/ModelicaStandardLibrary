@@ -1006,7 +1006,7 @@ y = u1 * u2;
     annotation (
       Documentation(
         info = "<html>
-<p>This blocks computes the output <b>y</b> as <i>product</i> of the two input vectors <b>u1</b> and <b>u2</b>: </p>
+<p>This blocks computes the output <strong>y</strong> as <em>product</em> of the two input vectors <strong>u1</strong> and <strong>u2</strong>: </p>
 <blockquote><pre>
 y = u1 * u2;
 </pre></blockquote>
@@ -1014,7 +1014,7 @@ y = u1 * u2;
 <blockquote><pre>
 y = u1[1]*u2[1] + u1[2]*u2[2] + u1[3]*u2[3];
 </pre></blockquote>
-The output <b>y</b> is scalar.
+The output <strong>y</strong> is scalar.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1166,7 +1166,7 @@ y = u1 / u2;
             rotation = 90)}),
       Documentation(
         info = "<html>
-<p>This block normalizes an input vector <i>u</i> using the <a href=\"modelica://Modelica.Math.Vectors.normalize\">normalize</a> function.</p>
+<p>This block normalizes an input vector <em>u</em> using the <a href=\"modelica://Modelica.Math.Vectors.normalize\">normalize</a> function.</p>
 </html>"));
   end NormalizeVector;
 
