@@ -1153,16 +1153,11 @@ y = u1 / u2;
             smooth = Smooth.Bezier,
             origin = {58, -66},
             rotation = 270),
-          Line(
-            points = {{12, -60}, {12, -76}},
-            color = {200, 200, 200},
-            pattern = LinePattern.None,
-            smooth = Smooth.Bezier),
-          Line(points = {{20, -70}, {20, -62}}, color = {200, 200, 200}),
+          Line(points = {{-16,-70},{-16,-62}}, color = {200, 200, 200}),
           Line(
             points = {{0, -4}, {0, 4}},
             color = {200, 200, 200},
-            origin = {-62, 16},
+            origin = {-62, 0},
             rotation = 90)}),
       Documentation(
         info = "<html>
