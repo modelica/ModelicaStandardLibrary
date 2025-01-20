@@ -1010,7 +1010,7 @@ y = u1 * u2;
 <blockquote><pre>
 y = u1 * u2;
 </pre></blockquote>
-<p>As example, for three-dimentional input vectors the equation would be: </p>
+<p>As example, for three-dimensional input vectors the equation would be: </p>
 <blockquote><pre>
 y = u1[1]*u2[1] + u1[2]*u2[2] + u1[3]*u2[3];
 </pre></blockquote>
