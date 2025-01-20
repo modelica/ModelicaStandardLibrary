@@ -105,7 +105,7 @@ a lot by removing one strong nonlinearity from the initialization problem.
   protected
     Real simplifiedExpr "Simplified expression for homotopy-based initialization";
   equation
-    assert(limit1 >= limit2, "Input signals are not consistent: limit1 < limit2");
+    assert(limit1 >= limit2, "Input signals are not consistent: limit1 = " + String(limit1, significantDigits=14) + " < limit2 = " + String(limit2, significantDigits=14));
     simplifiedExpr = (if homotopyType == Types.VariableLimiterHomotopy.Linear then u
                       else if homotopyType == Types.VariableLimiterHomotopy.Fixed then ySimplified
                       else 0);
