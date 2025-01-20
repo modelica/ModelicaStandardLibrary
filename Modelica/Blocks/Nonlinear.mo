@@ -278,18 +278,15 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
           Line(points = {{0, -80}, {0, 68}}, color = {192, 192, 192}),
           Text(
             extent = {{62, 32}, {80, 8}},
-            pattern = LinePattern.None,
-            lineColor = {0, 0, 0},
+            textColor = {0, 0, 0},
             textString = "u"),
           Text(
             extent = {{-24, 84}, {-8, 64}},
-            pattern = LinePattern.None,
-            lineColor = {0, 0, 0},
+            textColor = {0, 0, 0},
             textString = "y"),
           Text(
             extent = {{-82, 22}, {-12, 6}},
-            pattern = LinePattern.None,
-            lineColor = {0, 0, 0},
+            textColor = {0, 0, 0},
             textString = "%threshold",
             horizontalAlignment = TextAlignment.Right),
           Line(points = {{-4, 10}, {2, 10}}, color = {192, 192, 192}),
@@ -316,8 +313,7 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
             rotation = 270),
           Text(
             extent = {{8, -8}, {78, -24}},
-            pattern = LinePattern.None,
-            lineColor = {0, 0, 0},
+            textColor = {0, 0, 0},
             horizontalAlignment = TextAlignment.Left,
             textString = "-%threshold")}),
       Documentation(
