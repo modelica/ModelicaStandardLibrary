@@ -226,5 +226,6 @@ package Polyphase "Polyphase quasi-static package"
     connect(starI.plug_p,currentSource. plug_p) annotation (Line(points={{-20,-80},{-20,-50}}, color={85,170,255}));
     connect(currentSource.plug_p, capacitor.plug_n) annotation (Line(points={{-20,-50},{-10,-50},{-10,-20},{-20,-20}}, color={85,170,255}));
     connect(capacitor.plug_p,currentSource. plug_n) annotation (Line(points={{-40,-20},{-50,-20},{-50,-50},{-40,-50}}, color={85,170,255}));
+  annotation(experiment(StopTime = 1.0));
   end FrequencySweep;
 end Polyphase;
