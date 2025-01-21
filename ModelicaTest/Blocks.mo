@@ -764,20 +764,21 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
           transformation(extent={{-80,-60},{-60,-40}})));
     Modelica.Blocks.Routing.Multiplex3 multiplex3 annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
     Modelica.Blocks.Routing.Multiplex3 multiplex1 annotation (Placement(transformation(extent={{-20,40},{0,60}})));
-    Modelica.Blocks.Math.VectorProduct vectorProduct(n=3) annotation (Placement(transformation(extent={{30,20},{50,40}})));
+    Modelica.Blocks.Math.ScalarProduct scalarProduct(n=3) annotation (Placement(transformation(extent={{30,20},{50,40}})));
     Modelica.Blocks.Math.NormalizeVector normalizeVector annotation (Placement(transformation(extent={{30,-20},{50,0}})));
   equation
     connect(sine.y, multiplex3.u1[1]) annotation (Line(points={{-59,30},{-50,30},{-50,-3},{-42,-3}}, color={0,0,127}));
     connect(constPos.y, multiplex3.u2[1]) annotation (Line(points={{-59,-10},{-42,-10}}, color={0,0,127}));
     connect(constNeg.y, multiplex3.u3[1]) annotation (Line(points={{-59,-50},{-48,-50},{-48,-17},{-42,-17}}, color={0,0,127}));
     connect(constPos.y, multiplex1.u1[1]) annotation (Line(points={{-59,-10},{-52,-10},{-52,57},{-22,57}}, color={0,0,127}));
-    connect(multiplex1.y, vectorProduct.u1) annotation (Line(points={{1,50},{10,50},{10,36},{28,36}}, color={0,0,127}));
-    connect(multiplex3.y, vectorProduct.u2) annotation (Line(points={{-19,-10},{10,-10},{10,24},{28,24}}, color={0,0,127}));
+    connect(multiplex1.y, scalarProduct.u1) annotation (Line(points={{1,50},{10,50},{10,36},{28,36}}, color={0,0,127}));
+    connect(multiplex3.y, scalarProduct.u2) annotation (Line(points={{-19,-10},{10,-10},{10,24},{28,24}}, color={0,0,127}));
     connect(multiplex3.y, normalizeVector.u) annotation (Line(points={{-19,-10},{28,-10}}, color={0,0,127}));
     connect(constNeg.y, multiplex1.u3[1]) annotation (Line(points={{-59,-50},{-48,-50},{-48,43},{-22,43}}, color={0,0,127}));
     connect(sine.y, multiplex1.u2[1]) annotation (Line(points={{-59,30},{-50,30},{-50,50},{-22,50}}, color={0,0,127}));
     annotation (experiment(StopTime=1.1));
   end Vectors;
+
   model KinematicPTP
     extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP1a(
