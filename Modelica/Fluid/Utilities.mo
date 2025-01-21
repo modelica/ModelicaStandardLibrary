@@ -700,7 +700,7 @@ for a smooth transition from y1 to y2.
         eta_tilde := rho*eta;
         xi1 := x0 + mu_tilde;
         xi2 := x1 - eta_tilde;
-        if  xi1 < x0 or xi2>x1 then
+        if  xi1 < x0 or xi2>x1 or abs(xi1-xi2) < 100*Modelica.Constants.eps then
           // The limits don't make sense, just use linear interpolation
           y := (y1-y0)*(x-x0)/(x1-x0) + y0;
         else
