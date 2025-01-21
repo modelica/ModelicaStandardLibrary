@@ -997,12 +997,11 @@ y = u1 * u2;
           Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}})}));
   end Product;
 
-  block VectorProduct "Output product of the two inputs with dimension n"
+  block ScalarProduct "Output scalar product of the two inputs with dimension n"
     extends Modelica.Blocks.Interfaces.MI2SO;
 
   equation
     y = u1 * u2;
-
     annotation (
       Documentation(
         info = "<html>
@@ -1055,8 +1054,7 @@ The output <strong>y</strong> is scalar.
           Ellipse(
             extent = {{-50, 50}, {50, -50}},
             lineColor = {0, 0, 255})}));
-
-  end VectorProduct;
+  end ScalarProduct;
 
   block Division "Output first input divided by second input"
     extends Interfaces.SI2SO;
