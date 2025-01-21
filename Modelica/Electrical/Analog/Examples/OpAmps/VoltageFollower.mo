@@ -10,8 +10,7 @@ model VoltageFollower "Reproduce input voltage"
   parameter SI.Resistance Rl=1 "Load resistance";
   Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
     Vps=Vps,
-    Vns=Vns,
-    v_in(start=0))
+    Vns=Vns)
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));

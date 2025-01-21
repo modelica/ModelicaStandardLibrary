@@ -19,7 +19,7 @@ model LCOscillator "LC oscillator"
     annotation (Placement(transformation(extent={{-50,10},{-30,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor r(R=R)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Modelica.Electrical.Analog.Basic.Resistor r2(R=R2, i(start=0)) annotation (
+  Modelica.Electrical.Analog.Basic.Resistor r2(R=R2) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

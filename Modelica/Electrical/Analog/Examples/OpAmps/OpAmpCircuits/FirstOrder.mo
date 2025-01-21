@@ -1,6 +1,6 @@
 within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model FirstOrder "Lowpass filter operational amplifier circuit"
-  extends PartialOpAmp(v2(start=0));
+  extends PartialOpAmp;
   import Modelica.Constants.pi;
   parameter Real k(final min=0)=1 "Desired amplification";
   parameter SI.Resistance R1=1000 "Resistance at negative input of OpAmp";
