@@ -1006,7 +1006,7 @@ y = u1 * u2;
     annotation (
       Documentation(
         info = "<html>
-<p>This blocks computes the output <strong>y</strong> as <em>product</em> of the two input vectors <strong>u1</strong> and <strong>u2</strong>: </p>
+<p>This blocks computes the output <strong>y</strong> as <em>scalar product</em> of the two input vectors <strong>u1</strong> and <strong>u2</strong>: </p>
 <blockquote><pre>
 y = u1 * u2;
 </pre></blockquote>
