@@ -804,11 +804,10 @@ corresponding library in a future release.
     <dd><a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a></dd>
     <dd>1060 Vienna, Austria</dd>
     <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br></dd>
-<dt>Johan Andreasson</dt>
+<dt>Johan Andreasson, previously at</dt>
     <dd><a href=\"https://www.modelon.com/\">Modelon AB</a></dd>
     <dd>Ideon Science Park</dd>
     <dd>22370 Lund, Sweden</dd>
-    <dd>email: <a href=\"mailto:johan.andreasson@modelon.se\">johan.andreasson@modelon.se</a></dd>
 </dl>
 
 <p>
