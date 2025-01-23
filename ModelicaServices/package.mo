@@ -294,7 +294,7 @@ This ModelicaServices package provides only \"dummy\" models that do nothing.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 2009-2024, Modelica Association and contributors
+Copyright &copy; 2009-2025, Modelica Association and contributors
 </p>
 
 <p>
