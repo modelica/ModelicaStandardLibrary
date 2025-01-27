@@ -3798,6 +3798,8 @@ a linear damper is connected here.
       parameter SI.Position rtol=1e-4;
       parameter SI.Velocity vtol=1e-4;
 
+      final parameter SI.Position s_start = -1 "Initial relative distance between world frame and body";
+
       MultiBody.Parts.FixedTranslation fixedTranslation(
           animation=false, r={1,0,0})
         annotation (Placement(transformation(extent={{-26,40},{-6,60}})));
@@ -3824,15 +3826,15 @@ a linear damper is connected here.
       MultiBody.Joints.Prismatic prismatic(
         v(fixed=true),
         n={0,1,0},
-        s(fixed=true, start=-1)) annotation (Placement(transformation(
+        s(start=s_start, fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-68,16})));
       MultiBody.Joints.Prismatic prismatic1(
         v(fixed=true),
         n={0,1,0},
-        s(start=-1, fixed=true),
-        a(fixed=true, start=9-world.g)) annotation (Placement(transformation(
+        s(start=s_start, fixed=true),
+        a(fixed=true, start=spring.c*(-s_start-spring.s_unstretched)/body1.m - world.g)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-4,16})));
