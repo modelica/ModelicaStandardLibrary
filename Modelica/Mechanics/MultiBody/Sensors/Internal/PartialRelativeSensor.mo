@@ -4,10 +4,10 @@ partial model PartialRelativeSensor
   extends Modelica.Icons.RoundSensor;
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-    "Coordinate system a" annotation (Placement(
+    "Coordinate system a (measurement is between frame_a and frame_b)" annotation (Placement(
         transformation(extent={{-116,-16},{-84,16}})));
   Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
-    "Coordinate system b" annotation (Placement(
+    "Coordinate system b (measurement is between frame_a and frame_b)" annotation (Placement(
         transformation(extent={{84,-16},{116,16}})));
 
 equation
