@@ -2300,37 +2300,64 @@ explicitly set to 0.0, if the mean value results in a negative value.
             textString="f=%f")}));
   end Mean;
 
-  block RectifiedMean "Calculate rectified mean over period 1/f"
+  block TriggeredMean "Calculate mean over period determined by trigger"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter SI.Frequency f(start=50) "Base frequency";
+    import Modelica.Constants.eps;
     parameter Real x0=0 "Start value of integrator state";
-    parameter Real y0(final min=0)=0 "Start value of output";
-    Mean mean(final f=f, final x0=x0,
-      final y0=y0)
-      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-    Blocks.Math.Abs abs1
-      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    parameter Real y0=0 "Start value of output";
+    parameter Boolean yGreaterOrEqualZero=false
+      "= true, if output y is guaranteed to be >= 0 for the exact solution"
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
+    Modelica.Blocks.Interfaces.BooleanInput trigger "Trigger input signal"
+      annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={0,-120})));
+  protected
+    Modelica.Units.SI.Time t0 "Last trigger instance";
+    Real x "Integrator state";
+    discrete Real y_last "Last sampled mean value";
+  initial equation
+    pre(trigger)=false;
+    t0 = time;
+    x = x0;
+    y_last = y0;
   equation
-    connect(u, abs1.u) annotation (Line(
-        points={{-120,0},{-62,0}}, color={0,0,127}));
-    connect(abs1.y, mean.u) annotation (Line(
-        points={{-39,0},{-2,0}}, color={0,0,127}));
-    connect(mean.y, y) annotation (Line(
-        points={{21,0},{110,0}}, color={0,0,127}));
+    der(x) = u;
+    when edge(trigger) then
+      y_last = if noEvent((time - pre(t0))>eps) then
+        if not yGreaterOrEqualZero then pre(x)/(time - pre(t0))
+          else max(0.0, pre(x)/(time - pre(t0)))
+        else pre(y_last);
+      t0 = time;
+      reinit(x, 0);
+    end when;
+    y = y_last;
     annotation (Documentation(info="<html>
 <p>
-This block calculates the rectified mean of the input signal u over the given period 1/f, using the
-<a href=\"modelica://Modelica.Blocks.Math.Mean\">mean block</a>.
+This block calculates the mean of the input signal u over the period dtermined by the edges of the trigger:
 </p>
+<blockquote><pre>
+ 1   T
+---- &int; u(t) dt
+T-t0 t0
+</pre></blockquote>
 <p>
-Note: The output is updated after each period defined by 1/f.
+Note: The output is updated at each trigger instance.
+</p>
+
+<p>
+If parameter <strong>yGreaterOrEqualZero</strong> in the Advanced tab is <strong>true</strong> (default = <strong>false</strong>),
+then the modeller provides the information that the mean of the input signal is guaranteed
+to be &ge; 0 for the exact solution. However, due to inaccuracies in the numerical integration scheme,
+the output might be slightly negative. If this parameter is set to true, then the output is
+explicitly set to 0.0, if the mean value results in a negative value.
 </p>
 </html>"), Icon(graphics={Text(
             extent={{-80,60},{80,20}},
-            textString="RM"), Text(
-            extent={{-80,-20},{80,-60}},
-            textString="f=%f")}));
-  end RectifiedMean;
+            textString="mean")}));
+  end TriggeredMean;
 
   block ContinuousMean
     "Calculates the empirical expectation (mean) value of its input signal"
@@ -2417,6 +2444,78 @@ This block is demonstrated in the examples
             points={{-76,-24},{70,-24}})}));
   end ContinuousMean;
 
+  block RectifiedMean "Calculate rectified mean over period 1/f"
+    extends Modelica.Blocks.Interfaces.SISO;
+    parameter SI.Frequency f(start=50) "Base frequency";
+    parameter Real x0=0 "Start value of integrator state";
+    parameter Real y0(final min=0)=0 "Start value of output";
+    Mean mean(final f=f, final x0=x0,
+      final y0=y0)
+      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    Blocks.Math.Abs abs1
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+  equation
+    connect(u, abs1.u) annotation (Line(
+        points={{-120,0},{-62,0}}, color={0,0,127}));
+    connect(abs1.y, mean.u) annotation (Line(
+        points={{-39,0},{-2,0}}, color={0,0,127}));
+    connect(mean.y, y) annotation (Line(
+        points={{21,0},{110,0}}, color={0,0,127}));
+    annotation (Documentation(info="<html>
+<p>
+This block calculates the rectified mean of the input signal u over the given period 1/f, using the
+<a href=\"modelica://Modelica.Blocks.Math.Mean\">mean block</a>.
+</p>
+<p>
+Note: The output is updated after each period defined by 1/f.
+</p>
+</html>"), Icon(graphics={Text(
+            extent={{-80,60},{80,20}},
+            textString="RM"), Text(
+            extent={{-80,-20},{80,-60}},
+            textString="f=%f")}));
+  end RectifiedMean;
+
+  block TriggeredRectifiedMean
+    "Calculate rectified mean over period determined by trigger"
+    extends Modelica.Blocks.Interfaces.SISO;
+    parameter Real x0=0 "Start value of integrator state";
+    parameter Real y0=0 "Start value of output";
+    Modelica.Blocks.Interfaces.BooleanInput trigger "Trigger input signal"
+      annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={0,-120})));
+    Modelica.Blocks.Math.TriggeredMean triggeredMean(
+      final yGreaterOrEqualZero=true,
+      final x0=x0,
+      final y0=y0)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    Modelica.Blocks.Math.Abs abs1
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+  equation
+    connect(u, abs1.u) annotation (Line(
+        points={{-120,0},{-62,0}}, color={0,0,127}));
+    connect(abs1.y, triggeredMean.u)
+      annotation (Line(points={{-39,0},{-12,0}}, color={0,0,127}));
+    connect(triggeredMean.y, y)
+      annotation (Line(points={{11,0},{110,0}}, color={0,0,127}));
+    connect(trigger, triggeredMean.trigger)
+      annotation (Line(points={{0,-120},{0,-12}}, color={255,0,255}));
+    annotation (Documentation(info="<html>
+<p>
+This block calculates the rectified mean of the input signal u over the period the period dtermined by the edges of the trigger, using the
+<a href=\"modelica://BLDC.CommonBlocks.TriggeredMean\">triggered mean block</a>.
+</p>
+<p>
+Note: The output is updated at each trigger instance.
+</p>
+</html>"), Icon(graphics={Text(
+            extent={{-80,60},{80,20}},
+            textString="RM")}));
+  end TriggeredRectifiedMean;
+
   block RootMeanSquare "Calculate root mean square over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Frequency f(start=50) "Base frequency";
@@ -2458,6 +2557,53 @@ Note: The output is updated after each period defined by 1/f.
             extent={{-80,-20},{80,-60}},
             textString="f=%f")}));
   end RootMeanSquare;
+
+  block TriggeredRootMeanSquare
+    "Calculate root mean square over period determined by trigger"
+    extends Modelica.Blocks.Interfaces.SISO;
+    parameter Real x0=0 "Start value of integrator state";
+    parameter Real y0=0 "Start value of output";
+    Modelica.Blocks.Interfaces.BooleanInput trigger "Trigger input signal"
+      annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=90,
+          origin={0,-120})));
+    Modelica.Blocks.Math.MultiProduct product(nu=2)
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    Modelica.Blocks.Math.TriggeredMean triggeredMean(
+      final yGreaterOrEqualZero=true,
+      final x0=x0,
+      final y0=y0*y0)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    Modelica.Blocks.Math.Sqrt sqrt1
+      annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+  equation
+
+    connect(product.y, triggeredMean.u)
+      annotation (Line(points={{-38.3,0},{-12,0}}, color={0,0,127}));
+    connect(triggeredMean.y, sqrt1.u)
+      annotation (Line(points={{11,0},{38,0}}, color={0,0,127}));
+    connect(sqrt1.y, y) annotation (Line(
+        points={{61,0},{110,0}}, color={0,0,127}));
+    connect(u, product.u[1]) annotation (Line(
+        points={{-120,0},{-80,0},{-80,3.5},{-60,3.5}}, color={0,0,127}));
+    connect(u, product.u[2]) annotation (Line(
+        points={{-120,0},{-80,0},{-80,-3.5},{-60,-3.5}}, color={0,0,127}));
+    connect(trigger, triggeredMean.trigger)
+      annotation (Line(points={{0,-120},{0,-12}}, color={255,0,255}));
+    annotation (Documentation(info="<html>
+<p>
+This block calculates the root mean square of the input signal u over the period the period dtermined by the edges of the trigger:, using the
+<a href=\"modelica://BLDC.CommonBlocks.TriggeredMean\">triggered mean block</a>.
+</p>
+<p>
+Note: The output is updated at each trigger instance.
+</p>
+</html>"), Icon(graphics={Text(
+            extent={{-80,60},{80,20}},
+            textString="RMS")}));
+  end TriggeredRootMeanSquare;
 
   block SignalExtrema "Calculate min and max of a signal"
     extends Modelica.Blocks.Icons.Block;
