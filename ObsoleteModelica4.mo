@@ -2921,5 +2921,6 @@ Copyright &copy; 2019-2024, Modelica Association and contributors
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
-</html>"));
+</html>"),
+License="modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaStandardLibrary.txt");
 end ObsoleteModelica4;
