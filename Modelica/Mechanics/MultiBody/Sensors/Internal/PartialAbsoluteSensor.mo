@@ -4,10 +4,10 @@ partial model PartialAbsoluteSensor "Base class for absolute sensor models"
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
     "Coordinate system a of which the absolute kinematic quantities are measured" annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
+        transformation(extent={{-116,-16},{-84,16}})),
+      mustBeConnected="Connector frame_a should be connected");
 
 equation
-  assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={Text(

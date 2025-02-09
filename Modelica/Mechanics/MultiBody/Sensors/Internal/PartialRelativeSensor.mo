@@ -5,14 +5,15 @@ partial model PartialRelativeSensor
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
     "Coordinate system a" annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
+        transformation(extent={{-116,-16},{-84,16}})),
+      mustBeConnected="Connector frame_a should be connected");
   Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
     "Coordinate system b" annotation (Placement(
-        transformation(extent={{84,-16},{116,16}})));
+        transformation(extent={{84,-16},{116,16}})),
+      mustBeConnected="Connector frame_b should be connected");
 
 equation
-  assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-  assert(cardinality(frame_b) > 0, "Connector frame_b must be connected at least once");
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
         Text(
