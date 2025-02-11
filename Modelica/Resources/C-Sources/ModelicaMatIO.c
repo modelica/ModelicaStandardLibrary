@@ -5201,7 +5201,7 @@ Mat_VarReadInfo(mat_t *mat, const char *name)
         size_t fpos = mat->next_index;
         mat->next_index = 0;
         while ( NULL == matvar && mat->next_index < mat->num_datasets ) {
-#if defined(MAT73) && MAT73
+#if HAVE_HDF5
             matvar = Mat_VarReadNextInfoPredicate(mat, Mat_IteratorNameAcceptor, name);
             if ( NULL == matvar ) {
                 Mat_Critical("An error occurred in reading the MAT file");
@@ -6606,14 +6606,16 @@ Mat_VarReadNextInfo4(mat_t *mat)
 
 /* FIXME: Implement Unicode support */
 
+/* clang-format off */
 /** Get type from tag */
 #define TYPE_FROM_TAG(a) \
-    (((a) & 0x000000ff) <= MAT_T_FUNCTION) ? (enum matio_types)((a) & 0x000000ff) : MAT_T_UNKNOWN
+    (((a)&0x000000ff) <= MAT_T_FUNCTION) ? (enum matio_types)((a)&0x000000ff) : MAT_T_UNKNOWN
 /** Get class from array flag */
 #define CLASS_FROM_ARRAY_FLAGS(a) \
-    (((a) & 0x000000ff) <= MAT_C_OPAQUE) ? ((enum matio_classes)((a) & 0x000000ff)) : MAT_C_EMPTY
+    (((a)&0x000000ff) <= MAT_C_OPAQUE) ? ((enum matio_classes)((a)&0x000000ff)) : MAT_C_EMPTY
 /** Class type mask */
 #define CLASS_TYPE_MASK 0x000000ff
+/* clang-format on */
 
 #if !defined(MAX_READ_SIZE_WITHOUT_EOF_CHECK)
 /* Maximal number of bytes to read without EOF check */
@@ -14763,14 +14765,12 @@ static int
 Mat_VarRead73(mat_t *mat, matvar_t *matvar)
 {
     int err = MATIO_E_NO_ERROR;
-    hid_t fid, dset_id, ref_id;
+    hid_t dset_id, ref_id;
 
     if ( NULL == mat || NULL == matvar )
         return MATIO_E_BAD_ARGUMENT;
     else if ( matvar->internal->id < 0 )
         return MATIO_E_FAIL_TO_IDENTIFY;
-
-    fid = *(hid_t *)mat->fp;
 
     switch ( matvar->class_type ) {
         case MAT_C_DOUBLE:
@@ -15073,7 +15073,7 @@ Mat_VarReadData73(mat_t *mat, matvar_t *matvar, void *data, const int *start, co
                   const int *edge)
 {
     int err = MATIO_E_NO_ERROR, k;
-    hid_t fid, dset_id, ref_id, dset_space, mem_space;
+    hid_t dset_id, ref_id, dset_space, mem_space;
     hsize_t *dset_start_stride_edge;
     hsize_t *dset_start, *dset_stride, *dset_edge;
 
@@ -15082,8 +15082,6 @@ Mat_VarReadData73(mat_t *mat, matvar_t *matvar, void *data, const int *start, co
         return MATIO_E_BAD_ARGUMENT;
     else if ( matvar->internal->id < 0 )
         return MATIO_E_FAIL_TO_IDENTIFY;
-
-    fid = *(hid_t *)mat->fp;
 
     dset_start_stride_edge = (hsize_t *)malloc(matvar->rank * 3 * sizeof(hsize_t));
     if ( NULL == dset_start_stride_edge ) {
@@ -15160,15 +15158,13 @@ static int
 Mat_VarReadDataLinear73(mat_t *mat, matvar_t *matvar, void *data, int start, int stride, int edge)
 {
     int err = MATIO_E_NO_ERROR, k;
-    hid_t fid, dset_id, dset_space, mem_space;
+    hid_t dset_id, dset_space, mem_space;
     hsize_t *points, dset_edge, *dimp;
 
     if ( NULL == mat || NULL == matvar || NULL == data )
         return MATIO_E_BAD_ARGUMENT;
     else if ( matvar->internal->id < 0 )
         return MATIO_E_FAIL_TO_IDENTIFY;
-
-    fid = *(hid_t *)mat->fp;
 
     dset_edge = edge;
     mem_space = H5Screate_simple(1, &dset_edge, NULL);
