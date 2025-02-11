@@ -40,5 +40,5 @@ Math.nearestInteger(-0.5);                    // = -1
 This function does the same conversion as the block
 <a href=\"modelica://Modelica.Blocks.Math.RealToInteger\">RealToInteger</a>.
 </p>
-</html>"));
+</html>"), GenerateEvents=true);
 end nearestInteger;
