@@ -39,11 +39,9 @@ model DifferentialAmplifier "Differential amplifier"
     Vps=+data.VSupply,
     Vns=-data.VSupply)
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor1(R=data.R1,
-    i(start=0, fixed=false))
+  Modelica.Electrical.Analog.Basic.Resistor resistor1(R=data.R1)
     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor2(R=data.R2,
-    i(start=0, fixed=false))
+  Modelica.Electrical.Analog.Basic.Resistor resistor2(R=data.R2)
     annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor3(R=data.R3)
     annotation (Placement(transformation(extent={{-20,20},{0,40}})));
