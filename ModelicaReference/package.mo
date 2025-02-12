@@ -7323,7 +7323,7 @@ It is based on the
 </p>
 
 <p>
-Copyright &copy; 2003-2024, Modelica Association and contributors
+Copyright &copy; 2003-2025, Modelica Association and contributors
 </p>
 
 <p>
