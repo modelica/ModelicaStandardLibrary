@@ -11,8 +11,9 @@ model Multivibrator "Multivibrator with Schmitt trigger"
   Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
     Vps=Vps,
     Vns=Vns,
-    homotopyType = Modelica.Blocks.Types.LimiterHomotopy.LowerLimit,
-    strict = true) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    strict=false,
+    regularized=true)
+             annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
   Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(
@@ -20,7 +21,7 @@ model Multivibrator "Multivibrator with Schmitt trigger"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={50,-20})));
-  Modelica.Electrical.Analog.Basic.Resistor r1(R=R1, i(start=0)) annotation (
+  Modelica.Electrical.Analog.Basic.Resistor r1(R=R1, p(i(start=0))) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -31,7 +32,7 @@ model Multivibrator "Multivibrator with Schmitt trigger"
         origin={10,-20})));
   Modelica.Electrical.Analog.Basic.Resistor r(R=R)
     annotation (Placement(transformation(extent={{20,20},{0,40}})));
-  Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(start=1, fixed=true))
+  Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(start=0.1, fixed=true))
     annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,

@@ -7,14 +7,19 @@ model IdealizedOpAmpLimited "Idealized operational amplifier with limitation"
     annotation (Dialog(enable=not useSupply));
   parameter SI.Voltage Vns=-15 "Negative supply voltage"
     annotation (Dialog(enable=not useSupply));
-  parameter Boolean strict=true "= true, if strict limits with noEvent(..)"
+  parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
+    annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+  parameter Boolean smoothed=false "= true, if usage of smooth(0, ..)"
+    annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+  parameter Boolean regularized=false "= true, if regularization instead of strict / smoothed"
     annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
   parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy "Simplified model for homotopy-based initialization"
     annotation (Evaluate=true, Dialog(group="Initialization"));
-  SI.Voltage vps "Positive supply voltage";
-  SI.Voltage vns "Negative supply voltage";
-  SI.Voltage v_in=in_p.v - in_n.v "Input voltage difference";
+  SI.Voltage vps(start=Vps) "Positive supply voltage";
+  SI.Voltage vns(start=Vns) "Negative supply voltage";
+  SI.Voltage v_in(start=0)=in_p.v - in_n.v "Input voltage difference";
   SI.Voltage v_out=out.v "Output voltage to ground";
+  SI.Current i_out(start=0)=-out.i "Output current";
   SI.Power p_in=in_p.v*in_p.i + in_n.v*in_n.i "Input power";
   SI.Power p_out=out.v*out.i "Output power";
   SI.Power p_s=-(p_in + p_out) "Supply power";
@@ -49,19 +54,41 @@ equation
                     else if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.UpperLimit then vps
                     else if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.LowerLimit then vns
                     else 0);
-  if strict then
+  if regularized then
     if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
-      v_out = smooth(0, noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
+      v_out = (if v_in>0 then vps else -vns)*(2/(1 + Modelica.Math.exp(-v_in/(0.01*(if v_in>0 then vps else -vns)/V0)))-1);
     else
-      v_out = homotopy(actual = smooth(0, noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)),
-                       simplified=simplifiedExpr);
+      v_out = homotopy(actual = (if v_in>0 then vps else -vns)*(2/(1 + Modelica.Math.exp(-v_in/(0.01*(if v_in>0 then vps else -vns)/V0)))-1), simplified=simplifiedExpr);
     end if;
   else
-    if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
-      v_out = smooth(0, if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in);
-    else
-      v_out = homotopy(actual = smooth(0, if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in),
-                       simplified=simplifiedExpr);
+    if strict and smoothed then
+      if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
+        v_out = smooth(0, noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
+      else
+        v_out = homotopy(actual = smooth(0, noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)),
+                         simplified=simplifiedExpr);
+      end if;
+    elseif strict and not smoothed then
+      if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
+        v_out = (noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
+      else
+        v_out = homotopy(actual = (noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)),
+                         simplified=simplifiedExpr);
+      end if;
+    elseif not strict and smoothed then
+      if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
+        v_out = smooth(0, (if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
+      else
+        v_out = homotopy(actual = smooth(0, (if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)),
+                         simplified=simplifiedExpr);
+      end if;
+    else // neither strict nor smoothed
+      if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
+        v_out = ((if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
+      else
+        v_out = homotopy(actual = (noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)),
+                         simplified=simplifiedExpr);
+      end if;
     end if;
   end if;
   annotation (defaultComponentName="opAmp",
@@ -94,6 +121,38 @@ equation
 </ul>
 <p>Supply voltage is either defined by parameter Vps and Vns or by (optional) pins s_p and s_n.</p>
 <p>In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
+<p>You may choose between different implementations for calculating output voltage from input voltage:</p>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <th>regularized</th><th>smoothed</th><th>strict  </th>
+    <th>explanation</th>
+  </tr>
+  <tr>
+    <td>true       </td><td>        </td><td>        </td>
+    <td>uses a regularization formula which is nearly linear around 0 and saturates at positive resp. negative supply</td>
+  </tr>
+  <tr>
+    <td>false      </td><td>false   </td><td>false   </td>
+    <td>uses a linear relationship and saturates at positive resp. negative supply without using smooth and/or noEvent</td>
+  </tr>
+  <tr>
+    <td>false      </td><td>true    </td><td>false   </td>
+    <td>uses a linear relationship and saturates at positive resp. negative supply using smooth but without noEvent</td>
+  </tr>
+  <tr>
+    <td>false      </td><td>false   </td><td>true    </td>
+    <td>uses a linear relationship and saturates at positive resp. negative supply without using smooth but using noEvent</td>
+  </tr>
+  <tr>
+    <td>false      </td><td>true    </td><td>true    </td>
+    <td>uses a linear relationship and saturates at positive resp. negative supply using both smooth and noEvent</td>
+  </tr>
+</table>
+<p>
+Recommendation:<br>
+Use of the opAmp in the linear range: regularized = false, smoothed = false, strict = false.<br>
+Use of the opAmp as switching device: regularized = true,  smoothed = false, strict = false. 
+</p>
 <p>If initialization is problematic for a model containing this as a component you can set the <strong>homotopyType</strong> parameter.
 Using <strong>Linear</strong> ignores the saturation initially which simplifies the initialization, and may help if the component
 is connected with negative feedback; but generally fails if the feedback is positive.

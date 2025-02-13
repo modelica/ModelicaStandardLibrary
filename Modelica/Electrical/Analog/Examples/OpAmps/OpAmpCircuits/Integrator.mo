@@ -1,6 +1,6 @@
 within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model Integrator "Integrating operational amplifier circuit"
-  extends PartialOpAmp(v2(start=0));
+  extends PartialOpAmp;
   import Modelica.Constants.pi;
   parameter Real k(final min=0)=1 "Desired amplification at frequency f";
   parameter SI.Frequency f "Frequency";
