@@ -9,6 +9,8 @@ endif()
 
 project(Modelica_Standard_Library_Tables C)
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 include(BuildProjects/CMake/Modelica_platform.cmake)
 include(BuildProjects/CMake/Modelica_utilities.cmake)
 
