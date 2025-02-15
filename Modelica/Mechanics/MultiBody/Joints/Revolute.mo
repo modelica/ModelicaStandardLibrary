@@ -2,19 +2,13 @@ within Modelica.Mechanics.MultiBody.Joints;
 model Revolute
   "Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange)"
 
+  extends Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint;
   Modelica.Mechanics.Rotational.Interfaces.Flange_a axis if useAxisFlange
     "1-dim. rotational flange that drives the joint"
     annotation (Placement(transformation(extent={{10,90},{-10,110}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_b support if useAxisFlange
     "1-dim. rotational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
     annotation (Placement(transformation(extent={{-70,90},{-50,110}})));
-
-  Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-    "Coordinate system fixed to the joint with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
-    "Coordinate system fixed to the joint with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   parameter Boolean useAxisFlange=false "= true, if axis flange is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
@@ -58,7 +52,6 @@ Possible reasons:
   SI.Angle angle "= phi";
 
 protected
-  outer Modelica.Mechanics.MultiBody.World world;
   parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(n)
     "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
   Frames.Orientation R_rel
@@ -85,13 +78,6 @@ protected
   Rotational.Sources.ConstantTorque constantTorque(tau_constant=0) if not useAxisFlange
     annotation (Placement(transformation(extent={{40,70},{20,90}})));
 equation
-  Connections.branch(frame_a.R, frame_b.R);
-
-  assert(cardinality(frame_a) > 0,
-    "Connector frame_a of revolute joint is not connected");
-  assert(cardinality(frame_b) > 0,
-    "Connector frame_b of revolute joint is not connected");
-
   angle = phi;
   w = der(phi);
   a = der(w);
