@@ -11,10 +11,12 @@ project(Modelica_Standard_Library_Tables C)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+set(MODELICA_RESOURCES_DIR "${PROJECT_SOURCE_DIR}")
+set(MODELICA_UTILITIES_INCLUDE_DIR "${MODELICA_RESOURCES_DIR}/C-Sources")
+
 include(BuildProjects/CMake/Modelica_platform.cmake)
 include(BuildProjects/CMake/Modelica_utilities.cmake)
 
-set(MODELICA_RESOURCES_DIR "${PROJECT_SOURCE_DIR}")
 set(
   CMAKE_INSTALL_PREFIX "${MODELICA_RESOURCES_DIR}"
   CACHE PATH
