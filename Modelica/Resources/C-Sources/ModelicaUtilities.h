@@ -1,6 +1,6 @@
 /* ModelicaUtilities.h - External utility functions header
 
-   Copyright (C) 2010-2024, Modelica Association and contributors
+   Copyright (C) 2010-2025, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -53,52 +53,20 @@ extern "C" {
   external Modelica C-code in most compilers, noreturn attributes need to
   be present to avoid warnings or errors.
 
-  The following macros handle noreturn attributes according to the
-  C11/C++11 standard with fallback to GNU, Clang or MSVC extensions if using
-  an older compiler.
+  The following macro handles the noreturn attribute according to the
+  C23/C11/C++11 standard with fallback to the MSVC/Borland extension.
 */
 #undef MODELICA_NORETURN
-#undef MODELICA_NORETURNATTR
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+#if (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L) || \
+    (defined(__cplusplus) && __cplusplus >= 201103L && \
+    (!defined(__GNUC__) || __GNUC__ >= 5 || (__GNUC__ == 4 && defined(__GNUC_MINOR__) && __GNUC_MINOR__ >= 8)))
+#define MODELICA_NORETURN [[noreturn]]
+#elif defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
 #define MODELICA_NORETURN _Noreturn
-#define MODELICA_NORETURNATTR
-#elif defined(__cplusplus) && __cplusplus >= 201103L
-#if (defined(__GNUC__) && __GNUC__ >= 5) || \
-    (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 4 && __GNUC_MINOR__ >= 8)
-#define MODELICA_NORETURN [[noreturn]]
-#define MODELICA_NORETURNATTR
-#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
-      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8)
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR __attribute__((noreturn))
-#elif defined(__GNUC__)
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR
-#else
-#define MODELICA_NORETURN [[noreturn]]
-#define MODELICA_NORETURNATTR
-#endif
-#elif defined(__clang__)
-/* Encapsulated for Clang since GCC fails to process __has_attribute */
-#if __has_attribute(noreturn)
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR __attribute__((noreturn))
-#else
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR
-#endif
-#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
-      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8) || \
-      (defined(__SUNPRO_C) && __SUNPRO_C >= 0x5110)
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR __attribute__((noreturn))
-#elif (defined(_MSC_VER) && _MSC_VER >= 1200) || \
-       defined(__BORLANDC__)
+#elif (defined(_MSC_VER) && _MSC_VER >= 1200) || defined(__BORLANDC__)
 #define MODELICA_NORETURN __declspec(noreturn)
-#define MODELICA_NORETURNATTR
 #else
 #define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR
 #endif
 
 /*
@@ -138,7 +106,7 @@ void ModelicaVFormatMessage(const char *format, va_list args) MODELICA_FORMATATT
 Output the message under the same format control as the C-function vprintf.
 */
 
-MODELICA_NORETURN void ModelicaError(const char *string) MODELICA_NORETURNATTR;
+MODELICA_NORETURN void ModelicaError(const char *string);
 /*
 Output the error message string (no format control). This function
 never returns to the calling function, but handles the error
@@ -160,14 +128,14 @@ void ModelicaVFormatWarning(const char *format, va_list args) MODELICA_FORMATATT
 Output the warning message under the same format control as the C-function vprintf.
 */
 
-MODELICA_NORETURN void ModelicaFormatError(const char *format, ...) MODELICA_NORETURNATTR MODELICA_FORMATATTR_PRINTF;
+MODELICA_NORETURN void ModelicaFormatError(const char *format, ...) MODELICA_FORMATATTR_PRINTF;
 /*
 Output the error message under the same format control as the C-function
 printf. This function never returns to the calling function,
 but handles the error similarly to an assert in the Modelica code.
 */
 
-MODELICA_NORETURN void ModelicaVFormatError(const char *format, va_list args) MODELICA_NORETURNATTR MODELICA_FORMATATTR_VPRINTF;
+MODELICA_NORETURN void ModelicaVFormatError(const char *format, va_list args) MODELICA_FORMATATTR_VPRINTF;
 /*
 Output the error message under the same format control as the C-function
 vprintf. This function never returns to the calling function,
@@ -211,7 +179,6 @@ the error.
 */
 
 #undef MODELICA_NORETURN
-#undef MODELICA_NORETURNATTR
 #undef MODELICA_FORMATATTR_PRINTF
 #undef MODELICA_FORMATATTR_VPRINTF
 
