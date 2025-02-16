@@ -161,7 +161,7 @@ equation
 </html>",revisions="<html><p><strong>Release Notes:</strong></p>
 <ul>
   <li><em>February 4, 2021</em><br>
-         Improved numeric stability by re-using <a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint\">equalityConstraint</a> from connection handling as constraint.
+         Improved numeric stability by reusing <a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint\">equalityConstraint</a> from connection handling as constraint.
          This ensures that the constraint has non-singular Jacobian and only one solution.
   </li>
 </ul>
