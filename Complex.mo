@@ -278,6 +278,6 @@ Copyright &copy; 2010-2024, Modelica Association and <a href=\"modelica://Modeli
           radius=25.0), Text(
           textColor={255,255,255},
           extent={{-90,-50},{90,50}},
-          textString="C")}));
-
+          textString="C")}),
+License="modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaStandardLibrary.txt");
 end Complex;

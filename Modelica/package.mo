@@ -87,5 +87,6 @@ Copyright &copy; 1998-2024, Modelica Association and <a href=\"modelica://Modeli
 <p>
 <strong>Modelica&reg;</strong> is a registered trademark of the Modelica Association.
 </p>
-</html>"));
+</html>"),
+License="modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaStandardLibrary.txt");
 end Modelica;
