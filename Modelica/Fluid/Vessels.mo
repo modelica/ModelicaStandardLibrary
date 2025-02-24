@@ -307,7 +307,7 @@ of the modeller. Increase nPorts to add an additional port.
         end for;
         // Check for correct solution
         assert(fluidLevel <= fluidLevel_max, "Vessel is overflowing (fluidLevel > fluidLevel_max = " + String(fluidLevel) + ")");
-        assert(fluidLevel > 0, "Fluid level (= " + String(fluidLevel) + ") is too small, the tank cannot be completely empty otherwise the energy balance equation becomes singular.");
+        assert(fluidLevel > 0, "Fluid level is too small, the tank cannot be completely empty otherwise the energy balance equation becomes singular.");
 
         // Boundary conditions
 
