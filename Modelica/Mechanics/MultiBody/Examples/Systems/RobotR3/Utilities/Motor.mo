@@ -3,11 +3,12 @@ model Motor "Motor model including current controller of r3 motors"
   extends Electrical.Machines.Icons.Machine;
   parameter SI.Inertia J(min=0)=0.0013 "Moment of inertia of motor";
   parameter Real k=1.1616 "Gain of motor";
-  parameter Real w=4590 "Time constant of motor";
-  parameter Real D=0.6 "Damping constant of motor";
+  parameter Real w(unit="s-1")=4590 "Time constant of motor";
+  parameter Real D(unit="1")=0.6 "Damping constant of motor";
   parameter SI.AngularVelocity w_max=315 "Maximum speed of motor";
   parameter SI.Current i_max=9 "Maximum current of motor";
 
+  parameter SI.Resistance RaR=250;
   Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_motor
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   Modelica.Electrical.Analog.Sources.SignalVoltage Vs
@@ -21,12 +22,12 @@ model Motor "Motor model including current controller of r3 motors"
     annotation (Placement(transformation(extent={{-60,34},{-40,54}})));
   Electrical.Analog.Basic.RotationalEMF emf(k=k, useSupport=false)
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
-  Modelica.Electrical.Analog.Basic.Inductor La(L=(250/(2*D*w)))
+  Modelica.Electrical.Analog.Basic.Inductor La(L=(RaR/(2*D*w)))
     annotation (Placement(transformation(
         origin={80,30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Resistor Ra(R=250)
+  Modelica.Electrical.Analog.Basic.Resistor Ra(R=RaR)
     annotation (Placement(transformation(
         origin={80,60},
         extent={{-10,-10},{10,10}},
@@ -35,7 +36,7 @@ model Motor "Motor model including current controller of r3 motors"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-80,-10})));
-  Modelica.Electrical.Analog.Basic.Capacitor C(C=0.004*D/w)
+  Modelica.Electrical.Analog.Basic.Capacitor C(C=(1/RaR)*D/w)
     annotation (Placement(transformation(extent={{0,60},{20,80}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp OpI
     annotation (Placement(transformation(extent={{0,34},{20,54}})));
