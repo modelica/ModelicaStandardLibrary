@@ -25,7 +25,7 @@ model DynamicPipeEnergyConservationCheck2
     modelStructure=Modelica.Fluid.Types.ModelStructure.av_b,
     useInnerPortProperties=true)
     annotation (Placement(transformation(extent={{-10,40},{10,60}})));
-  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
     annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
   Modelica.Fluid.Sources.MassFlowSource_h boundary(
     nPorts=1,
@@ -118,12 +118,12 @@ model DynamicPipeEnergyConservationCheck2
     p=100000) annotation (Placement(transformation(extent={{40,-80},{20,-60}})));
   Modelica.Fluid.Fittings.GenericResistances.VolumeFlowRate loss1(
     redeclare package Medium = Modelica.Media.Air.DryAirNasa,
-    a=0,
-    b=2.3e3) annotation (Placement(transformation(extent={{22,0},{42,20}})));
+    a=1e4,
+    b=0) annotation (Placement(transformation(extent={{22,0},{42,20}})));
   Modelica.Fluid.Fittings.GenericResistances.VolumeFlowRate loss2(
     redeclare package Medium = Modelica.Media.Air.DryAirNasa,
-    a=0,
-    b=2.3e3) annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+    a=1e4,
+    b=0) annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
 equation
   total_AV_B_a = pipeAV_B.H_flows[1] + pipeAV_B.m_flows[1]*pipeAV_B.flowModel.vs[1]^2/2;
   total_AV_B_b = pipeAV_B.H_flows[end] + pipeAV_B.m_flows[end]*pipeAV_B.flowModel.vs[end]^2/2;
