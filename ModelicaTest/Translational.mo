@@ -384,7 +384,7 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
   end TestFrictionPosition;
 
-  model GearAndLever
+  model IdealGears
     extends Modelica.Icons.Example;
 
     constant Real tol=Modelica.Constants.eps;
@@ -395,10 +395,9 @@ extends Modelica.Icons.ExamplesPackage;
           transformation(extent={{-58,80},{-38,100}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(J=1.2) annotation (Placement(
           transformation(extent={{-30,80},{-10,100}})));
-    Modelica.Mechanics.Rotational.Components.IdealGear idealGear(
+    Modelica.Mechanics.Rotational.Components.IdealGear idealGearR(
       ratio=-0.4,
-      useSupport=false)
-      annotation (Placement(transformation(extent={{0,80},{20,100}})));
+      useSupport=false) annotation (Placement(transformation(extent={{0,80},{20,100}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(
       J=2,
       phi(fixed=true, start=0),
@@ -407,8 +406,8 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{-100,50},{-80,70}})));
     Modelica.Mechanics.Translational.Sources.Force force annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
     Modelica.Mechanics.Translational.Components.Mass mass1(m=1.2) annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
-    Modelica.Mechanics.Translational.Components.IdealLever idealLever(
-      ratio=idealGear.ratio,
+    Modelica.Mechanics.Translational.Components.IdealGear idealGearT(
+      ratio=idealGearR.ratio,
       useSupport=false) annotation (Placement(transformation(extent={{0,40},{20,60}})));
     Modelica.Mechanics.Translational.Components.Mass mass2(
       m=2,
@@ -418,19 +417,18 @@ extends Modelica.Icons.ExamplesPackage;
           transformation(extent={{-58,-10},{-38,10}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia3(J=1.2) annotation (Placement(
           transformation(extent={{-30,-10},{-10,10}})));
-    Modelica.Mechanics.Rotational.Components.IdealGear idealGear1(
+    Modelica.Mechanics.Rotational.Components.IdealGear idealGearR1(
       ratio=1.4,
-      useSupport=true)
-      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      useSupport=true) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia4(
       J=2,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{30,-10},{50,10}})));
     Modelica.Mechanics.Translational.Sources.Force force1 annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
     Modelica.Mechanics.Translational.Components.Mass mass3(m=1.2) annotation (Placement(transformation(extent={{-30,-100},{-10,-80}})));
-    Modelica.Mechanics.Translational.Components.IdealLever idealLever1(
+    Modelica.Mechanics.Translational.Components.IdealGear idealGearT1(
       useSupport=true,
-      ratio=idealGear1.ratio) annotation (Placement(transformation(extent={{0,-80},{20,-100}})));
+      ratio=idealGearR1.ratio) annotation (Placement(transformation(extent={{0,-80},{20,-100}})));
     Modelica.Mechanics.Translational.Components.Mass mass4(
       m=2,
       s(fixed=true),
@@ -465,28 +463,26 @@ extends Modelica.Icons.ExamplesPackage;
     assert(abs(errPos.y) < tol,
       "Position of rotational and translational component must be equal (less then tolerance)");
 
-    connect(inertia1.flange_b,idealGear. flange_a)
-      annotation (Line(points={{-10,90},{0,90}}));
-    connect(idealGear.flange_b,inertia2. flange_a)
-      annotation (Line(points={{20,90},{30,90}}));
+    connect(inertia1.flange_b, idealGearR.flange_a) annotation (Line(points={{-10,90},{0,90}}));
+    connect(idealGearR.flange_b, inertia2.flange_a) annotation (Line(points={{20,90},{30,90}}));
     connect(sine.y,torque. tau)
       annotation (Line(points={{-79,60},{-72,60},{-72,90},{-60,90}}, color={0,0,127}));
     connect(torque.flange,inertia1. flange_a) annotation (Line(
         points={{-38,90},{-30,90}}));
     connect(force.flange, mass1.flange_a) annotation (Line(points={{-40,50},{-30,50}}, color={0,127,0}));
-    connect(mass1.flange_b, idealLever.flange_a) annotation (Line(points={{-10,50},{0,50}}, color={0,127,0}));
-    connect(idealLever.flange_b, mass2.flange_a) annotation (Line(points={{20,50},{30,50}}, color={0,127,0}));
-    connect(inertia3.flange_b, idealGear1.flange_a) annotation (Line(points={{-10,0},{0,0}}));
-    connect(idealGear1.flange_b, inertia4.flange_a) annotation (Line(points={{20,0},{30,0}}));
+    connect(mass1.flange_b,idealGearT. flange_a) annotation (Line(points={{-10,50},{0,50}}, color={0,127,0}));
+    connect(idealGearT.flange_b, mass2.flange_a) annotation (Line(points={{20,50},{30,50}}, color={0,127,0}));
+    connect(inertia3.flange_b, idealGearR1.flange_a) annotation (Line(points={{-10,0},{0,0}}));
+    connect(idealGearR1.flange_b, inertia4.flange_a) annotation (Line(points={{20,0},{30,0}}));
     connect(sine.y, torque1.tau) annotation (Line(points={{-79,60},{-72,60},{-72,0},{-60,0}}, color={0,0,127}));
     connect(torque1.flange, inertia3.flange_a) annotation (Line(points={{-38,0},{-30,0}}));
     connect(force1.flange, mass3.flange_a) annotation (Line(points={{-40,-90},{-30,-90}}, color={0,127,0}));
-    connect(mass3.flange_b, idealLever1.flange_a) annotation (Line(points={{-10,-90},{0,-90}}, color={0,127,0}));
-    connect(idealLever1.flange_b, mass4.flange_a) annotation (Line(points={{20,-90},{30,-90}}, color={0,127,0}));
+    connect(mass3.flange_b,idealGearT1. flange_a) annotation (Line(points={{-10,-90},{0,-90}}, color={0,127,0}));
+    connect(idealGearT1.flange_b, mass4.flange_a) annotation (Line(points={{20,-90},{30,-90}}, color={0,127,0}));
     connect(fixedR.flange, springDamperR.flange_a) annotation (Line(points={{-50,-30},{-30,-30}}, color={0,0,0}));
-    connect(springDamperR.flange_b, idealGear1.support) annotation (Line(points={{-10,-30},{10,-30},{10,-10}}, color={0,0,0}));
+    connect(springDamperR.flange_b, idealGearR1.support) annotation (Line(points={{-10,-30},{10,-30},{10,-10}}, color={0,0,0}));
     connect(fixedT.flange, springDamperT.flange_a) annotation (Line(points={{-50,-60},{-32,-60}}, color={0,127,0}));
-    connect(springDamperT.flange_b, idealLever1.support) annotation (Line(points={{-12,-60},{10,-60},{10,-80}}, color={0,127,0}));
+    connect(springDamperT.flange_b,idealGearT1. support) annotation (Line(points={{-12,-60},{10,-60},{10,-80}}, color={0,127,0}));
     connect(inertia2.flange_b, speedSensorR1.flange) annotation (Line(points={{50,90},{54,90}}, color={0,0,0}));
     connect(mass2.flange_b, speedSensorT1.flange) annotation (Line(points={{50,50},{54,50}}, color={0,127,0}));
     connect(speedSensorR1.w, errVel.u1) annotation (Line(points={{75,90},{78,90},{78,76}}, color={0,0,127}));
@@ -498,5 +494,5 @@ extends Modelica.Icons.ExamplesPackage;
     connect(sine1.y, force.f) annotation (Line(points={{-79,-50},{-68,-50},{-68,50},{-62,50}}, color={0,0,127}));
     connect(sine1.y, force1.f) annotation (Line(points={{-79,-50},{-68,-50},{-68,-90},{-62,-90}}, color={0,0,127}));
     annotation (experiment(StopTime=1.1));
-  end GearAndLever;
+  end IdealGears;
 end Translational;
