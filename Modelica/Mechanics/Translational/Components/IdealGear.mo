@@ -16,36 +16,11 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-This element characterizes any type of lever which is fixed in the
+This element characterizes any type of gear which is fixed in the
 ground and which has one driving flange and one driven flange.
-The lever is <strong>ideal</strong>, i.e., it does not have mass, elasticity, damping
-or backlash. If these effects have to be considered, the lever has to be
+The gear is <strong>ideal</strong>, i.e., it does not have mass, elasticity, damping
+or backlash. If these effects have to be considered, the gear has to be
 connected to other elements in an appropriate way.
-</p>
-
-<h4>Classification of lever</h4>
-<p>
-Generally, a&nbsp;lever is classified by its ratio&nbsp;<var>i</var> which is the ratio
-between the driving flange position and the driven flange position. The type of lever is,
-then, given by the magnitude of <var>i</var> as follows:
-</p>
-<ul>
-  <li>
-    <var>i</var>&nbsp;&lt;&nbsp;0: <em>1st class lever</em>; the lever&apos;s pivot is
-    located between the driving and the driven flange.
-  </li>
-  <li>
-    <var>i</var>&nbsp;&gt;&nbsp;1: <em>2nd class lever</em>; the driven
-    flange is located between the driving flange and the lever&apos;s pivot.
-  </li>
-  <li>
-    0&nbsp;&lt;&nbsp;<var>i</var>&nbsp;&lt;&nbsp;1: <em>3rd class lever</em>; the
-    driving flange is located between the driven flange and the lever&apos;s pivot.
-  </li>
-</ul>
-<p>
-Applying the abovementioned to this element, the parameter <code>ratio</code> can be considered equal
-to <var>i</var> only when <code>flange_a</code> is the driving flange.
 </p>
 </html>"),
     Icon(
