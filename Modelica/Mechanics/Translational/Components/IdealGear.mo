@@ -1,5 +1,5 @@
 within Modelica.Mechanics.Translational.Components;
-model IdealLever "Ideal lever without mass"
+model IdealGear "Ideal gear without mass"
   extends Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
   parameter Real ratio(start=1)
     "Transmission ratio (flange_a.s/flange_b.s)";
@@ -51,45 +51,31 @@ to <var>i</var> only when <code>flange_a</code> is the driving flange.
     Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}),
-      graphics={
-        Polygon(
-          points={{-6,-30},{-6,50},{0,50},{6,50},{6,-30},{-6,-30}},
-          lineColor={0,0,0},
-          fillColor={160,215,160},
-          fillPattern=FillPattern.Solid),
+      graphics={                  Line(points={{70,0},{100,0}},  color={0,127,0}),
+                                  Line(points={{-100,0},{-70,0}},color={0,127,0}),
         Ellipse(
-          extent={{-20,-10},{20,-50}},
-          fillColor={160,215,160},
+          extent={{-38,38},{38,-38}},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
-          pattern=LinePattern.None),
+          lineColor={95,95,95}),
         Ellipse(
-          extent={{-20,-10},{20,-50}},
-          startAngle=-73,
-          endAngle=253,
-          closure=EllipseClosure.None),
-        Ellipse(
-          extent={{-10,-20},{10,-40}},
-          fillColor={175,190,175},
+          extent={{-16,16},{16,-16}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={95,95,95}),
+        Polygon(
+          points={{76,-10},{76,0},{76,24},{-42,24},{-42,16},{56,16},{66,-10},{76,-10}},
+          lineColor={0,127,0},
+          fillColor={160,215,160},
           fillPattern=FillPattern.Solid),
         Line(
-          points={{0,-54},{0,-30}},
+          points={{0,-54},{0,0}},
           color={0,127,0}),
         Line(
           points={{0,-100},{0,-78}},
           color={0,127,0}),
-        Line(
-         points={{-98,0},{0,50}},
-         color={0,127,0}),
-        Line(
-          points={{0,20},{100,0}},
-          color={0,127,0}),
         Ellipse(
-          extent={{-4,54},{4,46}},
-          lineColor={0,127,0},
-          fillColor={160,215,160},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-4,24},{4,16}},
+          extent={{-4,4},{4,-4}},
           lineColor={0,127,0},
           fillColor={160,215,160},
           fillPattern=FillPattern.Solid),
@@ -99,5 +85,10 @@ to <var>i</var> only when <code>flange_a</code> is the driving flange.
           textString="%name"),
         Text(
           extent={{-100,-50},{100,-80}},
-          textString="ratio=%ratio")}));
-end IdealLever;
+          textString="ratio=%ratio"),
+        Polygon(
+          points={{50,48},{50,38},{-52,38},{-66,-10},{-76,-10},{-76,48},{50,48}},
+          lineColor={95,95,95},
+          fillColor={131,175,131},
+          fillPattern=FillPattern.Solid)}));
+end IdealGear;
