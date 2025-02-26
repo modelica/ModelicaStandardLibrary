@@ -1,0 +1,4 @@
+Portable C string replacement function: repl_str
+https://creativeandcritical.net/str-replace-c
+Created by Laird Shaw
+Released to public domain

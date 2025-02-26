@@ -1939,7 +1939,7 @@ Otherwise the input angle <code>u</code> is wrapped to the <a href=\"https://en.
     Interfaces.IntegerOutput y "Connector of Integer output signal" annotation (
        Placement(transformation(extent={{100,-10},{120,10}})));
   equation
-    y = if (u > 0) then integer(floor(u + 0.5)) else integer(ceil(u - 0.5));
+    y = Modelica.Math.nearestInteger(u);
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
@@ -1959,11 +1959,11 @@ Otherwise the input angle <code>u</code> is wrapped to the <a href=\"https://en.
                 30.0,-10.0},{30.0,-20.0},{50.0,0.0}})}), Documentation(info="<html>
 <p>
 This block computes the output <strong>y</strong>
-as <em>nearest integer value</em> of the input <strong>u</strong>:
+as <em>nearest integer value</em> of the input <strong>u</strong> utilizing the
+function <a href=\"modelica://Modelica.Math.nearestInteger\">nearestInteger</a>:
 </p>
 <blockquote><pre>
-y = <strong>integer</strong>( <strong>floor</strong>( u + 0.5 ) )  for  u &gt; 0;
-y = <strong>integer</strong>( <strong>ceil </strong>( u - 0.5 ) )  for  u &lt; 0;
+y = Modelica.Math.<strong>nearestInteger</strong>(u);
 </pre></blockquote>
 </html>"));
   end RealToInteger;
