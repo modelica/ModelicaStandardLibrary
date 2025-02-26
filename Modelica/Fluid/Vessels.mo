@@ -307,7 +307,7 @@ of the modeller. Increase nPorts to add an additional port.
         end for;
         // Check for correct solution
         assert(fluidLevel <= fluidLevel_max, "Vessel is overflowing (fluidLevel > fluidLevel_max = " + String(fluidLevel) + ")");
-        assert(fluidLevel > -1e-6*fluidLevel_max, "Fluid level (= " + String(fluidLevel) + ") is below zero meaning that the solution failed.");
+        assert(fluidLevel > 0, "Fluid level is too small, the tank cannot be completely empty otherwise the energy balance equation becomes singular.");
 
         // Boundary conditions
 
@@ -654,7 +654,7 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
 <h4>References</h4>
 
 <dl><dt>Idelchik I.E. (1994):</dt>
-    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><strong>Handbook
+    <dd><a href=\"https://doi.org/10.1017/S002211209726790X\"><strong>Handbook
         of Hydraulic Resistance</strong></a>. 3rd edition, Begell House, ISBN
         0-8493-9908-4</dd>
 </dl>

@@ -16,7 +16,7 @@ This library provides power converters for DC and AC single-phase and polyphase 
 </ul>
 
 <p>
-Copyright &copy; 2013-2020, Modelica Association and contributors
+Copyright &copy; 2013-2024, Modelica Association and contributors
 </p>
 </html>"),
     Icon(graphics={

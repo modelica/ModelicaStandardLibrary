@@ -356,8 +356,8 @@ The ideal gas constant for moist air is computed from the gas phase composition.
 
     extends Modelica.Icons.Function;
     input SI.Temperature Tsat "Saturation temperature";
-    input Real dTsat(unit="K/s") "Saturation temperature derivative";
-    output Real psat_der(unit="Pa/s") "Saturation pressure derivative";
+    input SI.TemperatureSlope dTsat "Saturation temperature derivative";
+    output SI.PressureSlope psat_der "Saturation pressure derivative";
   protected
     SI.Temperature Tcritical=647.096 "Critical temperature";
     SI.AbsolutePressure pcritical=22.064e6 "Critical pressure";
@@ -414,8 +414,8 @@ The ideal gas constant for moist air is computed from the gas phase composition.
 
     extends Modelica.Icons.Function;
     input SI.Temperature Tsat "Sublimation temperature";
-    input Real dTsat(unit="K/s") "Sublimation temperature derivative";
-    output Real psat_der(unit="Pa/s") "Sublimation pressure derivative";
+    input SI.TemperatureSlope dTsat "Sublimation temperature derivative";
+    output SI.PressureSlope psat_der "Sublimation pressure derivative";
   protected
     SI.Temperature Ttriple=273.16 "Triple point temperature";
     SI.AbsolutePressure ptriple=611.657 "Triple point pressure";
@@ -458,9 +458,9 @@ Saturation pressure of water in the liquid and the solid region is computed usin
   function saturationPressure_der
     "Derivative function for 'saturationPressure'"
     extends Modelica.Icons.Function;
-    input Temperature Tsat "Saturation temperature";
-    input Real dTsat(unit="K/s") "Time derivative of saturation temperature";
-    output Real psat_der(unit="Pa/s") "Saturation pressure";
+    input SI.Temperature Tsat "Saturation temperature";
+    input SI.TemperatureSlope dTsat "Time derivative of saturation temperature";
+    output SI.PressureSlope psat_der "Time derivative of saturation pressure";
 
   algorithm
     /*psat := Utilities.spliceFunction(saturationPressureLiquid(Tsat),sublimationPressureIce(Tsat),Tsat-273.16,1.0);*/
@@ -801,8 +801,8 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
-    input Real dp(unit="Pa/s") "Pressure derivative";
-    input Real dT(unit="K/s") "Temperature derivative";
+    input SI.PressureSlope dp "Pressure derivative";
+    input SI.TemperatureSlope dT "Temperature derivative";
     input Real dX[:](each unit="1/s") "Composition derivative";
     output Real h_der(unit="J/(kg.s)") "Time derivative of specific enthalpy";
   protected
@@ -817,7 +817,7 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
     Real dX_air(unit="1/s") "Time derivative of dry air mass fraction";
     Real dX_liq(unit="1/s")
       "Time derivative of liquid/solid water mass fraction";
-    Real dps(unit="Pa/s") "Time derivative of saturation pressure";
+    SI.PressureSlope dps "Time derivative of saturation pressure";
     Real dx_sat(unit="1/s")
       "Time derivative of absolute humidity per unit mass of dry air";
   algorithm
@@ -969,8 +969,8 @@ Specific internal energy is determined from pressure p, temperature T and compos
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
-    input Real dp(unit="Pa/s") "Pressure derivative";
-    input Real dT(unit="K/s") "Temperature derivative";
+    input SI.PressureSlope dp "Pressure derivative";
+    input SI.TemperatureSlope dT "Temperature derivative";
     input Real dX[:](each unit="1/s") "Mass fraction derivatives";
     output Real u_der(unit="J/(kg.s)") "Specific internal energy derivative";
   protected
@@ -987,7 +987,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
     Real dX_air(unit="1/s") "Time derivative of dry air mass fraction";
     Real dX_liq(unit="1/s")
       "Time derivative of liquid/solid water mass fraction";
-    Real dps(unit="Pa/s") "Time derivative of saturation pressure";
+    SI.PressureSlope dps "Time derivative of saturation pressure";
     Real dx_sat(unit="1/s")
       "Time derivative of absolute humidity per unit mass of dry air";
     Real dR_gas(unit="J/(kg.K.s)") "Time derivative of ideal gas constant";
@@ -1344,8 +1344,8 @@ Specific entropy of moist air is computed from pressure, temperature and composi
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
-    input Real dp(unit="Pa/s") "Derivative of pressure";
-    input Real dT(unit="K/s") "Derivative of temperature";
+    input SI.PressureSlope dp "Derivative of pressure";
+    input SI.TemperatureSlope dT "Derivative of temperature";
     input Real dX[nX](each unit="1/s") "Derivative of mass fractions";
     output Real ds(unit="J/(kg.K.s)") "Specific entropy at p, T, X";
   protected

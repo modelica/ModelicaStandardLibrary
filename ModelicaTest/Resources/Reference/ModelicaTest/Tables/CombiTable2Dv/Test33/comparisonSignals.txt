@@ -1,5 +1,5 @@
 time
-t_new.y
+t_new.y[1]
 d_t_new.y
 trapezoid1.y
 trapezoid2.y

@@ -47,7 +47,7 @@ Furthermore:
      gives author and acknowledgement information for this library.</li>
 </ul>
 <p>
-<em>Copyright &copy; 2012-2020, Modelica Association and contributors.</em>
+<em>Copyright &copy; 2012-2024, Modelica Association and contributors.</em>
 </p>
 </html>",
 revisions="<html>
@@ -68,7 +68,7 @@ revisions="<html>
 
 <tr><td></td><td>Several releases as <em>Modelica_Synchronous</em> library.</td></tr>
 
-<tr><td> 2019 </td><td>The <em>Modelica_Synchronous</em> library is included as <em>Modelica.Clocked</em> in the Modelica Standard Library 4.0.0.</td></tr>
+<tr><td> 2019 </td><td>The <em>Modelica_Synchronous</em> library is included as <em>Modelica.Clocked</em> in the Modelica Standard Library.</td></tr>
 
 <tr><td></td><td>see <a href=\"modelica://Modelica.Clocked.UsersGuide.ReleaseNotes\">Release Notes</a>.</td></tr>
 

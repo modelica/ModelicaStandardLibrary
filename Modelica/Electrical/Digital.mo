@@ -7169,7 +7169,7 @@ the library is implemented and released for public use.
 </p>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={
