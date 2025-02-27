@@ -100,6 +100,9 @@ equation
     vessel_ps_static[i] = max(0, level - portsData_height[i])*system.g*medium.d + p_ambient;
   end for;
 
+  // Ensure that the tank is never completely empty, otherwise the mass and energy balance equations in the fluid preferred states become singular
+  assert(level > 0, "Fluid level is too small, the tank cannot be completely empty otherwise the mass and energy balance equations become singular.");
+
 initial equation
   if massDynamics == Types.Dynamics.FixedInitial then
     level = level_start_eps;
