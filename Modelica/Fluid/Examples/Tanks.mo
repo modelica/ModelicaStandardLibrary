@@ -226,7 +226,7 @@ simulation accuracy could be increased in order to avoid errors.
       crossArea=1,
       level_start=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
-          0.1)},
+          0.1, height=0.001)},
       height=1.1) annotation (Placement(transformation(extent={{-40,20},
               {0,60}})));
 
