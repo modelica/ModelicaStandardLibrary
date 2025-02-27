@@ -267,6 +267,8 @@ simulation accuracy could be increased in order to avoid errors.
       Documentation(info="<html>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/Tanks/EmptyTanks.png\" border=\"1\"
      alt=\"EmptyTanks.png\">
+     <p>This example model demonstrates the use of the OpenTank component. The simulation starts with an almost full tank1 and an almost empty tank2. Water flows out of tank1 until the level reaches the height of the outlet port, 1 mm above the bottom, then the flow stops thanks to the implicit check-valve behaviour of the ports when they get above the fluid level.</p>
+     <p>Notice that the tanks should never get completely empty, otherwise the mass and energy balance equations become singular. Hence, tank2 starts with 1 mm of water and the outlet port of tank1 is 1 mm above the bottom, to ensure it never gets fully empty.</p>
 </html>"));
   end EmptyTanks;
 
