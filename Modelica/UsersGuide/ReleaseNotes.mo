@@ -272,14 +272,14 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Christian Kral</p></td>
 </tr>
 </table>
-<p><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">new libraries</span></b> have been added: </p>
+<p><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">new libraries</span></b> have been added: </p>
 <p><br>The following <b><span style=\"color: #0000ff;\">new components</span></b> have been added to <b><span style=\"color: #0000ff;\">existing</span></b> libraries: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td><h4>Modelica.Blocks.Math</h4></td>
 <td></td>
 </tr>
 <tr>
-<td><p><br><br>Exponentiation</p></td>
+<td><p><br>Exponentiation</p></td>
 <td><p>Performs general exponentiation</p></td>
 </tr>
 <tr>
@@ -291,7 +291,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td></td>
 </tr>
 <tr>
-<td><p><br><br>LightningImpulse</p></td>
+<td><p><br>LightningImpulse</p></td>
 <td><p>Block that provides the simplified trajectory of an impulse (like the current of lightnings) as one of two approximation functions.</p></td>
 </tr>
 <tr>
@@ -307,7 +307,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td></td>
 </tr>
 <tr>
-<td><p><br><br>ChopperBuckBost</p></td>
+<td><p><br>ChopperBuckBost</p></td>
 <td><p>This is a bidirectional buck / boost - converter with 2 transistors and 2 freewheeling diodes.</p></td>
 </tr>
 <tr>
@@ -315,7 +315,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td></td>
 </tr>
 <tr>
-<td><p><br><br>Transformer</p></td>
+<td><p><br>Transformer</p></td>
 <td><p>Models a quasistatic singlephase transformer using a two-port matrix.</p></td>
 </tr>
 <tr>
@@ -323,7 +323,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td></td>
 </tr>
 <tr>
-<td><p><br><br>CurrentRMSSensor</p></td>
+<td><p><br>CurrentRMSSensor</p></td>
 <td><p>This sensor determines the continuous root mean square (RMS) value of a single-phase current system.</p></td>
 </tr>
 <tr>
@@ -335,7 +335,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td></td>
 </tr>
 <tr>
-<td><p><br><br>Coupling</p></td>
+<td><p><br>Coupling</p></td>
 <td><p>This is a model of an ideal stiff coupling (face to face)</p></td>
 </tr>
 <tr>
@@ -343,7 +343,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td></td>
 </tr>
 <tr>
-<td><p><br><br>InverseSpeedDependentTorque</p></td>
+<td><p><br>InverseSpeedDependentTorque</p></td>
 <td><p>Model of inverse speed dependent torque.</p></td>
 </tr>
 <tr>
@@ -351,11 +351,11 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td></td>
 </tr>
 <tr>
-<td><p><br><br>InverseSpeedDependentForce</p></td>
+<td><p><br>InverseSpeedDependentForce</p></td>
 <td><p>Model of inverse speed dependent force.</p></td>
 </tr>
 </table>
-<p><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">improved</span></b> in a <b><span style=\"color: #0000ff;\">backward compatible</span></b> way: </p>
+<p><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">improved</span></b> in a <b><span style=\"color: #0000ff;\">backward compatible</span></b> way: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td><h4>Modelica.Blocks.Sources</h4></td>
 <td></td>
@@ -405,7 +405,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>The table interpolation in f_pos utilizes the interpolation based on <a href=\"\\\">ExternalCombiTable1D</a>.</p></td>
 </tr>
 </table>
-<p><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">changed</span></b> in a <b><span style=\"color: #0000ff;\">non-backward compatible</span></b> way: </p>
+<p><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">changed</span></b> in a <b><span style=\"color: #0000ff;\">non-backward compatible</span></b> way: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td><h4>Mechanics.MultiBody</h4></td>
 <td></td>
@@ -427,7 +427,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td></td>
 </tr>
 <tr>
-<td><p><br>Brake</p></td>
+<td><p><br><br>Brake</p></td>
 <td><p>The table interpolation in mu_pos utilizes the interpolation based on <a href=\"\\\">ExternalCombiTable1D</a>.</p><p>The public variable mu0 was changed to a protected final parameter.</p></td>
 </tr>
 <tr>
@@ -562,7 +562,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 <tr>
 <td><p><br>regFun3</p></td>
-<td><p>----add content here---</p></td>
+<td><p>The function produced wrong results in horizontal wall friction models.This is fixed. </p></td>
 </tr>
 <tr>
 <td><h4>Modelica.Media.Air.MoistAir.Utilities</h4></td>
