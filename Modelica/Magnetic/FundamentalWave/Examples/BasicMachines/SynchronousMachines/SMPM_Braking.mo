@@ -149,13 +149,13 @@ equation
   connect(starM.pin_n, grounding.p)
     annotation (Line(points={{-70,-10},{-70,5},{-70,20}}, color={0,0,255}));
   annotation (experiment(StopTime=0.8, Interval=1E-4, Tolerance=1e-06), Documentation(
-        info="<html>
+        info= "<html>
 <p>
 A synchronous machine with permanent magnets starts braking from nominal speed by feeding a diode bridge,
 which in turn feeds a braking resistor.
 Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional
 to speed to achieve constant current and torque.</p>
 
-<p>Default machine parameters are used</p>
+<p>Default machine parameters are used. The RonDiode and GoffDiode parameters of the diode bridge are both increased to 1e-4 to avoid numerical issues when the variable resistor voltage gets close to zero.</p>
 </html>"));
 end SMPM_Braking;
