@@ -14,9 +14,9 @@ model SignalGenerator "Rectangle-Triangle generator"
     Vps=Vps,
     Vns=Vns,
     strict=false,
-    homotopyType=Modelica.Blocks.Types.LimiterHomotopy.LowerLimit)
+    regularized=true)
     annotation (Placement(transformation(extent={{-60,10},{-40,-10}})));
-  Modelica.Electrical.Analog.Basic.Resistor r2(R=R2, i(start=Vps/R2))
+  Modelica.Electrical.Analog.Basic.Resistor r2(R=R2, p(i(start=0)))
     annotation (Placement(transformation(
         extent={{10,10},{-10,-10}},
         rotation=180,
@@ -29,11 +29,9 @@ model SignalGenerator "Rectangle-Triangle generator"
     annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
   Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp2(
     Vps=Vps,
-    Vns=Vns,
-    v_in(start=0),
-    strict=false)
+    Vns=Vns)
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
-  Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(fixed=true, start=0))
+  Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(fixed=true, start=10))
     annotation (Placement(transformation(extent={{50,20},{30,40}})));
   Modelica.Electrical.Analog.Basic.Resistor r(R=R)
     annotation (Placement(transformation(extent={{-10,20},{10,40}})));

@@ -1,6 +1,6 @@
 within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model PI "PI controller operational amplifier circuit"
-  extends PartialOpAmp(v2(start=0));
+  extends PartialOpAmp;
   import Modelica.Constants.pi;
   parameter Real k(final min=0)=1 "Desired amplification";
   parameter SI.Resistance R1=1000 "Resistance at negative input of OpAmp";
@@ -13,6 +13,7 @@ model PI "PI controller operational amplifier circuit"
     annotation (Placement(transformation(extent={{30,20},{10,40}})));
   Basic.Capacitor                            c(C=C)
     annotation (Placement(transformation(extent={{60,20},{40,40}})));
+  SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
 equation
   connect(n1, n2)
     annotation (Line(points={{-100,-100},{100,-100}}, color={0,0,255}));
