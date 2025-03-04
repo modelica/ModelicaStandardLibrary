@@ -17,7 +17,7 @@ jobs:
           pushd Modelica/Resources/BuildProjects/autotools
           git clean -fdx .
           ./autogen.sh
-          ./configure --libdir="$PWD/../../Library/$LIBDIR" --enable-static --disable-shared --enable-static-zlib --disable-hdf5 CPPFLAGS="-I${GITHUB_WORKSPACE}/.CI/Test"
+          ./configure --libdir="$PWD/../../Library/$LIBDIR" --enable-static --disable-shared --enable-static-zlib --disable-hdf5
           make --output-sync
           sudo make install
           popd
