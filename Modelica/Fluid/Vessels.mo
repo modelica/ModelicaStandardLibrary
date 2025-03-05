@@ -101,7 +101,7 @@ equation
   end for;
 
   // Ensure that the tank is never completely empty, otherwise the mass and energy balance equations in the fluid preferred states become singular
-  assert(level > 0, "Fluid level is too small, the tank cannot be completely empty otherwise the mass and energy balance equations become singular.");
+  assert(level > 0, "Fluid level is too low; the energy balance equation becomes singular when the tank is completely empty.");
 
 initial equation
   if massDynamics == Types.Dynamics.FixedInitial then
