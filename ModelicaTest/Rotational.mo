@@ -963,7 +963,7 @@ they were not deleted yet.")}));
         Placement(transformation(extent={{-20,-230},{0,-210}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque2
       annotation (Placement(transformation(extent={{30,-230},{10,-210}})));
-    Modelica.Mechanics.Rotational.Components.Coupling coupling
+    Modelica.Electrical.Machines.Utilities.Coupling   coupling
       annotation (Placement(transformation(extent={{-50,-230},{-30,-210}})));
     Modelica.Mechanics.Rotational.Sources.Speed speed2(useSupport=false, exact=true)
       annotation (Placement(transformation(extent={{-110,-230},{-90,-210}})));
