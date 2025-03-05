@@ -13,6 +13,6 @@ Comparator
 InvertingSchmittTrigger
 SchmittTrigger
 Multivibrator
-SignalGenerator
 LCOscillator
+SignalGenerator
 OpAmpCircuits

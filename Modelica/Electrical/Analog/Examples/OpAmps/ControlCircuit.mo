@@ -12,30 +12,23 @@ model ControlCircuit "Control circuit"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-90,-62})));
-  OpAmpCircuits.Feedback feedbackA(p1(i(start=0)))
+  OpAmpCircuits.Feedback feedbackA
     annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
   OpAmpCircuits.PI PIA(
-    v2(fixed=true),
     k=kp,
     T=Ti,
-    opAmp(v_in(start=0)))
+    v(fixed=true))
     annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
-  OpAmpCircuits.FirstOrder firstOrder1A(
-    v2(fixed=true),
-    T=T1,
-    opAmp(v_in(start=0)))
+  OpAmpCircuits.FirstOrder firstOrder1A(T=T1, v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
-  OpAmpCircuits.Add addA(i1_2(start=0), r(i(start=0)))
+  OpAmpCircuits.Add addA
     annotation (Placement(transformation(extent={{30,-40},{50,-20}})));
   Sources.StepVoltage step1A(V=1, startTime=0.5) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={20,-60})));
-  OpAmpCircuits.FirstOrder firstOrder2A(
-    v2(fixed=true),
-    T=T2,
-    opAmp(v_in(start=0)))
+  OpAmpCircuits.FirstOrder firstOrder2A(T=T2, v(fixed=true))
     annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
   Blocks.Sources.Step stepB(height=10, startTime=0.1)
     annotation (Placement(transformation(extent={{-100,60},{-80,80}})));
