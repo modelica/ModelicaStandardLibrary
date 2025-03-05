@@ -226,7 +226,7 @@ simulation accuracy could be increased in order to avoid errors.
       crossArea=1,
       level_start=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
-          0.1)},
+          0.1, height=0.001)},
       height=1.1) annotation (Placement(transformation(extent={{-40,20},
               {0,60}})));
 
@@ -249,7 +249,7 @@ simulation accuracy could be increased in order to avoid errors.
       height=1.1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
           0.1, height=0.5)},
-      level_start=1.0e-10)
+      level_start=1.0e-3)
       annotation (Placement(transformation(extent={{0,-80},{40,-40}})));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                                      annotation (Placement(transformation(
@@ -267,6 +267,8 @@ simulation accuracy could be increased in order to avoid errors.
       Documentation(info="<html>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/Tanks/EmptyTanks.png\" border=\"1\"
      alt=\"EmptyTanks.png\">
+     <p>This example model demonstrates the use of the OpenTank component. The simulation starts with an almost full tank1 and an almost empty tank2. Water flows out of tank1 until the level reaches the height of the outlet port, 1 mm above the bottom, then the flow stops thanks to the implicit check-valve behaviour of the ports when they get above the fluid level.</p>
+     <p>Notice that the tanks should never get completely empty, otherwise the mass and energy balance equations become singular. Hence, tank2 starts with 1 mm of water and the outlet port of tank1 is 1 mm above the bottom, to ensure it never gets fully empty.</p>
 </html>"));
   end EmptyTanks;
 
