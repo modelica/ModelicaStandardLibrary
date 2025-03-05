@@ -61,8 +61,5 @@ annotation (Documentation(info="<html>
 </html>"),
   experiment(StopTime=1),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics={Text(
-          extent={{-100,112},{80,40}},
-          textColor={0,0,255},
-          textString="Example VariableResistor")}));
+            100,100}})));
 end ShowVariableResistor;

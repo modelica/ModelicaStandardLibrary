@@ -1,23 +1,37 @@
 name: CI
 
-on: [pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   external_c_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 5
-      - name: Build libraries
+      - name: Configure
         run: |
           rm -rf Modelica/Resources/Library/*
           mkdir -p Modelica/Resources/Library/$LIBDIR
           pushd Modelica/Resources/BuildProjects/autotools
           git clean -fdx .
           ./autogen.sh
-          ./configure --libdir="$PWD/../../Library/$LIBDIR" --enable-static --disable-shared --enable-static-zlib --disable-hdf5 CPPFLAGS="-I${GITHUB_WORKSPACE}/.CI/Test"
+          ./configure --libdir="$PWD/../../Library/$LIBDIR" --enable-static --disable-shared --enable-static-zlib --disable-hdf5
+          popd
+        env:
+          LIBDIR: linux64
+      - name: Build
+        run: |
+          pushd Modelica/Resources/BuildProjects/autotools
           make --output-sync
           sudo make install
           popd
@@ -30,15 +44,107 @@ jobs:
         env:
           LIBDIR: linux64
           CC: gcc
+
+  external_c_checks_cmake:
+    name: external_c_checks_cmake_${{ matrix.toolchain }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        toolchain:
+          - linux-gcc
+          - macos-clang
+          - windows-msvc
+          - windows-mingw
+        configuration:
+          - Debug
+        include:
+          - toolchain: linux-gcc
+            os: ubuntu-latest
+            compiler: gcc
+          - toolchain: macos-clang
+            os: macos-latest
+            compiler: clang
+          - toolchain: windows-msvc
+            os: windows-latest
+            compiler: msvc
+          - toolchain: windows-mingw
+            os: windows-latest
+            compiler: mingw
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 5
+      - name: Configure
+        run: |
+          if [ "${{ matrix.compiler }}" == "msvc" ]; then
+            cmake -S "$SRCDIR" -B build -DMODELICA_DEBUG_TIME_EVENTS=ON
+          elif [ "${{ matrix.compiler }}" == "mingw" ]; then
+            cmake -S "$SRCDIR" -B build -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -G "MinGW Makefiles"
+          else
+            cmake -S "$SRCDIR" -B build -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -DCMAKE_C_FLAGS="-std=c89 -Wall -Wextra"
+          fi
+        env:
+          SRCDIR: ${{ github.workspace }}/Modelica/Resources
+      - name: Build with ${{ matrix.compiler }}
+        run: |
+          if [ "${{ matrix.compiler }}" == "msvc" ]; then
+            cmake --build build --config ${{ matrix.configuration }}
+          else
+            cmake --build build -- -j8
+          fi
+      - name: Run tests
+        run: ctest --no-tests=error --test-dir build --build-config ${{ matrix.configuration }} --verbose
+
+  external_c_checks_cmake_cygwin:
+    name: external_c_checks_cmake_windows-cygwin
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+      - name: Set git to use LF
+        run: git config --global core.autocrlf input
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 5
+      - name: Setup cygwin
+        uses: cygwin/cygwin-install-action@master
+        with:
+          packages: >-
+            cmake
+            gcc-core
+            make
+            ninja
+      - name: Configure
+        run: |
+          export PATH=/usr/bin:$PATH
+          cmake -S "$(cygpath ${SRCDIR})" -B build -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=Debug -G Ninja
+        shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
+        env:
+          CYGWIN_NOWINPATH: 1
+          SRCDIR: ${{ github.workspace }}/Modelica/Resources
+      - name: Build with gcc
+        run: |
+          export PATH=/usr/bin:$PATH
+          cmake --build build -- -j8
+        shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
+      - name: Run tests
+        run: |
+          export PATH=/usr/bin:$PATH
+          ctest --no-tests=error --test-dir build --build-config Debug --verbose
+        shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
+
   html_documentation_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 5
       - name: Setup python environment
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: 3.8
       - name: Install python packages
@@ -64,11 +170,13 @@ jobs:
           echo "::add-matcher::./.github/checkTags.json"
           python ./.CI/check_html.py checkTags ./
           echo "::remove-matcher owner=checkTags::"
+
   syntax_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 5
       - name: Get moparser
@@ -80,17 +188,19 @@ jobs:
       - name: Check syntax
         run: |
           echo "::add-matcher::./.github/moparser.json"
-          ModelicaSyntaxChecker/Linux64/moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
+          ModelicaSyntaxChecker/Linux64/moparser -v 3.6 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
           echo "::remove-matcher owner=moparser::"
+
   deprecation_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 5
       - name: Setup python environment
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: 3.8
       - name: Check deprecated Text.lineColor annotation

@@ -51,10 +51,12 @@ equation
   locked = not free and not (pre(mode) == Forward or startForward or pre(
     mode) == Backward or startBackward);
 
-  a_relfric/unitAcceleration = if locked then 0 else if free then sa else
-    if startForward then sa - f0_max/unitForce else if startBackward then
-    sa + f0_max/unitForce else if pre(mode) == Forward then sa - f0_max/
-    unitForce else sa + f0_max/unitForce;
+  a_relfric/unitAcceleration = if locked then 0 else if free then sa
+    else if startForward then sa - f0_max/unitForce
+    else if startBackward then sa + f0_max/unitForce
+    else if pre(mode) == Forward then sa - f0_max/unitForce
+    else if pre(mode) == Backward then sa + f0_max/unitForce
+    else sa - sign(v_relfric)*f0_max/unitForce;
 
   /* Friction force "f" has to be defined in a subclass. Example for possible
      realization of a brake utilizing interpolation by ExternalCombiTable1D see:

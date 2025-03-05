@@ -1,6 +1,6 @@
 /* stdint_wrap.h - Wrapper for stdint.h not being available with C89
 
-   Copyright (C) 2020, Modelica Association and contributors
+   Copyright (C) 2020-2024, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without

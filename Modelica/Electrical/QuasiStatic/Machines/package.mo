@@ -30,7 +30,7 @@ package Machines "Quasi-static machine models"
               -100},{-70,-100},{-70,-90}})}), preferredView="info", Documentation(info="<html>
 <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 <p>This package hosts models for quasi-static transformers.
 </p>

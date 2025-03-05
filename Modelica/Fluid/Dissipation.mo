@@ -970,7 +970,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties;
         SI.DynamicViscosity eta_wall
           "Dynamic viscosity of fluid at wall temperature" annotation (Dialog(group=
-                "Fluid properties", enable= target == 2));
+                "Fluid properties"));
 
         //input variable (mass flow rate)
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
@@ -3683,7 +3683,7 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
                   PI*IN_con.d_cir else if IN_con.geometry == TYP.Elliptical then PI*(
             IN_con.a_ell + IN_con.b_ell) else if IN_con.geometry == TYP.Rectangular then
                   2*(IN_con.a_rec + IN_con.b_rec) else if IN_con.geometry == TYP.Isosceles then
-                  IN_con.a_tri + 2*((IN_con.h_tri)^2 + (IN_con.a_tri/2)^2)^0.5 else 0)
+                  IN_con.a_tri + 2*sqrt((IN_con.h_tri)^2 + (IN_con.a_tri/2)^2) else 0)
           "Perimeter";
         SI.Diameter d_hyd=4*A_cross/perimeter "Hydraulic diameter";
         Real beta=IN_con.beta*180/PI "Top angle";
@@ -3810,7 +3810,7 @@ Generally this function is numerically best used for the <strong>incompressible 
                   PI*IN_con.d_cir else if IN_con.geometry == TYP1.Elliptical then PI*
             (IN_con.a_ell + IN_con.b_ell) else if IN_con.geometry == TYP1.Rectangular then
                   2*(IN_con.a_rec + IN_con.b_rec) else if IN_con.geometry == TYP1.Isosceles then
-                  IN_con.a_tri + 2*((IN_con.h_tri)^2 + (IN_con.a_tri/2)^2)^0.5 else 0)
+                  IN_con.a_tri + 2*sqrt((IN_con.h_tri)^2 + (IN_con.a_tri/2)^2) else 0)
           "Perimeter";
         SI.Diameter d_hyd=4*A_cross/perimeter "Hydraulic diameter";
         Real beta=IN_con.beta*180/PI "Top angle";
@@ -4417,7 +4417,7 @@ This record is used as <strong>input record</strong> for the pressure loss funct
         DP := 0.5*IN_var.zeta_TOT*
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 m_flow,
-                (IN_con.dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.rho))^0.5*IN_var.rho
+                sqrt(IN_con.dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.rho))*IN_var.rho
             *IN_con.A_cross,
                 2)/(IN_var.rho*(IN_con.A_cross)^2);
       annotation (Inline=true, smoothOrder(normallyConstant=IN_con) = 2,
@@ -4463,7 +4463,7 @@ Generally this function is numerically best used for the <strong>incompressible 
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 dp,
                 IN_con.dp_smooth,
-                0.5)/(0.5*IN_var.zeta_TOT*IN_var.rho)^0.5;
+                0.5)/sqrt(0.5*IN_var.zeta_TOT*IN_var.rho);
       annotation (Inline=true, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP(
                 IN_con,
@@ -4548,7 +4548,7 @@ This record is used as <strong>input record</strong> for the pressure loss funct
           "Volume flow rate";
         SI.Pressure dp_min=max(Modelica.Constants.eps, abs(IN_con.dp_min))
           "Start of approximation for decreasing pressure loss";
-        SI.VolumeFlowRate V_flow_smooth=if a > 0 and b <= 0 then (dp_min/a)^0.5 else 0
+        SI.VolumeFlowRate V_flow_smooth=if a > 0 and b <= 0 then sqrt(dp_min/a) else 0
           "Start of approximation for decreasing volume flow rate";
 
         //Documentation
@@ -5909,8 +5909,8 @@ Calculation of pressure loss for <strong>two phase flow</strong> in a horizontal
         SI.Area Av=if IN_con.valveCoefficient == TYP1.AV then IN_con.Av else if
             IN_con.valveCoefficient == TYP1.KV then IN_con.Kv*27.7e-6 else if IN_con.valveCoefficient
              == TYP1.CV then IN_con.Cv*24e-6 else if IN_con.valveCoefficient == TYP1.OP then
-                  IN_con.m_flow_nominal/max(MIN, IN_con.opening_nominal*(IN_con.rho_nominal
-            *IN_con.dp_nominal)^0.5) else MIN
+                  IN_con.m_flow_nominal/max(MIN, IN_con.opening_nominal*sqrt(IN_con.rho_nominal
+            *IN_con.dp_nominal)) else MIN
           "Av (metric) flow coefficient [Av]=m^2";
 
         TYP.PressureLossCoefficient zeta_bal=SMOOTH(
@@ -5955,12 +5955,12 @@ Calculation of pressure loss for <strong>two phase flow</strong> in a horizontal
              == TYP2.Gate then zeta_gat else if IN_con.geometry == TYP2.Sluice then
             zeta_slu else 0 "Pressure loss coefficient of chosen valve";
 
-        Real valveCharacteristic=(2/min(IN_con.zeta_TOT_max, max(MIN, max(IN_con.zeta_TOT_min,
-            abs(zeta_TOT)))))^0.5
+        Real valveCharacteristic=sqrt(2/min(IN_con.zeta_TOT_max, max(MIN, max(IN_con.zeta_TOT_min,
+            abs(zeta_TOT)))))
           "Valve characteristic considering opening of chosen valve";
 
-        SI.MassFlowRate m_flow_small=valveCharacteristic*Av*(IN_var.rho)^0.5*(IN_con.dp_small)
-            ^0.5 "Mass flow rate at linearisation";
+        SI.MassFlowRate m_flow_small=valveCharacteristic*Av*sqrt(IN_var.rho)*sqrt(IN_con.dp_small)
+            "Mass flow rate at linearisation";
 
         //Documentation
 
@@ -6018,8 +6018,8 @@ Generally this function is numerically best used for the <strong>incompressible 
         SI.Area Av=if IN_con.valveCoefficient == TYP1.AV then IN_con.Av else if
             IN_con.valveCoefficient == TYP1.KV then IN_con.Kv*27.7e-6 else if IN_con.valveCoefficient
              == TYP1.CV then IN_con.Cv*24e-6 else if IN_con.valveCoefficient == TYP1.OP then
-                  IN_con.m_flow_nominal/max(MIN, IN_con.opening_nominal*(IN_con.rho_nominal
-            *IN_con.dp_nominal)^0.5) else MIN
+                  IN_con.m_flow_nominal/max(MIN, IN_con.opening_nominal*sqrt(IN_con.rho_nominal
+            *IN_con.dp_nominal)) else MIN
           "Av (metric) flow coefficient [Av]=m^2";
 
         TYP.PressureLossCoefficient zeta_bal=SMOOTH(
@@ -6064,14 +6064,14 @@ Generally this function is numerically best used for the <strong>incompressible 
              == TYP2.Gate then zeta_gat else if IN_con.geometry == TYP2.Sluice then
             zeta_slu else 0 "Pressure loss coefficient of chosen valve";
 
-        Real valveCharacteristic=(2/min(IN_con.zeta_TOT_max, max(MIN, max(IN_con.zeta_TOT_min,
-            abs(zeta_TOT)))))^0.5
+        Real valveCharacteristic=sqrt(2/min(IN_con.zeta_TOT_max, max(MIN, max(IN_con.zeta_TOT_min,
+            abs(zeta_TOT)))))
           "Valve characteristic considering opening of chosen valve";
 
         //Documentation
 
       algorithm
-        M_FLOW := valveCharacteristic*Av*(IN_var.rho)^0.5*
+        M_FLOW := valveCharacteristic*Av*sqrt(IN_var.rho)*
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 dp,
                 IN_con.dp_small,
@@ -6112,8 +6112,8 @@ Generally this function is numerically best used for the <strong>compressible ca
               group="Valve", enable= valveCoefficient == 3));
         SI.Pressure dp_nominal=1e3 "Nominal pressure loss" annotation (Dialog(group=
                 "Valve", enable= valveCoefficient == 4));
-        SI.MassFlowRate m_flow_nominal=opening_nominal*Av*(rho_nominal*dp_nominal)^
-            0.5 "Nominal mass flow rate" annotation (Dialog(group="Valve", enable=
+        SI.MassFlowRate m_flow_nominal=opening_nominal*Av*sqrt(rho_nominal*dp_nominal)
+            "Nominal mass flow rate" annotation (Dialog(group="Valve", enable=
                 valveCoefficient == 4));
         SI.Density rho_nominal=1000 "Nominal inlet density" annotation (Dialog(group=
                 "Valve", enable= valveCoefficient == 4));
@@ -10381,7 +10381,9 @@ documentation available in this package.
               annotation (Dialog);
             input Real epsilon_A(min=0,max=1)
               "Void fraction (cross sectional averaged)"
-              annotation (Dialog(enable=not (twoPhaseDensityApproach == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseDensityApproach.Homogeneous)));
+              annotation (Dialog(enable=true));
+            // It should be enable=not (voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous)
+            // But then there is no value for epsilon_A
             input Real x_flow(min=0,max=1) "Mass flow rate quality" annotation (Dialog);
 
             output SI.Density rho_2ph "Mean density of two phase flow";
@@ -12464,11 +12466,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           extends Modelica.Icons.Record;
 
           SI.Density rho_m "Mean density of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
+            annotation (Dialog(group="Fluid properties"));
           SI.Temperature T_m "Mean temperature of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
           SI.Pressure p_m "Mean pressure of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
 
         end IdealGas_var;
 
@@ -12605,11 +12607,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]"
             annotation (Dialog(group="Generic variables"));
           SI.Density rho_m=p_m/(R_s*T_m) "Mean density of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
+            annotation (Dialog(group="Fluid properties"));
           SI.Temperature T_m "Mean temperature of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
           SI.Pressure p_m "Mean pressure of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
 
         end IdealGas;
 
@@ -12663,17 +12665,17 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Density rho_l "Density of liquid"
             annotation (Dialog(group="Fluid properties"));
           SI.Density rho_g "Density of gas" annotation (Dialog(group=
-                  "Fluid properties", enable= (KC == 1 or KC == 2)));
+                  "Fluid properties"));
           SI.DynamicViscosity eta_l "Dynamic viscosity of liquid"
             annotation (Dialog(group="Fluid properties"));
           SI.DynamicViscosity eta_g "Dynamic viscosity of gas" annotation (
-              Dialog(group="Fluid properties", enable= (KC == 1 or KC == 2)));
+              Dialog(group="Fluid properties"));
           SI.MassFraction x=0.5 "Vapour fraction"
             annotation (Dialog(group="Fluid properties"));
           SI.SurfaceTension sigma "Surface Tension" annotation (Dialog(group=
-                  "Fluid properties", enable= DP_fric == 1));
+                  "Fluid properties"));
           Real n=0.25 "Exponent in Blasius equation (0.2-0.25)" annotation (Dialog(
-                group="others", enable= DP_fric == 2));
+                group="others"));
         end TwoPhaseFlow;
       end General;
 
@@ -12863,7 +12865,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   "Rectangular cross sectional area", enable=geometry ==
                   Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Rectangular));
           //triangular(5)
-          SI.Length a_tri=d_cir*(1 + 2^0.5) "Length of base line" annotation (Dialog(
+          SI.Length a_tri=d_cir*(1 + sqrt(2)) "Length of base line" annotation (Dialog(
                 group="Rectangular cross sectional area", enable=geometry ==
                   Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Rectangular));
           SI.Length h_tri=0.5*a_tri
@@ -13131,13 +13133,14 @@ Wischhusen.
 </p>
 
 <p>
-The development of the Fluid.Dissipation library was founded within the ITEA research
-project EuroSysLib-D by German Federal Ministry of Education and Research (promotional
+The development of this library was founded within the
+ITEA <a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> research project
+by German Federal Ministry of Education and Research (promotional
 reference 01IS07022B). The project was started in October 2007 and ended in June 2010.
 </p>
 
 <p>
-Copyright &copy; 2007-2020, Modelica Association and contributors
+Copyright &copy; 2007-2024, Modelica Association and contributors
 </p>
 
 <h4>Contact</h4>

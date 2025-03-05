@@ -3212,7 +3212,7 @@ for conversion of Modelica libraries using MSL v3.x.y to MSL v4.0.0. These model
 </p>
 
 <p>
-Copyright &copy; 2019-2020, Modelica Association and contributors
+Copyright &copy; 2019-2024, Modelica Association and contributors
 </p>
 
 <p>

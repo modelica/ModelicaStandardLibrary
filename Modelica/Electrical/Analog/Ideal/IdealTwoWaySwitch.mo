@@ -27,10 +27,10 @@ protected
 equation
   0 = p.i + n2.i + n1.i;
 
-  p.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
-  n1.i = -(s1*unitVoltage)*(if (control) then Goff else 1);
-  p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
-  n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
+  p.v - n1.v = s1*(if control then unitVoltage else Ron*unitCurrent);
+  n1.i = -s1*(if control then Goff*unitVoltage else unitCurrent);
+  p.v - n2.v = s2*(if control then Ron*unitCurrent else unitVoltage);
+  n2.i = -s2*(if control then unitCurrent else Goff*unitVoltage);
   LossPower = p.i*p.v + n1.i*n1.v + n2.i*n2.v;
   annotation (defaultComponentName="switch",
     Documentation(info="<html>

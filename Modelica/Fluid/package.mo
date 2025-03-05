@@ -170,7 +170,7 @@ and a Modelica translator will check that the quantity and unit attributes
 of connected interfaces are identical. Therefore, an error occurs,
 if connected FluidPorts do not have a medium with the same medium name.<br>
 Automatic propagation of fluid models through the ports is not directly possible with the
-Modelica 3.4 specification, but might be supported by the Modelica tool. For example,
+Modelica&nbsp;3.6 specification, but might be supported by the Modelica tool. For example,
 in Dymola the option <code>Advanced.MediaPropagation</code>=<code>1</code> can be set
 to apply automatic propagation of media models in a circuit.
 </p>
@@ -190,7 +190,7 @@ flowing out of the connector, regardless of the actual direction of the flow. Th
 avoiding singularities when the mass flow goes through zero. The stream properties for the
 other flow direction can be inquired with the built-in operator inStream(..), while the
 value of the stream variable corresponding to the actual flow direction can be inquired
-through the built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch15.html#stream-operator-actualstream\">actualStream(..)</a>.
+through the built-in operator <a href=\"https://specification.modelica.org/maint/3.6/operators-and-expressions.html#modelica:actualStream\">actualStream(…)</a>.
 </p>
 <p>
 The actual equations corresponding to these operators are introduced and solved automatically
@@ -866,7 +866,7 @@ It is valid for incompressible and compressible flow up to a Mach number of 0.6.
          region between the smooth and rough pipe laws</strong>.
          J. Inst. Civ. Eng. no. 4, 14-25.</dd>
     <dt>Idelchik I.E. (1994):</dt>
-    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><strong>Handbook of Hydraulic Resistance</strong></a>. 3rd edition, Begell House, ISBN 0-8493-9908-4</dd>
+    <dd><a href=\"https://doi.org/10.1017/S002211209726790X\"><strong>Handbook of Hydraulic Resistance</strong></a>. 3rd edition, Begell House, ISBN 0-8493-9908-4</dd>
     <dt>Miller D. S. (1990):</dt>
     <dd><strong>Internal flow systems</strong>.
     2nd edition. Cranfield:BHRA(Information Services).</dd>
@@ -1682,9 +1682,9 @@ and many have contributed.
 </ul>
 
 <p>
-  Partial financial support of ABB and DLR by BMBF (BMBF F&ouml;rderkennzeichen: 01IS07022F) for the further development
-     of this library within the <a href=\"http://www.itea2.org\">ITEA</a> project EUROSYSLIB
-     is highly appreciated.</p>
+Partial financial support of ABB and DLR by BMBF (BMBF F&ouml;rderkennzeichen: 01IS07022F) for the further development
+of this library within the ITEA <a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> research project
+is highly appreciated.</p>
 
 </html>"));
 end Contact;
@@ -1750,7 +1750,7 @@ The following parts are useful, when newly starting with this library:
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-Copyright &copy; 2002-2020, Modelica Association and contributors
+Copyright &copy; 2002-2024, Modelica Association and contributors
 </p>
 </html>"));
 end Fluid;

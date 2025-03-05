@@ -3,6 +3,8 @@ model Capacitor "Ideal linear electrical capacitors"
   extends Interfaces.TwoPlug;
   parameter SI.Capacitance C[m](start=fill(1, m))
     "Capacitance";
+  SI.Voltage vC[m](start=zeros(m), fixed=fill(false,m))=v "Capacitor voltages"
+    annotation(Dialog(showStartAttribute=true));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor[m](final C=C)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 equation

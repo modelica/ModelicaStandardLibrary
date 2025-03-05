@@ -2,8 +2,8 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMa
 model SM_ReluctanceRotor
   "Synchronous reluctance machine with optional damper cage"
   extends BaseClasses.Machine(
-    Rs(start=0.03),
-    Lssigma(start=0.1/(2*pi*fsNominal)),
+    Rs(start=0.03*ZsRef),
+    Lssigma(start=0.1*ZsRef/(2*pi*fsNominal)),
     final L0(d=2.0*Lmd/m/effectiveStatorTurns^2, q=2.0*Lmq/m/
           effectiveStatorTurns^2),
     redeclare final
@@ -21,18 +21,18 @@ model SM_ReluctanceRotor
       powerBalance(final lossPowerRotorWinding=damperCageLossPower,
         final lossPowerRotorCore=0));
 
-  parameter SI.Inductance Lmd(start=2.9/(2*pi*fsNominal))
+  parameter SI.Inductance Lmd(start=2.9*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance per phase, d-axis" annotation (Dialog(
         tab="Nominal resistances and inductances", groupImage=
           "modelica://Modelica/Resources/Images/Electrical/Machines/SMR.png"));
-  parameter SI.Inductance Lmq(start=0.9/(2*pi*fsNominal))
+  parameter SI.Inductance Lmq(start=0.9*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance per phase, q-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   // Rotor cage parameters
   parameter Boolean useDamperCage(start=true)
     "Enable/disable damper cage" annotation (Dialog(tab=
           "Nominal resistances and inductances", group="Damper cage"));
-  parameter SI.Inductance Lrsigmad(start=0.05/(2*pi*
+  parameter SI.Inductance Lrsigmad(start=0.05*ZsRef/(2*pi*
         fsNominal))
     "Rotor damper cage leakage inductance, d-axis, w.r.t. stator side" annotation (
       Dialog(
@@ -45,7 +45,7 @@ model SM_ReluctanceRotor
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter SI.Resistance Rrd(start=0.04)
+  parameter SI.Resistance Rrd(start=0.04*ZsRef)
     "Rotor damper cage resistance, d-axis, w.r.t. stator side" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
@@ -91,8 +91,8 @@ model SM_ReluctanceRotor
     final TRef=TrRef,
     final TOperational=TrOperational,
     final alpha20=alpha20r,
-    final effectiveTurns=sqrt(m/2.0)*effectiveStatorTurns) if
-    useDamperCage
+    final effectiveTurns=sqrt(m/2.0)*effectiveStatorTurns)
+ if useDamperCage
     "Symmetric rotor cage winding including resistances and stray inductances"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

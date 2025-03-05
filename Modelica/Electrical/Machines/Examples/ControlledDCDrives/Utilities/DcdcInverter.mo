@@ -113,7 +113,7 @@ model DcdcInverter "DC-DC inverter"
     k=1,
     T=Tmf,
     initType=Modelica.Blocks.Types.Init.InitialOutput,
-    y_start=VMax)
+    y_start=0)
     annotation (Placement(transformation(extent={{60,50},{80,70}})));
 equation
   connect(iMotSensor.p, pin_nMot) annotation (Line(points={{-50,-80},{

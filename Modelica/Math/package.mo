@@ -255,7 +255,7 @@ v = {2, -4, -2, -1};
     input Real v[:] "Real vector";
     input Real eps(min=0.0)=100*Modelica.Constants.eps
       "if |v| < eps then result = v/eps";
-    output Real result[size(v, 1)] "Input vector v normalized to length=1";
+    output Real result[size(v, 1)](each final unit="1") "Input vector v normalized to length=1";
 
   algorithm
     /* This function has the inline annotation. If the function is inlined:
@@ -718,26 +718,36 @@ package Matrices "Library of functions operating on matrices"
       Real B3[3, 2]=[b3, -3*b3];
       Real X3[3, 2];
 
+      Real diff;
     algorithm
       print("\nDemonstrate how to solve linear equation systems:\n");
 
       // Solve regular linear equation with a right hand side vector
       x1 := Math.Matrices.solve(A1, b1);
-      print("diff1 = " + String(Vectors.norm(x1 - x1_ref)));
+      diff := Vectors.norm(x1 - x1_ref);
+      print("diff1 = " + String(diff));
+      assert(abs(diff)<1e-10, "Solution should be close to desired");
 
       // Solve regular linear equation with a right hand side matrix
       X2 := Math.Matrices.solve2(A1, B2);
-      print("diff2 = " + String(Matrices.norm(X2 - [x1_ref, 2*x1_ref, -3*x1_ref])));
+      diff := Matrices.norm(X2 - [x1_ref, 2*x1_ref, -3*x1_ref]);
+      print("diff2 = " + String(diff));
+      assert(abs(diff)<1e-10, "Solution should be close to desired");
 
       // Solve singular linear equation with a right hand side vector
       (x3,rank) := Math.Matrices.leastSquares(A3, b3);
-      print("diff3 = " + String(Vectors.norm(A3*x3 - b3)) + ", n = " + String(
+      diff := Vectors.norm(A3*x3 - b3);
+      print("diff3 = " + String(diff) + ", n = " + String(
         size(A3, 1)) + ", rank = " + String(rank));
+      assert(abs(diff)<1e-10, "Solution should be close to desired");
+
 
       // Solve singular linear equation with a right hand side matrix
       (X3,rank) := Math.Matrices.leastSquares2(A3, B3);
-      print("diff4 = " + String(Matrices.norm(A3*X3 - B3)) + ", n = " + String(
+      diff := Matrices.norm(A3*X3 - B3);
+      print("diff4 = " + String(diff) + ", n = " + String(
         size(A3, 1)) + ", rank = " + String(rank));
+      assert(abs(diff)<1e-10, "Solution should be close to desired");
 
       annotation (Documentation(info="<html>
 <p>
@@ -2949,9 +2959,9 @@ r = 3.162;
     (sigma,,V) := Modelica.Math.Matrices.singularValues(A);
     V := transpose(V);
     // rank computation
-    eps := max(size(A, 1), size(A, 2))*max(sigma)*Modelica.Constants.eps;
     rank := 0;
     if n > 0 then
+      eps := max(size(A, 1), size(A, 2)) * max(sigma) * Modelica.Constants.eps;
       while i > 0 loop
         if sigma[i] > eps then
           rank := i;
@@ -5238,10 +5248,10 @@ For details of the arguments, see documentation of dgbsv.
     protected
       Real dummy[1,1];
       Integer n=size(A, 1);
-      Integer lwork=12*n;
+      Integer lwork=max(1, 12*n);
       Integer ldvl=1;
       Real Awork[size(A, 1), size(A, 1)]=A;
-      Real work[12*size(A, 1)];
+      Real work[max(1, 12*size(A, 1))];
 
     external"FORTRAN 77" dgeev(
               "N",
@@ -5375,9 +5385,9 @@ Lapack documentation
       output Integer info;
     protected
       Integer n=size(A, 1);
-      Integer lwork=8*n;
+      Integer lwork=max(1, 8*n);
       Real Awork[size(A, 1), size(A, 1)]=A;
-      Real work[8*size(A, 1)];
+      Real work[max(1, 8*size(A, 1))];
       Real EigenvectorsL[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
 
       /*
@@ -5524,8 +5534,8 @@ Lapack documentation
       Real abnrm;
       Real rconde[size(A, 1)];
       Real rcondv[size(A, 1)];
-      Integer lwork=n*(n + 6);
-      Real work[size(A, 1)*(size(A, 1) + 6)];
+      Integer lwork=max(1, n*(n + 6));
+      Real work[max(1, size(A, 1)*(size(A, 1) + 6))];
       Integer iwork[1];
 
     external"FORTRAN 77" dgeevx(
@@ -5867,8 +5877,8 @@ Lapack documentation
       Integer ncol=size(A, 2);
       Integer nrhs=1;
       Integer nx=max(nrow, ncol);
-      Integer lwork=min(nrow, ncol) + nx;
-      Real work[size(A, 1) + size(A, 2)];
+      Integer lwork=max(1, min(nrow, ncol) + nx);
+      Real work[max(1, size(A, 1) + size(A, 2))];
       Real Awork[size(A, 1), size(A, 2)]=A;
 
     external"FORTRAN 77" dgels(
@@ -6006,9 +6016,9 @@ Lapack documentation
       Integer ncol=size(A, 2);
       Integer nx=max(nrow, ncol);
       Integer nrhs=size(B, 2);
-      Integer lwork=max(min(nrow, ncol) + 3*ncol + 1, 2*min(nrow, ncol) + nrhs);
-      Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2) + 1, 2*min(size(A, 1),
-        size(A, 2)) + size(B, 2))];
+      Integer lwork=max(1, max(min(nrow, ncol) + 3*ncol + 1, 2*min(nrow, ncol) + nrhs));
+      Real work[max(1, max(min(size(A, 1), size(A, 2)) + 3*size(A, 2) + 1, 2*min(size(A, 1),
+        size(A, 2)) + size(B, 2)))];
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer jpvt[size(A, 2)]=zeros(ncol);
 
@@ -6764,8 +6774,8 @@ For details of the arguments, see documentation of dgesv.
       Integer m=size(A, 1);
       Integer n=size(A, 2);
       Real Awork[size(A, 1), size(A, 2)]=A;
-      Integer lwork=5*size(A, 1) + 5*size(A, 2);
-      Real work[5*size(A, 1) + 5*size(A, 2)];
+      Integer lwork=max(1, 5*size(A, 1) + 5*size(A, 2));
+      Real work[max(1, 5*size(A, 1) + 5*size(A, 2))];
 
     external"FORTRAN 77" dgesvd(
               "A",
@@ -6912,8 +6922,8 @@ For details of the arguments, see documentation of dgesv.
       Real Awork[size(A, 1), size(A, 2)]=A;
       Real U[size(A, 1), size(A, 1)];
       Real VT[size(A, 2), size(A, 2)];
-      Integer lwork=5*size(A, 1) + 5*size(A, 2);
-      Real work[5*size(A, 1) + 5*size(A, 2)];
+      Integer lwork=max(1, 5*size(A, 1) + 5*size(A, 2));
+      Real work[max(1, 5*size(A, 1) + 5*size(A, 2))];
 
     external"FORTRAN 77" dgesvd(
               "N",
@@ -8109,9 +8119,9 @@ For details of the arguments, see documentation of dgesv.
       Real Bwork[size(B, 1), size(A, 2)]=B;
       Real cwork[size(A, 1)]=c;
       Real dwork[size(B, 1)]=d;
-      Integer lwork=ncol_A + nrow_B + max(nrow_A, max(ncol_A, nrow_B))*5;
-      Real work[size(A, 2) + size(B, 1) + max(size(A, 1), max(size(A, 2), size(
-        B, 1)))*5];
+      Integer lwork=max(1, ncol_A + nrow_B + max(nrow_A, max(ncol_A, nrow_B))*5);
+      Real work[max(1, size(A, 2) + size(B, 1) + max(size(A, 1), max(size(A, 2), size(
+        B, 1)))*5)];
 
     external"FORTRAN 77" dgglse(
               nrow_A,
@@ -9516,10 +9526,10 @@ For details of the arguments, see documentation of dgtsv.
       Integer n=size(T, 2);
       Integer ldt=max(1, n);
       Integer ldq=if compq == "V" then max(n, 1) else 1;
-      Integer lwork=if job == "N" then max(1, n) else if job == "E" then n*n
-           else 2*n*n;
-      Real work[if job == "N" then max(1, size(T, 2)) else if job == "E" then
-        size(T, 2)*size(T, 2) else 2*size(T, 2)*size(T, 2)];
+      Integer lwork=max(1, if job == "N" then n else if job == "E" then n*n
+           else 2*n*n);
+      Real work[max(1, if job == "N" then size(T, 2) else if job == "E" then
+        size(T, 2)*size(T, 2) else 2*size(T, 2)*size(T, 2))];
       Integer liwork=if job == "N" or job == "E" then 1 else n*n;
       Integer iwork[if job == "N" or job == "E" then 1 else size(T, 2)*size(T,
         2)];
@@ -11599,7 +11609,7 @@ algorithm
           textString="log")}),
     Documentation(info="<html>
 <p>
-This function returns y = log(10) (the natural logarithm of u),
+This function returns y = log(u) (the natural logarithm of u),
 with u &gt; 0:
 </p>
 
@@ -11672,7 +11682,7 @@ email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
 </p>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2024, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>

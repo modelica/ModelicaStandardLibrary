@@ -14,7 +14,7 @@ class Contact "Contact"
   </dd>
 </dl>
 <p>
-Copyright &copy; 2001-2020, Modelica Association and contributors
+Copyright &copy; 2001-2024, Modelica Association and contributors
 </p>
 
 <p>

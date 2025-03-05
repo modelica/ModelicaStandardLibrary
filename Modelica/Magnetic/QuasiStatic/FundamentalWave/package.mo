@@ -4,7 +4,7 @@ package FundamentalWave "Quasi-static fundamental wave electric machines"
   annotation (preferredView="info", Documentation(info="<html>
   <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 2013-2020, Modelica Association and contributors
+Copyright &copy; 2013-2024, Modelica Association and contributors
 </p>
 </html>"),
     Icon(graphics={

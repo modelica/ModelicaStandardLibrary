@@ -26,7 +26,7 @@ protected
   discrete SI.Angle phiPos(start=0, fixed=true) "Angle of reference vector within [0, 2*pi)";
   Integer ka(start=0, fixed=true), kb(start=0, fixed=true) "Switching patterns limiting the sector";
   discrete SI.Angle phiSec(start=0, fixed=true) "Angle of reference vector within sector within [0, pi/m)";
-  discrete Real ta(start=0, fixed=true), tb(start=0, fixed=true), t0(start=samplePeriod, fixed=true) "Relative time spans of vectors a, b, and 0";
+  discrete Real ta(start=0, fixed=true), tb(start=0, fixed=true), t0(start=1, fixed=true) "Relative time spans of vectors a, b, and 0";
   discrete SI.Time T0(start=startTime, fixed=true) "Start time of switching interval";
 algorithm
   when sampleTrigger then
@@ -56,17 +56,17 @@ equation
   //Distribute switching patterns t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + ta/2 + t0/4
   if time<startTime then
     fire_p= fill(true, m);
-  elseif (time - T0)/samplePeriod < (t0/4) then
+  elseif time < T0 + samplePeriod * (t0/4) then
     fire_p= fill(false, m);
-  elseif (time - T0)/samplePeriod < (t0/4 + ta/2) then
+  elseif time < T0 + samplePeriod * (t0/4 + ta/2) then
     fire_p= fire[ka + 1, :];
-  elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2) then
+  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2) then
     fire_p= fire[kb + 1, :];
-  elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/2) then
+  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2 + t0/2) then
     fire_p= fill(true, m);
-  elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/2 + tb/2) then
+  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2 + t0/2 + tb/2) then
     fire_p= fire[kb + 1, :];
-  elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + ta/2) then
+  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + ta/2) then
     fire_p= fire[ka + 1, :];
   else
     fire_p= fill(false, m);

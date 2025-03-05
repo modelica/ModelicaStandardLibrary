@@ -694,6 +694,7 @@ package Media "Test models for Modelica.Media"
       Real gamma2=Medium.isothermalCompressibility(medium2.state);
       Medium.SpecificEnthalpy h_is=Medium.isentropicEnthalpyApproximation(2.0e5,
           medium.state);
+      Medium.MassFraction Xi[Medium.nXi] = Medium.massFraction(medium.state);
     equation
       der(medium.p) = 1000.0;
       der(medium.T) = 1000;
@@ -789,6 +790,8 @@ is given to compare the approximation.
       Medium.IsentropicExponent gamma=Medium.isentropicExponent(medium.state);
       Medium.SpecificEntropy s=Medium.specificEntropy(medium.state);
       Medium.VelocityOfSound a=Medium.velocityOfSound(medium.state);
+      Medium.MassFraction Xi[Medium.nXi] = Medium.massFraction(medium.state);
+
     equation
 
       m = medium.d*V;
@@ -919,12 +922,15 @@ is given to compare the approximation.
       extends Modelica.Icons.Example;
       package Medium = Modelica.Media.Air.MoistAir "Medium model";
       SI.Temperature T = 273.15 + 100;
-      SI.AbsolutePressure p = 2e5 - 1.5e5*time;
+      parameter SI.AbsolutePressure p0 = 2e5 "p at time 0";
+      parameter SI.PressureSlope pRate = -1.5e5 "p's rate of change";
+      SI.AbsolutePressure p = p0 + pRate*time;
       Medium.MassFraction X[Medium.nX] = {0.05,0.95};
       Medium.ThermodynamicState state = Medium.setState_pTX(p,T,X);
       SI.SpecificEntropy s = Medium.specificEntropy(state);
       SI.SpecificInternalEnergy u = Medium.specificInternalEnergy(state);
       SI.Temperature Tsat = Medium.saturationTemperature(p);
+      Medium.MassFraction Xi[Medium.nXi] = Medium.massFraction(state);
       annotation (experiment(StopTime=1));
     end MoistAir;
 
@@ -932,7 +938,9 @@ is given to compare the approximation.
       extends Modelica.Icons.Example;
       replaceable package Medium = Modelica.Media.R134a.R134a_ph "Medium model";
       SI.Temperature T = 273.15 + 25;
-      SI.AbsolutePressure p = 10e5 + 20e5*time;
+      parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
+      parameter SI.PressureSlope pRate = 20e5 "p's rate of change";
+      SI.AbsolutePressure p = p0 + pRate*time;
       Medium.ThermodynamicState state = Medium.setState_pTX(p, T);
       SI.SpecificEnthalpy h = Medium.specificEnthalpy(state);
       SI.Density rho = Medium.density(state);
@@ -942,11 +950,29 @@ is given to compare the approximation.
       annotation (experiment(StopTime=1));
     end R134a_setState_pTX;
 
+    model R134a_setState_phX "Test setState_phX() of R134a"
+      extends Modelica.Icons.Example;
+      replaceable package Medium = Modelica.Media.R134a.R134a_ph "Medium model";
+      SI.SpecificEnthalpy h = Medium.h_default;
+      parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
+      parameter SI.PressureSlope pRate = 20e5 "p's rate of change";
+      SI.AbsolutePressure p = p0 + pRate*time;
+      Medium.ThermodynamicState state = Medium.setState_phX(p, h);
+      SI.Temperature T= Medium.temperature(state);
+      SI.Density rho = Medium.density(state);
+      SI.DynamicViscosity mu = Medium.dynamicViscosity(state);
+      SI.SpecificHeatCapacity cp = Medium.specificHeatCapacityCp(state);
+      SI.ThermalConductivity k = Medium.thermalConductivity(state);
+      annotation (experiment(StopTime=1));
+    end R134a_setState_phX;
+
     model WaterIF97_dewEnthalpy "Test dewEnthalpy of WaterIF97"
       extends Modelica.Icons.Example;
-      replaceable package Medium = Modelica.Media.Water.WaterIF97_fixedregion "Medium model";
+      replaceable package Medium = Modelica.Media.Water.StandardWater "Medium model";
       SI.Temperature T = 273.15 + 25;
-      SI.AbsolutePressure p = 10e5 + 20e5*time;
+      parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
+      parameter SI.PressureSlope pRate = 20e5 "p's rate of change";
+      SI.AbsolutePressure p = p0 + pRate*time;
       Medium.ThermodynamicState state = Medium.setState_pTX(p, T);
       SI.SpecificEnthalpy h_dew = Medium.dewEnthalpy(Medium.SaturationProperties(Tsat=Medium.saturationTemperature(state.p), psat=Medium.pressure(state)));
       annotation (experiment(StopTime=1));
