@@ -238,7 +238,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>&nbsp;New SI unit type </p></td>
 </tr>
 </table>
-<p><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">improved</span></b> in a <b><span style=\"color: #0000ff;\">backward compatible</span></b> way: </p>
+<p><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">improved</span></b> in a <b><span style=\"color: #0000ff;\">backward compatible</span></b> way: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Sources</h4></td>
 </tr>
@@ -283,23 +283,23 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>The table interpolation in f_pos utilizes the interpolation based on <a href=\"TODO\">ExternalCombiTable1D</a>.</p></td>
 </tr>
 </table>
-<p><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">changed</span></b> in a <b><span style=\"color: #0000ff;\">non-backward compatible</span></b> way: </p>
+<p><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">changed</span></b> in a <b><span style=\"color: #0000ff;\">non-backward compatible</span></b> way: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td colspan=\"2\"><h4>Mechanics.MultiBody</h4></td>
+<td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody</h4></td>
 </tr>
 <tr>
 <td><p>World</p></td>
 <td><p>The protected parameters ndim, ndim2 and ndim_pointGravity have been removed.</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><h4>Mechanics.Rotational.Components</h4></td>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Components</h4></td>
 </tr>
 <tr>
 <td><p>Brake</p><p>Clutch</p><p>OneWayClutch</p></td>
 <td><p>The table interpolation in mu_pos utilizes the interpolation based on <a href=\"TODO\">ExternalCombiTable1D</a>.</p><p>The public variable mu0 was changed to a protected final parameter.</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><h4>Mechanics.Translational.Components</h4></td>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Translational.Components</h4></td>
 </tr>
 <tr>
 <td><p><br>Brake</p></td>
@@ -346,7 +346,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Internal used ports of the optional mechanical housing port and the optional thermal port is made protected</p></td>
 </tr>
 </table>
-<p><br><br><br><br><br>The following <b><span style=\"color: #ff0000;\">critical errors</span></b> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
+<p><br><br><br><br><br><br>The following <b><span style=\"color: #ff0000;\">critical errors</span></b> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Tables</h4></td>
 </tr>
