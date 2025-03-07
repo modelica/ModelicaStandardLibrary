@@ -238,7 +238,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>&nbsp;New SI unit type </p></td>
 </tr>
 </table>
-<p><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">improved</span></b> in a <b><span style=\"color: #0000ff;\">backward compatible</span></b> way: </p>
+<p><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">improved</span></b> in a <b><span style=\"color: #0000ff;\">backward compatible</span></b> way: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Sources</h4></td>
 </tr>
@@ -254,7 +254,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Added support of reading CSV files.</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><h4>Electrical.PowerConverters.DCDC</h4></td>
+<td colspan=\"2\"><h4>Modelica.Electrical.PowerConverters.DCDC</h4></td>
 </tr>
 <tr>
 <td><p>HBridge</p></td>
@@ -265,7 +265,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>The reference signal can be chosen between sawtooth and triangle, and the comparison between dutyCycle and reference signal is either applied common or separated for both fire ports.</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><h4>Mechanics.Rotational.Components</h4></td>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Components</h4></td>
 </tr>
 <tr>
 <td><p>BearingFriction</p></td>
@@ -276,14 +276,28 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>The table interpolation in lossTable utilizes the interpolation based on <a href=\"TODO\">ExternalCombiTable1D</a>.</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><h4>Mechanics.Translational.Components</h4></td>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Sources</h4></td>
+</tr>
+<tr>
+<td><p>EddyCurrentTorque</p></td>
+<td><p>Enhanced with variable excitation.</p></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Translational.Components</h4></td>
 </tr>
 <tr>
 <td><p>SupportFriction</p></td>
 <td><p>The table interpolation in f_pos utilizes the interpolation based on <a href=\"TODO\">ExternalCombiTable1D</a>.</p></td>
 </tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Translational.Sources</h4></td>
+</tr>
+<tr>
+<td><p>EddyCurrentForce</p></td>
+<td><p>Enhanced with variable excitation.</p></td>
+</tr>
 </table>
-<p><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">changed</span></b> in a <b><span style=\"color: #0000ff;\">non-backward compatible</span></b> way: </p>
+<p><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">changed</span></b> in a <b><span style=\"color: #0000ff;\">non-backward compatible</span></b> way: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody</h4></td>
 </tr>
@@ -346,7 +360,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Internal used ports of the optional mechanical housing port and the optional thermal port is made protected</p></td>
 </tr>
 </table>
-<p><br><br><br><br><br><br>The following <b><span style=\"color: #ff0000;\">critical errors</span></b> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
+<p><br><br><br><br><br><br><br><br><br>The following <b><span style=\"color: #ff0000;\">critical errors</span></b> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Tables</h4></td>
 </tr>
