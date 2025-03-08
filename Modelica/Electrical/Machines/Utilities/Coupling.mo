@@ -1,11 +1,16 @@
-within Modelica.Mechanics.Rotational.Components;
+within Modelica.Electrical.Machines.Utilities;
 model Coupling "Ideal rotational coupling"
   extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
   Modelica.Units.SI.AngularVelocity w(displayUnit="rpm") = der(flange_a.phi) "Angular velocity of flange_a";
   Modelica.Units.SI.Torque tau = flange_a.tau "Torque of flange_a and flange_b";
+  Mechanics.Rotational.Components.IdealGear idealGear(final useSupport=false,
+      final ratio=-1)
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 equation
-  flange_a.phi + flange_b.phi = 0;
-  flange_a.tau - flange_b.tau = 0;
+  connect(idealGear.flange_b, flange_b)
+    annotation (Line(points={{10,0},{100,0}}, color={0,0,0}));
+  connect(idealGear.flange_a, flange_a)
+    annotation (Line(points={{-10,0},{-100,0}}, color={0,0,0}));
   annotation (Icon(graphics={
         Rectangle(
           lineColor={64,64,64},
@@ -59,16 +64,20 @@ equation
               -10,-22},{10,-20},{10,-42},{-10,-40},{-10,-60}}, color={0,0,0})}),
       Documentation(info="<html>
 <p>
-This is a model of an ideal stiff coupling (face to face), 
-i.e., the angular velocity if <code>flange_b</code> is exactly in opposite direction of <code>flange_a</code>, 
-and the torque of both flanges is identical.
-</p>
-<p>
-The usage is demonstrated in an <a href=\"modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive\">example in Modelica.Electrical.Machines</a>.
+This is a model of an ideal stiff coupling: 
+One device connected to the coupling is turning clockwise (looking at the shaft end), 
+the other device connected to the coupling is turning counter-clockwise (looking at the shaft end). 
+The torque at <code>flange_b</code> has the same magnitude as the torque at <code>flange_a</code> but opposite sign. 
+This is achieved by using an 
+<a href=\"modelica://Modelica.Mechanics.Rotational.Components.IdealGear\">ideal gear</a> with <code>ratio = -1</code>.
 </p>
 <p>
 Variable <code>w</code> represents the angular velocity of <code>flange_a</code>
-and <code>tau</code> represents the torque transferred between <code>flange_a</code> and <code>flange_b</code>.
+and <code>tau</code> represents the torque transferred from <code>flange_a</code> to <code>flange_b</code>.
+</p>
+<p>
+This behaviour is essential when coupling electric machines. The usage is demonstrated 
+in the example <a href=\"modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive\">Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive</a>.
 </p>
 </html>"));
 end Coupling;
