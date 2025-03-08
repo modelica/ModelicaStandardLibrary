@@ -126,6 +126,7 @@ equation
   total_A_V_B_a = pipeA_V_B.H_flows[1] + pipeA_V_B.m_flows[1]*pipeA_V_B.flowModel.vs[1]^2/2;
   total_A_V_B_b = pipeA_V_B.H_flows[end] + pipeA_V_B.m_flows[end]*pipeA_V_B.flowModel.vs[end]^2/2;
   when terminal() then
+    assert(time > 495, "Steady state was not yet reached at StopTime");
     assert(Modelica.Math.isEqual(total_AV_B_a, total_AV_B_b, 1), "Energy not conserved!");
     assert(Modelica.Math.isEqual(total_A_VB_a, total_A_VB_b, 1), "Energy not conserved!");
     assert(Modelica.Math.isEqual(total_AV_VB_a, total_AV_VB_b, 1), "Energy not conserved!");
