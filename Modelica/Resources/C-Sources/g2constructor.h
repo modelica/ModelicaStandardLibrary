@@ -1,35 +1,47 @@
-/* gconstructor.h - Module constructor and destructor helper header
+/* g2constructor.h - Module constructor and destructor helper header
 
-  If G_HAS_CONSTRUCTORS is true then the compiler support *both* constructors and
+  If G2_HAS_CONSTRUCTORS is true then the compiler support *both* constructors and
   destructors, in a sane way, including e.g. on library unload. If not you're on
   your own.
 
   Some compilers need #pragma to handle this, which does not work with macros,
   so the way you need to use this is (for constructors):
 
-  #ifdef G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
-  #pragma G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(my_constructor)
+  #ifdef G2_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
+  #pragma G2_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(my_constructor)
   #endif
-  G_DEFINE_CONSTRUCTOR(my_constructor)
+  G2_DEFINE_CONSTRUCTOR(my_constructor)
   static void my_constructor(void) {
    ...
   }
 
 */
 
-#ifndef G_CONSTRUCTOR_H_
-#define G_CONSTRUCTOR_H_
+#ifndef G2_CONSTRUCTOR_H_
+#define G2_CONSTRUCTOR_H_
+
+#ifndef G2_MODEL_PREFIX
+#ifdef MODEL_IDENTIFIER
+#define G2_MODEL_PREFIX MODEL_IDENTIFIER
+#else
+#define G2_MODEL_PREFIX
+#endif
+#endif
+
+#define G2_CONCAT(a, b) a ## b
+#define G2_CONCAT_(a, b) G2_CONCAT(a, b)
+#define G2_FUNCNAME(name) G2_CONCAT_(G2_MODEL_PREFIX, name)
 
 #if defined(__cplusplus)
 
-#define G_HAS_CONSTRUCTORS 1
+#define G2_HAS_CONSTRUCTORS 1
 
-#define G_DEFINE_CONSTRUCTOR(_func) \
+#define G2_DEFINE_CONSTRUCTOR(_func) \
   static void _func(void); \
   struct _func ## _wrapper_struct { _func ## _wrapper_struct() { _func(); } }; \
   static _func ## _wrapper_struct _func ## _wrapper;
 
-#define G_DEFINE_DESTRUCTOR(_func) \
+#define G2_DEFINE_DESTRUCTOR(_func) \
   static void _func(void); \
   struct _func ## _wrapper_struct2 { ~_func ## _wrapper_struct2() { _func(); } }; \
   static _func ## _wrapper_struct2 _func ## _wrapper2;
@@ -37,26 +49,26 @@
 #elif (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 7))) || \
        defined(__clang__)
 
-#define G_HAS_CONSTRUCTORS 1
+#define G2_HAS_CONSTRUCTORS 1
 
-#define G_DEFINE_CONSTRUCTOR(_func) static void __attribute__((constructor)) _func (void);
-#define G_DEFINE_DESTRUCTOR(_func) static void __attribute__((destructor)) _func (void);
+#define G2_DEFINE_CONSTRUCTOR(_func) static void __attribute__((constructor)) _func (void);
+#define G2_DEFINE_DESTRUCTOR(_func) static void __attribute__((destructor)) _func (void);
 
 #elif defined(_MSC_VER) && (_MSC_VER >= 1500)
 /* Visual Studio 2008 and later has _pragma */
 
-#define G_HAS_CONSTRUCTORS 1
+#define G2_HAS_CONSTRUCTORS 1
 
 #ifdef _WIN64
-#define G_MSVC_SYMBOL_PREFIX ""
+#define G2_MSVC_SYMBOL_PREFIX ""
 #else
-#define G_MSVC_SYMBOL_PREFIX "_"
+#define G2_MSVC_SYMBOL_PREFIX "_"
 #endif
 
-#define G_DEFINE_CONSTRUCTOR(_func) G_MSVC_CTOR (_func, G_MSVC_SYMBOL_PREFIX)
-#define G_DEFINE_DESTRUCTOR(_func) G_MSVC_DTOR (_func, G_MSVC_SYMBOL_PREFIX)
+#define G2_DEFINE_CONSTRUCTOR(_func) G2_MSVC_CTOR(_func, G2_MSVC_SYMBOL_PREFIX)
+#define G2_DEFINE_DESTRUCTOR(_func) G2_MSVC_DTOR(_func, G2_MSVC_SYMBOL_PREFIX)
 
-#define G_MSVC_CTOR(_func,_sym_prefix) \
+#define G2_MSVC_CTOR(_func, _sym_prefix) \
   static void _func(void); \
   extern int (* _array ## _func)(void); \
   int _func ## _wrapper(void) { _func(); return _array ## _func == NULL; } \
@@ -64,7 +76,7 @@
   __pragma(section(".CRT$XCU",read)) \
   __declspec(allocate(".CRT$XCU")) int (* _array ## _func)(void) = _func ## _wrapper;
 
-#define G_MSVC_DTOR(_func,_sym_prefix) \
+#define G2_MSVC_DTOR(_func, _sym_prefix) \
   static void _func(void); \
   extern int (* _array ## _func)(void); \
   int _func ## _constructor(void) { atexit (_func); return _array ## _func == NULL; } \
@@ -74,22 +86,22 @@
 
 #elif defined(_MSC_VER) && (_MSC_VER >= 1400)
 
-#define G_HAS_CONSTRUCTORS 1
+#define G2_HAS_CONSTRUCTORS 1
 
 /* Pre Visual Studio 2008 must use #pragma section */
-#define G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA 1
-#define G_DEFINE_DESTRUCTOR_NEEDS_PRAGMA 1
+#define G2_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA 1
+#define G2_DEFINE_DESTRUCTOR_NEEDS_PRAGMA 1
 
-#define G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(_func) \
+#define G2_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(_func) \
   section(".CRT$XCU",read)
-#define G_DEFINE_CONSTRUCTOR(_func) \
+#define G2_DEFINE_CONSTRUCTOR(_func) \
   static void _func(void); \
   static int _func ## _wrapper(void) { _func(); return 0; } \
   __declspec(allocate(".CRT$XCU")) static int (*p)(void) = _func ## _wrapper;
 
-#define G_DEFINE_DESTRUCTOR_PRAGMA_ARGS(_func) \
+#define G2_DEFINE_DESTRUCTOR_PRAGMA_ARGS(_func) \
   section(".CRT$XCU",read)
-#define G_DEFINE_DESTRUCTOR(_func) \
+#define G2_DEFINE_DESTRUCTOR(_func) \
   static void _func(void); \
   static int _func ## _constructor(void) { atexit (_func); return 0; } \
   __declspec(allocate(".CRT$XCU")) static int (* _array ## _func)(void) = _func ## _constructor;
@@ -100,19 +112,19 @@
  * http://opensource.apple.com/source/OpenSSL098/OpenSSL098-35/src/fips/fips_premain.c
  */
 
-#define G_HAS_CONSTRUCTORS 1
+#define G2_HAS_CONSTRUCTORS 1
 
-#define G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA 1
-#define G_DEFINE_DESTRUCTOR_NEEDS_PRAGMA 1
+#define G2_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA 1
+#define G2_DEFINE_DESTRUCTOR_NEEDS_PRAGMA 1
 
-#define G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(_func) \
+#define G2_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(_func) \
   init(_func)
-#define G_DEFINE_CONSTRUCTOR(_func) \
+#define G2_DEFINE_CONSTRUCTOR(_func) \
   static void _func(void);
 
-#define G_DEFINE_DESTRUCTOR_PRAGMA_ARGS(_func) \
+#define G2_DEFINE_DESTRUCTOR_PRAGMA_ARGS(_func) \
   fini(_func)
-#define G_DEFINE_DESTRUCTOR(_func) \
+#define G2_DEFINE_DESTRUCTOR(_func) \
   static void _func(void);
 
 #else
