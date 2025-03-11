@@ -505,7 +505,7 @@ static int IsEndOfFile(FILE *fp, mat_off_t *fpos);
 static int CheckSeekFile(FILE *fp, mat_off_t offset);
 
 /* io.c */
-#if defined(_WIN32) && defined(_MSC_VER)
+#if defined(_WIN32)
 static wchar_t *utf82u(const char *src);
 #endif
 
@@ -1127,10 +1127,10 @@ InflateData(mat_t *mat, z_streamp z, void *buf, unsigned int nBytes)
 /** @file io.c
  * MAT File I/O Utility Functions
  */
-#if defined(_WIN32) && defined(_MSC_VER)
+#if defined(_WIN32)
 #define WIN32_LEAN_AND_MEAN
 #define NOGDI
-#include <Windows.h>
+#include <windows.h>
 #endif
 
 #if !defined(HAVE_VA_COPY) && !defined(va_copy) && defined(HAVE___VA_COPY)
