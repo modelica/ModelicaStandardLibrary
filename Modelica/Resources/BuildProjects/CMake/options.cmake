@@ -21,3 +21,11 @@ option(
 
 # Option whether to install ModelicaExternalC
 option(MODELICA_INSTALL_EXTC "Install ModelicaExternalC library" OFF)
+
+# Option to enable testsuite
+option(MODELICA_BUILD_TESTING "Build testing" ON)
+
+set(BUILD_TESTING OFF)
+if(MODELICA_BUILD_TESTING)
+  set(BUILD_TESTING ON)
+endif()
