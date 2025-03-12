@@ -8,7 +8,7 @@ model Motor "Motor model including current controller of r3 motors"
   parameter SI.AngularVelocity w_max=315 "Maximum speed of motor";
   parameter SI.Current i_max=9 "Maximum current of motor";
 
-  parameter SI.Resistance RaR=250;
+  parameter SI.Resistance RaR=250 "Electric resistance of motor";
   Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_motor
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   Modelica.Electrical.Analog.Sources.SignalVoltage Vs
