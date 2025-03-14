@@ -20,7 +20,7 @@ model Adder "Inverting adder"
         extent={{10,10},{-10,-10}},
         rotation=270,
         origin={40,0})));
-  OpAmpCircuits.Add add(p1_2(i(start=0)))
+  OpAmpCircuits.Add add
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 equation
   connect(add.n1, ground.p)

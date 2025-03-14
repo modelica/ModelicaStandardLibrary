@@ -12,7 +12,9 @@ model SchmittTrigger "Schmitt trigger with hysteresis"
   Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
     Vps=Vps,
     Vns=Vns,
-    out(i(start=0)))
+    strict=false,
+    smoothed=false,
+    regularized=true)
     annotation (Placement(transformation(extent={{0,10},{20,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
@@ -64,8 +66,7 @@ equation
 <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
 </html>"),
     experiment(
-      StartTime=0,
-      StopTime=1,
-      Tolerance=1e-006,
-      Interval=0.001));
+      Interval=0.001,
+      Tolerance=1e-06,
+      __Dymola_Algorithm="Dassl"));
 end SchmittTrigger;
