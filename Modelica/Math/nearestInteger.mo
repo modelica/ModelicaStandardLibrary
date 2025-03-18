@@ -1,9 +1,9 @@
 within Modelica.Math;
-function nearestInteger "Convert real number to nearest integer value"
+function nearestInteger "Convert real number to nearest integer value (by rounding away from zero)"
   extends Modelica.Icons.Function;
 
   input Real r "Real number to convert to integer";
-  output Integer i "Integer value, which is closest to the given real number";
+  output Integer i "Integer value, which is nearest to the given real number (rounded away from zero)";
 
 algorithm
   i :=if (r > 0) then integer(floor(r + 0.5)) else integer(ceil(r - 0.5));
@@ -17,12 +17,11 @@ Math.<strong>nearestInteger</strong>(r);
 
 <h4>Description</h4>
 <p>
-The input value \"r\" of type Real is converted to the closest Integer value \"i\",
-using the <em>round half away from zero</em> rule with the equation:
+The input value <code>r</code> of type Real is converted to the nearest integer value <code>i</code> (by rounding away from zero):
 </p>
 <blockquote><pre>
 i = <strong>integer</strong>( <strong>floor</strong>( r + 0.5 ) )  for  r &gt; 0;
-i = <strong>integer</strong>(  <strong>ceil</strong>( r - 0.5 ) )  for  r &lt; 0;
+i = <strong>integer</strong>( <strong>ceil </strong>( r - 0.5 ) )  for  r &lt; 0;
 </pre></blockquote>
 
 <h4>Example</h4>
