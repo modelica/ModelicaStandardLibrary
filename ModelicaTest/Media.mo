@@ -934,7 +934,7 @@ is given to compare the approximation.
       annotation (experiment(StopTime=1));
     end MoistAir;
 
-    model R134a_setState_pTX "Test setState_pTX() of R134a"
+    model R134a_setState_pTX "Test setState_pTX() of R134a at constant room temperature"
       extends Modelica.Icons.Example;
       replaceable package Medium = Modelica.Media.R134a.R134a_ph "Medium model";
       SI.Temperature T = 273.15 + 25;
@@ -949,6 +949,11 @@ is given to compare the approximation.
       SI.ThermalConductivity k = Medium.thermalConductivity(state);
       annotation (experiment(StopTime=1));
     end R134a_setState_pTX;
+
+    model R134a_setState_pTX_high_T "Test setState_pTX() of R134a at constant high temperature"
+      extends R134a_setState_pTX(T=400);
+      annotation (experiment(StopTime=1));
+    end R134a_setState_pTX_high_T;
 
     model R134a_setState_phX "Test setState_phX() of R134a"
       extends Modelica.Icons.Example;
