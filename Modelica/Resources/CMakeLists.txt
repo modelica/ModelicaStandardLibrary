@@ -17,6 +17,7 @@ set(MODELICA_UTILITIES_INCLUDE_DIR "${MODELICA_RESOURCES_DIR}/C-Sources")
 include(BuildProjects/CMake/Modelica_platform.cmake)
 include(BuildProjects/CMake/Modelica_utilities.cmake)
 
+# Do not override CMAKE_INSTALL_PREFIX if it was set by the user. CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT is automatically provided by cmake.
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   set(
     CMAKE_INSTALL_PREFIX "${MODELICA_RESOURCES_DIR}"
