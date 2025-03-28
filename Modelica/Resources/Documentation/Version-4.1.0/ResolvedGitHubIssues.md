@@ -1,6 +1,6 @@
 # GitHub issues resolved for v4.1.0
 
-As part of this release 461 [issues](https://github.com/modelica/ModelicaStandardLibrary/milestone/61) (including 346 pull requests (PR)) were closed.
+As part of this release 523 [issues](https://github.com/modelica/ModelicaStandardLibrary/milestone/61) (including 374 pull requests (PR)) were closed.
 
 ## --MSL-general--
 
@@ -111,6 +111,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3894](https://github.com/modelica/ModelicaStandardLibrary/issues/3894) Derivative signal of combiTable2Ds is set to zero outside of table with HoldLastPoint
 * [\#3896](https://github.com/modelica/ModelicaStandardLibrary/pull/3896) (PR) Fix derivatives in 2D-table for one-sided extrapolation by constant continuation
 * [\#3983](https://github.com/modelica/ModelicaStandardLibrary/pull/3983) (PR) Fix index-out-of-bounds exception for splines
+* [\#4301](https://github.com/modelica/ModelicaStandardLibrary/issues/4301) Cannot compile library due to _BSD_SOURCE wrong usage 
 
 ### Enhancements
 
@@ -120,7 +121,6 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3691](https://github.com/modelica/ModelicaStandardLibrary/pull/3691) (PR) Add reading of CSV files from ModelicaTableAdditions to ModelicaStandardTables
 * [\#3700](https://github.com/modelica/ModelicaStandardLibrary/pull/3700) (PR) Make array inputs of external C functions const (introduced in Modelica 3.5)
 * [\#3839](https://github.com/modelica/ModelicaStandardLibrary/issues/3839) External ModelicaStandardTables lack const qualifiers for array inputs (Modelica Language Specification version 3.5)
-* [\#4222](https://github.com/modelica/ModelicaStandardLibrary/pull/4222) (PR) Update matio library to 1.5.24
 
 ### Miscellaneous
 
@@ -135,13 +135,20 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3787](https://github.com/modelica/ModelicaStandardLibrary/pull/3787) (PR) Fix C89 compliance
 * [\#3861](https://github.com/modelica/ModelicaStandardLibrary/pull/3861) (PR) Fix -Wundef warning by first checking if macro is defined
 * [\#3867](https://github.com/modelica/ModelicaStandardLibrary/issues/3867) Is ModelicaUtilities.h tool-specific?
-* [\#3871](https://github.com/modelica/ModelicaStandardLibrary/pull/3871) (PR) Remove ModelicaUtilities.h from MSL distribution
 * [\#3893](https://github.com/modelica/ModelicaStandardLibrary/pull/3893) (PR) Consider the derivatives at boundaries in the 2D-table
 * [\#3903](https://github.com/modelica/ModelicaStandardLibrary/issues/3903) Modelica.Blocks.Tables: Wrong format specifier is ignored
 * [\#3905](https://github.com/modelica/ModelicaStandardLibrary/pull/3905) (PR) ModelicaIO.c: Fix error handling for invalid format specifier in text file
 * [\#4281](https://github.com/modelica/ModelicaStandardLibrary/pull/4281) (PR) Upgrade zlib to v1.3.1
+* [\#4487](https://github.com/modelica/ModelicaStandardLibrary/pull/4487) (PR) Restore and modernize ModelicaUtilities.h
+* [\#4489](https://github.com/modelica/ModelicaStandardLibrary/issues/4489) Update matio for MSL 4.1.0
+* [\#4530](https://github.com/modelica/ModelicaStandardLibrary/pull/4530) (PR) Fix feature check macros for POSIX realpath
+* [\#4531](https://github.com/modelica/ModelicaStandardLibrary/pull/4531) (PR) Update matio library to 1.5.28
 
 ## Clocked
+
+### Examples
+
+* [\#4458](https://github.com/modelica/ModelicaStandardLibrary/issues/4458) ClockedWithDiscretizedContinuousController has clocked variable in initial equation
 
 ### Documentation
 
@@ -180,6 +187,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3768](https://github.com/modelica/ModelicaStandardLibrary/issues/3768) Conversion from ModelicaServices and Complex version 3.2.3 to 4.0.0?
 * [\#3770](https://github.com/modelica/ModelicaStandardLibrary/pull/3770) (PR) Add missing conversions for Complex and Services 3.2.3
 * [\#4264](https://github.com/modelica/ModelicaStandardLibrary/pull/4264) (PR) Set unit instead of having it in description
+* [\#4452](https://github.com/modelica/ModelicaStandardLibrary/pull/4452) (PR) AdditionalSqrt
 
 ## Constants
 
@@ -220,6 +228,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4206](https://github.com/modelica/ModelicaStandardLibrary/pull/4206) (PR) Remove redundant diagram text from Analog examples (second attempt)
 * [\#4245](https://github.com/modelica/ModelicaStandardLibrary/issues/4245) Connect(p, p) in Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor?
 * [\#4261](https://github.com/modelica/ModelicaStandardLibrary/pull/4261) (PR) Remove self-connect
+* [\#4558](https://github.com/modelica/ModelicaStandardLibrary/issues/4558) Shorten reference results for Chua circuit model
 
 ### Documentation
 
@@ -262,7 +271,8 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 ### Bugs
 
 * [\#4158](https://github.com/modelica/ModelicaStandardLibrary/pull/4158) (PR) Remove unit-casting
-* [\#4444](https://github.com/modelica/ModelicaStandardLibrary/pull/4444) (PR) Remove parameter keyword in functions.
+* [\#4402](https://github.com/modelica/ModelicaStandardLibrary/issues/4402) mBasic in functions in Modelica.Electrical.Polyphase.Functions
+* [\#4444](https://github.com/modelica/ModelicaStandardLibrary/pull/4444) (PR) Remove parameter keyword in functions
 
 ### Enhancements
 
@@ -274,6 +284,10 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 
 * [\#3816](https://github.com/modelica/ModelicaStandardLibrary/issues/3816) Remove Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.Battery
 * [\#4011](https://github.com/modelica/ModelicaStandardLibrary/pull/4011) (PR) Remove battery model from examples
+* [\#4363](https://github.com/modelica/ModelicaStandardLibrary/issues/4363) MSL 4.1.0 Reference results Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_NoLoad
+* [\#4565](https://github.com/modelica/ModelicaStandardLibrary/pull/4565) (PR) Update Electrical.Machines/Examples/SynchronousMachines/SMPM_NoLoad/comparisonSignals.txt
+* [\#4579](https://github.com/modelica/ModelicaStandardLibrary/pull/4579) (PR) Apply same patch with Ron and Goff
+* [\#4582](https://github.com/modelica/ModelicaStandardLibrary/pull/4582) (PR) Apply same patch as [\#4559](https://github.com/modelica/ModelicaStandardLibrary/issues/4559) to Electrical.Machines
 
 ### Documentation
 
@@ -288,6 +302,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3951](https://github.com/modelica/ModelicaStandardLibrary/issues/3951) Missing gradient colors in some Icons
 * [\#4030](https://github.com/modelica/ModelicaStandardLibrary/issues/4030) Bug in a component: Modelica.Electrical.Machines.Sensors.HallSensor
 * [\#4031](https://github.com/modelica/ModelicaStandardLibrary/pull/4031) (PR) Fix HallSensor
+* [\#4517](https://github.com/modelica/ModelicaStandardLibrary/issues/4517) Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive is numerically fragile?
 
 ## Electrical.Polyphase
 
@@ -295,7 +310,8 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 
 * [\#3963](https://github.com/modelica/ModelicaStandardLibrary/issues/3963) Parameter T not considered in Polyphase Resistors and Conductors
 * [\#3964](https://github.com/modelica/ModelicaStandardLibrary/pull/3964) (PR) Propagate parameter T in Polyphase Resistors and Conductors
-* [\#4444](https://github.com/modelica/ModelicaStandardLibrary/pull/4444) (PR) Remove parameter keyword in functions.
+* [\#4402](https://github.com/modelica/ModelicaStandardLibrary/issues/4402) mBasic in functions in Modelica.Electrical.Polyphase.Functions
+* [\#4444](https://github.com/modelica/ModelicaStandardLibrary/pull/4444) (PR) Remove parameter keyword in functions
 
 ## Electrical.PowerConverters
 
@@ -378,10 +394,13 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3944](https://github.com/modelica/ModelicaStandardLibrary/issues/3944) Bug in the SharpEdgedOrifice for Loss factors
 * [\#3953](https://github.com/modelica/ModelicaStandardLibrary/issues/3953) Wrong enthalpies calculated by DynamicPipe
 * [\#3959](https://github.com/modelica/ModelicaStandardLibrary/pull/3959) (PR) Fix Wb_flows discretization terms for DynamicPipe
+* [\#4128](https://github.com/modelica/ModelicaStandardLibrary/issues/4128) Investigating regfun3
 * [\#4144](https://github.com/modelica/ModelicaStandardLibrary/issues/4144) Dimension mismatch in function linearPower
 * [\#4157](https://github.com/modelica/ModelicaStandardLibrary/pull/4157) (PR) If the limits don't make sense use linear interpolation in Modelica.Fluid.Utilities.regfun3
 * [\#4258](https://github.com/modelica/ModelicaStandardLibrary/pull/4258) (PR) Bug in SharpEdgedOrifice for Loss factors resolved
 * [\#4259](https://github.com/modelica/ModelicaStandardLibrary/pull/4259) (PR) Fix dimension error of Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.linearPower
+* [\#4526](https://github.com/modelica/ModelicaStandardLibrary/issues/4526) Problems with ModelicaTest.Fluid.TestComponents.Vessels.TestSimpleTank
+* [\#4545](https://github.com/modelica/ModelicaStandardLibrary/pull/4545) (PR) Avoid the tank to ever become completely empty
 
 ### Examples
 
@@ -392,7 +411,8 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3782](https://github.com/modelica/ModelicaStandardLibrary/issues/3782) What is the quality of the TankWithEmptyingPipe1 reference result?
 * [\#3813](https://github.com/modelica/ModelicaStandardLibrary/pull/3813) (PR) Decrease solver tolerance of Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1
 * [\#4032](https://github.com/modelica/ModelicaStandardLibrary/pull/4032) (PR) The dT is a temperature difference
-* [\#4033](https://github.com/modelica/ModelicaStandardLibrary/pull/4033) (PR) Reduce guess for initial temperature difference across wall.
+* [\#4033](https://github.com/modelica/ModelicaStandardLibrary/pull/4033) (PR) Reduce guess for initial temperature difference across wall
+* [\#4312](https://github.com/modelica/ModelicaStandardLibrary/issues/4312) Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls is problematic because of chattering
 
 ### Documentation
 
@@ -408,10 +428,15 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3802](https://github.com/modelica/ModelicaStandardLibrary/pull/3802) (PR) State temperatures in PartialHeatTransfer declared as Medium-specific type
 * [\#3951](https://github.com/modelica/ModelicaStandardLibrary/issues/3951) Missing gradient colors in some Icons
 * [\#4104](https://github.com/modelica/ModelicaStandardLibrary/pull/4104) (PR) Remove modification of 'quantity' for FixedBoundary.X
-* [\#4461](https://github.com/modelica/ModelicaStandardLibrary/pull/4461) (PR) MassFlowSource_T and MassFlowSource_h only work if there is at least one port
 * [\#4469](https://github.com/modelica/ModelicaStandardLibrary/pull/4469) (PR) MassFlowSource_T and MassFlowSource_h only work if there is at least one port
+* [\#4533](https://github.com/modelica/ModelicaStandardLibrary/pull/4533) (PR) Fix [\#4312](https://github.com/modelica/ModelicaStandardLibrary/issues/4312)
+* [\#4568](https://github.com/modelica/ModelicaStandardLibrary/pull/4568) (PR) Fix for [\#4548](https://github.com/modelica/ModelicaStandardLibrary/issues/4548)
 
 ## Fluid.Dissipation
+
+### Bugs
+
+* [\#4580](https://github.com/modelica/ModelicaStandardLibrary/pull/4580) (PR) Fix wrong expression for the a = 0, b &gt; 0 case
 
 ### Enhancements
 
@@ -435,6 +460,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 ### Bugs
 
 * [\#4158](https://github.com/modelica/ModelicaStandardLibrary/pull/4158) (PR) Remove unit-casting
+* [\#4567](https://github.com/modelica/ModelicaStandardLibrary/pull/4567) (PR) Correct Magnetic.FluxTubes.Material.HysteresisTableData.M400_50A.sigma
 
 ### Enhancements
 
@@ -472,6 +498,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 ### Examples
 
 * [\#3822](https://github.com/modelica/ModelicaStandardLibrary/pull/3822) (PR) Add documentation of SinglePhaseInductance
+* [\#4570](https://github.com/modelica/ModelicaStandardLibrary/pull/4570) (PR) Attempt to fix [\#4559](https://github.com/modelica/ModelicaStandardLibrary/issues/4559) by increasing RonDiode and GoffDiode
 
 ### Documentation
 
@@ -499,6 +526,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3592](https://github.com/modelica/ModelicaStandardLibrary/pull/3592) (PR) Fix name of plot variable in documentation
 * [\#3803](https://github.com/modelica/ModelicaStandardLibrary/pull/3803) (PR) Add an example to demonstrate ideal field weakening 
 * [\#3845](https://github.com/modelica/ModelicaStandardLibrary/pull/3845) (PR) QuasiStatic example induction machine with inverter
+* [\#4337](https://github.com/modelica/ModelicaStandardLibrary/issues/4337) MSL 4.1.0 Regressions - Magnetic.QuasiStatic
 
 ### Documentation
 
@@ -526,6 +554,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 ### Examples
 
 * [\#4344](https://github.com/modelica/ModelicaStandardLibrary/pull/4344) (PR) Math asserts
+* [\#4470](https://github.com/modelica/ModelicaStandardLibrary/pull/4470) (PR) Math asserts ([\#4344](https://github.com/modelica/ModelicaStandardLibrary/issues/4344))
 
 ### Documentation
 
@@ -602,6 +631,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4248](https://github.com/modelica/ModelicaStandardLibrary/pull/4248) (PR) Use vector for visualization of physical quantities
 * [\#4266](https://github.com/modelica/ModelicaStandardLibrary/pull/4266) (PR) Delete unused protected parameters ndim, ndim2 and ndim_pointGravity
 * [\#4445](https://github.com/modelica/ModelicaStandardLibrary/pull/4445) (PR) Add unit="1" to quaternions
+* [\#4520](https://github.com/modelica/ModelicaStandardLibrary/pull/4520) (PR) Make propagation final of lifted parameters in Spring
 
 ## Mechanics.Rotational
 
@@ -669,6 +699,8 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3834](https://github.com/modelica/ModelicaStandardLibrary/pull/3834) (PR) Correct error in function Modelica.Media.Air.ReferenceMoistAir.Utilities.pd_pTX_der
 * [\#4389](https://github.com/modelica/ModelicaStandardLibrary/issues/4389) Wrong input type in specificEnthalpy_pTX, temperature_phX, and density_phX
 * [\#4428](https://github.com/modelica/ModelicaStandardLibrary/issues/4428) ModelicaTest.Media.TestOnly.WaterIF97_dewEnthalpy uses partial package
+* [\#4512](https://github.com/modelica/ModelicaStandardLibrary/issues/4512) Issue with ReferenceMoistAir Beyond 500°C
+* [\#4546](https://github.com/modelica/ModelicaStandardLibrary/pull/4546) (PR) Fix Utilities functions of ReferenceMoistAir to also work with Xi
 
 ### Examples
 
@@ -700,8 +732,10 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4238](https://github.com/modelica/ModelicaStandardLibrary/pull/4238) (PR) R_s for each ideal gas record now calculated with R_NASA
 * [\#4243](https://github.com/modelica/ModelicaStandardLibrary/pull/4243) (PR) Add massFraction function to Media library 
 * [\#4262](https://github.com/modelica/ModelicaStandardLibrary/pull/4262) (PR) Utilize PressureSlope unit in Media consistently
+* [\#4452](https://github.com/modelica/ModelicaStandardLibrary/pull/4452) (PR) AdditionalSqrt
 * [\#4453](https://github.com/modelica/ModelicaStandardLibrary/pull/4453) (PR) Fix dimension errors in functions of Modelica.Media.Interfaces.PartialSimpleMedium
 * [\#4462](https://github.com/modelica/ModelicaStandardLibrary/pull/4462) (PR) Make type explicit
+* [\#4541](https://github.com/modelica/ModelicaStandardLibrary/pull/4541) (PR) Generate events in functions to avoid non-discrete booleans
 
 ## ModelicaReference
 
@@ -733,6 +767,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3695](https://github.com/modelica/ModelicaStandardLibrary/issues/3695) Trajectory of 'k' in R134a_setState_pTX doesn't look suitable for comparison
 * [\#4428](https://github.com/modelica/ModelicaStandardLibrary/issues/4428) ModelicaTest.Media.TestOnly.WaterIF97_dewEnthalpy uses partial package
 * [\#4437](https://github.com/modelica/ModelicaStandardLibrary/pull/4437) (PR) Fix illegal ModelicaTest.Media.TestOnly.WaterIF97_dewEnthalpy
+* [\#4526](https://github.com/modelica/ModelicaStandardLibrary/issues/4526) Problems with ModelicaTest.Fluid.TestComponents.Vessels.TestSimpleTank
 
 ### Enhancements
 
@@ -753,7 +788,16 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4195](https://github.com/modelica/ModelicaStandardLibrary/pull/4195) (PR) Add all defined outputs of the test example to reference signals
 * [\#4229](https://github.com/modelica/ModelicaStandardLibrary/pull/4229) (PR) Add ZeroThresholds test in Blocks
 * [\#4273](https://github.com/modelica/ModelicaStandardLibrary/pull/4273) (PR) Utilize PressureSlope unit in ModelicaTest consistently
+* [\#4349](https://github.com/modelica/ModelicaStandardLibrary/issues/4349) MSL 4.1.0 Reference results for new models
+* [\#4367](https://github.com/modelica/ModelicaStandardLibrary/issues/4367) Too few variables tested for ModelicaTest.Media.TestsWithFluid.MediaTestModels.Incompressible.Essotherm650?
+* [\#4424](https://github.com/modelica/ModelicaStandardLibrary/issues/4424) Completely specify initial conditions for DynamicPipeEnergyConservationCheck and DynamicPipeEnergyConservationCheck2
 * [\#4450](https://github.com/modelica/ModelicaStandardLibrary/pull/4450) (PR) Add comparison signals for DynamicPipeEnergyConservationCheck and DynamicPipeEnergyConservationCheck2 
+* [\#4510](https://github.com/modelica/ModelicaStandardLibrary/issues/4510) ModelicaTest.Electrical.QuasiStatic.*.FrequencySweep is missing experiment annotation
+* [\#4515](https://github.com/modelica/ModelicaStandardLibrary/pull/4515) (PR) Remove extra comparisonSignals file that doesn't match an existing model
+* [\#4521](https://github.com/modelica/ModelicaStandardLibrary/pull/4521) (PR) Add missing experiment annotations 
+* [\#4554](https://github.com/modelica/ModelicaStandardLibrary/issues/4554) Asserts on Real values with test models are too tight
+* [\#4566](https://github.com/modelica/ModelicaStandardLibrary/pull/4566) (PR) Fix for [\#4424](https://github.com/modelica/ModelicaStandardLibrary/issues/4424)
+* [\#4581](https://github.com/modelica/ModelicaStandardLibrary/pull/4581) (PR) Add numerical tolerance to floating-point number comparison in ModelicaTest.Fluid.TestComponents.Machines.TestLinearPower
 
 ## Resources
 
@@ -761,6 +805,10 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 
 * [\#3614](https://github.com/modelica/ModelicaStandardLibrary/pull/3614) (PR) Update Run.mos for MultiBody examples
 * [\#3767](https://github.com/modelica/ModelicaStandardLibrary/pull/3767) (PR) Add more explicit conversion rules for inherited gasConstant function
+
+### Examples
+
+* [\#4565](https://github.com/modelica/ModelicaStandardLibrary/pull/4565) (PR) Update Electrical.Machines/Examples/SynchronousMachines/SMPM_NoLoad/comparisonSignals.txt
 
 ### Documentation
 
@@ -775,15 +823,16 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3794](https://github.com/modelica/ModelicaStandardLibrary/pull/3794) (PR) Turn compiler warning of implicit function declaration to error
 * [\#3800](https://github.com/modelica/ModelicaStandardLibrary/pull/3800) (PR) Fix (all but one) conversion issues reported by Dymola
 * [\#3867](https://github.com/modelica/ModelicaStandardLibrary/issues/3867) Is ModelicaUtilities.h tool-specific?
-* [\#3871](https://github.com/modelica/ModelicaStandardLibrary/pull/3871) (PR) Remove ModelicaUtilities.h from MSL distribution
 * [\#3961](https://github.com/modelica/ModelicaStandardLibrary/pull/3961) (PR) Remove outdated unused image files 
 * [\#4167](https://github.com/modelica/ModelicaStandardLibrary/pull/4167) (PR) Remove voltageSensor.v from the comparison list
 * [\#4179](https://github.com/modelica/ModelicaStandardLibrary/pull/4179) (PR) Remove duplicates in SignalNames of 10 examples of ModelicaTest
 * [\#4268](https://github.com/modelica/ModelicaStandardLibrary/pull/4268) (PR) Make third-party licenses explicit
 * [\#4316](https://github.com/modelica/ModelicaStandardLibrary/issues/4316) MSL v4.1.0-beta.1 feedback: broken Dymola plot scripts
 * [\#4322](https://github.com/modelica/ModelicaStandardLibrary/pull/4322) (PR) Fix plot scripts
+* [\#4349](https://github.com/modelica/ModelicaStandardLibrary/issues/4349) MSL 4.1.0 Reference results for new models
 * [\#4371](https://github.com/modelica/ModelicaStandardLibrary/pull/4371) (PR) Update CoupledClutches.mos 
 * [\#4463](https://github.com/modelica/ModelicaStandardLibrary/pull/4463) (PR) Remove useless and numerically critical error signals from MoistAir tests
+* [\#4487](https://github.com/modelica/ModelicaStandardLibrary/pull/4487) (PR) Restore and modernize ModelicaUtilities.h
 
 ## StateGraph
 
@@ -820,6 +869,10 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#3954](https://github.com/modelica/ModelicaStandardLibrary/issues/3954) Broken link to academia.edu
 * [\#4199](https://github.com/modelica/ModelicaStandardLibrary/pull/4199) (PR) Fix link to Holman2010
 
+### Miscellaneous
+
+* [\#4540](https://github.com/modelica/ModelicaStandardLibrary/pull/4540) (PR) Remove redundant text in celsius to kelvin icon
+
 ## Units
 
 ### Enhancements
@@ -846,6 +899,7 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4221](https://github.com/modelica/ModelicaStandardLibrary/pull/4221) (PR) Add recommendation for code formatting (and apply it)
 * [\#4251](https://github.com/modelica/ModelicaStandardLibrary/pull/4251) (PR) Create Modelica.UsersGuide.ReleaseNotes.Version_4_1_0
 * [\#4435](https://github.com/modelica/ModelicaStandardLibrary/pull/4435) (PR) Fix links
+* [\#4501](https://github.com/modelica/ModelicaStandardLibrary/pull/4501) (PR) Remove dead link to old OM wiki
 
 ## Utilities
 
@@ -875,4 +929,6 @@ As part of this release 461 [issues](https://github.com/modelica/ModelicaStandar
 
 * [\#3728](https://github.com/modelica/ModelicaStandardLibrary/pull/3728) (PR) Fix Modelica.Utilities.Strings.hashString to always use provided HASH_AP and update 3rd-party header uthash to v2.3.0
 * [\#4419](https://github.com/modelica/ModelicaStandardLibrary/issues/4419) Is Modelica.Utilities.Strings.hashString supposed to be tool-independent?
+* [\#4578](https://github.com/modelica/ModelicaStandardLibrary/issues/4578) Modelica.Utilities.Streams.error should not require that ModelicaError is exported by ModelicaExternalC
+* [\#4583](https://github.com/modelica/ModelicaStandardLibrary/pull/4583) (PR) Rewrite Streams.error in terms of assert
 
