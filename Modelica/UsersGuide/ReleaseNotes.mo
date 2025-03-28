@@ -471,14 +471,14 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 <tr>
 <td><p>pd_pTX_der</p></td>
-<td><p>Corrected the error</p></td>
+<td><p>Corrected the error in the function for computation of partial pressure derivative of steam</p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Media.R134a.R134a_ph</h4></td>
 </tr>
 <tr>
 <td><p>dofpT</p></td>
-<td><p>Changed code for function <code>dofpT</code></p></td>
+<td><p>Changed code to now compute guess values of density from temperature <code>dofpT</code></p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Math</h4></td>
