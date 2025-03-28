@@ -457,7 +457,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 <tr>
 <td><p>regFun3</p></td>
-<td><p>The function produced wrong results in horizontal wall friction models.This is fixed.</p></td>
+<td><p>The function produced wrong results in horizontal wall friction models. This is fixed.</p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Media.Air.MoistAir.Utilities</h4></td>
