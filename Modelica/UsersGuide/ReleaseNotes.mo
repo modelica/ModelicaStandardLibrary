@@ -371,7 +371,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 <tr>
 <td><p>OpenTank</p></td>
-<td><p>--add content here --</p></td>
+<td><p>Assertion for empty tank to prevent singular energy balance</p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody.Forces</h4></td>
