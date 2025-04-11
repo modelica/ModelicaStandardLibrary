@@ -312,27 +312,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 </table>
 <p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><font color=\"blue\">changed</font></strong> in a <strong><font color=\"blue\">non-backward compatible</font></strong> way, even though this is not expected in general to affect models using the library, except in very rare cases:</p>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody</h4></td>
-</tr>
-<tr>
-<td><p>World</p></td>
-<td><p>The protected parameters <code>ndim</code>, <code>ndim2</code> and <code>ndim_pointGravity</code> have been removed.</p></td>
-</tr>
-<tr>
-<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Components</h4></td>
-</tr>
-<tr>
-<td><p>Brake</p><p>Clutch</p><p>OneWayClutch</p></td>
-<td><p>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</p><p>The public variable <code>mu0</code> was changed to a <code>protected final</code> parameter.</p></td>
-</tr>
-<tr>
-<td colspan=\"2\"><h4>Modelica.Mechanics.Translational.Components</h4></td>
-</tr>
-<tr>
-<td><p><br>Brake</p></td>
-<td><p>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</p><p>The public variable <code>mu0</code> was changed to a <code>protected final</code> parameter.</p></td>
-</tr>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
 <tr>
 <td colspan=\"2\"><h4>Modelica.Blocks</h4></td>
 </tr>
@@ -353,6 +333,13 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Updated to declare that the output is smooth</p></td>
 </tr>
 <tr>
+<td colspan=\"2\"><h4>Modelica.Fluid.Vessels</h4></td>
+</tr>
+<tr>
+<td><p>OpenTank</p></td>
+<td><p>Assertion for empty tank to prevent singular energy balance</p></td>
+</tr>
+<tr>
 <td colspan=\"2\"><h4>Modelica.Magnetic.FundamentalWave.BaseClasses</h4></td>
 </tr>
 <tr>
@@ -367,11 +354,11 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Internal used ports of the optional mechanical housing port and the optional thermal port is made <code>protected</code></p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><h4>Modelica.Fluid.Vessels</h4></td>
+<td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody</h4></td>
 </tr>
 <tr>
-<td><p>OpenTank</p></td>
-<td><p>Assertion for empty tank to prevent singular energy balance</p></td>
+<td><p>World</p></td>
+<td><p>The protected parameters <code>ndim</code>, <code>ndim2</code> and <code>ndim_pointGravity</code> have been removed.</p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody.Forces</h4></td>
@@ -379,6 +366,20 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <tr>
 <td><p>Spring</p></td>
 <td><p>Propagation of lifted parameters in Spring&apos;s lineForce component made final.</p></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Components</h4></td>
+</tr>
+<tr>
+<td><p>Brake</p><p>Clutch</p><p>OneWayClutch</p></td>
+<td><p>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</p><p>The public variable <code>mu0</code> was changed to a <code>protected final</code> parameter.</p></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Translational.Components</h4></td>
+</tr>
+<tr>
+<td><p><br>Brake</p></td>
+<td><p>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</p><p>The public variable <code>mu0</code> was changed to a <code>protected final</code> parameter.</p></td>
 </tr>
 </table>
 <p><br><br>The following <strong><font color=\"blue\">critical errors</font></strong> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
