@@ -311,7 +311,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>The parameter <span style=\"font-family: Courier New;\">sigma</span> has been corrected.</p></td>
 </tr>
 </table>
-<p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><font color=\"blue\">changed</font></strong> in a <strong><font color=\"blue\">non-backward compatible</font></strong> way: </p>
+<p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><font color=\"blue\">changed</font></strong> in a <strong><font color=\"blue\">non-backward compatible</font></strong> way, even though this is not expected in general to affect models using the library, except in very rare cases:</p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody</h4></td>
 </tr>
@@ -760,7 +760,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 </table>
 
 <p><br>
-The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way, even though this is not expected to affect models using the library:
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
