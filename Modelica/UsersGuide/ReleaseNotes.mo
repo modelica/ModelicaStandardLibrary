@@ -303,13 +303,6 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>EddyCurrentForce</p></td>
 <td><p>Enhanced with optional influence of variable excitation.</p></td>
 </tr>
-<tr>
-<td colspan=\"2\"><h4>Modelica.Magnetic.FluxTubes.Material.HysteresisTableData</h4></td>
-</tr>
-<tr>
-<td><p>M400_50A</p></td>
-<td><p>The parameter <span style=\"font-family: Courier New;\">sigma</span> has been corrected.</p></td>
-</tr>
 </table>
 <p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><font color=\"blue\">changed</font></strong> in a <strong><font color=\"blue\">non-backward compatible</font></strong> way, even though this is not expected in general to affect models using the library, except in very rare cases:</p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
@@ -424,6 +417,13 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <tr>
 <td><p>SVPWM</p></td>
 <td><p>Corrected a bug in the equation</p></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Magnetic.FluxTubes.Material.HysteresisTableData</h4></td>
+</tr>
+<tr>
+<td><p>M400_50A</p></td>
+<td><p>The value of parameter <span style=\"font-family: Courier New;\">sigma</span> has been corrected.</p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</h4></td>
