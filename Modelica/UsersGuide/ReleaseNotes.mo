@@ -330,6 +330,13 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Updated to declare that the output is smooth</p></td>
 </tr>
 <tr>
+<td colspan=\"2\"><h4>Modelica.Constants</h4></td>
+</tr>
+<tr>
+<td><p>inf</p><p>small</p><p>eps</p></td>
+<td><p>Definitions changed to make them consistent with commonly accepted ones, see, e.g. <a href=\"https://en.wikipedia.org/wiki/Machine_epsilon\">Wikipedia</a>. As a consequence, their tool-specific implementations in <code>ModelicaServices</code> may have changed compared to version 4.0.0.</p><p>Tools may provide a compatibility flag to keep the old values.</p></td>
+</tr>
+<tr>
 <td colspan=\"2\"><h4>Modelica.Fluid.Vessels</h4></td>
 </tr>
 <tr>
