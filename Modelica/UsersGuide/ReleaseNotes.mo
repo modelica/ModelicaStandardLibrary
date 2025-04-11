@@ -353,13 +353,6 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Updated to declare that the output is smooth</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><h4>Modelica.Electrical.PowerConverters.DCAC.Control</h4></td>
-</tr>
-<tr>
-<td><p>SVPWM</p></td>
-<td><p>Corrected a bug in the equation</p></td>
-</tr>
-<tr>
 <td colspan=\"2\"><h4>Modelica.Magnetic.FundamentalWave.BaseClasses</h4></td>
 </tr>
 <tr>
@@ -423,6 +416,13 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <tr>
 <td><p>Resistor </p><p>Conductor</p><p>VariableResistor</p><p>VariableConductor</p></td>
 <td><p>Propagate parameter <code>T</code> in <code>Resistor</code> and <code>Conductor</code></p></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.PowerConverters.DCAC.Control</h4></td>
+</tr>
+<tr>
+<td><p>SVPWM</p></td>
+<td><p>Corrected a bug in the equation</p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</h4></td>
