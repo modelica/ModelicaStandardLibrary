@@ -245,7 +245,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td>&nbsp;New SI unit type </td>
 </tr>
 </table>
-<p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><<font color=\"blue\">improved</font></strong> in a <strong><font color=\"blue\">backward compatible</font></strong> way:</p>
+<p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><font color=\"blue\">improved</font></strong> in a <strong><font color=\"blue\">backward compatible</font></strong> way:</p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Sources</h4></td>
 </tr>
