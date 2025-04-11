@@ -130,11 +130,87 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (Documentation(info="<html>
-<p>Version 4.1.0 is backward compatible to version 4.0.0, that is models developed with versions 4.0.0 will work without any changes also with version 4.1.0. Short Overview: </p>
+<p>Version 4.1.0 is backward compatible to version 4.0.0, that is models developed with version 4.0.0 will work without any changes also with version 4.1.0. Short Overview: </p>
 <ul>
 <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">523 issues (including 374 pull requests)</a> have been addressed for this release.</li>
 <li>This version is based on the recent Modelica language standard version 3.6.</li>
 </ul>
+<p>
+The following libraries, that were previously using version Modelica 4.0.0, were tested successfully with version 4.1.0 without any modification
+(alphabetical list):
+</p>
+<ul>
+<li>AviationSystems 1.6.2</li>
+<li>AviationSystems_Demos 1.6.2</li>
+<li>Battery 2.8.1</li>
+<li>BrushlessDCDrives 1.4.3</li>
+<li>Buildings 12.0.0 (LBL)</li>
+<li>CATIAMultiBody 2.0 (DS)</li>
+<li>ClaRa/ClaRaPlus 1.7.5 (TLK-Thermo)</li>
+<li>Claytex 2024.2</li>
+<li>ClaytexFluid 2024.2</li>
+<li>Cooling 1.5.4</li>
+<li>DassaultSystemes 1.14.0</li>
+<li>DriveControl</li>
+<li>DymolaModels 1.10.0</li>
+<li>ElectricPowerSystems 1.7.0</li>
+<li>ElectrifiedPowertrains 1.11.0</li>
+<li>EMOTH</li>
+<li>Engines 2024.2</li>
+<li>FlexibleBodies 2.4.0</li>
+<li>FluidDynamicsLib 2.18.0 (XRG)</li>
+<li>FluidPower 2024.2</li>
+<li>FTire 1.3.2</li>
+<li>Hydrogen 1.4.2</li>
+<li>Modelica_StateGraph2 2.1.0</li>
+<li>Modelica_DeviceDrivers 2.1</li>
+<li>FlightDynamics 1.0.4</li>
+<li>HanserModelica</li>
+<li>HumanComfortLib 2.18.0 (XRG)</li>
+<li>PhotoVoltaics</li>
+<li>PhotoVoltaics_TGM</li>
+<li>PlanarMechanics 1.6.0 (DLR)</li>
+<li>PneumaticSystems 1.7.2</li>
+<li>SDF 0.4.5</li>
+<li>TestingLib 1.10.0</li>
+<li>ThermalManagementDemos 1.2.1</li>
+<li>ThermodynamicsConnector 1.3.0</li>
+<li>TIL/TILMedia 2024.1 (TLK-Thermo)</li>
+<li>VehicleInterfaces 2.0.1 </li>
+<li>VehicleDemos 2024.2</li>
+<li>VeSyMA 2024.2</li>
+<li>VeSyMA2EPTL 2024.2</li>
+<li>Visa2*</li>
+<li>WindPower 1.1.5</li>
+
+
+
+<li>AirConditioning Library 1.12 (Modelon)</li>
+<li>Buildings 2.1.0 (LBNL)</li>
+<li>Electric Power Library 2.2.3 (Modelon)</li>
+<li>Engine Dynamics Library 1.2.5 (Modelon)</li>
+<li>FlexibleBodies 2.2 (DLR)</li>
+<li>FlightDynamics 1.0.1 (DLR)</li>
+<li>FluidDissipation 1.1.8 (XRG Simulation)</li>
+<li>Fuel Cell Library 1.3.3 (Modelon)</li>
+<li>Heat Exchanger Library 1.4.1 (Modelon)</li>
+<li>Human Comfort Library 2.1.0 (XRG Simulation)</li>
+<li>HVAC Library 2.1.0 (XRG Simulation)</li>
+<li>Hydraulics Library 4.4 (Modelon)</li>
+<li>Hydronics Library 2.1.0 (XRG Simulation)</li>
+<li>Hydro Power Library 2.6 (Modelon)</li>
+<li>Liquid Cooling Library 1.5 (Modelon)</li>
+<li>Modelica_Synchronous 0.92.1</li>
+<li>Modelica_LinearSystems2 2.3.4</li>
+<li>Modelica_StateGraph2 2.0.3</li>
+<li>Optimization 2.2.2 (DLR)</li>
+<li>PowerTrain 2.4.0 (DLR)</li>
+<li>Pneumatics Library 2.0 (Modelon)</li>
+<li>Thermal Power Library 1.12 (Modelon)</li>
+<li>Vapor Cycle Library 1.3 (Modelon)</li>
+<li>Vehicle Dynamics Library 2.3 (Modelon)</li>
+</ul>
+
 <p><br>The following <strong><font color=\"blue\">new components</font></strong> have been added to <strong><font color=\"blue\">existing</font></strong> libraries: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Logical</h4></td>
