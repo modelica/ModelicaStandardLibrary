@@ -419,6 +419,20 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Corrected a bug in the equation</p></td>
 </tr>
 <tr>
+<td colspan=\"2\"><h4>Modelica.Fluid.Dissipation.PressureLoss.General</h4></td>
+</tr>
+<tr>
+<td><p>dp_volumeFlowRate_MFLOW</p></td>
+<td><p>The function now correctly computes the pressure loss in the linear case, i.e., <code>a = 0</code> and <code>b > 0</code>.</p></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Fluid.Fittings.GenericResistances</h4></td>
+</tr>
+<tr>
+<td><p>VolumeFlowRate</p></td>
+<td><p>The model now correctly computes the pressure loss in the linear case, i.e., <code>a = 0</code> and <code>b > 0</code>.</p></td>
+</tr>
+<tr>
 <td colspan=\"2\"><h4>Modelica.Magnetic.FluxTubes.Material.HysteresisTableData</h4></td>
 </tr>
 <tr>
