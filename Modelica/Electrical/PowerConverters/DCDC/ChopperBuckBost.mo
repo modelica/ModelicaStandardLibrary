@@ -1,5 +1,5 @@
 within Modelica.Electrical.PowerConverters.DCDC;
-model ChopperBuckBost "Bidirectional chopper"
+model ChopperBuckBoost "Bidirectional chopper"
   extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin1;
   extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin2;
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
@@ -117,4 +117,4 @@ equation
 This is a bidirectional buck / boost - converter with 2 transistors and 2 freewheeling diodes.
 </p>
 </html>"));
-end ChopperBuckBost;
+end ChopperBuckBoost;
