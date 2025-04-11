@@ -510,6 +510,16 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Corrected the issue of wrong results for large inputs</p></td>
 </tr>
 </table>
+<p><br><br>The following models were declared as <strong><font color=\"blue\">obsolete</font></strong>, thus to be preferably replaced with better, more general ones:</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.Analog.Lines</h4></td>
+</tr>
+<tr>
+<td><p>TLine1</p><p>TLine2</p><p>Tline3</p></td>
+<td><p>Replaced by generic <code>Tline</code> model with appropriate parametrization.</p></td>
+</tr>
+</table>
+
 </html>"));
 end Version_4_1_0;
 
