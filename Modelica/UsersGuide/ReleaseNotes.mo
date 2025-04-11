@@ -322,6 +322,10 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Simplified the mean formula</p></td>
 </tr>
 <tr>
+<td><p>Routing.Extractor</p></td>
+<td><p>The block will now trigger an assert if <code>index</code> is out range, unless <code>allowOutOfRange</code> is set.</p></td>
+</tr>
+<tr>
 <td><p>Sources.ContinuousClock</p></td>
 <td><p>Updated to declare that the output is smooth</p></td>
 </tr>
