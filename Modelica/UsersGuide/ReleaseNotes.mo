@@ -448,7 +448,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 <tr>
 <td>M400_50A</td>
-<td>The value of parameter <span style=\"font-family: Courier New;\">sigma</span> has been corrected.</td>
+<td>The value of parameter <code>sigma</code> has been corrected.</td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</h4></td>
