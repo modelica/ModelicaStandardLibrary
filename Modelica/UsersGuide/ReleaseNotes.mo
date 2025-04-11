@@ -188,7 +188,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td colspan=\"2\"><h4>Modelica.Electrical.PowerConverters.DCDC</h4></td>
 </tr>
 <tr>
-<td><p>ChopperBuckBost</p></td>
+<td><p>ChopperBuckBoost</p></td>
 <td><p>This is a bidirectional buck / boost - converter with 2 transistors and 2 freewheeling diodes.</p></td>
 </tr>
 <tr>
