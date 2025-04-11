@@ -185,6 +185,13 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>This is a simple model of a DC power supply, as used in laboratories. It can only work in one quadrant. </p></td>
 </tr>
 <tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.Machines.Utilities</h4></td>
+</tr>
+<tr>
+<td><p>RotationalCoupling</p></td>
+<td><p>Ideal stiff coupling: one device connected to the coupling is turning clockwise (looking at the shaft end), the other device connected to the coupling is turning counter-clockwise (looking at the shaft end). The torque at flange_b has the same magnitude as the torque at flange_a but opposite sign.</p></td>
+</tr>
+<tr>
 <td colspan=\"2\"><h4>Modelica.Electrical.PowerConverters.DCDC</h4></td>
 </tr>
 <tr>
