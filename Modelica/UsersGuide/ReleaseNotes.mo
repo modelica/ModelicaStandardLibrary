@@ -378,7 +378,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 <tr>
 <td><p>Spring</p></td>
-<td><p>Propagation final of lifted parameters in Spring&apos;s lineForce component</p></td>
+<td><p>Propagation of lifted parameters in Spring&apos;s lineForce component made final.</p></td>
 </tr>
 </table>
 <p><br><br>The following <strong><font color=\"blue\">critical errors</font></strong> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
