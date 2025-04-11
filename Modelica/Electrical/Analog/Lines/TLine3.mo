@@ -16,7 +16,8 @@ equation
   i2 = (v2 - er)/Z0;
   es = 2*delay(v2, TD) - delay(er, TD);
   er = 2*delay(v1, TD) - delay(es, TD);
-  annotation (defaultComponentName="line",
+  annotation (obsolete = "Please use Modelica.Electrical.Lines.TLine instead of this model",
+    defaultComponentName="line",
     Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
 <p><strong>References:</strong>
