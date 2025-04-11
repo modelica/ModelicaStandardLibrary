@@ -136,7 +136,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <li>This version is based on the recent Modelica language standard version 3.6.</li>
 </ul>
 <p>
-The following libraries, that were previously using version Modelica 4.0.0, were tested successfully with version 4.1.0 without any modification
+The following libraries, that were previously using version Modelica 4.0.0, were tested successfully with version 4.1.0 without any modification, using Dymola 2025x Refresh 1 and/or OpenModelica 1.25.0
 (alphabetical list):
 </p>
 <ul>
