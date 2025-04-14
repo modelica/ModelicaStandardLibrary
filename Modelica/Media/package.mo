@@ -6757,7 +6757,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         Temperature meltingPoint "Melting point at 101325 Pa";
         Temperature normalBoilingPoint "Normal boiling point (at 101325 Pa)";
         DipoleMoment dipoleMoment
-          "Dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+          "Dipole moment of molecule in Debye (1 debye = 3.33564e-30 C.m)";
         Boolean hasIdealGasHeatCapacity=false
           "= true, if ideal gas heat capacity is available";
         Boolean hasCriticalData=false "= true, if critical data are known";
@@ -6801,7 +6801,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         Temperature meltingPoint "Melting point at 101325 Pa";
         Temperature normalBoilingPoint "Normal boiling point (at 101325 Pa)";
         DipoleMoment dipoleMoment
-          "Dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+          "Dipole moment of molecule in Debye (1 debye = 3.33564e-30 C.m)";
         Boolean hasIdealGasHeatCapacity=false
           "= true, if ideal gas heat capacity is available";
         Boolean hasCriticalData=false "= true, if critical data are known";

@@ -65,8 +65,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><strong>1417</strong> component models and blocks,</li>
-<li><strong>512</strong> example models, and</li>
+<li><strong>1430</strong> component models and blocks,</li>
+<li><strong>534</strong> example models, and</li>
 <li><strong>1219</strong> functions</li>
 </ul>
 <p>
