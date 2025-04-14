@@ -175,6 +175,7 @@ The following libraries, that were previously using version Modelica 4.0.0, were
 <li>TestingLib 1.10.0</li>
 <li>ThermalManagementDemos 1.2.1</li>
 <li>ThermodynamicsConnector 1.3.0</li>
+<li>ThermofluidStream 1.2.0 (DLR)</li>
 <li>TIL/TILMedia 2024.1 (TLK-Thermo)</li>
 <li>VehicleInterfaces 2.0.1 </li>
 <li>VehicleDemos 2024.2</li>
