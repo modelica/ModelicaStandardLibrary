@@ -8956,7 +8956,9 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Michael Tiller</strong></td>
-   <td>Xogeny Inc., Canton, MI, U.S.A.<br>
+   <td>JuliaHub<br>
+     previously at:<br>
+     Xogeny Inc., Canton, MI, U.S.A.<br>
      previously at:<br>
      Emmeskay, Inc., Dearborn, MI, U.S.A.<br>
      previously at:<br>
@@ -8966,7 +8968,8 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Hubertus Tummescheit</strong></td>
-   <td>Modelon, Inc., Hartford, CT, U.S.A.</td>
+   <td>previously at:<br>
+     Modelon, Inc., Hartford, CT, U.S.A.</td>
    <td>Modelica.Media<br>
                       Modelica.Thermal.HeatTransfer</td>
 </tr>
