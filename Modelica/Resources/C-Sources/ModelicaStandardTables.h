@@ -1,6 +1,6 @@
 /* ModelicaStandardTables.h - External table functions header
 
-   Copyright (C) 2008-2024, Modelica Association and contributors
+   Copyright (C) 2008-2025, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
