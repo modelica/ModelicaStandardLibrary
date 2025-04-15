@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Copyright (C) 2021-2023, Modelica Association and contributors
+Copyright (C) 2021-2025, Modelica Association and contributors
 All rights reserved.
 
 Check for deprecated Text.lineColor annotation
