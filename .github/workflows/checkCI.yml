@@ -49,7 +49,7 @@ jobs:
         run: |
           git clone --branch 5.8.0 --depth=1 https://github.com/htacg/tidy-html5.git
           pushd tidy-html5
-          cmake .
+          cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 .
           make
           sudo make install
           popd
