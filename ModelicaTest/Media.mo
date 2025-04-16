@@ -979,7 +979,7 @@ is given to compare the approximation.
       parameter Modelica.Units.SI.PerUnit p_increase = 2;
       parameter Medium.Temperature Tmin = 190;
       parameter Medium.Temperature Tmax = 450;
-  
+
       Medium.ThermodynamicState state = Medium.setState_pTX(p,T);
       Medium.Temperature Tsat = Medium.saturationTemperature(p);
       Medium.AbsolutePressure p;
@@ -987,11 +987,11 @@ is given to compare the approximation.
       Medium.Density d = Medium.density(state);
       Medium.SpecificEnthalpy h = Medium.specificEnthalpy(state);
       Medium.ThermalConductivity k = Medium.thermalConductivity(state);
-  
+
       Medium.ThermodynamicState state_check = Medium.setState_phX(p,h);
       Medium.Temperature T_check = Medium.temperature(state_check);
       Medium.Density d_check = Medium.density(state_check);
-  
+
       Modelica.Units.SI.PerUnit dT;
     initial equation
       p = pmin;
