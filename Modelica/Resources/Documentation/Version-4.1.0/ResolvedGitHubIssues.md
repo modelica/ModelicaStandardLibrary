@@ -1,6 +1,6 @@
 # GitHub issues resolved for v4.1.0
 
-As part of this release 523 [issues](https://github.com/modelica/ModelicaStandardLibrary/milestone/61) (including 374 pull requests (PR)) were closed.
+As part of this release 553 [issues](https://github.com/modelica/ModelicaStandardLibrary/milestone/61) (including 386 pull requests (PR)) were closed.
 
 ## --MSL-general--
 
@@ -12,9 +12,11 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4136](https://github.com/modelica/ModelicaStandardLibrary/pull/4136) (PR) Unify spelling of controllers
 * [\#4196](https://github.com/modelica/ModelicaStandardLibrary/pull/4196) (PR) Fix and add ITEA links
 * [\#4208](https://github.com/modelica/ModelicaStandardLibrary/pull/4208) (PR) Bump used Modelica language version to 3.6
+* [\#4382](https://github.com/modelica/ModelicaStandardLibrary/issues/4382) Relevant enhancements to mention in the MSL 4.1.0 release notes
 
 ### Miscellaneous
 
+* [\#3567](https://github.com/modelica/ModelicaStandardLibrary/issues/3567) Modelica icon color
 * [\#3639](https://github.com/modelica/ModelicaStandardLibrary/pull/3639) (PR) Fix missing include in Common.c (CI)
 * [\#3642](https://github.com/modelica/ModelicaStandardLibrary/pull/3642) (PR) Include provided header files (CI)
 * [\#3643](https://github.com/modelica/ModelicaStandardLibrary/pull/3643) (PR) Fix and extend table tests (CI)
@@ -39,6 +41,8 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4247](https://github.com/modelica/ModelicaStandardLibrary/pull/4247) (PR) Update version, uses annotation and copyright year
 * [\#4357](https://github.com/modelica/ModelicaStandardLibrary/pull/4357) (PR) Update icon color of red dot
 * [\#4434](https://github.com/modelica/ModelicaStandardLibrary/pull/4434) (PR) Bump actions to avoid deprecation warnings (CI)
+* [\#4624](https://github.com/modelica/ModelicaStandardLibrary/pull/4624) (PR) Bump copyright year to 2025
+* [\#4630](https://github.com/modelica/ModelicaStandardLibrary/pull/4630) (PR) Fix building html tidy with current CMake ([\#4606](https://github.com/modelica/ModelicaStandardLibrary/issues/4606))
 
 ## Blocks
 
@@ -423,6 +427,7 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 
 ### Miscellaneous
 
+* [\#3628](https://github.com/modelica/ModelicaStandardLibrary/issues/3628) Use of Modelica.Constants.eps in Modelica.Fluid.Utilities.regFun3
 * [\#3649](https://github.com/modelica/ModelicaStandardLibrary/pull/3649) (PR) Just use "redeclare" instead of "redeclare final"
 * [\#3760](https://github.com/modelica/ModelicaStandardLibrary/pull/3760) (PR) Fix assert message of Modelica.Fluid.Pipes.BaseClasses.WallFriction.NoFriction.massFlowRate_dp_staticHead
 * [\#3802](https://github.com/modelica/ModelicaStandardLibrary/pull/3802) (PR) State temperatures in PartialHeatTransfer declared as Medium-specific type
@@ -436,6 +441,7 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 
 ### Bugs
 
+* [\#4552](https://github.com/modelica/ModelicaStandardLibrary/issues/4552) Bug in dp_volumeFlowRate_MFLOW function
 * [\#4580](https://github.com/modelica/ModelicaStandardLibrary/pull/4580) (PR) Fix wrong expression for the a = 0, b &gt; 0 case
 
 ### Enhancements
@@ -450,6 +456,10 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 
 ## Icons
 
+### Documentation
+
+* [\#4628](https://github.com/modelica/ModelicaStandardLibrary/pull/4628) (PR) Remove outdated contact information, esp. mail addresses
+
 ### Miscellaneous
 
 * [\#3632](https://github.com/modelica/ModelicaStandardLibrary/pull/3632) (PR) Render borders
@@ -460,6 +470,7 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 ### Bugs
 
 * [\#4158](https://github.com/modelica/ModelicaStandardLibrary/pull/4158) (PR) Remove unit-casting
+* [\#4537](https://github.com/modelica/ModelicaStandardLibrary/issues/4537) Wrong parameter in Magnetic/FluxTubes/Material
 * [\#4567](https://github.com/modelica/ModelicaStandardLibrary/pull/4567) (PR) Correct Magnetic.FluxTubes.Material.HysteresisTableData.M400_50A.sigma
 
 ### Enhancements
@@ -503,6 +514,7 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 ### Documentation
 
 * [\#3736](https://github.com/modelica/ModelicaStandardLibrary/pull/3736) (PR) More clearly specify damper cage in synchronous machine models
+* [\#4616](https://github.com/modelica/ModelicaStandardLibrary/pull/4616) (PR) Use proper modelica URIs
 
 ### Miscellaneous
 
@@ -617,6 +629,7 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 * [\#2474](https://github.com/modelica/ModelicaStandardLibrary/issues/2474) Spherical, etc. render poorly on non-white backgrounds
 * [\#3445](https://github.com/modelica/ModelicaStandardLibrary/issues/3445) Wrong rotation direction in planarRotation functions
 * [\#3634](https://github.com/modelica/ModelicaStandardLibrary/pull/3634) (PR) Utilize ellipses' closure
+* [\#3707](https://github.com/modelica/ModelicaStandardLibrary/issues/3707) No propagation of `fixed = false` in InitSpringConstant
 * [\#3716](https://github.com/modelica/ModelicaStandardLibrary/pull/3716) (PR) Improve icons of joint assemblies RRR and RRP
 * [\#3725](https://github.com/modelica/ModelicaStandardLibrary/pull/3725) (PR) Simplify selection of constraint equations to be used
 * [\#3729](https://github.com/modelica/ModelicaStandardLibrary/pull/3729) (PR) Fix position of component's and parameter's name according to icon conventions
@@ -701,6 +714,7 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4428](https://github.com/modelica/ModelicaStandardLibrary/issues/4428) ModelicaTest.Media.TestOnly.WaterIF97_dewEnthalpy uses partial package
 * [\#4512](https://github.com/modelica/ModelicaStandardLibrary/issues/4512) Issue with ReferenceMoistAir Beyond 500°C
 * [\#4546](https://github.com/modelica/ModelicaStandardLibrary/pull/4546) (PR) Fix Utilities functions of ReferenceMoistAir to also work with Xi
+* [\#4626](https://github.com/modelica/ModelicaStandardLibrary/pull/4626) (PR) Fix Modelica.Media.R134a.R134a_ph.setState_pTX
 
 ### Examples
 
@@ -711,6 +725,11 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 
 * [\#3629](https://github.com/modelica/ModelicaStandardLibrary/pull/3629) (PR) Fix outdated contact
 * [\#4084](https://github.com/modelica/ModelicaStandardLibrary/pull/4084) (PR) Documentation: improve indentation of HTML code
+* [\#4549](https://github.com/modelica/ModelicaStandardLibrary/issues/4549) Modelica.Media.Interfaces.Types.IdealGas.FluidConstants.dipoleMoment and Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants.dipoleMoment typo in conversion factor from debye to C.m
+* [\#4586](https://github.com/modelica/ModelicaStandardLibrary/issues/4586) Modelica.Media.IdealGases.SingleGases typo in documentation
+* [\#4619](https://github.com/modelica/ModelicaStandardLibrary/pull/4619) (PR) Fix typo in conversion factor from debye to C.m
+* [\#4625](https://github.com/modelica/ModelicaStandardLibrary/pull/4625) (PR) Fix column layout in documentation of Modelica.Media.IdealGases.SingleGases ([\#4588](https://github.com/modelica/ModelicaStandardLibrary/issues/4588))
+* [\#4628](https://github.com/modelica/ModelicaStandardLibrary/pull/4628) (PR) Remove outdated contact information, esp. mail addresses
 
 ### Miscellaneous
 
@@ -798,6 +817,7 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4554](https://github.com/modelica/ModelicaStandardLibrary/issues/4554) Asserts on Real values with test models are too tight
 * [\#4566](https://github.com/modelica/ModelicaStandardLibrary/pull/4566) (PR) Fix for [\#4424](https://github.com/modelica/ModelicaStandardLibrary/issues/4424)
 * [\#4581](https://github.com/modelica/ModelicaStandardLibrary/pull/4581) (PR) Add numerical tolerance to floating-point number comparison in ModelicaTest.Fluid.TestComponents.Machines.TestLinearPower
+* [\#4629](https://github.com/modelica/ModelicaStandardLibrary/pull/4629) (PR) Add test model ModelicaTest.Media.TestOnly.R134a_setState_pTX_high_T
 
 ## Resources
 
@@ -900,6 +920,7 @@ As part of this release 523 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4251](https://github.com/modelica/ModelicaStandardLibrary/pull/4251) (PR) Create Modelica.UsersGuide.ReleaseNotes.Version_4_1_0
 * [\#4435](https://github.com/modelica/ModelicaStandardLibrary/pull/4435) (PR) Fix links
 * [\#4501](https://github.com/modelica/ModelicaStandardLibrary/pull/4501) (PR) Remove dead link to old OM wiki
+* [\#4628](https://github.com/modelica/ModelicaStandardLibrary/pull/4628) (PR) Remove outdated contact information, esp. mail addresses
 
 ## Utilities
 
