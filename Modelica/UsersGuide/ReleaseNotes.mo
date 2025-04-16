@@ -181,7 +181,9 @@ The following libraries, that were previously using version Modelica 4.0.0, were
 <li>VehicleDemos 2024.2</li>
 <li>VeSyMA 2024.2</li>
 <li>VeSyMA2EPTL 2024.2</li>
-<li>Visa2*</li>
+<li>Visa2Base 1.17</li>
+<li>Visa2Paper 1.17</li>
+<li>Visa2Steam 1.17</li>
 <li>WindPower 1.1.5</li>
 </ul>
 
@@ -561,7 +563,7 @@ The following libraries, that were previously using version Modelica 4.0.0, were
 </tr>
 <tr>
 <td>dofpT</td>
-<td>Changed code to now compute guess values of density from temperature <code>dofpT</code></td>
+<td>Changed code to ensure convergence to correct values throughout the entire p,T validity range</td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Math</h4></td>
