@@ -181,7 +181,9 @@ The following libraries, that were previously using version Modelica 4.0.0, were
 <li>VehicleDemos 2024.2</li>
 <li>VeSyMA 2024.2</li>
 <li>VeSyMA2EPTL 2024.2</li>
-<li>Visa2*</li>
+<li>Visa2Base 1.17</li>
+<li>Visa2Paper 1.17</li>
+<li>Visa2Steam 1.17</li>
 <li>WindPower 1.1.5</li>
 </ul>
 
