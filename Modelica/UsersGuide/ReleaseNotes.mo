@@ -130,90 +130,459 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (Documentation(info="<html>
-<p>
-Version 4.1.0 is backward compatible to version 4.0.0, that is models developed with
-versions 4.0.0 will work without any changes also with version 4.1.0.
-Short Overview:
-</p>
+<p>Version 4.1.0 is backward compatible to version 4.0.0, that is models developed with version 4.0.0 will work without any changes also with version 4.1.0. Short Overview: </p>
 <ul>
 <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">554 issues (including 387 pull requests)</a> have been addressed for this release.</li>
 <li>This version is based on the recent Modelica language standard version 3.6.</li>
 </ul>
 <p>
-The following <font color=\"blue\"><strong>Modelica packages</strong></font> have been tested that they work together with this release of package Modelica (alphabetical list).
+The following libraries, that were previously using version Modelica 4.0.0, were tested successfully with version 4.1.0 without any modification, using Dymola 2025x Refresh 1 and/or OpenModelica 1.25.0
+(alphabetical list):
 </p>
+<ul>
+<li>AviationSystems 1.6.2</li>
+<li>AviationSystems_Demos 1.6.2</li>
+<li>Battery 2.8.1</li>
+<li>BrushlessDCDrives 1.4.3</li>
+<li>Buildings 12.0.0 (LBL)</li>
+<li>CATIAMultiBody 2.0 (DS)</li>
+<li>ClaRa/ClaRaPlus 1.7.5 (TLK-Thermo)</li>
+<li>Claytex 2024.2</li>
+<li>ClaytexFluid 2024.2</li>
+<li>Cooling 1.5.4</li>
+<li>DassaultSystemes 1.14.0</li>
+<li>DriveControl</li>
+<li>DymolaModels 1.10.0</li>
+<li>ElectricPowerSystems 1.7.0</li>
+<li>ElectrifiedPowertrains 1.11.0</li>
+<li>EMOTH</li>
+<li>Engines 2024.2</li>
+<li>FlexibleBodies 2.4.0</li>
+<li>FluidDynamicsLib 2.18.0 (XRG)</li>
+<li>FluidPower 2024.2</li>
+<li>FTire 1.3.2</li>
+<li>Hydrogen 1.4.2</li>
+<li>Modelica_StateGraph2 2.1.0</li>
+<li>Modelica_DeviceDrivers 2.1</li>
+<li>FlightDynamics 1.0.4</li>
+<li>HanserModelica</li>
+<li>HumanComfortLib 2.18.0 (XRG)</li>
+<li>PhotoVoltaics</li>
+<li>PhotoVoltaics_TGM</li>
+<li>PlanarMechanics 1.6.0 (DLR)</li>
+<li>PneumaticSystems 1.7.2</li>
+<li>SDF 0.4.5</li>
+<li>TestingLib 1.10.0</li>
+<li>ThermalManagementDemos 1.2.1</li>
+<li>ThermodynamicsConnector 1.3.0</li>
+<li>ThermofluidStream 1.2.0 (DLR)</li>
+<li>TIL/TILMedia 2024.1 (TLK-Thermo)</li>
+<li>VehicleInterfaces 2.0.1 </li>
+<li>VehicleDemos 2024.2</li>
+<li>VeSyMA 2024.2</li>
+<li>VeSyMA2EPTL 2024.2</li>
+<li>Visa2Base 1.17</li>
+<li>Visa2Paper 1.17</li>
+<li>Visa2Steam 1.17</li>
+<li>WindPower 1.1.5</li>
+</ul>
 
-<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+<p><br>The following <strong><font color=\"blue\">new components</font></strong> have been added to <strong><font color=\"blue\">existing</font></strong> libraries: </p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td colspan=\"2\"><h4>Modelica.Blocks.Logical</h4></td>
+</tr>
+<tr>
+<td>AssertCondition</td>
+<td>This block is useful for applying asserts via graphical layer.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Blocks.Math</h4></td>
+</tr>
+<tr>
+<td>Exponentiation</td>
+<td>Performs general exponentiation.</td>
+</tr>
+<tr>
+<td>SignalExtrema</td>
+<td>This block calculates the <code>min</code> and the <code>max</code> of the input signal <code>u</code> and stores the time at which the last minimum or maximum was reached in the variables <code>t_min</code> and <code>t_max</code> respectively. </td>
+</tr>
+<tr>
+<td>ContinuousSignalExtrema</td>
+<td>This block detects positive and negative peaks of differentiable and non-differentiable input signals without sampling.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.Analog.Lines</h4></td>
+</tr>
+<tr>
+<td>TLine</td>
+<td>Lossless transmission line with characteristic impedance <code>Z0</code> and transmission delay <code>TD</code>. </td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.Analog.Sources</h4></td>
+</tr>
+<tr>
+<td>LightningImpulse</td>
+<td>Block that provides the simplified trajectory of an impulse (like the current of lightnings) as one of two approximation functions.</td>
+</tr>
+<tr>
+<td>LightningImpulseCurrent</td>
+<td>Lightning impulse current using either a double exponential function or a Heidler function</td>
+</tr>
+<tr>
+<td>LightningImpulseVoltage</td>
+<td>Lightning impulse voltage using either a double exponential function or a Heidler function</td>
+</tr>
+<tr>
+<td>DCPowerSupply</td>
+<td>This is a simple model of a DC power supply, as used in laboratories. It can only work in one quadrant. </td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.Machines.Utilities</h4></td>
+</tr>
+<tr>
+<td>RotationalCoupling</td>
+<td>Ideal stiff coupling: one device connected to the coupling is turning clockwise (looking at the shaft end), the other device connected to the coupling is turning counter-clockwise (looking at the shaft end). The torque at flange_b has the same magnitude as the torque at flange_a but opposite sign.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.PowerConverters.DCDC</h4></td>
+</tr>
+<tr>
+<td>ChopperBuckBoost</td>
+<td>This is a bidirectional buck / boost - converter with 2 transistors and 2 freewheeling diodes.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</h4></td>
+</tr>
+<tr>
+<td>Transformer</td>
+<td>Models a quasistatic singlephase transformer using a two-port matrix.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</h4></td>
+</tr>
+<tr>
+<td>CurrentRMSSensor</td>
+<td>This sensor determines the continuous root mean square (RMS) value of a single-phase current system.</td>
+</tr>
+<tr>
+<td>VoltageRMSSensor</td>
+<td>This sensor determines the continuous root mean square (RMS) value of a single-phase voltage system.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Components</h4></td>
+</tr>
+<tr>
+<td>Coupling</td>
+<td>This is a model of an ideal stiff coupling (face to face).</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Sources</h4></td>
+</tr>
+<tr>
+<td>InverseSpeedDependentTorque</td>
+<td>Model of inverse speed-dependent torque.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Translational.Sources</h4></td>
+</tr>
+<tr>
+<td>InverseSpeedDependentForce</td>
+<td>Model of inverse speed-dependent force.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Units.SI</h4></td>
+</tr>
+<tr>
+<td>StoichiometricCoefficient</td>
+<td>&nbsp;New SI unit type </td>
+</tr>
+</table>
+<p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><font color=\"blue\">improved</font></strong> in a <strong><font color=\"blue\">backward compatible</font></strong> way:</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td colspan=\"2\"><h4>Modelica.Blocks.Sources</h4></td>
+</tr>
+<tr>
+<td>CombiTimeTable</td>
+<td>Added support of reading CSV files.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Blocks.Tables</h4></td>
+</tr>
+<tr>
+<td>CombiTable1Ds<br>CombiTable1Dv<br>CombiTable2Ds<br>CombiTable2Dv</td>
+<td>Added support of reading CSV files.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.PowerConverters.DCDC</h4></td>
+</tr>
+<tr>
+<td>HBridge</td>
+<td>An enhanced distribution of the fire signals avoids a short circuit on the source, and enables an enhanced pwm algorithm.</td>
+</tr>
+<tr>
+<td>Control.SignalPWM</td>
+<td>The reference signal can be chosen between sawtooth and triangle, and the comparison between <code>dutyCycle</code> and reference signal is either applied common or separated for both fire ports.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Components</h4></td>
+</tr>
+<tr>
+<td>BearingFriction</td>
+<td>The table interpolation in <code>tau_pos</code> utilizes the interpolation based on <a href=\"Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td>
+</tr>
+<tr>
+<td>LossyGear</td>
+<td>The table interpolation in <code>lossTable</code> utilizes the interpolation based on <a href=\"Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Sources</h4></td>
+</tr>
+<tr>
+<td>EddyCurrentTorque</td>
+<td>Enhanced with optional influence of variable excitation.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Translational.Components</h4></td>
+</tr>
+<tr>
+<td>SupportFriction</td>
+<td>The table interpolation in <code>f_pos</code> utilizes the interpolation based on <a href=\"Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Translational.Sources</h4></td>
+</tr>
+<tr>
+<td>EddyCurrentForce</td>
+<td>Enhanced with optional influence of variable excitation.</td>
+</tr>
+</table>
+<p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><font color=\"blue\">changed</font></strong> in a <strong><font color=\"blue\">non-backward compatible</font></strong> way, even though this is not expected in general to affect models using the library, except in very rare cases:</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
+<td colspan=\"2\"><h4>Modelica.Blocks</h4></td>
+</tr>
+<tr>
+<td>Discrete.Sampler<br>Discrete.ZeroOrderHold</td>
+<td>Fixed the start time of <code>ZeroOrderHold</code> and <code>Sampler</code>. Parameter <code>startTime</code> was implemented, but ignored.</td>
+</tr>
+<tr>
+<td>Continuous.PID</td>
+<td>Removed the <code>min</code> attribute of gain in Blocks.Continuous.LimPID</td>
+</tr>
+<tr>
+<td>Math.ContinuousMean</td>
+<td>Simplified the mean formula</td>
+</tr>
+<tr>
+<td>Routing.Extractor</td>
+<td>The block will now trigger an assert if <code>index</code> is out range, unless <code>allowOutOfRange</code> is set.</td>
+</tr>
+<tr>
+<td>Sources.ContinuousClock</td>
+<td>Updated to declare that the output is smooth</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Constants</h4></td>
+</tr>
+<tr>
+<td>inf<br>small<br>eps</td>
+<td>Definitions changed to make them consistent with commonly accepted ones, see, e.g. <a href=\"https://en.wikipedia.org/wiki/Machine_epsilon\">Wikipedia</a>. As a consequence, their tool-specific implementations in <code>ModelicaServices</code> may have changed compared to version 4.0.0.<br>Tools may provide a compatibility flag to keep the old values.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Fluid.Vessels</h4></td>
+</tr>
+<tr>
+<td>OpenTank</td>
+<td>Assertion for empty tank to prevent singular energy balance</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Magnetic.FundamentalWave.BaseClasses</h4></td>
+</tr>
+<tr>
+<td>Machine</td>
+<td>Internal used ports of the optional mechanical housing port and the optional thermal port is made <code>protected</code></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses</h4></td>
+</tr>
+<tr>
+<td>Machine</td>
+<td>Internal used ports of the optional mechanical housing port and the optional thermal port is made <code>protected</code></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody</h4></td>
+</tr>
+<tr>
+<td>World</td>
+<td>The protected parameters <code>ndim</code>, <code>ndim2</code> and <code>ndim_pointGravity</code> have been removed.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody.Forces</h4></td>
+</tr>
+<tr>
+<td>Spring</td>
+<td>Propagation of lifted parameters in Spring&apos;s lineForce component made final.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Components</h4></td>
+</tr>
+<tr>
+<td>Brake<br>Clutch<br>OneWayClutch</td>
+<td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a <code>protected final</code> parameter.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Translational.Components</h4></td>
+</tr>
+<tr>
+<td>Brake</td>
+<td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a <code>protected final</code> parameter.</td>
+</tr>
+</table>
+<p><br><br>The following <strong><font color=\"blue\">critical errors</font></strong> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td colspan=\"2\"><h4>Modelica.Blocks.Tables</h4></td>
+</tr>
+<tr>
+<td>CombiTable2Ds<br>CombiTable2Dv</td>
+<td>The derivatives for one-sided extrapolation by constant continuation (i.e., extrapolation=<code>Modelica.Blocks.Types.Extrapolation.HoldLastPoint</code>) returned a constant zero value. This has been corrected.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.ComplexBlocks.ComplexMath</h4></td>
+</tr>
+<tr>
+<td>TransferFunction</td>
+<td>Fixed interpretation of coefficients of complex transfer function</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.ComplexBlocks.Sources</h4></td>
+</tr>
+<tr>
+<td>ComplexRampPhasor</td>
+<td>Simplify ComplexRampPhasor.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.Batteries.Utilities</h4></td>
+</tr>
+<tr>
+<td>PulseSeries</td>
+<td>Clarified usage of pause between pulses and between pulse series</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.Polyphase.Basic</h4></td>
+</tr>
+<tr>
+<td>Resistor <br>Conductor<br>VariableResistor<br>VariableConductor</td>
+<td>Propagate parameter <code>T</code> in <code>Resistor</code> and <code>Conductor</code></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.PowerConverters.DCAC.Control</h4></td>
+</tr>
+<tr>
+<td>SVPWM</td>
+<td>Corrected a bug in the equation</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Fluid.Dissipation.PressureLoss.General</h4></td>
+</tr>
+<tr>
+<td>dp_volumeFlowRate_MFLOW</td>
+<td>The function now correctly computes the pressure loss in the linear case, i.e., <code>a = 0</code> and <code>b > 0</code>.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Fluid.Fittings.GenericResistances</h4></td>
+</tr>
+<tr>
+<td>VolumeFlowRate</td>
+<td>The model now correctly computes the pressure loss in the linear case, i.e., <code>a = 0</code> and <code>b > 0</code>.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Magnetic.FluxTubes.Material.HysteresisTableData</h4></td>
+</tr>
+<tr>
+<td>M400_50A</td>
+<td>The value of parameter <code>sigma</code> has been corrected.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</h4></td>
+</tr>
+<tr>
+<td>HollowCylinderAxialFlux<br>HollowCylinderRadialFlux</td>
+<td>Usage of parameter <code>alpha</code> (central angle) instead of pi without any choice<br>Usage of parameter <code>alpha</code> (central angle) instead of pi without any choice</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</h4></td>
+</tr>
+<tr>
+<td>HollowCylinderAxialFlux<br>HollowCylinderRadialFlux</td>
+<td>Propagated the angle <code>alpha</code> also in the calculation of <code>A</code> in <code>HollowCylinderRadialFlux</code></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody.Frames.Quaternions</h4></td>
+</tr>
+<tr>
+<td>from_T</td>
+<td>The calculation was not stable. This has been corrected.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Mechanics.MultiBody.Sensors.Internal</h4></td>
+</tr>
+<tr>
+<td>BasicAbsoluteAngularVelocity</td>
+<td>Corrected the error with <code>frame_resolve</code> math in <code>BasicAbsoluteAngularVelocity</code> sensor</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData</h4></td>
+</tr>
+<tr>
+<td>sharpEdgedOrifice</td>
+<td>Bug in <code>SharpEdgedOrifice</code> for Loss factors resolved</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Fluid.Utilities</h4></td>
+</tr>
+<tr>
+<td>regFun3</td>
+<td>The function produced wrong results in horizontal wall friction models. This is fixed.</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Media.Air.MoistAir.Utilities</h4></td>
+</tr>
+<tr>
+<td>spliceFunction<br>spliceFunction_der</td>
+<td>Refactor <code>spliceFunction_der</code></td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Media.Air.ReferenceMoistAir.Utilities</h4></td>
+</tr>
+<tr>
+<td>pd_pTX_der</td>
+<td>Corrected the error in the function for computation of partial pressure derivative of steam</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Media.R134a.R134a_ph</h4></td>
+</tr>
+<tr>
+<td>dofpT</td>
+<td>Changed code to ensure convergence to correct values throughout the entire p,T validity range</td>
+</tr>
+<tr>
+<td colspan=\"2\"><h4>Modelica.Math</h4></td>
+</tr>
+<tr>
+<td>isPowerOf2</td>
+<td>Corrected the issue of wrong results for large inputs</td>
+</tr>
+</table>
+<p><br><br>The following models were declared as <strong><font color=\"blue\">obsolete</font></strong>, thus to be preferably replaced with better, more general ones:</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.Analog.Lines</h4></td>
+</tr>
+<tr>
+<td>TLine1<br>TLine2<br>Tline3</td>
+<td>Replaced by generic <code>Tline</code> model with appropriate parametrization.</td>
+</tr>
 </table>
 
-<p><br>
-The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
-</p>
-
-<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-</table>
-
-<p><br>
-The following <font color=\"blue\"><strong>new components</strong></font> have been added to <font color=\"blue\"><strong>existing</strong></font> libraries:
-</p>
-
-<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
-</table>
-
-<p><br>
-The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>improved</strong></font> in a <font color=\"blue\"><strong>backward compatible</strong></font> way:
-</p>
-
-<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
-<tr><td>CombiTimeTable</td>
-    <td>Added support of reading CSV files.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
-<tr><td>CombiTable1Ds<br>CombiTable1Dv<br>CombiTable2Ds<br>CombiTable2Dv</td>
-    <td>Added support of reading CSV files.</td></tr>
-<tr><td colspan=\"2\"><strong>Electrical.PowerConverters.DCDC</strong></td></tr>
-<tr><td>HBridge</td>
-    <td>An enhanced distribution of the fire signals avoids a short circuit on the source, and enables an enhanced pwm algorithm.</td></tr>
-<tr><td>Control.SignalPWM</td>
-    <td>The reference signal can be chosen between sawtooth and triangle, and 
-        the comparison between dutyCycle and reference signal is either applied common or separated for both fire ports.</td></tr>
-<tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
-<tr><td>BearingFriction</td>
-    <td>The table interpolation in <code>tau_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
-<tr><td>LossyGear</td>
-    <td>The table interpolation in <code>lossTable</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
-<tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
-<tr><td>SupportFriction</td>
-    <td>The table interpolation in <code>f_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
-</table>
-
-<p><br>
-The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
-</p>
-
-<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong>Mechanics.MultiBody</strong></td></tr>
-<tr><td>World</td>
-    <td>The protected parameters <code>ndim</code>, <code>ndim2</code> and
-        <code>ndim_pointGravity</code> have been removed.</td></tr>
-<tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
-<tr><td>Brake<br>Clutch<br>OneWayClutch</td>
-    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
-<tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
-<tr><td>Brake</td>
-    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
-</table>
-
-<p><br>
-The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
-that can lead to wrong simulation results):
-</p>
-
-<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
-<tr><td>CombiTable2Ds<br>CombiTable2Dv</td>
-    <td>The derivatives for one-sided extrapolation by constant continuation (i.e., extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) returned a constant zero value. This has been corrected.</td></tr>
-</table>
 </html>"));
 end Version_4_1_0;
 
@@ -1403,7 +1772,10 @@ tools might not yet supported the complete Modelica package):
      was not standardized when this version of Dymola was released).</li>
 <li> Maplesim Parser</li>
 <li> MWorks 3.2</li>
-<li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)</li>
+<li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)<br>
+     Test reports for the daily builds are available
+     <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.
+     </li>
 <li> SimulationX 3.6</li>
 </ul>
 
@@ -1755,7 +2127,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 <tr><td><a href=\"modelica://Modelica.Electrical.Spice3\">Modelica.Electrical.Spice3</a></td>
     <td>
     Library with components of the Berkeley
-    <a href=\"https://web.archive.org/web/20231004060901/http://bwrcs.eecs.berkeley.edu/Classes/IcBook/SPICE/\">SPICE3</a>
+    <a href=\"http://bwrc.eecs.berkeley.edu/Classes/IcBook/SPICE/\">SPICE3</a>
     simulator:<br>
     R, C, L, controlled and independent sources, semiconductor device models
     (MOSFET Level 1, Bipolar junction transistor, Diode, Semiconductor resistor).
