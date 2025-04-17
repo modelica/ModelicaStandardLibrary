@@ -1,6 +1,6 @@
 # GitHub issues resolved for v4.1.0
 
-As part of this release 553 [issues](https://github.com/modelica/ModelicaStandardLibrary/milestone/61) (including 386 pull requests (PR)) were closed.
+As part of this release 554 [issues](https://github.com/modelica/ModelicaStandardLibrary/milestone/61) (including 387 pull requests (PR)) were closed.
 
 ## --MSL-general--
 
@@ -42,7 +42,7 @@ As part of this release 553 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4357](https://github.com/modelica/ModelicaStandardLibrary/pull/4357) (PR) Update icon color of red dot
 * [\#4434](https://github.com/modelica/ModelicaStandardLibrary/pull/4434) (PR) Bump actions to avoid deprecation warnings (CI)
 * [\#4624](https://github.com/modelica/ModelicaStandardLibrary/pull/4624) (PR) Bump copyright year to 2025
-* [\#4630](https://github.com/modelica/ModelicaStandardLibrary/pull/4630) (PR) Fix building html tidy with current CMake ([\#4606](https://github.com/modelica/ModelicaStandardLibrary/issues/4606))
+* [\#4630](https://github.com/modelica/ModelicaStandardLibrary/pull/4630) (PR) Fix building html tidy with current CMake (CI)
 
 ## Blocks
 
