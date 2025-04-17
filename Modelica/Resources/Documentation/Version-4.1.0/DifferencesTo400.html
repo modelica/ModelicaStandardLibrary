@@ -185,7 +185,7 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>
 </tr>
 <tr>
 <td colspan="2"
-style="vertical-align: middle; text-align: left;">      Modelica410.Utilities.Streams.error("LimPID: Start value y_start (="<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+ String(y_start) + ") is outside of the limits of yMin (=" +<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspString(yMin) + ") and yMax (=" + String(yMax) + ")");<br> ... <br>
+style="vertical-align: middle; text-align: left;">      Modelica410.Utilities.Streams.error("LimPID: Start value y_start (=" +<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspString(y_start) + ") is outside of the limits of yMin (=" + String(yMin)<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+ ") and yMax (=" + String(yMax) + ")");<br> ... <br>
 </td>
 </tr>
 <br></tbody>
@@ -528,7 +528,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">      y = offset + amplitude*smooth(0, (if time &lt; startTime then<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspModelica410.Math.sin(phase) else Modelica410.Math.sin(2*pi*f*(time<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp- startTime) + phase)));<br>  else<br>      y = offset + (if time &lt; startTime then 0 else amplitude*<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspModelica410.Math.sin(2*pi*f*(time - startTime) + phase));<br>  end if;<br>
+<td style="vertical-align: middle; text-align: left;">      y = offset + amplitude*smooth(0, (if time &lt; startTime then<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspModelica410.Math.sin(phase) else Modelica410.Math.sin(2*pi*f*(time -<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspstartTime) + phase)));<br>  else<br>      y = offset + (if time &lt; startTime then 0 else amplitude*<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspModelica410.Math.sin(2*pi*f*(time - startTime) + phase));<br>  end if;<br>
 </td>
 <td><br></td>
 </tr>
@@ -569,7 +569,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">      y = offset + smooth(0, amplitude*(if time &lt; startTime then<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspModelica410.Math.cos(phase) else Modelica410.Math.cos(2*pi*f*(time<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp- startTime) + phase)));<br>  else<br>      y = offset + (if time &lt; startTime then 0 else amplitude*<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspModelica410.Math.cos(2*pi*f*(time - startTime) + phase));<br>  end if;<br>
+<td style="vertical-align: middle; text-align: left;">      y = offset + smooth(0, amplitude*(if time &lt; startTime then<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspModelica410.Math.cos(phase) else Modelica410.Math.cos(2*pi*f*(time -<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspstartTime) + phase)));<br>  else<br>      y = offset + (if time &lt; startTime then 0 else amplitude*<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspModelica410.Math.cos(2*pi*f*(time - startTime) + phase));<br>  end if;<br>
 </td>
 <td><br></td>
 </tr>
@@ -1103,7 +1103,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 </tr>
 <tr>
 <td colspan="2"
-style="vertical-align: middle; text-align: left;">  phi = (if useConjugateInput then Modelica410.Math.atan2(-u.im, u.re)<br>&nbsp&nbsp&nbsp&nbsp&nbspelse Modelica410.Math.atan2(u.im, u.re));
+style="vertical-align: middle; text-align: left;">  phi = (if useConjugateInput then Modelica410.Math.atan2(-u.im, u.re) else<br>&nbsp&nbsp&nbsp&nbspModelica410.Math.atan2(u.im, u.re));
 </td>
 </tr>
 <br></tbody>
@@ -3175,7 +3175,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -3188,7 +3188,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.1.0</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">aimc<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=aimcData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">transformer<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">aimc<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=aimcData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -3247,7 +3247,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -3260,7 +3260,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.1.0</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">aimc<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=aimcData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">aimcData<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">aimc<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=aimcData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -3319,7 +3319,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -3332,7 +3332,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.1.0</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">smeeM<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">smee3<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="3" style="vertical-align: middle;">smeeData<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">smeeM<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">smee3<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -3445,7 +3445,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -3458,29 +3458,11 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.1.0</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">smeeM<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="3" style="vertical-align: middle;">smeeData<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">smeeM<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_LoadDump</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
- cellpadding="5">
-<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
-<tr>
-<td style="text-align: left; vertical-align: middle;"><span
-style="font-weight: bold;">Component</span><br>
-</td>
-<td style="text-align: left; vertical-align: middle;"><span
-style="font-weight: bold;">Modelica Standard Library - Version 4.1.0</span><br>
-</td>
-<td style="text-align: left; vertical-align: middle;"><span
-style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
-</td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">smee<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">smeeData<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">setPointGain<br></td><td style="text-align: left; vertical-align: middle;">k=(smeeData.VsNominal/wNominal)<br></td><td style="text-align: left; vertical-align: middle;">k=(smeeData.VsNominal/wNominal)/unitMagneticFlux<br></td></tr></tbody>
-</table>
-
-<br><hr style="width: 100%; height: 6px;"><br>
-<big style="font-family: Arial;">model Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Rectifier</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
@@ -3494,7 +3476,25 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.1.0</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">smee<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">smeeData<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">smee<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">setPointGain<br></td><td style="text-align: left; vertical-align: middle;">k=(smeeData.VsNominal/wNominal)<br></td><td style="text-align: left; vertical-align: middle;">k=(smeeData.VsNominal/wNominal)/unitMagneticFlux<br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Rectifier</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica Standard Library - Version 4.1.0</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">smee<br></td><td style="text-align: left; vertical-align: middle;">ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -3875,7 +3875,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  G_m = <span style="color: rgb(0, 153, 0); font-weight: bold;">mu_0*mu_r*alpha*l/Modelica410.</span>Math.<span style="color: rgb(0, 153, 0); font-weight: bold;">log(r_o/r_i);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  G_m = <span style="color: rgb(102, 0, 204); font-weight: bold;">2*pi*mu_0*mu_r*l/Modelica400.</span>Math.<span style="color: rgb(102, 0, 204); font-weight: bold;">log(r_o/r_i)*alpha/(2*<br> </span><span style="color: rgb(102, 0, 204); font-weight: bold;">   Modelica400.Constants.pi);</span>
+<td style="vertical-align: middle; text-align: left;">  G_m = <span style="color: rgb(102, 0, 204); font-weight: bold;">2*pi*mu_0*mu_r*l/Modelica400.</span>Math.<span style="color: rgb(102, 0, 204); font-weight: bold;">log(r_o/r_i)*alpha/(2*Modelica400.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Constants.pi);</span>
 </td>
 </tr>
 <br></tbody>
@@ -5083,7 +5083,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">assert(size(tau_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1) &gt; 0 and size(tau_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">2) &gt; 0,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">"Parameter tau_pos is an empty matrix");</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">tau0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">      </span><span style="color: rgb(102, 0, 204); font-weight: bold;">  tau_pos[:, 1],<br>            tau_pos[:, 2],<br>            0,<br>            1);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">tau0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:, 1],<br>   </span><span style="color: rgb(102, 0, 204); font-weight: bold;"> tau_pos[:, 2],<br>    0,<br>    1);</span>
 </td>
 </tr>
 <tr>
@@ -5097,9 +5097,9 @@ style="vertical-align: middle; text-align: left;">  tau0_max = peak*tau0;<br> ..
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">table_signs </span>=<br> <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>if     <span style="color: rgb(0, 153, 0); font-weight: bold;">startForward </span>        <span style="color: rgb(0, 153, 0); font-weight: bold;">then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif startBackward </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">then {-1,-1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif pre(mode) == Forward then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">else </span>                            <span style="color: rgb(0, 153, 0); font-weight: bold;">{-1,-1};</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">table_signs </span>=<br> <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>if     <span style="color: rgb(0, 153, 0); font-weight: bold;">startForward </span>        then <span style="color: rgb(0, 153, 0); font-weight: bold;">{ 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif </span><span style="color: rgb(0, 153, 0); font-weight: bold;">startBackward </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">then {-1,-1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif pre(mode) == Forward then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">else </span>                            <span style="color: rgb(0, 153, 0); font-weight: bold;">{-1,-1};</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">tau </span>= if <span style="color: rgb(102, 0, 204); font-weight: bold;">locked then sa*unitTorque else (if startForward then<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.Math.Vectors.interpolate(<br> </span>           <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">w,</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else if startBackward then -<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">  </span><span style="color: rgb(102, 0, 204); font-weight: bold;">      tau_pos[:, 1],<br>            tau_pos[:, 2],<br>            -w,<br>            1) else if pre(mode) == Forward then<br>    Modelica400.Math.Vectors.interpolate(<br>            tau_pos[:, 1],<br>            tau_pos[:, 2],<br>            w,<br>            1) else -Modelica400.Math.Vectors.interpolate(<br>            tau_pos[:, 1],<br>            tau_pos[:, 2],<br>            -w,<br>            1));</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">tau </span>= if <span style="color: rgb(102, 0, 204); font-weight: bold;">locked then sa*unitTorque else (if startForward then<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],<br>    w,<br>    1) else if startBackward </span>then <span style="color: rgb(102, 0, 204); font-weight: bold;">-Modelica400.Math.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">-w,</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else if pre(mode) == Forward then Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">w,</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else -Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">tau_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>   <span style="color: rgb(102, 0, 204); font-weight: bold;"> -w,</span><span style="color: rgb(102, 0, 204); font-weight: bold;"><br>    1));</span>
 </td>
 </tr>
 <tr>
@@ -5145,7 +5145,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">assert(size(mu_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1) &gt; 0 and size(mu_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">2) &gt; 0,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">"Parameter mu_pos is an empty matrix");</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">mu0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">      </span><span style="color: rgb(102, 0, 204); font-weight: bold;">  mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            0,<br>            1);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">mu0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:, 1],<br>   </span><span style="color: rgb(102, 0, 204); font-weight: bold;"> mu_pos[:, 2],<br>    0,<br>    1);</span>
 </td>
 </tr>
 <tr>
@@ -5154,9 +5154,9 @@ style="vertical-align: middle; text-align: left;">  phi = flange_a.phi - phi_sup
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">table_signs </span>=<br> <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>if     <span style="color: rgb(0, 153, 0); font-weight: bold;">startForward </span>        <span style="color: rgb(0, 153, 0); font-weight: bold;">then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif startBackward </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">then {-1,-1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif pre(mode) == Forward then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">else </span>                            <span style="color: rgb(0, 153, 0); font-weight: bold;">{-1,-1};</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">table_signs </span>=<br> <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>if    <span style="color: rgb(0, 153, 0); font-weight: bold;"> </span>startForward         then <span style="color: rgb(0, 153, 0); font-weight: bold;">{ 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif </span><span style="color: rgb(0, 153, 0); font-weight: bold;">startBackward </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">then {-1,-1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif pre(mode) == Forward then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">else </span>                            <span style="color: rgb(0, 153, 0); font-weight: bold;">{-1,-1};</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">tau </span>= if <span style="color: rgb(102, 0, 204); font-weight: bold;">locked then sa*unitTorque else if free then 0 else cgeo*fn*(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">if startForward then Modelica400.Math.Vectors.interpolate(<br> </span>           <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">w,</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else if startBackward then -<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">  </span><span style="color: rgb(102, 0, 204); font-weight: bold;">      mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            -w,<br>            1) else if pre(mode) == Forward then<br>    Modelica400.Math.Vectors.interpolate(<br>            mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            w,<br>            1) else -Modelica400.Math.Vectors.interpolate(<br>            mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            -w,<br>            1));</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">tau </span>= if <span style="color: rgb(102, 0, 204); font-weight: bold;">locked then sa*unitTorque else if free then 0 else cgeo*fn*(if<br> </span>   startForward <span style="color: rgb(102, 0, 204); font-weight: bold;">then Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:, 2],<br>    w,<br>    1) else if startBackward </span>then <span style="color: rgb(102, 0, 204); font-weight: bold;">-Modelica400.Math.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">-w,</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else if pre(mode) == Forward then Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">w,</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else -Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>   <span style="color: rgb(102, 0, 204); font-weight: bold;"> -w,</span><span style="color: rgb(102, 0, 204); font-weight: bold;"><br>    1));</span>
 </td>
 </tr>
 <tr>
@@ -5203,7 +5203,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">assert(size(mu_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1) &gt; 0 and size(mu_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">2) &gt; 0,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">"Parameter mu_pos is an empty matrix");</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">mu0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">      </span><span style="color: rgb(102, 0, 204); font-weight: bold;">  mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            0,<br>            1);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">mu0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:, 1],<br>   </span><span style="color: rgb(102, 0, 204); font-weight: bold;"> mu_pos[:, 2],<br>    0,<br>    1);</span>
 </td>
 </tr>
 <tr>
@@ -5212,9 +5212,9 @@ style="vertical-align: middle; text-align: left;">  w_relfric = w_rel;<br> ... <
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">table_signs </span>=<br> <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>if     <span style="color: rgb(0, 153, 0); font-weight: bold;">startForward </span>        <span style="color: rgb(0, 153, 0); font-weight: bold;">then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif startBackward </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">then { 1,-1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif pre(mode) == Forward then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">else </span>                            <span style="color: rgb(0, 153, 0); font-weight: bold;">{-1,-1};</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">table_signs </span>=<br> <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>if    <span style="color: rgb(0, 153, 0); font-weight: bold;"> </span>startForward         then <span style="color: rgb(0, 153, 0); font-weight: bold;">{ 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif </span><span style="color: rgb(0, 153, 0); font-weight: bold;">startBackward </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">then { 1,-1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif pre(mode) == Forward then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">else </span>                            <span style="color: rgb(0, 153, 0); font-weight: bold;">{-1,-1};</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">tau </span>= if <span style="color: rgb(102, 0, 204); font-weight: bold;">locked then sa*unitTorque else if free then 0 else cgeo*fn*(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">if startForward then Modelica400.Math.Vectors.interpolate(<br> </span>           <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">w_rel,</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else if startBackward then -<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">  </span><span style="color: rgb(102, 0, 204); font-weight: bold;">      mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            w_rel,<br>            1) else if pre(mode) == Forward then<br>    Modelica400.Math.Vectors.interpolate(<br>            mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            w_rel,<br>            1) else -Modelica400.Math.Vectors.interpolate(<br>            mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            -w_rel,<br>            1));</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">tau </span>= if <span style="color: rgb(102, 0, 204); font-weight: bold;">locked then sa*unitTorque else if free then 0 else cgeo*fn*(if<br> </span>   startForward <span style="color: rgb(102, 0, 204); font-weight: bold;">then Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:, 2],<br>    w_rel,<br>    1) else if startBackward </span>then <span style="color: rgb(102, 0, 204); font-weight: bold;">-Modelica400.Math.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">w_rel,</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else if pre(mode) == Forward then Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">w_rel,</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else -Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>   <span style="color: rgb(102, 0, 204); font-weight: bold;"> -w_rel,</span><span style="color: rgb(102, 0, 204); font-weight: bold;"><br>    1));</span>
 </td>
 </tr>
 <tr>
@@ -5261,7 +5261,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">assert(size(mu_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1) &gt; 0 and size(mu_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">2) &gt; 0,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">"Parameter mu_pos is an empty matrix");</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">mu0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">      </span><span style="color: rgb(102, 0, 204); font-weight: bold;">  mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            0,<br>            1);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">mu0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:, 1],<br>   </span><span style="color: rgb(102, 0, 204); font-weight: bold;"> mu_pos[:, 2],<br>    0,<br>    1);</span>
 </td>
 </tr>
 <tr>
@@ -5287,7 +5287,7 @@ style="vertical-align: middle; text-align: left;">  a_rel = unitAngularAccelerat
 <tr>
 <td style="vertical-align: middle; text-align: left;">  tau = if locked then sa*unitTorque <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif free then 0 </span>else <span style="color: rgb(0, 153, 0); font-weight: bold;">mu*cgeo*fn;</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  tau = if locked then sa*unitTorque else <span style="color: rgb(102, 0, 204); font-weight: bold;">(if </span><span style="color: rgb(102, 0, 204); font-weight: bold;">free then 0 else cgeo*fn*<br>    Modelica400.Math.Vectors.interpolate(<br>            mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            w_rel,<br>            1));</span>
+<td style="vertical-align: middle; text-align: left;">  tau = if locked then sa*unitTorque else <span style="color: rgb(102, 0, 204); font-weight: bold;">(if </span><span style="color: rgb(102, 0, 204); font-weight: bold;">free then 0 else cgeo*fn*<br>    Modelica400.Math.Vectors.interpolate(<br>    mu_pos[:, 1],<br>    mu_pos[:, 2],<br>    w_rel,<br>    1));</span>
 </td>
 </tr>
 <tr>
@@ -5337,13 +5337,13 @@ style="vertical-align: middle; text-align: left;">  assert(abs(ratio) &gt; 0,<br
 </tr>
 <tr>
 <td colspan="2"
-style="vertical-align: middle; text-align: left;">  ideal = Modelica410.Math.Matrices.isEqual(<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsplossTable,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[0,1,1,0,0],<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspModelica410.Constants.eps);<br> ... <br>  else
+style="vertical-align: middle; text-align: left;">  ideal = Modelica410.Math.Matrices.isEqual(<br>&nbsp&nbsp&nbsp&nbsplossTable,<br>&nbsp&nbsp&nbsp&nbsp[0,1,1,0,0],<br>&nbsp&nbsp&nbsp&nbspModelica410.Constants.eps);<br> ... <br>  else
 </td>
 </tr>
 <tr>
 <td style="vertical-align: middle; text-align: left;">      <span style="color: rgb(0, 153, 0); font-weight: bold;">for i in 1:size(interpolation_result,2) loop</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">      <span style="color: rgb(102, 0, 204); font-weight: bold;">interpolation_result = [Modelica400.Math.Vectors.interpolate(<br> </span><span style="color: rgb(102, 0, 204); font-weight: bold;">               lossTable[:, 1],<br>                lossTable[:, 2],<br>                noEvent(abs(w_a)),<br>                1),Modelica400.Math.Vectors.interpolate(<br>                lossTable[:, 1],<br>                lossTable[:, 3],<br>                noEvent(abs(w_a)),<br>                1),Modelica400.Math.Vectors.interpolate(<br>                lossTable[:, 1],<br>                lossTable[:, 4],<br>                noEvent(abs(w_a)),<br>                1),Modelica400.Math.Vectors.interpolate(<br>                lossTable[:, 1],<br>                lossTable[:, 5],<br>                noEvent(abs(w_a)),<br>                1)];</span>
+<td style="vertical-align: middle; text-align: left;">      <span style="color: rgb(102, 0, 204); font-weight: bold;">interpolation_result = [Modelica400.Math.Vectors.interpolate(<br> </span><span style="color: rgb(102, 0, 204); font-weight: bold;">       lossTable[:, 1],<br>        lossTable[:, 2],<br>        noEvent(abs(w_a)),<br>        1),Modelica400.Math.Vectors.interpolate(<br>        lossTable[:, 1],<br>        lossTable[:, 3],<br>        noEvent(abs(w_a)),<br>        1),Modelica400.Math.Vectors.interpolate(<br>        lossTable[:, 1],<br>        lossTable[:, 4],<br>        noEvent(abs(w_a)),<br>        1),Modelica400.Math.Vectors.interpolate(<br>        lossTable[:, 1],<br>        lossTable[:, 5],<br>        noEvent(abs(w_a)),<br>        1)];</span>
 </td>
 </tr>
 <tr>
@@ -5572,7 +5572,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">assert(size(f_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1) &gt; 0 and size(f_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">2) &gt; 0,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">"Parameter f_pos is an empty matrix");</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">f0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">      </span><span style="color: rgb(102, 0, 204); font-weight: bold;">  f_pos[:, 1],<br>            f_pos[:, 2],<br>            0,<br>            1);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">f0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:, 1],<br>   </span><span style="color: rgb(102, 0, 204); font-weight: bold;"> f_pos[:, 2],<br>    0,<br>    1);</span>
 </td>
 </tr>
 <tr>
@@ -5586,9 +5586,9 @@ style="vertical-align: middle; text-align: left;">  f0_max = peak*f0;<br> ... <b
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">table_signs </span>=<br> <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>if     <span style="color: rgb(0, 153, 0); font-weight: bold;">startForward </span>        <span style="color: rgb(0, 153, 0); font-weight: bold;">then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif startBackward </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">then {-1,-1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif pre(mode) == Forward then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">else </span>                            <span style="color: rgb(0, 153, 0); font-weight: bold;">{-1,-1};</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">table_signs </span>=<br> <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>if     <span style="color: rgb(0, 153, 0); font-weight: bold;">startForward </span>        then <span style="color: rgb(0, 153, 0); font-weight: bold;">{ 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif </span><span style="color: rgb(0, 153, 0); font-weight: bold;">startBackward </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">then {-1,-1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif pre(mode) == Forward then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">else </span>                            <span style="color: rgb(0, 153, 0); font-weight: bold;">{-1,-1};</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">f </span>= if <span style="color: rgb(102, 0, 204); font-weight: bold;">locked then sa*unitForce else (if startForward then<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.Math.Vectors.interpolate(<br> </span>           <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">v,</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else if startBackward then -<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">  </span><span style="color: rgb(102, 0, 204); font-weight: bold;">      f_pos[:, 1],<br>            f_pos[:, 2],<br>            -v,<br>            1) else if pre(mode) == Forward then<br>    Modelica400.Math.Vectors.interpolate(<br>            f_pos[:, 1],<br>            f_pos[:, 2],<br>            v,<br>            1) else -Modelica400.Math.Vectors.interpolate(<br>            f_pos[:, 1],<br>            f_pos[:, 2],<br>            -v,<br>            1));</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">f </span>= if <span style="color: rgb(102, 0, 204); font-weight: bold;">locked then sa*unitForce else (if startForward then<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],<br>    v,<br>    1) else if startBackward </span>then <span style="color: rgb(102, 0, 204); font-weight: bold;">-Modelica400.Math.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">-v,</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else if pre(mode) == Forward then Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">v,</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else -Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">f_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>   <span style="color: rgb(102, 0, 204); font-weight: bold;"> -v,</span><span style="color: rgb(102, 0, 204); font-weight: bold;"><br>    1));</span>
 </td>
 </tr>
 <tr>
@@ -5634,7 +5634,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">assert(size(mu_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1) &gt; 0 and size(mu_pos,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">2) &gt; 0,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">"Parameter mu_pos is an empty matrix");</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">mu0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">      </span><span style="color: rgb(102, 0, 204); font-weight: bold;">  mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            0,<br>            1);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">mu0 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:, 1],<br>   </span><span style="color: rgb(102, 0, 204); font-weight: bold;"> mu_pos[:, 2],<br>    0,<br>    1);</span>
 </td>
 </tr>
 <tr>
@@ -5643,9 +5643,9 @@ style="vertical-align: middle; text-align: left;">  s = s_a;<br> ... <br>  free 
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">table_signs </span>=<br> <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>if    <span style="color: rgb(0, 153, 0); font-weight: bold;"> </span>startForward         <span style="color: rgb(0, 153, 0); font-weight: bold;">then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif </span><span style="color: rgb(0, 153, 0); font-weight: bold;">startBackward </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">then {-1,-1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif pre(mode) == Forward then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">else </span>                            <span style="color: rgb(0, 153, 0); font-weight: bold;">{-1,-1};</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">table_signs </span>=<br> <span style="color: rgb(0, 153, 0); font-weight: bold;">   </span>if    <span style="color: rgb(0, 153, 0); font-weight: bold;"> </span>startForward         then <span style="color: rgb(0, 153, 0); font-weight: bold;">{ 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif </span><span style="color: rgb(0, 153, 0); font-weight: bold;">startBackward </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">then {-1,-1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">elseif pre(mode) == Forward then { 1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">1}<br> </span>   <span style="color: rgb(0, 153, 0); font-weight: bold;">else </span>                            <span style="color: rgb(0, 153, 0); font-weight: bold;">{-1,-1};</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">f </span>= if <span style="color: rgb(102, 0, 204); font-weight: bold;">locked then sa*unitForce else if free then 0 else cgeo*fn*(if<br> </span>   startForward <span style="color: rgb(102, 0, 204); font-weight: bold;">then Modelica400.Math.Vectors.interpolate(<br> </span>           <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">v,</span><br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else if startBackward then -<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.Math.Vectors.interpolate(<br> </span>  <span style="color: rgb(102, 0, 204); font-weight: bold;">  </span><span style="color: rgb(102, 0, 204); font-weight: bold;">       mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            -v,<br>            1) else if pre(mode) == Forward then<br>    Modelica400.Math.Vectors.interpolate(<br>            mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            v,<br>            1) else -Modelica400.Math.Vectors.interpolate(<br>            mu_pos[:, 1],<br>            mu_pos[:, 2],<br>            -v,<br>            1));</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">f </span>= if <span style="color: rgb(102, 0, 204); font-weight: bold;">locked then sa*unitForce else if free then 0 else cgeo*fn*(if<br> </span>   startForward <span style="color: rgb(102, 0, 204); font-weight: bold;">then Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:, 2],<br>    v,<br>    1) else if startBackward </span>then <span style="color: rgb(102, 0, 204); font-weight: bold;">-Modelica400.Math.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">-v,</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else if pre(mode) == Forward then Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">v,</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">1) else -Modelica400.Math.Vectors.interpolate(<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">1],</span><br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">mu_pos[:,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">2],</span><br>   <span style="color: rgb(102, 0, 204); font-weight: bold;"> -v,</span><span style="color: rgb(102, 0, 204); font-weight: bold;"><br>    1));</span>
 </td>
 </tr>
 <tr>
@@ -6432,9 +6432,9 @@ style="vertical-align: middle; text-align: left;">algorithm<br>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  DP := 0.5*IN_var.zeta_TOT*<br>    <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>              m_flow,<br>              <span style="color: rgb(0, 153, 0); font-weight: bold;">sqrt(IN_con.</span>dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.<span style="color: rgb(0, 153, 0); font-weight: bold;">rho))<br> </span>     *IN_var.rho*IN_con.A_cross,<br>              2)/(IN_var.rho*(IN_con.A_cross)^2);
+<td style="vertical-align: middle; text-align: left;">  DP := 0.5*IN_var.zeta_TOT*<br>    <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>          m_flow,<br>          <span style="color: rgb(0, 153, 0); font-weight: bold;">sqrt(IN_con.</span>dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.<span style="color: rgb(0, 153, 0); font-weight: bold;">rho))*IN_var.</span>rho<br>      *IN_con.A_cross,<br>          2)/(IN_var.rho*(IN_con.A_cross)^2);
 </td>
-<td style="vertical-align: middle; text-align: left;">  DP := 0.5*IN_var.zeta_TOT*<br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>              m_flow,<br>              <span style="color: rgb(102, 0, 204); font-weight: bold;">(IN_con.</span>dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.<span style="color: rgb(102, 0, 204); font-weight: bold;">rho))^0.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">5<br> </span>     *IN_var.rho*IN_con.A_cross,<br>              2)/(IN_var.rho*(IN_con.A_cross)^2);
+<td style="vertical-align: middle; text-align: left;">  DP := 0.5*IN_var.zeta_TOT*<br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>          m_flow,<br>          <span style="color: rgb(102, 0, 204); font-weight: bold;">(IN_con.</span>dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.<span style="color: rgb(102, 0, 204); font-weight: bold;">rho))^0.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">5*IN_var.</span>rho<br>      *IN_con.A_cross,<br>          2)/(IN_var.rho*(IN_con.A_cross)^2);
 </td>
 </tr>
 <tr>
@@ -6462,9 +6462,9 @@ style="vertical-align: middle; text-align: left;">algorithm<br>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  M_FLOW := IN_var.rho*IN_con.A_cross*<br>    <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>              dp,<br>              IN_con.dp_smooth,<br>              0.<span style="color: rgb(0, 153, 0); font-weight: bold;">5)/sqrt(0.</span>5*IN_var.zeta_TOT*IN_var.<span style="color: rgb(0, 153, 0); font-weight: bold;">rho);</span>
+<td style="vertical-align: middle; text-align: left;">  M_FLOW := IN_var.rho*IN_con.A_cross*<br>    <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>          dp,<br>          IN_con.dp_smooth,<br>          0.<span style="color: rgb(0, 153, 0); font-weight: bold;">5)/sqrt(0.</span>5*IN_var.zeta_TOT*IN_var.<span style="color: rgb(0, 153, 0); font-weight: bold;">rho);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  M_FLOW := IN_var.rho*IN_con.A_cross*<br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>              dp,<br>              IN_con.dp_smooth,<br>              0.<span style="color: rgb(102, 0, 204); font-weight: bold;">5)/(0.</span>5*IN_var.zeta_TOT*IN_var.<span style="color: rgb(102, 0, 204); font-weight: bold;">rho)^0.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">5;</span>
+<td style="vertical-align: middle; text-align: left;">  M_FLOW := IN_var.rho*IN_con.A_cross*<br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>          dp,<br>          IN_con.dp_smooth,<br>          0.<span style="color: rgb(102, 0, 204); font-weight: bold;">5)/(0.</span>5*IN_var.zeta_TOT*IN_var.<span style="color: rgb(102, 0, 204); font-weight: bold;">rho)^0.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">5;</span>
 </td>
 </tr>
 <tr>
@@ -6492,9 +6492,9 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>  assert(a+b&gt;0
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  M_FLOW =  IN_var.rho*(if a &gt; 0 and b &lt;= 0 then<br>    <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>              (1/a)*dp,<br>              (1/a)*dp_min,<br>              0.5) elseif a &gt; 0 and b &gt; 0 then sign(dp)*(-b/(2*a) +<br>    sqrt((b/(2*a))^2 + (1/a)*abs(dp))) else <span style="color: rgb(0, 153, 0); font-weight: bold;">dp/b);</span>
+<td style="vertical-align: middle; text-align: left;">  M_FLOW =  IN_var.rho*(if a &gt; 0 and b &lt;= 0 then<br>    <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>          (1/a)*dp,<br>          (1/a)*dp_min,<br>          0.5) elseif a &gt; 0 and b &gt; 0 then sign(dp)*(-b/(2*a) + sqrt((b/(<br>    2*a))^2 + (1/a)*abs(dp))) else <span style="color: rgb(0, 153, 0); font-weight: bold;">dp/b);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  M_FLOW =  IN_var.rho*(if a &gt; 0 and b &lt;= 0 then<br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>              (1/a)*dp,<br>              (1/a)*dp_min,<br>              0.5) elseif a &gt; 0 and b &gt; 0 then sign(dp)*(-b/(2*a) +<br>    sqrt((b/(2*a))^2 + (1/a)*abs(dp))) else <span style="color: rgb(102, 0, 204); font-weight: bold;">b*dp);</span>
+<td style="vertical-align: middle; text-align: left;">  M_FLOW =  IN_var.rho*(if a &gt; 0 and b &lt;= 0 then<br>    <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>          (1/a)*dp,<br>          (1/a)*dp_min,<br>          0.5) elseif a &gt; 0 and b &gt; 0 then sign(dp)*(-b/(2*a) + sqrt((b/(<br>    2*a))^2 + (1/a)*abs(dp))) else <span style="color: rgb(102, 0, 204); font-weight: bold;">b*dp);</span>
 </td>
 </tr>
 <tr>
@@ -7901,7 +7901,7 @@ style="vertical-align: middle; text-align: left;">      dscaledX1 =  (dx - scale
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">    out = </span><span style="color: rgb(0, 153, 0); font-weight: bold;"> out + (pos - neg)*dscaledX1*0.25*Modelica410.Constants.pi*<br>        (1 - Modelica410.Math.tanh(scaledXt)^2)*(scaledXt^2 + 1);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">    out = </span><span style="color: rgb(0, 153, 0); font-weight: bold;"> out + (pos - neg)*dscaledX1*0.25*Modelica410.Constants.pi*(1 -<br>        Modelica410.Math.tanh(scaledXt)^2)*(scaledXt^2 + 1);</span>
 </td>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">if scaledX1 &lt;= -0.99999999999 then</span>
 </td>
@@ -7943,9 +7943,9 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>          if (T &
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">              cp =  X[1]*<br>                <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(<br>                pd, T) + <span style="color: rgb(0, 153, 0); font-weight: bold;">(1 </span><span style="color: rgb(0, 153, 0); font-weight: bold;">- X[1])*<br> </span>               <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,<br>                T) +<br>                <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceMoistAir.Utilities.cp_dis_pTX(<br>                p, T, X);
+<td style="vertical-align: middle; text-align: left;">              cp =  X[1]*<br>                <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(<br>                pd, T) + <span style="color: rgb(0, 153, 0); font-weight: bold;">(1 </span><span style="color: rgb(0, 153, 0); font-weight: bold;">- X[1])*<br> </span>               <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl, T) +<br>                <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceMoistAir.Utilities.cp_dis_pTX(p, T,<br>                X);
 </td>
-<td style="vertical-align: middle; text-align: left;">              cp =  X[1]*<br>                <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(<br>                pd, T) + <span style="color: rgb(102, 0, 204); font-weight: bold;">X[2]*<br> </span>               <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,<br>                T) +<br>                <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceMoistAir.Utilities.cp_dis_pTX(<br>                p, T, X);
+<td style="vertical-align: middle; text-align: left;">              cp =  X[1]*<br>                <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(<br>                pd, T) + <span style="color: rgb(102, 0, 204); font-weight: bold;">X[2]*<br> </span>               <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl, T) +<br>                <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceMoistAir.Utilities.cp_dis_pTX(p, T,<br>                X);
 </td>
 </tr>
 <tr>
@@ -7954,9 +7954,9 @@ style="vertical-align: middle; text-align: left;">          else
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">              cp =  X[1]*<br>                <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(<br>                pd, T) + <span style="color: rgb(0, 153, 0); font-weight: bold;">(1 </span><span style="color: rgb(0, 153, 0); font-weight: bold;">- X[1])*<br> </span>               <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,<br>                T);
+<td style="vertical-align: middle; text-align: left;">              cp =  X[1]*<br>                <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(<br>                pd, T) + <span style="color: rgb(0, 153, 0); font-weight: bold;">(1 </span><span style="color: rgb(0, 153, 0); font-weight: bold;">- X[1])*<br> </span>               <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl, T);
 </td>
-<td style="vertical-align: middle; text-align: left;">              cp =  X[1]*<br>                <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(<br>                pd, T) + <span style="color: rgb(102, 0, 204); font-weight: bold;">X[2]*<br> </span>               <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,<br>                T);
+<td style="vertical-align: middle; text-align: left;">              cp =  X[1]*<br>                <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(<br>                pd, T) + <span style="color: rgb(102, 0, 204); font-weight: bold;">X[2]*<br> </span>               <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl, T);
 </td>
 </tr>
 <tr>
@@ -7984,9 +7984,9 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>      if ((xw &lt
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">          cv =  X[1]*<br>            <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cv_pT(<br>            pd, T) + <span style="color: rgb(0, 153, 0); font-weight: bold;">(1 </span><span style="color: rgb(0, 153, 0); font-weight: bold;">- X[1])*<br> </span>           <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceAir.Air_Utilities.cv_pT(pl, T);
+<td style="vertical-align: middle; text-align: left;">          cv =  X[1]*<br>            <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cv_pT(pd,<br>            T) + <span style="color: rgb(0, 153, 0); font-weight: bold;">(1 </span><span style="color: rgb(0, 153, 0); font-weight: bold;">- X[1])*<br>            Modelica410.</span>Media.Air.ReferenceAir.Air_Utilities.cv_pT(pl, <span style="color: rgb(0, 153, 0); font-weight: bold;">T);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">          cv =  X[1]*<br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cv_pT(<br>            pd, T) + <span style="color: rgb(102, 0, 204); font-weight: bold;">X[2]*<br> </span>           <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceAir.Air_Utilities.cv_pT(pl, T);
+<td style="vertical-align: middle; text-align: left;">          cv =  X[1]*<br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica400.</span>Media.Air.ReferenceMoistAir.Utilities.IF97_new.cv_pT(pd,<br>            T) + <span style="color: rgb(102, 0, 204); font-weight: bold;">X[2]*Modelica400.</span>Media.Air.ReferenceAir.Air_Utilities.cv_pT(pl,<br> <span style="color: rgb(102, 0, 204); font-weight: bold;"> </span><span style="color: rgb(102, 0, 204); font-weight: bold;">          T);</span>
 </td>
 </tr>
 <tr>
@@ -8100,18 +8100,18 @@ style="vertical-align: middle; text-align: left;">      for i in 1:4 loop<br> ..
 </tr>
 <tr>
 <td colspan="2"
-style="vertical-align: middle; text-align: left;"><br> ... <br>      pds_der =<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspModelica410.Media.Air.ReferenceMoistAir.Utilities.pds_pT_der(<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspp,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspT,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspp_der,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspT_der);
+style="vertical-align: middle; text-align: left;"><br> ... <br>      pds_der =  Modelica410.Media.Air.ReferenceMoistAir.Utilities.pds_pT_der(<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspp,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspT,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspp_der,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspT_der);
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">      pd_der =  <span style="color: rgb(0, 153, 0); font-weight: bold;">xw_der*Modelica410.</span>Media.Air.ReferenceMoistAir.<span style="color: rgb(0, 153, 0); font-weight: bold;">k_mair/(<br>        Modelica410.Media.Air.ReferenceMoistAir.</span>k_mair <span style="color: rgb(0, 153, 0); font-weight: bold;">+ xw)^2*p + xw/(<br> </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span><span style="color: rgb(0, 153, 0); font-weight: bold;">Media.Air.ReferenceMoistAir.k_mair </span>+ <span style="color: rgb(0, 153, 0); font-weight: bold;">xw)*p_der;</span>
+<td style="vertical-align: middle; text-align: left;">      pd_der =  <span style="color: rgb(0, 153, 0); font-weight: bold;">xw_der*Modelica410.</span>Media.Air.ReferenceMoistAir.<span style="color: rgb(0, 153, 0); font-weight: bold;">k_mair/(<br>        Modelica410.Media.Air.ReferenceMoistAir.</span>k_mair + <span style="color: rgb(0, 153, 0); font-weight: bold;">xw)^2*p </span><span style="color: rgb(0, 153, 0); font-weight: bold;">+ xw/(<br> </span>       <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica410.</span>Media.Air.ReferenceMoistAir.k_mair <span style="color: rgb(0, 153, 0); font-weight: bold;">+ xw)*p_der;</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">      pd_der =  <span style="color: rgb(102, 0, 204); font-weight: bold;">(xw_der*(Modelica400.</span>Media.Air.ReferenceMoistAir.k_mair<br>        <span style="color: rgb(102, 0, 204); font-weight: bold;"> </span>+ <span style="color: rgb(102, 0, 204); font-weight: bold;">xw) </span><span style="color: rgb(102, 0, 204); font-weight: bold;">- xw*xw_der)*p + xw/(Modelica400.Media.Air.ReferenceMoistAir.k_mair<br>         + xw)*p_der;</span>
+<td style="vertical-align: middle; text-align: left;">      pd_der =  <span style="color: rgb(102, 0, 204); font-weight: bold;">(xw_der*(Modelica400.</span>Media.Air.ReferenceMoistAir.k_mair + <span style="color: rgb(102, 0, 204); font-weight: bold;">xw)<br> </span>       <span style="color: rgb(102, 0, 204); font-weight: bold;"> </span><span style="color: rgb(102, 0, 204); font-weight: bold;">- xw*xw_der)*p + xw/(Modelica400.</span>Media.Air.ReferenceMoistAir.k_mair<br> <span style="color: rgb(102, 0, 204); font-weight: bold;">  </span><span style="color: rgb(102, 0, 204); font-weight: bold;">      + xw)*p_der;</span>
 </td>
 </tr>
 <tr>
 <td colspan="2"
-style="vertical-align: middle; text-align: left;">      xws =  Modelica410.Media.Air.ReferenceMoistAir.Utilities.xws_pT(p,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspT);<br> ... <br>
+style="vertical-align: middle; text-align: left;">      xws =  Modelica410.Media.Air.ReferenceMoistAir.Utilities.xws_pT(p, T);<br> ... <br>
 </td>
 </tr>
 <br></tbody>
@@ -8221,7 +8221,7 @@ style="vertical-align: middle; text-align: left;">
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">function Media.R134a.R134a_ph.dofpT</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 198px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 132px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -8234,7 +8234,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.1.0</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">T_breaks<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dlt_coef<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dvt_coef<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Tred<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">p_breaks<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dl_coef<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dv_coef<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">pred<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">T_breaks<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dlt_coef<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dvt_coef<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">highT<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Tred<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
 </table>
 
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
@@ -8248,36 +8248,53 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 </tr>
 <tr>
 <td colspan="2"
-style="vertical-align: middle; text-align: left;"><br> ... <br>  found =  false;
+style="vertical-align: middle; text-align: left;"><br> ... <br>  pred =  p/R134aData.data.FPCRIT;
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">Tred </span>=  <span style="color: rgb(0, 153, 0); font-weight: bold;">T/R134aData.</span>data.<span style="color: rgb(0, 153, 0); font-weight: bold;">FTCRIT;</span>
+<td style="vertical-align: middle; text-align: left;">  Tred =  T/R134aData.data.FTCRIT;<br>  highT =  (Tred &gt; 0.95);<br>  if highT then<br>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">pred </span>=  <span style="color: rgb(102, 0, 204); font-weight: bold;">p/R134aData.</span>data.<span style="color: rgb(102, 0, 204); font-weight: bold;">FPCRIT;</span>
-</td>
+<td><br></td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  (int,error) =  Common.<span style="color: rgb(0, 153, 0); font-weight: bold;">FindInterval(Tred,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">T_breaks);</span>
-</td>
-<td style="vertical-align: middle; text-align: left;">  (int,error) =  Common.<span style="color: rgb(102, 0, 204); font-weight: bold;">FindInterval(pred,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">p_breaks);</span>
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  localx =  <span style="color: rgb(0, 153, 0); font-weight: bold;">Tred </span>- <span style="color: rgb(0, 153, 0); font-weight: bold;">T_breaks[int];</span>
-</td>
-<td style="vertical-align: middle; text-align: left;">  localx =  <span style="color: rgb(102, 0, 204); font-weight: bold;">pred </span>- <span style="color: rgb(102, 0, 204); font-weight: bold;">p_breaks[int];</span>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      (int,error) =  Common.FindInterval(pred, p_breaks);
 </td>
 </tr>
 <tr>
 <td colspan="2"
-style="vertical-align: middle; text-align: left;">  supercritical =  p &gt; R134aData.data.FPCRIT;<br> ... <br>      if liquid then
+style="vertical-align: middle; text-align: left;">      localx =  pred - p_breaks[int];
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">          d =  R134aData.data.FDCRIT*Common.CubicSplineEval(localx, <span style="color: rgb(0, 153, 0); font-weight: bold;">dlt_coef[int,</span><br>            1:4])*1.02;
+<td><br></td>
+<td style="vertical-align: middle; text-align: left;">  supercritical =  p &gt; R134aData.data.FPCRIT;<br>  if supercritical then<br>      d =  R134aData.data.FDCRIT*3.0;<br>
 </td>
-<td style="vertical-align: middle; text-align: left;">          d =  R134aData.data.FDCRIT*Common.CubicSplineEval(localx, <span style="color: rgb(102, 0, 204); font-weight: bold;">dl_coef[int,</span><br>            1:4])*1.02;
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  else
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">      (int,error) =  Common.FindInterval(Tred, T_breaks);<br>      localx =  Tred - T_breaks[int];<br>  end if;<br>  supercritical =  p &gt; R134aData.data.FPCRIT;<br>  if supercritical then<br>      d =  R134aData.data.FDCRIT*3.0;<br>  else<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      liquid =  T &lt;= Modelica410.Media.R134a.R134a_ph.saturationTemperature(p);
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      if liquid then
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">          d =  <span style="color: rgb(0, 153, 0); font-weight: bold;">if highT then </span>R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dl_coef[int,<span style="color: rgb(0, 153, 0); font-weight: bold;">1:4])*1.02<br> </span>            <span style="color: rgb(0, 153, 0); font-weight: bold;">  </span><span style="color: rgb(0, 153, 0); font-weight: bold;">         else R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dlt_coef[int,1:4])*1.02;</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">          d =  R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dl_coef[int,<br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">1:4])*1.02;</span>
 </td>
 </tr>
 <tr>
@@ -8286,9 +8303,9 @@ style="vertical-align: middle; text-align: left;">      else
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">          d =  R134aData.data.FDCRIT*Common.CubicSplineEval(localx, <span style="color: rgb(0, 153, 0); font-weight: bold;">dvt_coef[int,</span><br>            1:4])*0.95;
+<td style="vertical-align: middle; text-align: left;">          d =  <span style="color: rgb(0, 153, 0); font-weight: bold;">if highT then </span>R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dv_coef[int,<span style="color: rgb(0, 153, 0); font-weight: bold;">1:4])*0.95<br> </span>            <span style="color: rgb(0, 153, 0); font-weight: bold;">  </span><span style="color: rgb(0, 153, 0); font-weight: bold;">         else R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dvt_coef[int,1:4])*0.95;</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">          d =  R134aData.data.FDCRIT*Common.CubicSplineEval(localx, <span style="color: rgb(102, 0, 204); font-weight: bold;">dv_coef[int,</span><br>            1:4])*0.95;
+<td style="vertical-align: middle; text-align: left;">          d =  R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dv_coef[int,<br>            <span style="color: rgb(102, 0, 204); font-weight: bold;">1:4])*0.95;</span>
 </td>
 </tr>
 <tr>
@@ -8861,7 +8878,7 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>  V =  transpose(
 </tr>
 <tr>
 <td><br></td>
-<td style="vertical-align: middle; text-align: left;">    eps =  max(size(A, 1), size(A, 2))*max(sigma)*Modelica400.Constants.eps;<br>
+<td style="vertical-align: middle; text-align: left;">  eps =  max(size(A, 1), size(A, 2))*max(sigma)*Modelica400.Constants.eps;<br>
 </td>
 </tr>
 <tr>
@@ -8875,7 +8892,7 @@ style="vertical-align: middle; text-align: left;">  if n &gt; 0 then
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">        eps =  max(size(A, 1), size(A, 2))*max(sigma)*Modelica410.Constants.eps;<br>
+<td style="vertical-align: middle; text-align: left;">      eps =  max(size(A, 1), size(A, 2))*max(sigma)*Modelica410.Constants.eps;<br>
 </td>
 <td><br></td>
 </tr>
@@ -9848,7 +9865,7 @@ style="font-weight: bold;">Modelica Standard Library - Version 4.0.0</span><br>
 <tr><td style="vertical-align: middle; text-align: left;">package Modelica410.Electrical.PowerConverters.Examples.DCDC.ChopperBuckBoost</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
-<tr><td style="vertical-align: middle; text-align: left;">model Modelica410.Electrical.PowerConverters.DCDC.ChopperBuckBost</td>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica410.Electrical.PowerConverters.DCDC.ChopperBuckBoost</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">type Modelica410.Electrical.PowerConverters.Types.SingleReferenceType</td>
