@@ -126,7 +126,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
+class Version_4_1_0 "Version 4.1.0 (April 17, 2025)"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (Documentation(info="<html>
