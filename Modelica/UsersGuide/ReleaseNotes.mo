@@ -133,15 +133,13 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <p>Version 4.1.0 is backward compatible to version 4.0.0. This means, there is no need to convert user models, because no renaming or moving has been done on the library. Please note: simulation results might be affected by necessary changes and bug fixes that were applied since the 4.0.0 release, see below for more details.</p>
 <p>Short overview:</p>
 <ul>
-<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">554 issues (including 387 pull requests)</a> have been addressed for this release.</li>
-<ul>
 <li>17 new components (e.g. Blocks for recording of min and max of a signal)</li>
 <li>12 improved components (e.g. tables can now read CSV)</li>
 <li>18 potentially non-backwards-compatible changes (especially Constants.inf, Constants.small, Constants.eps)</li>
 <li>26 bug fixes, which may cause the simulation results to change for the better</li>
 <li>3 models marked as obsolete</li>
-</ul>
 <li>This version is based on the recent Modelica language standard version 3.6.</li>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">554 issues (including 387 pull requests)</a> have been addressed for this release.</li>
 </ul>
 <p>
 The following libraries, that were previously using version Modelica 4.0.0, were tested successfully with version 4.1.0 without any modification, using Dymola 2025x Refresh 1 and/or OpenModelica 1.25.0
