@@ -8,10 +8,10 @@
   so the way you need to use this is (for constructors):
 
   #ifdef G2_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
-  #pragma G2_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(my_constructor)
+  #pragma G2_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(my_constructor))
   #endif
-  G2_DEFINE_CONSTRUCTOR(my_constructor)
-  static void my_constructor(void) {
+  G2_DEFINE_CONSTRUCTOR(G2_FUNCNAME(my_constructor))
+  static void G2_FUNCNAME(my_constructor)(void) {
    ...
   }
 
@@ -36,12 +36,15 @@
 
 #define G2_HAS_CONSTRUCTORS 1
 
-#define G2_DEFINE_CONSTRUCTOR(_func) \
+#define G2_DEFINE_CONSTRUCTOR(_func) G2_CXX_CTOR(_func)
+#define G2_DEFINE_DESTRUCTOR(_func) G2_CXX_DTOR(_func)
+
+#define G2_CXX_CTOR(_func) \
   static void _func(void); \
   struct _func ## _wrapper_struct { _func ## _wrapper_struct() { _func(); } }; \
   static _func ## _wrapper_struct _func ## _wrapper;
 
-#define G2_DEFINE_DESTRUCTOR(_func) \
+#define G2_CXX_DTOR(_func) \
   static void _func(void); \
   struct _func ## _wrapper_struct2 { ~_func ## _wrapper_struct2() { _func(); } }; \
   static _func ## _wrapper_struct2 _func ## _wrapper2;
