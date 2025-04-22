@@ -1,6 +1,6 @@
 # GitHub issues resolved for v4.1.0
 
-As part of this release 554 [issues](https://github.com/modelica/ModelicaStandardLibrary/milestone/61) (including 387 pull requests (PR)) were closed.
+As part of this release 560 [issues](https://github.com/modelica/ModelicaStandardLibrary/milestone/61) (including 392 pull requests (PR)) were closed.
 
 ## --MSL-general--
 
@@ -39,6 +39,7 @@ As part of this release 554 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4183](https://github.com/modelica/ModelicaStandardLibrary/pull/4183) (PR) Fix regex to optionally ignore quoted strings when checking for deprecated Text.lineColor annotation (CI)
 * [\#4203](https://github.com/modelica/ModelicaStandardLibrary/pull/4203) (PR) Fix codespell exceptions (CI)
 * [\#4247](https://github.com/modelica/ModelicaStandardLibrary/pull/4247) (PR) Update version, uses annotation and copyright year
+* [\#4327](https://github.com/modelica/ModelicaStandardLibrary/pull/4327) (PR) Add release notes for v4.1.0
 * [\#4357](https://github.com/modelica/ModelicaStandardLibrary/pull/4357) (PR) Update icon color of red dot
 * [\#4434](https://github.com/modelica/ModelicaStandardLibrary/pull/4434) (PR) Bump actions to avoid deprecation warnings (CI)
 * [\#4624](https://github.com/modelica/ModelicaStandardLibrary/pull/4624) (PR) Bump copyright year to 2025
@@ -847,12 +848,15 @@ As part of this release 554 [issues](https://github.com/modelica/ModelicaStandar
 * [\#4167](https://github.com/modelica/ModelicaStandardLibrary/pull/4167) (PR) Remove voltageSensor.v from the comparison list
 * [\#4179](https://github.com/modelica/ModelicaStandardLibrary/pull/4179) (PR) Remove duplicates in SignalNames of 10 examples of ModelicaTest
 * [\#4268](https://github.com/modelica/ModelicaStandardLibrary/pull/4268) (PR) Make third-party licenses explicit
+* [\#4300](https://github.com/modelica/ModelicaStandardLibrary/pull/4300) (PR) Add DifferencesTo400.html - MSL 4.1.0 w.r.t. 4.0.0
 * [\#4316](https://github.com/modelica/ModelicaStandardLibrary/issues/4316) MSL v4.1.0-beta.1 feedback: broken Dymola plot scripts
 * [\#4322](https://github.com/modelica/ModelicaStandardLibrary/pull/4322) (PR) Fix plot scripts
 * [\#4349](https://github.com/modelica/ModelicaStandardLibrary/issues/4349) MSL 4.1.0 Reference results for new models
 * [\#4371](https://github.com/modelica/ModelicaStandardLibrary/pull/4371) (PR) Update CoupledClutches.mos 
 * [\#4463](https://github.com/modelica/ModelicaStandardLibrary/pull/4463) (PR) Remove useless and numerically critical error signals from MoistAir tests
 * [\#4487](https://github.com/modelica/ModelicaStandardLibrary/pull/4487) (PR) Restore and modernize ModelicaUtilities.h
+* [\#4590](https://github.com/modelica/ModelicaStandardLibrary/pull/4590) (PR) Update list of resolved GH issues for v4.1.0-rc.1
+* [\#4633](https://github.com/modelica/ModelicaStandardLibrary/pull/4633) (PR) Add DifferencesTo400.html - MSL 4.1.0 w.r.t. 4.0.0 ([\#4300](https://github.com/modelica/ModelicaStandardLibrary/issues/4300))
 
 ## StateGraph
 

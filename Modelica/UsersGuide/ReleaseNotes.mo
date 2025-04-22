@@ -126,7 +126,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
+class Version_4_1_0 "Version 4.1.0 (April 17, 2025)"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (Documentation(info="<html>
@@ -139,7 +139,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <li>26 bug fixes, which may cause the simulation results to change for the better</li>
 <li>3 models marked as obsolete</li>
 <li>This version is based on the recent Modelica language standard version 3.6.</li>
-<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">554 issues (including 387 pull requests)</a> have been addressed for this release.</li>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.1.0/ResolvedGitHubIssues.html\">560 issues (including 392 pull requests)</a> have been addressed for this release.</li>
 </ul>
 <p>
 The following libraries, that were previously using version Modelica 4.0.0, were tested successfully with version 4.1.0 without any modification, using Dymola 2025x Refresh 1 and/or OpenModelica 1.25.0
