@@ -20,7 +20,7 @@ model Subtracter "Inverting subtracter"
         extent={{10,10},{-10,-10}},
         rotation=270,
         origin={40,0})));
-  OpAmpCircuits.Feedback feedback(p1_2(i(start=0)))
+  OpAmpCircuits.Feedback feedback
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 equation
   connect(feedback.n1, ground.p)

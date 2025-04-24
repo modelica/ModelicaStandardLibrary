@@ -12,8 +12,8 @@ model HighPass "High-pass filter"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={40,0})));
-  OpAmpCircuits.Derivative derivative(T=1/(2*pi*fG),
-    v(fixed=true))
+  OpAmpCircuits.Derivative derivative(
+    T=1/(2*pi*fG), v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Sources.TrapezoidVoltage vIn(
     V=Vin,
