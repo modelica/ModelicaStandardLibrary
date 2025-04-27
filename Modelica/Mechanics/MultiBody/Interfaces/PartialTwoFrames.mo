@@ -7,20 +7,14 @@ partial model PartialTwoFrames
 protected
   outer Modelica.Mechanics.MultiBody.World world;
 equation
-  assert(cardinality(frame_a) > 0,
-    "Connector frame_a of component is not connected");
-  assert(cardinality(frame_b) > 0,
-    "Connector frame_b of component is not connected");
+//   assert(cardinality(frame_a) > 0,
+//     "Connector frame_a of component is not connected");
+//   assert(cardinality(frame_b) > 0,
+//     "Connector frame_b of component is not connected");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Text(
-          extent={{-136,-25},{-100,-50}},
-          textColor={128,128,128},
-          textString="a"), Text(
-          extent={{100,-25},{136,-50}},
-          textColor={128,128,128},
-          textString="b")}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This partial model provides two frame connectors, access to the world
