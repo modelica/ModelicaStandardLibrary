@@ -11,7 +11,8 @@ EXTC_OBJS = \
 	ModelicaFFT.o \
 	ModelicaInternal.o \
 	ModelicaRandom.o \
-	ModelicaStrings.o
+	ModelicaStrings.o \
+	ModelicaTime.o
 
 TABLES_OBJS = \
 	ModelicaStandardTables.o \
@@ -91,6 +92,9 @@ ModelicaRandom.o: ../../C-Sources/ModelicaRandom.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
 
 ModelicaStrings.o: ../../C-Sources/ModelicaStrings.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
+
+ModelicaTime.o: ../../C-Sources/ModelicaTime.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
 
 %.o: ../../C-Sources/zlib/%.c
