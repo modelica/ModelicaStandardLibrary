@@ -5,13 +5,8 @@ model IdealGear "Ideal gear without mass"
     "Transmission ratio (flange_a.s/flange_b.s)";
 
 equation
-  if abs(ratio) < Modelica.Constants.eps then
-    flange_a.f = 0;
-    flange_b.f = 0;
-  else
-    s_a = ratio*s_b;
-    0 = ratio*flange_a.f + flange_b.f;
-  end if;
+  s_a = ratio*s_b;
+  0 = ratio*flange_a.f + flange_b.f;
 
   annotation (
     Documentation(info="<html>
