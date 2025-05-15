@@ -1,14 +1,14 @@
 within Modelica.Electrical.Analog.Examples.OpAmps;
 model SchmittTrigger "Schmitt trigger with hysteresis"
   extends Modelica.Icons.Example;
-  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply";
-  parameter Modelica.Units.SI.Voltage Vns=-15 "Negative supply";
-  parameter Modelica.Units.SI.Voltage Vin=5 "Amplitude of input voltage";
-  parameter Modelica.Units.SI.Frequency f=10 "Frequency of input voltage";
-  parameter Modelica.Units.SI.Voltage vHys=1 "(Positive) hysteresis voltage";
+  parameter SI.Voltage Vps=+15 "Positive supply";
+  parameter SI.Voltage Vns=-15 "Negative supply";
+  parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+  parameter SI.Frequency f=10 "Frequency of input voltage";
+  parameter SI.Voltage vHys=1 "(Positive) hysteresis voltage";
   parameter Real k=vHys/Vps "Auxiliary calculated parameter to be used in R2 calculation";
-  parameter Modelica.Units.SI.Resistance R1=1000 "Arbitrary resistance";
-  parameter Modelica.Units.SI.Resistance R2=R1/k
+  parameter SI.Resistance R1=1000 "Arbitrary resistance";
+  parameter SI.Resistance R2=R1/k
     "Calculated resistance to reach hysteresis voltage";
   Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(Vps=Vps, Vns=Vns)
     annotation (Placement(transformation(extent={{0,10},{20,-10}})));

@@ -1,14 +1,14 @@
 within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model Feedback "Subtracting operational amplifier circuit"
   extends PartialOpAmp;
-  Modelica.Units.SI.Voltage v1_2=p1_2.v - n1.v
+  SI.Voltage v1_2=p1_2.v - n1.v
     "Voltage drop of port 1_2 (= p1_2.v - n1.v)";
-  Modelica.Units.SI.Current i1_2(start=0)=p1_2.i
+  SI.Current i1_2(start=0)=p1_2.i
     "Current flowing from pos. to neg. pin of port 1_2";
   parameter Real k(final min=0)=1 "Desired amplification";
-  parameter Modelica.Units.SI.Resistance R1=1000
+  parameter SI.Resistance R1=1000
     "Resistance at inputs of OpAmp";
-  parameter Modelica.Units.SI.Resistance R3=R1/k
+  parameter SI.Resistance R3=R1/k
     "Calculated resistance to reach desired amplification k";
   Modelica.Electrical.Analog.Basic.Resistor r1(final R=R1) annotation (
       Placement(transformation(extent={{-10,-10},{10,10}}, origin={-40,70})));

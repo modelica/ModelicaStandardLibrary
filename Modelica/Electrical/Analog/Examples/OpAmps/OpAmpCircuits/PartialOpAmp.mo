@@ -2,8 +2,8 @@ within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 partial model PartialOpAmp
   "Partial circuit of operational amplifiers"
   extends Modelica.Electrical.Analog.Interfaces.FourPin;
-  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply";
-  parameter Modelica.Units.SI.Voltage Vns=-15 "Negative supply";
+  parameter SI.Voltage Vps=+15 "Positive supply";
+  parameter SI.Voltage Vns=-15 "Negative supply";
   parameter Real V0=15000.0 "No-load amplification";
   Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(
     V0=V0,

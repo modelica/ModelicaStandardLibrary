@@ -1,28 +1,28 @@
 within Modelica.Electrical.Analog.Ideal;
 model ImprovedOpAmpLimited "Improved operational amplifier with limitation"
   parameter Real V0=15000.0 "No-load amplification";
-  parameter Modelica.Units.SI.Time Tr=1e-5 "Rise time 10%-90% of output voltage";
+  parameter SI.Time Tr=1e-5 "Rise time 10%-90% of output voltage";
   parameter Boolean useSupply=false
     "Use supply pins (otherwise constant supply)" annotation (Evaluate=true);
-  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply voltage"
+  parameter SI.Voltage Vps=+15 "Positive supply voltage"
     annotation (Dialog(enable=not useSupply));
-  parameter Modelica.Units.SI.Voltage Vns=-15 "Negative supply voltage"
+  parameter SI.Voltage Vns=-15 "Negative supply voltage"
     annotation (Dialog(enable=not useSupply));
   parameter Modelica.Electrical.Analog.Types.InitOpAmp initOpAmp=Modelica.Electrical.Analog.Types.InitOpAmp.Linear
     "Initialization of rise time fristOrder"
     annotation (Evaluate=true, Dialog(group="Initialization"));
   Boolean satPos=v_int>=vps "Indicates positive Saturation";
   Boolean satNeg=v_int<=vns "Indicates negative Saturation";
-  Modelica.Units.SI.Voltage vps "Positive supply voltage";
-  Modelica.Units.SI.Voltage vns "Negative supply voltage";
-  Modelica.Units.SI.Voltage v_in(start=0)=in_p.v - in_n.v "Input voltage difference";
-  Modelica.Units.SI.Voltage v_int "Intermediate voltage";
-  Modelica.Units.SI.Voltage v_out=out.v "Output voltage to ground";
-  Modelica.Units.SI.Current i_out(start=0)=out.i "Output current into OpAmp";
-  Modelica.Units.SI.Power p_in=in_p.v*in_p.i + in_n.v*in_n.i "Input power";
-  Modelica.Units.SI.Power p_out=out.v*out.i "Output power";
-  Modelica.Units.SI.Power p_s=-(p_in + p_out) "Supply power";
-  Modelica.Units.SI.Current i_s=p_s/(vps - vns) "Supply current";
+  SI.Voltage vps "Positive supply voltage";
+  SI.Voltage vns "Negative supply voltage";
+  SI.Voltage v_in(start=0)=in_p.v - in_n.v "Input voltage difference";
+  SI.Voltage v_int "Intermediate voltage";
+  SI.Voltage v_out=out.v "Output voltage to ground";
+  SI.Current i_out(start=0)=out.i "Output current into OpAmp";
+  SI.Power p_in=in_p.v*in_p.i + in_n.v*in_n.i "Input power";
+  SI.Power p_out=out.v*out.i "Output power";
+  SI.Power p_s=-(p_in + p_out) "Supply power";
+  SI.Current i_s=p_s/(vps - vns) "Supply current";
   Modelica.Electrical.Analog.Interfaces.PositivePin in_p
     "Positive pin of the input port" annotation (Placement(transformation(
           extent={{-90,-70},{-110,-50}})));

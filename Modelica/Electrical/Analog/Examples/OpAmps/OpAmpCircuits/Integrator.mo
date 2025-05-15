@@ -3,12 +3,12 @@ model Integrator "Integrating operational amplifier circuit"
   extends PartialOpAmp;
   import Modelica.Constants.pi;
   parameter Real k(final min=0)=1 "Desired amplification at frequency f";
-  parameter Modelica.Units.SI.Frequency f "Frequency";
-  parameter Modelica.Units.SI.Resistance R=1000
+  parameter SI.Frequency f "Frequency";
+  parameter SI.Resistance R=1000
     "Resistance at negative input of OpAmp";
-  parameter Modelica.Units.SI.Capacitance C=1/k/(2*pi*f*R)
+  parameter SI.Capacitance C=1/k/(2*pi*f*R)
     "Calculated capacitance to reach desired amplification k";
-  Modelica.Units.SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
+  SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
   Modelica.Electrical.Analog.Basic.Capacitor c(final C=C)
     annotation (Placement(transformation(extent={{30,20},{10,40}})));
   Modelica.Electrical.Analog.Basic.Resistor r(final R=R)

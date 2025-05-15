@@ -1,9 +1,9 @@
 within Modelica.Electrical.Analog.Examples.OpAmps;
 model ControlCircuit "Control circuit"
   extends Modelica.Icons.Example;
-  parameter Modelica.Units.SI.Time T1=0.01 "Small time constant";
-  parameter Modelica.Units.SI.Time T2=0.01 "Large time constant";
-  parameter Modelica.Units.SI.Time Ti=T2 "Integral time constant";
+  parameter SI.Time T1=0.01 "Small time constant";
+  parameter SI.Time T2=0.01 "Large time constant";
+  parameter SI.Time Ti=T2 "Integral time constant";
   parameter Real kp=T2/(2*T1) "Proportional gain";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));

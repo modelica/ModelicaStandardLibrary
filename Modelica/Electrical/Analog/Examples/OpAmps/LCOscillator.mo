@@ -2,16 +2,16 @@ within Modelica.Electrical.Analog.Examples.OpAmps;
 model LCOscillator "LC oscillator"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.Units.SI.Voltage VAmp=10 "Amplitude of output";
-  parameter Modelica.Units.SI.Frequency f=1000 "Desired frequency";
+  parameter SI.Voltage VAmp=10 "Amplitude of output";
+  parameter SI.Frequency f=1000 "Desired frequency";
   parameter Real A=1.001 "Amplification constant: A > 1 amplification, A = 1 pure sinusoidal oscillation, A < 0 damping";
-  parameter Modelica.Units.SI.Inductance L=0.001 "Arbitrary inductance > 0";
-  parameter Modelica.Units.SI.Capacitance C=1/((2*pi*f)^2*L)
+  parameter SI.Inductance L=0.001 "Arbitrary inductance > 0";
+  parameter SI.Capacitance C=1/((2*pi*f)^2*L)
     "Calculated capacitance to reach frequency f";
-  parameter Modelica.Units.SI.Resistance R=10000.0 "Damping resistance";
-  parameter Modelica.Units.SI.Resistance R1=10000.0
+  parameter SI.Resistance R=10000.0 "Damping resistance";
+  parameter SI.Resistance R1=10000.0
     "Arbitrary high resistance";
-  parameter Modelica.Units.SI.Resistance R2=(A - 1)*R1
+  parameter SI.Resistance R2=(A - 1)*R1
     "Calculated resistance to reach amplification A";
   parameter Real gamma=(1 - A)/(2*R*C) "Calculated characteristical parameter";
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(

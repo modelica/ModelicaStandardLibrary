@@ -2,9 +2,9 @@ within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model Buffer "Non inverting operational amplifier circuit"
   extends PartialOpAmp;
   parameter Real k(final min=0)=1 "Desired amplification";
-  parameter Modelica.Units.SI.Resistance R1=1000
+  parameter SI.Resistance R1=1000
     "Resistance at negative pin(s)";
-  parameter Modelica.Units.SI.Resistance R2=(k - 1)*R1
+  parameter SI.Resistance R2=(k - 1)*R1
     "Calculated resistance to reach desired amplification k";
   Modelica.Electrical.Analog.Basic.Resistor r1(final R=R1) annotation (
       Placement(transformation(

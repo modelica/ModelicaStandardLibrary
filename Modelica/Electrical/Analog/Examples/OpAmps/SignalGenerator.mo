@@ -2,17 +2,17 @@ within Modelica.Electrical.Analog.Examples.OpAmps;
 model SignalGenerator "Rectangle-Triangle generator"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply";
-  parameter Modelica.Units.SI.Voltage Vns=-Vps "Negative supply";
-  parameter Modelica.Units.SI.Voltage VAmp=10 "Desired amplitude of output";
-  parameter Modelica.Units.SI.Resistance R1=1000
+  parameter SI.Voltage Vps=+15 "Positive supply";
+  parameter SI.Voltage Vns=-Vps "Negative supply";
+  parameter SI.Voltage VAmp=10 "Desired amplitude of output";
+  parameter SI.Resistance R1=1000
     "Arbitrary resistance for Schmitt trigger part";
-  parameter Modelica.Units.SI.Resistance R2=R1*Vps/VAmp
+  parameter SI.Resistance R2=R1*Vps/VAmp
     "Calculated resistance for Schmitt trigger to reach VAmp";
-  parameter Modelica.Units.SI.Frequency f=10 "Desired frequency";
-  parameter Modelica.Units.SI.Resistance R=1000
+  parameter SI.Frequency f=10 "Desired frequency";
+  parameter SI.Resistance R=1000
     "Arbitrary resistance of integrator part";
-  parameter Modelica.Units.SI.Capacitance C=Vps/VAmp/(4*f*R)
+  parameter SI.Capacitance C=Vps/VAmp/(4*f*R)
     "Calculated capacitance of integrator part to reach f";
   Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp1(
     Vps=Vps,

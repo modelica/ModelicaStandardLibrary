@@ -3,14 +3,14 @@ model PI "PI controller operational amplifier circuit"
   extends PartialOpAmp;
   import Modelica.Constants.pi;
   parameter Real k(final min=0)=1 "Desired amplification";
-  parameter Modelica.Units.SI.Resistance R1=1000
+  parameter SI.Resistance R1=1000
     "Resistance at negative input of OpAmp";
-  parameter Modelica.Units.SI.Resistance R2=k*R1
+  parameter SI.Resistance R2=k*R1
     "Calculated resistance to reach k";
-  parameter Modelica.Units.SI.Time T "Time constant";
-  parameter Modelica.Units.SI.Capacitance C=T/k/R1
+  parameter SI.Time T "Time constant";
+  parameter SI.Capacitance C=T/k/R1
     "Calculated capacitance to reach T";
-  Modelica.Units.SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
+  SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
   Modelica.Electrical.Analog.Basic.Resistor r1(R=R1)
     annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=R2)

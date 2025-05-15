@@ -1,15 +1,15 @@
 within Modelica.Electrical.Analog.Examples.OpAmps;
 model Multivibrator "Multivibrator with Schmitt trigger"
   extends Modelica.Icons.Example;
-  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply";
-  parameter Modelica.Units.SI.Voltage Vns=-15 "Negative supply";
-  parameter Modelica.Units.SI.Frequency f=10 "Desired frequency";
-  parameter Modelica.Units.SI.Resistance R1=1000
+  parameter SI.Voltage Vps=+15 "Positive supply";
+  parameter SI.Voltage Vns=-15 "Negative supply";
+  parameter SI.Frequency f=10 "Desired frequency";
+  parameter SI.Resistance R1=1000
     "Resistance 1 for adjusting the Schmitt trigger voltage level";
-  parameter Modelica.Units.SI.Resistance R2=1000
+  parameter SI.Resistance R2=1000
     "Resistance 2 for adjusting the Schmitt trigger voltage level";
-  parameter Modelica.Units.SI.Resistance R=1000 "Arbitrary resistance";
-  parameter Modelica.Units.SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2))
+  parameter SI.Resistance R=1000 "Arbitrary resistance";
+  parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2))
     "Calculated capacitance to reach the desired frequency f";
   Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(
     Vps=Vps,

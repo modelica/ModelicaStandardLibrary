@@ -2,9 +2,9 @@ within Modelica.Electrical.Analog.Examples.OpAmps;
 model LowPass "Low-pass filter"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.Units.SI.Voltage Vin=5 "Amplitude of input voltage";
-  parameter Modelica.Units.SI.Frequency f=10 "Frequency of input voltage";
-  parameter Modelica.Units.SI.Frequency fG=f/10 "Limiting frequency";
+  parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+  parameter SI.Frequency f=10 "Frequency of input voltage";
+  parameter SI.Frequency fG=f/10 "Limiting frequency";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(

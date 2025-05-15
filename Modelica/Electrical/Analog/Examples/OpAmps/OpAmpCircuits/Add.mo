@@ -1,17 +1,17 @@
 within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model Add "Adding operational amplifier circuit"
   extends PartialOpAmp;
-  Modelica.Units.SI.Voltage v1_2=p1_2.v - n1.v
+  SI.Voltage v1_2=p1_2.v - n1.v
     "Voltage drop of port 1_2 (= p1_2.v - n1.v)";
-  Modelica.Units.SI.Current i1_2(start=0)=p1_2.i
+  SI.Current i1_2(start=0)=p1_2.i
     "Current flowing from pos. to neg. pin of port 1_2";
   parameter Real k1(final min=0)=1 "Weight of input 1";
   parameter Real k2(final min=0)=1 "Weight of input 2";
-  parameter Modelica.Units.SI.Resistance R=1000
+  parameter SI.Resistance R=1000
     "Resistance at output of OpAmp";
-  parameter Modelica.Units.SI.Resistance R1=R/k1
+  parameter SI.Resistance R1=R/k1
     "Calculated resistance to reach desired weight 1";
-  parameter Modelica.Units.SI.Resistance R2=R/k2
+  parameter SI.Resistance R2=R/k2
     "Calculated resistance to reach desired weight 2";
   Modelica.Electrical.Analog.Basic.Resistor r1(final R=R1) annotation (
       Placement(transformation(extent={{-10,-10},{10,10}}, origin={-40,70})));

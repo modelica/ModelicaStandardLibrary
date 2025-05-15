@@ -2,9 +2,9 @@ within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model Gain "Inverting operational amplifier circuit"
   extends PartialOpAmp;
   parameter Real k(final min=0)=1 "Desired amplification";
-  parameter Modelica.Units.SI.Resistance R1=1000
+  parameter SI.Resistance R1=1000
     "Resistance at negative input of OpAmp";
-  parameter Modelica.Units.SI.Resistance R2=k*R1
+  parameter SI.Resistance R2=k*R1
     "Calculated resistance to reach desired amplification k";
   Modelica.Electrical.Analog.Basic.Resistor r1(final R=R1)
     annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
