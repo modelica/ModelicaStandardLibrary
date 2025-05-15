@@ -40,8 +40,7 @@ equation
   connect(der_.n2, vOut.n)
     annotation (Line(points={{10,-10},{40,-10}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>This is a (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
-<p>Note: <code>vOut</code> measure the negative output voltage.</p>
+<p>This is a (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p
 </html>"),
     experiment(
       StartTime=0,

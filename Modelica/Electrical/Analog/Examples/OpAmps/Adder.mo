@@ -39,7 +39,6 @@ equation
     annotation (Line(points={{10,-10},{40,-10}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>This is an inverting adder.</p>
-<p>Note: <code>vOut</code> measure the negative output voltage.</p>
 </html>"),
     experiment(
       StartTime=0,

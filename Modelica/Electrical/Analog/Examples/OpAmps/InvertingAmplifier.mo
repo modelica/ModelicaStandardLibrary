@@ -39,7 +39,6 @@ equation
   annotation (
     Documentation(info="<html>
 <p>This is an inverting amplifier.</p>
-<p>Note: <code>vOut</code> measure the negative output voltage.</p>
 </html>"),
     experiment(
       StartTime=0,
