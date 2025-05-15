@@ -1,18 +1,21 @@
 within Modelica.Electrical.Analog.Examples.OpAmps;
 model Multivibrator "Multivibrator with Schmitt trigger"
   extends Modelica.Icons.Example;
-  parameter SI.Voltage Vps=+15 "Positive supply";
-  parameter SI.Voltage Vns=-15 "Negative supply";
-  parameter SI.Frequency f=10 "Desired frequency";
-  parameter SI.Resistance R1=1000 "Resistance 1 for adjusting the Schmitt trigger voltage level";
-  parameter SI.Resistance R2=1000 "Resistance 2 for adjusting the Schmitt trigger voltage level";
-  parameter SI.Resistance R=1000 "Arbitrary resistance";
-  parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2)) "Calculated capacitance to reach the desired frequency f";
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
+  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply";
+  parameter Modelica.Units.SI.Voltage Vns=-15 "Negative supply";
+  parameter Modelica.Units.SI.Frequency f=10 "Desired frequency";
+  parameter Modelica.Units.SI.Resistance R1=1000
+    "Resistance 1 for adjusting the Schmitt trigger voltage level";
+  parameter Modelica.Units.SI.Resistance R2=1000
+    "Resistance 2 for adjusting the Schmitt trigger voltage level";
+  parameter Modelica.Units.SI.Resistance R=1000 "Arbitrary resistance";
+  parameter Modelica.Units.SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2))
+    "Calculated capacitance to reach the desired frequency f";
+  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(
     Vps=Vps,
     Vns=Vns,
-    homotopyType = Modelica.Blocks.Types.LimiterHomotopy.LowerLimit,
-    strict = true) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    initOpAmp=Modelica.Electrical.Analog.Types.InitOpAmp.LowerLimit)
+    annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
   Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(

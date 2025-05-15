@@ -1,15 +1,17 @@
 within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model Integrator "Integrating operational amplifier circuit"
-  extends PartialOpAmp(v2(start=0));
+  extends PartialOpAmp;
   import Modelica.Constants.pi;
   parameter Real k(final min=0)=1 "Desired amplification at frequency f";
-  parameter SI.Frequency f "Frequency";
-  parameter SI.Resistance R=1000 "Resistance at negative input of OpAmp";
-  parameter SI.Capacitance C=1/k/(2*pi*f*R) "Calculated capacitance to reach desired amplification k";
-  SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
-  Basic.Capacitor  c(final C=C)
+  parameter Modelica.Units.SI.Frequency f "Frequency";
+  parameter Modelica.Units.SI.Resistance R=1000
+    "Resistance at negative input of OpAmp";
+  parameter Modelica.Units.SI.Capacitance C=1/k/(2*pi*f*R)
+    "Calculated capacitance to reach desired amplification k";
+  Modelica.Units.SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
+  Modelica.Electrical.Analog.Basic.Capacitor c(final C=C)
     annotation (Placement(transformation(extent={{30,20},{10,40}})));
-  Basic.Resistor r(final R=R)
+  Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
     annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
 equation
   connect(n1, n2)

@@ -12,7 +12,7 @@ VoltageFollower
 Comparator
 InvertingSchmittTrigger
 SchmittTrigger
+LCOscillator
 Multivibrator
 SignalGenerator
-LCOscillator
 OpAmpCircuits

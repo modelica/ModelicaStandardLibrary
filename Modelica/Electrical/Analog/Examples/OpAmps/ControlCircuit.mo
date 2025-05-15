@@ -1,60 +1,56 @@
 within Modelica.Electrical.Analog.Examples.OpAmps;
 model ControlCircuit "Control circuit"
   extends Modelica.Icons.Example;
-  parameter SI.Time T1=0.01 "Small time constant";
-  parameter SI.Time T2=0.01 "Large time constant";
-  parameter SI.Time Ti=T2 "Integral time constant";
+  parameter Modelica.Units.SI.Time T1=0.01 "Small time constant";
+  parameter Modelica.Units.SI.Time T2=0.01 "Large time constant";
+  parameter Modelica.Units.SI.Time Ti=T2 "Integral time constant";
   parameter Real kp=T2/(2*T1) "Proportional gain";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
-  Sources.StepVoltage stepA(V=10, startTime=0.1) annotation (Placement(
-        transformation(
+  Modelica.Electrical.Analog.Sources.StepVoltage stepA(V=10, startTime=0.1)
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-90,-62})));
-  OpAmpCircuits.Feedback feedbackA(p1(i(start=0)))
+  OpAmpCircuits.Feedback feedbackA(i1(start=0), i2(start=0))
     annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
   OpAmpCircuits.PI PIA(
-    v2(fixed=true),
     k=kp,
     T=Ti,
-    opAmp(v_in(start=0)))
+    v(fixed=true))
     annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
   OpAmpCircuits.FirstOrder firstOrder1A(
-    v2(fixed=true),
-    T=T1,
-    opAmp(v_in(start=0)))
+    T=T1, v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
-  OpAmpCircuits.Add addA(i1_2(start=0), r(i(start=0)))
+  OpAmpCircuits.Add addA(r(i(start=0)))
     annotation (Placement(transformation(extent={{30,-40},{50,-20}})));
-  Sources.StepVoltage step1A(V=1, startTime=0.5) annotation (Placement(
-        transformation(
+  Modelica.Electrical.Analog.Sources.StepVoltage step1A(V=1, startTime=0.5)
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={20,-60})));
   OpAmpCircuits.FirstOrder firstOrder2A(
-    v2(fixed=true),
-    T=T2,
-    opAmp(v_in(start=0)))
+    T=T2, v(fixed=true))
     annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
-  Blocks.Sources.Step stepB(height=10, startTime=0.1)
+  Modelica.Blocks.Sources.Step stepB(height=10, startTime=0.1)
     annotation (Placement(transformation(extent={{-100,60},{-80,80}})));
-  Blocks.Math.Feedback feedbackB
+  Modelica.Blocks.Math.Feedback feedbackB
     annotation (Placement(transformation(extent={{-70,60},{-50,80}})));
-  Blocks.Continuous.PI PIB(
+  Modelica.Blocks.Continuous.PI PIB(
     k=kp,
     T=Ti,
     initType=Modelica.Blocks.Types.Init.InitialOutput)
     annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
-  Blocks.Continuous.FirstOrder firstOrder1B(T=T1, initType=Modelica.Blocks.Types.Init.InitialOutput)
+  Modelica.Blocks.Continuous.FirstOrder firstOrder1B(T=T1, initType=Modelica.Blocks.Types.Init.InitialOutput)
     annotation (Placement(transformation(extent={{-10,60},{10,80}})));
-  Blocks.Math.Add addB
+  Modelica.Blocks.Math.Add addB
     annotation (Placement(transformation(extent={{30,60},{50,80}})));
-  Blocks.Sources.Step step1B(height=1, startTime=0.5)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+  Modelica.Blocks.Sources.Step step1B(height=1, startTime=0.5) annotation (
+      Placement(transformation(
+        extent={{-10,-10},{10,10}},
         rotation=90,
         origin={20,30})));
-  Blocks.Continuous.FirstOrder firstOrder2B(T=T2, initType=Modelica.Blocks.Types.Init.InitialOutput)
+  Modelica.Blocks.Continuous.FirstOrder firstOrder2B(T=T2, initType=Modelica.Blocks.Types.Init.InitialOutput)
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
 equation
   connect(stepA.n, ground.p)

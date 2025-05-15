@@ -2,19 +2,22 @@ within Modelica.Electrical.Analog.Examples.OpAmps;
 model SignalGenerator "Rectangle-Triangle generator"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter SI.Voltage Vps=+15 "Positive supply";
-  parameter SI.Voltage Vns=-Vps "Negative supply";
-  parameter SI.Voltage VAmp=10 "Desired amplitude of output";
-  parameter SI.Resistance R1=1000 "Arbitrary resistance for Schmitt trigger part";
-  parameter SI.Resistance R2=R1*Vps/VAmp "Calculated resistance for Schmitt trigger to reach VAmp";
-  parameter SI.Frequency f=10 "Desired frequency";
-  parameter SI.Resistance R=1000 "Arbitrary resistance of integrator part";
-  parameter SI.Capacitance C=Vps/VAmp/(4*f*R) "Calculated capacitance of integrator part to reach f";
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp1(
+  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply";
+  parameter Modelica.Units.SI.Voltage Vns=-Vps "Negative supply";
+  parameter Modelica.Units.SI.Voltage VAmp=10 "Desired amplitude of output";
+  parameter Modelica.Units.SI.Resistance R1=1000
+    "Arbitrary resistance for Schmitt trigger part";
+  parameter Modelica.Units.SI.Resistance R2=R1*Vps/VAmp
+    "Calculated resistance for Schmitt trigger to reach VAmp";
+  parameter Modelica.Units.SI.Frequency f=10 "Desired frequency";
+  parameter Modelica.Units.SI.Resistance R=1000
+    "Arbitrary resistance of integrator part";
+  parameter Modelica.Units.SI.Capacitance C=Vps/VAmp/(4*f*R)
+    "Calculated capacitance of integrator part to reach f";
+  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp1(
     Vps=Vps,
     Vns=Vns,
-    strict=false,
-    homotopyType=Modelica.Blocks.Types.LimiterHomotopy.LowerLimit)
+    initOpAmp=Modelica.Electrical.Analog.Types.InitOpAmp.LowerLimit)
     annotation (Placement(transformation(extent={{-60,10},{-40,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=R2, i(start=Vps/R2))
     annotation (Placement(transformation(
@@ -27,11 +30,7 @@ model SignalGenerator "Rectangle-Triangle generator"
         origin={-50,50})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp2(
-    Vps=Vps,
-    Vns=Vns,
-    v_in(start=0),
-    strict=false)
+  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp2(Vps=Vps, Vns=Vns)
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
   Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(fixed=true, start=0))
     annotation (Placement(transformation(extent={{50,20},{30,40}})));

@@ -1,15 +1,15 @@
 within Modelica.Electrical.Analog.Examples.OpAmps;
 model Comparator "Comparator"
   extends Modelica.Icons.Example;
-  parameter SI.Voltage Vps=+15 "Positive supply";
-  parameter SI.Voltage Vns=-15 "Negative supply";
-  parameter SI.Voltage Vin=5 "Amplitude of input voltage";
-  parameter SI.Frequency f=10 "Frequency of input voltage";
-  parameter SI.Voltage Vref=0 "Reference voltage";
+  parameter Modelica.Units.SI.Voltage Vps=+15 "Positive supply";
+  parameter Modelica.Units.SI.Voltage Vns=-15 "Negative supply";
+  parameter Modelica.Units.SI.Voltage Vin=5 "Amplitude of input voltage";
+  parameter Modelica.Units.SI.Frequency f=10 "Frequency of input voltage";
+  parameter Modelica.Units.SI.Voltage Vref=0 "Reference voltage";
   parameter Real k=(Vref - Vns)/(Vps - Vns) "Calculated potentiometer ratio to reach Vref";
-  parameter SI.Resistance R=1000 "Resistance of potentiometer";
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(Vps=Vps, Vns=
-        Vns) annotation (Placement(transformation(extent={{0,10},{20,-10}})));
+  parameter Modelica.Units.SI.Resistance R=1000 "Resistance of potentiometer";
+  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(Vps=Vps, Vns=Vns)
+    annotation (Placement(transformation(extent={{0,10},{20,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
   Modelica.Electrical.Analog.Sources.TrapezoidVoltage vIn(
