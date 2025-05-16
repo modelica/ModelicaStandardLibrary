@@ -17,6 +17,7 @@ model SignalGenerator "Rectangle-Triangle generator"
   Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp1(
     Vps=Vps,
     Vns=Vns,
+    useFirstOrder=true,
     initOpAmp=Modelica.Electrical.Analog.Types.InitOpAmp.LowerLimit)
     annotation (Placement(transformation(extent={{-60,10},{-40,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=R2, i(start=Vps/R2))

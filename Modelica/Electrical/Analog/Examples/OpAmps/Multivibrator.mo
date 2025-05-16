@@ -14,6 +14,7 @@ model Multivibrator "Multivibrator with Schmitt trigger"
   Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(
     Vps=Vps,
     Vns=Vns,
+    useFirstOrder=true,
     initOpAmp=Modelica.Electrical.Analog.Types.InitOpAmp.LowerLimit)
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
@@ -68,6 +69,6 @@ equation
     experiment(
       StartTime=0,
       StopTime=1,
-      Tolerance=1e-006,
-      Interval=0.001));
+      Interval=0.001,
+      Tolerance=1e-006));
 end Multivibrator;

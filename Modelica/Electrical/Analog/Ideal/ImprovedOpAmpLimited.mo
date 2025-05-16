@@ -1,16 +1,19 @@
 within Modelica.Electrical.Analog.Ideal;
 model ImprovedOpAmpLimited "Improved operational amplifier with limitation"
   parameter Real V0=15000.0 "No-load amplification";
-  parameter SI.Time Tr=1e-5 "Rise time 10%-90% of output voltage";
   parameter Boolean useSupply=false
     "Use supply pins (otherwise constant supply)" annotation (Evaluate=true);
   parameter SI.Voltage Vps=+15 "Positive supply voltage"
     annotation (Dialog(enable=not useSupply));
   parameter SI.Voltage Vns=-15 "Negative supply voltage"
     annotation (Dialog(enable=not useSupply));
+  parameter Boolean useFirstOrder=false "use firstOrder rise of output voltage?"
+    annotation(Evaluate=true, Dialog(tab="Advanced"));
+  parameter SI.Time Tau=1e-5 "Time constant of firstOrder rise of output voltage"
+    annotation(Evaluate=true, Dialog(tab="Advanced", enable=useFirstOrder));
   parameter Modelica.Electrical.Analog.Types.InitOpAmp initOpAmp=Modelica.Electrical.Analog.Types.InitOpAmp.Linear
-    "Initialization of rise time fristOrder"
-    annotation (Evaluate=true, Dialog(group="Initialization"));
+    "Initialization of firstOrder rise of output voltage"
+    annotation (Evaluate=true, Dialog(tab="Advanced", enable=useFirstOrder));
   Boolean satPos=v_int>=vps "Indicates positive Saturation";
   Boolean satNeg=v_int<=vns "Indicates negative Saturation";
   SI.Voltage vps "Positive supply voltage";
@@ -41,25 +44,30 @@ model ImprovedOpAmpLimited "Improved operational amplifier with limitation"
     if useSupply "Optional negative supply pin" annotation (Placement(
         transformation(extent={{-10,-110},{10,-90}})));
 initial equation
-  if initOpAmp == Modelica.Electrical.Analog.Types.InitOpAmp.UpperLimit then
-    v_int=vps;
-  elseif initOpAmp == Modelica.Electrical.Analog.Types.InitOpAmp.LowerLimit
-       then
-    v_int=vns;
-  else
-    v_int=V0*v_in;
+  if useFirstOrder then
+    if initOpAmp == Modelica.Electrical.Analog.Types.InitOpAmp.UpperLimit then
+      v_int=vps;
+    elseif initOpAmp == Modelica.Electrical.Analog.Types.InitOpAmp.LowerLimit then
+      v_int=vns;
+    else
+      v_int=min(vps, max(vns, V0*v_in));
+    end if;
   end if;
 equation
   if not useSupply then
     vps = Vps;
     vns = Vns;
   end if;
-  assert(vps > vns, "Supply voltages are not consistent: vps <= vns");
+  assert(vps > vns, "OpAmp supply voltages are not consistent.");
   //input currents
   in_p.i = 0;
   in_n.i = 0;
-  //firstOrder to model Rise time
-  der(v_int) = (V0*v_in - v_int)/(Tr/log(9));
+  //either firstOrder or simple gain
+  if useFirstOrder then
+    Tau*der(v_int) = (V0*v_in - v_int);
+  else
+    v_int = V0*v_in;
+  end if;
   //saturation of output: satPos and satNeg trigger events
   v_out = smooth(0, min(vps, max(vns, v_int)));
   annotation (defaultComponentName="opAmp",
@@ -88,19 +96,29 @@ equation
 <ul>
 <li>Input currents are zero.</li>
 <li>No-load amplification is high (but not infinite).</li>
-<li>Rise time of output from 10&#037; to 90&#037; (at input step) is low (but not zero).</li>
 <li>Output voltage is limited between positive and negative supply.</li>
 </ul>
-<p>Supply voltage is either defined by parameter Vps and Vns or by (optional) pins s_p and s_n.<br>
+<p>Supply voltage is either defined by parameter <code>Vps</code> and <code>Vns</code> or by (optional) pins <code>s_p</code> and <code>s_n</code>.<br>
 In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
 <p>
-The differential input voltage <code>v_in</code> is treated by a firstOrder with gain <code>V0</code> and time constant <code>Tr/log(9)</code> to meet the rise time.<br>
-If this intermediate voltage <code>v_int</code> gets higher than positive supply, Boolean <code>satPos</code> inidicates that.<br>
-If this intermediate voltage <code>v_int</code> gets lower  than negative supply, Boolean <code>satNeg</code> inidicates that.<br>
-Then <code>v_int</code> is limited between positive supply and negative supply to achieve output voltage <code>v_out</code>.
+For most applications it is sufficient ot use default settings <code>Advanced.useFirstOrder=false</code>. 
+In this case the intermediate voltage <code>v_int</code> is simply <code>V0*v_in</code>.<br>
+In some applications it might be necessary to set <code>Advanced.useFirstOrder=true</code> 
+to let the intermediate voltage <code>v_int</code> rise according to a firstOrder with time constant <code>Tau</code>. 
+In that case the time constant <code>Tau</code> should fit to the dynamics of the input signal.
 </p>
 <p>
-It is essential to initialize intermediate voltage <code>v_int</code> correctly.<br>
+If this intermediate voltage <code>v_int</code> gets higher than positive supply, Boolean <code>satPos</code> inidicates positive saturation.<br>
+If this intermediate voltage <code>v_int</code> gets lower  than negative supply, Boolean <code>satNeg</code> inidicates negative saturation.<br>
+Intermediate voltage <code>v_int</code> is limited between positive supply and negative supply to achieve output voltage <code>v_out</code> without further events.
+</p>
+<h4>Initialization</h4>
+<p>
+<code>v_in.start</code> and <code>i_out.start</code> are just helpful starting values during initialization, 
+it is unlikely that it is necessary to change the start values and / or to declare them as fixed.
+</p>
+<p>
+If it is necessary to use <code>Advanced.useFirstOrder=true</code>, it is essential to initialize intermediate voltage <code>v_int</code> correctly.<br>
 As a default, default initialization (<strong>Linear</strong>) is sufficient: <code>v_int = V0*v_in</code>.<br>
 However, in some cases the initialization has more than one solution and it is desired to set 
 <code>v_int</code> at the positive supply (<strong>UpperLimit</strong>) or 
