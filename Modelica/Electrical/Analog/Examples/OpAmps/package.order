@@ -1,6 +1,5 @@
 NonInvertingAmplifier
 InvertingAmplifier
-DifferentialAmplifier
 Adder
 Subtracter
 Differentiator
@@ -8,6 +7,8 @@ Integrator
 LowPass
 HighPass
 ControlCircuit
+MeasureRiseTime
+DifferentialAmplifier
 VoltageFollower
 Comparator
 InvertingSchmittTrigger
