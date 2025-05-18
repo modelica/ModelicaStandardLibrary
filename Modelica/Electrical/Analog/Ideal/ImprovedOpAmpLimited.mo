@@ -7,15 +7,16 @@ model ImprovedOpAmpLimited "Improved operational amplifier with limitation"
     annotation (Dialog(enable=not useSupply));
   parameter SI.Voltage Vns=-15 "Negative supply voltage"
     annotation (Dialog(enable=not useSupply));
-  parameter Boolean useFirstOrder=false "use firstOrder rise of output voltage?"
+  parameter Boolean useFirstOrder=false "Use firstOrder rise of output voltage"
     annotation(Evaluate=true, Dialog(tab="Advanced"));
   parameter SI.Time Tau=1e-5 "Time constant of firstOrder rise of output voltage"
     annotation(Evaluate=true, Dialog(tab="Advanced", enable=useFirstOrder));
   parameter Modelica.Electrical.Analog.Types.InitOpAmp initOpAmp=Modelica.Electrical.Analog.Types.InitOpAmp.Linear
     "Initialization of firstOrder rise of output voltage"
     annotation (Evaluate=true, Dialog(tab="Advanced", enable=useFirstOrder));
-  Boolean satPos=v_int>=vps "Indicates positive Saturation";
-  Boolean satNeg=v_int<=vns "Indicates negative Saturation";
+  //Indicate saturation and provide events without being involved in limitation
+  Boolean satPos=v_int>=vps "Positive Saturation";
+  Boolean satNeg=v_int<=vns "Negative Saturation";
   SI.Voltage vps "Positive supply voltage";
   SI.Voltage vns "Negative supply voltage";
   SI.Voltage v_in(start=0)=in_p.v - in_n.v "Input voltage difference";
@@ -101,9 +102,9 @@ equation
 <p>Supply voltage is either defined by parameter <code>Vps</code> and <code>Vns</code> or by (optional) pins <code>s_p</code> and <code>s_n</code>.<br>
 In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
 <p>
-For most applications it is sufficient ot use default settings <code>Advanced.useFirstOrder=false</code>. 
+For most applications it is sufficient ot use default settings <code>useFirstOrder=false</code> (default on the Advanced-tab).
 In this case the intermediate voltage <code>v_int</code> is simply <code>V0*v_in</code>.<br>
-In some applications it might be necessary to set <code>Advanced.useFirstOrder=true</code> 
+In some applications it might be necessary to set <code>useFirstOrder=true</code> 
 to let the intermediate voltage <code>v_int</code> rise according to a firstOrder with time constant <code>Tau</code>. 
 In that case the time constant <code>Tau</code> should fit to the dynamics of the input signal.
 </p>
@@ -118,7 +119,7 @@ Intermediate voltage <code>v_int</code> is limited between positive supply and n
 it is unlikely that it is necessary to change the start values and / or to declare them as fixed.
 </p>
 <p>
-If it is necessary to use <code>Advanced.useFirstOrder=true</code>, it is essential to initialize intermediate voltage <code>v_int</code> correctly.<br>
+If it is necessary to use <code>useFirstOrder=true</code>, it is essential to initialize intermediate voltage <code>v_int</code> correctly.<br>
 As a default, default initialization (<strong>Linear</strong>) is sufficient: <code>v_int = V0*v_in</code>.<br>
 However, in some cases the initialization has more than one solution and it is desired to set 
 <code>v_int</code> at the positive supply (<strong>UpperLimit</strong>) or 
