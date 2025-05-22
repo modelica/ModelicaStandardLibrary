@@ -233,8 +233,8 @@ Specification (version &ge; 3.3).
   annotation (
     preferredView="info",
     version="4.1.0",
-    versionDate="2024-01-12",
-    dateModified = "2024-01-12 19:40:00Z",
+    versionDate="2025-05-23",
+    dateModified = "2025-05-23 15:00:00Z",
     revisionId="$Format:%h %ci$",
     uses(Modelica(version="4.1.0")),
     conversion(
