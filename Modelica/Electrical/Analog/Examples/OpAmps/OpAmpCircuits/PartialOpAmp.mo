@@ -5,7 +5,7 @@ partial model PartialOpAmp
   parameter SI.Voltage Vps=+15 "Positive supply";
   parameter SI.Voltage Vns=-15 "Negative supply";
   parameter Real V0=15000.0 "No-load amplification";
-  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp(
     V0=V0,
     final useSupply=false,
     final Vps=Vps,

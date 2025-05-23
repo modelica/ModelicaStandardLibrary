@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Ideal;
-model ImprovedOpAmpLimited "Improved operational amplifier with limitation"
+model OpAmpLimited "Improved operational amplifier with limitation"
   parameter Real V0=15000.0 "No-load amplification";
   parameter Boolean useSupply=false
     "Use supply pins (otherwise constant supply)" annotation (Evaluate=true);
@@ -93,7 +93,7 @@ equation
         Line(points={{0,40},{0,100}}, color={0,0,255}, visible=useSupply),
         Line(points={{0,-100},{0,-40}}, color={0,0,255}, visible=useSupply)}),
     Documentation(info="<html>
-<p>Idealized operational amplifier with saturation:</p>
+<p>Operational amplifier with saturation:</p>
 <ul>
 <li>Input currents are zero.</li>
 <li>No-load amplification is high (but not infinite).</li>
@@ -126,4 +126,4 @@ However, in some cases the initialization has more than one solution and it is d
 <code>v_int</code> at the negative supply (<strong>LowerLimit</strong>).
 </p>
 </html>"));
-end ImprovedOpAmpLimited;
+end OpAmpLimited;

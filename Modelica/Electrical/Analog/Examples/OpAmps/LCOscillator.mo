@@ -18,7 +18,7 @@ model LCOscillator "LC oscillator"
         transformation(
         origin={20,-50},
         extent={{-10,-10},{10,10}})));
-  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp
     annotation (Placement(transformation(extent={{-50,10},{-30,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor r(R=R)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));

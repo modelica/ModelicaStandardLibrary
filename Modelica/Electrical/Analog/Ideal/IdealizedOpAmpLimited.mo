@@ -65,7 +65,7 @@ equation
                        simplified=simplifiedExpr);
     end if;
   end if;
-  annotation (obsolete = "Please use Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited instead of this model",
+  annotation (obsolete = "Please use Modelica.Electrical.Analog.Ideal.OpAmpLimited instead of this model",
     defaultComponentName="opAmp",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics={
