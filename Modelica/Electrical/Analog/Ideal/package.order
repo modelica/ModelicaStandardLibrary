@@ -8,8 +8,8 @@ ControlledIdealIntermediateSwitch
 IdealOpAmp
 IdealOpAmp3Pin
 IdealOpAmpLimited
-IdealizedOpAmpLimited
 OpAmpLimited
+IdealizedOpAmpLimited
 IdealTransformer
 Idle
 Short
