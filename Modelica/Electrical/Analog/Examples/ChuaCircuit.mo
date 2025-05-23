@@ -6,55 +6,58 @@ model ChuaCircuit "Chua's circuit"
   SI.Voltage v2(start=+0.744123, fixed=true)=c2.v "Result: c2.v";
   Modelica.Electrical.Analog.Basic.Inductor inductor(i(fixed=true, start=0), L=18e-3)
     annotation (Placement(transformation(
-        origin={-70,20},
-        extent={{-20,-20},{20,20}},
+        origin={-50,20},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor rL(R=14) annotation (Placement(transformation(
-        origin={-70,-40},
-        extent={{-20,-20},{20,20}},
+        origin={-50,-20},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R)    annotation (
       Placement(transformation(
-        extent={{-20,-20},{20,20}},
+        extent={{-10,-10},{10,10}},
         rotation=0,
         origin={0,40})));
   Modelica.Electrical.Analog.Basic.Capacitor c1(C=10e-9)
     annotation (Placement(transformation(
-        origin={20,-10},
-        extent={{-20,-20},{20,20}},
+        origin={20,0},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Capacitor c2(C=100e-9)
     annotation (Placement(transformation(
-        origin={-20,-10},
-        extent={{-20,-20},{20,20}},
+        origin={-20,0},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Examples.Utilities.NonlinearResistor chuasDiode(
     Ga(min=-1) = -757.7576e-6,
     Gb(min=-1) = -409.0909e-6,
     Ve=1)     annotation (Placement(transformation(
-        origin={70,-10},
-        extent={{-20,-20},{20,20}},
+        origin={50,0},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Ground Gnd annotation (Placement(transformation(extent={{-20,
-            -100},{20,-60}})));
+  Modelica.Electrical.Analog.Basic.Ground Gnd annotation (Placement(transformation(extent={{-10,-60},
+            {10,-40}})));
 equation
-  connect(inductor.n, rL.p) annotation (Line(points={{-70,0},{-70,-20}}));
+  connect(inductor.n, rL.p) annotation (Line(points={{-50,10},{-50,-10}}));
   connect(c2.p, resistor.p)
-    annotation (Line(points={{-20,10},{-20,40}}, color={0,0,255}));
+    annotation (Line(points={{-20,10},{-20,40},{-10,40}},
+                                                 color={0,0,255}));
   connect(inductor.p, resistor.p)
-    annotation (Line(points={{-70,40},{-20,40}}, color={0,0,255}));
+    annotation (Line(points={{-50,30},{-50,40},{-10,40}},
+                                                 color={0,0,255}));
   connect(resistor.n, chuasDiode.p)
-    annotation (Line(points={{20,40},{70,40},{70,10}}, color={0,0,255}));
+    annotation (Line(points={{10,40},{50,40},{50,10}}, color={0,0,255}));
   connect(c1.p, resistor.n)
-    annotation (Line(points={{20,10},{20,40}}, color={0,0,255}));
+    annotation (Line(points={{20,10},{20,40},{10,40}},
+                                               color={0,0,255}));
   connect(rL.n, Gnd.p) annotation (Line(
-      points={{-70,-60},{0,-60}},           color={0,0,255}));
+      points={{-50,-30},{-50,-40},{0,-40}}, color={0,0,255}));
   connect(c2.n, Gnd.p) annotation (Line(
-      points={{-20,-30},{-20,-60},{0,-60}},           color={0,0,255}));
+      points={{-20,-10},{-20,-40},{0,-40}},           color={0,0,255}));
   connect(Gnd.p,c1. n) annotation (Line(
-      points={{0,-60},{20,-60},{20,-30}}, color={0,0,255}));
+      points={{0,-40},{20,-40},{20,-10}}, color={0,0,255}));
   connect(Gnd.p, chuasDiode.n)
-    annotation (Line(points={{0,-60},{70,-60},{70,-30}}, color={0,0,255}));
+    annotation (Line(points={{0,-40},{50,-40},{50,-10}}, color={0,0,255}));
   annotation (
     experiment(
       StopTime=0.1,
