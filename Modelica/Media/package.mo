@@ -2015,11 +2015,10 @@ for the Modelica'2003 conference (for evaluation).
 <h4>Library officer and main author</h4>
 
 <p>
-<strong>Hubertus Tummescheit</strong><br>
+<strong>Hubertus Tummescheit</strong>, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22730 Lund, Sweden<br>
-email: <a href=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</a>
 </p>
 
 <h4>Acknowledgements</h4>
@@ -5113,11 +5112,10 @@ to the above list of assumptions</li>
     I-20133 Milano, Italy<br>
     email: <a href=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</a><br>
     and<br>
-    Hubertus Tummescheit<br>
+    Hubertus Tummescheit, previously at<br>
     Modelon AB<br>
     Ideon Science Park<br>
     SE-22730 Lund, Sweden<br>
-    email: <a href=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</a>
 </dd>
 </dl>
 </html>"));
@@ -6757,7 +6755,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         Temperature meltingPoint "Melting point at 101325 Pa";
         Temperature normalBoilingPoint "Normal boiling point (at 101325 Pa)";
         DipoleMoment dipoleMoment
-          "Dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+          "Dipole moment of molecule in Debye (1 debye = 3.33564e-30 C.m)";
         Boolean hasIdealGasHeatCapacity=false
           "= true, if ideal gas heat capacity is available";
         Boolean hasCriticalData=false "= true, if critical data are known";
@@ -6801,7 +6799,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         Temperature meltingPoint "Melting point at 101325 Pa";
         Temperature normalBoilingPoint "Normal boiling point (at 101325 Pa)";
         DipoleMoment dipoleMoment
-          "Dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+          "Dipole moment of molecule in Debye (1 debye = 3.33564e-30 C.m)";
         Boolean hasIdealGasHeatCapacity=false
           "= true, if ideal gas heat capacity is available";
         Boolean hasCriticalData=false "= true, if critical data are known";
@@ -8536,7 +8534,7 @@ The following parts are useful, when newly starting with this library:</p>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-Copyright &copy; 1998-2024, Modelica Association and contributors
+Copyright &copy; 1998-2025, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>

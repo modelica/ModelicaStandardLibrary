@@ -934,7 +934,7 @@ is given to compare the approximation.
       annotation (experiment(StopTime=1));
     end MoistAir;
 
-    model R134a_setState_pTX "Test setState_pTX() of R134a"
+    model R134a_setState_pTX "Test setState_pTX() of R134a at constant room temperature"
       extends Modelica.Icons.Example;
       replaceable package Medium = Modelica.Media.R134a.R134a_ph "Medium model";
       SI.Temperature T = 273.15 + 25;
@@ -950,21 +950,69 @@ is given to compare the approximation.
       annotation (experiment(StopTime=1));
     end R134a_setState_pTX;
 
+    model R134a_setState_pTX_high_T "Test setState_pTX() of R134a at constant high temperature"
+      extends R134a_setState_pTX(T=400);
+      annotation (experiment(StopTime=1));
+    end R134a_setState_pTX_high_T;
+
     model R134a_setState_phX "Test setState_phX() of R134a"
       extends Modelica.Icons.Example;
       replaceable package Medium = Modelica.Media.R134a.R134a_ph "Medium model";
-      SI.Temperature h = Medium.h_default;
+      SI.SpecificEnthalpy h = Medium.h_default;
       parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
       parameter SI.PressureSlope pRate = 20e5 "p's rate of change";
       SI.AbsolutePressure p = p0 + pRate*time;
       Medium.ThermodynamicState state = Medium.setState_phX(p, h);
-      SI.SpecificEnthalpy T= Medium.temperature(state);
+      SI.Temperature T= Medium.temperature(state);
       SI.Density rho = Medium.density(state);
       SI.DynamicViscosity mu = Medium.dynamicViscosity(state);
       SI.SpecificHeatCapacity cp = Medium.specificHeatCapacityCp(state);
       SI.ThermalConductivity k = Medium.thermalConductivity(state);
       annotation (experiment(StopTime=1));
     end R134a_setState_phX;
+
+    model R134a_pTX_phX_all "Tests the R134a_ph.setState_pTX and setState_phX functions for consistency over the entire valid range of p and T"
+      extends Modelica.Icons.Example;
+      package Medium = Modelica.Media.R134a.R134a_ph;
+      parameter Medium.AbsolutePressure pmin = 0.0042e5;
+      parameter Medium.AbsolutePressure pmax = 700e5;
+      parameter Modelica.Units.SI.PerUnit p_increase = 2;
+      parameter Medium.Temperature Tmin = 190;
+      parameter Medium.Temperature Tmax = 450;
+
+      Medium.ThermodynamicState state = Medium.setState_pTX(p,T);
+      Medium.Temperature Tsat = Medium.saturationTemperature(p);
+      Medium.AbsolutePressure p;
+      Medium.Temperature T;
+      Medium.Density d = Medium.density(state);
+      Medium.SpecificEnthalpy h = Medium.specificEnthalpy(state);
+      Medium.ThermalConductivity k = Medium.thermalConductivity(state);
+
+      Medium.ThermodynamicState state_check = Medium.setState_phX(p,h);
+      Medium.Temperature T_check = Medium.temperature(state_check);
+      Medium.Density d_check = Medium.density(state_check);
+
+      Modelica.Units.SI.PerUnit dT;
+    initial equation
+      p = pmin;
+      T = Tmin;
+      dT = 100*45;
+    equation
+      der(T) = dT;
+      when abs(T - Tsat) < 2 then
+        // skip region close to Tsat
+        reinit(T, Tsat+4*sign(dT));
+      end when;
+      when {T > Tmax, T < Tmin} then
+        dT = -pre(dT);
+        p = pre(p)*p_increase;
+      end when;
+      assert(0.7e5 < h and h < 6e5, "Specific enthalpy h out of bounds");
+      assert(d > 0 and d < 1600, "Density out of bounds");
+      assert(abs(T - T_check)/T < 1e-3 and abs(d - d_check)/d < 1e-2, "Convergence error");
+    annotation(
+        experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.0001));
+    end R134a_pTX_phX_all;
 
     model WaterIF97_dewEnthalpy "Test dewEnthalpy of WaterIF97"
       extends Modelica.Icons.Example;

@@ -25,7 +25,7 @@ jobs:
           pushd Modelica/Resources/BuildProjects/autotools
           git clean -fdx .
           ./autogen.sh
-          ./configure --libdir="$PWD/../../Library/$LIBDIR" --enable-static --disable-shared --enable-static-zlib --disable-hdf5 CPPFLAGS="-I${GITHUB_WORKSPACE}/.CI/Test"
+          ./configure --libdir="$PWD/../../Library/$LIBDIR" --enable-static --disable-shared --enable-static-zlib --disable-hdf5
           popd
         env:
           LIBDIR: linux64
@@ -79,15 +79,14 @@ jobs:
       - name: Configure
         run: |
           if [ "${{ matrix.compiler }}" == "msvc" ]; then
-            cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON
+            cmake -S "$SRCDIR" -B build -DMODELICA_DEBUG_TIME_EVENTS=ON
           elif [ "${{ matrix.compiler }}" == "mingw" ]; then
-            cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -G "MinGW Makefiles"
+            cmake -S "$SRCDIR" -B build -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -G "MinGW Makefiles"
           else
-            cmake -S "$SRCDIR" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$TESTDIR" -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -DCMAKE_C_FLAGS="-std=c89 -Wall -Wextra"
+            cmake -S "$SRCDIR" -B build -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -DCMAKE_C_FLAGS="-std=c89 -Wall -Wextra"
           fi
         env:
           SRCDIR: ${{ github.workspace }}/Modelica/Resources
-          TESTDIR: ${{ github.workspace }}/.CI/Test
       - name: Build with ${{ matrix.compiler }}
         run: |
           if [ "${{ matrix.compiler }}" == "msvc" ]; then
@@ -120,12 +119,11 @@ jobs:
       - name: Configure
         run: |
           export PATH=/usr/bin:$PATH
-          cmake -S "$(cygpath ${SRCDIR})" -B build -DMODELICA_UTILITIES_INCLUDE_DIR="$(cygpath ${TESTDIR})" -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=Debug -G Ninja
+          cmake -S "$(cygpath ${SRCDIR})" -B build -DMODELICA_DEBUG_TIME_EVENTS=ON -DCMAKE_BUILD_TYPE=Debug -G Ninja
         shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
         env:
           CYGWIN_NOWINPATH: 1
           SRCDIR: ${{ github.workspace }}/Modelica/Resources
-          TESTDIR: ${{ github.workspace }}/.CI/Test
       - name: Build with gcc
         run: |
           export PATH=/usr/bin:$PATH
@@ -157,7 +155,7 @@ jobs:
         run: |
           git clone --branch 5.8.0 --depth=1 https://github.com/htacg/tidy-html5.git
           pushd tidy-html5
-          cmake .
+          cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 .
           make
           sudo make install
           popd
