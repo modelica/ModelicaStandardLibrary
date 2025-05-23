@@ -1867,7 +1867,8 @@ This shows the improvements in the numerics when balance=true is set.
     connect(booleanPulse.y, triggeredMax.trigger)
       annotation (Line(points={{21,50},{70,50},{70,68.2}}, color={255,0,255}));
     connect(sampler.y, unitDelay1.u) annotation (Line(points={{-19,80},{-12,80},
-            {-12,10},{-2,10}}, color={0,0,127}));
+      {-12,10},{-2,10}}, color={0,0,127}));
+    assert(abs(unitDelay.y-unitDelay1.y)<1e-3, "Should be the same");
     annotation (experiment(StopTime=1.1));
   end Discrete;
 
