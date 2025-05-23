@@ -100,6 +100,9 @@ equation
     vessel_ps_static[i] = max(0, level - portsData_height[i])*system.g*medium.d + p_ambient;
   end for;
 
+  // Ensure that the tank is never completely empty, otherwise the mass and energy balance equations in the fluid preferred states become singular
+  assert(level > 0, "Fluid level is too low; the energy balance equation becomes singular when the tank is completely empty.");
+
 initial equation
   if massDynamics == Types.Dynamics.FixedInitial then
     level = level_start_eps;
@@ -307,7 +310,6 @@ of the modeller. Increase nPorts to add an additional port.
         end for;
         // Check for correct solution
         assert(fluidLevel <= fluidLevel_max, "Vessel is overflowing (fluidLevel > fluidLevel_max = " + String(fluidLevel) + ")");
-        assert(fluidLevel > 0, "Fluid level is too small, the tank cannot be completely empty otherwise the energy balance equation becomes singular.");
 
         // Boundary conditions
 

@@ -65,8 +65,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><strong>1417</strong> component models and blocks,</li>
-<li><strong>512</strong> example models, and</li>
+<li><strong>1430</strong> component models and blocks,</li>
+<li><strong>534</strong> example models, and</li>
 <li><strong>1219</strong> functions</li>
 </ul>
 <p>
@@ -77,7 +77,7 @@ and it has been tested with Modelica tools from different vendors.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 1998-2024, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
+Copyright &copy; 1998-2025, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
 </p>
 
 <p>

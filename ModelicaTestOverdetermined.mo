@@ -627,7 +627,7 @@ fail during translation but give useful error messages.
 </p>
 
 <p>
-Copyright &copy; 1998-2024, Modelica Association and contributors
+Copyright &copy; 1998-2025, Modelica Association and contributors
 </p>
 
 <p>
