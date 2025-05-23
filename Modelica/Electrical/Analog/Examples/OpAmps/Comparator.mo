@@ -8,7 +8,7 @@ model Comparator "Comparator"
   parameter SI.Voltage Vref=0 "Reference voltage";
   parameter Real k=(Vref - Vns)/(Vps - Vns) "Calculated potentiometer ratio to reach Vref";
   parameter SI.Resistance R=1000 "Resistance of potentiometer";
-  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(Vps=Vps, Vns=Vns)
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp(Vps=Vps, Vns=Vns)
     annotation (Placement(transformation(extent={{0,10},{20,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
