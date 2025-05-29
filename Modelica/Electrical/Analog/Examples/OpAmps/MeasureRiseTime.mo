@@ -10,11 +10,12 @@ model MeasureRiseTime "Measure riseTime as voltageFollower"
   discrete SI.Time t10(start=0) "Time when output reaches 10% Vin";
   discrete SI.Time t90(start=0) "Time when output reaches 90% Vin";
   SI.Time riseTime=t90-t10 "Measured rise time";
-  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(
-    V0=V0,                                                    Vps=Vps, Vns=Vns,
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp(
+    V0=V0,
+    Vps=Vps,
+    Vns=Vns,
     useFirstOrder=true,
-    Tau=Tau)
-    annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    Tau=Tau) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
   Sources.StepVoltage                                 vIn(

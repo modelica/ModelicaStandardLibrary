@@ -14,7 +14,7 @@ model SignalGenerator "Rectangle-Triangle generator"
     "Arbitrary resistance of integrator part";
   parameter SI.Capacitance C=Vps/VAmp/(4*f*R)
     "Calculated capacitance of integrator part to reach f";
-  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp1(
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp1(
     Vps=Vps,
     Vns=Vns,
     useFirstOrder=true,
@@ -31,7 +31,7 @@ model SignalGenerator "Rectangle-Triangle generator"
         origin={-50,50})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
-  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp2(Vps=Vps, Vns=Vns)
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp2(Vps=Vps, Vns=Vns)
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
   Modelica.Electrical.Analog.Basic.Capacitor c(C=C, v(fixed=true, start=0))
     annotation (Placement(transformation(extent={{50,20},{30,40}})));
