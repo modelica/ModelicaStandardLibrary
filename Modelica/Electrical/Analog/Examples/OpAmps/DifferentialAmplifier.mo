@@ -32,7 +32,7 @@ model DifferentialAmplifier "Differential amplifier"
   Modelica.Electrical.Analog.Basic.Resistor resistorGround(R=data.RGround,
     i(start=0, fixed=false))
     annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
-  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp(
     V0=data.V0,
     useSupply=true,
     Vps=+data.VSupply,
