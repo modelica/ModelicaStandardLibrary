@@ -26,16 +26,14 @@ model ChuaDiode "Demonstrate Chuas Diode"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-70,40})));
-  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited
-                       opAmp1(Vps=+Vs, Vns=-Vs) annotation (Placement(
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp1(Vps=+Vs, Vns=-Vs) annotation (Placement(
         transformation(
         extent={{10,10},{-10,-10}},
         rotation=0,
         origin={-70,10})));
   Modelica.Electrical.Analog.Basic.Resistor rNeg1(R=R1) annotation (Placement(
         transformation(extent={{-80,-10},{-60,-30}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor rg1(R=Rg1, i(start=0))
-                                                       annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor rg1(R=Rg1, i(start=0))  annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -45,16 +43,14 @@ model ChuaDiode "Demonstrate Chuas Diode"
         extent={{10,-10},{-10,10}},
         rotation=0,
         origin={-30,40})));
-  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited
-                       opAmp2(Vps=+Vs, Vns=-Vs) annotation (Placement(
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp2(Vps=+Vs, Vns=-Vs) annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=0,
         origin={-30,10})));
   Modelica.Electrical.Analog.Basic.Resistor rNeg2(R=R2) annotation (Placement(
         transformation(extent={{-20,-10},{-40,-30}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor rg2(R=Rg2, i(start=0))
-                                                       annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor rg2(R=Rg2, i(start=0))  annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=270,
