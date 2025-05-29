@@ -16,6 +16,7 @@ model IMC_YD
   Machines.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
     p=aimcData.p,
     fsNominal=aimcData.fsNominal,
+    useZeroSystem=false,
     Rs=aimcData.Rs,
     TsRef=aimcData.TsRef,
     alpha20s(displayUnit="1/K") = aimcData.alpha20s,
