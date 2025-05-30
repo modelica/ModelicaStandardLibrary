@@ -4,7 +4,8 @@ class ZeroSystem "Explanation of the zero system"
   annotation (Documentation(info="<html>
 <p>
 The polyphase winding relates the currents to the magnetic potential phasor of the fundamental wave and the derivative of the magnetic flux phasor of the fundamental wave to the voltages, 
-taking the orientation of the phases into account. However, for number of phases <code>m &gt; 2</code> about the zero sequence system has to be decided. This happens in the zero inductance:
+taking the orientation of the phases into account. However, for the number of phases <code>m &gt; 2</code> the zero sequence system has to be treated with care. 
+This happens in the zero inductance:
 </p>
 <p>
 <code>i0 = sum(i)/m;</code><br>
@@ -19,7 +20,7 @@ space phasor transformation.
 <p>
 In some cases it could be desired to suppress the calculation of the zero system. This can be done in both machine models (<code>Modelica.Magnetic.FundamentalWave</code> and 
 <code>Modelica.Electrical.Machines</code>) by setting the Boolean parameter <code>useZeroSystem = false</code> (which by default is <code>true</code>). 
-This ensures that the zero current is equal to 0 and there is no need to calculate it:<br>
+This ensures that the zero current is equal to zero and there is no need to calculate it:<br>
 <code>i0 = 0;</code>
 </p>
 </html>"));

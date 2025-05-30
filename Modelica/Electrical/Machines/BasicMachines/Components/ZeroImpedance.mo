@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.BasicMachines.Components;
 model ZeroImpedance "Zero system impedance"
   extends Analog.Interfaces.OnePort(i(start=0));
   parameter SI.Inductance L "Inductance";
-  parameter Boolean useZeroSystem=true "=false suppresses zero current";
+  parameter Boolean useZeroSystem=true "Suppresses zero current, if false";
 equation
   if useZeroSystem then
     v = L*der(i);
@@ -21,5 +21,10 @@ equation
           textString="%name",
           textColor={0,0,255}),
         Rectangle(extent={{-60,30},{-50,-32}}, lineColor={28,108,200}),
-        Rectangle(extent={{52,30},{62,-32}}, lineColor={28,108,200})}));
+        Rectangle(extent={{52,30},{62,-32}}, lineColor={28,108,200})}),
+      Documentation(info="<html>
+<p>
+For a short explanation of the zero system see <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ZeroSystem\">the User&apos;s Guide of the FundamentalWave library</a>.
+</p>
+</html>"));
 end ZeroImpedance;

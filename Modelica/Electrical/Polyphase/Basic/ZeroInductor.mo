@@ -2,7 +2,7 @@ within Modelica.Electrical.Polyphase.Basic;
 model ZeroInductor "Linear zero sequence inductor"
   extends Polyphase.Interfaces.OnePort;
   parameter SI.Inductance Lzero "Zero sequence inductance";
-  parameter Boolean useZeroSystem=true "=false suppresses zero current";
+  parameter Boolean useZeroSystem=true "Suppresses zero current, if false";
   SI.Current i0;
   SI.Voltage v0;
 equation
@@ -16,6 +16,7 @@ equation
   annotation (defaultComponentName="inductor", Documentation(info="<html>
 <p>
 Model of a polyphase zero sequence inductor.
+For a short explanation of the zero system see <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ZeroSystem\">the User&apos;s Guide of the FundamentalWave library</a>.
 </p>
 <h4>Implementation</h4>
 <blockquote><pre>
