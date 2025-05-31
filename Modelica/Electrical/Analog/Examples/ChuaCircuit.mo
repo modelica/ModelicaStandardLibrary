@@ -64,12 +64,7 @@ equation
       Interval=1e-06,
       Tolerance=1e-06),
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-            100,100}}), graphics={Text(
-          extent={{-100,90},{100,60}},
-          textColor={0,0,255},
-          textString="Path to chaos: R = 
-{1850, 1800, 1750} Ohm
-Plot v2 vs. v1")}),
+            100,100}})),
     Documentation(info="<html>
 <p>This is a remake of the original implementation using realistic parameters for the components.</p>
 <p>Chua&#39;s circuit is the most simple nonlinear circuit which shows chaotic behaviour. The circuit consists of linear basic elements (capacitors, resistor, conductor, inductor), and one nonlinear element, which is called Chua&#39;s diode. </p>
