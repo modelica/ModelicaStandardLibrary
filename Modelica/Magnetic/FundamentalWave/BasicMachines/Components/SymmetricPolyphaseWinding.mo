@@ -43,7 +43,7 @@ model SymmetricPolyphaseWinding
   parameter Real ratioCommonLeakage(final min=0, final max=1)=1
     "Ratio of common stray inductance / total stray inductance";
   parameter SI.Inductance Lzero "Zero sequence inductance of winding";
-  parameter Boolean useZeroSystem=true "=false suppresses zero current";
+  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed";
   parameter Real effectiveTurns=1 "Effective number of turns per phase";
   parameter SI.Conductance GcRef "Electrical reference core loss reluctance";
   final parameter Integer nBase=Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)

@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.BasicMachines.Components;
 model ZeroImpedance "Zero system impedance"
   extends Analog.Interfaces.OnePort(i(start=0));
   parameter SI.Inductance L "Inductance";
-  parameter Boolean useZeroSystem=true "Suppresses zero current, if false";
+  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed";
 equation
   if useZeroSystem then
     v = L*der(i);
