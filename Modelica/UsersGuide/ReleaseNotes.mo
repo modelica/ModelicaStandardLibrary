@@ -133,11 +133,11 @@ class Version_4_2_0 "Version 4.2.0 (mmm dd, yyyy)"
 <p>Version 4.2.0 is backward compatible to version 4.1.0. This means, there is no need to convert user models, because no renaming or moving has been done on the library. Please note: simulation results might be affected by necessary changes and bug fixes that were applied since the 4.1.0 release, see below for more details.</p>
 <p>Short overview:</p>
 <ul>
-<li>new components (e.g. Blocks for recording of min and max of a signal)</li>
-<li>improved components (e.g. tables can now read CSV)</li>
-<li>potentially non-backwards-compatible changes (especially Constants.inf, Constants.small, Constants.eps)</li>
-<li>bug fixes, which may cause the simulation results to change for the better</li>
-<li>models marked as obsolete</li>
+<li>xx new components (e.g. Blocks for recording of min and max of a signal)</li>
+<li>xx improved components (e.g. tables can now read CSV)</li>
+<li>xx potentially non-backwards-compatible changes (especially Constants.inf, Constants.small, Constants.eps)</li>
+<li>xx bug fixes, which may cause the simulation results to change for the better</li>
+<li>xx models marked as obsolete</li>
 <li>This version is based on the recent Modelica language standard version 3.6.</li>
 <li>About [Link to resolved] issues xxx issues (including xxx pull requests) have been addressed for this release.</li>
 </ul>
@@ -155,11 +155,11 @@ The following libraries, that were previously using version Modelica 4.0.0, were
 <td>OpAmpLimited</td>
 <td>Replaces the deprecated IdealizedOpAmpLimited which caused numerical problems.</td>
 </tr>
-</tr>
 </table>
 
 <p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><font color=\"blue\">improved</font></strong> in a <strong><font color=\"blue\">backward compatible</font></strong> way:</p>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
 <td colspan=\"2\"><h4>Library</h4></td>
 </tr>
 <tr>
@@ -180,17 +180,19 @@ The following libraries, that were previously using version Modelica 4.0.0, were
 </table>
 
 <p><br><br>The following <strong><font color=\"blue\">critical errors</font></strong> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td colspan=\"2\"><h4Library</h4></td>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
+<td colspan=\"2\"><h4>Library</h4></td>
 </tr>
 <tr>
 <td>Component(s)</td>
 <td>Description.</td>
 </tr>
-
 </table>
+
 <p><br><br>The following models were declared as <strong><font color=\"blue\">obsolete</font></strong>, thus to be preferably replaced with better, more general ones:</p>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
 <td colspan=\"2\"><h4>Modelica.Electrical.Analog.Ideal</h4></td>
 </tr>
 <tr>
