@@ -1701,6 +1701,7 @@ substance medium with one or more phases might be used.
 </p>
 </html>"));
 end UsersGuide;
+
 annotation (Icon(graphics={
         Polygon(points={{-70,26},{68,-44},{68,26},{2,-10},{-70,-42},{-70,26}}),
         Line(points={{2,42},{2,-10}}),
