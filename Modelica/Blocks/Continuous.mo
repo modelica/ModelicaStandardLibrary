@@ -622,18 +622,17 @@ This is discussed in the description of package
     parameter Real y_start=0 "Initial value of output"
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
-    constant SI.Time unitTime=1 annotation(HideResult=true);
 
     Blocks.Math.Gain P(k = Modelica.Constants.one) "Proportional part of PID controller"
       annotation (Placement(transformation(extent={{-60,60},{-20,100}})));
-    Blocks.Continuous.Integrator I(k=unitTime/Ti, y_start=xi_start,
+    Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
       initType=if initType==Init.SteadyState then
                   Init.SteadyState else
                if initType==Init.InitialState then
                   Init.InitialState else Init.NoInit)
       "Integral part of PID controller"
       annotation (Placement(transformation(extent={{-60,-20},{-20,20}})));
-    Blocks.Continuous.Derivative D(k=Td/unitTime, T=max([Td/Nd, 100*Modelica.
+    Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 100*Modelica.
           Constants.eps]), x_start=xd_start,
       initType=if initType==Init.SteadyState or
                   initType==Init.InitialOutput then Init.SteadyState else
@@ -814,7 +813,6 @@ to compute u by an algebraic equation.
       annotation (Evaluate=true, Dialog(group="Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-    constant SI.Time unitTime=1 annotation (HideResult=true);
     Modelica.Blocks.Interfaces.RealInput u_ff if withFeedForward
       "Optional connector of feed-forward input signal"
      annotation (Placement(
@@ -829,14 +827,14 @@ to compute u by an algebraic equation.
     Modelica.Blocks.Math.Gain P(k = Modelica.Constants.one)
       annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
     Modelica.Blocks.Continuous.Integrator I(
-      k=unitTime/Ti,
+      k=1/Ti,
       y_start=xi_start,
       initType=if initType == Init.SteadyState then Init.SteadyState else if
           initType == Init.InitialState
            then Init.InitialState else Init.NoInit) if with_I
       annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
     Modelica.Blocks.Continuous.Derivative D(
-      k=Td/unitTime,
+      k=Td,
       T=max([Td/Nd,1.e-14]),
       x_start=xd_start,
       initType=if initType == Init.SteadyState or initType == Init.InitialOutput
