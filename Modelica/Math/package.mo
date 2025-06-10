@@ -11653,7 +11653,6 @@ with u &gt; 0:
 </div>
 </html>"));
 end log10;
-
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
           {100,100}}), graphics={Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},
             {-55.1,66.4},{-49.4,74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{

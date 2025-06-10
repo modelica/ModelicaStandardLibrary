@@ -41,7 +41,6 @@ protected
         algorithm
           z := if x < Minexp then exp(Minexp)*(1 + x - Minexp) else exlin(x, Maxexp);
         end exlin2;
-
   annotation (
     Documentation(info="<html>
 <p>This package contains semiconductor devices:</p>

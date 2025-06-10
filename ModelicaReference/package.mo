@@ -7309,8 +7309,8 @@ end Icons;
 
 annotation (
   DocumentationClass=true,
-  version="4.1.0",
-  versionDate="2024-01-12",
+  version="4.2.0",
+  versionDate="20xx-xx-xx",
   dateModified = "2024-01-12 19:40:00Z",
   revisionId="$Format:%h %ci$",
   Documentation(info="<html>

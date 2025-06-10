@@ -3214,7 +3214,6 @@ usage of package blocks.
 </p>
 </html>"));
 end Examples;
-
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(
         origin={0.0,35.1488},

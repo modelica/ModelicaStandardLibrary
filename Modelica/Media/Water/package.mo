@@ -66,10 +66,8 @@ end ConstantPropertyLiquidWater;
 
 package StandardWater = WaterIF97_ph
   "Water using the IF97 standard, explicit in p and h. Recommended for most applications";
-
 package StandardWaterOnePhase = WaterIF97_pT
   "Water using the IF97 standard, explicit in p and T. Recommended for one-phase applications";
-
 package WaterIF97OnePhase_ph
   "Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome"
   extends WaterIF97_base(
@@ -1034,7 +1032,6 @@ package WaterIF97_R3ph "Region 3 water according to IF97 standard"
 
 </html>"));
 end WaterIF97_R3ph;
-
 annotation (Documentation(info="<html>
 <p>This package contains different medium models for water:</p>
 <ul>

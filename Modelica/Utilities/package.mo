@@ -174,7 +174,6 @@ functions do not return, if an error is triggered inside the function.
 </p>
 </html>"));
 end UsersGuide;
-
     annotation (
 Documentation(info="<html>
 <p>
