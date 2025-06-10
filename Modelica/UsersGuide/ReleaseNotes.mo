@@ -130,7 +130,7 @@ class Version_4_2_0 "Version 4.2.0 (mmm dd, yyyy)"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (Documentation(info="<html>
-<p>Version 4.2.0 is backward compatible to version 4.1.0. This means, there is no need to convert user models, because no renaming or moving has been done on the library. Please note: simulation results might be affected by necessary changes and bug fixes that were applied since the 4.1.0 release, see below for more details.</p>
+<p>Version 4.2.0 is backward compatible to version 4.1.0. This means, there is no need to convert user models, because no renaming or moving has been done on the library.</p>
 <p>Short overview:</p>
 <ul>
 <li>xx new components (e.g. Blocks for recording of min and max of a signal)</li>
