@@ -5,7 +5,8 @@ partial model PartialBasicInductionMachine
   parameter Integer p(min=1, start=2) "Number of pole pairs (Integer)";
   parameter SI.Frequency fsNominal(start=50)
     "Nominal frequency";
-  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed";
+  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed"
+    annotation(Evaluate=true);
   parameter SI.Temperature TsOperational(start=293.15)
     "Operational temperature of stator resistance" annotation (Dialog(group=
          "Operational temperatures", enable=not useThermalPort));
