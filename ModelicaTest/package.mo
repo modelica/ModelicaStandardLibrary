@@ -51,11 +51,11 @@ algorithm
 end testAllFunctions;
 
   annotation (preferredView="info",
-       version="4.1.0",
-       versionDate="2024-01-12",
-       dateModified = "2024-01-12 19:40:00Z",
+       version="4.2.0 dev",
+       versionDate="20xx-xx-xx",
+       dateModified = "2025-05-23 15:00:00Z",
        revisionId="$Format:%h %ci$",
-       uses(Modelica(version="4.1.0")),
+       uses(Modelica(version="4.2.0 dev")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
