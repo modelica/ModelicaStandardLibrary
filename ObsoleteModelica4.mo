@@ -2875,8 +2875,8 @@ Obsolete saliency cage model, see
       end BasicMachines;
     end FundamentalWave;
   end Magnetic;
-  annotation (uses(Modelica(version="4.2.0")),
-              version="4.2.0",
+  annotation (uses(Modelica(version="4.2.0 dev")),
+              version="4.2.0 dev",
               versionDate="20xx-xx-xx",
               dateModified = "2025-05-23 15:00:00Z",
               revisionId="$Format:%h %ci$",
