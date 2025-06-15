@@ -7,6 +7,7 @@ SpringDamper
 ElastoGap
 SupportFriction
 Brake
+IdealGear
 IdealGearR2T
 IdealRollingWheel
 RollingResistance
