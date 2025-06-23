@@ -78,6 +78,16 @@ function(get_modelica_platform_name_with_compiler_version var)
       set(PLATFORM_PATH_SUFFIX "${PLATFORM_PATH_SUFFIX}/vs2022")
     elseif(MSVC_VERSION GREATER_EQUAL 1950 AND MSVC_VERSION LESS 1960)
       set(PLATFORM_PATH_SUFFIX "${PLATFORM_PATH_SUFFIX}/vs2026")
+    elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
+      execute_process(
+        COMMAND ${CMAKE_C_COMPILER} -dumpversion
+        OUTPUT_VARIABLE GCC_VERSION
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+      )
+      if(GCC_VERSION)
+        string(REPLACE "." "" GCC_VERSION_NO_DOTS "${GCC_VERSION}")
+        set(PLATFORM_PATH_SUFFIX "${PLATFORM_PATH_SUFFIX}/gcc${GCC_VERSION_NO_DOTS}")
+      endif()
     endif()
   endif()
 
