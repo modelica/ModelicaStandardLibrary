@@ -2,7 +2,7 @@ within Modelica.Electrical.Polyphase.Basic;
 model ZeroInductor "Linear zero sequence inductor"
   extends Polyphase.Interfaces.OnePort;
   parameter SI.Inductance Lzero "Zero sequence inductance";
-  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed";
+  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed" annotation(Evaluate = true);
   SI.Current i0;
   SI.Voltage v0;
 equation
