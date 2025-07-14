@@ -78,6 +78,7 @@ model IMC_YD "Induction machine with squirrel cage starting Y-D"
   Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage imc(
     p=imcData.p,
     fsNominal=imcData.fsNominal,
+    useZeroSystem=false,
     TsRef=imcData.TsRef,
     alpha20s(displayUnit="1/K") = imcData.alpha20s,
     Jr=imcData.Jr,
@@ -98,8 +99,7 @@ model IMC_YD "Induction machine with squirrel cage starting Y-D"
     TsOperational=293.15,
     effectiveStatorTurns=imcData.effectiveStatorTurns,
     alpha20r=imcData.alpha20r,
-    TrOperational=293.15,
-    stator(zeroInductor(i0(nominal=10))))
+    TrOperational=293.15)
     annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
   Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
                                                     currentQuasiRMSSensor annotation (Placement(transformation(extent={{-10,10},{10,-10}}, rotation=270,
