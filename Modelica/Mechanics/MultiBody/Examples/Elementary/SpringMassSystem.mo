@@ -123,5 +123,27 @@ can be utilized:
 
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringMassSystem.png\"
 alt=\"model Examples.Elementary.SpringMassSystem\">
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Positions and forces",
+          identifier = "0eb0f",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = body1.r_0[2], legend = "Position along y axis of body1"),
+                Curve(y = body2.r_0[2], legend = "Position along y axis of body2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = spring1.f, legend = "Force along y axis of body1"),
+                Curve(y = spring2.spring.f, legend = "Force along y axis of body2")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SpringMassSystem;

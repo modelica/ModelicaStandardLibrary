@@ -159,5 +159,22 @@ Simulate for 3 s with about 50000 output intervals, and plot the variables <stro
 <strong>engineTorque</strong>, and <strong>filteredEngineTorque</strong>. Note, the result file has
 a size of about 300 Mbyte in this case. The default setting of StopTime = 1.01 s (with the default setting of the tool for the number of output points), in order that (automatic) regression testing does not have to cope with a large result file.
 </p>
-</html>"), experiment(StopTime=1.01), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-120,-100},{120,100}})));
+</html>",
+      figures = {
+        Figure(
+          title = "Engine speed and torque",
+          identifier = "9d32b",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = engineSpeed_rpm),
+                Curve(y = engineTorque),
+                Curve(y = filteredEngineTorque)
+              }
+            )
+          }
+        )
+      }
+    ), experiment(StopTime=1.01), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-120,-100},{120,100}})));
 end EngineV6;
