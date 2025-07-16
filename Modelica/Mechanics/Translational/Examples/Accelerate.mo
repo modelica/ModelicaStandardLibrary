@@ -19,6 +19,23 @@ Demonstrate usage of component
 <a href=\"modelica://Modelica.Mechanics.Translational.Sources.Accelerate\">Sources.Accelerate</a>
 by moving a mass with a predefined acceleration.
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Mass variables",
+          identifier = "79d80",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = mass.a, legend = "Accelleration of mass"),
+                Curve(y = mass.s, legend = "Position of mass"),
+                Curve(y = mass.v, legend = "Velocity of mass")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=1.0, Interval=0.001));
 end Accelerate;
