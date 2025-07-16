@@ -104,5 +104,29 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcee.ie: excitation current</li>
 </ul>
 Default machine parameters of model <em>DC_ElectricalExcited</em> are used.
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "89773",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = dcee.ia, legend = "Armature current"),
+                Curve(y = dcee.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = dcee.tauElectrical, legend = "Motor torque")
+              },
+              x = Axis(min = 0, max = 1.2)
+            ),
+            Plot(
+              curves = {
+                Curve(y = dcee.ie, legend = "Field excitation current")
+              },
+              x = Axis(min = 0, max = 1.2)
+            )
+          }
+        )
+      }
+    ));
 end DCEE_Start;
