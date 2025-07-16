@@ -106,5 +106,22 @@ Default machine parameters are used, but:
 </ul>
 So the machine is at the beginning in cold condition, ending in warm condition
 (with the same armature resistance as the unmodified machine).
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "e423c",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = dcpm.ia, legend = "Armature current"),
+                Curve(y = dcpm.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = dcpm.tauElectrical, legend = "Motor torque")
+              }
+            )
+          }
+        )
+      }
+    ));
 end DCPM_Temperature;

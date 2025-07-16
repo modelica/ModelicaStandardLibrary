@@ -131,5 +131,27 @@ and accelerating inertias. At time tStep a load step is applied.</p>
 </ul>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "ca13f",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentQuasiRMSSensor.I, legend = "Stator current RMS"),
+                Curve(y = smr.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = smr.tauElectrical, legend = "Motor torque")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = rotorDisplacementAngle.rotorDisplacementAngle, legend = "Rotor displacement angle")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SMR_Inverter;

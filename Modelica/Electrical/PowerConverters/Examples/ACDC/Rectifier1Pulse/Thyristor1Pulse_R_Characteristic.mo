@@ -31,5 +31,20 @@ equation
     Documentation(info="<html>
 <p>This example demonstrates the operational behavior of a single-phase controlled rectifier with variable firing angle and resistive load. The average load voltage can be controlled by means of the firing angle.</p>
 <p><br>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2.firingAngle</code> to see control characteristic of this type of rectifier with resistive load.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Average voltage vs. firing angle",
+          identifier = "670e6",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = pulse2.firingAngle, y = meanVoltage.y, legend = "Average voltage vs. firing angle")
+              }
+            )
+          }
+        )
+      }
+    ));
 end Thyristor1Pulse_R_Characteristic;

@@ -106,5 +106,27 @@ equation
       Interval=0.00002),
     Documentation(info="<html>
 <p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL\">PolyphaseTwoLevel_RL</a>.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltage and current",
+          identifier = "16d44",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentSensor.i[1], legend = "Measure value of current[1]"),
+                Curve(y = fundamentalWaveCurrent[1].y_rms, legend = "Root mean square of current[1] in fundamentalWaveCurrent[1]")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = voltageSensor.v[1], legend = "Measure value of voltage[1]"),
+                Curve(y = fundamentalWaveVoltage[1].y_rms, legend = "Root mean square of voltage in fundamentalWaveVoltage[1]")
+              }
+            )
+          }
+        )
+      }
+    ));
 end PolyphaseTwoLevel_R;

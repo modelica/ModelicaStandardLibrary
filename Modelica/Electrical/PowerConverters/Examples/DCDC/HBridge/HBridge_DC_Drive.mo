@@ -109,5 +109,28 @@ The DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the i
 
 <p>
 Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y</code>, machine speed <code>dcpm.wMechanical</code>, averaged machine speed <code>dcpm.va</code> and torque <code>dcpm.tauElectrical</code>.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltage, current and machine variables",
+          identifier = "31ac3",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = dcpm.ia, legend = "Machine current"),
+                Curve(y = meanCurrent.y, legend = "Mean value of current"),
+                Curve(y = dcpm.tauElectrical, legend = "Machine torque")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = dcpm.va, legend = "Armature voltage in machine"),
+                Curve(y = dcpm.wMechanical, legend = "Machine speed")
+              }
+            )
+          }
+        )
+      }
+    ));
 end HBridge_DC_Drive;

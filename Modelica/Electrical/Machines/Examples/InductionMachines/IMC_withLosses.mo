@@ -245,7 +245,59 @@ Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johanne
 <a href=\"https://2009.international.conference.modelica.org/proceedings/pages/papers/0103/0103_FI.pdf\">
 The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Current",
+          identifier = "a1d88",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = Pmech, y = I_sim, legend = "Simulated current vs. Mechanical losses"),
+                Curve(x = Pmech, y = I_meas, legend = "Measured current vs. Mechanical losses")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Speed",
+          identifier = "996d3",
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = Pmech, y = w_sim, legend = "Simulated angular velocity vs. Mechanical losses"),
+                Curve(x = Pmech, y = w_meas, legend = "Measured angular velocity vs. Mechanical losses")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Power factor",
+          identifier = "2104a",
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = Pmech, y = pf_sim, legend = "Simulated power factor vs. Mechanical losses"),
+                Curve(x = Pmech, y = pf_meas, legend = "Measured power factor vs. Mechanical losses")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Efficiency",
+          identifier = "9e6d4",
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = Pmech, y = eff_sim, legend = "Simulated efficiency vs. Mechanical losses"),
+                Curve(x = Pmech, y = eff_meas, legend = "Measured efficiency vs. Mechanical losses")
+              }
+            )
+          }
+        )
+      }
+    ),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={Text(
                 extent={{-72,100},{68,80}},
