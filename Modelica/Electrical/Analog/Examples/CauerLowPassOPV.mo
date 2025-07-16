@@ -269,5 +269,37 @@ equation
 <p>This model is identical to the CauerLowPassAnalog example, but inverting. To get the same response as that of the CauerLowPassAnalog example, a negative voltage step is used as input.</p>
 <p>The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.p.v (output voltage). Compare this result with the CauerLowPassAnalog result.</p>
 <p>During translation some warnings are issued concerning resistor values (Value=-1 not in range [0,1e100]). Do not worry about it. The negative values are o.k.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Filter",
+          identifier = "4b9b8",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = V.v, legend = "Input voltage"),
+                Curve(y = Op5.out.v, legend = "Output voltage")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Operation amplifier voltages",
+          identifier = "57787",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = Op1.out.v, legend = "Voltage from Op1"),
+                Curve(y = Op2.out.v, legend = "Voltage from Op2"),
+                Curve(y = Op3.out.v, legend = "Voltage from Op3"),
+                Curve(y = Op4.out.v, legend = "Voltage from Op4"),
+                Curve(y = Op5.out.v, legend = "Voltage from Op5"),
+                Curve(y = V.v, legend = "Input signal")
+              }
+            )
+          }
+        )
+      }
+    ));
 end CauerLowPassOPV;
