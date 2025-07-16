@@ -89,5 +89,42 @@ The magnetisation characteristics of the flux tube element representing the ferr
 <p>
 If the supply voltage has a zero-crossing when applied to the inductor at time t=0 (i.e., source.phase set to zero instead of &pi;/2), then the inrush current that is typical for switching of inductive loads can be observed.
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Coil current",
+          identifier = "7b2ef",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = coil.i)
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Permeability vs flux density",
+          identifier = "faf9b",
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = r_mFe.mu_r, y = r_mFe.B, legend = "Relative permeability vs. flux density")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Magnetisation curve",
+          identifier = "c6fcd",
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = r_mFe.B, y = r_mFe.H, legend = "Magnetisation curve B(H)")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SaturatedInductor;
