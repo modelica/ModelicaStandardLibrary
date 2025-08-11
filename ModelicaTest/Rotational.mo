@@ -953,31 +953,6 @@ they were not deleted yet.")}));
       annotation (Placement(transformation(extent={{-96,-190},{-76,-170}})));
     Modelica.Blocks.Sources.ExpSine expSine(f=2, damping=0.5)
       annotation (Placement(transformation(extent={{-140,-190},{-120,-170}})));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia19(
-      J=2,
-      phi(start=0),
-      w(start=0))                                                  annotation (
-        Placement(transformation(extent={{-80,-230},{-60,-210}})));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia20(J=2)
-                                                                   annotation (
-        Placement(transformation(extent={{-20,-230},{0,-210}})));
-    Modelica.Mechanics.Rotational.Sources.Torque torque2
-      annotation (Placement(transformation(extent={{30,-230},{10,-210}})));
-    Modelica.Mechanics.Rotational.Components.Coupling coupling
-      annotation (Placement(transformation(extent={{-50,-230},{-30,-210}})));
-    Modelica.Mechanics.Rotational.Sources.Speed speed2(useSupport=false, exact=true)
-      annotation (Placement(transformation(extent={{-110,-230},{-90,-210}})));
-    Modelica.Blocks.Sources.Ramp ramp(
-      height=100,
-      duration=0.5,
-      offset=0,
-      startTime=0)
-      annotation (Placement(transformation(extent={{-140,-230},{-120,-210}})));
-    Modelica.Blocks.Sources.Step step(
-      height=400,
-      offset=0,
-      startTime=0.75)
-      annotation (Placement(transformation(extent={{60,-230},{40,-210}})));
   equation
     connect(inertia.flange_b, idealGear.flange_a) annotation (Line(
         points={{-60,90},{-50,90}}));
@@ -1127,19 +1102,9 @@ they were not deleted yet.")}));
             {-76,-180}}));
     connect(torque1.tau, expSine.y) annotation (Line(points={{-98,-180},{-119,-180}},
                                 color={0,0,127}));
-    connect(torque2.flange, inertia20.flange_b)
-      annotation (Line(points={{10,-220},{0,-220}}, color={0,0,0}));
-    connect(inertia19.flange_b, coupling.flange_a)
-      annotation (Line(points={{-60,-220},{-50,-220}}, color={0,0,0}));
-    connect(coupling.flange_b, inertia20.flange_a)
-      annotation (Line(points={{-30,-220},{-20,-220}}, color={0,0,0}));
-    connect(speed2.flange, inertia19.flange_a)
-      annotation (Line(points={{-90,-220},{-80,-220}}, color={0,0,0}));
-    connect(ramp.y, speed2.w_ref)
-      annotation (Line(points={{-119,-220},{-112,-220}}, color={0,0,127}));
-    connect(step.y, torque2.tau)
-      annotation (Line(points={{39,-220},{32,-220}}, color={0,0,127}));
-    annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-180,-240},{180,160}})));
+    annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-180,
+              -200},{180,160}})),
+      Icon(coordinateSystem(extent={{-180,-200},{180,160}})));
   end AllComponents;
 
   model TestBearingConversion

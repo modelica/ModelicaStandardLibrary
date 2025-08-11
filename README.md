@@ -14,7 +14,7 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ## Current release
 
-[Modelica Standard Library v4.0.0 (2020-06-04)](https://github.com/modelica/ModelicaStandardLibrary/releases/tag/v4.0.0)
+[Modelica Standard Library v4.1.0 (2025-05-23)](https://github.com/modelica/ModelicaStandardLibrary/releases/tag/v4.1.0)
 
 ## Older Releases
 

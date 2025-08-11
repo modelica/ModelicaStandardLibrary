@@ -22,6 +22,7 @@ Modelica/Resources/BuildProjects/autotools/Makefile*
 Modelica/Resources/BuildProjects/autotools/NEWS
 Modelica/Resources/BuildProjects/autotools/compile
 Modelica/Resources/BuildProjects/gcc/lib*.a
+Modelica/Resources/Library/
 ResolvedGitHubIssues.md
 ResolvedGitHubIssues.pdf
 autom4te.cache

@@ -4319,7 +4319,7 @@ a linear damper is connected here.
       MultiBody.Forces.SpringDamperParallel
         springDamperParallel2(
         s_unstretched=0.2,
-        d=d,
+        final d=d,
         c=100) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             origin={20,-100})));
