@@ -535,7 +535,7 @@ which is a complete example where an FFT is computed during simulation and store
 </html>"));
   end realFFT;
 
-  function realFFTwriteToFile "Write real FFT computation to file"
+  impure function realFFTwriteToFile "Write real FFT computation to file"
     extends Modelica.Icons.Function;
      import Modelica.Utilities.Streams.print;
      import Modelica.Units.Conversions.to_deg;
