@@ -1054,7 +1054,7 @@ path is provided.
 </html>"));
     end automaticLocalSeed;
 
-    function initializeImpureRandom
+    impure function initializeImpureRandom
       "Initializes the internal state of the impure random number generator"
       extends Modelica.Icons.Function;
       input Integer seed
