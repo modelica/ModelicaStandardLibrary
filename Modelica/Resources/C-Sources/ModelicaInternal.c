@@ -30,6 +30,10 @@
 */
 
 /* Changelog:
+      Oct. 20, 2024: by Thomas Beutlich
+                     Removed legacy behaviour in ModelicaInternal_stat for
+                     MSVC Visual Studio >= 2015 (ticket #4473)
+
       Jan. 15, 2024: by Thomas Beutlich
                      Utilized ModelicaDuplicateString and
                      ModelicaDuplicateStringWithErrorReturn (ticket #3686)
@@ -279,7 +283,7 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
 #define HASH_NO_STDINT 1
 #define HASH_NONFATAL_OOM 1
 #include "uthash.h"
-#include "gconstructor.h"
+#include "g2constructor.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -402,10 +406,7 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
     struct _stat fileInfo;
     int statReturn = _stat(name, &fileInfo);
     if (0 != statReturn) {
-        /* For some reason _stat requires "a:\" and "a:\test1" but fails
-         * on "a:" and "a:\test1\", respectively. It could be handled in the
-         * Modelica code, but seems better to have it here.
-         */
+        /* _stat requires "a:\" instead of "a:" */
         const char* firstSlash = strpbrk(name, "/\\");
         const char* firstColon = strchr(name, ':');
         const char c = (NULL != firstColon) ? firstColon[1] : '\0';
@@ -419,6 +420,11 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
                 free(nameTmp);
             }
         }
+#if defined(_MSC_VER) && _MSC_VER >= 1900
+        /* _stat accepts both "a:\dir" and "a:\dir\" */
+#else
+        /* _stat requires "a:\dir" instead of "a:\dir\" */
+        /* required for VS 2013 and earlier */
         else if (NULL != firstSlash && len > 1 &&
             ('/' == name[len - 1] || '\\' == name[len - 1])) {
             char* nameTmp = (char*)malloc(len*(sizeof(char)));
@@ -429,6 +435,7 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
                 free(nameTmp);
             }
         }
+#endif
     }
     if ( statReturn != 0 ) {
         type = FileType_NoFile;
@@ -774,16 +781,16 @@ typedef struct FileCache {
 static FileCache* fileCache = NULL;
 #if defined(_POSIX_) && !defined(NO_MUTEX)
 #include <pthread.h>
-#if defined(G_HAS_CONSTRUCTORS)
+#if defined(G2_HAS_CONSTRUCTORS)
 static pthread_mutex_t m;
-G_DEFINE_CONSTRUCTOR(initializeMutex)
-static void initializeMutex(void) {
+G2_DEFINE_CONSTRUCTOR(G2_FUNCNAME(initializeMutex))
+static void G2_FUNCNAME(initializeMutex)(void) {
     if (pthread_mutex_init(&m, NULL) != 0) {
         ModelicaError("Initialization of mutex failed\n");
     }
 }
-G_DEFINE_DESTRUCTOR(destroyMutex)
-static void destroyMutex(void) {
+G2_DEFINE_DESTRUCTOR(G2_FUNCNAME(destroyMutex))
+static void G2_FUNCNAME(destroyMutex)(void) {
     if (pthread_mutex_destroy(&m) != 0) {
         ModelicaError("Destruction of mutex failed\n");
     }
@@ -793,24 +800,24 @@ static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
 #endif
 #define MUTEX_LOCK() pthread_mutex_lock(&m)
 #define MUTEX_UNLOCK() pthread_mutex_unlock(&m)
-#elif defined(_WIN32) && defined(G_HAS_CONSTRUCTORS)
+#elif defined(_WIN32) && defined(G2_HAS_CONSTRUCTORS)
 #if !defined(WIN32_LEAN_AND_MEAN)
 #define WIN32_LEAN_AND_MEAN
 #endif
 #include <windows.h>
 static CRITICAL_SECTION cs;
-#ifdef G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(ModelicaInternal_initializeCS)
+#ifdef G2_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
+#pragma G2_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(ModelicaInternal_initializeCS))
 #endif
-G_DEFINE_CONSTRUCTOR(ModelicaInternal_initializeCS)
-static void ModelicaInternal_initializeCS(void) {
+G2_DEFINE_CONSTRUCTOR(G2_FUNCNAME(ModelicaInternal_initializeCS))
+static void G2_FUNCNAME(ModelicaInternal_initializeCS)(void) {
     InitializeCriticalSection(&cs);
 }
-#ifdef G_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_DESTRUCTOR_PRAGMA_ARGS(ModelicaInternal_deleteCS)
+#ifdef G2_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
+#pragma G2_DEFINE_DESTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(ModelicaInternal_deleteCS))
 #endif
-G_DEFINE_DESTRUCTOR(ModelicaInternal_deleteCS)
-static void ModelicaInternal_deleteCS(void) {
+G2_DEFINE_DESTRUCTOR(G2_FUNCNAME(ModelicaInternal_deleteCS))
+static void G2_FUNCNAME(ModelicaInternal_deleteCS)(void) {
     DeleteCriticalSection(&cs);
 }
 #define MUTEX_LOCK() EnterCriticalSection(&cs)
