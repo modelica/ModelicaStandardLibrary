@@ -860,7 +860,8 @@ The Real output y is a series of Gaussian pulses, the first pulse is defined by:
 </p>
 <p>
 Parameter <code>startTime</code> is the time instant when the pulse maximum occurs. 
-Parameter <code>duration</code> is the duration of an equivalent rectangular pulse with same amplitude and area under the pulse. 
+Parameter <code>duration</code> is the duration of an equivalent rectangular pulse with same amplitude and the same area under the curve. 
+
 </p>
 <p>
 The Gaussian pulse is repeated <code>nperiod</code> times, with a time span of <code>period</code> between the pulses. 
