@@ -50,5 +50,31 @@ equation
   annotation (experiment(StopTime=0.0002),
     Documentation(info="<html>
 <p>This is a simple test circuit, to test the behavior of the thyristor model.</p><p>Interesting values to plot are Cathode.v, Gate.v and sineVoltage.p.v. and in another plot window pulseCurrent.p.i</p><p>The simulation time should be from 0 seconds to 2e-4 seconds.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltages and currents",
+          identifier = "d5a4c",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = thyristor_v4_1.Cathode.v, legend = "Voltage in Cathode of thyristor_v4_1"),
+                Curve(y = thyristor_v4_1.Gate.v, legend = "Voltage in Gate of thyristor_v4_1")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = pulseCurrent.p.i, legend = "Current from source pulseCurrent")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = sineVoltage.p.v, legend = "Voltage from source sineVoltage")
+              }
+            )
+          }
+        )
+      }
+    ));
 end ThyristorBehaviourTest;
