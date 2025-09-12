@@ -1605,7 +1605,8 @@ The output is constant from the beginning.
         Interval=0.001,
         Tolerance=1e-06), Documentation(info="<html>
 <p>
-Compare a single Gaussian pulse with a single rectangular pulse with same amplitude and same area under the pulse.
+Compare a single Gaussian pulse with a single rectangular pulse with the same amplitude and the same area under the curve.
+
 </p>
 </html>"));
   end ComparePulses;
