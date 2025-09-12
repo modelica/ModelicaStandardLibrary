@@ -54,14 +54,19 @@ model IMC_InverterDrive
         rotation=90,
         origin={-80,60})));
 
-  PowerConverters.ACDC.DiodeBridge2mPulse rectifier
+  PowerConverters.ACDC.DiodeBridge2mPulse rectifier(RonDiode=1e-4, GoffDiode=
+        1e-4)
     annotation (Placement(transformation(extent={{-68,60},{-48,80}})));
   Analog.Basic.Capacitor capacitor(v(fixed=true, start=VDC), C=CDC)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-30,70})));
-  PowerConverters.DCAC.Polyphase2Level inverter annotation (Placement(
+  PowerConverters.DCAC.Polyphase2Level inverter(
+    RonTransistor=1e-4,
+    GoffTransistor=1e-4,
+    RonDiode=1e-4,
+    GoffDiode=1e-4)                             annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         origin={0,70})));

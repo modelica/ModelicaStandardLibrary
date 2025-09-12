@@ -66,9 +66,10 @@ equation
                 textString="A"),Rectangle(
                 visible=quasiStatic,
                 extent={{-10,90},{10,-80}},
-                lineColor={170,213,255},
+                lineColor={0,0,0},
                 fillPattern=FillPattern.VerticalCylinder,
-                fillColor={170,213,255})}), Documentation(info="<html>
+                fillColor={170,213,255},
+                pattern=LinePattern.None)}),Documentation(info="<html>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
 Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.
 If <code>quasiStatic == false</code>, the electrical transients are neglected, i.e., the induced excitation voltage is zero.<br>

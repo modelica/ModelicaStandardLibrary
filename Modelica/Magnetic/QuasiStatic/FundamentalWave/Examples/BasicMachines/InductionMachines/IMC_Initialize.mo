@@ -189,8 +189,6 @@ Default machine parameters of model <em>IM_SquirrelCage</em> are used.
           textString="%m phase quasi-static"),
                                             Text(
                   extent={{20,-92},{100,-100}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textStyle={TextStyle.Bold},
           textString="%m phase transient")}));
 end IMC_Initialize;

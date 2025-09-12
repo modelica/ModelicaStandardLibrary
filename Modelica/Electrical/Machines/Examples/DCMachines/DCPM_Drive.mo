@@ -46,7 +46,7 @@ model DCPM_Drive
     wMechanical(fixed=false),
     ia(fixed=true))
     annotation (Placement(transformation(extent={{50,-70},{30,-50}})));
-  Mechanics.Rotational.Components.Coupling coupling
+  Utilities.Coupling coupling
     annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
   ControlledDCDrives.Utilities.DcdcInverter dcdcInverter1(fS=1000, VMax=
         dcpmData.VaNominal)
@@ -89,6 +89,10 @@ model DCPM_Drive
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-70,30})));
+  Mechanics.Rotational.Sensors.SpeedSensor speedSensor1
+    annotation (Placement(transformation(extent={{-30,-100},{-50,-80}})));
+  Mechanics.Rotational.Sensors.SpeedSensor speedSensor2
+    annotation (Placement(transformation(extent={{30,-100},{50,-80}})));
 equation
   connect(dcpm1.flange, coupling.flange_a)
     annotation (Line(points={{-30,-60},{-10,-60}}, color={0,0,0}));
@@ -128,16 +132,21 @@ equation
           32,40},{24,40}}, color={0,0,255}));
   connect(multiSensor.nv, constantVoltage.n) annotation (Line(points={{0,70},{-46,
           70},{-46,40},{-30,40}}, color={0,0,255}));
+  connect(dcpm1.flange, speedSensor1.flange) annotation (Line(points={{-30,-60},
+          {-20,-60},{-20,-90},{-30,-90}}, color={0,0,0}));
+  connect(dcpm2.flange, speedSensor2.flange) annotation (Line(points={{30,-60},
+          {20,-60},{20,-90},{30,-90}}, color={0,0,0}));
   annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
         info="<html>
 <p>
-This example demonstrates how to use a <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Coupling\">coupling</a> 
+This example demonstrates how to use a <a href=\"modelica://Modelica.Electrical.Machines.Utilities.Coupling\">coupling</a> 
 to implement a drive consisting if two permanent magnet DC machines. 
-Note that <code>dcpm1</code> is turning in positive direction, whereas <code>dcpm2</code> is turning in the opposite direction. 
+Note that <code>dcpm1</code> is turning in the positive direction, whereas <code>dcpm2</code> is turning in the opposite direction. 
+This is evident by comparing <code>speedSensor1.w</code> and <code>speedSensor2.w</code>. 
 Therefore, the armature of <code>dcpm2</code> is connected reversed to the source.
 </p>
 <p>
-Machine <code>dcpm1</code> starts the drive with a voltage ramp up to half of the no-load speed, the armature of <code>dcpm2</code> is not connected. 
+Machine <code>dcpm1</code> starts the drive with a voltage ramp up to half of no-load speed, the armature of <code>dcpm2</code> is not connected. 
 Since the induced voltage of <code>dcpm2</code> is the same as that of <code>dcdcInverter2</code>, the <code>switch</code> is closed without any transient. 
 After that, the armature voltage of <code>dcpm2</code> is slightly increased, causing <code>dcpm2</code> to drive as motor and <code>dcpm1</code> to brake as generator. 
 Therefore, the speed <code>coupling.w</code> increases. 

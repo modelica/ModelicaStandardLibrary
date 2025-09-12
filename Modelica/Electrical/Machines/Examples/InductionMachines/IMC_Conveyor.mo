@@ -65,7 +65,7 @@ model IMC_Conveyor
     annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
   parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data"
     annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
-  Blocks.Math.Gain gain(k=fNominal/unitFrequency)
+  Blocks.Math.Gain gain(k=fNominal)
     annotation (Placement(transformation(extent={{-70,50},{-50,70}})));
   Mechanics.Translational.Components.IdealGearR2T idealGearR2T(ratio=1/r)
     annotation (Placement(transformation(extent={{12,-50},{32,-30}})));
