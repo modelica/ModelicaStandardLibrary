@@ -122,5 +122,22 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
 </ul>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "695b3",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentQuasiRMSSensor.I, legend = "Stator current RMS"),
+                Curve(y = aimc.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = aimc.tauElectrical, legend = "Motor torque")
+              }
+            )
+          }
+        )
+      }
+    ));
 end IMC_Conveyor;
