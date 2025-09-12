@@ -4,15 +4,19 @@ model Multivibrator "Multivibrator with Schmitt trigger"
   parameter SI.Voltage Vps=+15 "Positive supply";
   parameter SI.Voltage Vns=-15 "Negative supply";
   parameter SI.Frequency f=10 "Desired frequency";
-  parameter SI.Resistance R1=1000 "Resistance 1 for adjusting the Schmitt trigger voltage level";
-  parameter SI.Resistance R2=1000 "Resistance 2 for adjusting the Schmitt trigger voltage level";
+  parameter SI.Resistance R1=1000
+    "Resistance 1 for adjusting the Schmitt trigger voltage level";
+  parameter SI.Resistance R2=1000
+    "Resistance 2 for adjusting the Schmitt trigger voltage level";
   parameter SI.Resistance R=1000 "Arbitrary resistance";
-  parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2)) "Calculated capacitance to reach the desired frequency f";
-  Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
+  parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2))
+    "Calculated capacitance to reach the desired frequency f";
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp(
     Vps=Vps,
     Vns=Vns,
-    homotopyType = Modelica.Blocks.Types.LimiterHomotopy.LowerLimit,
-    strict = true) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    useFirstOrder=true,
+    initOpAmp=Modelica.Electrical.Analog.Types.InitOpAmp.LowerLimit)
+    annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
   Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(
@@ -60,11 +64,11 @@ equation
   annotation (Documentation(info="<html>
 <p>This is a Multivibrator with Schmitt trigger according to:</p>
 <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.3</p>
-<p>As the initialization system has two solutions, one with the op amp output at the lower saturation limit, and the other one with the two voltage inputs very close to each other, the <code>homotopyType</code> parameter is set to get the solver to converge to the former one, which is the required solution.</p>
+<p>As the initialization system has two solutions, the required solution is choosen by proper initialization of the opAmp at the LowerLimit.</p>
 </html>"),
     experiment(
       StartTime=0,
       StopTime=1,
-      Tolerance=1e-006,
-      Interval=0.001));
+      Interval=0.001,
+      Tolerance=1e-006));
 end Multivibrator;

@@ -1535,9 +1535,9 @@ buttons:
                        annotation (Placement(transformation(extent={{55,-50},{
                   65,-40}})));
       Real level(start=0,fixed=true) "Tank level in % of max height";
-      parameter Real A=1 "Ground area of tank in m^2";
-      parameter Real a=0.2 "Area of drain hole in m^2";
-      parameter Real hmax=1 "Max height of tank in m";
+      parameter SI.Area A=1 "Ground area of tank";
+      parameter SI.Area a=0.2 "Area of drain hole";
+      parameter SI.Height hmax=1 "Max height of tank";
       constant Real g=Modelica.Constants.g_n;
     equation
       der(level) = (inflow1.Fi - outflow1.Fo)/(hmax*A);
@@ -2788,7 +2788,7 @@ are nearly always needed).
 </p>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2025, Modelica Association and contributors
 </p>
 </html>"), Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(

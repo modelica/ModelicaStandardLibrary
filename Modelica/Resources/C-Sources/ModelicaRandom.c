@@ -1,6 +1,6 @@
 /* ModelicaRandom.c - External functions for Modelica.Math.Random library
 
-   Copyright (C) 2015-2020, Modelica Association and contributors
+   Copyright (C) 2015-2025, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -48,7 +48,7 @@
 #include <string.h>
 #include "ModelicaInternal.h"
 #include "ModelicaUtilities.h"
-#include "gconstructor.h"
+#include "g2constructor.h"
 
 /* The standard way to detect POSIX is to check _POSIX_VERSION,
  * which is defined in <unistd.h>
@@ -68,24 +68,24 @@ static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
 #define MUTEX_UNLOCK() pthread_mutex_unlock(&m)
 
 /* On Windows systems define a critical section using the single static variable "cs" */
-#elif defined(_WIN32) && defined(G_HAS_CONSTRUCTORS)
+#elif defined(_WIN32) && defined(G2_HAS_CONSTRUCTORS)
 #if !defined(WIN32_LEAN_AND_MEAN)
 #define WIN32_LEAN_AND_MEAN
 #endif
 #include <windows.h>
 static CRITICAL_SECTION cs;
-#ifdef G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(ModelicaRandom_initializeCS)
+#ifdef G2_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
+#pragma G2_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(ModelicaRandom_initializeCS))
 #endif
-G_DEFINE_CONSTRUCTOR(ModelicaRandom_initializeCS)
-static void ModelicaRandom_initializeCS(void) {
+G2_DEFINE_CONSTRUCTOR(G2_FUNCNAME(ModelicaRandom_initializeCS))
+static void G2_FUNCNAME(ModelicaRandom_initializeCS)(void) {
     InitializeCriticalSection(&cs);
 }
-#ifdef G_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_DESTRUCTOR_PRAGMA_ARGS(ModelicaRandom_deleteCS)
+#ifdef G2_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
+#pragma G2_DEFINE_DESTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(ModelicaRandom_deleteCS))
 #endif
-G_DEFINE_DESTRUCTOR(ModelicaRandom_deleteCS)
-static void ModelicaRandom_deleteCS(void) {
+G2_DEFINE_DESTRUCTOR(G2_FUNCNAME(ModelicaRandom_deleteCS))
+static void G2_FUNCNAME(ModelicaRandom_deleteCS)(void) {
     DeleteCriticalSection(&cs);
 }
 #define MUTEX_LOCK() EnterCriticalSection(&cs)
@@ -122,7 +122,7 @@ static void ModelicaRandom_deleteCS(void) {
 #define ModelicaRandom_INVM64 5.42101086242752217004e-20 /* = 2^(-64) */
 #define ModelicaRandom_RAND(INT64) ( (int64_t)(INT64) * ModelicaRandom_INVM64 + 0.5 )
 
-void ModelicaRandom_xorshift64star(_In_ int* state_in,
+void ModelicaRandom_xorshift64star(_In_ const int* state_in,
                                    _Out_ int* state_out, _Out_ double* y) {
     /*  xorshift64* random number generator.
         For details see http://xorshift.di.unimi.it/
@@ -172,7 +172,7 @@ void ModelicaRandom_xorshift64star(_In_ int* state_in,
     *y = ModelicaRandom_RAND(x);
 }
 
-void ModelicaRandom_xorshift128plus(_In_ int* state_in,
+void ModelicaRandom_xorshift128plus(_In_ const int* state_in,
                                     _Out_ int* state_out, _Out_ double* y) {
     /*  xorshift128+ random number generator.
         For details see http://xorshift.di.unimi.it
@@ -274,7 +274,7 @@ static void ModelicaRandom_xorshift1024star_internal(uint64_t s[], int* p, doubl
 #endif
 }
 
-void ModelicaRandom_xorshift1024star(_In_ int* state_in,
+void ModelicaRandom_xorshift1024star(_In_ const int* state_in,
                                      _Out_ int* state_out, _Out_ double* y) {
     /*  xorshift1024* random number generator.
         For details see http://xorshift.di.unimi.it
@@ -334,7 +334,7 @@ static uint64_t ModelicaRandom_s[ 16 ];
 static int ModelicaRandom_p;
 static int ModelicaRandom_id = 0;
 
-void ModelicaRandom_setInternalState_xorshift1024star(_In_ int* state,
+void ModelicaRandom_setInternalState_xorshift1024star(_In_ const int* state,
                                                       size_t nState, int id) {
     /* Receive the external states from Modelica */
     union s_tag {

@@ -2015,11 +2015,10 @@ for the Modelica'2003 conference (for evaluation).
 <h4>Library officer and main author</h4>
 
 <p>
-<strong>Hubertus Tummescheit</strong><br>
+<strong>Hubertus Tummescheit</strong>, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22730 Lund, Sweden<br>
-email: <a href=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</a>
 </p>
 
 <h4>Acknowledgements</h4>
@@ -2149,7 +2148,7 @@ package Examples
   model SimpleLiquidWater "Example for Water.SimpleLiquidWater medium model"
     extends Modelica.Icons.Example;
 
-    constant SI.PressureRate pressureRate = 1e5/10;
+    constant SI.PressureSlope pressureRate = 1e5/10;
     parameter SI.Volume V=1 "Volume";
     parameter SI.EnthalpyFlowRate H_flow_ext=1.e6
       "Constant enthalpy flow rate into the volume";
@@ -2220,11 +2219,11 @@ package Examples
     Real der_T;
   protected
     parameter SI.AbsolutePressure p01 = 100000.0 "state.p at time 0";
-    parameter Real pRate1(unit = "Pa/s") = 0 "state.p rate of change";
+    parameter SI.PressureSlope pRate1 = 0 "state.p rate of change";
     parameter SI.Temperature T01 = 200 "state.T at time 0";
     parameter SI.TemperatureSlope Trate1 = 1000 "state.T rate of change";
     parameter SI.AbsolutePressure p02 = 2.0e5 "state2.p at time 0";
-    parameter Real pRate2(unit = "Pa/s") = 0 "state2.p rate of change";
+    parameter SI.PressureSlope pRate2 = 0 "state2.p rate of change";
     parameter SI.Temperature T02 = 500 "state2.T at time 0";
     parameter SI.TemperatureSlope Trate2 = 0 "state2.T rate of change";
 
@@ -2408,11 +2407,11 @@ is given to compare the approximation.
   protected
     constant SI.Time unitTime=1;
     parameter SI.AbsolutePressure p01 = 1.e5 "state1.p at time 0";
-    parameter Real pRate1(unit = "Pa/s") = 1.e5 "state1.p rate of change";
+    parameter SI.PressureSlope pRate1 = 1.e5 "state1.p rate of change";
     parameter SI.Temperature T01 = 300 "state1.T at time 0";
     parameter SI.TemperatureSlope Trate1 = 10 "state1.T rate of change";
     parameter SI.AbsolutePressure p02 = 1.e5 "state2.p at time 0";
-    parameter Real pRate2(unit = "Pa/s") = 1.e5/2 "state2.p rate of change";
+    parameter SI.PressureSlope pRate2 = 1.e5/2 "state2.p rate of change";
     parameter SI.Temperature T02 = 340 "state2.T at time 0";
     parameter SI.TemperatureSlope Trate2 = -20 "state2.T rate of change";
   equation
@@ -2613,8 +2612,8 @@ It must be noted that the relationship of both axis variables is not right-angle
       extends Modelica.Icons.Example;
       ExtendedProperties medium(p(start=2000.0, fixed=true), h(start=8.0e5,
             fixed=true));
-      parameter Real dh(unit="J/(kg.s)", displayUnit="kJ/(kg.s)")=80000.0 "Derivative of specific enthalpy of medium";
-      parameter Real dp(unit="Pa/s", displayUnit="bar/s")=1.0e6 "Derivative of pressure of medium";
+      parameter Real dh(unit="J/(kg.s)", displayUnit="kJ/(kg.s)") = 80000.0 "Derivative of specific enthalpy of medium";
+      parameter SI.PressureSlope dp = 1.0e6 "Derivative of pressure of medium";
     equation
       der(medium.p) = dp;
       der(medium.h) = dh;
@@ -2717,11 +2716,11 @@ points, e.g., when an isentropic reference state is computed.
     protected
       constant SI.Time unitTime=1;
       parameter SI.AbsolutePressure p01 = 1.e5 "state1.p at time 0";
-      parameter Real pRate1(unit = "Pa/s") = 1.e5 "state1.p rate of change";
+      parameter SI.PressureSlope pRate1 = 1.e5 "state1.p rate of change";
       parameter SI.Temperature T01 = 300 "state1.T at time 0";
       parameter SI.TemperatureSlope Trate1 = 10 "state1.T rate of change";
       parameter SI.AbsolutePressure p02 = 1.e5 "state2.p at time 0";
-      parameter Real pRate2(unit = "Pa/s") = 1.e5/2 "state2.p rate of change";
+      parameter SI.PressureSlope pRate2 = 1.e5/2 "state2.p rate of change";
       parameter SI.Temperature T02 = 340 "state2.T at time 0";
       parameter SI.TemperatureSlope Trate2 = -20 "state2.T rate of change";
     equation
@@ -2819,7 +2818,7 @@ points, e.g., when an isentropic reference state is computed.
       s2 = Medium.specificEntropy_pTX(
               p,
               Ts,
-              fill(0, 0));
+              fill(0.0, 0));
       assert(abs(h1 - h2) < 1e-3, "Inverse for h not correctly computed");
       assert(abs(s1 - s2) < 1e-3, "Inverse for s not correctly computed");
       annotation (experiment(StopTime=1));
@@ -4605,7 +4604,7 @@ are described in
       state := setState_pTX(
               p,
               T,
-              fill(0, 0));
+              fill(0.0, 0));
     end setState_pT;
 
     replaceable function setState_ph "Return thermodynamic state from p and h"
@@ -4617,7 +4616,7 @@ are described in
       state := setState_phX(
               p,
               h,
-              fill(0, 0));
+              fill(0.0, 0));
     end setState_ph;
 
     replaceable function setState_ps "Return thermodynamic state from p and s"
@@ -4629,7 +4628,7 @@ are described in
       state := setState_psX(
               p,
               s,
-              fill(0, 0));
+              fill(0.0, 0));
     end setState_ps;
 
     replaceable function setState_dT "Return thermodynamic state from d and T"
@@ -4641,7 +4640,7 @@ are described in
       state := setState_dTX(
               d,
               T,
-              fill(0, 0));
+              fill(0.0, 0));
     end setState_dT;
 
     replaceable function density_ph "Return density from p and h"
@@ -4653,7 +4652,7 @@ are described in
       d := density_phX(
               p,
               h,
-              fill(0, 0));
+              fill(0.0, 0));
     end density_ph;
 
     replaceable function temperature_ph "Return temperature from p and h"
@@ -4665,7 +4664,7 @@ are described in
       T := temperature_phX(
               p,
               h,
-              fill(0, 0));
+              fill(0.0, 0));
     end temperature_ph;
 
     replaceable function pressure_dT "Return pressure from d and T"
@@ -4677,7 +4676,7 @@ are described in
       p := pressure(setState_dTX(
               d,
               T,
-              fill(0, 0)));
+              fill(0.0, 0)));
     end pressure_dT;
 
     replaceable function specificEnthalpy_dT
@@ -4690,7 +4689,7 @@ are described in
       h := specificEnthalpy(setState_dTX(
               d,
               T,
-              fill(0, 0)));
+              fill(0.0, 0)));
     end specificEnthalpy_dT;
 
     replaceable function specificEnthalpy_ps
@@ -4703,7 +4702,7 @@ are described in
       h := specificEnthalpy_psX(
               p,
               s,
-              fill(0, 0));
+              fill(0.0, 0));
     end specificEnthalpy_ps;
 
     replaceable function temperature_ps "Return temperature from p and s"
@@ -4715,7 +4714,7 @@ are described in
       T := temperature_psX(
               p,
               s,
-              fill(0, 0));
+              fill(0.0, 0));
     end temperature_ps;
 
     replaceable function density_ps "Return density from p and s"
@@ -4727,7 +4726,7 @@ are described in
       d := density_psX(
               p,
               s,
-              fill(0, 0));
+              fill(0.0, 0));
     end density_ps;
 
     replaceable function specificEnthalpy_pT
@@ -4740,7 +4739,7 @@ are described in
       h := specificEnthalpy_pTX(
               p,
               T,
-              fill(0, 0));
+              fill(0.0, 0));
     end specificEnthalpy_pT;
 
     replaceable function density_pT "Return density from p and T"
@@ -4752,7 +4751,7 @@ are described in
       d := density(setState_pTX(
               p,
               T,
-              fill(0, 0)));
+              fill(0.0, 0)));
     end density_pT;
 
     redeclare replaceable function massFraction "Return independent mass fractions (if any)"
@@ -5113,11 +5112,10 @@ to the above list of assumptions</li>
     I-20133 Milano, Italy<br>
     email: <a href=\"mailto:casella@elet.polimi.it\">casella@elet.polimi.it</a><br>
     and<br>
-    Hubertus Tummescheit<br>
+    Hubertus Tummescheit, previously at<br>
     Modelon AB<br>
     Ideon Science Park<br>
     SE-22730 Lund, Sweden<br>
-    email: <a href=\"mailto:Hubertus.Tummescheit@Modelon.se\">Hubertus.Tummescheit@Modelon.se</a>
 </dd>
 </dl>
 </html>"));
@@ -5664,7 +5662,7 @@ to the above list of assumptions</li>
       state := setState_pTX(
               p,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end setState_pT;
 
@@ -5680,7 +5678,7 @@ to the above list of assumptions</li>
       state := setState_phX(
               p,
               h,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end setState_ph;
 
@@ -5696,7 +5694,7 @@ to the above list of assumptions</li>
       state := setState_psX(
               p,
               s,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end setState_ps;
 
@@ -5712,7 +5710,7 @@ to the above list of assumptions</li>
       state := setState_dTX(
               d,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end setState_dT;
 
@@ -5765,7 +5763,7 @@ to the above list of assumptions</li>
       d := density_phX(
               p,
               h,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end density_ph;
 
@@ -5781,7 +5779,7 @@ to the above list of assumptions</li>
       T := temperature_phX(
               p,
               h,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end temperature_ph;
 
@@ -5796,7 +5794,7 @@ to the above list of assumptions</li>
       p := pressure(setState_dTX(
               d,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase));
     end pressure_dT;
 
@@ -5812,7 +5810,7 @@ to the above list of assumptions</li>
       h := specificEnthalpy(setState_dTX(
               d,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase));
     end specificEnthalpy_dT;
 
@@ -5828,7 +5826,7 @@ to the above list of assumptions</li>
       h := specificEnthalpy_psX(
               p,
               s,
-              fill(0, 0));
+              fill(0.0, 0));
     end specificEnthalpy_ps;
 
     redeclare replaceable function temperature_ps
@@ -5843,7 +5841,7 @@ to the above list of assumptions</li>
       T := temperature_psX(
               p,
               s,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end temperature_ps;
 
@@ -5858,7 +5856,7 @@ to the above list of assumptions</li>
       d := density_psX(
               p,
               s,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end density_ps;
 
@@ -5874,7 +5872,7 @@ to the above list of assumptions</li>
       h := specificEnthalpy_pTX(
               p,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase);
     end specificEnthalpy_pT;
 
@@ -5889,7 +5887,7 @@ to the above list of assumptions</li>
       d := density(setState_pTX(
               p,
               T,
-              fill(0, 0),
+              fill(0.0, 0),
               phase));
     end density_pT;
   end PartialTwoPhaseMedium;
@@ -6082,7 +6080,7 @@ Note that the (small) influence of the pressure term p/d is neglected.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy";
     algorithm
       h := cp_const*(T - T0);
@@ -6098,7 +6096,7 @@ This function computes the specific enthalpy of the fluid, but neglects the (sma
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Temperature T "Temperature";
     algorithm
       T := T0 + h/cp_const;
@@ -6108,7 +6106,7 @@ This function computes the specific enthalpy of the fluid, but neglects the (sma
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Density d "Density";
     algorithm
       d := density(setState_phX(
@@ -6403,7 +6401,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy at p, T, X";
     algorithm
       h := cp_const*(T - T0);
@@ -6414,7 +6412,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Temperature T "Temperature";
     algorithm
       T := h/cp_const + T0;
@@ -6424,7 +6422,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction X[nX] "Mass fractions";
+      input MassFraction X[:] "Mass fractions";
       output Density d "Density";
     algorithm
       d := density(setState_phX(
@@ -6757,7 +6755,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         Temperature meltingPoint "Melting point at 101325 Pa";
         Temperature normalBoilingPoint "Normal boiling point (at 101325 Pa)";
         DipoleMoment dipoleMoment
-          "Dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+          "Dipole moment of molecule in Debye (1 debye = 3.33564e-30 C.m)";
         Boolean hasIdealGasHeatCapacity=false
           "= true, if ideal gas heat capacity is available";
         Boolean hasCriticalData=false "= true, if critical data are known";
@@ -6801,7 +6799,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         Temperature meltingPoint "Melting point at 101325 Pa";
         Temperature normalBoilingPoint "Normal boiling point (at 101325 Pa)";
         DipoleMoment dipoleMoment
-          "Dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
+          "Dipole moment of molecule in Debye (1 debye = 3.33564e-30 C.m)";
         Boolean hasIdealGasHeatCapacity=false
           "= true, if ideal gas heat capacity is available";
         Boolean hasCriticalData=false "= true, if critical data are known";
@@ -7398,8 +7396,8 @@ critical pressure.
       pro.cp := -pro.R_s*g.tau*g.tau*g.gtautau;
       pro.cv := pro.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/(g.gpipi));
-      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
-        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
+      pro.a := sqrt(abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi))));
       vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       pro.kappa := -1/(pro.d*g.p)*pro.cp/(vp*pro.cp + vt*vt*g.T);
@@ -7461,8 +7459,8 @@ critical pressure.
       vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       pro.kappa := -1/((g.p/(pro.R_s*g.T*g.pi*g.gpi))*g.p)*pro.cp/(vp*pro.cp + vt
         *vt*g.T);
-      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
-        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
+      pro.a := sqrt(abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi))));
 
       d := g.p/(pro.R_s*g.T*g.pi*g.gpi);
       pro.dudT := (pro.p - g.T*vt/vp)/(d*d);
@@ -7492,8 +7490,8 @@ critical pressure.
       vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       pro.kappa := -1/(pro.d*g.p)*pro.cp/(vp*pro.cp + vt*vt*g.T);
-      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
-        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
+      pro.a := sqrt(abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+        *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi))));
       pro.ddpT := -(pro.d*pro.d)*vp;
       pro.ddTp := -(pro.d*pro.d)*vt;
       pro.duTp := pro.cp - g.p*vt;
@@ -7530,9 +7528,9 @@ critical pressure.
       pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
       pro.kappa := 1/(f.d*f.R_s*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
         /(pro.cv));
-      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := sqrt(abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
-        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
+        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau))));
       pro.ddph := (f.d*(pro.cv*f.d + pt))/(f.d*f.d*pd*pro.cv + f.T*pt*pt);
       pro.ddhp := -f.d*f.d*pt/(f.d*f.d*pd*pro.cv + f.T*pt*pt);
       pro.duph := -1/pro.d + p/(pro.d*pro.d)*pro.ddph;
@@ -7575,9 +7573,9 @@ critical pressure.
       pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
       pro.kappa := 1/(f.d*f.R_s*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
         /(pro.cv));
-      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := sqrt(abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
-        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
+        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau))));
       pro.ddTp := -pt/pd;
       pro.ddpT := 1/pd;
       //problem with units in last two lines
@@ -7609,9 +7607,9 @@ critical pressure.
         *f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
       pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
       pro.kappa := 1/(f.d*pro.p)*((-pv*pro.cv + pt*pt*f.T)/(pro.cv));
-      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := sqrt(abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
-        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
+        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau))));
       pro.dudT := (pro.p - f.T*pt)/(f.d*f.d);
     end helmholtzToProps_dT;
 
@@ -8536,7 +8534,7 @@ The following parts are useful, when newly starting with this library:</p>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2025, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
