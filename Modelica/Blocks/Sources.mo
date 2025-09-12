@@ -414,7 +414,7 @@ The Real output y is a cosine signal:
           extent={{-2,-2},{2,2}},
           origin={-80,-60})));
     Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude)
-   if useConstantAmplitude
+      if useConstantAmplitude
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-80,30})));
