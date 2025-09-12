@@ -68,7 +68,7 @@ model IMC_Conveyor
     Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
     aimcData "Induction machine data"
     annotation (Placement(transformation(extent={{70,72},{90,92}})));
-  Modelica.Blocks.Math.Gain gain(k=fNominal/unitFrequency)
+  Modelica.Blocks.Math.Gain gain(k=fNominal)
     annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
   Modelica.Mechanics.Translational.Components.IdealGearR2T idealGearR2T(ratio=1/r)
     annotation (Placement(transformation(extent={{32,10},{12,30}})));

@@ -10,7 +10,8 @@ partial model PartialElementaryTwoFlangesAndSupport2
   extends Translational.Interfaces.PartialTwoFlanges;
   Support support(s=s_support, f=-flange_a.f - flange_b.f) if useSupport
     "Support/housing of component"
-    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})),
+    mustBeConnected="An enabled support connector should be connected");
   SI.Length s_a "Distance between left flange and support";
   SI.Length s_b "Distance between right flange and support";
 protected

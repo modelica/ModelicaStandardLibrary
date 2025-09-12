@@ -12,3 +12,4 @@ TestWaterPumpNPSH
 TestWaterPumpPowerCharacteristic
 TestWaterPumpRecirculation
 TestWaterPumpVariableSpeed
+TestLinearPower

@@ -114,8 +114,6 @@ equation
       Text(
         extent={{-90,100},{-20,90}},
         textColor={238,46,47},
-        pattern=LinePattern.Dash,
-        lineThickness=1,
         textStyle={TextStyle.Bold},
           textString="array of input trackers"),
       Rectangle(
@@ -126,8 +124,6 @@ equation
       Text(
         extent = {{14,-26},{50,-40}},
         textColor = {28,108,200},
-        pattern = LinePattern.Dash,
-        lineThickness = 1,
         textString = "resetter",
         textStyle = {TextStyle.Bold})}));
 end PartialLogicalClock;

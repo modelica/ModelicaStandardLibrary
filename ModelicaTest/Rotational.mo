@@ -953,31 +953,6 @@ they were not deleted yet.")}));
       annotation (Placement(transformation(extent={{-96,-190},{-76,-170}})));
     Modelica.Blocks.Sources.ExpSine expSine(f=2, damping=0.5)
       annotation (Placement(transformation(extent={{-140,-190},{-120,-170}})));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia19(
-      J=2,
-      phi(start=0),
-      w(start=0))                                                  annotation (
-        Placement(transformation(extent={{-80,-230},{-60,-210}})));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia20(J=2)
-                                                                   annotation (
-        Placement(transformation(extent={{-20,-230},{0,-210}})));
-    Modelica.Mechanics.Rotational.Sources.Torque torque2
-      annotation (Placement(transformation(extent={{30,-230},{10,-210}})));
-    Modelica.Mechanics.Rotational.Components.Coupling coupling
-      annotation (Placement(transformation(extent={{-50,-230},{-30,-210}})));
-    Modelica.Mechanics.Rotational.Sources.Speed speed2(useSupport=false, exact=true)
-      annotation (Placement(transformation(extent={{-110,-230},{-90,-210}})));
-    Modelica.Blocks.Sources.Ramp ramp(
-      height=100,
-      duration=0.5,
-      offset=0,
-      startTime=0)
-      annotation (Placement(transformation(extent={{-140,-230},{-120,-210}})));
-    Modelica.Blocks.Sources.Step step(
-      height=400,
-      offset=0,
-      startTime=0.75)
-      annotation (Placement(transformation(extent={{60,-230},{40,-210}})));
   equation
     connect(inertia.flange_b, idealGear.flange_a) annotation (Line(
         points={{-60,90},{-50,90}}));
@@ -1127,19 +1102,9 @@ they were not deleted yet.")}));
             {-76,-180}}));
     connect(torque1.tau, expSine.y) annotation (Line(points={{-98,-180},{-119,-180}},
                                 color={0,0,127}));
-    connect(torque2.flange, inertia20.flange_b)
-      annotation (Line(points={{10,-220},{0,-220}}, color={0,0,0}));
-    connect(inertia19.flange_b, coupling.flange_a)
-      annotation (Line(points={{-60,-220},{-50,-220}}, color={0,0,0}));
-    connect(coupling.flange_b, inertia20.flange_a)
-      annotation (Line(points={{-30,-220},{-20,-220}}, color={0,0,0}));
-    connect(speed2.flange, inertia19.flange_a)
-      annotation (Line(points={{-90,-220},{-80,-220}}, color={0,0,0}));
-    connect(ramp.y, speed2.w_ref)
-      annotation (Line(points={{-119,-220},{-112,-220}}, color={0,0,127}));
-    connect(step.y, torque2.tau)
-      annotation (Line(points={{39,-220},{32,-220}}, color={0,0,127}));
-    annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-180,-240},{180,160}})));
+    annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-180,
+              -200},{180,160}})),
+      Icon(coordinateSystem(extent={{-180,-200},{180,160}})));
   end AllComponents;
 
   model TestBearingConversion
@@ -1622,6 +1587,54 @@ they were not deleted yet.")}));
         points={{40,-90},{50,-90}}));
     annotation (experiment(StopTime=1.1));
   end TestFriction;
+
+  model TestFrictionPosition
+    extends Modelica.Icons.Example;
+
+    parameter Real fric=155.9218;
+    Modelica.Mechanics.Rotational.Sources.Position    position(exact=true)
+      annotation (Placement(transformation(extent={{-10,30},{10,50}})));
+
+    Modelica.Blocks.Sources.Sine sine(
+      amplitude=0.1,
+      f=1,
+      phase=0.78539816339745,
+      offset=0.5) annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
+
+    Modelica.Mechanics.Rotational.Components.BearingFriction    bearingFriction(tau_pos=[0,5; 100,5],
+               peak=1.001)
+      annotation (Placement(transformation(extent={{46,30},{66,50}})));
+    Modelica.Mechanics.Rotational.Sources.Torque      torque
+      annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
+    Modelica.Blocks.Sources.Sine sine1(
+      amplitude=25,
+      f=1,
+      phase=0.78539816339745,
+      offset=0.5) annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
+    Modelica.Mechanics.Rotational.Components.BearingFriction    bearingFriction1(tau_pos=[0,5; 100,5], peak=1.001)
+      annotation (Placement(transformation(extent={{46,-50},{66,-30}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia(J=1, w(start=-2, fixed=true))
+      annotation (Placement(transformation(extent={{74,-50},{94,-30}})));
+    Modelica.Mechanics.Rotational.Sources.Position    position1(exact=true)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    Modelica.Blocks.Sources.Sine sine2(
+      amplitude=0.3,
+      f=1,
+      phase=0.78539816339745,
+      offset=0.5) annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+    Modelica.Mechanics.Rotational.Components.BearingFriction    bearingFriction2(tau_pos=[0,5; 100,5], peak=1.001)
+      annotation (Placement(transformation(extent={{46,-10},{66,10}})));
+  equation
+
+    connect(sine.y, position.phi_ref) annotation (Line(points={{-49,40},{-12,40}}, color={0,0,127}));
+    connect(position.flange, bearingFriction.flange_a) annotation (Line(points={{10,40},{48,40},{48,40},{46,40}}, color={0,0,0}));
+    connect(sine1.y, torque.tau) annotation (Line(points={{-49,-40},{-12,-40}}, color={0,0,127}));
+    connect(torque.flange, bearingFriction1.flange_a) annotation (Line(points={{10,-40},{46,-40}}, color={0,0,0}));
+    connect(bearingFriction1.flange_b, inertia.flange_a) annotation (Line(points={{66,-40},{74,-40}}, color={0,0,0}));
+    connect(sine2.y, position1.phi_ref) annotation (Line(points={{-49,0},{-12,0}}, color={0,0,127}));
+    connect(position1.flange, bearingFriction2.flange_a) annotation (Line(points={{10,0},{46,0}}, color={0,0,0}));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+  end TestFrictionPosition;
 
   model TestBraking
     extends Modelica.Icons.Example;

@@ -28,11 +28,10 @@ model SignalArrow
         rotation=90)));
 
 protected
-  Visualizers.Advanced.Arrow arrow(
+  Visualizers.Advanced.Vector arrow(
     R=frame_a.R,
-    r=frame_a.r_0,
-    r_tail=r_tail,
-    r_head=r_head,
+    r=frame_a.r_0 + Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve1(frame_a.R.T, r_tail),
+    coordinates=r_head,
     color=color,
     quantity=quantity,
     headAtOrigin=headAtOrigin,

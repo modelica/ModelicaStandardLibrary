@@ -47,22 +47,23 @@ model ForceAndTorque
     annotation (Dialog(group="if animation = true", enable=animation));
 
 protected
-  Visualizers.Advanced.Arrow forceArrow(
+  Visualizers.Advanced.Vector forceArrow(
     color=forceColor,
     specularCoefficient=specularCoefficient,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
     R=frame_b.R,
     r=frame_b.r_0,
     headAtOrigin=true,
-    r_head=-frame_b.f) if world.enableAnimation and animation;
-  Visualizers.Advanced.DoubleArrow torqueArrow(
+    coordinates=-frame_b.f) if world.enableAnimation and animation;
+  Visualizers.Advanced.Vector torqueArrow(
     color=torqueColor,
     specularCoefficient=specularCoefficient,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
     R=frame_b.R,
     r=frame_b.r_0,
     headAtOrigin=true,
-    r_head=-frame_b.t) if world.enableAnimation and animation;
+    twoHeadedArrow=true,
+    coordinates=-frame_b.t) if world.enableAnimation and animation;
   Visualizers.Advanced.Shape connectionLine(
     shapeType="cylinder",
     lengthDirection = to_unit1(basicForce.r_0),

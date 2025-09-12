@@ -1,6 +1,6 @@
 /* ModelicaInternal.c - External functions for Modelica.Utilities
 
-   Copyright (C) 2002-2020, Modelica Association and contributors
+   Copyright (C) 2002-2025, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -30,6 +30,14 @@
 */
 
 /* Changelog:
+      Oct. 20, 2024: by Thomas Beutlich
+                     Removed legacy behaviour in ModelicaInternal_stat for
+                     MSVC Visual Studio >= 2015 (ticket #4473)
+
+      Jan. 15, 2024: by Thomas Beutlich
+                     Utilized ModelicaDuplicateString and
+                     ModelicaDuplicateStringWithErrorReturn (ticket #3686)
+
       Nov. 17, 2020: by Thomas Beutlich
                      Fixed reading files with Unix-style line endings on Windows
                      for ModelicaInternal_readLine/_readFile (ticket #3631)
@@ -37,6 +45,10 @@
       Nov. 11, 2020: by Thomas Beutlich
                      Added getcwd fallback in ModelicaInternal_fullPathName if
                      realpath fails for non-existing path (ticket #3660)
+
+      Dec. 02, 2019: by Thomas Beutlich
+                     Removed call of localtime in ModelicaInternal_getTime
+                     (ticket #3246)
 
       Nov. 13, 2019: by Thomas Beutlich
                      Utilized blockwise I/O in ModelicaInternal_copyFile
@@ -139,6 +151,59 @@
 #include "ModelicaInternal.h"
 #include "ModelicaUtilities.h"
 
+/*
+  ModelicaNotExistError never returns to the caller. In order to compile
+  external Modelica C-code in most compilers, noreturn attributes need to
+  be present to avoid warnings or errors.
+
+  The following macros handle noreturn attributes according to the
+  C11/C++11 standard with fallback to GNU, Clang or MSVC extensions if using
+  an older compiler.
+*/
+#undef MODELICA_NORETURN
+#undef MODELICA_NORETURNATTR
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+#define MODELICA_NORETURN _Noreturn
+#define MODELICA_NORETURNATTR
+#elif defined(__cplusplus) && __cplusplus >= 201103L
+#if (defined(__GNUC__) && __GNUC__ >= 5) || \
+    (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 4 && __GNUC_MINOR__ >= 8)
+#define MODELICA_NORETURN [[noreturn]]
+#define MODELICA_NORETURNATTR
+#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
+      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#elif defined(__GNUC__)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#else
+#define MODELICA_NORETURN [[noreturn]]
+#define MODELICA_NORETURNATTR
+#endif
+#elif defined(__clang__)
+/* Encapsulated for Clang since GCC fails to process __has_attribute */
+#if __has_attribute(noreturn)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#else
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#endif
+#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
+      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8) || \
+      (defined(__SUNPRO_C) && __SUNPRO_C >= 0x5110)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#elif (defined(_MSC_VER) && _MSC_VER >= 1200) || \
+       defined(__BORLANDC__)
+#define MODELICA_NORETURN __declspec(noreturn)
+#define MODELICA_NORETURNATTR
+#else
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#endif
+
 MODELICA_NORETURN static void ModelicaNotExistError(const char* name) MODELICA_NORETURNATTR;
 static void ModelicaNotExistError(const char* name) {
   /* Print error message if a function is not implemented */
@@ -147,6 +212,9 @@ static void ModelicaNotExistError(const char* name) {
         "(e.g., because there is no file system available on the machine\n"
         "as for dSPACE or xPC systems)", name);
 }
+
+#undef MODELICA_NORETURN
+#undef MODELICA_NORETURNATTR
 
 #ifdef NO_FILE_SYSTEM
 void ModelicaInternal_mkdir(_In_z_ const char* directoryName) {
@@ -215,7 +283,7 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
 #define HASH_NO_STDINT 1
 #define HASH_NONFATAL_OOM 1
 #include "uthash.h"
-#include "gconstructor.h"
+#include "g2constructor.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -338,10 +406,7 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
     struct _stat fileInfo;
     int statReturn = _stat(name, &fileInfo);
     if (0 != statReturn) {
-        /* For some reason _stat requires "a:\" and "a:\test1" but fails
-         * on "a:" and "a:\test1\", respectively. It could be handled in the
-         * Modelica code, but seems better to have it here.
-         */
+        /* _stat requires "a:\" instead of "a:" */
         const char* firstSlash = strpbrk(name, "/\\");
         const char* firstColon = strchr(name, ':');
         const char c = (NULL != firstColon) ? firstColon[1] : '\0';
@@ -355,6 +420,11 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
                 free(nameTmp);
             }
         }
+#if defined(_MSC_VER) && _MSC_VER >= 1900
+        /* _stat accepts both "a:\dir" and "a:\dir\" */
+#else
+        /* _stat requires "a:\dir" instead of "a:\dir\" */
+        /* required for VS 2013 and earlier */
         else if (NULL != firstSlash && len > 1 &&
             ('/' == name[len - 1] || '\\' == name[len - 1])) {
             char* nameTmp = (char*)malloc(len*(sizeof(char)));
@@ -365,6 +435,7 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
                 free(nameTmp);
             }
         }
+#endif
     }
     if ( statReturn != 0 ) {
         type = FileType_NoFile;
@@ -521,7 +592,7 @@ void ModelicaInternal_readDirectory(_In_z_ const char* directory, int nFiles,
             }
 
             /* Allocate Modelica memory for file/directory name and copy name */
-            pName = ModelicaAllocateStringWithErrorReturn(strlen(pinfo->d_name));
+            pName = ModelicaDuplicateStringWithErrorReturn(pinfo->d_name);
             if ( pName == NULL ) {
                 errnoTemp = errno;
                 closedir(pdir);
@@ -534,7 +605,6 @@ void ModelicaInternal_readDirectory(_In_z_ const char* directory, int nFiles,
                         directory, strerror(errnoTemp));
                 }
             }
-            strcpy(pName, pinfo->d_name);
 
             /* Save pointer to file */
             files[iFiles] = pName;
@@ -608,6 +678,13 @@ Modelica_ERROR:
 
 _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     /* Get full path name of file or directory */
+#undef MODELICA_INTERNAL_HAVE_POSIX_REALPATH
+#if defined(_BSD_SOURCE) || \
+    (defined(_XOPEN_SOURCE) && _XOPEN_SOURCE >= 500) || \
+    (defined(_XOPEN_SOURCE) && defined(_XOPEN_SOURCE_EXTENDED)) || \
+    _POSIX_VERSION >= 200112L
+#define MODELICA_INTERNAL_HAVE_POSIX_REALPATH
+#endif
 
 #if defined(_WIN32)
     char* fullName;
@@ -618,11 +695,10 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
             name, strerror(errno));
         return "";
     }
-    fullName = ModelicaAllocateString(strlen(tempName));
-    strcpy(fullName, tempName);
+    fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
     return fullName;
-#elif (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
+#elif defined(MODELICA_INTERNAL_HAVE_POSIX_REALPATH)
     char* fullName;
     char localbuf[BUFFER_LENGTH];
     size_t len;
@@ -631,8 +707,7 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     if (tempName == NULL) {
         goto FALLBACK_getcwd;
     }
-    fullName = ModelicaAllocateString(strlen(tempName) + 1);
-    strcpy(fullName, tempName);
+    fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
     /* Retain trailing slash to match _fullpath behaviour */
     len = strlen(name);
@@ -649,10 +724,10 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     return fullName;
 #endif
 
-#if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
+#if defined(MODELICA_INTERNAL_HAVE_POSIX_REALPATH)
 FALLBACK_getcwd:
 #endif
-#if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L || _POSIX_)
+#if defined(MODELICA_INTERNAL_HAVE_POSIX_REALPATH) || defined(_POSIX_)
     {
         /* No such system call in _POSIX_ available (except realpath for existing paths) */
         char* cwd = getcwd(localbuf, sizeof(localbuf));
@@ -673,6 +748,7 @@ FALLBACK_getcwd:
     }
     return fullName;
 #endif
+#undef MODELICA_INTERNAL_HAVE_POSIX_REALPATH
 }
 
 _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
@@ -684,8 +760,7 @@ _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
         ModelicaFormatError("Not possible to get temporary filename\n%s", strerror(errno));
         return "";
     }
-    fullName = ModelicaAllocateString(strlen(tempName));
-    strcpy(fullName, tempName);
+    fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
 
     return fullName;
@@ -706,16 +781,16 @@ typedef struct FileCache {
 static FileCache* fileCache = NULL;
 #if defined(_POSIX_) && !defined(NO_MUTEX)
 #include <pthread.h>
-#if defined(G_HAS_CONSTRUCTORS)
+#if defined(G2_HAS_CONSTRUCTORS)
 static pthread_mutex_t m;
-G_DEFINE_CONSTRUCTOR(initializeMutex)
-static void initializeMutex(void) {
+G2_DEFINE_CONSTRUCTOR(G2_FUNCNAME(initializeMutex))
+static void G2_FUNCNAME(initializeMutex)(void) {
     if (pthread_mutex_init(&m, NULL) != 0) {
         ModelicaError("Initialization of mutex failed\n");
     }
 }
-G_DEFINE_DESTRUCTOR(destroyMutex)
-static void destroyMutex(void) {
+G2_DEFINE_DESTRUCTOR(G2_FUNCNAME(destroyMutex))
+static void G2_FUNCNAME(destroyMutex)(void) {
     if (pthread_mutex_destroy(&m) != 0) {
         ModelicaError("Destruction of mutex failed\n");
     }
@@ -725,24 +800,24 @@ static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
 #endif
 #define MUTEX_LOCK() pthread_mutex_lock(&m)
 #define MUTEX_UNLOCK() pthread_mutex_unlock(&m)
-#elif defined(_WIN32) && defined(G_HAS_CONSTRUCTORS)
+#elif defined(_WIN32) && defined(G2_HAS_CONSTRUCTORS)
 #if !defined(WIN32_LEAN_AND_MEAN)
 #define WIN32_LEAN_AND_MEAN
 #endif
 #include <windows.h>
 static CRITICAL_SECTION cs;
-#ifdef G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(ModelicaInternal_initializeCS)
+#ifdef G2_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
+#pragma G2_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(ModelicaInternal_initializeCS))
 #endif
-G_DEFINE_CONSTRUCTOR(ModelicaInternal_initializeCS)
-static void ModelicaInternal_initializeCS(void) {
+G2_DEFINE_CONSTRUCTOR(G2_FUNCNAME(ModelicaInternal_initializeCS))
+static void G2_FUNCNAME(ModelicaInternal_initializeCS)(void) {
     InitializeCriticalSection(&cs);
 }
-#ifdef G_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_DESTRUCTOR_PRAGMA_ARGS(ModelicaInternal_deleteCS)
+#ifdef G2_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
+#pragma G2_DEFINE_DESTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(ModelicaInternal_deleteCS))
 #endif
-G_DEFINE_DESTRUCTOR(ModelicaInternal_deleteCS)
-static void ModelicaInternal_deleteCS(void) {
+G2_DEFINE_DESTRUCTOR(G2_FUNCNAME(ModelicaInternal_deleteCS))
+static void G2_FUNCNAME(ModelicaInternal_deleteCS)(void) {
     DeleteCriticalSection(&cs);
 }
 #define MUTEX_LOCK() EnterCriticalSection(&cs)
@@ -1007,12 +1082,11 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
     while (iLines <= nLines) {
         readLine(&buf, &bufLen, fp);
 
-        line = ModelicaAllocateStringWithErrorReturn(strlen(buf));
+        line = ModelicaDuplicateStringWithErrorReturn(buf);
         if ( line == NULL ) {
             goto Modelica_OOM_ERROR1;
         }
 
-        strcpy(line, buf);
         string[iLines - 1] = line;
         iLines++;
     }
@@ -1059,12 +1133,11 @@ _Ret_z_ const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
         }
     }
 
-    line = ModelicaAllocateStringWithErrorReturn(strlen(buf));
+    line = ModelicaDuplicateStringWithErrorReturn(buf);
     if (line == NULL) {
         goto Modelica_OOM_ERROR2;
     }
 
-    strcpy(line, buf);
     CacheFileForReading(fp, fileName, lineNumber, buf, bufLen);
     *endOfFile = 0;
     return line;
@@ -1074,8 +1147,7 @@ END_OF_FILE:
     fclose(fp);
     CloseCachedFile(fileName);
     *endOfFile = 1;
-    line = ModelicaAllocateString(0);
-    line[0] = '\0';
+    line = ModelicaDuplicateString("");
     return line;
 
 Modelica_OOM_ERROR2:
@@ -1130,8 +1202,7 @@ _Ret_z_ const char* ModelicaInternal_getcwd(int dummy) {
         cwd = "";
     }
 #endif
-    directory = ModelicaAllocateString(strlen(cwd));
-    strcpy(directory, cwd);
+    directory = ModelicaDuplicateString(cwd);
     ModelicaConvertToUnixDirectorySeparator(directory);
     return directory;
 }
@@ -1152,18 +1223,16 @@ void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
 #endif
 
     if (value == NULL) {
-        result = ModelicaAllocateString(0);
-        result[0] = '\0';
+        result = ModelicaDuplicateString("");
         *exist = 0;
     }
     else {
 #if defined(_MSC_VER) && _MSC_VER >= 1400
-        result = ModelicaAllocateStringWithErrorReturn(len); /* (len - 1) actually is sufficient */
+        result = ModelicaDuplicateStringWithErrorReturn(value);
         if (result) {
 #else
-        result = ModelicaAllocateString(strlen(value));
+        result = ModelicaDuplicateString(value);
 #endif
-            strcpy(result, value);
             if ( convertToSlash == 1 ) {
                 ModelicaConvertToUnixDirectorySeparator(result);
             }
@@ -1332,40 +1401,51 @@ void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Ou
     *year = 0;
 #else
     struct tm* tlocal;
-    time_t calendarTime;
     int ms0;
 #if defined(_POSIX_) || (defined(_MSC_VER) && _MSC_VER >= 1400)
     struct tm tres;
 #endif
 
-    time(&calendarTime);                        /* Retrieve sec time */
-#if defined(_POSIX_)
-    tlocal = localtime_r(&calendarTime, &tres); /* Time fields in local time zone */
-#elif defined(_MSC_VER) && _MSC_VER >= 1400
-    localtime_s(&tres, &calendarTime);          /* Time fields in local time zone */
-    tlocal = &tres;
-#else
-    tlocal = localtime(&calendarTime);          /* Time fields in local time zone */
-#endif
-
-    /* Get millisecond resolution depending on platform */
 #if defined(_WIN32)
-    {
 #if defined(__BORLANDC__)
-        struct timeb timebuffer;
+    struct timeb timebuffer;
         ftime( &timebuffer );                   /* Retrieve ms time */
 #else
-        struct _timeb timebuffer;
+    struct _timeb timebuffer;
         _ftime( &timebuffer );                  /* Retrieve ms time */
 #endif
-        ms0 = (int)(timebuffer.millitm);        /* Convert unsigned int to int */
+#if defined(__BORLANDC__)
+    ftime(&timebuffer);
+    timebuffer.time -= 60 * timebuffer.timezone;
+    if (timebuffer.dstflag != 0)
+        timebuffer.time += 3600;
+    tlocal = gmtime(&timebuffer.time);
+#elif defined(_MSC_VER) && _MSC_VER >= 1400
+    _ftime_s(&timebuffer);
+    timebuffer.time -= 60 * timebuffer.timezone;
+    if (timebuffer.dstflag != 0) {
+        int hours = 0;
+        _get_daylight(&hours);
+        timebuffer.time += 3600 * hours;
     }
+    gmtime_s(&tres, &timebuffer.time);
+    tlocal = &tres;
 #else
-    {
-        struct timeval tv;
-        gettimeofday(&tv, NULL);
-        ms0 = (int)(tv.tv_usec/1000); /* Convert microseconds to milliseconds */
-    }
+    _ftime(&timebuffer);
+    timebuffer.time -= 60 * timebuffer.timezone;
+    if (timebuffer.dstflag != 0)
+        timebuffer.time += 3600;
+    tlocal = gmtime(&timebuffer.time);
+#endif
+    ms0 = (int)(timebuffer.millitm); /* Convert unsigned int to int */
+#else
+    struct timeval tv;
+    struct timezone tz;
+    gettimeofday(&tv, &tz);
+    tv.tv_sec -= 60 * tz.tz_minuteswest;
+    gmtime_r(&tv.tv_sec, &tres);
+    tlocal = &tres;
+    ms0 = (int)(tv.tv_usec / 1000); /* Convert microseconds to milliseconds */
 #endif
 
     /* Do not memcpy as you do not know which sizes are in the struct */

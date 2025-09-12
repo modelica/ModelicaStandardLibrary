@@ -122,7 +122,7 @@ variable <strong>y</strong> is both a variable and a connector.
     extends Interfaces.SignalSource;
 
   equation
-    y = offset + (if time < startTime then 0 else time - startTime);
+    y = offset + smooth(0, (if time < startTime then 0 else time - startTime));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -242,7 +242,7 @@ The Real output y is a step signal:
   end Step;
 
   block Ramp "Generate ramp signal"
-    parameter Real height=1 "Height of ramps"
+    parameter Real height=1 "Height of ramp"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png"));
     parameter SI.Time duration(min=0.0, start=2)
       "Duration of ramp (= 0.0 gives a Step)";
@@ -294,10 +294,17 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
+    parameter Boolean continuous = false "Make output continuous by starting at offset + amplitude*sin(phase)"
+    annotation(Evaluate=true);
     extends Interfaces.SignalSource;
   equation
-    y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
-      *pi*f*(time - startTime) + phase));
+    if continuous then
+      y = offset + amplitude*smooth(0, (if time < startTime then Modelica.Math.sin(phase)
+        else Modelica.Math.sin(2*pi*f*(time - startTime) + phase)));
+    else
+      y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
+       *pi*f*(time - startTime) + phase));
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -340,10 +347,17 @@ The Real output y is a sine signal:
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png"));
     parameter SI.Frequency f(start=1) "Frequency of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
+    parameter Boolean continuous = false "Make output continuous by starting at offset + amplitude*cos(phase)"
+    annotation(Evaluate=true);
     extends Interfaces.SignalSource;
   equation
-    y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
-      *pi*f*(time - startTime) + phase));
+    if continuous then
+      y = offset + smooth(0, amplitude*(if time < startTime then Modelica.Math.cos(phase)
+       else Modelica.Math.cos(2*pi*f*(time - startTime) + phase)));
+    else
+      y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
+        *pi*f*(time - startTime) + phase));
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -593,12 +607,19 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     parameter Real amplitude=1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sinc.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
+    parameter Boolean continuous = false "Make output (continuously) differentiable by starting at offset + amplitude rather than just offset"
+    annotation(Evaluate=true);
     extends Interfaces.SignalSource;
   protected
     SI.Angle x=2*pi*f*(time - startTime);
   equation
-    y = offset + (if time < startTime then 0 else amplitude*
-      (if noEvent(time - startTime < eps) then 1 else (sin(x))/x));
+    if continuous then
+     y = offset + amplitude*smooth(1, (if time < startTime then 1 else
+        (if noEvent(time - startTime < eps) then 1 else (sin(x))/x)));
+    else
+      y = offset + (if time < startTime then 0 else amplitude*
+        (if noEvent(time - startTime < eps) then 1 else (sin(x))/x));
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1443,7 +1464,7 @@ a flange according to a given acceleration.
       b := b - a*shiftTimeScaled;
     end getInterpolationCoefficients;
   algorithm
-    if noEvent(size(table, 1) > 1) then
+    if size(table, 1) > 1 then
       assert(not (table[1, 1] > 0.0 or table[1, 1] < 0.0), "The first point in time has to be set to 0, but is table[1,1] = " + String(table[1, 1]));
     end if;
     when {time >= pre(nextEvent),initial()} then
@@ -1663,13 +1684,13 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     if verboseExtrapolation and (
       extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
       extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
-      assert(noEvent(time >= t_min), "
-Extrapolation warning: Time (=" + String(time) + ") must be greater or equal
-than the minimum abscissa value t_min (=" + String(t_min) + ") defined in the table.
+      assert(noEvent(time >= t_min + shiftTime), "
+Extrapolation warning: Time must be greater or equal
+than the shifted minimum abscissa value defined in the table.
 ", level=AssertionLevel.warning);
-      assert(noEvent(time <= t_max), "
-Extrapolation warning: Time (=" + String(time) + ") must be less or equal
-than the maximum abscissa value t_max (=" + String(t_max) + ") defined in the table.
+      assert(noEvent(time <= t_max + shiftTime), "
+Extrapolation warning: Time must be less or equal
+than the shifted maximum abscissa value defined in the table.
 ", level=AssertionLevel.warning);
     end if;
 
@@ -1819,7 +1840,7 @@ fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". CSV, text and MATLAB MAT-file format is possible.
-    (The text format is described below).
+    (Both the limitations on the CSV format and the text format are described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -1843,6 +1864,13 @@ savematfile tables.mat tab1 tab2 tab3
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
+<p>
+If the table is read from a CSV file, the following limitations apply
+</p>
+<ol>
+<li>Non-numeric data is not supported (in the lines following the header lines), even if such columns are excluded.</li>
+<li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
+</ol>
 <p>
 If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):

@@ -1,6 +1,6 @@
 /* ModelicaStandardTables.c - External table functions
 
-   Copyright (C) 2013-2022, Modelica Association and contributors
+   Copyright (C) 2013-2025, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -39,6 +39,15 @@
       Modelica.Blocks.Tables.CombiTable2Dv
 
    Changelog:
+      Jun. 04, 2024: by Thomas Beutlich
+                     Restored derivatives for one-sided extrapolation by constant
+                     continuation of 2D tables that actually degrade to 1D tables as
+                     regression of ticket #3894 (ticket #4343)
+
+      May 03, 2022:  by Hans Olsson, Dassault Systemes
+                     Fixed index-out-of-bounds exception in spline
+                     initialization of 2D tables that actually degrade
+                     to 1D tables (ticket #3983)
 
       Jan. 31, 2022: by Hans Olsson, Dassault Systemes
                      Added better support for one-sided derivatives of CombiTable2D.
@@ -185,8 +194,9 @@
 #define uthash_strlen(s) key_strlen(s)
 #define HASH_NONFATAL_OOM 1
 #include "uthash.h"
-#include "gconstructor.h"
+#include "g2constructor.h"
 #endif
+#include <assert.h>
 #include <float.h>
 #include <math.h>
 #include <string.h>
@@ -423,16 +433,16 @@ typedef struct TableShare {
 static TableShare* tableShare = NULL;
 #if defined(_POSIX_) && !defined(NO_MUTEX)
 #include <pthread.h>
-#if defined(G_HAS_CONSTRUCTORS)
+#if defined(G2_HAS_CONSTRUCTORS)
 static pthread_mutex_t m;
-G_DEFINE_CONSTRUCTOR(initializeMutex)
-static void initializeMutex(void) {
+G2_DEFINE_CONSTRUCTOR(G2_FUNCNAME(initializeMutex))
+static void G2_FUNCNAME(initializeMutex)(void) {
     if (pthread_mutex_init(&m, NULL) != 0) {
         ModelicaError("Initialization of mutex failed\n");
     }
 }
-G_DEFINE_DESTRUCTOR(destroyMutex)
-static void destroyMutex(void) {
+G2_DEFINE_DESTRUCTOR(G2_FUNCNAME(destroyMutex))
+static void G2_FUNCNAME(destroyMutex)(void) {
     if (pthread_mutex_destroy(&m) != 0) {
         ModelicaError("Destruction of mutex failed\n");
     }
@@ -442,24 +452,24 @@ static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
 #endif
 #define MUTEX_LOCK() pthread_mutex_lock(&m)
 #define MUTEX_UNLOCK() pthread_mutex_unlock(&m)
-#elif defined(_WIN32) && defined(G_HAS_CONSTRUCTORS)
+#elif defined(_WIN32) && defined(G2_HAS_CONSTRUCTORS)
 #if !defined(WIN32_LEAN_AND_MEAN)
 #define WIN32_LEAN_AND_MEAN
 #endif
 #include <windows.h>
 static CRITICAL_SECTION cs;
-#ifdef G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(ModelicaStandardTables_initializeCS)
+#ifdef G2_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
+#pragma G2_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(ModelicaStandardTables_initializeCS))
 #endif
-G_DEFINE_CONSTRUCTOR(ModelicaStandardTables_initializeCS)
-static void ModelicaStandardTables_initializeCS(void) {
+G2_DEFINE_CONSTRUCTOR(G2_FUNCNAME(ModelicaStandardTables_initializeCS))
+static void G2_FUNCNAME(ModelicaStandardTables_initializeCS)(void) {
     InitializeCriticalSection(&cs);
 }
-#ifdef G_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_DESTRUCTOR_PRAGMA_ARGS(ModelicaStandardTables_deleteCS)
+#ifdef G2_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
+#pragma G2_DEFINE_DESTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(ModelicaStandardTables_deleteCS))
 #endif
-G_DEFINE_DESTRUCTOR(ModelicaStandardTables_deleteCS)
-static void ModelicaStandardTables_deleteCS(void) {
+G2_DEFINE_DESTRUCTOR(G2_FUNCNAME(ModelicaStandardTables_deleteCS))
+static void G2_FUNCNAME(ModelicaStandardTables_deleteCS)(void) {
     DeleteCriticalSection(&cs);
 }
 #define MUTEX_LOCK() EnterCriticalSection(&cs)
@@ -620,10 +630,10 @@ static void spline2DClose(CubicHermite2D** spline);
 
 void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const char* tableName,
                                                  _In_z_ const char* fileName,
-                                                 _In_ double* table, size_t nRow,
+                                                 _In_ const double* table, size_t nRow,
                                                  size_t nColumn,
                                                  double startTime,
-                                                 _In_ int* columns,
+                                                 _In_ const int* columns,
                                                  size_t nCols, int smoothness,
                                                  int extrapolation) {
     return ModelicaStandardTables_CombiTimeTable_init2(fileName,
@@ -633,10 +643,10 @@ void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const char* tableName,
 
 void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
                                                   _In_z_ const char* tableName,
-                                                  _In_ double* table, size_t nRow,
+                                                  _In_ const double* table, size_t nRow,
                                                   size_t nColumn,
                                                   double startTime,
-                                                  _In_ int* columns,
+                                                  _In_ const int* columns,
                                                   size_t nCols, int smoothness,
                                                   int extrapolation,
                                                   double shiftTime,
@@ -649,10 +659,10 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
 
 void* ModelicaStandardTables_CombiTimeTable_init3(_In_z_ const char* fileName,
                                                   _In_z_ const char* tableName,
-                                                  _In_ double* table, size_t nRow,
+                                                  _In_ const double* table, size_t nRow,
                                                   size_t nColumn,
                                                   double startTime,
-                                                  _In_ int* columns,
+                                                  _In_ const int* columns,
                                                   size_t nCols, int smoothness,
                                                   int extrapolation,
                                                   double shiftTime,
@@ -861,9 +871,7 @@ void* ModelicaStandardTables_CombiTimeTable_init3(_In_z_ const char* fileName,
 
 void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (NULL == tableID) {
-        return;
-    }
+    assert(NULL != tableID);
     if (NULL != tableID->table && tableID->source == TABLESOURCE_FILE) {
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
         if (NULL != tableID->key) {
@@ -914,7 +922,8 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                                       double preNextTimeEvent) {
     double y = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (NULL != tableID && NULL != tableID->table && NULL != tableID->cols &&
+    assert(NULL != tableID);
+    if (NULL != tableID->table && NULL != tableID->cols &&
         t >= tableID->startTime) {
         if (nextTimeEvent < DBL_MAX && nextTimeEvent == preNextTimeEvent &&
             tableID->startTime >= nextTimeEvent) {
@@ -1163,13 +1172,11 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                             break;
 
                         case NO_EXTRAPOLATION:
-                            ModelicaFormatError("Extrapolation error: Time "
-                                "(=%lf) must be %s or equal\nthan the %s abscissa "
-                                "value %s (=%lf) defined in the table.\n", tOld,
+                            ModelicaFormatError("Extrapolation error: Time must be "
+                                "%s or equal\nthan the shifted %s abscissa "
+                                "value defined in the table.\n",
                                 (extrapolate == LEFT) ? "greater" : "less",
-                                (extrapolate == LEFT) ? "minimum" : "maximum",
-                                (extrapolate == LEFT) ? "t_min" : "t_max",
-                                (extrapolate == LEFT) ? tMin : tMax);
+                                (extrapolate == LEFT) ? "minimum" : "maximum");
                             return y;
 
                         case PERIODIC:
@@ -1194,7 +1201,8 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                                                          double der_t) {
     double der_y = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (NULL != tableID && NULL != tableID->table && NULL != tableID->cols &&
+    assert(NULL != tableID);
+    if (NULL != tableID->table && NULL != tableID->cols &&
         t >= tableID->startTime) {
         if (nextTimeEvent < DBL_MAX && nextTimeEvent == preNextTimeEvent &&
             tableID->startTime >= nextTimeEvent) {
@@ -1421,13 +1429,11 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                             break;
 
                         case NO_EXTRAPOLATION:
-                            ModelicaFormatError("Extrapolation error: Time "
-                                "(=%lf) must be %s or equal\nthan the %s abscissa "
-                                "value %s (=%lf) defined in the table.\n", tOld,
+                            ModelicaFormatError("Extrapolation error: Time must be "
+                                "%s or equal\nthan the shifted %s abscissa "
+                                "value defined in the table.\n",
                                 (extrapolate == LEFT) ? "greater" : "less",
-                                (extrapolate == LEFT) ? "minimum" : "maximum",
-                                (extrapolate == LEFT) ? "t_min" : "t_max",
-                                (extrapolate == LEFT) ? tMin : tMax);
+                                (extrapolate == LEFT) ? "minimum" : "maximum");
                             return der_y;
 
                         case PERIODIC:
@@ -1453,7 +1459,8 @@ double ModelicaStandardTables_CombiTimeTable_getDer2Value(void* _tableID, int iC
                                                          double der2_t) {
     double der2_y = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (NULL != tableID && NULL != tableID->table && NULL != tableID->cols &&
+    assert(NULL != tableID);
+    if (NULL != tableID->table && NULL != tableID->cols &&
         t >= tableID->startTime) {
         if (nextTimeEvent < DBL_MAX && nextTimeEvent == preNextTimeEvent &&
             tableID->startTime >= nextTimeEvent) {
@@ -1681,13 +1688,11 @@ double ModelicaStandardTables_CombiTimeTable_getDer2Value(void* _tableID, int iC
                             break;
 
                         case NO_EXTRAPOLATION:
-                            ModelicaFormatError("Extrapolation error: Time "
-                                "(=%lf) must be %s or equal\nthan the %s abscissa "
-                                "value %s (=%lf) defined in the table.\n", tOld,
+                            ModelicaFormatError("Extrapolation error: Time must be "
+                                "%s or equal\nthan the shifted %s abscissa "
+                                "value defined in the table.\n",
                                 (extrapolate == LEFT) ? "greater" : "less",
-                                (extrapolate == LEFT) ? "minimum" : "maximum",
-                                (extrapolate == LEFT) ? "t_min" : "t_max",
-                                (extrapolate == LEFT) ? tMin : tMax);
+                                (extrapolate == LEFT) ? "minimum" : "maximum");
                             return der2_y;
 
                         case PERIODIC:
@@ -1708,7 +1713,8 @@ double ModelicaStandardTables_CombiTimeTable_getDer2Value(void* _tableID, int iC
 double ModelicaStandardTables_CombiTimeTable_minimumTime(void* _tableID) {
     double tMin = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (NULL != tableID && NULL != tableID->table) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table) {
         const double* table = tableID->table;
         tMin = TABLE_ROW0(0);
     }
@@ -1718,7 +1724,8 @@ double ModelicaStandardTables_CombiTimeTable_minimumTime(void* _tableID) {
 double ModelicaStandardTables_CombiTimeTable_maximumTime(void* _tableID) {
     double tMax = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (NULL != tableID && NULL != tableID->table) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nCol = tableID->nCol;
         tMax = TABLE_COL0(tableID->nRow - 1);
@@ -1730,7 +1737,8 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                                                            double t) {
     double nextTimeEvent = DBL_MAX;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (NULL != tableID && NULL != tableID->table) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -2010,7 +2018,8 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
                                                   int verbose) {
 #if !defined(NO_FILE_SYSTEM)
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (NULL != tableID && tableID->source == TABLESOURCE_FILE) {
+    assert(NULL != tableID);
+    if (tableID->source == TABLESOURCE_FILE) {
         if (force || NULL == tableID->table) {
             const char* fileName = tableID->key;
             const char* tableName = tableID->key + strlen(fileName) + 1;
@@ -2086,9 +2095,9 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
 
 void* ModelicaStandardTables_CombiTable1D_init(_In_z_ const char* tableName,
                                                _In_z_ const char* fileName,
-                                               _In_ double* table, size_t nRow,
+                                               _In_ const double* table, size_t nRow,
                                                size_t nColumn,
-                                               _In_ int* columns,
+                                               _In_ const int* columns,
                                                size_t nCols, int smoothness) {
     return ModelicaStandardTables_CombiTable1D_init2(fileName, tableName,
         table, nRow, nColumn, columns, nCols, smoothness, LAST_TWO_POINTS,
@@ -2097,9 +2106,9 @@ void* ModelicaStandardTables_CombiTable1D_init(_In_z_ const char* tableName,
 
 void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
                                                 _In_z_ const char* tableName,
-                                                _In_ double* table, size_t nRow,
+                                                _In_ const double* table, size_t nRow,
                                                 size_t nColumn,
-                                                _In_ int* columns,
+                                                _In_ const int* columns,
                                                 size_t nCols, int smoothness,
                                                 int extrapolation,
                                                 int verbose) {
@@ -2110,9 +2119,9 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
 
 void* ModelicaStandardTables_CombiTable1D_init3(_In_z_ const char* fileName,
                                                 _In_z_ const char* tableName,
-                                                _In_ double* table, size_t nRow,
+                                                _In_ const double* table, size_t nRow,
                                                 size_t nColumn,
-                                                _In_ int* columns,
+                                                _In_ const int* columns,
                                                 size_t nCols, int smoothness,
                                                 int extrapolation,
                                                 int verbose,
@@ -2314,9 +2323,7 @@ void* ModelicaStandardTables_CombiTable1D_init3(_In_z_ const char* fileName,
 
 void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
-    if (NULL == tableID) {
-        return;
-    }
+    assert(NULL != tableID);
     if (NULL != tableID->table && tableID->source == TABLESOURCE_FILE) {
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
         if (NULL != tableID->key) {
@@ -2363,7 +2370,8 @@ double ModelicaStandardTables_CombiTable1D_getValue(void* _tableID, int iCol,
                                                     double u) {
     double y = 0.;
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
-    if (NULL != tableID && NULL != tableID->table && NULL != tableID->cols) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table && NULL != tableID->cols) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -2517,7 +2525,8 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
                                                        double u, double der_u) {
     double der_y = 0.;
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
-    if (NULL != tableID && NULL != tableID->table && NULL != tableID->cols) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table && NULL != tableID->cols) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -2659,7 +2668,8 @@ double ModelicaStandardTables_CombiTable1D_getDer2Value(void* _tableID, int iCol
                                                        double der2_u) {
     double der2_y = 0.;
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
-    if (NULL != tableID && NULL != tableID->table && NULL != tableID->cols) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table && NULL != tableID->cols) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -2800,7 +2810,8 @@ double ModelicaStandardTables_CombiTable1D_getDer2Value(void* _tableID, int iCol
 double ModelicaStandardTables_CombiTable1D_minimumAbscissa(void* _tableID) {
     double uMin = 0.;
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
-    if (NULL != tableID && NULL != tableID->table) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table) {
         const double* table = tableID->table;
         uMin = TABLE_ROW0(0);
     }
@@ -2810,7 +2821,8 @@ double ModelicaStandardTables_CombiTable1D_minimumAbscissa(void* _tableID) {
 double ModelicaStandardTables_CombiTable1D_maximumAbscissa(void* _tableID) {
     double uMax = 0.;
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
-    if (NULL != tableID && NULL != tableID->table) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nCol = tableID->nCol;
         uMax = TABLE_COL0(tableID->nRow - 1);
@@ -2822,7 +2834,8 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
                                                 int verbose) {
 #if !defined(NO_FILE_SYSTEM)
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
-    if (NULL != tableID && tableID->source == TABLESOURCE_FILE) {
+    assert(NULL != tableID);
+    if (tableID->source == TABLESOURCE_FILE) {
         if (force || NULL == tableID->table) {
             const char* fileName = tableID->key;
             const char* tableName = tableID->key + strlen(fileName) + 1;
@@ -2898,7 +2911,7 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
 
 void* ModelicaStandardTables_CombiTable2D_init(_In_z_ const char* tableName,
                                                _In_z_ const char* fileName,
-                                               _In_ double* table, size_t nRow,
+                                               _In_ const double* table, size_t nRow,
                                                size_t nColumn, int smoothness) {
     return ModelicaStandardTables_CombiTable2D_init2(fileName, tableName,
         table, nRow, nColumn, smoothness, LAST_TWO_POINTS, 1 /* verbose */);
@@ -2906,7 +2919,7 @@ void* ModelicaStandardTables_CombiTable2D_init(_In_z_ const char* tableName,
 
 void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
                                                 _In_z_ const char* tableName,
-                                                _In_ double* table, size_t nRow,
+                                                _In_ const double* table, size_t nRow,
                                                 size_t nColumn, int smoothness,
                                                 int extrapolation,
                                                 int verbose) {
@@ -2916,7 +2929,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
 
 void* ModelicaStandardTables_CombiTable2D_init3(_In_z_ const char* fileName,
                                                 _In_z_ const char* tableName,
-                                                _In_ double* table, size_t nRow,
+                                                _In_ const double* table, size_t nRow,
                                                 size_t nColumn, int smoothness,
                                                 int extrapolation,
                                                 int verbose,
@@ -3080,9 +3093,7 @@ void* ModelicaStandardTables_CombiTable2D_init3(_In_z_ const char* fileName,
 
 void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
-    if (NULL == tableID) {
-        return;
-    }
+    assert(NULL != tableID);
     if (NULL != tableID->table && tableID->source == TABLESOURCE_FILE) {
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
         if (NULL != tableID->key) {
@@ -3126,7 +3137,8 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                                     double u2) {
     double y = 0;
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
-    if (NULL != tableID && NULL != tableID->table) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -4228,7 +4240,8 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                                                        double der_u2) {
     double der_y = 0;
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
-    if (NULL != tableID && NULL != tableID->table) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -4357,9 +4370,6 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                             break;
 
                         case HOLD_LAST_POINT:
-                            der_y = (TABLE(1, last2 + 2) - TABLE(1, last2 + 1))/
-                                (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
-                            der_y *= der_u2;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -4502,9 +4512,6 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                             break;
 
                         case HOLD_LAST_POINT:
-                            der_y = (TABLE(last1 + 2, 1) - TABLE(last1 + 1, 1))/
-                                (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
-                            der_y *= der_u1;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -5149,7 +5156,8 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                                                        double der2_u2) {
     double der2_y = 0;
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
-    if (NULL != tableID && NULL != tableID->table) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -5279,9 +5287,6 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                             break;
 
                         case HOLD_LAST_POINT:
-                            der2_y = (TABLE(1, last2 + 2) - TABLE(1, last2 + 1))/
-                                (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
-                            der2_y *= der2_u2;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -5425,9 +5430,6 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                             break;
 
                         case HOLD_LAST_POINT:
-                            der2_y = (TABLE(last1 + 2, 1) - TABLE(last1 + 1, 1))/
-                                (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
-                            der2_y *= der2_u1;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -6096,7 +6098,8 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
 void ModelicaStandardTables_CombiTable2D_minimumAbscissa(void* _tableID,
                                                          _Inout_ double* uMin) {
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
-    if (NULL != tableID && NULL != tableID->table) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nCol = tableID->nCol;
         uMin[0] = TABLE_COL0(1);
@@ -6111,7 +6114,8 @@ void ModelicaStandardTables_CombiTable2D_minimumAbscissa(void* _tableID,
 void ModelicaStandardTables_CombiTable2D_maximumAbscissa(void* _tableID,
                                                          _Inout_ double* uMax) {
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
-    if (NULL != tableID && NULL != tableID->table) {
+    assert(NULL != tableID);
+    if (NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -6128,7 +6132,8 @@ double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int force,
                                                 int verbose) {
 #if !defined(NO_FILE_SYSTEM)
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
-    if (NULL != tableID && tableID->source == TABLESOURCE_FILE) {
+    assert(NULL != tableID);
+    if (tableID->source == TABLESOURCE_FILE) {
         if (force || NULL == tableID->table) {
             const char* fileName = tableID->key;
             const char* tableName = tableID->key + strlen(fileName) + 1;
@@ -6925,7 +6930,7 @@ static CubicHermite2D* spline2DInit(_In_ const double* table, size_t nRow,
             return NULL;
         }
 
-        spline = (CubicHermite2D*)malloc((nCol - 1)*sizeof(CubicHermite2D));
+        spline = (CubicHermite2D*)malloc((nCol - 2)*sizeof(CubicHermite2D));
         if (NULL == spline) {
             free(tableT);
             return NULL;
@@ -6943,7 +6948,7 @@ static CubicHermite2D* spline2DInit(_In_ const double* table, size_t nRow,
             return NULL;
         }
         /* Copy coefficients */
-        for (j = 0; j < nCol - 1; j++) {
+        for (j = 0; j < nCol - 2; j++) {
             const double* c1 = spline1D[j];
             double* c2 = spline[j];
             c2[0] = c1[0];
@@ -6957,7 +6962,7 @@ static CubicHermite2D* spline2DInit(_In_ const double* table, size_t nRow,
         size_t i;
         int cols = 2;
 
-        spline = (CubicHermite2D*)malloc((nRow - 1)*sizeof(CubicHermite2D));
+        spline = (CubicHermite2D*)malloc((nRow - 2)*sizeof(CubicHermite2D));
         if (NULL == spline) {
             return NULL;
         }
@@ -6968,7 +6973,7 @@ static CubicHermite2D* spline2DInit(_In_ const double* table, size_t nRow,
             return NULL;
         }
         /* Copy coefficients */
-        for (i = 0; i < nRow - 1; i++) {
+        for (i = 0; i < nRow - 2; i++) {
             const double* c1 = spline1D[i];
             double* c2 = spline[i];
             c2[0] = c1[0];
