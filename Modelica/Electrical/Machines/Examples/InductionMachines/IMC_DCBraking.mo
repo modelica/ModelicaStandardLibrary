@@ -59,9 +59,15 @@ model IMC_DCBraking "Induction machine with DC current braking"
         origin={-50,62})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+  Blocks.Sources.BooleanConstant          booleanConstant(k=settings.layout == "Y2")
+    annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
+  Analog.Ideal.IdealOpeningSwitch                     switch annotation (
+      Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={-50,10})));
 initial equation
   if settings.layout=="Y3" then
-    //imc.is[2]=settings.is[2];
     der(imc.is[2])=0;
     der(imc.idq_rs[1])=0;
     der(imc.idq_rs[2])=0;
@@ -71,14 +77,11 @@ initial equation
     der(imc.idq_rs[2])=0;
   end if;
   if settings.layout=="D2" then
-    //imc.is[2]=settings.is[2];
     der(imc.is[2])=0;
     der(imc.idq_rs[1])=0;
     der(imc.idq_rs[2])=0;
   end if;
   if settings.layout=="D3" then
-    //der(imc.idq_ss[1])=0;
-    //der(imc.idq_ss[2])=0;
     der(imc.is[1])=0;
     der(imc.is[2])=0;
     der(imc.idq_rs[1])=0;
@@ -91,8 +94,6 @@ equation
     annotation (Line(points={{-32,80},{-50,80},{-50,72}}, color={0,0,255}));
   connect(plugToPin2.pin_p, constantCurrent.p)
     annotation (Line(points={{-32,40},{-50,40},{-50,52}}, color={0,0,255}));
-  connect(constantCurrent.p, plugToPin3.pin_p)
-    annotation (Line(points={{-50,52},{-50,0},{-32,0}}, color={0,0,255}));
   connect(plugToPin2.plug_p, plugToPin1.plug_p) annotation (Line(points={{-28,40},
           {-20,40},{-20,80},{-28,80}}, color={0,0,255}));
   connect(plugToPin2.plug_p, plugToPin3.plug_p) annotation (Line(points={{-28,40},
@@ -105,6 +106,12 @@ equation
     annotation (Line(points={{-28,40},{30,40},{30,12}}, color={0,0,255}));
   connect(plugToPin2.pin_p, ground.p)
     annotation (Line(points={{-32,40},{-60,40}}, color={0,0,255}));
+  connect(booleanConstant.y, switch.control)
+    annotation (Line(points={{-69,10},{-62,10}}, color={255,0,255}));
+  connect(switch.p, plugToPin3.pin_p)
+    annotation (Line(points={{-50,0},{-32,0}}, color={0,0,255}));
+  connect(ground.p, switch.n)
+    annotation (Line(points={{-60,40},{-50,40},{-50,20}}, color={0,0,255}));
   annotation (experiment(
       StopTime=25,
       Interval=0.001,
