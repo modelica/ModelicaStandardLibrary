@@ -488,7 +488,7 @@ end Vectors;
     input Complex c "Complex number";
     output Real result "= abs(c)";
   algorithm
-    result := (c.re^2 + c.im^2)^0.5; //changed from sqrt
+    result := .sqrt(c.re^2 + c.im^2); // Real, not complex sqrt
     annotation(Inline=true, Documentation(info="<html>
 <p>This function returns the Real absolute of the Complex input, i.e., its length.</p>
 </html>"));

@@ -38,7 +38,6 @@ equation
                      color={0,0,255}));
   connect(IdealCommutingSwitch1.n1, p) annotation (Line(points={{-60,4},{-80,4},{-80,0},{-102,0}}, color={0,0,255}));
   connect(IdealCommutingSwitch2.n1, n) annotation (Line(points={{60,4},{80,4},{80,0},{100,0}}, color={0,0,255}));
-  connect(p, p) annotation (Line(points={{-102,0},{-102,0}}, color={0,0,255}));
   connect(Resistance.y, lessEqualThreshold.u) annotation (Line(points={{-79,60},{-62,60}}, color={0,0,127}));
   connect(logicalSwitch.y, IdealCommutingSwitch1.control) annotation (Line(points={{-41,30},{-50,30},{-50,12}}, color={255,0,255}));
   connect(logicalSwitch.u3, BooleanPulse.y) annotation (Line(points={{-18,22},{20,22},{20,80},{13,80}}, color={255,0,255}));
@@ -56,8 +55,8 @@ equation
             extent={{-150,-32},{150,-92}},
             textString="R=%R"),
           Line(points={{-74,0},{-80,0},{-60,0}}, color={85,255,85}),
-          Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-10},{-4,-10}}, color=
-               {85,255,85}),
+          Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-10},{-4,-10}}, color
+            =  {85,255,85}),
           Line(points={{4,-10},{40,-10},{60,-16},{60,-20},{80,-20}}, color={85,255,85}),
           Line(points={{80,0},{60,0}}, color={85,255,85}),
           Line(points={{60,0},{60,-4}}, color={85,255,85}),

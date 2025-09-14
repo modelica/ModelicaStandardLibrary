@@ -235,7 +235,7 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
       external "C" dummy_y = mydummyfunc(dummy_u)
       annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
              Include = "#include \"usertab.c\"
-double mydummyfunc(double* dummy_in) {
+double mydummyfunc(const double* dummy_in) {
     return 0.;
 }
 ");

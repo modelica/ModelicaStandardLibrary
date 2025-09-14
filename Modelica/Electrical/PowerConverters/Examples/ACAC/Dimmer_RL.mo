@@ -27,7 +27,7 @@ equation
     Documentation(info="<html>
 <p>
 This model demonstrates the behaviour of a dimmer with phase-angle control with resistive-inductive load.
-Note that due to the inductance the current is not zero at the points in time wehre zero-crossing of the voltage occurs,
+Note that due to the inductance the current is not zero at the points in time where zero-crossing of the voltage occurs,
 and the triac stays conducting until the current becomes zero.
 </p>
 <p>

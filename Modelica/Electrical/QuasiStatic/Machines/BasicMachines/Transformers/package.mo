@@ -1,6 +1,7 @@
 within Modelica.Electrical.QuasiStatic.Machines.BasicMachines;
 package Transformers "Library for technical 3phase transformers"
   extends Modelica.Icons.Package;
+
   annotation (Documentation(info="<html>
 This package contains components to model technical three-phase transformers:
 <ul>
@@ -102,38 +103,44 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
               -60,-50},{-80,-70}}),
         Rectangle(
           origin={10,10},
-          lineColor={213,170,255},
+          lineColor={0,0,0},
           fillColor={213,170,255},
           fillPattern=FillPattern.VerticalCylinder,
-          extent={{-88,-46},{-52,26}}),
+          extent={{-88,-46},{-52,26}},
+          pattern=LinePattern.None),
         Rectangle(
           origin={10,10},
-          lineColor={170,213,255},
+          lineColor={0,0,0},
           fillColor={170,213,255},
           fillPattern=FillPattern.VerticalCylinder,
-          extent={{-94,-38},{-46,18}}),
+          extent={{-94,-38},{-46,18}},
+          pattern=LinePattern.None),
         Rectangle(
           origin={10,10},
-          lineColor={213,170,255},
+          lineColor={0,0,0},
           fillColor={213,170,255},
           fillPattern=FillPattern.VerticalCylinder,
-          extent={{-28,-46},{8,26}}),
+          extent={{-28,-46},{8,26}},
+          pattern=LinePattern.None),
         Rectangle(
           origin={10,10},
-          lineColor={170,213,255},
+          lineColor={0,0,0},
           fillColor={170,213,255},
           fillPattern=FillPattern.VerticalCylinder,
-          extent={{-34,-38},{14,18}}),
+          extent={{-34,-38},{14,18}},
+          pattern=LinePattern.None),
         Rectangle(
           origin={10,10},
-          lineColor={213,170,255},
+          lineColor={0,0,0},
           fillColor={213,170,255},
           fillPattern=FillPattern.VerticalCylinder,
-          extent={{32,-46},{68,26}}),
+          extent={{32,-46},{68,26}},
+          pattern=LinePattern.None),
         Rectangle(
           origin={10,10},
-          lineColor={170,213,255},
+          lineColor={0,0,0},
           fillColor={170,213,255},
           fillPattern=FillPattern.VerticalCylinder,
-          extent={{26,-38},{74,18}})}));
+          extent={{26,-38},{74,18}},
+          pattern=LinePattern.None)}));
 end Transformers;

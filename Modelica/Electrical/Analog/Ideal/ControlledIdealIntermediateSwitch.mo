@@ -30,19 +30,19 @@ protected
 equation
   control.i = 0;
 
-  p1.v - n1.v = (s1*unitCurrent)*(if (control.v > level) then 1 else Ron);
-  p2.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then 1 else Ron);
-  p1.v - n2.v = (s3*unitCurrent)*(if (control.v > level) then Ron else 1);
-  p2.v - n1.v = (s4*unitCurrent)*(if (control.v > level) then Ron else 1);
+  p1.v - n1.v = s1*(if (control.v > level) then unitVoltage else Ron*unitCurrent);
+  p2.v - n2.v = s2*(if (control.v > level) then unitVoltage else Ron*unitCurrent);
+  p1.v - n2.v = s3*(if (control.v > level) then Ron*unitCurrent else unitVoltage);
+  p2.v - n1.v = s4*(if (control.v > level) then Ron*unitCurrent else unitVoltage);
 
   p1.i = if control.v > level then s1*unitVoltage*Goff + s3*unitCurrent else
     s1*unitCurrent + s3*unitVoltage*Goff;
   p2.i = if control.v > level then s2*unitVoltage*Goff + s4*unitCurrent else
     s2*unitCurrent + s4*unitVoltage*Goff;
-  n1.i = if control.v > level then -s1*unitVoltage*Goff - s4*unitCurrent
-     else -s1*unitCurrent - s4*unitVoltage*Goff;
-  n2.i = if control.v > level then -s2*unitVoltage*Goff - s3*unitCurrent
-     else -s2*unitCurrent - s3*unitVoltage*Goff;
+  -n1.i = if control.v > level then s1*unitVoltage*Goff + s4*unitCurrent else
+    s1*unitCurrent + s4*unitVoltage*Goff;
+  -n2.i = if control.v > level then s2*unitVoltage*Goff + s3*unitCurrent else
+    s2*unitCurrent + s3*unitVoltage*Goff;
 
   LossPower = p1.i*p1.v + p2.i*p2.v + n1.i*n1.v + n2.i*n2.v;
   annotation (defaultComponentName="switch",

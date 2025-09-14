@@ -73,8 +73,5 @@ Christoph Clau&szlig;
 </html>"),
     experiment(StopTime=5e4, Interval=1),
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-            100,100}}), graphics={Text(
-          extent={{-98,104},{-32,72}},
-          textColor={0,0,255},
-          textString="Chua Circuit")}));
+            100,100}})));
 end ChuaCircuit;
