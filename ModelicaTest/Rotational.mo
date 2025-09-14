@@ -963,8 +963,6 @@ they were not deleted yet.")}));
         Placement(transformation(extent={{-20,-230},{0,-210}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque2
       annotation (Placement(transformation(extent={{30,-230},{10,-210}})));
-    Modelica.Mechanics.Rotational.Components.Coupling coupling
-      annotation (Placement(transformation(extent={{-50,-230},{-30,-210}})));
     Modelica.Mechanics.Rotational.Sources.Speed speed2(useSupport=false, exact=true)
       annotation (Placement(transformation(extent={{-110,-230},{-90,-210}})));
     Modelica.Blocks.Sources.Ramp ramp(
@@ -978,8 +976,6 @@ they were not deleted yet.")}));
       offset=0,
       startTime=0.75)
       annotation (Placement(transformation(extent={{60,-230},{40,-210}})));
-    Modelica.Mechanics.Rotational.Components.FreeWheel freeWheel
-      annotation (Placement(transformation(extent={{-50,-268},{-30,-248}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia21(
       J=1,
       phi(start=0, fixed=true),
@@ -1148,24 +1144,16 @@ they were not deleted yet.")}));
                                 color={0,0,127}));
     connect(torque2.flange, inertia20.flange_b)
       annotation (Line(points={{10,-220},{0,-220}}, color={0,0,0}));
-    connect(inertia19.flange_b, coupling.flange_a)
-      annotation (Line(points={{-60,-220},{-50,-220}}, color={0,0,0}));
-    connect(coupling.flange_b, inertia20.flange_a)
-      annotation (Line(points={{-30,-220},{-20,-220}}, color={0,0,0}));
     connect(speed2.flange, inertia19.flange_a)
       annotation (Line(points={{-90,-220},{-80,-220}}, color={0,0,0}));
     connect(ramp.y, speed2.w_ref)
       annotation (Line(points={{-119,-220},{-112,-220}}, color={0,0,127}));
     connect(step.y, torque2.tau)
       annotation (Line(points={{39,-220},{32,-220}}, color={0,0,127}));
-    connect(freeWheel.flange_b, inertia21.flange_a)
-      annotation (Line(points={{-30,-258},{-20,-258}}, color={0,0,0}));
     connect(linearSpeedDependentTorque1.flange, inertia21.flange_b)
       annotation (Line(points={{10,-258},{0,-258}}, color={0,0,0}));
     connect(inertia22.flange_a, speed1.flange)
       annotation (Line(points={{-80,-258},{-90,-258}}, color={0,0,0}));
-    connect(inertia22.flange_b, freeWheel.flange_a)
-      annotation (Line(points={{-60,-258},{-50,-258}}, color={0,0,0}));
     connect(sine8.y, speed1.w_ref)
       annotation (Line(points={{-119,-258},{-112,-258}}, color={0,0,127}));
     annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-180,
