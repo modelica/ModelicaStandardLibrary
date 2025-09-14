@@ -16,8 +16,8 @@ protected
 equation
   w_rel = der(phi_rel);
   free = w_rel >= 0;
-  w_rel = s*unitTorque         *(if free then 1 else 1/torqueTransmission);
-  tau   = s*unitAngularVelocity*(if free then residualFriction else 1);
+  w_rel = s*(if free then unitAngularVelocity else unitTorque/torqueTransmission);
+  tau   = s*(if free then unitAngularVelocity*residualFriction else unitTorque);
   annotation (
     Icon(graphics={
         Rectangle(
