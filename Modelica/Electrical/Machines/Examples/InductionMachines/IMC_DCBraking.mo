@@ -2,6 +2,7 @@ within Modelica.Electrical.Machines.Examples.InductionMachines;
 model IMC_DCBraking "Induction machine with DC current braking"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
+  import Modelica.Electrical.Machines.Thermal.convertResistance;
   constant Integer m=3 "Number of phases";
   parameter SI.AngularVelocity w0(displayUnit="rev/min")=
     2*pi*imcData.fsNominal/imcData.p "Initial mechanical speed";
@@ -11,8 +12,14 @@ model IMC_DCBraking "Induction machine with DC current braking"
   SI.Torque tauShaft=imc.tauShaft "Shaft torque";
   SI.AngularVelocity wMechanical(displayUnit="rev/min") = imc.wMechanical
     "Shaft speed";
-  parameter Modelica.Electrical.Machines.Utilities.DcBrakeSettings settings(INominal=
-        100, layout="D3")
+  parameter Modelica.Electrical.Machines.Utilities.DcBrakeSettings settings(
+    INominal=100,
+    R=convertResistance(
+        imcData.Rs,
+        imcData.TsRef,
+        imcData.alpha20s,
+        imc.TsOperational),
+    layout="D3")
     annotation (Placement(transformation(extent={{20,60},{40,80}})));
   parameter
     Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
@@ -49,12 +56,12 @@ model IMC_DCBraking "Induction machine with DC current braking"
     annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
   Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin2(m=m, k=2)
     annotation (Placement(transformation(extent={{-20,30},{-40,50}})));
-  Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin3(m=m, k=3) if  settings.connect3
+  Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin3(m=m, k=3)
     annotation (Placement(transformation(extent={{-20,-10},{-40,10}})));
-  Modelica.Electrical.Analog.Sources.ConstantCurrent
-    constantCurrent(I=settings.Idc)
+  Analog.Sources.ConstantVoltage
+    constantVoltage(V=settings.Vdc)
     annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-50,62})));
   Modelica.Electrical.Analog.Basic.Ground ground
@@ -67,33 +74,14 @@ model IMC_DCBraking "Induction machine with DC current braking"
         rotation=90,
         origin={-50,10})));
 initial equation
-  if settings.layout=="Y3" then
-    der(imc.is[2])=0;
-    der(imc.idq_rs[1])=0;
-    der(imc.idq_rs[2])=0;
-  end if;
-  if settings.layout=="Y2" then
-    der(imc.idq_rs[1])=0;
-    der(imc.idq_rs[2])=0;
-  end if;
-  if settings.layout=="D2" then
-    der(imc.is[2])=0;
-    der(imc.idq_rs[1])=0;
-    der(imc.idq_rs[2])=0;
-  end if;
-  if settings.layout=="D3" then
-    der(imc.is[1])=0;
-    der(imc.is[2])=0;
-    der(imc.idq_rs[1])=0;
-    der(imc.idq_rs[2])=0;
+  imc.idq_ss=zeros(2);
+  imc.idq_rs=zeros(2);
+  if settings.layout=="D2" or settings.layout=="D3" then
+    imc.i_0_s=0;
   end if;
 equation
   connect(imc.flange, loadInertia.flange_a)
     annotation (Line(points={{40,0},{50,0}}, color={0,0,0}));
-  connect(plugToPin1.pin_p, constantCurrent.n)
-    annotation (Line(points={{-32,80},{-50,80},{-50,72}}, color={0,0,255}));
-  connect(plugToPin2.pin_p, constantCurrent.p)
-    annotation (Line(points={{-32,40},{-50,40},{-50,52}}, color={0,0,255}));
   connect(plugToPin2.plug_p, plugToPin1.plug_p) annotation (Line(points={{-28,40},
           {-20,40},{-20,80},{-28,80}}, color={0,0,255}));
   connect(plugToPin2.plug_p, plugToPin3.plug_p) annotation (Line(points={{-28,40},
@@ -112,6 +100,10 @@ equation
     annotation (Line(points={{-50,0},{-32,0}}, color={0,0,255}));
   connect(ground.p, switch.n)
     annotation (Line(points={{-60,40},{-50,40},{-50,20}}, color={0,0,255}));
+  connect(constantVoltage.p, plugToPin1.pin_p)
+    annotation (Line(points={{-50,72},{-50,80},{-32,80}}, color={0,0,255}));
+  connect(ground.p, constantVoltage.n)
+    annotation (Line(points={{-60,40},{-50,40},{-50,52}}, color={0,0,255}));
   annotation (experiment(
       StopTime=25,
       Interval=0.001,
