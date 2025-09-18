@@ -96,6 +96,13 @@ jobs:
           fi
       - name: Run tests
         run: ctest --no-tests=error --test-dir build --build-config ${{ matrix.configuration }} --verbose
+      - name: Install
+        run: |
+          if [ "${{ matrix.compiler }}" == "msvc" ]; then
+            cmake --build build --target install --config ${{ matrix.configuration }}
+          else
+            cmake --build build --target install
+          fi
 
   external_c_checks_cmake_cygwin:
     name: external_c_checks_cmake_windows-cygwin
@@ -133,6 +140,11 @@ jobs:
         run: |
           export PATH=/usr/bin:$PATH
           ctest --no-tests=error --test-dir build --build-config Debug --verbose
+        shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
+      - name: Install
+        run: |
+          export PATH=/usr/bin:$PATH
+          cmake --build build --target install
         shell: C:\cygwin\bin\bash.exe -eo pipefail -o igncr '{0}'
 
   html_documentation_checks:
