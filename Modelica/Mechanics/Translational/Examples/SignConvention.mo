@@ -84,7 +84,7 @@ the two other examples).
           plots = {
             Plot(
               curves = {
-                Curve(y = mass1.a, legend = "Accelleration of mass1"),
+                Curve(y = mass1.a, legend = "Acceleration of mass1"),
                 Curve(y = mass1.s, legend = "Position of mass1"),
                 Curve(y = mass1.v, legend = "Velocity of mass1")
               }
