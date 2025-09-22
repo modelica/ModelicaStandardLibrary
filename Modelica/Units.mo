@@ -342,6 +342,10 @@ end UsersGuide;
         displayUnit="bar");
     type AbsolutePressure = Pressure (min=0.0, nominal = 1e5);
     type PressureDifference = Pressure;
+    type PressureSlope = Real (
+        final quantity="PressureSlope",
+        final unit="Pa/s",
+        displayUnit="bar/s");
     type BulkModulus = AbsolutePressure;
     type Stress = Real (final unit="Pa");
     type NormalStress = Stress;
@@ -781,6 +785,9 @@ end UsersGuide;
         min=0);
     type StoichiometricNumber = Real (final quantity="StoichiometricNumber",
           final unit="1");
+    type StoichiometricCoefficient = Real (final quantity="StoichiometricCoefficient",
+          final unit="1",
+          min=0);
     type Affinity = Real (final quantity="Affinity", final unit="J/mol");
     type MassOfMolecule = Real (final quantity="Mass", final unit="kg");
     type ElectricDipoleMomentOfMolecule = Real (final quantity=
@@ -1187,8 +1194,6 @@ which is only valid in the rotor-fixed coordinate system.
     annotation (Icon(graphics={Text(
             extent={{-80,80},{80,-78}},
             textColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.None,
             fontName="serif",
             textString="SI",
             textStyle={TextStyle.Italic})}),
@@ -1888,7 +1893,7 @@ with package Units, have a look at:
 </p>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2025, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>

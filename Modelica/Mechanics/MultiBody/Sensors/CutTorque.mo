@@ -1,7 +1,9 @@
 within Modelica.Mechanics.MultiBody.Sensors;
 model CutTorque "Measure cut torque vector"
 
-  Modelica.Blocks.Interfaces.RealOutput torque[3]
+  Modelica.Blocks.Interfaces.RealOutput torque[3](
+    each final quantity="Torque",
+    each final unit="N.m")
     "Cut torque resolved in frame defined by resolveInFrame"
        annotation (Placement(transformation(
         origin={-80,-110},
@@ -22,14 +24,15 @@ model CutTorque "Measure cut torque vector"
   extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
 
 protected
-  Visualizers.Advanced.DoubleArrow torqueArrow(
+  Visualizers.Advanced.Vector torqueArrow(
     color=torqueColor,
     specularCoefficient=specularCoefficient,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
     R=frame_b.R,
     r=frame_b.r_0,
     headAtOrigin=true,
-    r_head=-frame_a.t*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
+    twoHeadedArrow=true,
+    coordinates=-frame_a.t*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
   Internal.BasicCutTorque cutTorque(resolveInFrame=resolveInFrame, positiveSign=
        positiveSign)
     annotation (Placement(transformation(extent={{-62,-10},{-42,10}})));

@@ -1,7 +1,7 @@
 within Modelica.Mechanics.Translational.Sensors;
-model RelSpeedSensor "Ideal sensor to measure the relative speed"
+model RelSpeedSensor "Ideal sensor to measure the relative velocity between two flanges"
   extends Translational.Interfaces.PartialRelativeSensor;
-  SI.Position s_rel "Distance between the two flanges (flange_b.s - flange_a.s)";
+  SI.Position s_rel "Relative distance between two flanges (flange_b.s - flange_a.s)";
   Modelica.Blocks.Interfaces.RealOutput v_rel(unit="m/s")
     "Relative velocity between two flanges (= der(flange_b.s) - der(flange_a.s)) as output signal"
     annotation (Placement(transformation(
@@ -16,11 +16,11 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>relative speed v</em> of a flange in an ideal way and provides the result as
-output signals (to be further processed with blocks of the
-Modelica.Blocks library).
+Measures the <em>relative velocity</em> between two flanges
+in an ideal way and provides the result as output signal <code>v_rel</code>
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
-
 </html>",
       revisions="<html>
 <p><strong>Release Notes:</strong></p>

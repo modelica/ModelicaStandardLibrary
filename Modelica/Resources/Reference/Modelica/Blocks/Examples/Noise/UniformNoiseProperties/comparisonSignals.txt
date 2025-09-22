@@ -1,5 +1,5 @@
 time
-mean.mu
+mean.y
 standardDeviation.variance.mu
 standardDeviation.variance.var
 variance.mu

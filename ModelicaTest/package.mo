@@ -1,5 +1,5 @@
 within ;
-package ModelicaTest "Library to test components of package Modelica - Version 4.0.0"
+package ModelicaTest "Library to test components of package Modelica"
 extends Modelica.Icons.Package;
 
   import Modelica.Units.SI;
@@ -51,11 +51,11 @@ algorithm
 end testAllFunctions;
 
   annotation (preferredView="info",
-       version="4.0.0",
-       versionDate="2020-06-04",
-       dateModified = "2020-06-04 11:00:00Z",
+       version="4.2.0 dev",
+       versionDate="20xx-xx-xx",
+       dateModified = "2025-05-23 15:00:00Z",
        revisionId="$Format:%h %ci$",
-       uses(Modelica(version="4.0.0")),
+       uses(Modelica(version="4.2.0 dev")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
@@ -84,7 +84,7 @@ way:
 </ul>
 
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2025, Modelica Association and contributors
 </p>
 
 <p>

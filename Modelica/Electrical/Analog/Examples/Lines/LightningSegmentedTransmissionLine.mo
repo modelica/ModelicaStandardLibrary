@@ -44,12 +44,12 @@ model LightningSegmentedTransmissionLine
     startTime=0.02)                   annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={10,10})));
+        origin={0,10})));
 initial equation
-  line1.C.v=zeros(N);
-  line1.L.i=zeros(N + 1);
-  line2.C.v=zeros(N);
-  line2.L[2:N + 1].i=zeros(N);
+  line1.v=zeros(N);
+  line1.i=zeros(N + 1);
+  line2.v=zeros(N);
+  line2.i[2:N + 1]=zeros(N);
 equation
   connect(line1.p1, source.p)
     annotation (Line(points={{-40,20},{-60,20}}, color={0,0,255}));
@@ -59,9 +59,12 @@ equation
           -10},{0,-10}}, color={0,0,255}));
   connect(ground.p, load.n)
     annotation (Line(points={{0,-10},{60,-10},{60,0}}, color={0,0,255}));
-  connect(line1.p2, lightningImpulseCurrent.n) annotation (Line(points={{-20,20},{10,20}}, color={0,0,255}));
-  connect(lightningImpulseCurrent.n, line2.p1) annotation (Line(points={{10,20},{20,20}}, color={0,0,255}));
-  connect(ground.p, lightningImpulseCurrent.p) annotation (Line(points={{0,-10},{10,-10},{10,0}}, color={0,0,255}));
+  connect(line1.p2, lightningImpulseCurrent.n) annotation (Line(points={{-20,20},
+          {0,20}},                                                                         color={0,0,255}));
+  connect(lightningImpulseCurrent.n, line2.p1) annotation (Line(points={{0,20},{
+          20,20}},                                                                        color={0,0,255}));
+  connect(ground.p, lightningImpulseCurrent.p) annotation (Line(points={{0,-10},
+          {0,0}},                                                                                 color={0,0,255}));
   connect(ground.p, line1.p3)
     annotation (Line(points={{0,-10},{-30,-10},{-30,10}}, color={0,0,255}));
   connect(ground.p, line2.p3)
@@ -69,7 +72,7 @@ equation
   annotation (
     experiment(
       StopTime=0.025,
-      Interval=1e-07,
+      Interval=1e-06,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>

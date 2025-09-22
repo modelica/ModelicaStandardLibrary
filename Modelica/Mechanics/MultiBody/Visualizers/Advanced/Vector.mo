@@ -7,14 +7,16 @@ model Vector "Visualizing a vector quantity (force, torque, etc.)"
   annotation (
     Documentation(info="<html>
 <p>
-Model <strong>Vector</strong> defines a&nbsp;vector that is dynamically
-visualized at the defined location (see variables below).
-The vector length does not represent
-a&nbsp;physical length, but a&nbsp;different 3-dimensional quantity
-(such as force, torque, speed, &hellip;), except for <strong>RelativePosition</strong>.
+Model <strong>Vector</strong> defines an arrow that dynamically
+visualizes a&nbsp;physical vector of selected quantity at the defined
+location (see variables below). Thus, the arrow length does not represent
+a&nbsp;physical length (except, of course, for quantity&nbsp;= <strong>RelativePosition</strong>),
+but a&nbsp;different 3-dimensional quantity
+(such as force, torque, speed, &hellip;), defined by
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.VectorQuantity\">MultiBody.Types.VectorQuantity</a>.
 
 That allows the vectors of similar quantities to be scaled appropriately during post-processing.
-This is useful, even for <strong>RelativePosition</strong> and in that case to disable or
+This is useful even for <strong>RelativePosition</strong>, and in that case to disable or
 exaggerate the relative positions.
 </p>
 

@@ -215,6 +215,17 @@ extends Modelica.Icons.ExamplesPackage;
     assert(hash1 <> Strings.hashString("this is a tes1"), "Strings.hashString 1 failed");
     assert(hash1 <> Strings.hashString("this is a tes2"), "Strings.hashString 1 failed");
 
+    // Strings.contains
+    assert(Strings.contains("", ""), "Strings.contains 1 failed (empty strings)");
+    assert(Strings.contains("foo bar", "o"), "Strings.contains 2 failed (multiple occurences)");
+    assert(Strings.contains("foo bar", "o ba"), "Strings.contains 3 failed (occurrence at middle)");
+    assert(Strings.contains("foo bar", "fo"), "Strings.contains 4 failed (occurrence at start)");
+    assert(Strings.contains("foo bar", "ar"), "Strings.contains 5 failed (occurrence at end)");
+    assert(not Strings.contains("foo bar", "x"), "Strings.contains 6 failed (no occurrence)");
+    assert(Strings.contains("foo", ""), "Strings.contains 7 failed (empty search string)");
+    assert(not Strings.contains("foo bar", "O"), "Strings.contains 8 failed (case sensitive)");
+    assert(Strings.contains("foo bar", "O", false), "Strings.contains 9 failed (case insensitive)");
+
     ok := true;
   end Strings;
 

@@ -20,10 +20,12 @@ partial model PartialElementaryRotationalToTranslational
           extent={{90,10},{110,-10}})));
   Rotational.Interfaces.Support supportR if useSupportR
     "Rotational support/housing of component" annotation (Placement(
-        transformation(extent={{-110,-110},{-90,-90}})));
+        transformation(extent={{-110,-110},{-90,-90}})),
+        mustBeConnected="An enabled support connector should be connected");
   Translational.Interfaces.Support supportT if useSupportT
     "Translational support/housing of component"
-    annotation (Placement(transformation(extent={{110,-110},{90,-90}})));
+    annotation (Placement(transformation(extent={{110,-110},{90,-90}})),
+        mustBeConnected="An enabled support connector should be connected");
 
 protected
   Rotational.Interfaces.InternalSupport internalSupportR(tau=-flangeR.tau)

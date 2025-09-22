@@ -149,8 +149,6 @@ Simulate for 1 second and plot (versus <code>imsQS.wMechanical</code> or <code>s
             -100},{100,100}}),
                          graphics={         Text(
                   extent={{20,8},{100,0}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textStyle={TextStyle.Bold},
           textString="%m phase quasi-static")}));
 end IMS_Characteristics;

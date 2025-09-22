@@ -9,7 +9,7 @@ model Dimmer_R "Dimmer with resistive load"
         origin={50,10})));
 equation
   connect(ground.p, loadResistor.n) annotation (Line(points={{-80,-20},{50,-20},
-          {50,-3.55271e-15}}, color={0,0,255}));
+          {50,0}}, color={0,0,255}));
   connect(loadResistor.p, multiSensor.nc)
     annotation (Line(points={{50,20},{50,40},{30,40}}, color={0,0,255}));
   annotation (experiment(
