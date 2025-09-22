@@ -71,6 +71,23 @@ Furthermore, it shows the differences of the
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.ElastoBacklash2\">ElastoBacklash2</a> components
 (the ElastoBacklash2 component generates events when contact occurs and the torque changes discontinuously).
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Torques",
+          identifier = "ca8cd",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = springDamper.tau, legend = "Torque from springDamper"),
+                Curve(y = elastoBacklash.tau, legend = "Torque from elastoBacklash"),
+                Curve(y = elastoBacklash2.tau, legend = "Torque from elastoBacklash2")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=1.0, Interval=0.001));
 end Backlash;
