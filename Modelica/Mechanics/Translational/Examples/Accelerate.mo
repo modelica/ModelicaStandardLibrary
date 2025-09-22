@@ -28,7 +28,7 @@ by moving a mass with a predefined acceleration.
           plots = {
             Plot(
               curves = {
-                Curve(y = mass.a, legend = "Accelleration of mass"),
+                Curve(y = mass.a, legend = "Acceleration of mass"),
                 Curve(y = mass.s, legend = "Position of mass"),
                 Curve(y = mass.v, legend = "Velocity of mass")
               }
