@@ -95,5 +95,22 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcse.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <em>DC_SeriesExcited</em> are used.
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "e556f",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = dcse.ia, legend = "Armature current"),
+                Curve(y = dcse.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = dcse.tauElectrical, legend = "Motor torque")
+              }
+            )
+          }
+        )
+      }
+    ));
 end DCSE_Start;

@@ -22,5 +22,27 @@ equation
 <p>This example demonstrates the switching on of a resistive load operated by an H bridge.
 DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the input voltage.
 Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y</code>, total voltage <code>voltageSensor.v</code> and voltage <code>meanVoltage.v</code>.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltage and current",
+          identifier = "78018",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentSensor.i, legend = "Measured value of current"),
+                Curve(y = meanCurrent.y, legend = "Mean value of current")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = voltageSensor.v, legend = "Measured value of voltage"),
+                Curve(y = meanVoltage.y, legend = "Mean value of voltage")
+              }
+            )
+          }
+        )
+      }
+    ));
 end HBridge_R;
