@@ -81,5 +81,22 @@ Simulate for 3 s with about 50000 output intervals, and plot the variables <stro
 a size of about 240 Mbyte in this case. The default setting of StopTime = 1.01 s (with the default setting of the tool for the number of output points), in order that (automatic) regression testing does not have to cope with a large result file.
 </p>
 
-</html>"), experiment(StopTime=1.01));
+</html>",
+      figures = {
+        Figure(
+          title = "Engine speed and torque",
+          identifier = "33d57",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = engineSpeed_rpm),
+                Curve(y = engineTorque),
+                Curve(y = filteredEngineTorque)
+              }
+            )
+          }
+        )
+      }
+    ), experiment(StopTime=1.01));
 end EngineV6_analytic;
