@@ -1,17 +1,7 @@
 within Modelica.Mechanics.MultiBody.Joints.Constraints;
 model Prismatic
   "Prismatic cut-joint and translational directions may be constrained or released"
-  extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-
-  parameter Boolean x_locked=true
-    "= true: constraint force in x-direction, resolved in frame_a"
-    annotation (Dialog(group="Constraints"),choices(checkBox=true));
-  parameter Boolean y_locked=true
-    "= true: constraint force in y-direction, resolved in frame_a"
-    annotation (Dialog(group="Constraints"),choices(checkBox=true));
-  parameter Boolean z_locked=true
-    "= true: constraint force in z-direction, resolved in frame_a"
-    annotation (Dialog(group="Constraints"),choices(checkBox=true));
+  extends Modelica.Mechanics.MultiBody.Interfaces.PartialConstraint;
 
   parameter Boolean animation=true
     "= true, if animation shall be enabled (show sphere)";
@@ -24,13 +14,6 @@ model Prismatic
   input Types.SpecularCoefficient specularCoefficient=world.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-
-protected
-  Frames.Orientation R_rel
-    "Dummy or relative orientation object from frame_a to frame_b";
-  SI.Position r_rel_a[3]
-    "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-  SI.InstantaneousPower P;
 
 public
   Visualizers.Advanced.Shape sphere(
@@ -46,39 +29,9 @@ public
     r=frame_a.r_0,
     R=frame_a.R) if world.enableAnimation and animation;
 equation
-  // Determine relative position vector resolved in frame_a
-  R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
-  r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-
   // Constraint equations concerning rotations
   // Same logic as for overdetermined connection graph loops to get good residuals.
   zeros(3)=Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint(frame_a.R, frame_b.R);
-
-  // Constraint equations concerning translations
-  if x_locked then
-    r_rel_a[1]=0;
-  else
-    frame_a.f[1]=0;
-  end if;
-
-  if y_locked then
-    r_rel_a[2]=0;
-  else
-    frame_a.f[2]=0;
-  end if;
-
-  if z_locked then
-    r_rel_a[3]=0;
-  else
-    frame_a.f[3]=0;
-  end if;
-
-  zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t) + cross(r_rel_a,
-    Frames.resolve1(R_rel, frame_b.f));
-  zeros(3) = Frames.resolve1(R_rel, frame_b.f) + frame_a.f;
-  P = frame_a.t*Frames.angularVelocity2(frame_a.R) + frame_b.t*
-    Frames.angularVelocity2(frame_b.R) + frame_b.f*Frames.resolve2(frame_b.R,
-    der(frame_b.r_0)) + frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0));
 
   annotation (
     defaultComponentName="constraint",
