@@ -58,7 +58,34 @@ annotation (Documentation(info="<html>
        by Teresa Schlegel<br> realized<br>
        </li>
 </ul>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Voltages and resistance",
+          identifier = "60ce8",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = SineVoltage1.v, legend = "Voltage from source SineVoltage1")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = R2.v, legend = "Voltage in resistor R2"),
+                Curve(y = VariableResistor.v, legend = "Voltage in resistor VariableResistor")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = R2.R, legend = "Resistance in R2"),
+                Curve(y = VariableResistor.R, legend = "Resistance in VariableResistor")
+              }
+            )
+          }
+        )
+      }
+    ),
   experiment(StopTime=1),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}})));

@@ -281,5 +281,37 @@ equation
 <p>This model is identical to the CauerLowPassOPV example. But the resistors are realized by switched capacitors (see <a href=\"modelica://Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor\">SwitchedCapacitor</a>). There are two different types of instances, one with a value of <code>R=1</code> and one with a value of <code>R=-1</code>.</p>
 <p>The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.out.v (output voltage). Compare this result with the CauerLowPassAnalog result.</p>
 <p>Due to the recharging of the capacitances after switching the performance of simulation is not as good as in the CauerLowPassOPV example.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Filter",
+          identifier = "9ed30",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = V.v, legend = "Input voltage"),
+                Curve(y = Op5.out.v, legend = "Output voltage")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Operational ampfilier voltages",
+          identifier = "fdc56",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = Op1.out.v, legend = "Voltage from Op1"),
+                Curve(y = Op2.out.v, legend = "Voltage from Op2"),
+                Curve(y = Op3.out.v, legend = "Voltage from Op3"),
+                Curve(y = Op4.out.v, legend = "Voltage from Op4"),
+                Curve(y = Op5.out.v, legend = "Voltage from Op5"),
+                Curve(y = V.v, legend = "Input voltage")
+              }
+            )
+          }
+        )
+      }
+    ));
 end CauerLowPassSC;

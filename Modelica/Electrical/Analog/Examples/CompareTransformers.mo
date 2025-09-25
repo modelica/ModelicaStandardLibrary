@@ -156,5 +156,45 @@ Plot in separate windows for comparison:
 <br>basicTransformer.p1.i and idealTransformer.p1.i
 <br>basicTransformer.p2.v and idealTransformer.p2.v
 basicTransformer.p2.i and idealTransformer.p2.i</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Left ports of transformers",
+          identifier = "ca3ee",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = basicTransformer.p1.v, legend = "Voltage in left positive port in basicTransformer"),
+                Curve(y = idealTransformer.p1.v, legend = "Voltage in left positive port in idealTransformer")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = basicTransformer.p1.i, legend = "Current in left positive port in basicTransformer"),
+                Curve(y = idealTransformer.p1.i, legend = "Current in left positive port in idealTransformer")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Right ports of transformers",
+          identifier = "b4b28",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = basicTransformer.p2.v, legend = "Voltage in right positive port in basicTransformer"),
+                Curve(y = idealTransformer.p2.v, legend = "Voltage in right positive port in idealTransformer")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = basicTransformer.p2.i, legend = "Current in right positive port in basicTransformer"),
+                Curve(y = idealTransformer.p2.i, legend = "Current in right positive port in idealTransformer")
+              }
+            )
+          }
+        )
+      }
+    ));
 end CompareTransformers;
