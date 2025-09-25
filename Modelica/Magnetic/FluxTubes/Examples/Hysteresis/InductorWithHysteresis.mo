@@ -46,5 +46,31 @@ This is a simple model of an inductor with a ferromagnetic core. The used Generi
     </td>
   </tr>
 </table>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Flux density vs. field strength",
+          identifier = "514be",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = core.H, y = core.B, legend = "Magnetic flux density vs. magnetic field strength of core, B(H)")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Magnetic flux density",
+          identifier = "c206b",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = core.B, legend = "Magnetic flux density from core, B(t)")
+              }
+            )
+          }
+        )
+      }
+    ));
 end InductorWithHysteresis;

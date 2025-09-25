@@ -215,5 +215,27 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>smrM|E.tauElectrical</code>: machine torque</li>
 <li><code>rotorAngleM|R.rotorDisplacementAngle</code>: rotor displacement angle</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "33b98",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentRMSsensorM.I, legend = "Stator current RMS"),
+                Curve(y = smrM.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = smrM.tauElectrical, legend = "Motor torque")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = rotorAngleM.rotorDisplacementAngle, legend = "Rotor displacement angle")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SMR_Inverter;
