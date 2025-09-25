@@ -39,6 +39,23 @@ Simulate for 5 s and plot the variables<br>
 mass1.T, mass2.T, T_final_K or<br>
 Tsensor1.T, Tsensor2.T, T_final_degC
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Temperatures",
+          identifier = "cd25b",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = mass1.T, legend = "Temperature of mass1"),
+                Curve(y = mass2.T, legend = "Temperature of mass2"),
+                Curve(y = T_final_K, legend = "Projected final temperature")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(StopTime=1.0, Interval=0.001));
 end TwoMasses;
