@@ -112,7 +112,7 @@ more of the following changes.
 
 <ul>
 <li> Correcting an equation.</li>
-<li> Correcting attributes quantity/unit/defaultUnit in a declaration.</li>
+<li> Correcting attributes quantity/unit/displayUnit in a declaration.</li>
 <li> Improving/fixing the documentation.</li>
 <li> Introducing a new name in the public section of a class
          (model, package, ...) or in any section of a partial class is <strong>not</strong> allowed.
