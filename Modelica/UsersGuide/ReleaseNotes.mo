@@ -122,6 +122,7 @@ more of the following changes.
          class should only be done if absolutely necessary to fix a bug.
          The problem is that this might be non-backward compatible,
          because a user might already extend from this class and already using the same name.</li>
+<li> The changes should not significantly degrade performance.</li>
 </ul>
 </html>"));
 end VersionManagement;
