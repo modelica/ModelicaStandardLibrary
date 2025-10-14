@@ -147,6 +147,7 @@ As a recommendation, a minor version may in addition contain one or more of the 
 <p>
 Note that many of these changes may break backwards compatibility in very rare cases.
 </p>
+<p>
 The user perspective is that user can rely on this library to be backwards compatible for bug fixes versions and practically backwards compatible for minor versions.
 And that new major versions will provide conversion scripts.
 <b>Provided</b> you don't rely on any of the following:
