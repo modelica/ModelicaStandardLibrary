@@ -156,6 +156,7 @@ And that new major versions will provide conversion scripts.
 <li> Models that are marked as Example or documentation models.
 You can use them for inspiration and copy the Example, but directly using Example models in user models should be avoided.</li>
 <li> Combining extending a non-partial class with named elements (either directly or indirectly by using multiple inheritance).</li>
+<li> Unqualified import from the library.</li>
 <li> Clear bugs in the library.</li>
 </ul>
 </html>"));
