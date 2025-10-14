@@ -150,7 +150,7 @@ Note that many of these changes may break backwards compatibility in very rare c
 <p>
 The user perspective is that user can rely on this library to be backwards compatible for bug fixes versions and practically backwards compatible for minor versions.
 And that new major versions will provide conversion scripts.
-<b>Provided</b> you don't rely on any of the following:
+<strong>Provided</strong> you don't rely on any of the following:
 </p>
 <ul>
 <li> Models that are marked as Example or documentation models.
