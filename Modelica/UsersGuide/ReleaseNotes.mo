@@ -148,14 +148,14 @@ As a recommendation, a minor version may in addition contain one or more of the 
 Note that many of these changes may break backwards compatibility in very rare cases.
 </p>
 <p>
-The user perspective is that user can rely on this library to be backwards compatible for bug fixes versions and practically backwards compatible for minor versions.
-And that new major versions will provide conversion scripts.
+The user perspective is that user can rely on this library to be backwards compatible for bug fix versions and practically backwards compatible for minor versions.
+Additionally, they can rely on new major versions providing conversion scripts.
 <strong>Provided</strong> you don't rely on any of the following:
 </p>
 <ul>
 <li> Models that are marked as Example or documentation models.
 You can use them for inspiration and copy the Example, but directly using Example models in user models should be avoided.</li>
-<li> Combining extending a non-partial class with named elements (either directly or indirectly by using multiple inheritance).</li>
+<li> Extending a non-partial class with named elements (either directly or indirectly by using multiple inheritance).</li>
 <li> Unqualified import from the library.</li>
 <li> Clear bugs in the library.</li>
 </ul>
