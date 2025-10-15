@@ -1306,7 +1306,7 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
         ModelicaError("Memory allocation error\n");
     }
 #elif defined(_POSIX_) && _POSIX_VERSION >= 200112L
-    int result;
+    int result = -1;
     if (1 == convertFromSlash) {
         char* buf = (char*)malloc((strlen(value) + 1)*sizeof(char));
         if (NULL != buf) {
