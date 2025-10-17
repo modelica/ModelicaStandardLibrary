@@ -138,6 +138,8 @@ As a recommendation, a minor version may in addition contain one or more of the 
 <li>Any new parameter must have a default value.</li>
 <li>Any new function input must be after existing inputs and have a default value.</li>
 <li>Any new function output must be after existing outputs.</li>
+<li>Any new enumeration member must be after existing ones.</li>
+<li>Any new record members should be after existing ones, and have a default value (needed if there are any record constructor calls).</li>
 </ul>
 </li>
 <li> Delete/rename names in the protected section of a non-partial class if unlikely to be used.</li>
@@ -158,6 +160,7 @@ You can use them for inspiration and copy the Example, but directly using Exampl
 <li> Extending a non-partial class with named elements (either directly or indirectly by using multiple inheritance).</li>
 <li> Unqualified import from the library.</li>
 <li> Clear bugs in the library.</li>
+<li> Equivalence between a copy of record or enumeration class and the one in the standard library. </li>
 </ul>
 </html>"));
 end VersionManagement;
