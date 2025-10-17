@@ -131,7 +131,7 @@ As a recommendation, a minor version may in addition contain one or more of the 
 <ul>
 <li> Add new classes (in partial packages this may break backwards compatibility, so in those cases only when necessary).</li>
 <li> Modify Examples (including renaming).</li>
-<li> Improving/fixing the documentation.</li>
+<li> Improve/fix the documentation.</li>
 <li> Add new names in the public section of a class (or in any section of a partial class), even if it may break backwards compatibility, but should satisfy:
 <ul>
 <li>Any new input connector, or connector with annotation <code>mustBeConnected</code> must be conditional and as default not enabled.</li>
