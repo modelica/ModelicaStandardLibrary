@@ -112,7 +112,7 @@ more of the following changes.
 
 <ul>
 <li> Correcting an equation.</li>
-<li> Correcting attributes quantity/unit/defaultUnit in a declaration.</li>
+<li> Correcting attributes quantity/unit/displayUnit in a declaration.</li>
 <li> Improving/fixing the documentation.</li>
 <li> Introducing a new name in the public section of a class
          (model, package, ...) or in any section of a partial class is <strong>not</strong> allowed.
@@ -122,6 +122,45 @@ more of the following changes.
          class should only be done if absolutely necessary to fix a bug.
          The problem is that this might be non-backward compatible,
          because a user might already extend from this class and already using the same name.</li>
+<li> The changes should not significantly degrade performance.</li>
+</ul>
+<p>
+As a recommendation, a minor version may in addition contain one or more of the following changes.
+</p>
+
+<ul>
+<li> Add new classes (in partial packages this may break backwards compatibility, so in those cases only when necessary).</li>
+<li> Modify Examples (including renaming).</li>
+<li> Improve/fix the documentation.</li>
+<li> Add new names in the public section of a class (or in any section of a partial class), even if it may break backwards compatibility, but should satisfy:
+<ul>
+<li>Any new input connector, or connector with annotation <code>mustBeConnected</code> must be conditional and as default not enabled.</li>
+<li>Any new parameter must have a default value.</li>
+<li>Any new function input must be after existing inputs and have a default value.</li>
+<li>Any new function output must be after existing outputs.</li>
+<li>Any new enumeration member must be after existing ones.</li>
+<li>Any new record members should be after existing ones, and have a default value (needed if there are any record constructor calls).</li>
+</ul>
+</li>
+<li> Delete/rename names in the protected section of a non-partial class if unlikely to be used.</li>
+<li> Change visibility from public to protected if unlikely to be used.</li>
+<li> The changes should not significantly degrade performance.</li>
+</ul>
+<p>
+Note that many of these changes may break backwards compatibility in very rare cases.
+</p>
+<p>
+The user perspective is that user can rely on this library to be backwards compatible for bug fix versions and practically backwards compatible for minor versions.
+Additionally, they can rely on new major versions providing conversion scripts.
+<strong>Provided</strong> you don't rely on any of the following:
+</p>
+<ul>
+<li> Models that are marked as Example or documentation models.
+You can use them for inspiration and copy the Example, but directly using Example models in user models should be avoided.</li>
+<li> Extending a non-partial class with named elements (either directly or indirectly by using multiple inheritance).</li>
+<li> Unqualified import from the library.</li>
+<li> Clear bugs in the library.</li>
+<li> Equivalence between a copy of record or enumeration class and the one in the standard library. </li>
 </ul>
 </html>"));
 end VersionManagement;
