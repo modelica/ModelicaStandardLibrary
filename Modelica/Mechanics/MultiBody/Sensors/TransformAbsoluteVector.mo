@@ -1,15 +1,10 @@
 within Modelica.Mechanics.MultiBody.Sensors;
 model TransformAbsoluteVector "Transform absolute vector in to another frame"
-  extends Modelica.Icons.RoundSensor;
+  extends Internal.PartialAbsoluteSensor;
 
-  Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-    "Coordinate system from which absolute kinematic quantities are measured"
-    annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
-
-  Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if
-   (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) or
-   (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+  Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
+    if (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+    or (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     "Coordinate system in which r_in or r_out is optionally resolved"
     annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
@@ -35,8 +30,8 @@ protected
   Internal.BasicTransformAbsoluteVector basicTransformVector(frame_r_in=
         frame_r_in, frame_r_out=frame_r_out)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if
-    not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve or
+  Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition
+ if not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve or
          frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     annotation (Placement(transformation(extent={{40,18},{60,38}})));
 
