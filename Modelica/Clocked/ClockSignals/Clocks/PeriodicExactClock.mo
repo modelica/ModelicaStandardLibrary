@@ -6,7 +6,7 @@ block PeriodicExactClock
   parameter Integer factor(min=0)
     "Sample factor with respect to resolution" annotation(Evaluate=true);
   parameter Clocked.Types.Resolution resolution=Resolution.ms "Clock resolution"
-    annotation (Evaluate=true, __Dymola_editText=false);
+    annotation (Evaluate=true);
   extends Clocked.ClockSignals.Interfaces.PartialPeriodicClock;
 protected
   constant Integer conversionTable[8]={365*24*60*60, 24*60*60, 60*60, 60, 1, 1000, 1000*1000, 1000*1000*1000}
