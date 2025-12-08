@@ -275,12 +275,14 @@ states and of the \"Advanced\" menu parameters, see model
           lineColor={0,24,48},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={0,127,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-60,60},{60,-60}},
           lineColor={0,24,48},
           fillPattern=FillPattern.Sphere,
-          fillColor={0,127,255}),
+          fillColor={0,127,255},
+          pattern=LinePattern.None),
         Text(
           extent={{-50,24},{55,-27}},
           textString="%m"),

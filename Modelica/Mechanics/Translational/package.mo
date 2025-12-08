@@ -10,7 +10,8 @@ package Translational "Library to model 1-dimensional, translational mechanical 
           lineColor={64,64,64},
           fillColor={192,192,192},
           fillPattern=FillPattern.Sphere,
-          extent={{-81,-65},{-8,-22}}),
+          extent={{-81,-65},{-8,-22}},
+          pattern=LinePattern.None),
         Line(
           origin={14,53},
           points={{-8,-43},{-1,-43},{6,-64},{17,-23},{29,-65},{40,-23},{50,-44},

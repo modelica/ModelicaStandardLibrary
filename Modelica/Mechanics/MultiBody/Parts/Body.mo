@@ -267,7 +267,8 @@ equation
           lineColor={0,24,48},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={0,127,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Text(
           extent={{150,-100},{-150,-70}},
           textString="m=%m"),
@@ -279,7 +280,9 @@ equation
           extent={{-20,60},{100,-60}},
           lineColor={0,24,48},
           fillPattern=FillPattern.Sphere,
-          fillColor={0,127,255})}), Documentation(info="<html>
+          fillColor={0,127,255},
+          pattern=LinePattern.None)}),
+                                    Documentation(info="<html>
 <p>
 <strong>Rigid body</strong> with mass and inertia tensor.
 All parameter vectors have to be resolved in frame_a.

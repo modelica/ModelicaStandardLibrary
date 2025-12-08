@@ -287,7 +287,8 @@ between the stops.</em></li>
           extent={{-30,30},{30,-30}},
           fillPattern=FillPattern.Sphere,
           fillColor={166,221,166},
-          lineColor={0,127,0}),
+          lineColor={0,127,0},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-64,-16},{-56,-46}},
           fillPattern=FillPattern.Solid,

@@ -3,26 +3,31 @@ model TransientTransformer
   annotation (Icon(graphics={Polygon(
               points={{-70,60},{-50,40},{-50,-40},{-70,-60},{-70,60}},
               fillColor={135,135,135},
-              fillPattern=FillPattern.VerticalCylinder),
+              fillPattern=FillPattern.VerticalCylinder,
+          pattern=LinePattern.None),
             Polygon(
               points={{70,60},{50,40},{50,-40},{70,-60},{70,60}},
               fillColor={135,135,135},
-              fillPattern=FillPattern.VerticalCylinder),
+              fillPattern=FillPattern.VerticalCylinder,
+          pattern=LinePattern.None),
             Polygon(
               points={{0,50},{-10,40},{-10,-40},{0,-50},{10,-40},{10,40},{0,
             50}},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={135,135,135}),
+              fillColor={135,135,135},
+          pattern=LinePattern.None),
             Polygon(
               points={{-70,60},{70,60},{50,40},{10,40},{0,50},{-10,40},{-50,
             40},{-70,60}},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={135,135,135}),
+              fillColor={135,135,135},
+          pattern=LinePattern.None),
             Polygon(
               points={{-70,-60},{70,-60},{50,-40},{10,-40},{0,-50},{-10,-40},
             {-50,-40},{-70,-60}},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={135,135,135}),
+              fillColor={135,135,135},
+          pattern=LinePattern.None),
             Rectangle(
               extent={{-78,36},{-42,-36}},
               lineColor={0,0,0},

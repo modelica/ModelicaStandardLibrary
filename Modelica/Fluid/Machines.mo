@@ -123,7 +123,8 @@ package Machines
               100}}), graphics={Rectangle(
             extent={{-10,100},{10,78}},
             fillPattern=FillPattern.VerticalCylinder,
-            fillColor={95,95,95})}),
+            fillColor={95,95,95},
+            pattern=LinePattern.None)}),
     Documentation(info="<html>
 <p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <code>nParallel</code> pumps, the mechanical connector is relative to a single pump.</p>
 <p>The model extends <code>PartialPump</code></p>
@@ -504,7 +505,8 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             Rectangle(
               extent={{-100,46},{100,-46}},
               fillColor={0,127,255},
-              fillPattern=FillPattern.HorizontalCylinder),
+              fillPattern=FillPattern.HorizontalCylinder,
+              pattern=LinePattern.None),
             Polygon(
               points={{-48,-60},{-72,-100},{72,-100},{48,-60},{-48,-60}},
               lineColor={0,0,255},
@@ -513,7 +515,8 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             Ellipse(
               extent={{-80,80},{80,-80}},
               fillPattern=FillPattern.Sphere,
-              fillColor={0,100,199}),
+              fillColor={0,100,199},
+              pattern=LinePattern.None),
             Polygon(
               points={{-28,30},{-28,-30},{50,-2},{-28,30}},
               pattern=LinePattern.None,

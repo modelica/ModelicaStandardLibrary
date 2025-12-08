@@ -886,7 +886,8 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
               extent=DynamicSelect({{-200,-100},{0,0}}, {{-200,-100},{0,(-100
                    + 200*level/height)}}),
               fillColor={85,170,255},
-              fillPattern=FillPattern.VerticalCylinder),
+              fillPattern=FillPattern.VerticalCylinder,
+              pattern=LinePattern.None),
             Line(points={{-200,100},{-200,-100},{0,-100},{0,100}}),
             Text(
               extent={{-200,84},{0,48}},
@@ -895,14 +896,16 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
             Polygon(
               points={{0,100},{200,70},{200,50},{200,50},{0,80},{0,100}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,0,255}),
+              fillColor={0,0,255},
+              pattern=LinePattern.None),
             Polygon(
               points={{20,98},{30,74},{52,84},{66,72},{86,78},{98,66},{118,74},
                   {130,60},{144,70},{152,60},{168,66},{180,54},{196,74},{190,76},
                   {180,64},{170,70},{156,66},{148,76},{132,68},{120,80},{100,74},
                   {88,88},{70,78},{50,92},{32,82},{28,100},{20,98},{20,98}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={170,255,255}),
+              fillColor={170,255,255},
+              pattern=LinePattern.None),
             Text(
               extent={{-193,30},{-3,10}},
               textString="level ="),
@@ -1692,7 +1695,8 @@ end for;
               extent=DynamicSelect({{-100,-100},{100,0}}, {{-100,-100},{100,(-100
                    + 200*level/height)}}),
               fillColor={85,170,255},
-              fillPattern=FillPattern.VerticalCylinder),
+              fillPattern=FillPattern.VerticalCylinder,
+              pattern=LinePattern.None),
             Text(
               extent={{-94,90},{95,60}},
               textColor={0,0,255},

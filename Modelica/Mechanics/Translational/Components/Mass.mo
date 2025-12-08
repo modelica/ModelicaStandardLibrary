@@ -32,7 +32,8 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
           extent={{-55,-30},{56,30}},
           fillPattern=FillPattern.Sphere,
           fillColor={160,215,160},
-          lineColor={0,127,0}),
+          lineColor={0,127,0},
+          pattern=LinePattern.None),
         Polygon(
           points={{50,-90},{20,-80},{20,-100},{50,-90}},
           lineColor={95,127,95},

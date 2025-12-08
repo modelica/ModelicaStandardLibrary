@@ -6,17 +6,20 @@ package BasicMachines "Basic machine models"
           origin={0,14.817},
           fillColor={170,213,255},
           fillPattern=FillPattern.HorizontalCylinder,
-          extent={{-54.179,-59.817},{65.821,60.183}}),
+          extent={{-54.179,-59.817},{65.821,60.183}},
+          pattern=LinePattern.None),
         Rectangle(
           origin={5.821,15},
           fillColor={128,128,128},
           fillPattern=FillPattern.HorizontalCylinder,
-          extent={{-80,-60},{-60,60}}),
+          extent={{-80,-60},{-60,60}},
+          pattern=LinePattern.None),
         Rectangle(
           origin={5.821,15},
           fillColor={95,95,95},
           fillPattern=FillPattern.HorizontalCylinder,
-          extent={{60,-10},{80,10}}),
+          extent={{60,-10},{80,10}},
+          pattern=LinePattern.None),
         Rectangle(
           origin={5.821,15},
           lineColor={95,95,95},

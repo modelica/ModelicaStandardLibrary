@@ -241,7 +241,8 @@ frame_b of the joint.
         Rectangle(
           extent={{-100,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-60,-60},{60,60}},
           fillPattern=FillPattern.Solid,
@@ -268,7 +269,8 @@ frame_b of the joint.
           extent={{-26,26},{26,-26}},
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192},
-          lineColor={0,0,0}),
+          lineColor={0,0,0},
+          pattern=LinePattern.None),
         Text(
           extent={{-150,110},{150,70}},
           textString="%name",

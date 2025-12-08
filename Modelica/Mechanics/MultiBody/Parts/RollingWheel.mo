@@ -111,7 +111,8 @@ equation
           extent={{-80,80},{80,-80}},
           fillColor={215,215,215},
           fillPattern=FillPattern.Sphere,
-          lineColor={175,175,175}),
+          lineColor={175,175,175},
+          pattern=LinePattern.None),
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",

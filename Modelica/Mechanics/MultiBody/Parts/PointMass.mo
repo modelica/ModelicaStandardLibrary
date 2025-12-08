@@ -98,7 +98,9 @@ the only case where this is done.
           extent={{-50,50},{50,-50}},
           lineColor={0,24,48},
           fillPattern=FillPattern.Sphere,
-          fillColor={0,127,255})}), Documentation(info="<html>
+          fillColor={0,127,255},
+          pattern=LinePattern.None)}),
+                                    Documentation(info="<html>
 <p>
 <strong>Rigid body</strong> where the inertia tensor is neglected.
 This body is

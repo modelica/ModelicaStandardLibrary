@@ -241,15 +241,18 @@ equation
         Rectangle(
           extent={{-60,6},{60,-6}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
           Ellipse(
           extent={{-76,16},{-44,-16}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
           Ellipse(
           extent={{44,16},{76,-16}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Text(
           extent={{-150,90},{150,50}},
           textString="%name",

@@ -27,27 +27,33 @@ equation
         Ellipse(
           extent={{-12,50},{8,30}},
           fillPattern=FillPattern.Sphere,
-          fillColor={135,135,135}),
+          fillColor={135,135,135},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-10,-30},{10,-50}},
           fillPattern=FillPattern.Sphere,
-          fillColor={135,135,135}),
+          fillColor={135,135,135},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{24,-10},{44,-30}},
           fillPattern=FillPattern.Sphere,
-          fillColor={135,135,135}),
+          fillColor={135,135,135},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{22,34},{42,14}},
           fillPattern=FillPattern.Sphere,
-          fillColor={135,135,135}),
+          fillColor={135,135,135},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-44,30},{-24,10}},
           fillPattern=FillPattern.Sphere,
-          fillColor={135,135,135}),
+          fillColor={135,135,135},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-44,-12},{-24,-32}},
           fillPattern=FillPattern.Sphere,
-          fillColor={135,135,135}),
+          fillColor={135,135,135},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-30,30},{30,-30}},
           fillColor={175,175,175},

@@ -8,7 +8,8 @@ package Components "Components for 1D translational mechanical drive trains"
           lineColor={64,64,64},
           fillColor={255,255,255},
           fillPattern=FillPattern.Sphere,
-          extent={{-67,-66},{44,-6}})}), Documentation(info="<html>
+          extent={{-67,-66},{44,-6}},
+          pattern=LinePattern.None)}),   Documentation(info="<html>
 <p>
 This package contains basic components 1D mechanical translational drive trains.
 </p>

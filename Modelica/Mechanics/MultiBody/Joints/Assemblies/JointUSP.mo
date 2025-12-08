@@ -372,7 +372,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         Rectangle(
           extent={{10,6},{52,-6}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-34,-24},{14,24}},
           startAngle=-110,
@@ -418,11 +419,13 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         Rectangle(
           extent={{-50,5},{-10,-5}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
           Ellipse(
             extent={{-20,10},{0,-10}},
             fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192}),
+            fillColor={192,192,192},
+          pattern=LinePattern.None),
         Line(
           points={{-70,28},{-70,-30}},
           thickness=0.5),

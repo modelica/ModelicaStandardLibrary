@@ -184,11 +184,13 @@ equation
           Ellipse(
           extent={{-76,16},{-44,-16}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
           Ellipse(
           extent={{44,16},{76,-16}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
           Line(points={{-60,0},{-30,30},{-30,70},{-60,70},{-60,100}}),
           Line(points={{60,0},{30,30},{30,70},{60,70},{60,100}}),
           Line(
@@ -227,7 +229,8 @@ equation
         Ellipse(
           extent={{-100,-40},{-20,40}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-90,-30},{-30,30}},
           fillColor={255,255,255},
@@ -235,7 +238,8 @@ equation
         Ellipse(
           extent={{20,-40},{100,40}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{31,-29},{91,30}},
           lineColor={128,128,128},
@@ -249,11 +253,13 @@ equation
         Ellipse(
           extent={{-74,15},{-45,-13}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{45,15},{74,-13}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Line(points={{-60,0},{-60,24},{-40,24},{-40,60},{-60,60},{-60,100}}),
         Line(points={{60,1},{60,21},{40,21},{40,60},{60,60},{60,100}}),
         Line(

@@ -417,7 +417,8 @@ component).
         Ellipse(
           extent={{44,16},{76,-16}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-100,-40},{-20,40}},
           startAngle=90,
