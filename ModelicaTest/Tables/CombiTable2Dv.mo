@@ -656,19 +656,15 @@ double mydummyfunc(double dummy_in) {
                   extent={{20,30},{45,15}}),
                 Text(
                   textString="1L",
-                  fillPattern=FillPattern.Solid,
                   extent={{25,35},{40,30}}),
                 Text(
                   textString="1R",
-                  fillPattern=FillPattern.Solid,
                   extent={{25,15},{40,10}}),
                 Text(
                   textString="2L",
-                  fillPattern=FillPattern.Solid,
                   extent={{10,25},{25,20}}),
                 Text(
                   textString="2R",
-                  fillPattern=FillPattern.Solid,
                   extent={{40,25},{55,20}})}),
       experiment(StartTime=0, StopTime=1));
   end Test22;
