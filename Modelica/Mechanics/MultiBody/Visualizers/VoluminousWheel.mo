@@ -65,11 +65,18 @@ equation
         Polygon(lineColor = {64, 64, 64}, fillColor = {191, 191, 191}, fillPattern = FillPattern.HorizontalCylinder, points = {{-12.5, 0}, {-14.213, -19.134}, {-19.09, -35.355}, {-26.39, -46.194}, {-35, -50}, {-43.61, -46.194}, {-50.91, -35.355}, {-55.787, -19.134}, {-57.5, 0}, {-55.787, 19.134}, {-50.91, 35.355}, {-43.61, 46.194}, {-35, 50}, {-26.39, 46.194}, {-19.09, 35.355}, {-14.213, 19.134}, {-12.5, 0}}, smooth = Smooth.Bezier),
         Text(textColor = {0,0,255}, extent = {{-150, 100}, {150, 140}}, textString = "%name"),
         Rectangle(
-          origin={6.091,0},
-          lineColor={95,95,95},
-          fillColor={215,215,215},
-          fillPattern=FillPattern.HorizontalCylinder,
-          extent={{-103.091,-8},{-20.142,8}})},
+          origin = {9.846, 0},
+          lineColor = {95, 95, 95},
+          fillColor = {215, 215, 215},
+          fillPattern = FillPattern.HorizontalCylinder,
+          extent = {{-105.846, -8}, {-19.846, 8}}),
+        Polygon(
+          lineColor = {64, 64, 64},
+          fillColor = {64, 64, 64},
+          fillPattern = FillPattern.Solid,
+          points = {{-12.5, 0}, {-14.213, 19.134}, {-7.765, 10}, {-7.765, -10}, {-14.213, -19.134}, {-12.5, 0}},
+          smooth = Smooth.Bezier)
+        },
       coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true)),
     Documentation(info = "<html>
 <p>
