@@ -22,8 +22,8 @@ equation
       sign(w)*(abs(w)/permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w;
   end if;
   lossPower = -tau*w;
-  annotation (defaultComponentName="magnetLoss", Icon(graphics={Ellipse(extent={{-40,-40},{40,40}}, lineColor
-            = {200,0,0})}), Documentation(info="<html>
+  annotation (defaultComponentName="magnetLoss", Icon(graphics={Ellipse(extent={{-40,-40},{40,40}}, lineColor=
+              {200,0,0})}), Documentation(info="<html>
 <p>
 Permanent magnet losses are modeled dependent on current and speed.
 </p>
