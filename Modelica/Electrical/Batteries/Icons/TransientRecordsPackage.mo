@@ -9,8 +9,7 @@ partial package TransientRecordsPackage
           fillColor={248,248,248},
           fillPattern=FillPattern.HorizontalCylinder,
           extent={{-100.0,-100.0},{100.0,100.0}},
-          radius=25.0,
-          pattern=LinePattern.None),
+          radius=25.0),
         Rectangle(
           origin={0,-20},
           lineColor={64,64,64},
