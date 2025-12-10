@@ -27,8 +27,7 @@ equation
         Rectangle(
           extent={{-60,-10},{60,-20}},
           fillPattern=FillPattern.Sphere,
-          fillColor={0,0,255},
-          pattern=LinePattern.None),
+          fillColor={0,0,255}),
         Line(
           points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
           color={0,0,255},
