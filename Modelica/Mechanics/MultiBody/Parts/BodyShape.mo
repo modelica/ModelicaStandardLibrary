@@ -281,8 +281,7 @@ states and of the \"Advanced\" menu parameters, see model
           extent={{-60,60},{60,-60}},
           lineColor={0,24,48},
           fillPattern=FillPattern.Sphere,
-          fillColor={0,127,255},
-          pattern=LinePattern.None),
+          fillColor={0,127,255}),
         Text(
           extent={{-50,24},{55,-27}},
           textString="%m"),

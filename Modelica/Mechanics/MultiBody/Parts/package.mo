@@ -110,6 +110,5 @@ definition of the colors used in the MultiBody library
           extent={{-8,52},{86,-42}},
           lineColor={95,95,95},
           fillPattern=FillPattern.Sphere,
-          fillColor={215,215,215},
-          pattern=LinePattern.None)}));
+          fillColor={215,215,215})}));
 end Parts;

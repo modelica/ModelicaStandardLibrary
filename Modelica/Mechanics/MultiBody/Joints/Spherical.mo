@@ -269,8 +269,7 @@ frame_b of the joint.
           extent={{-26,26},{26,-26}},
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192},
-          lineColor={0,0,0},
-          pattern=LinePattern.None),
+          lineColor={0,0,0}),
         Text(
           extent={{-150,110},{150,70}},
           textString="%name",

@@ -203,8 +203,7 @@ equation
           extent={{42,80},{118,-80}},
           fillColor={215,215,215},
           fillPattern=FillPattern.Sphere,
-          lineColor={64,64,64},
-          pattern=LinePattern.None),
+          lineColor={64,64,64}),
         Ellipse(extent={{42,80},{118,-80}}, lineColor={64,64,64}),
         Rectangle(
           extent={{-100,-80},{100,-100}},
@@ -227,8 +226,7 @@ equation
           extent={{-118,80},{-42,-80}},
           fillColor={215,215,215},
           fillPattern=FillPattern.Sphere,
-          lineColor={64,64,64},
-          pattern=LinePattern.None),
+          lineColor={64,64,64}),
         Line(
           points={{-96,100},{-80,100},{-80,4}}),
         Ellipse(extent={{-118,80},{-42,-80}}, lineColor={64,64,64}),

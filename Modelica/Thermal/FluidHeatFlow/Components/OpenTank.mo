@@ -49,8 +49,7 @@ equation
         Ellipse(
           extent={{-80,-60},{80,-100}},
           fillColor={170,170,255},
-          fillPattern=FillPattern.Sphere,
-          pattern=LinePattern.None),
+          fillPattern=FillPattern.Sphere),
         Rectangle(
           extent={{-80,80},{80,-80}},
           fillPattern=FillPattern.VerticalCylinder,
@@ -66,13 +65,11 @@ equation
           extent=DynamicSelect({{-80,20},{80,-20}},
           {{-80,(-60+160*level/hTank)},{80,(-100+160*level/hTank)}}),
           fillColor={170,170,255},
-          fillPattern=FillPattern.Sphere,
-          pattern=LinePattern.None),
+          fillPattern=FillPattern.Sphere),
         Ellipse(
           extent={{-80,100},{80,60}},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Sphere,
-          pattern=LinePattern.None),
+          fillPattern=FillPattern.Sphere),
         Line(points={{100,0},{80,0}}, thickness=0.5),
         Line(points={{100,-60},{80,-60}},
           color={238,46,47},

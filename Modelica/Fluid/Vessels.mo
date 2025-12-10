@@ -25,8 +25,7 @@ package Vessels "Devices for storing fluid"
               100,100}}), graphics={Ellipse(
             extent={{-100,100},{100,-100}},
             fillPattern=FillPattern.Sphere,
-            fillColor={170,213,255},
-            pattern=LinePattern.None),Text(
+            fillColor={170,213,255}), Text(
             extent={{-150,12},{150,-18}},
             textString="V=%V")}),
       Documentation(info="<html>
@@ -495,9 +494,7 @@ Base class for vessel heat transfer models.
                   {100,100}}), graphics={Ellipse(
                 extent={{-60,64},{60,-56}},
                 fillPattern=FillPattern.Sphere,
-                fillColor={232,0,0},
-                pattern=LinePattern.None),
-                                      Text(
+                fillColor={232,0,0}), Text(
                 extent={{-38,26},{40,-14}},
                 textString="%name")}));
     end PartialVesselHeatTransfer;

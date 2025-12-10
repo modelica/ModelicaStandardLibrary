@@ -451,8 +451,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           Ellipse(
             extent={{-20,10},{0,-10}},
             fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192},
-          pattern=LinePattern.None),
+            fillColor={192,192,192}),
         Line(
           points={{-70,28},{-70,-30}},
           thickness=0.5),

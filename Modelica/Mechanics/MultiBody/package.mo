@@ -500,6 +500,5 @@ Copyright &copy; 1998-2025, Modelica Association and contributors
           extent={{-4,-14},{60,-78}},
           lineColor={135,135,135},
           fillPattern=FillPattern.Sphere,
-          fillColor={255,255,255},
-          pattern=LinePattern.None)}));
+          fillColor={255,255,255})}));
 end MultiBody;

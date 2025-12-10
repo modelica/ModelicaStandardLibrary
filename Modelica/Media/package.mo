@@ -3360,8 +3360,7 @@ equation in one unknown with function <a href=\"modelica://Modelica.Math.Nonline
                   -100},{100,100}}), graphics={Ellipse(
                         extent={{-100,100},{100,-100}},
                         fillPattern=FillPattern.Sphere,
-                        fillColor={170,213,255},
-                pattern=LinePattern.None),       Text(
+                        fillColor={170,213,255}),Text(
                         extent={{-150,150},{150,110}},
                         textString="%name",
                         textColor={0,0,255}), Text(
@@ -3525,8 +3524,7 @@ transport.
               extent={{-100,-100},{100,100}}), graphics={Ellipse(
                         extent={{-100,100},{100,-100}},
                         fillPattern=FillPattern.Sphere,
-                        fillColor={0,127,255},
-                pattern=LinePattern.None),      Text(
+                        fillColor={0,127,255}), Text(
                         extent={{-150,150},{150,110}},
                         textString="%name",
                         textColor={0,0,255})}), Documentation(info="<html>

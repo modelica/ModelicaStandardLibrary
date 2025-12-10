@@ -515,8 +515,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             Ellipse(
               extent={{-80,80},{80,-80}},
               fillPattern=FillPattern.Sphere,
-              fillColor={0,100,199},
-              pattern=LinePattern.None),
+              fillColor={0,100,199}),
             Polygon(
               points={{-28,30},{-28,-30},{50,-2},{-28,30}},
               pattern=LinePattern.None,

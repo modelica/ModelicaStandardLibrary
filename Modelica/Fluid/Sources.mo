@@ -100,9 +100,7 @@ package Sources "Define fixed or prescribed boundary conditions"
           extent={{-100,-100},{100,100}}), graphics={Ellipse(
             extent={{-100,100},{100,-100}},
             fillPattern=FillPattern.Sphere,
-            fillColor={0,127,255},
-            pattern=LinePattern.None),
-                                    Text(
+            fillColor={0,127,255}), Text(
             extent={{-150,110},{150,150}},
             textString="%name",
             textColor={0,0,255})}),
@@ -211,8 +209,7 @@ with exception of boundary pressure, do not have an effect.
           Ellipse(
             extent={{-100,100},{100,-100}},
             fillPattern=FillPattern.Sphere,
-            fillColor={0,127,255},
-            pattern=LinePattern.None),
+            fillColor={0,127,255}),
           Text(
             extent={{-150,120},{150,160}},
             textString="%name",
@@ -356,8 +353,7 @@ with exception of boundary pressure, do not have an effect.
           Ellipse(
             extent={{-100,100},{100,-100}},
             fillPattern=FillPattern.Sphere,
-            fillColor={0,127,255},
-            pattern=LinePattern.None),
+            fillColor={0,127,255}),
           Text(
             extent={{-150,110},{150,150}},
             textString="%name",

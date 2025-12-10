@@ -336,13 +336,11 @@ component).
           Ellipse(
             extent={{-20,10},{0,-10}},
             fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192},
-          pattern=LinePattern.None),
+            fillColor={192,192,192}),
           Ellipse(
             extent={{-86,10},{-66,-10}},
             fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192},
-          pattern=LinePattern.None),
+            fillColor={192,192,192}),
         Line(
           points={{14,0},{14,80},{0,80},{0,100}},
           color={95,95,95},

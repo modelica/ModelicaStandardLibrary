@@ -246,13 +246,11 @@ equation
           Ellipse(
           extent={{-76,16},{-44,-16}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192},
-          pattern=LinePattern.None),
+          fillColor={192,192,192}),
           Ellipse(
           extent={{44,16},{76,-16}},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192},
-          pattern=LinePattern.None),
+          fillColor={192,192,192}),
         Text(
           extent={{-150,90},{150,50}},
           textString="%name",
