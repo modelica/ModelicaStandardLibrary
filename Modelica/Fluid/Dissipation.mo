@@ -4622,7 +4622,7 @@ Generally this function is numerically best used for the <strong>incompressible 
                 0.5)
                 elseif a>0 and b>0 then
                 sign(dp)*(-b/(2*a) + sqrt((b/(2*a))^2 + (1/a)*abs(dp)))
-                else b*dp);
+                else dp/b);
       annotation (Inline=true, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                 IN_con,
@@ -13140,7 +13140,7 @@ reference 01IS07022B). The project was started in October 2007 and ended in June
 </p>
 
 <p>
-Copyright &copy; 2007-2024, Modelica Association and contributors
+Copyright &copy; 2007-2025, Modelica Association and contributors
 </p>
 
 <h4>Contact</h4>

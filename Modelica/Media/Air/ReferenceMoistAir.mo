@@ -2820,7 +2820,7 @@ for region 2.
           if (T >= 773.15) then
             cp := X[1]*
               Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(pd,
-              T) + X[2]*Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,
+              T) + (1 - X[1])*Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,
               T) + Modelica.Media.Air.ReferenceMoistAir.Utilities.cp_dis_pTX(
                   p,
                   T,
@@ -2828,7 +2828,7 @@ for region 2.
           else
             cp := X[1]*
               Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(pd,
-              T) + X[2]*Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,
+              T) + (1 - X[1])*Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,
               T);
           end if;
         else
@@ -2866,7 +2866,7 @@ for region 2.
         if ((xw <= xws) or (xws == -1)) then
           cv := X[1]*
             Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.cv_pT(pd, T)
-             + X[2]*Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT(pl, T);
+             + (1 - X[1])*Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT(pl, T);
         else
           cv := -1;
         end if;
@@ -2952,7 +2952,7 @@ for region 2.
       if (useDissociation == false) then
         u := 0;
       else
-        massFraction := {X[1],X[2]*Xi_Air[1],X[2]*Xi_Air[2],X[2]*Xi_Air[3]};
+        massFraction := {X[1],(1 - X[1])*Xi_Air[1],(1 - X[1])*Xi_Air[2],(1 - X[1])*Xi_Air[3]};
         for i in 1:4 loop
           invMMX[i] := 1/MMX[i];
         end for;
@@ -3113,7 +3113,7 @@ for region 2.
       if (useDissociation == false) then
         u := 0;
       else
-        massFraction := {X[1],X[2]*Xi_Air[1],X[2]*Xi_Air[2],X[2]*Xi_Air[3]};
+        massFraction := {X[1],(1 - X[1])*Xi_Air[1],(1 - X[1])*Xi_Air[2],(1 - X[1])*Xi_Air[3]};
         for i in 1:4 loop
           invMMX[i] := 1/MMX[i];
         end for;
@@ -3189,7 +3189,7 @@ for region 2.
       if (useDissociation == false) then
         u := 0;
       else
-        massFraction := {X[1],X[2]*Xi_Air[1],X[2]*Xi_Air[2],X[2]*Xi_Air[3]};
+        massFraction := {X[1],(1 - X[1])*Xi_Air[1],(1 - X[1])*Xi_Air[2],(1 - X[1])*Xi_Air[3]};
         for i in 1:4 loop
           invMMX[i] := 1/MMX[i];
         end for;
@@ -3549,9 +3549,9 @@ for region 2.
         //u := 0;
         u_der := 0;
       else
-        massFraction := {X[1],X[2]*Xi_Air[1],X[2]*Xi_Air[2],X[2]*Xi_Air[3]};
-        massFraction_der := {X_der[1],X_der[2]*Xi_Air[1],X_der[2]*Xi_Air[2],
-          X_der[2]*Xi_Air[3]};
+        massFraction := {X[1],(1 - X[1])*Xi_Air[1],(1 - X[1])*Xi_Air[2],(1 - X[1])*Xi_Air[3]};
+        massFraction_der := {X_der[1],-X_der[1]*Xi_Air[1],-X_der[1]*Xi_Air[2],
+          -X_der[1]*Xi_Air[3]};
         for i in 1:4 loop
           invMMX[i] := 1/MMX[i];
         end for;
@@ -4152,7 +4152,7 @@ Some parts of this library refer to the ThermoFluid library developed at Lund Un
 </p>
 
 <p>
-Copyright &copy; 2013-2024, Modelica Association and contributors
+Copyright &copy; 2013-2025, Modelica Association and contributors
 </p>
 </html>"));
 end ReferenceMoistAir;
