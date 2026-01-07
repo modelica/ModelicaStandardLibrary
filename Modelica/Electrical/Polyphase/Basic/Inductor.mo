@@ -41,5 +41,8 @@ equation
 <p>
 Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
 </p>
+<p>
+For demonstration and hints regarding initialization see <a href=\"modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization\">Examples.PolyphaseInitialization</a>.
+</p>
 </html>"));
 end Inductor;
