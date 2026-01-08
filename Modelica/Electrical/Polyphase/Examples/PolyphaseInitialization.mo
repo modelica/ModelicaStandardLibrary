@@ -227,7 +227,7 @@ Proper initialization of polyphase systems require an analysis of the circuit, h
 how many states and which states should be initialized with <code>fixed=true</code> (or <code>fixed=false</code>).
 </p>
 <p>
-This examples demonstrates the initialization of threephase inductances in a 3 wire and a 4 wire system:
+This examples demonstrates the initialization of three-phase inductances in a 3 wire and a 4 wire system:
 </p>
 <p>
 In the 3 wire system the implicit equation <code>i11 + i12 + i13 = 0</code> has to be taken into account. <br>
