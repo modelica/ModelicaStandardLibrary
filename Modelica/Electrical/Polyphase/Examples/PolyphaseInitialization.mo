@@ -217,17 +217,18 @@ equation
   connect(ground1.p, sineVoltage13.n)
     annotation (Line(points={{-90,20},{-90,40}}, color={0,0,255}));
   annotation (preferredView="info",
+    Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
     Diagram(coordinateSystem(extent={{-100,-100},{125,100}})),
     experiment(
       StopTime=0.1,
       Interval=0.0001),
     Documentation(info="<html>
 <p>
-Proper initialization of polyphase systems require an analysis of the circuit, helping to decide 
+Proper initialization of polyphase systems requires an analysis of the circuit, helping to decide 
 how many states and which states should be initialized with <code>fixed=true</code> (or <code>fixed=false</code>).
 </p>
 <p>
-This examples demonstrates the initialization of three-phase inductances in a 3 wire and a 4 wire system:
+This example demonstrates the initialization of three-phase inductances in a 3 wire and a 4 wire system:
 </p>
 <p>
 In the 3 wire system the implicit equation <code>i11 + i12 + i13 = 0</code> has to be taken into account. <br>
@@ -244,6 +245,5 @@ With the polyphase component, the initial values have to be set accordingly, e.g
 <p>
 It depends on the tool whether you have to set the <code>fixed</code> attribute textually or graphically.
 </p>
-</html>"),
-    Icon(coordinateSystem(extent={{-100,-100},{120,100}})));
+</html>"));
 end PolyphaseInitialization;
