@@ -217,7 +217,7 @@ equation
   connect(ground1.p, sineVoltage13.n)
     annotation (Line(points={{-90,20},{-90,40}}, color={0,0,255}));
   annotation (preferredView="info",
-    Diagram(coordinateSystem(extent={{-100,-100},{120,100}})),
+    Diagram(coordinateSystem(extent={{-100,-100},{125,100}})),
     experiment(
       StopTime=0.1,
       Interval=0.0001),
