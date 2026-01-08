@@ -233,7 +233,7 @@ This examples demonstrates the initialization of three-phase inductances in a 3 
 In the 3 wire system the implicit equation <code>i11 + i12 + i13 = 0</code> has to be taken into account. <br>
 Therefore only 2 of the 3 currents may be initialized with <code>fixed=true</code>.
 With the polyphase component, the initial values have to be set accordingly. e.g.:<br>
-<code>  Inductor inductor(m=3, iL(start={0, 0, 0}, fixed={true, true, false}))</code>
+<code>  Inductor inductor(m=3, iL(start={0, 0, 0}, fixed={true, true, false}));</code>
 </p>
 <p>
 In the 4 wire system the implicit equation <code>i21 + i22 + i23 = i20</code> has to be taken into account. <br>
