@@ -28,6 +28,9 @@ Copyright &copy; 2009-2025, Modelica Association and contributors
           fillColor={255,128,0},
           pattern=LinePattern.None),
         Rectangle(
+          extent={{-60,60},{80,-60}},
+          fillPattern=FillPattern.None),
+        Rectangle(
           extent={{80,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={95,95,95},
