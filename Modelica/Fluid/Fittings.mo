@@ -557,8 +557,7 @@ model AbruptAdaptor
                 diameter_b/max(diameter_a, diameter_b)))*60},{100,-max(0.1, min(
                 1, diameter_b/max(diameter_a, diameter_b)))*60}}),
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={0,127,255},
-            pattern=LinePattern.None)}),
+            fillColor={0,127,255})}),
       Documentation(info="<html>
 
 </html>"));
