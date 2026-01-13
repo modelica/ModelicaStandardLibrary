@@ -16,6 +16,10 @@ package BasicMachines "Basic machine models"
           pattern=LinePattern.None),
         Rectangle(
           origin={5.821,15},
+          extent={{-80,-60},{60,60}},
+          fillPattern=FillPattern.None),
+        Rectangle(
+          origin={5.821,15},
           fillColor={95,95,95},
           fillPattern=FillPattern.HorizontalCylinder,
           extent={{60,-10},{80,10}},

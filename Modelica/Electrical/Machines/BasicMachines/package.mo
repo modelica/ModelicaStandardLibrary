@@ -70,6 +70,9 @@ The induction machine models use package SpacePhasors.
           extent={{-80,-60},{-60,60}},
           pattern=LinePattern.None),
         Rectangle(
+          origin = {2.835, 10},
+          extent = {{-80, -60}, {60, 60}}),
+        Rectangle(
           origin={2.835,10},
           fillColor={95,95,95},
           fillPattern=FillPattern.HorizontalCylinder,
