@@ -66,7 +66,7 @@ package Incompressible
     Medium.SpecificEntropy s=Medium.specificEntropy(medium.state);
     Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
     Medium.SpecificInternalEnergy u=Medium.specificInternalEnergy(medium.state);
-    Medium.SpecificInternalEnergy h=Medium.specificEnthalpy(medium.state);
+    Medium.SpecificEnthalpy h=Medium.specificEnthalpy(medium.state);
     Medium.Density d=Medium.density(medium.state);
     protected
     constant SI.Time timeUnit = 1;
