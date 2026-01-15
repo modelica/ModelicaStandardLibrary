@@ -104,7 +104,9 @@ definition of the colors used in the MultiBody library
           lineColor={95,95,95},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={215,215,215},
-          radius=10), Ellipse(
+          radius=10,
+          pattern=LinePattern.None),
+                      Ellipse(
           extent={{-8,52},{86,-42}},
           lineColor={95,95,95},
           fillPattern=FillPattern.Sphere,

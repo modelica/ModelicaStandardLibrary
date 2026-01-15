@@ -9,7 +9,8 @@ package Mechanics "Library of 1-dim. and 3-dim. mechanical components (multi-bod
         lineColor={64,64,64},
         fillColor={192,192,192},
         fillPattern=FillPattern.HorizontalCylinder,
-        extent={{-4.6,-93.3333},{41.4,-53.3333}}),
+        extent={{-4.6,-93.3333},{41.4,-53.3333}},
+          pattern=LinePattern.None),
       Ellipse(
         origin={9.0,46.0},
         extent={{-90.0,-60.0},{-80.0,-50.0}}),

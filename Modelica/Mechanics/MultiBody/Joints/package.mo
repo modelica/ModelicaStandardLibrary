@@ -87,13 +87,15 @@ solved, i.e., robustly and efficiently).
           fillColor={235,235,235},
           fillPattern=FillPattern.VerticalCylinder,
           extent={{-20,0},{20,100}},
-          rotation=110),
+          rotation=110,
+          pattern=LinePattern.None),
         Rectangle(
           origin={30,-22},
           lineColor={64,64,64},
           fillColor={215,215,215},
           fillPattern=FillPattern.VerticalCylinder,
-          extent={{-20,0},{20,100}}),
+          extent={{-20,0},{20,100}},
+          pattern=LinePattern.None),
         Rectangle(
           origin={30,-22},
           lineColor={64,64,64},
@@ -109,7 +111,8 @@ solved, i.e., robustly and efficiently).
           lineColor={64,64,64},
           fillColor={255,255,255},
           fillPattern=FillPattern.HorizontalCylinder,
-          extent={{-34,-34},{34,34}}),
+          extent={{-34,-34},{34,34}},
+          pattern=LinePattern.None),
         Ellipse(
           origin={30,-22},
           lineColor={64,64,64},

@@ -184,11 +184,13 @@ equation
         Polygon(
           points={{50,60},{30,40},{30,-40},{50,-60},{50,60}},
           fillColor={255,128,0},
-          fillPattern=FillPattern.VerticalCylinder),
+          fillPattern=FillPattern.VerticalCylinder,
+          pattern=LinePattern.None),
         Polygon(
           points={{-50,60},{-30,40},{-30,-40},{-50,-60},{-50,60}},
           fillColor={255,128,0},
-          fillPattern=FillPattern.VerticalCylinder),
+          fillPattern=FillPattern.VerticalCylinder,
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-68,36},{-12,-36}},
           lineColor={0,0,0},
@@ -210,13 +212,15 @@ equation
           fillColor={255,128,0},
           fillPattern=FillPattern.VerticalCylinder,
           origin={10,-50},
-          rotation=90),
+          rotation=90,
+          pattern=LinePattern.None),
         Polygon(
           points={{-10,20},{-30,0},{-30,-60},{-10,-80},{-10,-44.0625},{-10,20}},
           fillColor={255,128,0},
           fillPattern=FillPattern.VerticalCylinder,
           origin={-30,70},
-          rotation=90),
+          rotation=90,
+          pattern=LinePattern.None),
         Line(points={{-100,90},{-100,36},{-68,36}}, color={0,0,255}),
         Line(points={{-100,-90},{-100,-36},{-68,-36}}, color={0,0,255}),
         Line(points={{100,-90},{100,-20},{60,-20}}, color={0,0,255}),

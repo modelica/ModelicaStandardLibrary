@@ -241,7 +241,8 @@ equation
         Rectangle(
           extent={{-60,6},{60,-6}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
           Ellipse(
           extent={{-76,16},{-44,-16}},
           fillPattern=FillPattern.Sphere,

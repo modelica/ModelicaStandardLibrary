@@ -53,12 +53,14 @@ equation
         Rectangle(
           extent={{-80,80},{80,-80}},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={255,255,255}),
+          fillColor={255,255,255},
+          pattern=LinePattern.None),
         Rectangle(
           extent=DynamicSelect({{-80,0},{80,-80}},
           {{-80,(-80+160*level/hTank)},{80,-80}}),
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={170,170,255}),
+          fillColor={170,170,255},
+          pattern=LinePattern.None),
         Ellipse(
           extent=DynamicSelect({{-80,20},{80,-20}},
           {{-80,(-60+160*level/hTank)},{80,(-100+160*level/hTank)}}),
