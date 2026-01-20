@@ -1,0 +1,152 @@
+# This is a basic workflow to help you get started with Actions
+
+name: PR_testing
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  pull_request:
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  prepare:
+    runs-on: self-hosted
+    outputs:
+        GITHUB_HASH: ${{ steps.get_hashes.outputs.GITHUB_HASH }}
+        GITHUB_OLDHASH: ${{ steps.get_hashes.outputs.GITHUB_OLDHASH }}
+    
+    steps: 
+      - uses: actions/checkout@v4
+      - name: compile_msl_binaries
+        run: | 
+            docker run --name compile_msl --rm -u 0 --volume ${{ github.workspace }}\\..:/msl --entrypoint=/msl/run_scripts/compile_msl.sh dymola_image
+      - name: get_hashes
+        id: get_hashes
+        shell: powershell
+        run: |
+            $gitout = git show -s --format=%s
+            $_, $hash, $_,$oldhash = $gitout.split(" ")
+            echo "GITHUB_HASH=$(echo $hash.subString(0,8))" >> $env:GITHUB_OUTPUT
+            echo "GITHUB_OLDHASH=$(echo $oldhash.subString(0,8))" >> $env:GITHUB_OUTPUT
+      - name: delete_old_data
+        run: docker run --name compile_msl --rm -u 0 --volume shared_data:/shared_data --volume ${{ github.workspace }}\\..:/msl --entrypoint "/msl/run_scripts/delete_old_pr.sh ${{ github.event.number }}" dymola_image
+  # This workflow contains a single job called "build"
+  testrun_dymola_modelica:
+    # The type of runner that the job will run on
+    needs: prepare
+    runs-on: self-hosted
+    env:
+        GITHUB_HASH: ${{ needs.prepare.outputs.GITHUB_HASH }}
+        GITHUB_OLDHASH: ${{ needs.prepare.outputs.GITHUB_OLDHASH }}
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:         
+      - name: run the docker image      
+        run:  docker run --name dymola_pr_compare_${{ github.event.number }} --volume shared_data:/shared_data --volume ${{ github.workspace }}\\..:/msl --volume ${{ github.workspace }}\\..\\..\\..\\..\\Output:/master  dymola_image python /msl/run_scripts/Dymola_PR_compare.py $($env:GITHUB_OLDHASH) ${{ github.event.number }} Modelica
+      - name: tidy up
+        if: always()            
+        run:  docker rm dymola_pr_compare_${{ github.event.number }}            
+  
+  # This workflow contains a single job called "build"
+  testrun_om_modelica:
+    # The type of runner that the job will run on
+    needs: prepare
+    runs-on: self-hosted
+    env:
+        GITHUB_HASH: ${{ needs.prepare.outputs.GITHUB_HASH }}
+        GITHUB_OLDHASH: ${{ needs.prepare.outputs.GITHUB_OLDHASH }}
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:    
+      - name: print envs
+        run: echo 4 "$($env:GITHUB_HASH)"   
+      
+      - name: run the docker image      
+        run:  docker run --name om_pr_compare_${{ github.event.number }} --volume shared_data:/shared_data --volume ${{ github.workspace }}\\..:/msl --volume ${{ github.workspace }}\\..\\..\\..\\..\\Output:/master  om_image python /msl/run_scripts/OM_PR_compare.py $($env:GITHUB_OLDHASH) ${{ github.event.number }} Modelica
+            
+      - name: tidy up
+        if: always()            
+        run:  docker rm om_pr_compare_${{ github.event.number }} 
+        #docker run --name testrun_om_modelica_$($env:GITHUB_HASH) --volume shared_data:/shared_data --volume ${{ github.workspace }}\\..:/msl om_image python /msl/run_scripts/start_om_docker_modelica.py $($env:GITHUB_HASH) $($env:GITHUB_OLDHASH)               
+
+  create_overview_modelica:
+    needs: [testrun_dymola_modelica, testrun_om_modelica]
+    runs-on: self-hosted
+    if: always()
+    steps:
+      - name: run the docker image      
+        run:  docker run --name create_overview --volume shared_data:/shared_data --volume ${{ github.workspace }}\\..:/msl om_image python /msl/run_scripts/overview_report.py ${{ github.event.number }} Modelica
+          
+      - name: copy back report 
+        if: always()
+        run:  |          
+            docker cp create_overview:/shared_data/resim_output/PRs/PR_${{ github.event.number }}/Modelica/report.zip ${{ github.workspace }}\\..\\..\\ReSim_Output\\PR_${{ github.event.number }}_report_Modelica.zip
+            
+      - name: tidy up    
+        if: always()            
+        run:  docker rm create_overview    
+      
+      - uses: actions/upload-artifact@v4.4.0
+        if: always()
+        with:
+            name: report_PR_${{ github.event.number }}_Modelica
+            path: D:\\MSL_Nightly\\ActionRunner\\work\\ReSim_Output\\PR_${{ github.event.number }}_report_Modelica.zip # or path/to/artifact
+
+  testrun_dymola_modelicatest:
+    # The type of runner that the job will run on
+    needs: prepare
+    runs-on: self-hosted
+    env:
+      GITHUB_HASH: ${{ needs.prepare.outputs.GITHUB_HASH }}
+      GITHUB_OLDHASH: ${{ needs.prepare.outputs.GITHUB_OLDHASH }}
+      # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:    
+      - name: run the docker image      
+        run:  docker run --name dymola_pr_compare_${{ github.event.number }} --volume shared_data:/shared_data --volume ${{ github.workspace }}\\..:/msl --volume ${{ github.workspace }}\\..\\..\\..\\..\\Output:/master  dymola_image python /msl/run_scripts/Dymola_PR_compare.py $($env:GITHUB_OLDHASH) ${{ github.event.number }} ModelicaTest
+      - name: tidy up
+        if: always()            
+        run:  docker rm dymola_pr_compare_${{ github.event.number }}  
+  
+  testrun_om_modelicatest:
+    # The type of runner that the job will run on
+    needs: prepare
+    runs-on: self-hosted
+    env:
+        GITHUB_HASH: ${{ needs.prepare.outputs.GITHUB_HASH }}
+        GITHUB_OLDHASH: ${{ needs.prepare.outputs.GITHUB_OLDHASH }}
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:    
+      - name: print envs
+        run: echo 4 "$($env:GITHUB_HASH)"   
+      
+      - name: run the docker image      
+        run:  docker run --name om_pr_compare_${{ github.event.number }} --volume shared_data:/shared_data --volume ${{ github.workspace }}\\..:/msl --volume ${{ github.workspace }}\\..\\..\\..\\..\\Output:/master  om_image python /msl/run_scripts/OM_PR_compare.py $($env:GITHUB_OLDHASH) ${{ github.event.number }} ModelicaTest
+            
+      - name: tidy up
+        if: always()            
+        run:  docker rm om_pr_compare_${{ github.event.number }}             
+        
+  create_overview_modelicatest:
+    needs: [testrun_dymola_modelicatest, testrun_om_modelicatest]
+    runs-on: self-hosted
+    if: always()
+    steps:
+      - name: run the docker image      
+        run:  docker run --name create_overview --volume shared_data:/shared_data --volume ${{ github.workspace }}\\..:/msl om_image python /msl/run_scripts/overview_report.py ${{ github.event.number }} ModelicaTest
+          
+      - name: copy back report 
+        if: always()
+        run:  |          
+            docker cp create_overview:/shared_data/resim_output/PRs/PR_${{ github.event.number }}/ModelicaTest/report.zip ${{ github.workspace }}\\..\\..\\ReSim_Output\\PR_${{ github.event.number }}_report_ModelicaTest.zip
+            
+      - name: tidy up    
+        if: always()            
+        run:  docker rm create_overview   
+
+      - uses: actions/upload-artifact@v4.4.0
+        if: always()
+        with:
+            name: report_PR_${{ github.event.number }}_ModelicaTest
+            path: D:\\MSL_Nightly\\ActionRunner\\work\\ReSim_Output\\PR_${{ github.event.number }}_report_ModelicaTest.zip # or path/to/artifact
+        
