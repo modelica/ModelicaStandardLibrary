@@ -32,7 +32,7 @@ jobs:
             echo "GITHUB_HASH=$(echo $hash.subString(0,8))" >> $env:GITHUB_OUTPUT
             echo "GITHUB_OLDHASH=$(echo $oldhash.subString(0,8))" >> $env:GITHUB_OUTPUT
       - name: delete_old_data
-        run: docker run --name compile_msl --rm -u 0 --volume shared_data:/shared_data --volume ${{ github.workspace }}\\..:/msl --entrypoint "/msl/run_scripts/delete_old_pr.sh ${{ github.event.number }}" dymola_image
+        run: docker run --name compile_msl --rm -u 0 --volume shared_data:/shared_data --volume ${{ github.workspace }}\\..:/msl --entrypoint=/msl/run_scripts/delete_old_PRs.sh dymola_image ${{ github.event.number }}
   # This workflow contains a single job called "build"
   testrun_dymola_modelica:
     # The type of runner that the job will run on
