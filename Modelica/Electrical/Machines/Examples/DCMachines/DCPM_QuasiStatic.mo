@@ -112,5 +112,29 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcpm2.wMechanical: motor's speed of quasi-static model</li>
 <li>dcpm2.tauElectrical: motor's torque of quasi-static model</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "bbe59",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = dcpm1.ia, legend = "Armature current of transient model"),
+                Curve(y = dcpm1.wMechanical, legend = "Motor angular velocity of rotor against stator of transient model"),
+                Curve(y = dcpm1.tauElectrical, legend = "Motor torque of transient model")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = dcpm2.ia, legend = "Armature current of quasistatic model"),
+                Curve(y = dcpm2.wMechanical, legend = "Motor angular velocity of rotor against stator of quasistatic model"),
+                Curve(y = dcpm2.tauElectrical, legend = "Motor torque of quasistatic model")
+              }
+            )
+          }
+        )
+      }
+    ));
 end DCPM_QuasiStatic;
