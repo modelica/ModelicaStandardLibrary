@@ -4,7 +4,7 @@ extends Modelica.Icons.Package;
 
   import Modelica.Units.SI;
 
-function testAllFunctions "Runs all test cases for functions"
+impure function testAllFunctions "Runs all test cases for functions"
   extends Modelica.Icons.Function;
   import Modelica.Utilities.Streams.print;
   input String logFile = "ModelicaTestLog.txt"
