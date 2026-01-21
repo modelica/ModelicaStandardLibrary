@@ -4,8 +4,7 @@ model Transformer "Example of transformer with short circuit impedance, transmis
   Sources.VoltageSource voltageSource(
     f=50,
     V=1000,
-    phi=0,
-    gamma(fixed=true, start=0)) annotation (Placement(transformation(
+    phi=0) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-90,-30})));
