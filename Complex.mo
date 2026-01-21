@@ -18,15 +18,22 @@ operator record Complex "Complex number with overloaded operators"
     end fromReal;
     annotation (Documentation(info="<html>
 <p>Here the constructor operator(s) is/are defined.</p>
-</html>"), Icon(graphics={Rectangle(
+</html>"), Icon(
+        graphics={
+          Rectangle(
             lineColor={200,200,200},
             fillColor={248,248,248},
             fillPattern=FillPattern.HorizontalCylinder,
             extent={{-100,-100},{100,100}},
-            radius=25.0), Rectangle(
+            radius=25.0),
+          Rectangle(
             lineColor={128,128,128},
             extent={{-100,-100},{100,100}},
-            radius=25.0)}));
+            radius=25.0),
+          Text(
+            textColor={128,128,128},
+            extent={{-90,-90},{90,90}},
+            textString="f")}));
   end 'constructor';
 
   encapsulated operator function '0' "Zero-element of addition (= Complex(0))"
