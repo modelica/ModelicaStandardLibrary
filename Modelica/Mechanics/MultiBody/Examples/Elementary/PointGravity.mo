@@ -43,5 +43,21 @@ point gravity field.
 
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravity.png\"
 alt=\"model Examples.Elementary.PointGravity\">
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Body positions",
+          identifier = "7bb2a",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = body1.r_0[1], y = body1.r_0[2]),
+                Curve(x = body2.r_0[1], y = body2.r_0[2])
+              }
+            )
+          }
+        )
+      }
+    ));
 end PointGravity;
