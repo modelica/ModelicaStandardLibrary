@@ -19,7 +19,9 @@ jobs:
         GITHUB_OLDHASH: ${{ steps.get_hashes.outputs.GITHUB_OLDHASH }}
     
     steps: 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 5
       - name: compile_msl_binaries
         run: | 
             docker run --name compile_msl --rm -u 0 --volume ${{ github.workspace }}\\..:/msl --entrypoint=/msl/run_scripts/compile_msl.sh dymola_image
