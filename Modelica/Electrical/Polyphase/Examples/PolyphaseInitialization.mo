@@ -243,7 +243,7 @@ With the polyphase component, the initial values have to be set accordingly, e.g
 <code>  Inductor inductor(m=3, iL(start={0, 0, 0}, fixed={true, true, true }));</code>
 </p>
 <p>
-It depends on the tool whether you have to set the <code>fixed</code> attribute textually or graphically.
+It depends on the tool whether you have to set the <code>fixed</code> attribute textually, or if it is possible to do it graphically.
 </p>
 </html>"));
 end PolyphaseInitialization;
