@@ -221,9 +221,8 @@ def makefile(CC, dotest) {
   sh label: "Build makefile $CC", script: """
   export CC=$CC
   rm -rf Modelica/Resources/Library/*
-  mkdir -p "Modelica/Resources/Library/$LIBDIR"
-  cd Modelica/Resources/BuildProjects/gcc
-  make --output-sync -j${numPhysicalCPU()} TARGETDIR="$LIBDIR"
+  cd Modelica/Resources
+  make install -C BuildProjects/gcc --output-sync -j${numPhysicalCPU()} TARGETDIR="$LIBDIR" BUILDDIR="../../build"
   """
   sh label: "Test $CC", script: """
   export CC=$CC
