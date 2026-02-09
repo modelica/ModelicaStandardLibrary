@@ -281,10 +281,6 @@ The Real output y is a ramp signal:
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png\"
      alt=\"Ramp.png\">
 </div>
-
-<p>
-If parameter duration is set to 0.0, the limiting case of a Step signal is achieved.
-</p>
 </html>"));
   end Ramp;
 
