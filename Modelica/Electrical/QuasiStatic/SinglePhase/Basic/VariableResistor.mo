@@ -4,7 +4,7 @@ model VariableResistor "Single-phase variable resistor"
   import Modelica.ComplexMath.real;
   import Modelica.ComplexMath.conj;
   parameter SI.Temperature T_ref=293.15 "Reference temperature";
-  parameter SI.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+  parameter SI.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)))";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
   SI.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
   Modelica.Blocks.Interfaces.RealInput R_ref(unit="Ohm") "Variable resistance"
