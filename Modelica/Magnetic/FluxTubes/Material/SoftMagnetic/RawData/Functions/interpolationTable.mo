@@ -43,21 +43,13 @@ The parameter <code>originSymmetric</code> controls whether the resulting table 
 The parameter <code>cpmpleteOrigin</code> controls whether the origin <code>(0, 0)</code> is explicitely added or not.<br>
 Additonally, the parameters <code>xSat</code> and <code>ySat</code> specify a last point where saturation occurs.
 </p>
-<p>
-<code>originSymmetric=true</code> and <code>completeOrigin=true</code>:<br>
-Result <pre><code>A[7, 2] = [-xSat, -ySat; -18, -3; -11, -2; -5, -1; 0, 0; 5, 1; 11, 2; 18, 3; xSat, ySat]</code></pre>
-</p>
-<p>
-<code>originSymmetric=true</code> and <code>completeOrigin=false</code>:<br>
-Result <pre><code>A[6, 2] = [-xSat, -ySat; -18, -3; -11, -2; -5, -1;       5, 1; 11, 2; 18, 3; xSat, ySat]</code></pre>
-</p>
-<p>
-<code>originSymmetric=false</code> and <code>completeOrigin=true</code>:<br>
-Result <pre><code>A[7, 2] = [-xSat, +ySat; -18, +3; -11, +2; -5, +1; 0, 0; 5, 1; 11, 2; 18, 3; xSat, ySat]</code></pre>
-</p>
-<p>
-<code>originSymmetric=false</code> and <code>completeOrigin=false</code>:<br>
-Result <pre><code>A[6, 2] = [-xSat, +ySat; -18, +3; -11, +2; -5, +1;       5, 1; 11, 2; 18, 3; xSat, ySat]</code></pre>
-</p>
+<p><code>originSymmetric=true</code> and <code>completeOrigin=true</code>:</p>
+<pre>Result <code>A[7, 2] = [-xSat, -ySat; -18, -3; -11, -2; -5, -1; 0, 0; 5, 1; 11, 2; 18, 3; xSat, ySat]</code></pre>
+<p><code>originSymmetric=true</code> and <code>completeOrigin=false</code>:</p>
+<pre>Result <code>A[6, 2] = [-xSat, -ySat; -18, -3; -11, -2; -5, -1;       5, 1; 11, 2; 18, 3; xSat, ySat]</code></pre>
+<p><code>originSymmetric=false</code> and <code>completeOrigin=true</code>:</p>
+<pre>Result <code>A[7, 2] = [-xSat, +ySat; -18, +3; -11, +2; -5, +1; 0, 0; 5, 1; 11, 2; 18, 3; xSat, ySat]</code></pre>
+<p><code>originSymmetric=false</code> and <code>completeOrigin=false</code>:</p>
+<pre>Result <code>A[6, 2] = [-xSat, +ySat; -18, +3; -11, +2; -5, +1;       5, 1; 11, 2; 18, 3; xSat, ySat]</code></pre>
 </html>"));
 end interpolationTable;
