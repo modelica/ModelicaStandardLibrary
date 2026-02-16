@@ -41,7 +41,7 @@ Additional user-specific materials can be defined as needed. This requires deter
 </p>
 
 <p>
-The magnetisation characteristics of the included soft magnetic materials were compiled and measured respectively by Thomas Roschke, now with Johnson Electric. 
+The magnetisation characteristics of the included soft magnetic materials were compiled and measured respectively by Thomas Roschke. 
 Provision of this data is highly appreciated. He also formulated the approximation function used for description of the magnetisation characteristics of these materials.
 </p>
 </html>"));
