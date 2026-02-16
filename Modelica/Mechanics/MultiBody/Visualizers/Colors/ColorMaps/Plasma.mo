@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps;
-function Plasma
+function plasma "Returns the \"Plasma\" color map"
   extends .Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
 
 protected
@@ -54,4 +54,4 @@ Image of the \"Plasma\" color map:
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
 </html>"));
-end Plasma;
+end plasma;

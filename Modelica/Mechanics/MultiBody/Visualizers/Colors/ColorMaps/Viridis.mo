@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps;
-function Viridis
+function viridis "Returns the \"Virdis\" color map"
   extends .Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
 
 protected
@@ -54,4 +54,4 @@ Image of the \"Viridis\" color map:
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
 </html>"));
-end Viridis;
+end viridis;
