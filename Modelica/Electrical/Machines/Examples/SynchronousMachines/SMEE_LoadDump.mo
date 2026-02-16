@@ -214,13 +214,11 @@ equation
       points={{-90,40},{-90,50},{-80,50}},
       color={0,0,255}));
   connect(loadControl.y, switch.control[1]) annotation (Line(
-      points={{-19,80},{-10,80},{-10,61.3333}},
-                                           color={255,0,255}));
+      points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
   connect(loadControl.y, switch.control[2]) annotation (Line(
       points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
   connect(loadControl.y, switch.control[3]) annotation (Line(
-      points={{-19,80},{-10,80},{-10,62.6667}},
-                                           color={255,0,255}));
+      points={{-19,80},{-10,80},{-10,62}}, color={255,0,255}));
   connect(star.pin_n, ground.p) annotation (Line(
       points={{-90,20},{-90,10}}, color={0,0,255}));
   annotation (experiment(StopTime=10, Interval=1E-4, Tolerance=1e-06), Documentation(info="<html>
