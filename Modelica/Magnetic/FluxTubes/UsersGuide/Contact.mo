@@ -23,6 +23,11 @@ class Contact "Contact"
     Fax: +49 - 351 - 463 37183<br>
     email: <a href=\"mailto:Johannes.Ziske@tu-dresden.de\">Johannes.Ziske@tu-dresden.de</a>
 </p>
+<p>
+  <strong>Prof. Anton Haumer (retired)</strong></a><br>
+  <a href=\"https://www.oth-regensburg.de/en/\">Technical University of Applied Sciences OTH Regensburg</a>, Germany<br>
+  email: <a href=\"mailto:Anton.Haumer@oth-regensburg.de\">Anton.Haumer@oth-regensburg.de</a>
+</p>
 
 <h4>Acknowledgements</h4>
 

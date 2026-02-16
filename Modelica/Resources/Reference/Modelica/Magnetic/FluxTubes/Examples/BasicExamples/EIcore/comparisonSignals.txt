@@ -1,0 +1,10 @@
+time
+airGap.H
+airGap.B
+legM.H
+legM.B
+legL.H
+legL.B
+legR.H
+legR.B
+fluxDensity.y
