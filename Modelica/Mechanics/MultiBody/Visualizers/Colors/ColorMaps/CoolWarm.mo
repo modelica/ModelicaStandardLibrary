@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps;
-function CoolWarm "Returns the \"CoolWarm\" color map"
+function coolWarm "Returns the \"CoolWarm\" color map"
 extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
 
 protected
@@ -55,4 +55,4 @@ Image of the \"CoolWarm\" color map:
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
 </html>"));
-end CoolWarm;
+end coolWarm;

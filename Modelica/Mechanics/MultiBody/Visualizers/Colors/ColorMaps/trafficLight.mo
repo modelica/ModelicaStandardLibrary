@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps;
-function TrafficlightColor
-  extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+function trafficLight "Returns the \"TrafficLight\" color map"
+  extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap(n_colors=3);
 
 protected
   final Real Start[3] = {122/255, 255/255, 122/255};   // mid-green
@@ -55,4 +55,4 @@ Image of the \"TracficColour\" color map:
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
 </html>"));
 
-end TrafficlightColor;
+end trafficLight;
