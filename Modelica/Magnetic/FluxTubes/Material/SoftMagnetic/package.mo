@@ -22,7 +22,7 @@ together with the original data points compiled from measurements and literature
 <p>
 The material <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M330_50A\">M330-50A</a> has been measured 
 under different conditions (complete core / machined and packeted) as the other electric sheets (sheet strip / Epstein frame).
-Direct comparison with other material is therefore not possible.
+Therefore, a direct comparison with other materials is not possible.
 </p>
 
 <p>
