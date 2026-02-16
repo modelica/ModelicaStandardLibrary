@@ -384,10 +384,12 @@ void ModelicaInternal_mkdir(_In_z_ const char* directoryName) {
 
 void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
     /* Remove directory */
-#if defined(__WATCOMC__) || defined(__LCC__) || defined(_POSIX_) || defined(__GNUC__)
+#if defined(__WATCOMC__) || defined(__LCC__)
     int result = rmdir(directoryName);
 #elif defined(__BORLANDC__) || defined(_WIN32)
     int result = _rmdir(directoryName);
+#elif defined(_POSIX_) || defined(__GNUC__)
+    int result = rmdir(directoryName);
 #else
     ModelicaNotExistError("ModelicaInternal_rmdir");
 #endif
@@ -1306,7 +1308,7 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
         ModelicaError("Memory allocation error\n");
     }
 #elif defined(_POSIX_) && _POSIX_VERSION >= 200112L
-    int result;
+    int result = -1;
     if (1 == convertFromSlash) {
         char* buf = (char*)malloc((strlen(value) + 1)*sizeof(char));
         if (NULL != buf) {
