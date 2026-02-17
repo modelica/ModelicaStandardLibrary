@@ -27,7 +27,7 @@ record M330_50A "M330-50A @ 50Hz 0/90 deg"
   parameter SI.MagneticFieldStrength H[N]={53, 60, 69, 79, 93, 112,
        141, 192, 313, 698, 1932, 4284, 7750, 13318, 19610} "Field strength";
   // calculated parameters
-  parameter SI.RelativePermeability mu_r[N]=fill(1, N) + 1/mu_0*J./H "Relative permeability";
+  parameter SI.RelativePermeability mu_r[N]={1 + J[k]/(mu_0*H[k]) for k in 1:N} "Relative permeability";
   // additional scalar parameters (provided maximum of permability is included in the table)
   parameter SI.RelativePermeability mu_ri=interpolate(H, mu_r, 0)
     "Initial relative permeability at origin (extrapolation)";
