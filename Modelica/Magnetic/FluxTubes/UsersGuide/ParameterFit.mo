@@ -20,7 +20,7 @@ model ParameterFit "Fitting the parameters"
     where &micro;<sub>ri</sub> is the initial relative permeability as described in the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.RawData\">raw data directory</a>.</li>
 <li>Change the 1<sup>st</sup> constraint: <code>|1 + &sum; &chi;<sub>k</sub> - &chi;<sub>C</sub> - &micro;<sub>ri</sub>| &le; &epsilon;</code>.</li>
 <li>Again, try first with higher allowed deviation, then reduce &epsilon; step by step.</li>
-<li>Last, check your solution in a diagram. If you are satisfied, you have find a good guess for the parameters.</li>
+<li>Last, check your solution in a diagram. If you are satisfied, you have found a good guess for the parameters.</li>
 </ul>
 </html>"));
 end ParameterFit;

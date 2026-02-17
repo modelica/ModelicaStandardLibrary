@@ -45,5 +45,8 @@ J<sub>sat</sub> = &sum; J<sub>k</sub>
 &micro;<sub>ri</sub> = 1 + &sum; &chi;<sub>k</sub>  - &chi;<sub>C</sub>
          k=1
 </code></pre>
+<p>
+Additonally, it is possible to implement an interpolation based on <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.RawData\">raw data</a> instead of using approximation functions.
+</p>
 </html>"));
 end Approximation;
