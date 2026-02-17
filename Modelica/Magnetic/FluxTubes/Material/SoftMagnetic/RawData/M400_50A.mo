@@ -5,7 +5,7 @@ record M400_50A "M400-50A @ 50Hz 0/90 deg"
     rho=7700,
     p1=4.00,
     f1=50,
-    p2=2.3*lb2kg,
+    p2=2.3/lb2kg,
     f2=60,
     Jsat=2.0,
     Hsat=50e3,

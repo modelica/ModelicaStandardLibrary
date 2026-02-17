@@ -11,7 +11,7 @@ record M330_50A "M330-50A @ 50Hz 0/90 deg"
   // Losses
   parameter SpecificPower p1=3.30 "Specific losses at 1.5 T and f1";
   parameter SI.Frequency f1=50 "Measurement frequency 1";
-  parameter SpecificPower p2=1.9*lb2kg "Specific losses at 1.5 T and f2";
+  parameter SpecificPower p2=1.9/lb2kg "Specific losses at 1.5 T and f2";
   parameter SI.Frequency f2=60 "Measurement frequency 2";
   parameter Real ratioHysteresis=(p2/p1*f1/f2 - f2/f1)/(1 - f2/f1)
     "Ratio of hysteresis losses with respect to the total core losses at 1.5 T and f1";
