@@ -23,6 +23,8 @@ model ShowMaterial "Show material characteristic"
         Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M330_50A(),
     materialMacfadyen=
         Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Macfadyen.M330_50A(),
+    materialTableBased=
+        Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.RawData.M330_50A(),
     area=0.000112,
     l=0.94,
     mu_rConst=1000) annotation (Placement(transformation(
@@ -58,7 +60,7 @@ model ShowMaterial "Show material characteristic"
     material annotation (Placement(transformation(extent={{20,70},{40,90}})));
   Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(
     table=material.table,
-    smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1,
+    smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2,
     extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
     annotation (Placement(transformation(extent={{20,40},{40,60}})));
 equation

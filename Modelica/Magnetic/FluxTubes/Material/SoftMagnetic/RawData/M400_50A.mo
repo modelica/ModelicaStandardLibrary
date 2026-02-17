@@ -1,6 +1,6 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.RawData;
 record M400_50A "M400-50A @ 50Hz 0/90 deg"
-  extends BaseData(
+  extends M330_50A(
     label="M400-50A @ 50Hz 0/90 deg",
     rho=7700,
     p1=4.00,
