@@ -3,9 +3,9 @@ model ShowMaterial "Show material characteristic"
   extends Modelica.Icons.Example;
   parameter SI.Current I=1 "Peak exciting current";
   SI.MagneticFieldStrength H=coreNon_Hys.H "Magnetic field strength";
-  SI.MagneticFluxDensity B=coreNon_Hys.B - mu_0*H "Magnetic polarisation J";
+  SI.MagneticPolarization J=coreNon_Hys.B - mu_0*H "Magnetic polarization";
   SI.RelativePermeability mu_r=coreNon_Hys.mu_r "Relative permeability";
-  SI.MagneticPolarization J_rD=combiTable1Ds.y[1] "Magnetic polarisation from raw data";
+  SI.MagneticPolarization J_rD=combiTable1Ds.y[1] "Magnetic polarization from raw data";
   SI.RelativePermeability mu_r_rD=combiTable1Ds.y[2] "Relative permability from raw data";
   Modelica.Electrical.Analog.Sources.SineCurrent source(I=I, f=50) annotation (
       Placement(transformation(
