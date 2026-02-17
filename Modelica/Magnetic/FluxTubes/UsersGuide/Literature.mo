@@ -79,6 +79,26 @@ class Literature "Literature"
 </table><br>
 </li>
 
+<li><strong>Calculation of iron losses is discussed in:</strong>
+
+<br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td>[Jordan1924] </td>
+      <td>Heinz Jordan:
+        <em>Die ferromagnetischen Konstanten für schwache Wechselfelder</em>,
+        Elektrische Nachrichtentechnik 1924 (1), no. 8, pp. 269-283 (in German).</td>
+    </tr>
+
+    <tr>
+      <td>[Krings2010] </td>
+      <td>Andreas Krings and Juliette Soulard:
+        <em>Overview and Comparison of Iron Loss Models for Electrical Machines</em>,
+        Journal of Electrical Engineering 2010 (10), pp. 162-169.</td>
+    </tr>
+</table><br>
+</li>
+
+
 <li><strong>Information related to the implemented hysteresis models can be found in:</strong>
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">

@@ -3,9 +3,18 @@ record M330_50A "M330-50A @ 50Hz 0/90 deg"
   extends Modelica.Icons.Record;
   import Modelica.Math.Vectors.interpolate;
   import Modelica.Math.Vectors.find;
-  import Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.RawData.Functions.exMax;
-  import Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.RawData.Functions.interpolationTable;
+  import FluxTubesExtensions.Material.SoftMagnetic.RawData.Functions.exMax;
+  import FluxTubesExtensions.Material.SoftMagnetic.RawData.Functions.interpolationTable;
+  constant Real lb2kg=0.45359237 "Conversion kg/lb";
   parameter String label="M330-50A @ 50Hz 0/90 deg" "Name of material";
+  parameter SI.Density rho=7650 "Density of material";
+  // Losses
+  parameter SpecificPower p1=3.30 "Specific losses at 1.5 T and f1";
+  parameter SI.Frequency f1=50 "Measurement frequency 1";
+  parameter SpecificPower p2=1.9*lb2kg "Specific losses at 1.5 T and f2";
+  parameter SI.Frequency f2=60 "Measurement frequency 2";
+  parameter Real ratioHysteresis=(p2/p1*f1/f2 - f2/f1)/(1 - f2/f1)
+    "Ratio of hysteresis losses with respect to the total core losses at 1.5 T and f1";
   // saturation
   parameter SI.MagneticPolarization Jsat=2.0 "Saturation polarization";
   parameter SI.MagneticFieldStrength Hsat=50e3 "Field strength to achieve Jsat";
