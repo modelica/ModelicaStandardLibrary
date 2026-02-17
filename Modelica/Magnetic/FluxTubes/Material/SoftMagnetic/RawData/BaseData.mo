@@ -4,15 +4,15 @@ partial record BaseData "BaseData record for RawData"
   import Modelica.Math.Vectors.interpolate;
   import Modelica.Math.Vectors.find;
   import Modelica.Math.Vectors.reverse;
-  import FluxTubesExtensions.Material.SoftMagnetic.RawData.Functions.exMax;
+  import Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.RawData.Functions.exMax;
   constant Real lb2kg=0.45359237 "Conversion kg/lb";
   parameter String label="RawData" "Name of material";
   parameter SI.Density rho "Density of material";
   // Losses
-  parameter FluxTubesExtensions.Types.SpecificPower p1
+  parameter FluxTubes.Types.SpecificPower p1
     "Specific losses at 1.5 T and f1";
   parameter SI.Frequency f1 "Measurement frequency 1";
-  parameter FluxTubesExtensions.Types.SpecificPower p2
+  parameter FluxTubes.Types.SpecificPower p2
     "Specific losses at 1.5 T and f2";
   parameter SI.Frequency f2 "Measurement frequency 2";
   parameter Real ratioHysteresis=(p2/p1*f1/f2 - f2/f1)/(1 - f2/f1)
