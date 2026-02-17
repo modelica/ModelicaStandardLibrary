@@ -5,7 +5,7 @@ function exMax "Extrapolation from maximum"
   input Real x[:] "Absicissa of nodes";
   input Real y[:] "Ordinates of nodes";
   input Real dyMin=1 "Minimum difference of ordinates";
-  output Real z "Extrapolaion from maximum";
+  output Real z "Extrapolation from maximum";
 protected
   Real yMax=max(y) "Maximum of ordinates";
   Integer iMax=find(yMax, y) "Index of maximum";

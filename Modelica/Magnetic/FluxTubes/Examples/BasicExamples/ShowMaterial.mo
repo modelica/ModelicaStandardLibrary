@@ -3,8 +3,10 @@ model ShowMaterial "Show material characteristic"
   extends Modelica.Icons.Example;
   parameter SI.Current I=1 "Peak exciting current";
   SI.MagneticFieldStrength H=coreNon_Hys.H "Magnetic field strength";
-  SI.MagneticFluxDensity B=coreNon_Hys.B "Magnetic flix density";
-  SI.MagneticPolarization J=B - mu_0*H "Magnetic polarisation J = B - mu_0*H";
+  SI.MagneticFluxDensity B=coreNon_Hys.B - mu_0*H "Magnetic polarisation J";
+  SI.RelativePermeability mu_r=coreNon_Hys.mu_r "Relative permeability";
+  SI.MagneticPolarization J_rD=combiTable1Ds.y[1] "Magnetic polarisation from raw data";
+  SI.RelativePermeability mu_r_rD=combiTable1Ds.y[2] "Relative permability from raw data";
   Modelica.Electrical.Analog.Sources.SineCurrent source(I=I, f=50) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -103,7 +105,7 @@ equation
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>
-This example demonstrates how to show the <code>B(H)</code> and <code>J(H)</code> of a material 
+This example demonstrates how to show the characteristics <code>J(H)</code> and <code>mu_r(H)</code> of a material 
 by applying a sinusoidal excitation current to the exciting coil. 
 However, hysteresis is not taken into account.
 </p>
@@ -111,8 +113,7 @@ However, hysteresis is not taken into account.
 Number of turns and measurements of the core are approximately as they would be of an Epstein frame.
 </p>
 <p>
-It is possible to compare the approximation <code>B</code> versus <code>H</code> 
-with interpolated data from a manufacturer's datasheet <code>combiTable1Ds.y[1]</code> for material = <code>M330_50A</code>.
+It is possible to compare the approximation with interpolated data from a manufacturer's datasheet (raw Data)  <code>J_rD</code> and <code>mu_r_rD</code> for material = <code>M330_50A</code>.
 </p>
 <p>
 Note the non-sinusoidal trajectory of voltage <code>excitingCoil.v</code> due to saturation and a sonusoidal excitation current.
