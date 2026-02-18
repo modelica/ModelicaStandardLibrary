@@ -23,6 +23,6 @@ Provision of this data is highly appreciated. He also formulated the approximati
 <li>Again, try first with higher allowed deviation, then reduce &epsilon; step by step.</li>
 <li>Last, check your solution in a diagram. If you are satisfied, you have found a good guess for the parameters.</li>
 </ul>
-<p><strong>Note</strong>: It is possible to neglect the potential decline of the relative permeabilty near the origin and keep <code>&chi;<sub>C</sub> = 0</code>.
+<p><strong>Note</strong>: It is possible to neglect the potential decline of the relative permeabilty near the origin and keep <code>&chi;<sub>C</sub> = 0</code>.</p>
 </html>"));
 end ParameterFit;
