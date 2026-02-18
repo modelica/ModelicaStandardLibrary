@@ -121,5 +121,37 @@ equation
 </html>", info="<html>
 <p>The example Cauer Filter is a low-pass-filter of the fifth order. It is realized using an analog network. The voltage source V is the input voltage (step), and the R2.p.v is the filter output voltage. The pulse response is calculated.</p>
 <p>The simulation end time should be 60. Please plot both V.p.v (input voltage) and R2.p.v (output voltage).</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Filter",
+          identifier = "da435",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = V.p.v, legend = "Input voltage"),
+                Curve(y = R2.p.v, legend = "Output voltage")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Capacitor voltages",
+          identifier = "82d53",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = C1.v, legend = "Voltage over C1"),
+                Curve(y = C2.v, legend = "Voltage over C2"),
+                Curve(y = C3.v, legend = "Voltage over C3"),
+                Curve(y = C4.v, legend = "Voltage over C4"),
+                Curve(y = C5.v, legend = "Voltage over C5"),
+                Curve(y = V.p.v, legend = "Input voltage")
+              }
+            )
+          }
+        )
+      }
+    ));
 end CauerLowPassAnalog;
