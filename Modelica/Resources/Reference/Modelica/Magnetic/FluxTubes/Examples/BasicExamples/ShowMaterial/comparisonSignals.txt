@@ -1,7 +1,9 @@
 time
 coreNon_Hys.H
 coreNon_Hys.J
+coreNon_Hys.mu_r
 combiTable1Ds.y[1]
+combiTable1Ds.y[2]
 coreNon_Hys.Phi
 integrator.y
 voltageSensor.v

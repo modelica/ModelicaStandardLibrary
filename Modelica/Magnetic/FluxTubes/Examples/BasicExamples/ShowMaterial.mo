@@ -23,8 +23,6 @@ model ShowMaterial "Show material characteristic"
         Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M330_50A(),
     materialMacfadyen=
         Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Macfadyen.M330_50A(),
-    materialTableBased=
-        Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.RawData.M330_50A(),
     area=0.000112,
     l=0.94,
     mu_rConst=1000) annotation (Placement(transformation(
@@ -115,7 +113,8 @@ However, hysteresis is not taken into account.
 Number of turns and measurements of the core are approximately as they would be of an Epstein frame.
 </p>
 <p>
-It is possible to compare the approximation with interpolated data from a manufacturer's datasheet (raw Data)  <code>J_rD</code> and <code>mu_r_rD</code> for material = <code>M330_50A</code>.
+It is possible to compare the approximation with interpolated data from a manufacturer's datasheet (raw Data)  <code>J_rD</code> and <code>mu_r_rD</code>, choosing the same material (e.g. <code>M330_50A</code>).<br>
+Note that smoothness (the interpolation method) is set to <code>LinearSegments</code>. This shows the nodes and avoids undesired curvature between them.
 </p>
 <p>
 Note the non-sinusoidal trajectory of voltage <code>excitingCoil.v</code> due to saturation and a sonusoidal excitation current.

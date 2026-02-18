@@ -47,6 +47,7 @@ J<sub>sat</sub> = &sum; J<sub>k</sub>
 </code></pre>
 <p>
 Additonally, it is possible to implement an interpolation based on <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.RawData\">raw data</a> instead of using approximation functions.
+Be careful regarding the interpolation method, it could reveal undesired curvature between the nodes.
 </p>
 </html>"));
 end Approximation;

@@ -3,10 +3,8 @@ record M400_50A "M400-50A @ 50Hz 0/90 deg"
   extends M330_50A(
     label="M400-50A @ 50Hz 0/90 deg",
     rho=7700,
-    p1=4.00,
-    f1=50,
-    p2=2.3/lb2kg,
-    f2=60,
+    v15=4.00,
+    fRef=50,
     Jsat=2.0,
     Hsat=1e5,
     J={0.5, 0.6, 0.7, 0.8, 0.9, 1.0,
@@ -15,7 +13,7 @@ record M400_50A "M400-50A @ 50Hz 0/90 deg"
        159, 199, 282, 505, 1284, 3343, 6787, 11712, 19044});
   annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
 <p>
-M400-50A at 50Hz for 0/90 deg magnetization table taken from manufacturer's datasheet
+M400-50A at 50Hz for 0/90 deg magnetization table taken from manufacturer's datasheet.
 </p>
 </html>"));
 end M400_50A;

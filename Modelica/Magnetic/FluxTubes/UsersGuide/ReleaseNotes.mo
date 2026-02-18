@@ -3,11 +3,11 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (Documentation(info="<html>
 
-<h5>Version 4.2.0, 2026-02-15 (Anton&nbsp;Haumer)</h5>
+<h5>Version 4.2.0, 2026-02-18 (Anton&nbsp;Haumer)</h5>
 
 <ul>
 <li>Enabled the usage of additional approximation functions (e.g. according to Macfadyen at al), 
-    by updating Updated <a href=\"modelica://Modelica.Magnetic.FluxTubes.BaseClasses.FixedShape\">FluxTubes.BaseClasses.FixedShape</a></li>
+    by updating <a href=\"modelica://Modelica.Magnetic.FluxTubes.BaseClasses.FixedShape\">FluxTubes.BaseClasses.FixedShape</a></li>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.RawData\">raw data used for approximation of softmagnetic material</a></li>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Macfadyen\">softmagnetic material with approximation according to Macfadyen et al</a></li>
 </ul>
