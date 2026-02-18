@@ -134,5 +134,21 @@ This example demonstrates:
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringDamperSystem.png\"
 alt=\"model Examples.Elementary.SpringDamperSystem\">
 
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Position of masses",
+          identifier = "e2f60",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = body1.r_0[2], legend = "Position of body1 with damper and spring"),
+                Curve(y = body2.r_0[2], legend = "Position of body1 with spring")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SpringDamperSystem;
