@@ -1,9 +1,8 @@
 within Modelica.Magnetic.FluxTubes.Shapes.FixedShape;
 model HollowCylinderAxialFlux
   "(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics"
-
-  extends BaseClasses.FixedShape;
   extends Modelica.Magnetic.FluxTubes.Icons.HollowCylinderAxialFlux;
+  extends BaseClasses.FixedShape(final A = (r_o^2 - r_i^2)*alpha/2);
 
   parameter SI.Length l=0.01 "Axial length (in direction of flux)"
     annotation (Dialog(group="Fixed geometry", groupImage=
@@ -16,9 +15,7 @@ model HollowCylinderAxialFlux
   parameter SI.Angle alpha=2*pi "Central angle"
     annotation (Dialog(group="Fixed geometry"));
 equation
-  A = (r_o^2 - r_i^2)*alpha/2;
   G_m = mu_0*mu_r*A/l;
-
   annotation (defaultComponentName="cylinder", Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
