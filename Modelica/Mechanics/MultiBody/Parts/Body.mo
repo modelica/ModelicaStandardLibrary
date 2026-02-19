@@ -1,14 +1,12 @@
 within Modelica.Mechanics.MultiBody.Parts;
 model Body
   "Rigid body with mass, inertia tensor and one frame connector (12 potential states)"
+  extends Interfaces.OneFrame_a;
 
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Mechanics.MultiBody.Frames;
   import Modelica.Units.Conversions.to_unit1;
 
-  Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-    "Coordinate system fixed at body" annotation (Placement(transformation(
-          extent={{-116,-16},{-84,16}})));
   parameter Boolean animation=true
     "= true, if animation shall be enabled (show cylinder and sphere)";
   parameter SI.Position r_CM[3](start={0,0,0})
@@ -131,10 +129,8 @@ model Body
     "Absolute angular acceleration of frame_a resolved in frame_a";
   SI.Acceleration g_0[3] "Gravity acceleration resolved in world frame";
 
-protected
-  outer Modelica.Mechanics.MultiBody.World world;
-
   // Declarations for quaternions (dummies, if quaternions are not used)
+protected
   parameter Frames.Quaternions.Orientation Q_start=Frames.to_Q(R_start)
     "Quaternion orientation object from world frame to frame_a at initial time";
   Frames.Quaternions.Orientation Q(start=Q_start, each stateSelect=if

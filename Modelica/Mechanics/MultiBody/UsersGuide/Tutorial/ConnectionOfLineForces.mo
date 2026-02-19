@@ -73,7 +73,7 @@ Here, spring3.frame_b.R is defined to be in parallel to the world frame.
 However, this is then also the orientation of fixedTranslation.frame_a, and this
 in turn means that the left part of the fixedTranslation object is always in parallel
 to the world frame. Since this is not correct, this model
-will result in a <strong>wrong simulation result</strong>
+will result in a <strong>wrong simulation result</strong>.
 This system is mathematically not well-defined and does not have a solution.
 The only way to model such a system is by providing a mass and an inertia tensor
 to fixedTranslation. Then, the flags are not needed, because the \"connection\"

@@ -1,16 +1,10 @@
 within Modelica.Mechanics.MultiBody.Parts;
 model FixedRotation
   "Fixed translation followed by a fixed rotation of frame_b with respect to frame_a"
+  extends Interfaces.TwoFrames;
 
   import Modelica.Mechanics.MultiBody.Frames;
   import Modelica.Units.Conversions.to_unit1;
-
-  Interfaces.Frame_a frame_a
-    "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b
-    "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   parameter Boolean animation=true "= true, if animation shall be enabled";
   parameter SI.Position r[3]={0,0,0}
@@ -117,17 +111,16 @@ model FixedRotation
         sequence,
         Cv.from_deg(angles),
         zeros(3)) "Fixed rotation object from frame_a to frame_b";
-  /*
+/*
   SI.Power totalPower
     "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
 */
-protected
-  outer Modelica.Mechanics.MultiBody.World world;
 
-  /*
+/*
   parameter Frames.Orientation R_rel_inv=
       Frames.inverseRotation(R_rel)
 */
+protected
   parameter Frames.Orientation R_rel_inv=Frames.from_T(transpose(R_rel.T),
       zeros(3)) "Inverse of R_rel (rotate from frame_b to frame_a)";
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape shape(
