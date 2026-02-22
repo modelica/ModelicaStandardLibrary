@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps;
-function trafficLight "Returns the \"TrafficLight\" color map"
+function trafficLight "Returns the \"trafficLight\" color map"
   extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap(n_colors=3);
 
 protected
@@ -32,21 +32,21 @@ algorithm
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-ColorMaps.<strong>TracficColour</strong>();
-ColorMaps.<strong>TracficColour</strong>(n_colors=64);
+ColorMaps.<strong>trafficLight</strong>();
+ColorMaps.<strong>trafficLight</strong>(n_colors=64);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-This function returns the color map \"TracficColour.\" A color map
+This function returns the color map \"trafficLight.\" A color map
 is a Real[:,3] array where every row represents a color.
 With the optional argument \"n_colors\" the number of rows
 of the returned array can be defined. The default value is
 \"n_colors=64\" (it is usually best if n_colors is a multiple of 4).
-Image of the \"TracficColour\" color map:
+Image of the \"trafficLight\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/TrafficColour.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/trafficLight.png\">
 </blockquote>
 
 <h4>See also</h4>

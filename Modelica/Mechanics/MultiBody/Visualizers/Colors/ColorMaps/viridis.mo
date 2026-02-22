@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps;
-function plasma "Returns the \"Plasma\" color map"
-  extends .Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+function viridis "Returns the \"viridis\" color map"
+  extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
 
 protected
   final Real Start[3] = {13/255, 8/255, 135/255};
@@ -32,21 +32,21 @@ algorithm
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-ColorMaps.<strong>Plasma</strong>();
-ColorMaps.<strong>Plasma</strong>(n_colors=64);
+ColorMaps.<strong>viridis</strong>();
+ColorMaps.<strong>viridis</strong>(n_colors=64);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-This function returns the color map \"Plasma.\" A color map
+This function returns the color map \"viridis.\" A color map
 is a Real[:,3] array where every row represents a color.
 With the optional argument \"n_colors\" the number of rows
 of the returned array can be defined. The default value is
 \"n_colors=64\" (it is usually best if n_colors is a multiple of 4).
-Image of the \"Plasma\" color map:
+Image of the \"viridis\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/Plasma.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/viridis.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -54,4 +54,4 @@ Image of the \"Plasma\" color map:
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
 </html>"));
-end plasma;
+end viridis;
