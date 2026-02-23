@@ -109,6 +109,22 @@ Using Modelica.Thermal.FluidHeatFlow it would be possible to model the coolant a
 <p>
 Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Temperatures",
+          identifier = "83343",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = Twinding.T, legend = "Temperature of winding"),
+                Curve(y = Tcore.T, legend = "Temperature of core")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(StopTime=7200, Interval=0.01));
 end Motor;
