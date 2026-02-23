@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Spice3.Internal.Mos1</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Records and functions for MOSFETs level 1&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Mos1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Spice3.Internal.Mos1"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.Mos1</h2>
+<p>
+<span class="ModelicaDescription">Records and functions for MOSFETs level 1</span>
+</p>
+<h3>Information</h3>
+
+<p>This package Mos1 contains functions and record with data of the MOSFET model level 1.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams"
+>Mos1ModelLineParams</a>
+</td>
+<td>Record for Mosfet model line parameters (for level 1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"
+>Mos1Calc</a>
+</td>
+<td>Further MOSFET variables (for level 1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.mos1ModelLineParamsInitEquations" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.mos1ModelLineParamsInitEquations"
+>mos1ModelLineParamsInitEquations</a>
+</td>
+<td>Initial precalculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.drainCur" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.drainCur"
+>drainCur</a>
+</td>
+<td>Drain current calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.mos1RenameParameters" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.mos1RenameParameters"
+>mos1RenameParameters</a>
+</td>
+<td>Parameter renaming to internal names</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.mos1RenameParametersDev" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.mos1RenameParametersDev"
+>mos1RenameParametersDev</a>
+</td>
+<td>Device parameter renaming to internal names</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Mos1ModelLineParams<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams"></a><a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1"
+>Modelica.Electrical.Spice3.Internal.Mos1</a>.Mos1ModelLineParams</h2>
+<p>
+<span class="ModelicaDescription">Record for Mosfet model line parameters (for level 1)</span>
+</p>
+<h3>Information</h3>
+
+<p>This record Mos1ModelLineParams contains the model line parameters that are used for the MOSFET transistors level 1 in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams"
+>Mos.MosModelLineParams</a> (Record for Mosfet model line parameters (for level 1, 2, 3 and 6)).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_jctSatCurDensity</td><td>JS, Bulk jct. sat. current density, input - use tSatCurDens</td></tr>
+<tr><td>m_sheetResistance</td><td>RSH, Sheet resistance [Ohm]</td></tr>
+<tr><td>m_bulkJctPotential</td><td>PB, Bulk junction potential, input - use tBulkPot</td></tr>
+<tr><td>m_bulkJctBotGradingCoeff</td><td>MJ, Bottom grading coefficient [1/K]</td></tr>
+<tr><td>m_bulkJctSideGradingCoeff</td><td>MJSW, Side grading coefficient [1/K]</td></tr>
+<tr><td>m_oxideThickness</td><td>TOX, Oxide thickness unit: micron</td></tr>
+<tr><td>m_oxideThicknessIsGiven</td><td>TOX, IsGiven value</td></tr>
+<tr><td>m_gateSourceOverlapCapFactor</td><td>CGS0, Gate-source overlap cap</td></tr>
+<tr><td>m_gateDrainOverlapCapFactor</td><td>CGD0, Gate-drain overlap cap</td></tr>
+<tr><td>m_gateBulkOverlapCapFactor</td><td>CGB0, Gate-bulk overlap cap</td></tr>
+<tr><td>m_fNcoef</td><td>KF, Flicker noise coefficient</td></tr>
+<tr><td>m_fNexp</td><td>AF, Flicker noise exponent</td></tr>
+<tr><td>m_mjswIsGiven</td><td>MJSW, IsGivenValue</td></tr>
+<tr><td>m_cgsoIsGiven</td><td>CGSO, IsGivenValue</td></tr>
+<tr><td>m_cgdoIsGiven</td><td>CGDO, IsGivenValue</td></tr>
+<tr><td>m_cgboIsGiven</td><td>CGBO, IsGivenValue</td></tr>
+<tr><td>m_pbIsGiven</td><td>PB, IsGivenValue</td></tr>
+<tr><td>m_oxideCapFactor</td><td>&nbsp;</td></tr>
+<tr><td>m_vt0</td><td>VTO, Threshold voltage [V]</td></tr>
+<tr><td>m_vtOIsGiven</td><td>VTO IsGivenValue</td></tr>
+<tr><td>m_capBD</td><td>CBD, B-D junction capacitance [F]</td></tr>
+<tr><td>m_capBDIsGiven</td><td>CapBD IsGivenValue</td></tr>
+<tr><td>m_capBS</td><td>CBS, B-S junction capacitance [F]</td></tr>
+<tr><td>m_capBSIsGiven</td><td>CapBS IsGivenValue</td></tr>
+<tr><td>m_bulkCapFactor</td><td>CJ, Bottom junction cap per area [F/m2]</td></tr>
+<tr><td>m_bulkCapFactorIsGiven</td><td>Bulk cap factor IsGivenValue</td></tr>
+<tr><td>m_sideWallCapFactor</td><td>CJSW, Side grading coefficient [F/m]</td></tr>
+<tr><td>m_fwdCapDepCoeff</td><td>FC, Forward bias junction fit parameter</td></tr>
+<tr><td>m_phi</td><td>PHI, Surface potential [V]</td></tr>
+<tr><td>m_phiIsGiven</td><td>Phi IsGivenValue</td></tr>
+<tr><td>m_gamma</td><td>GAMMA, Bulk threshold parameter [V]</td></tr>
+<tr><td>m_gammaIsGiven</td><td>Gamma IsGivenValue</td></tr>
+<tr><td>m_substrateDoping</td><td>NSUB, Substrate doping</td></tr>
+<tr><td>m_substrateDopingIsGiven</td><td>Substrate doping IsGivenValue</td></tr>
+<tr><td>m_gateType</td><td>TPG, Gate type</td></tr>
+<tr><td>m_surfaceStateDensity</td><td>NSS, Gate type [1/cm2]</td></tr>
+<tr><td>m_surfaceStateDensityIsGiven</td><td>surfaceStateDensityIsGivenValue</td></tr>
+<tr><td>m_surfaceMobility</td><td>UO, Surface mobility [cm2/(V.s)]</td></tr>
+<tr><td>m_latDiff</td><td>LD, Lateral diffusion [m]</td></tr>
+<tr><td>m_jctSatCur</td><td>IS, Bulk junction sat. current [A]</td></tr>
+<tr><td>m_drainResistance</td><td>RD, Drain ohmic resistance [Ohm]</td></tr>
+<tr><td>m_drainResistanceIsGiven</td><td>Drain resistance IsGivenValue</td></tr>
+<tr><td>m_sourceResistance</td><td>RS, Source ohmic resistance [Ohm]</td></tr>
+<tr><td>m_sourceResistanceIsGiven</td><td>Source resistance IsGivenValue</td></tr>
+<tr><td>m_transconductanceIsGiven</td><td>Transconductance IsGivenValue</td></tr>
+<tr><td>m_tnom</td><td>TNOM, Parameter measurement temperature [K]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>m_lambda</td><td>Channel-length modulation [1/V]</td></tr>
+<tr><td>m_transconductance</td><td>input - use tTransconductance [A/V2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Mos1Calc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"></a><a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1"
+>Modelica.Electrical.Spice3.Internal.Mos1</a>.Mos1Calc</h2>
+<p>
+<span class="ModelicaDescription">Further MOSFET variables (for level 1)</span>
+</p>
+<h3>Information</h3>
+
+<p>This record Mos1Calc contains further MOSFET variables (for level 1) that are needed for the calculations.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosCalc"
+>Mos.MosCalc</a> (Further MOSFET variables (for level 1, 2, 3 and 6)).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_vds</td><td>Vds, Drain-Source voltage [V]</td></tr>
+<tr><td>m_vgs</td><td>Vgs, Gate-Source voltage [V]</td></tr>
+<tr><td>m_vbs</td><td>Vbs, Bulk-Source voltage [V]</td></tr>
+<tr><td>m_cbs</td><td>Ibs, B-S junction current [A]</td></tr>
+<tr><td>m_gbs</td><td>Gbs, Bulk-Source conductance [S]</td></tr>
+<tr><td>m_cbd</td><td>Ibd, B-D junction current [A]</td></tr>
+<tr><td>m_gbd</td><td>Gbd, Bulk-Drain conductance [S]</td></tr>
+<tr><td>m_cdrain</td><td>Ids [A]</td></tr>
+<tr><td>m_gds</td><td>Gds, Drain-Source conductance [S]</td></tr>
+<tr><td>m_gm</td><td>Gm, Transconductance [A/V2]</td></tr>
+<tr><td>m_gmbs</td><td>Gmbs, Bulk-Source transconductance [A/V2]</td></tr>
+<tr><td>m_capbsb</td><td>Cbsb [F]</td></tr>
+<tr><td>m_chargebsb</td><td>Qbsb [C]</td></tr>
+<tr><td>m_capbss</td><td>Cbss [F]</td></tr>
+<tr><td>m_chargebss</td><td>Qbss [C]</td></tr>
+<tr><td>m_capbdb</td><td>Cbdb [F]</td></tr>
+<tr><td>m_chargebdb</td><td>Qbdb [C]</td></tr>
+<tr><td>m_capbds</td><td>Cbds [F]</td></tr>
+<tr><td>m_chargebds</td><td>Qbds [C]</td></tr>
+<tr><td>m_Beta</td><td>Beta</td></tr>
+<tr><td>m_capGSovl</td><td>Cgso, Gate-source overlap cap. [F]</td></tr>
+<tr><td>m_capGDovl</td><td>Cgdo, Gate-drain overlap cap. [F]</td></tr>
+<tr><td>m_capGBovl</td><td>Cgbo, Gate-bulk overlap cap. [F]</td></tr>
+<tr><td>m_capOx</td><td>Cox [F]</td></tr>
+<tr><td>m_von</td><td>Von, Turn-on voltage [V]</td></tr>
+<tr><td>m_vdsat</td><td>Vdsat [V]</td></tr>
+<tr><td>m_mode</td><td>Mode</td></tr>
+<tr><td>m_lEff</td><td>[m]</td></tr>
+<tr><td>m_sourceResistance</td><td>Rs [Ohm]</td></tr>
+<tr><td>m_drainResistance</td><td>Rd [Ohm]</td></tr>
+<tr><td>m_tTransconductance</td><td>[A/V2]</td></tr>
+<tr><td>m_tSurfMob</td><td>[cm2/(V.s)]</td></tr>
+<tr><td>m_tPhi</td><td>[V]</td></tr>
+<tr><td>m_tVto</td><td>[V]</td></tr>
+<tr><td>m_tSatCurDens</td><td>[A/m2]</td></tr>
+<tr><td>m_tDrainSatCur</td><td>[A]</td></tr>
+<tr><td>m_tSourceSatCur</td><td>[A]</td></tr>
+<tr><td>m_tCBDb</td><td>[F]</td></tr>
+<tr><td>m_tCBDs</td><td>[F]</td></tr>
+<tr><td>m_tCBSb</td><td>[F]</td></tr>
+<tr><td>m_tCBSs</td><td>[F]</td></tr>
+<tr><td>m_tCj</td><td>[F/m2]</td></tr>
+<tr><td>m_tCjsw</td><td>[F/m]</td></tr>
+<tr><td>m_tBulkPot</td><td>[V]</td></tr>
+<tr><td>m_tDepCap</td><td>[V]</td></tr>
+<tr><td>m_tVbi</td><td>[V]</td></tr>
+<tr><td>m_VBScrit</td><td>[V]</td></tr>
+<tr><td>m_VBDcrit</td><td>[V]</td></tr>
+<tr><td>m_f1b</td><td>[V]</td></tr>
+<tr><td>m_f2b</td><td>&nbsp;</td></tr>
+<tr><td>m_f3b</td><td>&nbsp;</td></tr>
+<tr><td>m_f1s</td><td>[V]</td></tr>
+<tr><td>m_f2s</td><td>&nbsp;</td></tr>
+<tr><td>m_f3s</td><td>&nbsp;</td></tr>
+<tr><td>m_dVt</td><td>[V]</td></tr>
+<tr><td>m_capgd</td><td>[F]</td></tr>
+<tr><td>m_capgs</td><td>[F]</td></tr>
+<tr><td>m_capgb</td><td>[F]</td></tr>
+<tr><td>m_qgs</td><td>[C]</td></tr>
+<tr><td>m_qgd</td><td>[C]</td></tr>
+<tr><td>m_qgb</td><td>[C]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mos1ModelLineParamsInitEquations<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.mos1ModelLineParamsInitEquations" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos1.mos1ModelLineParamsInitEquations"></a><a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1"
+>Modelica.Electrical.Spice3.Internal.Mos1</a>.mos1ModelLineParamsInitEquations</h2>
+<p>
+<span class="ModelicaDescription">Initial precalculation</span>
+</p>
+<h3>Information</h3>
+
+<p>This function mos1ModelLineParamsInitEquation does the initial precalculation of the MOSFET model line parameters for level 1.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Input record model line parameters for MOS1</td></tr>
+<tr><td>in_C</td><td>Spice constants</td></tr>
+<tr><td>in_m_type</td><td>Type of MOS transistor</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_v</td><td>Output record model line variables</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE drainCur<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.drainCur" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos1.drainCur"></a><a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1"
+>Modelica.Electrical.Spice3.Internal.Mos1</a>.drainCur</h2>
+<p>
+<span class="ModelicaDescription">Drain current calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>This function drainCur calculates the main currents that flows from drain node to source node (level 1).</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>vb</td><td>[V]</td></tr>
+<tr><td>vg</td><td>[V]</td></tr>
+<tr><td>vds</td><td>[V]</td></tr>
+<tr><td>in_c</td><td>Input record Mos1Calc</td></tr>
+<tr><td>in_p</td><td>Input record model line parameters for MOS1</td></tr>
+<tr><td>in_C</td><td>Spice constants</td></tr>
+<tr><td>in_vp</td><td>Input record model line variables</td></tr>
+<tr><td>in_m_type</td><td>Type of Mos transistor</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_c</td><td>Output record Mos1Calc</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mos1RenameParameters<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.mos1RenameParameters" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos1.mos1RenameParameters"></a><a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1"
+>Modelica.Electrical.Spice3.Internal.Mos1</a>.mos1RenameParameters</h2>
+<p>
+<span class="ModelicaDescription">Parameter renaming to internal names</span>
+</p>
+<h3>Information</h3>
+
+<p>This function mos1RenameParameters assigns the external (given by the user, e.g., RD) technology parameters
+to the internal parameters (e.g., m_drainResistance). It also does the analysis of the IsGiven values (level 1).</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ex</td><td>Modelcard with technology parameters</td></tr>
+<tr><td>con</td><td>Spice constants</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>intern</td><td>Output record model line parameters</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mos1RenameParametersDev<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Mos1.mos1RenameParametersDev" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos1.mos1RenameParametersDev"></a><a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1"
+>Modelica.Electrical.Spice3.Internal.Mos1</a>.mos1RenameParametersDev</h2>
+<p>
+<span class="ModelicaDescription">Device parameter renaming to internal names</span>
+</p>
+<h3>Information</h3>
+
+<p>This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ex</td><td>&nbsp;</td></tr>
+<tr><td>mtype</td><td>&nbsp;</td></tr>
+<tr><td>W</td><td>Channel Width [m]</td></tr>
+<tr><td>L</td><td>Channel Length [m]</td></tr>
+<tr><td>AD</td><td>Area of the drain diffusion [m2]</td></tr>
+<tr><td>AS</td><td>Area of the source diffusion [m2]</td></tr>
+<tr><td>PD</td><td>Perimeter of the drain junction [m]</td></tr>
+<tr><td>PS</td><td>Perimeter of the source junction [m]</td></tr>
+<tr><td>NRD</td><td>Number of squares of the drain diffusions</td></tr>
+<tr><td>NRS</td><td>Number of squares of the source diffusions</td></tr>
+<tr><td>OFF</td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td>IC</td><td>Initial condition values, not implemented yet</td></tr>
+<tr><td>TEMP</td><td>Temperature [degC]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dev</td><td>Output record Mosfet</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:41 2026.
+</address>
+</body>
+</html>

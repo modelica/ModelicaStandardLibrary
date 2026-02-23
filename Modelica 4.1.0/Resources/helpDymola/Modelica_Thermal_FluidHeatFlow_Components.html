@@ -1,0 +1,360 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Thermal.FluidHeatFlow.Components</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Basic components (pipes, valves)&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Components<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Thermal.FluidHeatFlow.Components"></a><a href="Modelica_Thermal_FluidHeatFlow.html#Modelica.Thermal.FluidHeatFlow"
+>Modelica.Thermal.FluidHeatFlow</a>.Components</h2>
+<p>
+<span class="ModelicaDescription">Basic components (pipes, valves)</span>
+</p>
+<h3>Information</h3>
+
+<p>This package contains components.</p>
+<p>
+Pressure drop is taken from partial model SimpleFriction.
+Thermodynamic equations are defined in partial models (package BaseClasses).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.FluidHeac2bf32f13f03c599.PipeS.png" alt="Modelica.Thermal.FluidHeatFlow.Components.Pipe" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.Pipe"
+>Pipe</a>
+</td>
+<td>Pipe with optional heat exchange</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.FluidHea1015e755e01cc922ValveS.png" alt="Modelica.Thermal.FluidHeatFlow.Components.Valve" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.Valve"
+>Valve</a>
+</td>
+<td>Simple valve</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.FluidHeaf097380743087969nTankS.png" alt="Modelica.Thermal.FluidHeatFlow.Components.OpenTank" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.OpenTank"
+>OpenTank</a>
+</td>
+<td>Model of a tank under ambient pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.FluidHea3e6fd8f911656c72inderS.png" alt="Modelica.Thermal.FluidHeatFlow.Components.Cylinder" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.Cylinder"
+>Cylinder</a>
+</td>
+<td>Simple model of a piston in a cylinder</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.FluidHea517ae5344f33d0e4ValveS.png" alt="Modelica.Thermal.FluidHeatFlow.Components.OneWayValve" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.OneWayValve"
+>OneWayValve</a>
+</td>
+<td>Simple one-way valve</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Pipe<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.FluidHeac2bf32f13f03c599.PipeI.png" alt="Modelica.Thermal.FluidHeatFlow.Components.Pipe" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.FluidHeatFlow.Components.Pipe"></a><a href="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</a>.Pipe</h2>
+<p>
+<span class="ModelicaDescription">Pipe with optional heat exchange</span>
+</p>
+<h3>Information</h3>
+
+<p>Pipe with optional heat exchange.</p>
+<p>
+Thermodynamic equations are defined by BaseClasses.TwoPort.
+Q_flow is defined by heatPort.Q_flow (useHeatPort=true) or zero (useHeatPort=false).</p>
+<p>
+<strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
+leads to neglect of temperature transient cv*m*der(T).
+</p>
+<p>
+<strong>Note:</strong> Injecting heat into a pipe with zero mass flow causes
+temperature rise defined by storing heat in medium's mass.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort"
+>FluidHeatFlow.BaseClasses.TwoPort</a> (Partial model of two port), <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.SimpleFriction"
+>FluidHeatFlow.BaseClasses.SimpleFriction</a> (Simple friction model).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>medium</td><td>Medium in the component</td></tr>
+<tr><td>m</td><td>Mass of medium [kg]</td></tr>
+<tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
+<tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td>tapT</td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+<tr><td>useHeatPort</td><td>= true, if HeatPort is enabled</td></tr>
+<tr><td>h_g</td><td>Geodetic height (height difference from flowPort_a to flowPort_b) [m]</td></tr>
+<tr><td>g</td><td>Gravitation [m/s2]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>V_flow</td><td>Volume flow a-&gt;b [m3/s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Simple friction</td></tr>
+<tr><td>V_flowLaminar</td><td>Laminar volume flow [m3/s]</td></tr>
+<tr><td>dpLaminar</td><td>Laminar pressure drop [Pa]</td></tr>
+<tr><td>V_flowNominal</td><td>Nominal volume flow [m3/s]</td></tr>
+<tr><td>dpNominal</td><td>Nominal pressure drop [Pa]</td></tr>
+<tr><td>frictionLoss</td><td>Part of friction losses fed to medium</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flowPort_a</td><td>&nbsp;</td></tr>
+<tr><td>flowPort_b</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Valve<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.FluidHea1015e755e01cc922ValveI.png" alt="Modelica.Thermal.FluidHeatFlow.Components.Valve" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.FluidHeatFlow.Components.Valve"></a><a href="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</a>.Valve</h2>
+<p>
+<span class="ModelicaDescription">Simple valve</span>
+</p>
+<h3>Information</h3>
+
+<p>Simple controlled valve.</p>
+<p>
+Standard characteristic Kv=<em>f </em>(y) is given at standard conditions (dp0, rho0),
+</p>
+<ul>
+<li>either linear :<code> Kv/Kv1 = Kv0/Kv1 + (1-Kv0/Kv1) * y/Y1</code></li>
+<li>or exponential:<code> Kv/Kv1 = Kv0/Kv1 * exp[log(Kv1/Kv0) * y/Y1]</code></li>
+</ul>
+<p>
+where:
+</p>
+<ul>
+<li><code>Kv0 ... min. flow @ y = 0</code></li>
+<li><code>Y1 .... max. valve opening</code></li>
+<li><code>Kv1 ... max. flow @ y = Y1</code></li>
+</ul>
+<p>
+Flow resistance under real conditions is calculated by
+</p>
+<blockquote><pre>
+V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort"
+>FluidHeatFlow.BaseClasses.TwoPort</a> (Partial model of two port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>medium</td><td>Medium in the component</td></tr>
+<tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
+<tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td>tapT</td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+<tr><td>frictionLoss</td><td>Part of friction losses fed to medium</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>m</td><td>Mass of medium [kg]</td></tr>
+<tr><td>V_flow</td><td>Volume flow a-&gt;b [m3/s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Standard characteristic</td></tr>
+<tr><td>LinearCharacteristic</td><td>Type of characteristic</td></tr>
+<tr><td>y1</td><td>Max. valve opening</td></tr>
+<tr><td>Kv1</td><td>Max. flow @ y = y1 [m3/s]</td></tr>
+<tr><td>kv0</td><td>Leakage flow / max.flow @ y = 0</td></tr>
+<tr><td>dp0</td><td>Standard pressure drop [Pa]</td></tr>
+<tr><td>rho0</td><td>Standard medium&#39;s density [kg/m3]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flowPort_a</td><td>&nbsp;</td></tr>
+<tr><td>flowPort_b</td><td>&nbsp;</td></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OpenTank<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.FluidHeaf097380743087969nTankI.png" alt="Modelica.Thermal.FluidHeatFlow.Components.OpenTank" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.FluidHeatFlow.Components.OpenTank"></a><a href="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</a>.OpenTank</h2>
+<p>
+<span class="ModelicaDescription">Model of a tank under ambient pressure</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a simple model of an open tank with volume A*h. The level and the temperature of the medium are measured and provided as output.</p>
+<p>Note: If the level of the medium reaches 0 (minimum) or h (maximum), an assertion is triggered.</p>
+<p>Note: The flowPort is assumed to be at the bottom. Therefore the pressure at the flowPort is ambient pressure + level*rho*g.</p>
+<ul>
+<li>If the mass flow rate at the port goes into the tank the level increases and the mixing rule is applied to obtain the temperature change of the medium in the tank.</li>
+<li>If the mass flow rate at the port goes out of the tank the level decreases,
+the temperature of the outflowing medium is defined by the the temperature of the medium in the tank.</li>
+</ul>
+<p>
+It is assumed that the medium in the tank has the same temperature over the whole volume, i.e. mixed thoroughly.
+</p>
+<p>
+Via the optional heatPort the medium in the tank can be cooled or heated.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortBottom"
+>FluidHeatFlow.BaseClasses.SinglePortBottom</a> (Partial model of a single port at the bottom).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>medium</td><td>Medium</td></tr>
+<tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
+<tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td>ATank</td><td>Cross section of tank [m2]</td></tr>
+<tr><td>hTank</td><td>Height of tank [m]</td></tr>
+<tr><td>pAmbient</td><td>Ambient pressure [Pa]</td></tr>
+<tr><td>g</td><td>Gravitation [m/s2]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if HeatPort is enabled</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flowPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Optional port for cooling or heating the medium in the tank</td></tr>
+<tr><td>level</td><td>Level of medium in tank [m]</td></tr>
+<tr><td>TTank</td><td>Temperature of medium in tank [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Cylinder<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.FluidHea3e6fd8f911656c72inderI.png" alt="Modelica.Thermal.FluidHeatFlow.Components.Cylinder" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.FluidHeatFlow.Components.Cylinder"></a><a href="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</a>.Cylinder</h2>
+<p>
+<span class="ModelicaDescription">Simple model of a piston in a cylinder</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a simple model of a piston in a cylinder:</p>
+<p>The translational flange is connected to the piston, the cylinder has a flowPort at the bottom.</p>
+<p>
+The position of the piston within the cylinder goes from 0 at the bottom to L (length of the cylinder) at the top of the cylinder.
+If the piston leaves the cylinder, an assertion is triggered.
+</p>
+<ul>
+<li>A movement of the piston is coupled with volume flow through the flowPort.</li>
+<li>The force at the piston is equal to pressure of the fluid times A (cross section of the piston).</li>
+</ul>
+<p>
+The piston is considered without mass.
+</p>
+<p>
+Note: Take care of the initial conditions. The position of the piston (relative to the support) should be in the range (0, L).
+The position of the flange (as well as of the support, if useSupport=true) is influenced by connected components.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft"
+>FluidHeatFlow.BaseClasses.SinglePortLeft</a> (Partial model of a single port at the left), <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>medium</td><td>Medium</td></tr>
+<tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
+<tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td>A</td><td>Cross section of cylinder/piston [m2]</td></tr>
+<tr><td>L</td><td>Length of cylinder [m]</td></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>s</td><td>Distance between flange and support (= flange.s - support.s) [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flowPort</td><td>&nbsp;</td></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OneWayValve<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.FluidHea517ae5344f33d0e4ValveI.png" alt="Modelica.Thermal.FluidHeatFlow.Components.OneWayValve" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.FluidHeatFlow.Components.OneWayValve"></a><a href="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</a>.OneWayValve</h2>
+<p>
+<span class="ModelicaDescription">Simple one-way valve</span>
+</p>
+<h3>Information</h3>
+
+<p>Simple one-way valve, comparable to the electrical <a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealDiode"
+>ideal diode</a> model.</p>
+<ul>
+<li>from flowPort_a to flowPort_b: small pressure drop, linearly dependent on volumeFlow</li>
+<li>from flowPort_b to flowPort_a: small leakage flow, linearly dependent on pressure drop</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort"
+>FluidHeatFlow.BaseClasses.TwoPort</a> (Partial model of two port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>medium</td><td>Medium in the component</td></tr>
+<tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
+<tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td>tapT</td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+<tr><td>V_flowNominal</td><td>Nominal volume flow rate (forward) [m3/s]</td></tr>
+<tr><td>dpForward</td><td>Pressure drop at nominal flow (forward) [Pa]</td></tr>
+<tr><td>dpNominal</td><td>Nominal pressure (backward) [Pa]</td></tr>
+<tr><td>V_flowBackward</td><td>Leakage volume flow rate (backward) [m3/s]</td></tr>
+<tr><td>frictionLoss</td><td>Part of friction losses fed to medium</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>m</td><td>Mass of medium [kg]</td></tr>
+<tr><td>V_flow</td><td>Volume flow a-&gt;b [m3/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flowPort_a</td><td>&nbsp;</td></tr>
+<tr><td>flowPort_b</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:51 2026.
+</address>
+</body>
+</html>

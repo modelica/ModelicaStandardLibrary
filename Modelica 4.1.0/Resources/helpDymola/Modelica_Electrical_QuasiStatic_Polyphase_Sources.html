@@ -1,0 +1,504 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStatic.Polyphase.Sources</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;AC polyphase sources&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStatic.Polyphase.Sources"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase.html#Modelica.Electrical.QuasiStatic.Polyphase"
+>Modelica.Electrical.QuasiStatic.Polyphase</a>.Sources</h2>
+<p>
+<span class="ModelicaDescription">AC polyphase sources</span>
+</p>
+<h3>Information</h3>
+
+<p>This package hosts sources for quasi-static polyphase circuits.
+Quasi-static theory can be found in the
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide.References"
+>references</a>.
+</p>
+<h4>See also</h4>
+
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources"
+>SinglePhase.Sources</a>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</a> (Icon for packages containing sources).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi44dbacc574ddc6fdourceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource"
+>VoltageSource</a>
+</td>
+<td>Constant polyphase AC voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi4ef07d55dbd777b8ourceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource"
+>VariableVoltageSource</a>
+</td>
+<td>Variable polyphase AC voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi4ef07d55dbd777b8ourceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.ReferenceVoltageSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.ReferenceVoltageSource"
+>ReferenceVoltageSource</a>
+</td>
+<td>Variable polyphase AC voltage with reference angle input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi37a076f1746c2d93ourceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepVoltageSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepVoltageSource"
+>FrequencySweepVoltageSource</a>
+</td>
+<td>Voltage source with integrated frequency sweep</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi312c8c7c69a502b0ourceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource"
+>CurrentSource</a>
+</td>
+<td>Constant polyphase AC current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3b415d0cc6afb3f5ourceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource"
+>VariableCurrentSource</a>
+</td>
+<td>Variable polyphase AC current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3b415d0cc6afb3f5ourceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.ReferenceCurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.ReferenceCurrentSource"
+>ReferenceCurrentSource</a>
+</td>
+<td>Variable polyphase AC current with reference angle input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi23f156a86914e9deourceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepCurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepCurrentSource"
+>FrequencySweepCurrentSource</a>
+</td>
+<td>Current source with integrated frequency sweep</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VoltageSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi44dbacc574ddc6fdourceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources"
+>Modelica.Electrical.QuasiStatic.Polyphase.Sources</a>.VoltageSource</h2>
+<p>
+<span class="ModelicaDescription">Constant polyphase AC voltage</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+This model describes <em>m</em> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts
+(defaults are
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>-symmetricOrientation</a>).
+<em>m</em> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource"
+>single-phase VoltageSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource"
+>SinglePhase.VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource"
+>VariableVoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource"
+>CurrentSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource"
+>VariableCurrentSource</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Source"
+>Interfaces.Source</a> (Partial voltage / current source).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>f</td><td>Frequency of the source [Hz]</td></tr>
+<tr><td>V[m]</td><td>RMS voltage of the source [V]</td></tr>
+<tr><td>phi[m]</td><td>Phase shift of the source [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>gamma</td><td>[rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableVoltageSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi4ef07d55dbd777b8ourceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources"
+>Modelica.Electrical.QuasiStatic.Polyphase.Sources</a>.VariableVoltageSource</h2>
+<p>
+<span class="ModelicaDescription">Variable polyphase AC voltage</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+This model describes <em>m</em> variable voltage sources, with <em>m</em> complex signal inputs,
+specifying the complex voltages by the complex RMS voltage components.
+Additionally, the frequency of the voltage source is defined by a real signal input.
+<em>m</em> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableVoltageSource"
+>single-phase VariableVoltageSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource"
+>SinglePhase.VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource"
+>VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource"
+>CurrentSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource"
+>VariableCurrentSource</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Source"
+>Interfaces.Source</a> (Partial voltage / current source).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>gamma</td><td>[rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>f</td><td>[Hz]</td></tr>
+<tr><td>V[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReferenceVoltageSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi4ef07d55dbd777b8ourceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.ReferenceVoltageSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Sources.ReferenceVoltageSource"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources"
+>Modelica.Electrical.QuasiStatic.Polyphase.Sources</a>.ReferenceVoltageSource</h2>
+<p>
+<span class="ModelicaDescription">Variable polyphase AC voltage with reference angle input</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<em>m</em> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource"
+>single-phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource"
+>SinglePhase.VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource"
+>VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource"
+>VariableVoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource"
+>CurrentSource</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.ReferenceSource"
+>Interfaces.ReferenceSource</a> (Partial of voltage or current source with reference input).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>gamma</td><td>Reference angle of voltage source</td></tr>
+<tr><td>V[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FrequencySweepVoltageSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi37a076f1746c2d93ourceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepVoltageSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepVoltageSource"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources"
+>Modelica.Electrical.QuasiStatic.Polyphase.Sources</a>.FrequencySweepVoltageSource</h2>
+<p>
+<span class="ModelicaDescription">Voltage source with integrated frequency sweep</span>
+</p>
+<h3>Information</h3>
+
+<p>This source provides polyphase constant RMS phase voltages <code>V</code> and phase angles <code>phi</code>,
+whereas the frequency sweeps from
+<code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
+way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
+
+<div><img src="Resources/Images/Electrical/QuasiStatic/SinglePhase/Sources/FrequencySweepSource.png"
+     alt="FrequencySweepSource.png"></div>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>fStart</td><td>Start sweep frequency [Hz]</td></tr>
+<tr><td>fStop</td><td>Stop sweep frequency [Hz]</td></tr>
+<tr><td>startTime</td><td>Start time of frequency sweep [s]</td></tr>
+<tr><td>duration</td><td>Duration of frequency sweep [s]</td></tr>
+<tr><td>V[m]</td><td>RMS voltage of the source [V]</td></tr>
+<tr><td>phi[m]</td><td>Phase shift of the source [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CurrentSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi312c8c7c69a502b0ourceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources"
+>Modelica.Electrical.QuasiStatic.Polyphase.Sources</a>.CurrentSource</h2>
+<p>
+<span class="ModelicaDescription">Constant polyphase AC current</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+This model describes <em>m</em> constant current sources, specifying the complex currents by the RMS currents and the phase shifts
+(defaults are
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>-symmetricOrientation</a>).
+<em>m</em> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource"
+>single-phase CurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource"
+>SinglePhase.CurrentSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource"
+>VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource"
+>VariableVoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource"
+>VariableCurrentSource</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Source"
+>Interfaces.Source</a> (Partial voltage / current source).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>f</td><td>Frequency of the source [Hz]</td></tr>
+<tr><td>I[m]</td><td>RMS current of the source [A]</td></tr>
+<tr><td>phi[m]</td><td>Phase shift of the source [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>gamma</td><td>[rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableCurrentSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi3b415d0cc6afb3f5ourceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources"
+>Modelica.Electrical.QuasiStatic.Polyphase.Sources</a>.VariableCurrentSource</h2>
+<p>
+<span class="ModelicaDescription">Variable polyphase AC current</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<em>m</em> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource"
+>single-phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource"
+>SinglePhase.VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource"
+>VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource"
+>VariableVoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource"
+>CurrentSource</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Source"
+>Interfaces.Source</a> (Partial voltage / current source).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>gamma</td><td>[rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>f</td><td>[Hz]</td></tr>
+<tr><td>I[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReferenceCurrentSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi3b415d0cc6afb3f5ourceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.ReferenceCurrentSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Sources.ReferenceCurrentSource"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources"
+>Modelica.Electrical.QuasiStatic.Polyphase.Sources</a>.ReferenceCurrentSource</h2>
+<p>
+<span class="ModelicaDescription">Variable polyphase AC current with reference angle input</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<em>m</em> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource"
+>single-phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Sources.html#Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource"
+>SinglePhase.VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource"
+>VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource"
+>VariableVoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource"
+>CurrentSource</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.ReferenceSource"
+>Interfaces.ReferenceSource</a> (Partial of voltage or current source with reference input).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>gamma</td><td>Reference angle of current source</td></tr>
+<tr><td>I[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FrequencySweepCurrentSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi23f156a86914e9deourceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepCurrentSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepCurrentSource"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Sources.html#Modelica.Electrical.QuasiStatic.Polyphase.Sources"
+>Modelica.Electrical.QuasiStatic.Polyphase.Sources</a>.FrequencySweepCurrentSource</h2>
+<p>
+<span class="ModelicaDescription">Current source with integrated frequency sweep</span>
+</p>
+<h3>Information</h3>
+
+<p>This source provides polyphase constant RMS phase currents <code>I</code> and phase angles <code>phi</code>,
+whereas the frequency sweeps from
+<code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
+way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
+
+<div><img src="Resources/Images/Electrical/QuasiStatic/SinglePhase/Sources/FrequencySweepSource.png"
+     alt="FrequencySweepSource.png"></div>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>fStart</td><td>Start sweep frequency [Hz]</td></tr>
+<tr><td>fStop</td><td>Stop sweep frequency [Hz]</td></tr>
+<tr><td>startTime</td><td>Start time of frequency sweep [s]</td></tr>
+<tr><td>duration</td><td>Duration of frequency sweep [s]</td></tr>
+<tr><td>I[m]</td><td>RMS current of the source [A]</td></tr>
+<tr><td>phi[m]</td><td>Phase shift of the source [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:41 2026.
+</address>
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Complex</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Complex number with overloaded operators&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Complex<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ComplexI.png" alt="Complex" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Complex"></a>Complex</h2>
+<p>
+<span class="ModelicaDescription">Complex number with overloaded operators</span>
+</p>
+<h3>Information</h3>
+
+<p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
+<p>
+<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
+Copyright &copy; 2010-2025, Modelica Association and <a href="file:///ModelicaExtra/Modelica_UsersGuide.html#Modelica.UsersGuide.Contact"
+>contributors</a>
+</p>
+
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>re</td><td>Real part of complex number</td></tr>
+<tr><td>im</td><td>Imaginary part of complex number</td></tr>
+</table>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Complex.'constructor'S.png" alt="Complex.'constructor'" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'constructor'"
+>'constructor'</a>
+</td>
+<td>Constructor</td>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'0'" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'0'"
+>'0'</a>
+</td>
+<td>Zero-element of addition (= Complex(0))</td>
+</tr>
+<tr>
+<td><img src="Complex.'-'S.png" alt="Complex.'-'" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'-'"
+>'-'</a>
+</td>
+<td>Unary and binary minus</td>
+</tr>
+<tr>
+<td><img src="Complex.'m'S.png" alt="Complex.'*'" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'*'"
+>'*'</a>
+</td>
+<td>Multiplication</td>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'+'" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'+'"
+>'+'</a>
+</td>
+<td>Add two complex numbers</td>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'/'" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'/'"
+>'/'</a>
+</td>
+<td>Divide two complex numbers</td>
+</tr>
+<tr>
+<td><img src="Complex.'constructor'S.png" alt="Complex.'^'" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'^'"
+>'^'</a>
+</td>
+<td>Power</td>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'=='" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'=='"
+>'=='</a>
+</td>
+<td>Test whether two complex numbers are identical</td>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'<>'" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'<>'"
+>'<>'</a>
+</td>
+<td>Test whether two complex numbers are not identical</td>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'String'" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'String'"
+>'String'</a>
+</td>
+<td>Transform Complex number into a String representation</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE 'constructor'<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'constructor'"></a><a href="Complex.html#Complex"
+>Complex</a>.'constructor'</h2>
+<p>
+<span class="ModelicaDescription">Constructor</span>
+</p>
+<h3>Information</h3>
+
+<p>Here the constructor operator(s) is/are defined.</p>
+
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'constructor'.fromReal" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'constructor'.fromReal"
+>fromReal</a>
+</td>
+<td>Construct Complex from Real</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE fromReal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'constructor'.fromReal"></a><a href="Complex.html#Complex.'constructor'"
+>Complex.'constructor'</a>.fromReal</h2>
+<p>
+<span class="ModelicaDescription">Construct Complex from Real</span>
+</p>
+<h3>Information</h3>
+
+<p>This function returns a Complex number defined by real part <em>re</em> and optional imaginary part <em>im</em> (default=0).</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>re</td><td>Real part of complex number</td></tr>
+<tr><td>im</td><td>Imaginary part of complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>Complex number</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE '0'<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'0'"></a><a href="Complex.html#Complex"
+>Complex</a>.'0'</h2>
+<p>
+<span class="ModelicaDescription">Zero-element of addition (= Complex(0))</span>
+</p>
+<h3>Information</h3>
+
+<p>This function returns the zero-element of Complex, that is, Complex(0) = 0 + j*0.</p>
+
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>Complex(0)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE '-'<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'-'"></a><a href="Complex.html#Complex"
+>Complex</a>.'-'</h2>
+<p>
+<span class="ModelicaDescription">Unary and binary minus</span>
+</p>
+<h3>Information</h3>
+
+<p>Here the unary and binary minus operator(s) is/are defined.</p>
+
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'-'.negate" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'-'.negate"
+>negate</a>
+</td>
+<td>Unary minus (multiply complex number by -1)</td>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'-'.subtract" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'-'.subtract"
+>subtract</a>
+</td>
+<td>Subtract two complex numbers</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE negate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'-'.negate"></a><a href="Complex.html#Complex.'-'"
+>Complex.'-'</a>.negate</h2>
+<p>
+<span class="ModelicaDescription">Unary minus (multiply complex number by -1)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function returns the binary minus of the given Complex number.</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1</td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c2</td><td>= -c1</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE subtract<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'-'.subtract"></a><a href="Complex.html#Complex.'-'"
+>Complex.'-'</a>.subtract</h2>
+<p>
+<span class="ModelicaDescription">Subtract two complex numbers</span>
+</p>
+<h3>Information</h3>
+
+<p>This function returns the difference of two given Complex numbers.</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1</td><td>Complex number 1</td></tr>
+<tr><td>c2</td><td>Complex number 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c3</td><td>= c1 - c2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE '*'<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'*'"></a><a href="Complex.html#Complex"
+>Complex</a>.'*'</h2>
+<p>
+<span class="ModelicaDescription">Multiplication</span>
+</p>
+<h3>Information</h3>
+
+<p>Here the multiplication operator(s) is/are defined.</p>
+
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'*'.multiply" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'*'.multiply"
+>multiply</a>
+</td>
+<td>Multiply two complex numbers</td>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'*'.scalarProduct" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'*'.scalarProduct"
+>scalarProduct</a>
+</td>
+<td>Scalar product of two complex vectors c1 and c2</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE multiply<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'*'.multiply"></a><a href="Complex.html#Complex.'*'"
+>Complex.'*'</a>.multiply</h2>
+<p>
+<span class="ModelicaDescription">Multiply two complex numbers</span>
+</p>
+<h3>Information</h3>
+
+<p>This function returns the product of two given Complex numbers.</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1</td><td>Complex number 1</td></tr>
+<tr><td>c2</td><td>Complex number 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c3</td><td>= c1*c2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE scalarProduct<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'*'.scalarProduct"></a><a href="Complex.html#Complex.'*'"
+>Complex.'*'</a>.scalarProduct</h2>
+<p>
+<span class="ModelicaDescription">Scalar product of two complex vectors c1 and c2</span>
+</p>
+<h3>Information</h3>
+<p>This function returns the scalar product of two given vectors of Complex numbers of length <code>n</code>.</p>
+<blockquote><pre>c3 = sum(conj(c1[k]) * c2[k] for k in 1:n)
+</pre></blockquote>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1[:]</td><td>Vector of Complex numbers 1</td></tr>
+<tr><td>c2[size(c1, 1)]</td><td>Vector of Complex numbers 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c3</td><td>Scalar product of c1 and c2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE '+'<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'+'"></a><a href="Complex.html#Complex"
+>Complex</a>.'+'</h2>
+<p>
+<span class="ModelicaDescription">Add two complex numbers</span>
+</p>
+<h3>Information</h3>
+
+<p>This function returns the sum of two given Complex numbers.</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1</td><td>Complex number 1</td></tr>
+<tr><td>c2</td><td>Complex number 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c3</td><td>= c1 + c2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE '/'<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'/'"></a><a href="Complex.html#Complex"
+>Complex</a>.'/'</h2>
+<p>
+<span class="ModelicaDescription">Divide two complex numbers</span>
+</p>
+<h3>Information</h3>
+
+<p>This function returns the quotient of two given Complex numbers.</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1</td><td>Complex number 1</td></tr>
+<tr><td>c2</td><td>Complex number 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c3</td><td>= c1/c2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE '^'<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'^'"></a><a href="Complex.html#Complex"
+>Complex</a>.'^'</h2>
+<p>
+<span class="ModelicaDescription">Power</span>
+</p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'^'.complexPower" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'^'.complexPower"
+>complexPower</a>
+</td>
+<td>Complex power of complex number</td>
+</tr>
+<tr>
+<td><img src="Complex.'0'S.png" alt="Complex.'^'.integerPower" width="20" height="20" align="top">&nbsp;<a href="Complex.html#Complex.'^'.integerPower"
+>integerPower</a>
+</td>
+<td>Integer power of complex number</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE complexPower<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'^'.complexPower"></a><a href="Complex.html#Complex.'^'"
+>Complex.'^'</a>.complexPower</h2>
+<p>
+<span class="ModelicaDescription">Complex power of complex number</span>
+</p>
+<h3>Information</h3>
+
+<p>This function returns the given Complex number c1 to the power of the Complex number c2.</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1</td><td>Complex number</td></tr>
+<tr><td>c2</td><td>Complex exponent</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c3</td><td>= c1^c2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE integerPower<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'^'.integerPower"></a><a href="Complex.html#Complex.'^'"
+>Complex.'^'</a>.integerPower</h2>
+<p>
+<span class="ModelicaDescription">Integer power of complex number</span>
+</p>
+<h3>Information</h3>
+
+<p>This function returns the given Complex number c1 to the power of the Integer number c2.</p>
+<p>This also works for zero exponent.</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1</td><td>Complex number</td></tr>
+<tr><td>c2</td><td>Integer exponent</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c3</td><td>= c1^c2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE '=='<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'=='"></a><a href="Complex.html#Complex"
+>Complex</a>.'=='</h2>
+<p>
+<span class="ModelicaDescription">Test whether two complex numbers are identical</span>
+</p>
+<h3>Information</h3>
+
+<p>This function tests whether two given Complex numbers are equal.</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1</td><td>Complex number 1</td></tr>
+<tr><td>c2</td><td>Complex number 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>c1 == c2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE '<>'<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'<>'"></a><a href="Complex.html#Complex"
+>Complex</a>.'<>'</h2>
+<p>
+<span class="ModelicaDescription">Test whether two complex numbers are not identical</span>
+</p>
+<h3>Information</h3>
+
+    <p>This function tests whether two given Complex numbers are not equal.</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1</td><td>Complex number 1</td></tr>
+<tr><td>c2</td><td>Complex number 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>c1 &lt;&gt; c2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE 'String'<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Complex.'String'"></a><a href="Complex.html#Complex"
+>Complex</a>.'String'</h2>
+<p>
+<span class="ModelicaDescription">Transform Complex number into a String representation</span>
+</p>
+<h3>Information</h3>
+
+<p>This function converts a given Complex number to String representation.</p>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c</td><td>Complex number to be transformed in a String representation</td></tr>
+<tr><td>name</td><td>Name of variable representing sqrt(-1) in the string</td></tr>
+<tr><td>significantDigits</td><td>Number of significant digits that are shown</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:52 2026.
+</address>
+</body>
+</html>

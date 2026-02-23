@@ -1,0 +1,424 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Examples.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Functions, connectors and models needed for the media model tests&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Examples.Utilities"></a><a href="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Functions, connectors and models needed for the media model tests</span>
+</p>
+<h3>Information</h3>
+
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.U7d15b980d968f558dPortS.png" alt="Modelica.Media.Examples.Utilities.FluidPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.FluidPort"
+>FluidPort</a>
+</td>
+<td>Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.U1550367ea3d568e8ort_aS.png" alt="Modelica.Media.Examples.Utilities.FluidPort_a" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.FluidPort_a"
+>FluidPort_a</a>
+</td>
+<td>Fluid connector with filled icon</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.U1550367fa3d568ebort_bS.png" alt="Modelica.Media.Examples.Utilities.FluidPort_b" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.FluidPort_b"
+>FluidPort_b</a>
+</td>
+<td>Fluid connector with outlined icon</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.U4fb64e127aedf761olumeS.png" alt="Modelica.Media.Examples.Utilities.PortVolume" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.PortVolume"
+>PortVolume</a>
+</td>
+<td>Fixed volume associated with a port by the finite volume method</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.U5a8a4ad3bf15dc43wRateS.png" alt="Modelica.Media.Examples.Utilities.FixedMassFlowRate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.FixedMassFlowRate"
+>FixedMassFlowRate</a>
+</td>
+<td>Ideal pump that produces a constant mass flow rate from a large reservoir at fixed temperature and mass fraction</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.U22fa151f3fb6d844bientS.png" alt="Modelica.Media.Examples.Utilities.FixedAmbient" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.FixedAmbient"
+>FixedAmbient</a>
+</td>
+<td>Ambient pressure, temperature and mass fraction source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.U99b0143b6e68f82ftPipeS.png" alt="Modelica.Media.Examples.Utilities.ShortPipe" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.ShortPipe"
+>ShortPipe</a>
+</td>
+<td>Simple pressure loss in pipe</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Examples.Utilities.PartialTestModel" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.PartialTestModel"
+>PartialTestModel</a>
+</td>
+<td>Basic test model to test a medium</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Examples.Utilities.PartialTestModel2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.PartialTestModel2"
+>PartialTestModel2</a>
+</td>
+<td>Slightly larger test model to test a medium</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FluidPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Examples.Utilities.FluidPort"></a><a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities"
+>Modelica.Media.Examples.Utilities</a>.FluidPort</h2>
+<p>
+<span class="ModelicaDescription">Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</span>
+</p>
+<h3>Information</h3>
+
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr><td>p</td><td>Pressure in the connection point [Pa]</td></tr>
+<tr><td>m_flow</td><td>Mass flow rate from the connection point into the component [kg/s]</td></tr>
+<tr><td>h</td><td>Specific mixture enthalpy in the connection point [J/kg]</td></tr>
+<tr><td>H_flow</td><td>Enthalpy flow rate into the component (if m_flow &gt; 0, H_flow = m_flow*h) [W]</td></tr>
+<tr><td>Xi[Medium.nXi]</td><td>Independent mixture mass fractions m_i/m in the connection point [kg/kg]</td></tr>
+<tr><td>mXi_flow[Medium.nXi]</td><td>Mass flow rates of the independent substances from the connection point into the component (if m_flow &gt; 0, mX_flow = m_flow*X) [kg/s]</td></tr>
+<tr><td>C[Medium.nC]</td><td>Properties c_i/m in the connection point</td></tr>
+<tr><td>mC_flow[Medium.nC]</td><td>Flow rates of auxiliary properties from the connection point into the component (if m_flow &gt; 0, mC_flow = m_flow*C) [kg/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FluidPort_a<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.U1550367ea3d568e8ort_aI.png" alt="Modelica.Media.Examples.Utilities.FluidPort_a" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.Utilities.FluidPort_a"></a><a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities"
+>Modelica.Media.Examples.Utilities</a>.FluidPort_a</h2>
+<p>
+<span class="ModelicaDescription">Fluid connector with filled icon</span>
+</p>
+<h3>Information</h3>
+Modelica.Media.Examples.Tests.Components.FluidPort_a
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.FluidPort"
+>FluidPort</a> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure in the connection point [Pa]</td></tr>
+<tr><td>m_flow</td><td>Mass flow rate from the connection point into the component [kg/s]</td></tr>
+<tr><td>h</td><td>Specific mixture enthalpy in the connection point [J/kg]</td></tr>
+<tr><td>H_flow</td><td>Enthalpy flow rate into the component (if m_flow &gt; 0, H_flow = m_flow*h) [W]</td></tr>
+<tr><td>Xi[Medium.nXi]</td><td>Independent mixture mass fractions m_i/m in the connection point [kg/kg]</td></tr>
+<tr><td>mXi_flow[Medium.nXi]</td><td>Mass flow rates of the independent substances from the connection point into the component (if m_flow &gt; 0, mX_flow = m_flow*X) [kg/s]</td></tr>
+<tr><td>C[Medium.nC]</td><td>Properties c_i/m in the connection point</td></tr>
+<tr><td>mC_flow[Medium.nC]</td><td>Flow rates of auxiliary properties from the connection point into the component (if m_flow &gt; 0, mC_flow = m_flow*C) [kg/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FluidPort_b<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.U1550367fa3d568ebort_bI.png" alt="Modelica.Media.Examples.Utilities.FluidPort_b" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.Utilities.FluidPort_b"></a><a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities"
+>Modelica.Media.Examples.Utilities</a>.FluidPort_b</h2>
+<p>
+<span class="ModelicaDescription">Fluid connector with outlined icon</span>
+</p>
+<h3>Information</h3>
+
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities.FluidPort"
+>FluidPort</a> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure in the connection point [Pa]</td></tr>
+<tr><td>m_flow</td><td>Mass flow rate from the connection point into the component [kg/s]</td></tr>
+<tr><td>h</td><td>Specific mixture enthalpy in the connection point [J/kg]</td></tr>
+<tr><td>H_flow</td><td>Enthalpy flow rate into the component (if m_flow &gt; 0, H_flow = m_flow*h) [W]</td></tr>
+<tr><td>Xi[Medium.nXi]</td><td>Independent mixture mass fractions m_i/m in the connection point [kg/kg]</td></tr>
+<tr><td>mXi_flow[Medium.nXi]</td><td>Mass flow rates of the independent substances from the connection point into the component (if m_flow &gt; 0, mX_flow = m_flow*X) [kg/s]</td></tr>
+<tr><td>C[Medium.nC]</td><td>Properties c_i/m in the connection point</td></tr>
+<tr><td>mC_flow[Medium.nC]</td><td>Flow rates of auxiliary properties from the connection point into the component (if m_flow &gt; 0, mC_flow = m_flow*C) [kg/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PortVolume<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.U4fb64e127aedf761olumeI.png" alt="Modelica.Media.Examples.Utilities.PortVolume" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.Utilities.PortVolume"></a><a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities"
+>Modelica.Media.Examples.Utilities</a>.PortVolume</h2>
+<p>
+<span class="ModelicaDescription">Fixed volume associated with a port by the finite volume method</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This component models the <strong>volume</strong> of <strong>fixed size</strong> that is
+associated with the <strong>fluid port</strong> to which it is connected.
+This means that all medium properties inside the volume, are identical
+to the port medium properties. In particular, the specific enthalpy
+inside the volume (= medium.h) is always identical to the specific enthalpy
+in the port (port.h = medium.h). Usually, this model is used when
+discretizing a component according to the finite volume method into
+volumes in internal ports that only store energy and mass and into
+transport elements that just transport energy, mass and momentum
+between the internal ports without storing these quantities during the
+transport.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr><td>V</td><td>Fixed size of junction volume [m3]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initial pressure or initial density</td></tr>
+<tr><td>use_p_start</td><td>Select p_start or d_start</td></tr>
+<tr><td>p_start</td><td>Initial pressure [Pa]</td></tr>
+<tr><td>d_start</td><td>Initial density [kg/m3]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initial temperature or initial specific enthalpy</td></tr>
+<tr><td>use_T_start</td><td>Select T_start or h_start</td></tr>
+<tr><td>T_start</td><td>Initial temperature [K]</td></tr>
+<tr><td>h_start</td><td>Initial specific enthalpy [J/kg]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Only for multi-substance flow</td></tr>
+<tr><td>X_start[Medium.nX]</td><td>Initial mass fractions m_i/m [kg/kg]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedMassFlowRate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.U5a8a4ad3bf15dc43wRateI.png" alt="Modelica.Media.Examples.Utilities.FixedMassFlowRate" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.Utilities.FixedMassFlowRate"></a><a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities"
+>Modelica.Media.Examples.Utilities</a>.FixedMassFlowRate</h2>
+<p>
+<span class="ModelicaDescription">Ideal pump that produces a constant mass flow rate from a large reservoir at fixed temperature and mass fraction</span>
+</p>
+<h3>Information</h3>
+
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_flow</td><td>Fixed mass flow rate from an infinite reservoir to the fluid port [kg/s]</td></tr>
+<tr><td>X_ambient[Medium.nX]</td><td>Ambient mass fractions m_i/m of reservoir [kg/kg]</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Ambient temperature or ambient specific enthalpy</td></tr>
+<tr><td>use_T_ambient</td><td>Select T_ambient or h_ambient</td></tr>
+<tr><td>T_ambient</td><td>Ambient temperature [K]</td></tr>
+<tr><td>h_ambient</td><td>Ambient specific enthalpy [J/kg]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedAmbient<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.U22fa151f3fb6d844bientI.png" alt="Modelica.Media.Examples.Utilities.FixedAmbient" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.Utilities.FixedAmbient"></a><a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities"
+>Modelica.Media.Examples.Utilities</a>.FixedAmbient</h2>
+<p>
+<span class="ModelicaDescription">Ambient pressure, temperature and mass fraction source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model <strong>FixedAmbient_pt</strong> defines constant values for ambient conditions:
+</p>
+<ul>
+<li> Ambient pressure.</li>
+<li> Ambient temperature.</li>
+<li> Ambient mass fractions (only for multi-substance flow).</li>
+</ul>
+<p>
+Note, that ambient temperature
+and mass fractions have only an effect if the mass flow
+is from the ambient into the port. If mass is flowing from
+the port into the ambient, the ambient definitions,
+with exception of ambient pressure, do not have an effect.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Ambient pressure or ambient density</td></tr>
+<tr><td>use_p_ambient</td><td>Select p_ambient or d_ambient</td></tr>
+<tr><td>p_ambient</td><td>Ambient pressure [Pa]</td></tr>
+<tr><td>d_ambient</td><td>Ambient density [kg/m3]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Ambient temperature or ambient specific enthalpy</td></tr>
+<tr><td>use_T_ambient</td><td>Select T_ambient or h_ambient</td></tr>
+<tr><td>T_ambient</td><td>Ambient temperature [K]</td></tr>
+<tr><td>h_ambient</td><td>Ambient specific enthalpy [J/kg]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Only for multi-substance flow</td></tr>
+<tr><td>X_ambient[Medium.nX]</td><td>Ambient mass fractions m_i/m [kg/kg]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ShortPipe<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.U99b0143b6e68f82ftPipeI.png" alt="Modelica.Media.Examples.Utilities.ShortPipe" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.Utilities.ShortPipe"></a><a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities"
+>Modelica.Media.Examples.Utilities</a>.ShortPipe</h2>
+<p>
+<span class="ModelicaDescription">Simple pressure loss in pipe</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model <strong>ShortPipe</strong> defines a simple pipe model
+with pressure loss due to friction. It is assumed that
+no mass or energy is stored in the pipe.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr><td>dp_nominal</td><td>Nominal pressure drop [Pa]</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal mass flow rate at nominal pressure drop [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr><td>port_a</td><td>&nbsp;</td></tr>
+<tr><td>port_b</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialTestModel<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Examples.Utilities.PartialTestModel"></a><a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities"
+>Modelica.Media.Examples.Utilities</a>.PartialTestModel</h2>
+<p>
+<span class="ModelicaDescription">Basic test model to test a medium</span>
+</p>
+<h3>Information</h3>
+
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr><td>p_start</td><td>Initial value of pressure [Pa]</td></tr>
+<tr><td>T_start</td><td>Initial value of temperature [K]</td></tr>
+<tr><td>h_start</td><td>Initial value of specific enthalpy [J/kg]</td></tr>
+<tr><td>X_start[Medium.nX]</td><td>Initial value of mass fractions</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialTestModel2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Examples.Utilities.PartialTestModel2"></a><a href="Modelica_Media_Examples_Utilities.html#Modelica.Media.Examples.Utilities"
+>Modelica.Media.Examples.Utilities</a>.PartialTestModel2</h2>
+<p>
+<span class="ModelicaDescription">Slightly larger test model to test a medium</span>
+</p>
+<h3>Information</h3>
+
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr><td>p_start</td><td>Initial value of pressure [Pa]</td></tr>
+<tr><td>T_start</td><td>Initial value of temperature [K]</td></tr>
+<tr><td>h_start</td><td>Initial value of specific enthalpy [J/kg]</td></tr>
+<tr><td>X_start[Medium.nX]</td><td>Initial value of mass fractions</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:45 2026.
+</address>
+</body>
+</html>

@@ -1,0 +1,1384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.Translational.Components</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Components for 1D translational mechanical drive trains&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Components<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.Translational.Components"></a><a href="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
+>Modelica.Mechanics.Translational</a>.Components</h2>
+<p>
+<span class="ModelicaDescription">Components for 1D translational mechanical drive trains</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains basic components 1D mechanical translational drive trains.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translbeb60171c8283f68FixedS.png" alt="Modelica.Mechanics.Translational.Components.Fixed" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Fixed</a>
+</td>
+<td>Fixed flange</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translfe7a27a36645e08e.MassS.png" alt="Modelica.Mechanics.Translational.Components.Mass" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Mass</a>
+</td>
+<td>Sliding mass with inertia</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translabf68b58eb32aad0s.RodS.png" alt="Modelica.Mechanics.Translational.Components.Rod" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Rod</a>
+</td>
+<td>Rod without inertia</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transld6edcde82292dc3epringS.png" alt="Modelica.Mechanics.Translational.Components.Spring" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Spring"
+>Spring</a>
+</td>
+<td>Linear 1D translational spring</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl123600140d8d394bamperS.png" alt="Modelica.Mechanics.Translational.Components.Damper" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Damper"
+>Damper</a>
+</td>
+<td>Linear 1D translational damper</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translfb1db3f50c83fbddamperS.png" alt="Modelica.Mechanics.Translational.Components.SpringDamper" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.SpringDamper"
+>SpringDamper</a>
+</td>
+<td>Linear 1D translational spring and damper in parallel</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl02f7b9e39bba19fdtoGapS.png" alt="Modelica.Mechanics.Translational.Components.ElastoGap" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.ElastoGap"
+>ElastoGap</a>
+</td>
+<td>1D translational spring damper combination with gap</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl3c6b2ffa230abf7actionS.png" alt="Modelica.Mechanics.Translational.Components.SupportFriction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.SupportFriction"
+>SupportFriction</a>
+</td>
+<td>Coulomb friction in support</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl79addfe4c865daa9BrakeS.png" alt="Modelica.Mechanics.Translational.Components.Brake" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Brake"
+>Brake</a>
+</td>
+<td>Brake based on Coulomb friction</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl5272c78b43de1103arR2TS.png" alt="Modelica.Mechanics.Translational.Components.IdealGearR2T" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.IdealGearR2T"
+>IdealGearR2T</a>
+</td>
+<td>Gearbox transforming rotational into translational motion</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translf57473586f619b21WheelS.png" alt="Modelica.Mechanics.Translational.Components.IdealRollingWheel" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.IdealRollingWheel"
+>IdealRollingWheel</a>
+</td>
+<td>Simple 1-dim. model of an ideal rolling wheel without inertia</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transldab07a47cb69a463tanceS.png" alt="Modelica.Mechanics.Translational.Components.RollingResistance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.RollingResistance"
+>RollingResistance</a>
+</td>
+<td>Resistance of a rolling wheel</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl9b8cf5b9b9fbb2c0hicleS.png" alt="Modelica.Mechanics.Translational.Components.Vehicle" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Vehicle"
+>Vehicle</a>
+</td>
+<td>Simple vehicle model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transld0e61e14699c63b0langeS.png" alt="Modelica.Mechanics.Translational.Components.InitializeFlange" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.InitializeFlange"
+>InitializeFlange</a>
+</td>
+<td>Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl4e1c89eeff4e2bcactionS.png" alt="Modelica.Mechanics.Translational.Components.MassWithStopAndFriction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.MassWithStopAndFriction"
+>MassWithStopAndFriction</a>
+</td>
+<td>Sliding mass with hard stop and Stribeck friction</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transld7a161412c8e2f7btatesS.png" alt="Modelica.Mechanics.Translational.Components.RelativeStates" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.RelativeStates"
+>RelativeStates</a>
+</td>
+<td>Definition of relative state variables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl09ad048f76574984aptorS.png" alt="Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor"
+>GeneralForceToPositionAdaptor</a>
+</td>
+<td>Signal adaptor for a Translational flange with position, speed, and acceleration as outputs and force as input (especially useful for FMUs)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translf2d3d5f70ba5062baptorS.png" alt="Modelica.Mechanics.Translational.Components.GeneralPositionToForceAdaptor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.GeneralPositionToForceAdaptor"
+>GeneralPositionToForceAdaptor</a>
+</td>
+<td>Signal adaptor for a Translational flange with force as output and position, speed and acceleration as input (especially useful for FMUs)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Fixed<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Translbeb60171c8283f68FixedI.png" alt="Modelica.Mechanics.Translational.Components.Fixed" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.Fixed"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.Fixed</h2>
+<p>
+<span class="ModelicaDescription">Fixed flange</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The <em>flange</em> of a 1D translational mechanical system <em>fixed</em>
+at an position s0 in the <em>housing</em>. May be used:
+</p>
+<ul>
+<li> to connect a compliant element, such as a spring or a damper,
+     between a sliding mass and the housing.</li>
+<li> to fix a rigid element, such as a sliding mass, at a specific
+     position.</li>
+</ul>
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s0</td><td>Fixed offset position of housing [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Mass<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Translfe7a27a36645e08e.MassI.png" alt="Modelica.Mechanics.Translational.Components.Mass" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.Mass"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.Mass</h2>
+<p>
+<span class="ModelicaDescription">Sliding mass with inertia</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Sliding mass with <em>inertia, without friction</em> and two rigidly connected flanges.
+</p>
+<p>
+The sliding mass has the length L, the position coordinate s is in the middle.
+Sign convention: A positive force at flange flange_a moves the sliding mass in the positive direction.
+A negative force at flange flange_a moves the sliding mass to the negative direction.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRigid"
+>Translational.Interfaces.PartialRigid</a> (Rigid connection of two translational 1D flanges).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Mass of the sliding mass [kg]</td></tr>
+<tr><td>L</td><td>Length of component, from left flange to right flange (= flange_b.s - flange_a.s) [m]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>s</td><td>Absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2) [m]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use s and v as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Rod<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Translabf68b58eb32aad0s.RodI.png" alt="Modelica.Mechanics.Translational.Components.Rod" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.Rod"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.Rod</h2>
+<p>
+<span class="ModelicaDescription">Rod without inertia</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A translational rod <strong>without inertia</strong> and two rigidly connected flanges.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRigid"
+>Translational.Interfaces.PartialRigid</a> (Rigid connection of two translational 1D flanges).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>L</td><td>Length of component, from left flange to right flange (= flange_b.s - flange_a.s) [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Spring<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transld6edcde82292dc3epringI.png" alt="Modelica.Mechanics.Translational.Components.Spring" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.Spring"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.Spring</h2>
+<p>
+<span class="ModelicaDescription">Linear 1D translational spring</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A <em>linear 1D translational spring</em>. The component can be connected either
+between two sliding masses, or between
+a sliding mass and the housing (model Fixed), to describe
+a coupling of the sliding mass with the housing via a spring.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialCompliant"
+>Translational.Interfaces.PartialCompliant</a> (Compliant connection of two translational 1D flanges).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c</td><td>Spring constant [N/m]</td></tr>
+<tr><td>s_rel0</td><td>Unstretched spring length [m]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>s_rel</td><td>Relative distance (= flange_b.s - flange_a.s) [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Damper<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl123600140d8d394bamperI.png" alt="Modelica.Mechanics.Translational.Components.Damper" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.Damper"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.Damper</h2>
+<p>
+<span class="ModelicaDescription">Linear 1D translational damper</span>
+</p>
+<h3>Information</h3>
+
+<p>
+<em>Linear, velocity dependent damper</em> element. It can be either connected
+between a sliding mass and the housing (model Fixed), or
+between two sliding masses.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates"
+>Translational.Interfaces.PartialCompliantWithRelativeStates</a> (Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states), <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</a> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Damping constant [N.s/m]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>s_rel</td><td>Relative distance (= flange_b.s - flange_a.s) [m]</td></tr>
+<tr><td>v_rel</td><td>Relative velocity (= der(s_rel)) [m/s]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use s_rel and v_rel as states</td></tr>
+<tr><td>s_nominal</td><td>Nominal value of s_rel (used for scaling) [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpringDamper<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Translfb1db3f50c83fbddamperI.png" alt="Modelica.Mechanics.Translational.Components.SpringDamper" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.SpringDamper"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.SpringDamper</h2>
+<p>
+<span class="ModelicaDescription">Linear 1D translational spring and damper in parallel</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A <em>spring and damper element connected in parallel</em>.
+The component can be
+connected either between two sliding masses to describe the elasticity
+and damping, or between a sliding mass and the housing (model Fixed),
+to describe a coupling of the sliding mass with the housing via a spring/damper.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates"
+>Translational.Interfaces.PartialCompliantWithRelativeStates</a> (Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states), <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</a> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c</td><td>Spring constant [N/m]</td></tr>
+<tr><td>d</td><td>Damping constant [N.s/m]</td></tr>
+<tr><td>s_rel0</td><td>Unstretched spring length [m]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>s_rel</td><td>Relative distance (= flange_b.s - flange_a.s) [m]</td></tr>
+<tr><td>v_rel</td><td>Relative velocity (= der(s_rel)) [m/s]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use s_rel and v_rel as states</td></tr>
+<tr><td>s_nominal</td><td>Nominal value of s_rel (used for scaling) [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ElastoGap<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl02f7b9e39bba19fdtoGapI.png" alt="Modelica.Mechanics.Translational.Components.ElastoGap" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.ElastoGap"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.ElastoGap</h2>
+<p>
+<span class="ModelicaDescription">1D translational spring damper combination with gap</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This component models a spring damper combination that can lift off.
+It can be connected between a sliding mass and the housing (model
+<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Fixed</a>),
+to describe the contact of a sliding mass with the housing.
+</p>
+
+<p>
+As long as s_rel &gt; s_rel0, no force is exerted (s_rel = flange_b.s - flange_a.s).
+If s_rel &le; s_rel0, the contact force is basically computed with a linear
+spring/damper characteristic. With parameter n&ge;1 (exponent of spring force),
+a nonlinear spring force can be modeled:
+</p>
+
+<blockquote><pre>
+desiredContactForce = f_ref*|(s_rel - s_rel0)/s_ref|^n + d*<strong>der</strong>(s_rel)
+</pre></blockquote>
+
+<p>
+Note, Hertzian contact is described by:
+</p>
+<ul>
+<li> Contact between two metallic spheres: n=1.5</li>
+<li> Contact between two metallic plates: n=1</li>
+</ul>
+
+<p>
+The above force law leads to the following difficulties:
+</p>
+
+<ol>
+<li> If the damper force becomes larger as the spring force and with opposite sign,
+     the contact force would be "pulling/sticking" which is unphysical, since during
+     contact only pushing forces can occur.</li>
+
+<li> When contact occurs with a non-zero relative speed (which is the usual
+     situation), the damping force has a non-zero value and therefore the contact
+     force changes discontinuously at s_rel = s_rel0. Again, this is not physical
+     because the force can only change continuously. (Note, this component is not an
+     idealized model where a steep characteristic is approximated by a discontinuity,
+     but it shall model the steep characteristic.)</li>
+</ol>
+
+<p>
+In the literature there are several proposals to fix problem (2). Especially, often
+the following model is used (see, e.g.,
+Lankarani, Nikravesh: Continuous Contact Force Models for Impact
+Analysis in Multibody Systems, Nonlinear Dynamics 5, pp. 193-207, 1994,
+<a href="https://link.springer.com/article/10.1007/BF00045676">pdf-download</a>):
+</p>
+
+<blockquote><pre>
+f = c*s_rel^n + (d*s_rel^n)*<strong>der</strong>(s_rel)
+</pre></blockquote>
+
+<p>
+However, this and other models proposed in literature violate
+issue (1), i.e., unphysical pulling forces can occur (if d*<strong>der</strong>(s_rel)
+becomes large enough). Note, if the force law is of the form "f = f_c + f_d", then a
+necessary condition is that |f_d| &le; |f_c|, otherwise (1) and (2) are violated.
+For this reason, the most simplest approach is used in the ElastoGap model
+to fix both problems by using this necessary condition in the force law directly.
+If s_rel0 = 0, the equations are:
+</p>
+
+<blockquote><pre>
+<strong>if</strong> s_rel &ge; 0 <strong>then</strong>
+   f = 0;    // contact force
+<strong>else</strong>
+   f_c  = -c*|s_rel|^n;          // contact spring force (Hertzian contact force)
+   f_d2 = d*<strong>der</strong>(s_rel);         // linear contact damper force
+   f_d  = <strong>if</strong> f_d2 &lt;  f_c <strong>then</strong>  f_c <strong>else</strong>
+          <strong>if</strong> f_d2 &gt; -f_c <strong>then</strong> -f_c <strong>else</strong> f_d2;  // bounded damper force
+   f    = f_c + f_d;            // contact force
+<strong>end if</strong>;
+</pre></blockquote>
+
+<p>
+Note, since |f_d|&nbsp;&le;&nbsp;|f_c|, pulling forces cannot occur and the contact force
+is always continuous, especially around the start of the penetration at s_rel&nbsp;= s_rel0.
+On the contrary, this leads to the contact force <code>f&nbsp;=&nbsp;0</code> even if
+<code>contact&nbsp;= true</code> is still indicated around the end of the penetration.
+This is because <code>contact</code> indicates only the occurrence of geometry penetration.
+</p>
+
+<p>
+In order to have consistent units for nonlinear springs, the term <code>c*|s_rel|^n</code>
+is replaced by <code>f_ref*|s_rel/s_ref|^n</code>, whereby <code>s_ref</code> is a&nbsp;reference
+length for the spring and <code>f_ref</code> is the spring force when
+<code>s_rel&nbsp;=&nbsp;s_ref</code>. The default values <code>s_ref&nbsp;=&nbsp;1</code>
+and <code>f_ref&nbsp;= c*s_ref</code> lead to the same results of the two above-mentioned terms.
+Setting the advanced parameters <code>s_ref</code> and <code>f_ref</code> for a&nbsp;nonlinear
+spring directly gives a&nbsp;cleaner and straightforward parametrization.
+For simplicity reasons, both <code>s_ref</code> and <code>f_ref</code> are considered being
+positive.
+</p>
+
+<p>
+In the next figure, a typical simulation with the ElastoGap model is shown
+(<a href="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.ElastoGap"
+>Examples.ElastoGap</a>)
+where the different effects are visualized:
+</p>
+
+<ol>
+<li> Curve 1 (elastoGap1.f) is the unmodified contact force, i.e., the linear spring/damper
+     characteristic. A pulling/sticking force is present at the end of the contact.</li>
+<li> Curve 2 (elastoGap2.f) is the contact force, where the force is explicitly set to
+     zero when pulling/sticking occurs. The contact force is discontinuous when contact starts.</li>
+<li> Curve 3 (elastoGap3.f) is the ElastoGap model of this library. No discontinuity and no
+     pulling/sticking occurs.</li>
+</ol>
+
+<div>
+<img src="Resources/Images/Mechanics/Translational/Components/ElastoGap.png" alt="Elasto gap">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates"
+>Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates</a> (Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states), <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</a> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c</td><td>Spring constant [N/m]</td></tr>
+<tr><td>d</td><td>Damping constant [N.s/m]</td></tr>
+<tr><td>s_rel0</td><td>Unstretched spring length [m]</td></tr>
+<tr><td>n</td><td>Exponent of spring force ( f_c = -f_ref*|(s_rel-s_rel0)/s_ref|^n )</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>s_rel</td><td>Relative distance (= flange_b.s - flange_a.s) [m]</td></tr>
+<tr><td>v_rel</td><td>Relative velocity (= der(s_rel)) [m/s]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use s_rel and v_rel as states</td></tr>
+<tr><td>s_nominal</td><td>Nominal value of s_rel (used for scaling) [m]</td></tr>
+<tr><td>f_ref</td><td>Reference spring force at s_ref [N]</td></tr>
+<tr><td>s_ref</td><td>Reference relative compression at which f_c = f_ref [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SupportFriction<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl3c6b2ffa230abf7actionI.png" alt="Modelica.Mechanics.Translational.Components.SupportFriction" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.SupportFriction"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.SupportFriction</h2>
+<p>
+<span class="ModelicaDescription">Coulomb friction in support</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This element describes <strong>Coulomb friction</strong> in <strong>support</strong>,
+i.e., a frictional force acting between a flange and the housing.
+The positive sliding friction force "f" has to be defined
+by table "f_pos" as function of the absolute velocity "v".
+E.g.
+</p>
+<blockquote><pre>
+ v |   f
+---+-----
+ 0 |   0
+ 1 |   2
+ 2 |   5
+ 3 |   8
+</pre></blockquote>
+<p>
+gives the following table:
+</p>
+<blockquote><pre>
+f_pos = [0, 0; 1, 2; 2, 5; 3, 8];
+</pre></blockquote>
+<p>
+Outside of the table, extrapolation through the last
+two table entries is used. It is assumed that the negative
+sliding friction force has the same characteristic with negative
+values. Friction is modelled in the following way:
+</p>
+<p>
+When the absolute velocity "v" is not zero, the friction force
+is a function of v and of a constant normal force. This dependency
+is defined via table f_pos and can be determined by measurements,
+e.g., by driving the gear with constant velocity and measuring the
+needed driving force (= friction force).
+</p>
+<p>
+When the absolute velocity becomes zero, the elements
+connected by the friction element become stuck, i.e., the absolute
+position remains constant. In this phase the friction force is
+calculated from a force balance due to the requirement, that
+the absolute acceleration shall be zero.  The elements begin
+to slide when the friction force exceeds a threshold value,
+called the maximum static friction force, computed via:
+</p>
+<blockquote><pre>
+maximum_static_friction = <strong>peak</strong> * sliding_friction(v=0)  (<strong>peak</strong> >= 1)
+</pre></blockquote>
+<p>
+This procedure is implemented in a "clean" way by state events and
+leads to continuous/discrete systems of equations if friction elements
+are dynamically coupled which have to be solved by appropriate
+numerical methods. The method is described in
+(see also a short sketch in <a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction"
+>UsersGuide.ModelingOfFriction</a>):
+</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+</dl>
+<p>
+More precise friction models take into account the elasticity of the
+material when the two elements are "stuck", as well as other effects,
+like hysteresis. This has the advantage that the friction element can
+be completely described by a differential equation without events. The
+drawback is that the system becomes stiff (about 10-20 times slower
+simulation) and that more material constants have to be supplied which
+requires more sophisticated identification. For more details, see the
+following references, especially (Armstrong and Canudas de Wit 1996):
+</p>
+<dl>
+<dt>Armstrong B. (1991):</dt>
+<dd><strong>Control of Machines with Friction</strong>. Kluwer Academic
+    Press, Boston MA.<br><br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
+<dd><strong>Friction Modeling and Compensation.</strong>
+    The Control Handbook, edited by W.S.Levine, CRC Press,
+    pp. 1369-1382.<br><br></dd>
+<dt>Canudas de Wit C., Olsson H., &Aring;str&ouml;m K.J., and Lischinsky P. (1995):</dt>
+<dd><strong>A new model for control of systems with friction.</strong>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br></dd>
+</dl>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2"
+>Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2</a> (Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models), <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</a> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models), <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialFriction"
+>Translational.Interfaces.PartialFriction</a> (Base model of Coulomb friction elements).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>f_pos[:, 2]</td><td>Positive sliding friction characteristic [N] as function of v [m/s] (v&gt;=0)</td></tr>
+<tr><td>smoothness</td><td>Smoothness of interpolation in f_pos table</td></tr>
+<tr><td>peak</td><td>Peak for maximum friction force at v==0 (f0_max = peak*f_pos[1,2])</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>startForward</td><td>= true, if v_relfric=0 and start of forward sliding</td></tr>
+<tr><td>startBackward</td><td>= true, if v_relfric=0 and start of backward sliding</td></tr>
+<tr><td>locked</td><td>= true, if v_relfric=0 and not sliding</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>v_small</td><td>Relative velocity near to zero (see model info text) [m/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Brake<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl79addfe4c865daa9BrakeI.png" alt="Modelica.Mechanics.Translational.Components.Brake" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.Brake"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.Brake</h2>
+<p>
+<span class="ModelicaDescription">Brake based on Coulomb friction</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This component models a <strong>brake</strong>, i.e., a component where a frictional
+force is acting between the housing and a flange and a controlled normal
+force presses the flange to the housing in order to increase friction.
+The normal force fn has to be provided as input signal f_normalized in a normalized form
+(0 &le; f_normalized &le; 1),
+fn = fn_max*f_normalized, where fn_max has to be provided as parameter.
+Friction in the brake is modelled in the following way:
+</p>
+<p>
+When the absolute velocity "v" is not zero, the friction force
+is a function of the velocity dependent friction coefficient mu(v), of
+the normal force "fn", and of a geometry constant "cgeo" which takes into
+account the geometry of the device and the assumptions on the friction
+distributions:
+</p>
+<blockquote><pre>
+frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</strong>
+</pre></blockquote>
+<p>
+   Typical values of coefficients of friction <strong>mu</strong>:
+</p>
+<ul>
+  <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>
+  <li>0.05&nbsp;&hellip;&nbsp;0.1 when operating in oil.</li>
+</ul>
+<p>
+    The positive part of the friction characteristic <strong>mu</strong>(v),
+    v >= 0, is defined via table mu_pos (first column = v,
+    second column = mu).
+</p>
+<p>
+   When the absolute velocity becomes zero, the elements
+   connected by the friction element become stuck, i.e., the absolute
+   position remains constant. In this phase the friction force is
+   calculated from a force balance due to the requirement, that
+   the absolute acceleration shall be zero. The elements begin
+   to slide when the friction force exceeds a threshold value,
+   called the maximum static friction force, computed via:
+</p>
+<blockquote><pre>
+frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(v=0) * <strong>fn</strong>,   (<strong>peak</strong> >= 1)
+</pre></blockquote>
+<p>
+This procedure is implemented in a "clean" way by state events and
+leads to continuous/discrete systems of equations if friction elements
+are dynamically coupled. The method is described in:
+</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+</dl>
+<p>
+More precise friction models take into account the elasticity of the
+material when the two elements are "stuck", as well as other effects,
+like hysteresis. This has the advantage that the friction element can
+be completely described by a differential equation without events. The
+drawback is that the system becomes stiff (about 10-20 times slower
+simulation) and that more material constants have to be supplied which
+requires more sophisticated identification. For more details, see the
+following references, especially (Armstrong and Canudas de Wit 1996):
+</p>
+<dl>
+<dt>Armstrong B. (1991):</dt>
+<dd><strong>Control of Machines with Friction</strong>. Kluwer Academic
+    Press, Boston MA.<br><br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
+<dd><strong>Friction Modeling and Compensation.</strong>
+    The Control Handbook, edited by W.S.Levine, CRC Press,
+    pp. 1369-1382.<br><br></dd>
+<dt>Canudas de Wit C., Olsson H., &Aring;str&ouml;m K.J., and Lischinsky P. (1995):</dt>
+<dd><strong>A new model for control of systems with friction.</strong>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br></dd>
+</dl>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2"
+>Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2</a> (Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models), <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</a> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models), <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialFriction"
+>Translational.Interfaces.PartialFriction</a> (Base model of Coulomb friction elements).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>mu_pos[:, 2]</td><td>Positive sliding friction coefficient [-] as function of v [m/s] (v&gt;=0)</td></tr>
+<tr><td>smoothness</td><td>Smoothness of interpolation in mu_pos table</td></tr>
+<tr><td>peak</td><td>Peak for maximum value of mu at v==0 (mu0_max = peak*mu_pos[1,2])</td></tr>
+<tr><td>cgeo</td><td>Geometry constant containing friction distribution assumption</td></tr>
+<tr><td>fn_max</td><td>Maximum normal force [N]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>startForward</td><td>= true, if v_relfric=0 and start of forward sliding</td></tr>
+<tr><td>startBackward</td><td>= true, if v_relfric=0 and start of backward sliding</td></tr>
+<tr><td>locked</td><td>= true, if v_relfric=0 and not sliding</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>v_small</td><td>Relative velocity near to zero (see model info text) [m/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+<tr><td>f_normalized</td><td>Normalized force signal 0..1 (normal force = fn_max*f_normalized; brake is active if &gt; 0)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealGearR2T<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl5272c78b43de1103arR2TI.png" alt="Modelica.Mechanics.Translational.Components.IdealGearR2T" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.IdealGearR2T"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.IdealGearR2T</h2>
+<p>
+<span class="ModelicaDescription">Gearbox transforming rotational into translational motion</span>
+</p>
+<h3>Information</h3>
+
+<p>Couples rotational and translational motion, like a toothed wheel with a toothed rack, specifying the ratio of rotational / translational motion.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.IdealGearR2T"
+>Modelica.Mechanics.Rotational.Components.IdealGearR2T</a> (Gearbox transforming rotational into translational motion).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupportR</td><td>= true, if rotational support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>useSupportT</td><td>= true, if translational support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>ratio</td><td>Transmission ratio (flange_a.phi/flange_b.s) [rad/m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flangeR</td><td>Flange of rotational shaft</td></tr>
+<tr><td>flangeT</td><td>Flange of translational rod</td></tr>
+<tr><td>supportR</td><td>Rotational support/housing of component</td></tr>
+<tr><td>supportT</td><td>Translational support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealRollingWheel<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Translf57473586f619b21WheelI.png" alt="Modelica.Mechanics.Translational.Components.IdealRollingWheel" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.IdealRollingWheel"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.IdealRollingWheel</h2>
+<p>
+<span class="ModelicaDescription">Simple 1-dim. model of an ideal rolling wheel without inertia</span>
+</p>
+<h3>Information</h3>
+
+<p>Couples rotational and translational motion, like an ideal rolling wheel, specifying the wheel radius.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.IdealRollingWheel"
+>Modelica.Mechanics.Rotational.Components.IdealRollingWheel</a> (Simple 1-dim. model of an ideal rolling wheel without inertia).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupportR</td><td>= true, if rotational support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>useSupportT</td><td>= true, if translational support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>radius</td><td>Wheel radius [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flangeR</td><td>Flange of rotational shaft</td></tr>
+<tr><td>flangeT</td><td>Flange of translational rod</td></tr>
+<tr><td>supportR</td><td>Rotational support/housing of component</td></tr>
+<tr><td>supportT</td><td>Translational support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RollingResistance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transldab07a47cb69a463tanceI.png" alt="Modelica.Mechanics.Translational.Components.RollingResistance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.RollingResistance"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.RollingResistance</h2>
+<p>
+<span class="ModelicaDescription">Resistance of a rolling wheel</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Simplified model of the resistance of a&nbsp;rolling wheel,
+dependent on vertical wheel load (due to gravity, i.e. static only),
+inclination and rolling resistance coefficient:
+</p>
+<blockquote>
+<pre>
+flange.f = Cr * fWeight * cos(alpha)
+</pre>
+</blockquote>
+
+<p>
+The rolling resistance coefficient&nbsp;<var>C<sub>r</sub></var> is either constant
+(given by the parameter <code>CrConstant</code>)
+or prescribed by the input <code>cr</code>.
+</p>
+<p>
+The inclination is either constant (parameter <code>inclinationConstant</code>)
+or prescribed by the input <code>inclination</code>.
+This corresponds to the road rise over running distance of 100&nbsp;m which,
+in general, is written as a&nbsp;percentage and is equal to tan(<var>&alpha;</var>).
+For example for a&nbsp;road rising by 10&nbsp;m over 100&nbsp;m the
+grade&nbsp;=&nbsp;10&nbsp;% and, thus, the inclination is 0.1.
+Positive inclination means driving uphill, negative inclination means
+driving downhill, in case of positive vehicle velocity.
+</p>
+
+<h4>Note</h4>
+<p>
+The rolling resistance is independent of velocity here,
+but changes its direction with the direction of velocity.
+To avoid numerical problems around zero velocity, the rolling
+resistance is regularized accordingly within <code>[-v0,&nbsp;v0]</code>.
+Therefore static friction at vehicle&apos;s standstill
+is not taken into account.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>Modelica.Mechanics.Translational.Interfaces.PartialForce</a> (Partial model of a force acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>fWeight</td><td>Wheel load due to gravity [N]</td></tr>
+<tr><td>useCrInput</td><td>Enable signal input for Cr</td></tr>
+<tr><td>CrConstant</td><td>Constant rolling resistance coefficient</td></tr>
+<tr><td>useInclinationInput</td><td>Enable signal input for inclination</td></tr>
+<tr><td>inclinationConstant</td><td>Constant inclination = tan(angle)</td></tr>
+<tr><td>reg</td><td>Type of regularization</td></tr>
+<tr><td>v0</td><td>Regularization below v0 [m/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>inclination</td><td>Inclination=tan(angle)</td></tr>
+<tr><td>cr</td><td>Rolling resistance coefficient</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Vehicle<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl9b8cf5b9b9fbb2c0hicleI.png" alt="Modelica.Mechanics.Translational.Components.Vehicle" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.Vehicle"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.Vehicle</h2>
+<p>
+<span class="ModelicaDescription">Simple vehicle model</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is a simple model of a&nbsp;ground vehicle, comprising the mass, the aerodynamic drag, the rolling resistance and
+the inclination resistance (caused by the road grade).
+For all particular resistances, significant variables can be either given by a&nbsp;parameter or input by a&nbsp;time-variable signal.
+</p>
+<p>
+The vehicle can be driven at the rotational flange <code>flangeR</code>, e.g. by an electric motor and a&nbsp;gearbox.
+It is possible to use the vehicle as a&nbsp;passive trailer, leaving the rotational flange <code>flangeR</code> unconnected.
+</p>
+<p>
+At the translational flange <code>flangeT</code> the vehicle can be coupled with another vehicle,
+e.g. as a&nbsp;trailer or to pull a&nbsp;trailer.
+It is possible to leave the translational flange <code>flangeT</code> unconnected.
+</p>
+<p>
+The velocity&nbsp;<code>v</code> and the driven distance&nbsp;<code>s</code> of the vehicle are provided as variables;
+the vehicle can be initialized using these variables.
+</p>
+
+<h4>Mass and inertia</h4>
+<p>
+Both the translational vehicle mass and the rotational inertias (e.g. the wheels)
+are accelerated when the vehicle is accelerated.
+This nature is usually put into account for fundamental vehicle analyses
+done either in the rotational or translational domain, e.g. when analysing
+vehicle&apos;s driveline.
+Then, the vehicle mass&nbsp;<code>m</code> can be expressed as an additional
+equivalent inertia <code>J_eq&nbsp;=&nbsp;m&nbsp;*&nbsp;R<sup>2</sup></code> or
+vice versa rotational inertia&nbsp;<code>J</code> as an additional
+equivalent mass <code>m_eq&nbsp;=&nbsp;J/R<sup>2</sup></code>,
+where&nbsp;<code>R</code> is the wheel radius.
+Since this model introduces rolling resistance and inclination resistance as well
+where just the vehicle mass plays a&nbsp;role,
+the approach of equivalent mass/inertia would lead to incorrect simulation results
+and shall therefore not be applied here.
+</p>
+
+<h4>Drag resistance</h4>
+<blockquote>
+<pre>
+fDrag = Cd*rho*A*(v - vWind)^2/2
+</pre>
+</blockquote>
+<p>
+Wind velocity is measured in the same direction as velocity of <code>flangeT</code>.
+Wind velocity is either constant or prescribed by the input <code>vWind</code>.
+</p>
+
+<h4>Rolling resistance</h4>
+<blockquote>
+<pre>
+fRoll = Cr*m*g*cos(alpha)
+</pre>
+</blockquote>
+<p>
+Rolling resistance coefficient&nbsp;<var>Cr</var> is either constant
+or prescribed by the input <code>cr</code>.
+Rolling resistance has a&nbsp;crossover from positive to negative velocity within <code>[-vReg,&nbsp;vReg]</code>.
+</p>
+<p>
+The inclination angle&nbsp;<var>&alpha;</var> is either constant or prescribed by
+the input <code>inclination</code> = tan(<var>&alpha;</var>).
+This corresponds to the road rise over running distance of 100&nbsp;m which,
+in general, is written as a&nbsp;percentage.
+For example for a&nbsp;road rising by 10&nbsp;m over 100&nbsp;m the
+grade&nbsp;=&nbsp;10&nbsp;% and, thus, the parameter
+<code>inclinationConstant&nbsp;=&nbsp;0.1</code>.
+Positive inclination means driving uphill, negative inclination means
+driving downhill, in case of positive vehicle velocity.
+</p>
+
+<h4>Inclination resistance</h4>
+<blockquote>
+<pre>
+fGrav = m*g*sin(alpha)
+</pre>
+</blockquote>
+<p>
+With the inclination angle&nbsp;<var>&alpha;</var> described above.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Total mass of vehicle [kg]</td></tr>
+<tr><td>g</td><td>Constant gravity acceleration [m/s2]</td></tr>
+<tr><td>J</td><td>Total rotational inertia of drive train [kg.m2]</td></tr>
+<tr><td>R</td><td>Wheel radius [m]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Driving resistances</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Drag resistance</td></tr>
+<tr><td>A</td><td>Cross section of vehicle [m2]</td></tr>
+<tr><td>Cd</td><td>Drag resistance coefficient</td></tr>
+<tr><td>rho</td><td>Density of air [kg/m3]</td></tr>
+<tr><td>useWindInput</td><td>Enable signal input for wind velocity</td></tr>
+<tr><td>vWindConstant</td><td>Constant wind velocity [m/s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Rolling resistance</td></tr>
+<tr><td>useCrInput</td><td>Enable signal input for Cr</td></tr>
+<tr><td>CrConstant</td><td>Constant rolling resistance coefficient</td></tr>
+<tr><td>vReg</td><td>Velocity for regularization around 0 [m/s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Inclination resistance</td></tr>
+<tr><td>useInclinationInput</td><td>Enable signal input for inclination</td></tr>
+<tr><td>inclinationConstant</td><td>Constant inclination = tan(angle)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flangeT</td><td>Translational flange</td></tr>
+<tr><td>flangeR</td><td>Rotational flange</td></tr>
+<tr><td>inclination</td><td>Inclination=tan(angle)</td></tr>
+<tr><td>cr</td><td>Rolling resistance coefficient</td></tr>
+<tr><td>vWind</td><td>Wind velocity [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InitializeFlange<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transld0e61e14699c63b0langeI.png" alt="Modelica.Mechanics.Translational.Components.InitializeFlange" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.InitializeFlange"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.InitializeFlange</h2>
+<p>
+<span class="ModelicaDescription">Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This component is used to optionally initialize the position, speed,
+and/or acceleration of the flange to which this component
+is connected. Via parameters use_s_start, use_v_start, use_a_start
+the corresponding input signals s_start, v_start, a_start are conditionally
+activated. If an input is activated, the corresponding flange property
+is initialized with the input value at start time.
+</p>
+
+<p>
+For example, if "use_s_start = true", then flange.s is initialized
+with the value of the input signal "s_start" at the start time.
+</p>
+
+<p>
+Additionally, it is optionally possible to define the "StateSelect"
+attribute of the flange position and the flange speed via parameter
+"stateSelection".
+</p>
+
+<p>
+This component is especially useful when the initial values of a flange
+shall be set according to reference signals of a controller that are
+provided via a signal bus.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>use_s_start</td><td>= true, if initial position is defined by input s_start, otherwise not initialized</td></tr>
+<tr><td>use_v_start</td><td>= true, if initial speed is defined by input v_start, otherwise not initialized</td></tr>
+<tr><td>use_a_start</td><td>= true, if initial acceleration is defined by input a_start, otherwise not initialized</td></tr>
+<tr><td>stateSelect</td><td>Priority to use flange angle and speed as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s_start</td><td>Initial position of flange [m]</td></tr>
+<tr><td>v_start</td><td>Initial speed of flange [m/s]</td></tr>
+<tr><td>a_start</td><td>Initial angular acceleration of flange [m/s2]</td></tr>
+<tr><td>flange</td><td>Flange that is initialized</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MassWithStopAndFriction<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl4e1c89eeff4e2bcactionI.png" alt="Modelica.Mechanics.Translational.Components.MassWithStopAndFriction" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.MassWithStopAndFriction"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.MassWithStopAndFriction</h2>
+<p>
+<span class="ModelicaDescription">Sliding mass with hard stop and Stribeck friction</span>
+</p>
+<h3>Information</h3>
+
+<p>This element describes the <em>Stribeck friction characteristics</em> of a sliding mass,
+i. e. the frictional force acting between the sliding mass and the support. Included is a
+<em>hard stop</em> for the position.</p>
+<p>
+The surface is fixed and there is friction between sliding mass and surface.
+The frictional force f is given for positive velocity v by:
+</p>
+<blockquote><pre>
+f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)
+</pre></blockquote>
+
+<div>
+<img src="Resources/Images/Mechanics/Translational/Components/Stribeck.png" alt="Stribeck friction">
+</div>
+
+<p>
+The distance between the left and the right connector is given by parameter L.
+The position of the center of gravity, coordinate s, is in the middle between
+the two flanges.</p>
+<p>
+There are hard stops at smax and smin, i. e. if
+<em><code>flange_a.s &gt;= smin</code></em> and <em><code>flange_b.s &lt;= xmax </code></em> the sliding mass can move freely.</p>
+<p>When the absolute velocity becomes zero, the sliding mass becomes stuck, i.e., the absolute position remains constant. In this phase the
+friction force is calculated from a force balance due to the requirement that the
+absolute acceleration shall be zero. The elements begin to slide when the friction
+force exceeds a threshold value, called the maximum static friction force, computed via:</p>
+<blockquote><pre>
+maximum_static_friction =  F_Coulomb + F_Stribeck
+</pre></blockquote>
+<p>
+<font color="#ff0000"> <strong>This requires the states Stop.s and Stop.v</strong> </font>. If these states are eliminated during the index reduction
+the model will not work. To avoid this any inertias should be connected via springs
+to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided.</p>
+<p>For more details of the used friction model see the following reference:</p>
+
+<dl>
+<dt>Beater P. (1999):</dt>
+<dd><em>Entwurf hydraulischer Maschinen</em> (in German), Springer Verlag Berlin Heidelberg New York, <a href="https://doi.org/10.1007/978-3-642-58395-7">DOI 10.1007/978-3-642-58395-7</a>.</dd>
+</dl>
+
+<p>The friction model is implemented in a "clean" way by state events and leads to
+continuous/discrete systems of equations which have to be solved by appropriate
+numerical methods. The method is described in
+(see also a short sketch in <a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction"
+>UsersGuide.ModelingOfFriction</a>):
+</p>
+
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><em>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</em>.
+    CACSD'99, Aug. 22.-26, Hawaii. </dd>
+</dl>
+
+<p>More precise friction models take into account the elasticity of the material when
+the two elements are "stuck", as well as other effects, like hysteresis. This has
+the advantage that the friction element can be completely described by a differential
+equation without events. The drawback is that the system becomes stiff (about 10-20 times
+slower simulation) and that more material constants have to be supplied which requires more
+sophisticated identification. For more details, see the following references, especially
+(Armstrong and Canudas de Wit 1996):</p>
+<dl>
+<dt>
+Armstrong B. (1991):</dt>
+<dd><em>Control of Machines with Friction</em>. Kluwer Academic Press, Boston MA.<br>
+</dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996): </dt>
+<dd><em>Friction Modeling and Compensation.</em> The Control Handbook, edited by W.S.Levine, CRC Press, pp. 1369-1382.<br>
+</dd>
+<dt>Canudas de Wit C., Olsson H., &Aring;str&ouml;m K.J., and Lischinsky P. (1995): </dt>
+<dd><em>A new model for control of systems with friction.</em> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br>
+</dd>
+</dl>
+
+<h4>Optional heatPort</h4>
+<p>
+The dissipated energy is transported in form of heat to the optional heatPort connector
+that can be enabled via parameter "useHeatPort". Independently whether the heatPort is
+or is not enabled, the dissipated power is defined with variable "lossPower".
+If contact occurs at the hard stops, the lossPower is not correctly modelled
+at this time instant, because the hard stop would introduce a Dirac impulse
+in the lossPower due to the discontinuously changing kinetic energy of the mass
+(lossPower is the derivative of the kinetic energy at the time instant of the impact).
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.PartialFrictionWithStop"
+>PartialFrictionWithStop</a> (Base model of Coulomb friction elements with stop), <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</a> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>smax</td><td>Right stop for (right end of) sliding mass [m]</td></tr>
+<tr><td>smin</td><td>Left stop for (left end of) sliding mass [m]</td></tr>
+<tr><td>L</td><td>Length of component, from left flange to right flange (= flange_b.s - flange_a.s) [m]</td></tr>
+<tr><td>m</td><td>Mass [kg]</td></tr>
+<tr><td>F_prop</td><td>Velocity dependent friction [N.s/m]</td></tr>
+<tr><td>F_Coulomb</td><td>Constant friction: Coulomb force [N]</td></tr>
+<tr><td>F_Stribeck</td><td>Stribeck effect [N]</td></tr>
+<tr><td>fexp</td><td>Exponential decay [s/m]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>startForward</td><td>= true, if v_rel=0 and start of forward sliding or v_rel &gt; v_small</td></tr>
+<tr><td>startBackward</td><td>= true, if v_rel=0 and start of backward sliding or v_rel &lt; -v_small</td></tr>
+<tr><td>locked</td><td>= true, if v_rel=0 and not sliding</td></tr>
+<tr><td>s</td><td>Absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2) [m]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>v_small</td><td>Relative velocity near to zero (see model info text) [m/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelativeStates<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transld7a161412c8e2f7btatesI.png" alt="Modelica.Mechanics.Translational.Components.RelativeStates" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.RelativeStates"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.RelativeStates</h2>
+<p>
+<span class="ModelicaDescription">Definition of relative state variables</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Usually, the absolute position and the absolute velocity of
+Modelica.Mechanics.Translational.Inertia models are used as state variables.
+In some circumstances, relative quantities are better suited, e.g.,
+because it may be easier to supply initial values.
+In such cases, model <strong>RelativeStates</strong> allows the definition of state variables
+in the following way:
+</p>
+<ul>
+<li> Connect an instance of this model between two flange connectors.</li>
+<li> The <strong>relative position</strong> and the <strong>relative velocity</strong>
+     between the two connectors are used as <strong>state variables</strong>.</li>
+</ul>
+<p>
+An example is given in the next figure
+</p>
+
+<div>
+<img src="Resources/Images/Mechanics/Translational/Components/relativeStates.png" alt="Relative states">
+</div>
+
+<p>
+Here, the relative position and the relative velocity between
+the two masses are used as state variables. Additionally, the
+simulator selects either the absolute position and absolute
+velocity of model mass1 or of model mass2 as state variables.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges"
+>Translational.Interfaces.PartialTwoFlanges</a> (Component with two translational 1D flanges).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>stateSelect</td><td>Priority to use the relative angle and relative speed as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE GeneralForceToPositionAdaptor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl09ad048f76574984aptorI.png" alt="Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.GeneralForceToPositionAdaptor</h2>
+<p>
+<span class="ModelicaDescription">Signal adaptor for a Translational flange with position, speed, and acceleration as outputs and force as input (especially useful for FMUs)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Adaptor between a flange connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a Translational model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://fmi-standard.org">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.GenerationOfFMUs"
+>Translational.Examples.GenerationOfFMUs</a>.
+This adaptor has force as input and position, velocity and acceleration as output signals.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces_Adaptors.html#Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor"
+>Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor</a> (Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
+  potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>use_pder</td><td>Use output for 1st derivative of potential</td></tr>
+<tr><td>use_pder2</td><td>Use output for 2nd derivative of potential (only if 1st derivative is used, too)</td></tr>
+<tr><td>use_fder</td><td>Use input for 1st derivative of flow</td></tr>
+<tr><td>use_fder2</td><td>Use input for 2nd derivative of flow (only if 1st derivative is used, too)</td></tr>
+<tr><td>p</td><td>Output for potential [m]</td></tr>
+<tr><td>pder</td><td>Optional output for der(potential) [m/s]</td></tr>
+<tr><td>pder2</td><td>Optional output for der2(potential) [m/s2]</td></tr>
+<tr><td>f</td><td>Input for flow [N]</td></tr>
+<tr><td>fder</td><td>Optional input for der(flow) [N/s]</td></tr>
+<tr><td>fder2</td><td>Optional input for der2(flow) [N/s2]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Output for potential [m]</td></tr>
+<tr><td>pder</td><td>Optional output for der(potential) [m/s]</td></tr>
+<tr><td>pder2</td><td>Optional output for der2(potential) [m/s2]</td></tr>
+<tr><td>f</td><td>Input for flow [N]</td></tr>
+<tr><td>fder</td><td>Optional input for der(flow) [N/s]</td></tr>
+<tr><td>fder2</td><td>Optional input for der2(flow) [N/s2]</td></tr>
+<tr><td>flange</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE GeneralPositionToForceAdaptor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Translf2d3d5f70ba5062baptorI.png" alt="Modelica.Mechanics.Translational.Components.GeneralPositionToForceAdaptor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Components.GeneralPositionToForceAdaptor"></a><a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Modelica.Mechanics.Translational.Components</a>.GeneralPositionToForceAdaptor</h2>
+<p>
+<span class="ModelicaDescription">Signal adaptor for a Translational flange with force as output and position, speed and acceleration as input (especially useful for FMUs)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Adaptor between a flange connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a Translational model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://fmi-standard.org">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.GenerationOfFMUs"
+>Translational.Examples.GenerationOfFMUs</a>.
+This adaptor has position, velocity and acceleration as input signals and
+force as output signal.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(v=der(s), a=der(v)).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces_Adaptors.html#Modelica.Blocks.Interfaces.Adaptors.PotentialToFlowAdaptor"
+>Modelica.Blocks.Interfaces.Adaptors.PotentialToFlowAdaptor</a> (Signal adaptor for a connector with potential, 1st derivative of potential, and 2nd derivative of potential as inputs and
+  flow, 1st derivative of flow, and 2nd derivative of flow as outputs (especially useful for FMUs)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>use_pder</td><td>Use input for 1st derivative of potential</td></tr>
+<tr><td>use_pder2</td><td>Use input for 2nd derivative of potential (only if 1st derivative is used, too)</td></tr>
+<tr><td>use_fder</td><td>Use output for 1st derivative of flow</td></tr>
+<tr><td>use_fder2</td><td>Use output for 2nd derivative of flow (only if 1st derivative is used, too)</td></tr>
+<tr><td>p</td><td>Input for potential [m]</td></tr>
+<tr><td>pder</td><td>Optional input for der(potential) [m/s]</td></tr>
+<tr><td>pder2</td><td>Optional input for der2(potential) [m/s2]</td></tr>
+<tr><td>f</td><td>Output for flow [N]</td></tr>
+<tr><td>fder</td><td>Optional output for der(flow) [N/s]</td></tr>
+<tr><td>fder2</td><td>Optional output for der2(flow) [N/s2]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Input for potential [m]</td></tr>
+<tr><td>pder</td><td>Optional input for der(potential) [m/s]</td></tr>
+<tr><td>pder2</td><td>Optional input for der2(potential) [m/s2]</td></tr>
+<tr><td>f</td><td>Output for flow [N]</td></tr>
+<tr><td>fder</td><td>Optional output for der(flow) [N/s]</td></tr>
+<tr><td>fder2</td><td>Optional output for der2(flow) [N/s2]</td></tr>
+<tr><td>flange</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:44 2026.
+</address>
+</body>
+</html>

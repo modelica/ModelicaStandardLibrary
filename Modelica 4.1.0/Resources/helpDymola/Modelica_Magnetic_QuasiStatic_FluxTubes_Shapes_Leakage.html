@@ -1,0 +1,447 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Leakage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes</a>.Leakage</h2>
+<p>
+<span class="ModelicaDescription">Leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The permeances of all elements of this package are calculated from their geometry <a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a>. These flux tube elements are intended for modelling of leakage fields through vacuum, air and other media with a relative permeability
+<img src="Resources/Images/Magnetic/QuasiStatic/FluxTubes/mu_r-1.png">.
+<a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient"
+>Basic.LeakageWithCoefficient</a> accounts for leakage not by the geometry of flux tubes, but by a coupling coefficient <code>c_usefulFlux</code>.
+</p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterCylinder" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterCylinder"
+>QuarterCylinder</a>
+</td>
+<td>Leakage flux from one edge to the opposite plane through a quarter cylinder</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder"
+>QuarterHollowCylinder</a>
+</td>
+<td>Leakage flux in circumferential direction through a quarter hollow cylinder</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfCylinder" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfCylinder"
+>HalfCylinder</a>
+</td>
+<td>Leakage flux through the edges of a half cylinder</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfHollowCylinder" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfHollowCylinder"
+>HalfHollowCylinder</a>
+</td>
+<td>Leakage flux in circumferential direction through a half hollow cylinder</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterSphere" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterSphere"
+>QuarterSphere</a>
+</td>
+<td>Leakage flux through the corners of a quarter sphere</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowSphere" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowSphere"
+>QuarterHollowSphere</a>
+</td>
+<td>Leakage flux through the edges of a quarter hollow sphere</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.EighthOfSphere" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.EighthOfSphere"
+>EighthOfSphere</a>
+</td>
+<td>Leakage flux through one edge and the opposite plane of an eighth of a sphere</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.EighthOfHollowSphere" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.EighthOfHollowSphere"
+>EighthOfHollowSphere</a>
+</td>
+<td>Leakage flux through one edge and the opposite plane of an eighth of a hollow sphere</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces"
+>CoaxCylindersEndFaces</a>
+</td>
+<td>Leakage flux between the end planes of a inner solid cylinder and a coaxial outer hollow cylinder</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE QuarterCylinder<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterCylinder" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterCylinder"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</a>.QuarterCylinder</h2>
+<p>
+<span class="ModelicaDescription">Leakage flux from one edge to the opposite plane through a quarter cylinder</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In
+<a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a>
+the equations for determining the reluctance
+<img src="Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png">
+are summarized. As an alternative to the geometry based data a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Basic.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"
+>generic leakage</a> model is provided in this library.
+</p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage"
+>BaseClasses.Leakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>l</td><td>Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r&gt;&gt;distance between edge and plane) [m]</td></tr>
+<tr><td colspan=2><img src="Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterCylinder.png"></td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE QuarterHollowCylinder<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</a>.QuarterHollowCylinder</h2>
+<p>
+<span class="ModelicaDescription">Leakage flux in circumferential direction through a quarter hollow cylinder</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In
+<a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a>
+the equations for determining the reluctance
+<img src="Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png">
+are summarized. As an alternative to the geometry based data a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Basic.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"
+>generic leakage</a> model is provided in this library.
+</p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage"
+>BaseClasses.Leakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>l</td><td>Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r&gt;&gt;r_i) [m]</td></tr>
+<tr><td colspan=2><img src="Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterHollowCylinder.png"></td></tr>
+<tr><td>ratio</td><td>Constant ratio t/r_i</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HalfCylinder<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfCylinder" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfCylinder"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</a>.HalfCylinder</h2>
+<p>
+<span class="ModelicaDescription">Leakage flux through the edges of a half cylinder</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In
+<a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a>
+the equations for determining the reluctance
+<img src="Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png">
+are summarized. As an alternative to the geometry based data a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Basic.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"
+>generic leakage</a> model is provided in this library.
+</p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage"
+>BaseClasses.Leakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>l</td><td>Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r&gt;&gt;distance between edges) [m]</td></tr>
+<tr><td colspan=2><img src="Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/HalfCylinder.png"></td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HalfHollowCylinder<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfHollowCylinder" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfHollowCylinder"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</a>.HalfHollowCylinder</h2>
+<p>
+<span class="ModelicaDescription">Leakage flux in circumferential direction through a half hollow cylinder</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In
+<a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a>
+the equations for determining the reluctance
+<img src="Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png">
+are summarized. As an alternative to the geometry based data a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Basic.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"
+>generic leakage</a> model is provided in this library.
+</p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage"
+>BaseClasses.Leakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>l</td><td>Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r&gt;&gt;r_i) [m]</td></tr>
+<tr><td colspan=2><img src="Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/HalfHollowCylinder.png"></td></tr>
+<tr><td>ratio</td><td>Constant ratio t/r_i</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE QuarterSphere<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterSphere" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterSphere"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</a>.QuarterSphere</h2>
+<p>
+<span class="ModelicaDescription">Leakage flux through the corners of a quarter sphere</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In
+<a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a>
+the equations for determining the reluctance
+<img src="Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png">
+are summarized. As an alternative to the geometry based data a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Basic.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"
+>generic leakage</a> model is provided in this library.
+</p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage"
+>BaseClasses.Leakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>r</td><td>Radius of quarter sphere [m]</td></tr>
+<tr><td colspan=2><img src="Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterSphere.png"></td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE QuarterHollowSphere<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowSphere" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowSphere"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</a>.QuarterHollowSphere</h2>
+<p>
+<span class="ModelicaDescription">Leakage flux through the edges of a quarter hollow sphere</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In
+<a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a>
+the equations for determining the reluctance
+<img src="Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png">
+are summarized. As an alternative to the geometry based data a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Basic.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"
+>generic leakage</a> model is provided in this library.
+</p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage"
+>BaseClasses.Leakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>t</td><td>Thickness of spherical shell [m]</td></tr>
+<tr><td colspan=2><img src="Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterHollowSphere.png"></td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE EighthOfSphere<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.EighthOfSphere" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.EighthOfSphere"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</a>.EighthOfSphere</h2>
+<p>
+<span class="ModelicaDescription">Leakage flux through one edge and the opposite plane of an eighth of a sphere</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In
+<a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a>
+the equations for determining the reluctance
+<img src="Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png">
+are summarized. As an alternative to the geometry based data a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Basic.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"
+>generic leakage</a> model is provided in this library.
+</p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage"
+>BaseClasses.Leakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>r</td><td>Radius of eighth of sphere [m]</td></tr>
+<tr><td colspan=2><img src="Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/EighthOfSphere.png"></td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE EighthOfHollowSphere<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.EighthOfHollowSphere" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.EighthOfHollowSphere"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</a>.EighthOfHollowSphere</h2>
+<p>
+<span class="ModelicaDescription">Leakage flux through one edge and the opposite plane of an eighth of a hollow sphere</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In
+<a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a>
+the equations for determining the reluctance
+<img src="Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png">
+are summarized. As an alternative to the geometry based data a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Basic.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"
+>generic leakage</a> model is provided in this library.
+</p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage"
+>BaseClasses.Leakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>t</td><td>Thickness of spherical shell [m]</td></tr>
+<tr><td colspan=2><img src="Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/EighthOfHollowSphere.png"></td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CoaxCylindersEndFaces<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_Leakage.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</a>.CoaxCylindersEndFaces</h2>
+<p>
+<span class="ModelicaDescription">Leakage flux between the end planes of a inner solid cylinder and a coaxial outer hollow cylinder</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In
+<a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a>
+the equations for determining the reluctance
+<img src="Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m.png">
+are summarized. As an alternative to the geometry based data a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Basic.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"
+>generic leakage</a> model is provided in this library.
+</p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage"
+>BaseClasses.Leakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>r_0</td><td>Radius of inner solid cylinder [m]</td></tr>
+<tr><td colspan=2><img src="Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/CoaxCylindersEndFaces.png"></td></tr>
+<tr><td>r_1</td><td>Inner radius of outer hollow cylinder [m]</td></tr>
+<tr><td>r_2</td><td>Outer radius of outer hollow cylinder [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:42 2026.
+</address>
+</body>
+</html>

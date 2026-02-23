@@ -1,0 +1,769 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Water.IF97_Utilities.BaseIF97</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Modelica Physical Property Model: the new industrial formulation IAPWS-IF97&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BaseIF97<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Water.IF97_Utilities.BaseIF97"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.BaseIF97</h2>
+<p>
+<span class="ModelicaDescription">Modelica Physical Property Model: the new industrial formulation IAPWS-IF97</span>
+</p>
+<h3>Information</h3>
+
+<style type="text/css">
+.nobr
+{
+white-space:nowrap;
+}
+</style>
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+    for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
+  </li>
+  <li>
+    Code reorganization, enhanced documentation, additional functions:   <em>December, 2002</em>
+    by <a href="https://github.com/hubertus65">Hubertus Tummescheit</a> and moved to Modelica
+    properties library.
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit, previously at<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+</address>
+<p>
+In September 1997, the International Association for the Properties
+of Water and Steam (<a href="http://www.iapws.org">IAPWS</a>) adopted a
+new formulation for the thermodynamic properties of water and steam for
+industrial use. This new industrial standard is called "IAPWS Industrial
+Formulation for the Thermodynamic Properties of Water and Steam" (IAPWS-IF97).
+The formulation IAPWS-IF97 replaces the previous industrial standard IFC-67.
+</p>
+<p>
+Based on this new formulation, a new steam table, titled "<a href="https://doi.org/10.1007/978-3-662-03529-0">Properties of Water and Steam</a>" by W. Wagner and A. Kruse, was published by
+the Springer-Verlag, Berlin - New-York - Tokyo in April 1998. This
+steam table, ref. <a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#steamprop"
+>[1]</a> is bilingual (English /
+German) and contains a complete description of the equations of
+IAPWS-IF97. This reference is the authoritative source of information
+for this implementation. A mostly identical version has been published by the International
+Association for the Properties
+of Water and Steam (<a href="http://www.iapws.org">IAPWS</a>) with permission granted to re-publish the
+information if credit is given to IAPWS. This document is distributed with this library as
+<a href="Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a>.
+In addition, the equations published by <a href="http://www.iapws.org">IAPWS</a> for
+the transport properties dynamic viscosity (standards document: <a href="Resources/Documentation/Media/Water/IF97documentation/visc.pdf">visc.pdf</a>)
+and thermal conductivity (standards document: <a href="Resources/Documentation/Media/Water/IF97documentation/thcond.pdf">thcond.pdf</a>)
+and equations for the surface tension (standards document: <a href="Resources/Documentation/Media/Water/IF97documentation/surf.pdf">surf.pdf</a>)
+are also implemented in this library and included for reference.
+</p>
+<p>
+The functions in BaseIF97.mo are low level functions which should
+only be used in those exceptions when the standard user level
+functions in Water.mo do not contain the wanted properties.
+</p>
+<p>
+Based on IAPWS-IF97, Modelica functions are available for calculating
+the most common thermophysical properties (thermodynamic and transport
+properties). The implementation requires part of the common medium
+property infrastructure of the Modelica.Thermal.Properties library in the file
+Common.mo. There are a few extensions from the version of IF97 as
+documented in <a href="Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a> in order to improve performance for
+dynamic simulations. Input variables for calculating the properties are
+only implemented for a limited number of variable pairs which make sense as dynamic states: (p,h), (p,T), (p,s) and (d,T).
+</p>
+
+<hr size="3" width="70%">
+
+<h4><a name="regions">1. Structure and Regions of IAPWS-IF97</a></h4>
+<p>
+The IAPWS Industrial Formulation 1997 consists of
+a set of equations for different regions which cover the following range
+of validity:
+</p>
+<table border="0" cellpadding="4">
+  <tr>
+    <td>273,15 K &lt; <em>T</em> &lt; 1073,15 K</td>
+    <td><em>p</em> &lt; 100 MPa</td>
+  </tr>
+  <tr>
+    <td>1073,15 K &lt; <em>T</em> &lt; 2273,15 K</td>
+    <td><em>p</em> &lt; 10 MPa</td>
+  </tr>
+</table>
+<p>
+Figure 1 shows the 5 regions into which the entire range of validity of
+IAPWS-IF97 is divided. The boundaries of the regions can be directly taken
+from Fig. 1 except for the boundary between regions 2 and 3; this boundary,
+which corresponds approximately to the isentropic line <span class="nobr"><em>s</em> = 5.047 kJ kg
+<sup>-1</sup>K<sup>-1</sup></span>, is defined
+by a corresponding auxiliary equation. Both regions 1 and 2 are individually
+covered by a fundamental equation for the specific Gibbs free energy <span class="nobr"><em>g</em>( <em>p</em>,<em>T</em> )</span>, region 3 by a fundamental equation for the specific Helmholtz
+free energy <span class="nobr"><em>f </em>(<em> <font face="symbol">r</font></em>,<em>T
+</em>)</span>, and the saturation curve, corresponding to region 4, by a saturation-pressure
+equation <span><em>p</em><sub>s</sub>( <em>T</em> )</span>. The high-temperature
+region 5 is also covered by a <span class="nobr"><em>g</em>( <em>p</em>,<em>T</em> )</span> equation. These
+5 equations, shown in rectangular boxes in Fig. 1, form the so-called <em>basic
+equations</em>.
+</p>
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption>Figure 1: Regions and equations of IAPWS-IF97</caption>
+  <tr>
+    <td>
+      <img src="Resources/Images/Media/Water/if97.png" alt="Regions and equations of IAPWS-IF97">
+    </td>
+  </tr>
+</table>
+<p>
+In addition to these basic equations, so-called <em>backward
+equations</em> are provided for regions 1, 2, and 4 in form of
+<span class="nobr"><em>T</em>( <em>p</em>,<em>h</em> )</span> and <span class="nobr"><em>T</em>( <em>
+p</em>,<em>s</em> )</span> for regions 1 and 2, and <span class="nobr"><em>T</em><sub>s</sub>( <em>p</em> )</span> for region 4. These
+backward equations, marked in grey in Fig. 1, were developed in such a
+way that they are numerically very consistent with the corresponding
+basic equation. Thus, properties as functions of&nbsp; <em>p</em>,<em>h
+</em>and of&nbsp;<em> p</em>,<em>s </em>for regions 1 and 2, and of
+<em>p</em> for region 4 can be calculated without any iteration. As a
+result of this special concept for the development of the new
+industrial standard IAPWS-IF97, the most important properties can be
+calculated extremely quickly. All Modelica functions are optimized
+with regard to short computing times.
+</p>
+<p>
+The complete description of the individual equations of the new industrial
+formulation IAPWS-IF97 is given in <a href="Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a>. Comprehensive information on
+IAPWS-IF97 (requirements, concept, accuracy, consistency along region boundaries,
+and the increase of computing speed in comparison with IFC-67, etc.) can
+be taken from <a href="Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a> or [2].
+</p>
+<p>
+<a name="steamprop">[1]<em>Wagner, W., Kruse, A.</em> Properties of Water
+and Steam / Zustandsgr&ouml;&szlig;en von Wasser und Wasserdampf / IAPWS-IF97.
+Springer-Verlag, Berlin, 1998.</a>
+</p>
+<p>
+[2] <em>Wagner, W., Cooper, J. R., Dittmann, A., Kijima,
+J., Kretzschmar, H.-J., Kruse, A., Mare&#353; R., Oguchi, K., Sato, H., St&ouml;cker,
+I., &#352;ifner, O., Takaishi, Y., Tanishita, I., Tr&uuml;benbach, J., and Willkommen,
+Th.</em> The IAPWS Industrial Formulation 1997 for the Thermodynamic Properties
+of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (2000), 150 - 182.
+</p>
+
+<hr size="3" width="90%">
+
+<h4>2. Calculable Properties</h4>
+<table border="1" cellpadding="2" cellspacing="0">
+  <tr>
+    <td bgcolor="#cccccc"><br>
+    </td>
+    <td bgcolor="#cccccc">
+      <strong>Common name</strong><br>
+    </td>
+    <td bgcolor="#cccccc">
+      <strong>Abbreviation</strong><br>
+    </td>
+    <td bgcolor="#cccccc">
+      <strong>Unit</strong><br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;1<br>
+    </td>
+    <td>Pressure</td>
+    <td>p<br>
+    </td>
+    <td>Pa<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;2<br>
+    </td>
+    <td>Temperature</td>
+    <td>T<br>
+    </td>
+    <td>K<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;3<br>
+    </td>
+    <td>Density</td>
+    <td>d<br>
+    </td>
+    <td>kg/m<sup>3</sup><br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;4<br>
+    </td>
+    <td>Specific volume</td>
+    <td>v<br>
+    </td>
+    <td>m<sup>3</sup>/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;5<br>
+    </td>
+    <td>Specific enthalpy</td>
+    <td>h<br>
+    </td>
+    <td>J/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;6<br>
+    </td>
+    <td>Specific entropy</td>
+    <td>s<br>
+    </td>
+    <td>J/(kg K)<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;7<br>
+    </td>
+    <td>Specific internal energy<br>
+    </td>
+    <td>u<br>
+    </td>
+    <td>J/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;8<br>
+    </td>
+    <td>Specific isobaric heat capacity</td>
+    <td>c<sub>p</sub><br>
+    </td>
+    <td>J/(kg K)<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;9<br>
+    </td>
+    <td>Specific isochoric heat capacity</td>
+    <td>c<sub>v</sub><br>
+    </td>
+    <td>J/(kg K)<br>
+    </td>
+  </tr>
+  <tr>
+    <td>10<br>
+    </td>
+    <td>Isentropic exponent, kappa = -(v/p) (dp/dv)<sub>s</sub></td>
+    <td>kappa (&kappa;)<br>
+    </td>
+    <td>1<br>
+    </td>
+  </tr>
+  <tr>
+    <td>11<br>
+    </td>
+    <td>Speed of sound<br>
+    </td>
+    <td>a<br>
+    </td>
+    <td>m/s<br>
+    </td>
+  </tr>
+  <tr>
+    <td>12<br>
+    </td>
+    <td>Dryness fraction<br>
+    </td>
+    <td>x<br>
+    </td>
+    <td>kg/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>13<br>
+    </td>
+    <td>Specific Helmholtz free energy, f = u - Ts</td>
+    <td>f<br>
+    </td>
+    <td>J/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>14<br>
+    </td>
+    <td>Specific Gibbs free energy, g = h - Ts</td>
+    <td>g<br>
+    </td>
+    <td>J/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>15<br>
+    </td>
+    <td>Isenthalpic exponent, theta = -(v/p) (dp/dv)<sub>h</sub></td>
+    <td>theta (&theta;)<br>
+    </td>
+    <td>1<br>
+    </td>
+  </tr>
+  <tr>
+    <td>16<br>
+    </td>
+    <td>Isobaric volume expansion coefficient, alpha = v<sup>-1</sup> (dv/dT)<sub>p</sub></td>
+    <td>alpha (&alpha;)<br>
+    </td>
+    <td>1/K<br>
+    </td>
+  </tr>
+  <tr>
+    <td>17<br>
+    </td>
+    <td>Isochoric pressure coefficient, beta = p<sup>-1</sup>(dp/dT)<sub>v</sub></td>
+    <td>beta (&beta;)<br>
+    </td>
+    <td>1/K<br>
+    </td>
+  </tr>
+  <tr>
+    <td>18<br>
+    </td>
+    <td>Isothermal compressibility, gamma = -v<sup>-1</sup>(dv/dp)<sub>T</sub></td>
+    <td>gamma (&gamma;)<br>
+    </td>
+    <td>1/Pa<br>
+    </td>
+  </tr>
+  <!-- <tr><td>f</td><td>Fugacity</td></tr> -->
+  <tr>
+    <td>19<br>
+    </td>
+    <td>Dynamic viscosity</td>
+    <td>eta (&eta;)<br>
+    </td>
+    <td>Pa s<br>
+    </td>
+  </tr>
+  <tr>
+    <td>20<br>
+    </td>
+    <td>Kinematic viscosity</td>
+    <td>nu (&nu;)<br>
+    </td>
+    <td>m<sup>2</sup>/s<br>
+    </td>
+  </tr>
+  <!-- <tr><td>Pr</td><td>Prandtl number</td></tr> -->
+  <tr>
+    <td>21<br>
+    </td>
+    <td>Thermal conductivity</td>
+    <td>lambda (&lambda;)<br>
+    </td>
+    <td>W/(m K)<br>
+    </td>
+  </tr>
+  <tr>
+    <td>22<br>
+    </td>
+    <td>Surface tension</td>
+    <td>sigma (&sigma;)<br>
+    </td>
+    <td>N/m<br>
+    </td>
+  </tr>
+</table>
+<p>
+The properties 1-11 are calculated by default with the functions for dynamic
+simulation, 2 of these variables are the dynamic states and are the inputs
+to calculate all other properties. In addition to these properties
+of general interest, the entries to the thermodynamic Jacobian matrix which render
+the mass- and energy balances explicit in the input variables to the property calculation are also calculated.
+For an explanatory example using pressure and specific enthalpy as states, see the Examples sub-package.</p>
+<p>The high-level calls to steam properties are grouped into records comprising both the properties of general interest
+and the entries to the thermodynamic Jacobian. If additional properties are
+needed the low level functions in BaseIF97 provide more choice.</p>
+
+<hr size="3" width="90%">
+
+<h4>Additional functions</h4>
+<ul>
+  <li>
+    Function <strong>boundaryvals_p</strong> computes the temperature and the specific enthalpy and
+    entropy on both phase boundaries as a function of p
+  </li>
+  <li>
+    Function <strong>boundaryderivs_p</strong> is the Modelica derivative function of <strong>boundaryvals_p</strong>
+  </li>
+  <li>
+    Function <strong>extraDerivs_ph</strong> computes all entries to Bridgmans tables for all
+    one-phase regions of IF97 using inputs (p,h). All 336 directional derivatives of the
+    thermodynamic surface can be computed as a ratio of two entries in the return data, see package Common
+    for details.
+  </li>
+  <li>
+    Function <strong>extraDerivs_pT</strong> computes all entries to Bridgmans tables for all
+    one-phase regions of IF97 using inputs (p,T).
+  </li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.IterationData" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.IterationData"
+>IterationData</a>
+</td>
+<td>Constants for iterations internal to some functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.data" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.data"
+>data</a>
+</td>
+<td>Constant IF97 data and region limits</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.getTstar" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.getTstar"
+>getTstar</a>
+</td>
+<td>Get normalization temperature for region 1, 2 or 5</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.getpstar" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.getpstar"
+>getpstar</a>
+</td>
+<td>Get normalization pressure for region 1, 2 or 5</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.critical" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.critical"
+>critical</a>
+</td>
+<td>Critical point data</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.triple" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.triple"
+>triple</a>
+</td>
+<td>Triple point data</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Regions</a>
+</td>
+<td>Functions to find the current region for given pairs of input variables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Basic</a>
+</td>
+<td>Base functions as described in IAWPS/IF97</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries"
+>IceBoundaries</a>
+</td>
+<td>The melting line and sublimation line curves from IAPWS</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Transport.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport"
+>Transport</a>
+</td>
+<td>Transport properties for water according to IAPWS/IF97</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Isentropic</a>
+</td>
+<td>Functions for calculating the isentropic enthalpy from pressure p and specific entropy s</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Inverses</a>
+</td>
+<td>Efficient inverses for selected pairs of variables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.ByRegion" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_ByRegion.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.ByRegion"
+>ByRegion</a>
+</td>
+<td>Simple explicit functions for one region only</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase"
+>TwoPhase</a>
+</td>
+<td>Steam properties in the two-phase region and on the phase boundaries</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_ph"
+>extraDerivs_ph</a>
+</td>
+<td>Function to calculate some extra thermophysical properties in regions 1, 2, 3 and 5 as f(p,h)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_pT"
+>extraDerivs_pT</a>
+</td>
+<td>Function to calculate some extra thermophysical properties in regions 1, 2, 3 and 5 as f(p,T)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IterationData<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.IterationData" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.IterationData"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.IterationData</h2>
+<p>
+<span class="ModelicaDescription">Constants for iterations internal to some functions</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE data<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.data" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.data"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.data</h2>
+<p>
+<span class="ModelicaDescription">Constant IF97 data and region limits</span>
+</p>
+<h3>Information</h3>
+
+<h4>Record description</h4>
+<p>Constants needed in the international steam properties IF97.
+SCRIT and HCRIT are calculated from Helmholtz function for region 3.</p>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit, previously at<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+</address>
+<ul>
+  <li>Initial version: July 2000</li>
+  <li>Documentation added: December 2002</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTstar<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.getTstar" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.getTstar"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.getTstar</h2>
+<p>
+<span class="ModelicaDescription">Get normalization temperature for region 1, 2 or 5</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>region</td><td>IF 97 region</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Tstar</td><td>Normalization temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getpstar<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.getpstar" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.getpstar"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.getpstar</h2>
+<p>
+<span class="ModelicaDescription">Get normalization pressure for region 1, 2 or 5</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>region</td><td>IF 97 region</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pstar</td><td>Normalization pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE critical<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.critical" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.critical"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.critical</h2>
+<p>
+<span class="ModelicaDescription">Critical point data</span>
+</p>
+<h3>Information</h3>
+
+<h4>Record description</h4>
+<p>
+Critical point data for IF97 steam properties. SCRIT and HCRIT are calculated from Helmholtz function for region 3.
+</p>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit, previously at<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+</address>
+<ul>
+  <li>Initial version: July 2000</li>
+  <li>Documentation added: December 2002</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE triple<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.triple" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.triple"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.triple</h2>
+<p>
+<span class="ModelicaDescription">Triple point data</span>
+</p>
+<h3>Information</h3>
+
+<h4>Record description</h4>
+<p>Vapour/liquid/ice triple point data for IF97 steam properties.</p>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit, previously at<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+</address>
+<ul>
+  <li>Initial version: July 2000</li>
+  <li>Documentation added: December 2002</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE extraDerivs_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_ph"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.extraDerivs_ph</h2>
+<p>
+<span class="ModelicaDescription">Function to calculate some extra thermophysical properties in regions 1, 2, 3 and 5 as f(p,h)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>Phase: 2 for two-phase, 1 for one phase, 0 if unknown</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dpro</td><td>Thermodynamic property collection</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE extraDerivs_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_pT"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.extraDerivs_pT</h2>
+<p>
+<span class="ModelicaDescription">Function to calculate some extra thermophysical properties in regions 1, 2, 3 and 5 as f(p,T)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dpro</td><td>Thermodynamic property collection</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:51 2026.
+</address>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Clocked.RealSignals.Sampler.Utilities.Internal</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Internal blocks and functions that are usually of no interest for the user&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Internal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal"></a><a href="Modelica_Clocked_RealSignals_Sampler_Utilities.html#Modelica.Clocked.RealSignals.Sampler.Utilities"
+>Modelica.Clocked.RealSignals.Sampler.Utilities</a>.Internal</h2>
+<p>
+<span class="ModelicaDescription">Internal blocks and functions that are usually of no interest for the user</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The blocks in this package are internal that should usually not be
+utilized directly by the user (they are used as building blocks
+in "higher level" blocks).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.RealSignc7a1d6e2ecd9113dDelayS.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.ComputationalDelay" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.ComputationalDelay"
+>ComputationalDelay</a>
+</td>
+<td>Delay a clocked signal for at most one period, in order to model a computational delay</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.RealSign41841dd352ef38e5NoiseS.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise"
+>UniformNoise</a>
+</td>
+<td>Add band-limited uniform noise using a variant of the Wichmann-Hill algorithm</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.RealSign41841dd352ef38e5NoiseS.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star"
+>UniformNoiseXorshift64star</a>
+</td>
+<td>Add band-limited uniform noise based on a xorshift64* number generator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.RealSignc7a1d6e2ecd9113dDelayS.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Quantization" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Quantization"
+>Quantization</a>
+</td>
+<td>DAC quantization effects</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.RealSigne68cb37b8ace9ed1miterS.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Limiter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Limiter"
+>Limiter</a>
+</td>
+<td>Limit the range of a signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.RealSigncd0d4cf46097c39dandomS.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.random" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.random"
+>random</a>
+</td>
+<td>Pseudo random number generator</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ComputationalDelay<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.RealSignc7a1d6e2ecd9113dDelayI.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.ComputationalDelay" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.ComputationalDelay"></a><a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal"
+>Modelica.Clocked.RealSignals.Sampler.Utilities.Internal</a>.ComputationalDelay</h2>
+<p>
+<span class="ModelicaDescription">Delay a clocked signal for at most one period, in order to model a computational delay</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block delays a clocked Real input signal by the fraction
+shiftCounter/resolution of the last interval.
+There is the restriction that shiftCounter/resolution &le; 1.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_RealSignals_Interfaces.html#Modelica.Clocked.RealSignals.Interfaces.PartialClockedSISO"
+>Clocked.RealSignals.Interfaces.PartialClockedSISO</a> (Block with clocked single input and clocked single output Real signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Computational delay in seconds = interval() * shiftCounter/resolution</td></tr>
+<tr><td>shiftCounter</td><td>(min=0, max=resolution), computational delay = interval()*shiftCounter/resolution</td></tr>
+<tr><td>resolution</td><td>Time quantization resolution of sample interval</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of clocked, Real input signal</td></tr>
+<tr><td>y</td><td>Connector of clocked, Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UniformNoise<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.RealSign41841dd352ef38e5NoiseI.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise"></a><a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal"
+>Modelica.Clocked.RealSignals.Sampler.Utilities.Internal</a>.UniformNoise</h2>
+<p>
+<span class="ModelicaDescription">Add band-limited uniform noise using a variant of the Wichmann-Hill algorithm</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block adds uniformly distributed noise
+in the range noiseMin&nbsp;&hellip;&nbsp;noiseMax to the clocked Real input signal
+and provides the sum as clocked Real output signal.
+</p>
+
+<p>
+The Integer[3] parameter vector <strong>firstSeed</strong> is used to initialize the
+basic random number generator. The 3 elements of firstSeed need
+to be in the range [0, 255]. The use of the same seed vector
+will lead to the same sequence of numbers when these are computed serially.
+This is usually not desired. Therefore, for every usage of block
+<strong>Noise</strong> a different firstSeed should be defined.
+</p>
+
+<p>
+This noise generator is based on a function that generates
+a random real number uniformly in the semi-open range [0.0, 1.0).
+The function uses the standard Wichmann-Hill generator,
+combining three pure multiplicative congruential generators of
+modulus 30269, 30307 and 30323. Its period (how many numbers it
+generates before repeating the sequence exactly) is 6,953,607,871,644.
+While of much higher quality than the rand() function supplied by
+most C libraries, the theoretical properties are much the same
+as for a single linear congruential generator of large modulus.
+For more details, see the underlying function
+<a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.random"
+>Internal.random</a>.
+</p>
+
+<h4>Example</h4>
+<p>
+The following
+<a href="Modelica_Clocked_Examples_Elementary_RealSignals.html#Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise"
+>example</a>
+samples zero signal with a periodic clock of 20 ms period, and adds
+noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="Resources/Images/Clocked/RealSignals/UniformNoise_Model.png" alt="UniformNoise_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="Resources/Images/Clocked/RealSignals/UniformNoise_Result.png" alt="UniformNoise_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_RealSignals_Interfaces.html#Modelica.Clocked.RealSignals.Interfaces.PartialNoise"
+>Clocked.RealSignals.Interfaces.PartialNoise</a> (Interface for SISO blocks with Real signals that add noise to the signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>noiseMax</td><td>Upper limit of noise band</td></tr>
+<tr><td>noiseMin</td><td>Lower limit of noise band</td></tr>
+<tr><td>firstSeed[3]</td><td>Integer[3] defining random sequence; required element range: 0..255</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of clocked, Real input signal</td></tr>
+<tr><td>y</td><td>Connector of clocked, Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UniformNoiseXorshift64star<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.RealSign41841dd352ef38e5NoiseI.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star"></a><a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal"
+>Modelica.Clocked.RealSignals.Sampler.Utilities.Internal</a>.UniformNoiseXorshift64star</h2>
+<p>
+<span class="ModelicaDescription">Add band-limited uniform noise based on a xorshift64* number generator</span>
+</p>
+<h3>Information</h3>
+
+<p>This block adds uniformly distributed noise in the range noiseMin&nbsp;&hellip;&nbsp;noiseMax to the clocked Real input signal and provides the sum as clocked Real output signal. </p>
+<p>
+It is based on the xorshift64* algorithm.
+For more details, see the documentation to
+<a href="Modelica_Math_Random_Generators_Xorshift64star.html#Modelica.Math.Random.Generators.Xorshift64star"
+>Xorshift64star</a>.
+</p>
+<h4>Example</h4>
+<p>
+The following
+<a href="Modelica_Clocked_Examples_Elementary_RealSignals.html#Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoiseXorshift64star"
+>example</a>
+samples zero signal with a periodic clock of 20 ms period, and adds
+noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="Resources/Images/Clocked/RealSignals/UniformNoiseXorshift64star_Model.png" alt="UniformNoiseXorshift64star_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="Resources/Images/Clocked/RealSignals/UniformNoiseXorshift64star_Result.png" alt="UniformNoiseXorshift64star_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_RealSignals_Interfaces.html#Modelica.Clocked.RealSignals.Interfaces.PartialNoise"
+>Clocked.RealSignals.Interfaces.PartialNoise</a> (Interface for SISO blocks with Real signals that add noise to the signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>noiseMax</td><td>Upper limit of noise band</td></tr>
+<tr><td>noiseMin</td><td>Lower limit of noise band</td></tr>
+<tr><td>globalSeed</td><td>Global seed to initialize random number generator</td></tr>
+<tr><td>localSeed</td><td>Local seed to initialize random number generator</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of clocked, Real input signal</td></tr>
+<tr><td>y</td><td>Connector of clocked, Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Quantization<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.RealSignc7a1d6e2ecd9113dDelayI.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Quantization" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Quantization"></a><a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal"
+>Modelica.Clocked.RealSignals.Sampler.Utilities.Internal</a>.Quantization</h2>
+<p>
+<span class="ModelicaDescription">DAC quantization effects</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The clocked Real input signal is value discretized
+(the discretization is defined by parameter <strong>bits</strong>).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_RealSignals_Interfaces.html#Modelica.Clocked.RealSignals.Interfaces.PartialClockedSISO"
+>Clocked.RealSignals.Interfaces.PartialClockedSISO</a> (Block with clocked single input and clocked single output Real signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>quantized</td><td>= true, if quantization effects shall be computed</td></tr>
+<tr><td>yMax</td><td>Upper limit of output</td></tr>
+<tr><td>yMin</td><td>Lower limit of output</td></tr>
+<tr><td>bits</td><td>Number of bits of quantization (if quantized = true)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of clocked, Real input signal</td></tr>
+<tr><td>y</td><td>Connector of clocked, Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Limiter<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.RealSigne68cb37b8ace9ed1miterI.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Limiter" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Limiter"></a><a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal"
+>Modelica.Clocked.RealSignals.Sampler.Utilities.Internal</a>.Limiter</h2>
+<p>
+<span class="ModelicaDescription">Limit the range of a signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The Limiter block passes its input signal as output signal
+as long as the input is within the specified upper and lower
+limits. If this is not the case, the corresponding limits are passed
+as output.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_RealSignals_Interfaces.html#Modelica.Clocked.RealSignals.Interfaces.PartialClockedSISO"
+>Clocked.RealSignals.Interfaces.PartialClockedSISO</a> (Block with clocked single input and clocked single output Real signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>uMax</td><td>Upper limits of input signals</td></tr>
+<tr><td>uMin</td><td>Lower limits of input signals</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of clocked, Real input signal</td></tr>
+<tr><td>y</td><td>Connector of clocked, Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE random<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.RealSigncd0d4cf46097c39dandomI.png" alt="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.random" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.random"></a><a href="Modelica_Clocked_RealSignals_Sampler_Utilities_Internal.html#Modelica.Clocked.RealSignals.Sampler.Utilities.Internal"
+>Modelica.Clocked.RealSignals.Sampler.Utilities.Internal</a>.random</h2>
+<p>
+<span class="ModelicaDescription">Pseudo random number generator</span>
+</p>
+<h3>Information</h3>
+
+<p>
+<em>Random</em> generates a sequence of uniform distributed
+pseudo-random numbers. The algorithm is a variant of the
+multiplicative congruential algorithm, known as the
+Wichmann-Hill generator:</p>
+<blockquote><pre>
+x(k) = (a1*x(k-1)) mod m1
+y(k) = (a2*y(k-1)) mod m2
+z(k) = (a3*z(k-1)) mod m3
+U(k) = (x(k)/m1 + y(k)/m2 + z(k)/m3) mod 1
+</pre></blockquote>
+<p>
+This generates pseudo-random numbers U(k) uniformly distributed
+in the interval (0,1). There are many forms of generators depending
+on the parameters m (prime numbers) and a. The sequence needs an
+initial Integer vector {x,y,z} known as the seed. The use of the same
+seed will lead to the same sequence of numbers.
+</p>
+<p>
+<strong>Remarks</strong>
+</p>
+<p>Random number generators (RNG) are pseudo-functions which are not true
+functions but algorithms which deliver a fixed sequence of (usually Integer) numbers
+which should have a very large period before they repeat itself and
+appropriate statistic properties such that the sequence appears to be
+a random draw. For real-valued random numbers, the integers are scaled to
+the real interval 0.0-1.0. They result in a uniformly distributed random variate
+between 0-1, which has to be transformed to give a random variate of a wanted
+distribution. There are two types of techniques for transforming random variates:
+</p>
+<ul>
+<li>Acceptance-Rejection techniques</li>
+<li>Transformation techniques</li>
+</ul>
+<p>Acceptance-Rejection techniques throw away some of the generated variates and are thus less efficient. They can not be avoided for all distributions. A good summary about random number generation and most of the transformation techniques used below is given in:</p>
+ <address> Discrete Event Simulation <br>
+ Jerry Banks and John S. Carson II<br>
+ Prentice Hall Inc.<br>
+ Englewood Cliffs, New Jersey<br>
+ </address>
+<p>Some of the other references are quoted below.</p>
+<blockquote><pre>
+WICHMANN-HILL RANDOM NUMBER GENERATOR
+Wichmann, B. A. & Hill, I. D. (1982)
+  Algorithm AS 183:
+  An efficient and portable pseudo-random number generator
+  Applied Statistics 31 (1982) 188-190
+see also:
+  Correction to Algorithm AS 183
+  Applied Statistics 33 (1984) 123
+McLeod, A. I. (1985)
+  A remark on Algorithm AS 183
+  Applied Statistics 34 (1985),198-200
+In order to completely avoid external functions, all seeds are
+set via parameters. For simulation purposes this is almost
+always the desired behaviour.
+Translated by Hubertus Tummescheit from Python source provided by
+Guido van Rossum translated from C source by Adrian Baddeley.
+http://www.python.org/doc/current/lib/module-random.html
+R A N D O M   V A R I A B L E   G E N E R A T O R S
+distributions on the real line:
+------------------------------
+    normal (Gaussian) 2 versions
+</pre></blockquote>
+<h4>Reference Literature</h4>
+<ul>
+<li>function random: Wichmann, B. A. & Hill, I. D. (1982), Algorithm AS 183:
+  <br>
+  An efficient and portable pseudo-random number generator, Applied Statistics 31 (1982) 188-190<br>
+  see also: Correction to Algorithm AS 183, Applied Statistics 33 (1984) 123 <br>
+  McLeod, A. I. (1985), A remark on Algorithm AS 183, Applied Statistics 34 (1985),198-200</li>
+<li>function normalvariate: Kinderman, A.J. and Monahan, J.F., 'Computer generation of random
+  variables using the ratio of uniform deviates', ACM Trans Math Software, 3, (1977),
+  pp257-260.</li>
+<li>function gaussianvariate: Discrete Event Simulation, Jerry Banks and John S. Carson II,
+<br>
+  Prentice Hall Inc. Englewood Cliffs, New Jersey, page 315/316</li>
+</ul>
+<p>
+Copyright &copy; Hubertus Tummescheit and Department of Automatic Control, Lund University, Sweden.
+</p>
+<p>
+<em>This Modelica function is <strong>free</strong> software; it can be redistributed and/or modified
+under the terms of the BSD-3-Clause license.</em>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>seedIn[3]</td><td>Integer vector defining random number sequence, e.g., {23,87,187}</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Random number between 0 and 1</td></tr>
+<tr><td>seedOut[3]</td><td>Modified seed to be used for next call of random()</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:35 2026.
+</address>
+</body>
+</html>

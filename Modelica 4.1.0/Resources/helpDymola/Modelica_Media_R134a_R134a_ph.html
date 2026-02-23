@@ -1,0 +1,3292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.R134a.R134a_ph</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Medium model for R134a and p,h as states&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE R134a_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.R134a.R134a_ph"></a><a href="Modelica_Media_R134a.html#Modelica.Media.R134a"
+>Modelica.Media.R134a</a>.R134a_ph</h2>
+<p>
+<span class="ModelicaDescription">Medium model for R134a and p,h as states</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Calculation of fluid properties for Tetrafluoroethane (R134a) in the fluid region of 0.0039 bar (Triple pressure) to 700 bar and 169.85 Kelvin (Triple temperature) to 455 Kelvin.
+</p>
+<h4>Restriction</h4>
+<p>
+The functions provided by this package shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li>
+      <strong> 0.0039 bar &le; p &le; 700 bar </strong>
+ </li>
+ <li>
+      <strong> 169.85 Kelvin &le; T &le; 455 Kelvin  </strong>
+ </li>
+ <li>
+      <strong> explicit for pressure and specific enthalpy </strong>
+ </li>
+</ul>
+
+<p><strong>References</strong></p>
+<dl><dt>Baehr, H.D. and Tillner-Roth, R.: </dt>
+<dd><strong>Thermodynamic Properties of Environmentally Acceptable Refrigerants -
+Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</strong>. Springer-Verlag, Berlin (Germany), 1994.</dd>
+</dl>
+<dl><dt>Klein, McLinden and Laesecke: </dt>
+<dd><strong>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</strong>.
+Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
+</dl>
+<dl><dt>McLinden, Klein. and Perkins: </dt>
+<dd><strong>An extended corresponding states model for the thermal conductivity
+of refrigerants and refrigerant mixtures</strong>.
+Int. J. Refrig., 23 (2000) 43-63.</dd>
+</dl>
+<dl><dt>Okada and Higashi: </dt>
+<dd><strong>Surface tension correlation of HFC-134a and HCFC-123</strong>.
+Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
+</dl>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium"
+>Modelica.Media.Interfaces.PartialTwoPhaseMedium</a> (Base class for two phase medium of one substance).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>ph_explicit=true</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>dT_explicit=false</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>r134aLimits</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>r134aConstants</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.R134a.R134a_ph.SaturationProperties" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.SaturationProperties"
+>SaturationProperties</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.R134a.R134a_ph.ThermodynamicState" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.ThermodynamicState"
+>ThermodynamicState</a>
+</td>
+<td>Thermodynamic state</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.T8cbda5110bac1e7artiesS.png" alt="Modelica.Media.R134a.R134a_ph.BaseProperties" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.BaseProperties"
+>BaseProperties</a>
+</td>
+<td>Base properties of R134a</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.setState_phX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.setState_phX"
+>setState_phX</a>
+</td>
+<td>Set state for pressure and specific enthalpy (X not used since single substance)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.setState_dTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.setState_dTX"
+>setState_dTX</a>
+</td>
+<td>Set state for density and temperature (X not used since single substance)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.setState_psX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.setState_psX"
+>setState_psX</a>
+</td>
+<td>Set state for pressure and specific entropy (X not used since single substance)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.setState_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.setState_pTX"
+>setState_pTX</a>
+</td>
+<td>Set state for pressure and temperature (X not used since single substance)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.setBubbleState" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.setBubbleState"
+>setBubbleState</a>
+</td>
+<td>Return the thermodynamic state on the bubble line</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.setDewState" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.setDewState"
+>setDewState</a>
+</td>
+<td>Return the thermodynamic state on the dew line</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.density_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.density_ph"
+>density_ph</a>
+</td>
+<td>Density as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.density" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.density"
+>density</a>
+</td>
+<td>Density as function of pressure and specific enthalpy | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.temperature_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.temperature_ph"
+>temperature_ph</a>
+</td>
+<td>Temperature as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.temperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.temperature"
+>temperature</a>
+</td>
+<td>Temperature as function of pressure and specific enthalpy | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.pressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.pressure"
+>pressure</a>
+</td>
+<td>Pressure w.r.t. thermodynamic state</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.specificInternalEnergy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.specificInternalEnergy"
+>specificInternalEnergy</a>
+</td>
+<td>Specific internal energy w.r.t. thermodynamic state</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.specificEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.specificEnthalpy"
+>specificEnthalpy</a>
+</td>
+<td>Specific enthalpy w.r.t. thermodynamic state | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.specificEntropy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.specificEntropy"
+>specificEntropy</a>
+</td>
+<td>Specific entropy w.r.t. thermodynamic state | use setState_phX function for input if necessary</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.saturationTemperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.saturationTemperature"
+>saturationTemperature</a>
+</td>
+<td>Saturation temperature in two-phase region</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.saturationTemperature_derp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.saturationTemperature_derp"
+>saturationTemperature_derp</a>
+</td>
+<td>Derivative of saturation temperature in two-phase region</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.saturationTemperature_der_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.saturationTemperature_der_p"
+>saturationTemperature_der_p</a>
+</td>
+<td>Time derivative of saturation temperature in two-phase region</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.bubbleDensity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleDensity"
+>bubbleDensity</a>
+</td>
+<td>Density of liquid phase w.r.t. saturation pressure | use setSat_p function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleDensity_dPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dBubbleDensity_dPressure"
+>dBubbleDensity_dPressure</a>
+</td>
+<td>Derivative of liquid density in two-phase region w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleDensity_dPressure_der_sat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dBubbleDensity_dPressure_der_sat"
+>dBubbleDensity_dPressure_der_sat</a>
+</td>
+<td>Time derivative of liquid density in two-phase region w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dewDensity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewDensity"
+>dewDensity</a>
+</td>
+<td>Density of vapor phase w.r.t. saturation pressure | use setSat_p function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dDewDensity_dPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dDewDensity_dPressure"
+>dDewDensity_dPressure</a>
+</td>
+<td>Derivative of vapor density in two-phase region w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dDewDensity_dPressure_der_sat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dDewDensity_dPressure_der_sat"
+>dDewDensity_dPressure_der_sat</a>
+</td>
+<td>Time derivative of vapor density in two-phase region w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.bubbleEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleEnthalpy"
+>bubbleEnthalpy</a>
+</td>
+<td>Specific enthalpy of liquid phase w.r.t. saturation pressure | use setSat_p function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleEnthalpy_dPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dBubbleEnthalpy_dPressure"
+>dBubbleEnthalpy_dPressure</a>
+</td>
+<td>Derivative of liquid specific enthalpy in two-phase region w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleEnthalpy_dPressure_der_sat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dBubbleEnthalpy_dPressure_der_sat"
+>dBubbleEnthalpy_dPressure_der_sat</a>
+</td>
+<td>Time derivative of liquid specific enthalpy in two-phase region w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dewEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewEnthalpy"
+>dewEnthalpy</a>
+</td>
+<td>Specific enthalpy of vapor phase w.r.t. saturation pressure | use setSat_p function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dDewEnthalpy_dPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dDewEnthalpy_dPressure"
+>dDewEnthalpy_dPressure</a>
+</td>
+<td>Derivative of vapor specific enthalpy in two-phase region w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dDewEnthalpy_dPressure_der_sat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dDewEnthalpy_dPressure_der_sat"
+>dDewEnthalpy_dPressure_der_sat</a>
+</td>
+<td>Time derivative of vapor specific enthalpy in two-phase region w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dewEntropy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewEntropy"
+>dewEntropy</a>
+</td>
+<td>Specific entropy of vapor phase w.r.t. saturation pressure | use setSat_p function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dDewEntropy_dPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dDewEntropy_dPressure"
+>dDewEntropy_dPressure</a>
+</td>
+<td>Derivative of vapor specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dDewEntropy_dPressure_der_sat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dDewEntropy_dPressure_der_sat"
+>dDewEntropy_dPressure_der_sat</a>
+</td>
+<td>Time derivative of vapor specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.bubbleEntropy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleEntropy"
+>bubbleEntropy</a>
+</td>
+<td>Specific entropy of liquid phase w.r.t. saturation pressure | use setSat_p function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleEntropy_dPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dBubbleEntropy_dPressure"
+>dBubbleEntropy_dPressure</a>
+</td>
+<td>Derivative of liquid specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleEntropy_dPressure_der_sat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dBubbleEntropy_dPressure_der_sat"
+>dBubbleEntropy_dPressure_der_sat</a>
+</td>
+<td>Time derivative of liquid specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.saturationPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.saturationPressure"
+>saturationPressure</a>
+</td>
+<td>Saturation pressure w.r.t. temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.specificHeatCapacityCp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.specificHeatCapacityCp"
+>specificHeatCapacityCp</a>
+</td>
+<td>Specific heat capacity at constant pressure | turns infinite in two-phase region! | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.specificHeatCapacityCv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.specificHeatCapacityCv"
+>specificHeatCapacityCv</a>
+</td>
+<td>Specific heat capacity at constant volume | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dynamicViscosity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dynamicViscosity"
+>dynamicViscosity</a>
+</td>
+<td>Dynamic viscosity w.r.t. temperature and density | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.thermalConductivity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.thermalConductivity"
+>thermalConductivity</a>
+</td>
+<td>Thermal conductivity w.r.t. thermodynamic state | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.surfaceTension" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.surfaceTension"
+>surfaceTension</a>
+</td>
+<td>Surface tension as a function of temperature (below critical point)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.velocityOfSound" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.velocityOfSound"
+>velocityOfSound</a>
+</td>
+<td>Velocity of sound w.r.t. thermodynamic state (only valid for one-phase)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.isothermalCompressibility" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.isothermalCompressibility"
+>isothermalCompressibility</a>
+</td>
+<td>Isothermal compressibility w.r.t. thermodynamic state (only valid for one-phase)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.isobaricExpansionCoefficient" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.isobaricExpansionCoefficient"
+>isobaricExpansionCoefficient</a>
+</td>
+<td>Isobaric expansion coefficient w.r.t. thermodynamic state (only valid for one-phase)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.isentropicExponent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.isentropicExponent"
+>isentropicExponent</a>
+</td>
+<td>Isentropic exponent gamma w.r.t. thermodynamic state | not defined in two-phase region | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.specificGibbsEnergy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.specificGibbsEnergy"
+>specificGibbsEnergy</a>
+</td>
+<td>Specific gibbs energy w.r.t. thermodynamic state</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.specificHelmholtzEnergy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.specificHelmholtzEnergy"
+>specificHelmholtzEnergy</a>
+</td>
+<td>Helmholtz energy w.r.t. thermodynamic state</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.density_derh_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.density_derh_p"
+>density_derh_p</a>
+</td>
+<td>Density derivative by specific enthalpy | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.density_derp_h" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.density_derp_h"
+>density_derp_h</a>
+</td>
+<td>Density derivative by pressure | use setState_phX function for input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.isentropicEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.isentropicEnthalpy"
+>isentropicEnthalpy</a>
+</td>
+<td>Isentropic enthalpy of downstream pressure and upstream thermodynamic state (specific entropy)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.derivsOf_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.derivsOf_ph"
+>derivsOf_ph</a>
+</td>
+<td>Derivatives required for inversion of temperature and density functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dt_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dt_ph"
+>dt_ph</a>
+</td>
+<td>Density and temperature w.r.t. pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dtofphOnePhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dtofphOnePhase"
+>dtofphOnePhase</a>
+</td>
+<td>Density and temperature w.r.t. pressure and specific enthalpy in one-phase region</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dtofpsOnePhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dtofpsOnePhase"
+>dtofpsOnePhase</a>
+</td>
+<td>Inverse iteration in one phase region (d,T) = f(p,s)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.f_R134a" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.f_R134a"
+>f_R134a</a>
+</td>
+<td>Calculation of helmholtz derivatives by density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.fid_R134a" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.fid_R134a"
+>fid_R134a</a>
+</td>
+<td>Helmholtz coefficients of ideal part</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.fres_R134a" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.fres_R134a"
+>fres_R134a</a>
+</td>
+<td>Calculation of helmholtz derivatives</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.getPhase_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.getPhase_ph"
+>getPhase_ph</a>
+</td>
+<td>Number of phases by pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.getPhase_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.getPhase_ps"
+>getPhase_ps</a>
+</td>
+<td>Number of phases by pressure and entropy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.hofpsTwoPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.hofpsTwoPhase"
+>hofpsTwoPhase</a>
+</td>
+<td>Isentropic specific enthalpy in two phase region h(p,s)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.R134a_liqofdT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.R134a_liqofdT"
+>R134a_liqofdT</a>
+</td>
+<td>Properties on liquid boundary phase</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.R134a_vapofdT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.R134a_vapofdT"
+>R134a_vapofdT</a>
+</td>
+<td>Properties on vapor boundary phase</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.rho_ph_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.rho_ph_der"
+>rho_ph_der</a>
+</td>
+<td>Time derivative function of density_ph</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.rho_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.rho_props_ph"
+>rho_props_ph</a>
+</td>
+<td>Density as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.T_ph_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.T_ph_der"
+>T_ph_der</a>
+</td>
+<td>Time derivative function of T_ph</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.T_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.T_props_ph"
+>T_props_ph</a>
+</td>
+<td>Temperature as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.setSmoothState" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.setSmoothState"
+>setSmoothState</a>
+</td>
+<td>Smooth transition function between state_a and state_b</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.dofpT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dofpT"
+>dofpT</a>
+</td>
+<td>Compute d for given p and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.hofpT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.hofpT"
+>hofpT</a>
+</td>
+<td>Compute h for given p and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert"
+>phaseBoundaryAssert</a>
+</td>
+<td>Assert function for checking threshold to phase boundary</td>
+</tr>
+<tr>
+<th colspan="2">Inherited</th>
+</tr>
+<tr>
+<td>smoothModel=false</td>
+<td>= true, if the (derived) model should not generate state events</td>
+</tr>
+<tr>
+<td>onePhase=false</td>
+<td>= true, if the (derived) model should never be called with two-phase inputs</td>
+</tr>
+<tr>
+<td>fluidConstants=r134aConstants</td>
+<td>Constant data for the fluid</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setSat_T" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setSat_T"
+>setSat_T</a>
+</td>
+<td>Return saturation property record from temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setSat_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setSat_p"
+>setSat_p</a>
+</td>
+<td>Return saturation property record from pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationPressure_sat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationPressure_sat"
+>saturationPressure_sat</a>
+</td>
+<td>Return saturation pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_sat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_sat"
+>saturationTemperature_sat</a>
+</td>
+<td>Return saturation temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_derp_sat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_derp_sat"
+>saturationTemperature_derp_sat</a>
+</td>
+<td>Return derivative of saturation temperature w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.molarMass" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.molarMass"
+>molarMass</a>
+</td>
+<td>Return the molar mass of the medium</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_pTX"
+>specificEnthalpy_pTX</a>
+</td>
+<td>Return specific enthalpy from pressure, temperature and mass fraction</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_phX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_phX"
+>temperature_phX</a>
+</td>
+<td>Return temperature from p, h, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_phX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_phX"
+>density_phX</a>
+</td>
+<td>Return density from p, h, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_psX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_psX"
+>temperature_psX</a>
+</td>
+<td>Return temperature from p, s, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_psX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_psX"
+>density_psX</a>
+</td>
+<td>Return density from p, s, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_psX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_psX"
+>specificEnthalpy_psX</a>
+</td>
+<td>Return specific enthalpy from p, s, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_pT"
+>setState_pT</a>
+</td>
+<td>Return thermodynamic state from p and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_ph"
+>setState_ph</a>
+</td>
+<td>Return thermodynamic state from p and h</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_ps"
+>setState_ps</a>
+</td>
+<td>Return thermodynamic state from p and s</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_dT"
+>setState_dT</a>
+</td>
+<td>Return thermodynamic state from d and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_px" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_px"
+>setState_px</a>
+</td>
+<td>Return thermodynamic state from pressure and vapour quality</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_Tx" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_Tx"
+>setState_Tx</a>
+</td>
+<td>Return thermodynamic state from temperature and vapour quality</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.vapourQuality" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.vapourQuality"
+>vapourQuality</a>
+</td>
+<td>Return vapour quality</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.pressure_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.pressure_dT"
+>pressure_dT</a>
+</td>
+<td>Return pressure from d and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_dT"
+>specificEnthalpy_dT</a>
+</td>
+<td>Return specific enthalpy from d and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_ps"
+>specificEnthalpy_ps</a>
+</td>
+<td>Return specific enthalpy from p and s</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_ps"
+>temperature_ps</a>
+</td>
+<td>Return temperature from p and s</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_ps"
+>density_ps</a>
+</td>
+<td>Return density from p and s</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_pT"
+>specificEnthalpy_pT</a>
+</td>
+<td>Return specific enthalpy from p and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_pT"
+>density_pT</a>
+</td>
+<td>Return density from p and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialPureSubstance.massFraction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialPureSubstance.html#Modelica.Media.Interfaces.PartialPureSubstance.massFraction"
+>massFraction</a>
+</td>
+<td>Return independent mass fractions (if any)</td>
+</tr>
+<tr>
+<td>ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph</td>
+<td>Enumeration type for independent variables</td>
+</tr>
+<tr>
+<td>mediumName=&quot;R134a_ph&quot;</td>
+<td>Name of the medium</td>
+</tr>
+<tr>
+<td>substanceNames={&quot;tetrafluoroethane&quot;}</td>
+<td>Names of the mixture substances. Set substanceNames={mediumName} if only one substance.</td>
+</tr>
+<tr>
+<td>extraPropertiesNames=fill(&quot;&quot;, 0)</td>
+<td>Names of the additional (extra) transported properties. Set extraPropertiesNames=fill(&quot;&quot;,0) if unused</td>
+</tr>
+<tr>
+<td>singleState=false</td>
+<td>= true, if u and d are not a function of pressure</td>
+</tr>
+<tr>
+<td>reducedX=true</td>
+<td>= true, if medium contains the equation sum(X) = 1.0; set reducedX=true, if only one substance (see docu for details)</td>
+</tr>
+<tr>
+<td>fixedX=true</td>
+<td>= true, if medium contains the equation X = reference_X</td>
+</tr>
+<tr>
+<td>reference_p=101325</td>
+<td>Reference pressure of Medium: default 1 atmosphere</td>
+</tr>
+<tr>
+<td>reference_T=298.15</td>
+<td>Reference temperature of Medium: default 25 deg Celsius</td>
+</tr>
+<tr>
+<td>reference_X=fill(1/nX, nX)</td>
+<td>Default mass fractions of medium</td>
+</tr>
+<tr>
+<td>p_default=101325</td>
+<td>Default value for pressure of medium (for initialization)</td>
+</tr>
+<tr>
+<td>T_default=Modelica.Units.Conversions.from_degC(20)</td>
+<td>Default value for temperature of medium (for initialization)</td>
+</tr>
+<tr>
+<td>h_default=420e3</td>
+<td>Default value for specific enthalpy of medium (for initialization)</td>
+</tr>
+<tr>
+<td>X_default=reference_X</td>
+<td>Default value for mass fractions of medium (for initialization)</td>
+</tr>
+<tr>
+<td>C_default=fill(0, nC)</td>
+<td>Default value for trace substances of medium (for initialization)</td>
+</tr>
+<tr>
+<td>nS=size(substanceNames, 1)</td>
+<td>Number of substances</td>
+</tr>
+<tr>
+<td>nX=nS</td>
+<td>Number of mass fractions</td>
+</tr>
+<tr>
+<td>nXi=if fixedX then 0 else if reducedX then nS - 1 else nS</td>
+<td>Number of structurally independent mass fractions (see docu for details)</td>
+</tr>
+<tr>
+<td>nC=size(extraPropertiesNames, 1)</td>
+<td>Number of extra (outside of standard mass-balance) transported properties</td>
+</tr>
+<tr>
+<td>C_nominal=1.0e-6*ones(nC)</td>
+<td>Default for the nominal values for the extra properties</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Interfaces.PartialMedium.FluidConstants" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.FluidConstants"
+>FluidConstants</a>
+</td>
+<td>Critical, triple, molecular and other standard data of fluid</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.prandtlNumber" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.prandtlNumber"
+>prandtlNumber</a>
+</td>
+<td>Return the Prandtl number</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.heatCapacity_cp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.heatCapacity_cp"
+>heatCapacity_cp</a>
+</td>
+<td>Alias for deprecated name</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.heatCapacity_cv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.heatCapacity_cv"
+>heatCapacity_cv</a>
+</td>
+<td>Alias for deprecated name</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.beta" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.beta"
+>beta</a>
+</td>
+<td>Alias for isobaricExpansionCoefficient for user convenience</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.kappa" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.kappa"
+>kappa</a>
+</td>
+<td>Alias of isothermalCompressibility for user convenience</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.density_derp_T" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derp_T"
+>density_derp_T</a>
+</td>
+<td>Return density derivative w.r.t. pressure at constant temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.density_derT_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derT_p"
+>density_derT_p</a>
+</td>
+<td>Return density derivative w.r.t. temperature at constant pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.density_derX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derX"
+>density_derX</a>
+</td>
+<td>Return density derivative w.r.t. mass fraction</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.specificEntropy_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificEntropy_pTX"
+>specificEntropy_pTX</a>
+</td>
+<td>Return specific entropy from p, T, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.density_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_pTX"
+>density_pTX</a>
+</td>
+<td>Return density from p, T, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.PartialMedium.MassFlowRate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</a>
+</td>
+<td>Type for mass flow rate with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.AbsolutePressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.AbsolutePressure"
+>AbsolutePressure</a>
+</td>
+<td>Type for absolute pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.Density" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.Density"
+>Density</a>
+</td>
+<td>Type for density with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DynamicViscosity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DynamicViscosity"
+>DynamicViscosity</a>
+</td>
+<td>Type for dynamic viscosity with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.EnthalpyFlowRate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.EnthalpyFlowRate"
+>EnthalpyFlowRate</a>
+</td>
+<td>Type for enthalpy flow rate with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.MassFraction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MassFraction"
+>MassFraction</a>
+</td>
+<td>Type for mass fraction with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.MoleFraction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MoleFraction"
+>MoleFraction</a>
+</td>
+<td>Type for mole fraction with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.MolarMass" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MolarMass"
+>MolarMass</a>
+</td>
+<td>Type for molar mass with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.MolarVolume" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MolarVolume"
+>MolarVolume</a>
+</td>
+<td>Type for molar volume with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.IsentropicExponent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.IsentropicExponent"
+>IsentropicExponent</a>
+</td>
+<td>Type for isentropic exponent with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SpecificEnergy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEnergy"
+>SpecificEnergy</a>
+</td>
+<td>Type for specific energy with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SpecificInternalEnergy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificInternalEnergy"
+>SpecificInternalEnergy</a>
+</td>
+<td>Type for specific internal energy with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SpecificEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEnthalpy"
+>SpecificEnthalpy</a>
+</td>
+<td>Type for specific enthalpy with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SpecificEntropy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEntropy"
+>SpecificEntropy</a>
+</td>
+<td>Type for specific entropy with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SpecificHeatCapacity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificHeatCapacity"
+>SpecificHeatCapacity</a>
+</td>
+<td>Type for specific heat capacity with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SurfaceTension" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SurfaceTension"
+>SurfaceTension</a>
+</td>
+<td>Type for surface tension with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.Temperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.Temperature"
+>Temperature</a>
+</td>
+<td>Type for temperature with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.ThermalConductivity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ThermalConductivity"
+>ThermalConductivity</a>
+</td>
+<td>Type for thermal conductivity with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.PrandtlNumber" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.PrandtlNumber"
+>PrandtlNumber</a>
+</td>
+<td>Type for Prandtl number with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.VelocityOfSound" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.VelocityOfSound"
+>VelocityOfSound</a>
+</td>
+<td>Type for velocity of sound with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.ExtraProperty" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ExtraProperty"
+>ExtraProperty</a>
+</td>
+<td>Type for unspecified, mass-specific property transported by flow</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.CumulativeExtraProperty" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.CumulativeExtraProperty"
+>CumulativeExtraProperty</a>
+</td>
+<td>Type for conserved integral of unspecified, mass specific property</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.ExtraPropertyFlowRate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ExtraPropertyFlowRate"
+>ExtraPropertyFlowRate</a>
+</td>
+<td>Type for flow rate of unspecified, mass-specific property</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient"
+>IsobaricExpansionCoefficient</a>
+</td>
+<td>Type for isobaric expansion coefficient with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DipoleMoment" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DipoleMoment"
+>DipoleMoment</a>
+</td>
+<td>Type for dipole moment with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DerDensityByPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByPressure"
+>DerDensityByPressure</a>
+</td>
+<td>Type for partial derivative of density with respect to pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DerDensityByEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByEnthalpy"
+>DerDensityByEnthalpy</a>
+</td>
+<td>Type for partial derivative of density with respect to enthalpy with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DerEnthalpyByPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerEnthalpyByPressure"
+>DerEnthalpyByPressure</a>
+</td>
+<td>Type for partial derivative of enthalpy with respect to pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DerDensityByTemperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByTemperature"
+>DerDensityByTemperature</a>
+</td>
+<td>Type for partial derivative of density with respect to temperature with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DerTemperatureByPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerTemperatureByPressure"
+>DerTemperatureByPressure</a>
+</td>
+<td>Type for partial derivative of temperature with respect to pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Interfaces.Types.FluidLimits" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.FluidLimits"
+>FluidLimits</a>
+</td>
+<td>Validity limits for fluid model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.FixedPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.FixedPhase"
+>FixedPhase</a>
+</td>
+<td>Phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.CommonS.png" alt="Modelica.Media.Interfaces.Types.Basic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types_Basic.html#Modelica.Media.Interfaces.Types.Basic"
+>Basic</a>
+</td>
+<td>The most basic version of a record used in several degrees of detail</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.CommonS.png" alt="Modelica.Media.Interfaces.Types.IdealGas" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types_IdealGas.html#Modelica.Media.Interfaces.Types.IdealGas"
+>IdealGas</a>
+</td>
+<td>The ideal gas version of a record used in several degrees of detail</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.CommonS.png" alt="Modelica.Media.Interfaces.Types.TwoPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types_TwoPhase.html#Modelica.Media.Interfaces.Types.TwoPhase"
+>TwoPhase</a>
+</td>
+<td>The two phase fluid version of a record used in several degrees of detail</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SaturationProperties<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conI.png" alt="Modelica.Media.R134a.R134a_ph.SaturationProperties" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.SaturationProperties"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.SaturationProperties</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SaturationProperties"
+></a> (Saturation properties of two phase medium).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>psat</td><td>Saturation pressure [Pa]</td></tr>
+<tr><td>Tsat</td><td>Saturation temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThermodynamicState<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conI.png" alt="Modelica.Media.R134a.R134a_ph.ThermodynamicState" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.ThermodynamicState"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.ThermodynamicState</h2>
+<p>
+<span class="ModelicaDescription">Thermodynamic state</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.ThermodynamicState"
+></a> (Thermodynamic state of two phase medium).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phase</td><td>Phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BaseProperties<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.T8cbda5110bac1e7artiesI.png" alt="Modelica.Media.R134a.R134a_ph.BaseProperties" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.BaseProperties"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.BaseProperties</h2>
+<p>
+<span class="ModelicaDescription">Base properties of R134a</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties"
+></a> (Base properties (p, d, T, h, u, R_s, MM, sat) of two phase medium).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Absolute pressure of medium [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy of medium [J/kg]</td></tr>
+<tr><td>d</td><td>Density of medium [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature of medium [K]</td></tr>
+<tr><td>sat</td><td>Saturation properties at the medium pressure</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>preferredMediumStates</td><td>= true, if StateSelect.prefer shall be used for the independent property variables of the medium</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setState_phX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.setState_phX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.setState_phX"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.setState_phX</h2>
+<p>
+<span class="ModelicaDescription">Set state for pressure and specific enthalpy (X not used since single substance)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function should be used by default in order to calculate the thermodynamic state record used as input by many functions.</p>
+<p>
+Example:
+</p>
+<blockquote><pre>
+parameter Medium.AbsolutePressure p = 3e5;
+parameter Medium.SpecificEnthalpy h = 4.2e5;
+
+Medium.Density rho;
+
+<strong>equation</strong>
+
+rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_phX"
+></a> (Return thermodynamic state as function of p, h and composition X or Xi).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setState_dTX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.setState_dTX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.setState_dTX"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.setState_dTX</h2>
+<p>
+<span class="ModelicaDescription">Set state for density and temperature (X not used since single substance)</span>
+</p>
+<h3>Information</h3>
+
+<p>Although the medium package is explicit for pressure and specific enthalpy, this function may be used in order to calculate the thermodynamic state record used as input by many functions. It will calculate the missing states:</p>
+<ul>
+<li>pressure</li>
+<li>specific enthalpy</li>
+</ul>
+<p>
+Example:
+</p>
+<blockquote><pre>
+parameter Medium.Density d = 4;
+parameter Medium.Temperature T = 298;
+
+Medium.SpecificEntropy s;
+
+<strong>equation</strong>
+
+s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_dTX"
+></a> (Return thermodynamic state as function of d, T and composition X or Xi).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setState_psX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.setState_psX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.setState_psX"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.setState_psX</h2>
+<p>
+<span class="ModelicaDescription">Set state for pressure and specific entropy (X not used since single substance)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function may be used in order to calculate the thermodynamic state record used as input by many functions. It will calculate the missing states:</p>
+<ul>
+<li>density</li>
+<li>pressure</li>
+<li>specific enthalpy</li>
+</ul>
+<p>
+Example:
+</p>
+<blockquote><pre>
+parameter Medium.AbsolutePressure p = 3e5;
+parameter Medium.SpecificEntropy s = 1.7e3;
+
+Medium.SpecificEnthalpy h;
+
+<strong>equation</strong>
+
+h = Medium.specificEnthalpy(setState_psX(p, s, fill(0, Medium.nX)));
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_psX"
+></a> (Return thermodynamic state as function of p, s and composition X or Xi).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setState_pTX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.setState_pTX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.setState_pTX"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.setState_pTX</h2>
+<p>
+<span class="ModelicaDescription">Set state for pressure and temperature (X not used since single substance)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function should be used by default in order to calculate the thermodynamic state record used as input by many functions.</p>
+<p>
+Example:
+</p>
+<blockquote><pre>
+parameter Medium.AbsolutePressure p = 3e5;
+parameter Medium.Temperature T = 290;
+
+Medium.Density rho;
+
+<strong>equation</strong>
+
+rho = Medium.density(setState_pTX(p, T, fill(0, Medium.nX)));
+</pre></blockquote>
+<p>
+Please note, that in contrast to setState_phX, setState_dTX and setState_psX this function can not calculate properties in the two-phase region since pressure and temperature are dependent variables. A guard function will be called if the temperature difference to the phase boundary is lower than 1K or the pressure difference to the critical pressure is lower than 1000 Pa.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_pTX"
+></a> (Return thermodynamic state as function of p, T and composition X or Xi).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setBubbleState<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.setBubbleState" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.setBubbleState"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.setBubbleState</h2>
+<p>
+<span class="ModelicaDescription">Return the thermodynamic state on the bubble line</span>
+</p>
+<h3>Information</h3>
+
+<p>This function shall be used in order to calculate the thermodynamic state record for the liquid phase boundary. It requires the saturation record as input which can be determined by both functions setSat_p and setSat_T:
+</p>
+<p>
+Example:
+</p>
+<blockquote><pre>
+Medium.AbsolutePressure p=3e5;
+// Viscosity on the liquid phase boundary
+SI.DynamicViscosity eta_liq;
+
+equation
+
+eta_liq = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
+</pre></blockquote>
+
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setBubbleState"
+></a> (Return the thermodynamic state on the bubble line).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation point</td></tr>
+<tr><td>phase</td><td>Phase: default is one phase</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Complete thermodynamic state info</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setDewState<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.setDewState" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.setDewState"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.setDewState</h2>
+<p>
+<span class="ModelicaDescription">Return the thermodynamic state on the dew line</span>
+</p>
+<h3>Information</h3>
+
+<p>This function shall be used in order to calculate the thermodynamic state record for the vapor phase boundary. It requires the saturation record as input which can be determined by both functions setSat_p and setSat_T:
+</p>
+<p>
+Example:
+</p>
+<blockquote><pre>
+Medium.AbsolutePressure p=3e5;
+// Viscosity on the vapor phase boundary
+SI.DynamicViscosity eta_vap;
+
+equation
+
+eta_vap = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
+</pre></blockquote>
+
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setDewState"
+></a> (Return the thermodynamic state on the dew line).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation point</td></tr>
+<tr><td>phase</td><td>Phase: default is one phase</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Complete thermodynamic state info</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.density_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.density_ph"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.density_ph</h2>
+<p>
+<span class="ModelicaDescription">Density as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the density of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The density is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+
+<div><img src="Resources/Images/Media/R134a/log(p)d-Diagram-R134a.png"/></div>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.density" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.density"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.density</h2>
+<p>
+<span class="ModelicaDescription">Density as function of pressure and specific enthalpy | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This function calculates the density of R134a from the state record
+(e.g., use setState_phX function for input). The density is modelled
+by the fundamental equation of state of Tillner-Roth and Baehr (1994).
+</p>
+
+<div><img src="Resources/Images/Media/R134a/log(p)d-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density"
+></a> (Return density).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE temperature_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.temperature_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.temperature_ph"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.temperature_ph</h2>
+<p>
+<span class="ModelicaDescription">Temperature as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the Kelvin temperature of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+
+<div><img src="Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png"/></div>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE temperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.temperature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.temperature"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.temperature</h2>
+<p>
+<span class="ModelicaDescription">Temperature as function of pressure and specific enthalpy | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the Kelvin temperature of R134a from the state record (e.g., use setState_phX function for input). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<div><img src="Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.temperature"
+></a> (Return temperature).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE pressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.pressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.pressure"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.pressure</h2>
+<p>
+<span class="ModelicaDescription">Pressure w.r.t. thermodynamic state</span>
+</p>
+<h3>Information</h3>
+
+<p>This function is included for the sake of completeness.</p>
+<div><img src="Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.pressure"
+></a> (Return pressure).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificInternalEnergy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.specificInternalEnergy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.specificInternalEnergy"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.specificInternalEnergy</h2>
+<p>
+<span class="ModelicaDescription">Specific internal energy w.r.t. thermodynamic state</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the specific internal energy of R134a from the state record (e.g., use setState_phX function for input). The specific internal energy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<div><img src="Resources/Images/Media/R134a/log(p)u-Diagram-R134a.png"/></div>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificInternalEnergy"
+></a> (Return specific internal energy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Specific internal energy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.specificEnthalpy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.specificEnthalpy"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.specificEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy w.r.t. thermodynamic state | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function is included for the sake of completeness.</p>
+<div><img src="Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificEnthalpy"
+></a> (Return specific enthalpy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificEntropy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.specificEntropy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.specificEntropy"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.specificEntropy</h2>
+<p>
+<span class="ModelicaDescription">Specific entropy w.r.t. thermodynamic state | use setState_phX function for input if necessary</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the specific entropy of R134a from the state record (e.g., use setState_phX function for input). The specific entropy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<div><img src="Resources/Images/Media/R134a/log(p)s-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificEntropy"
+></a> (Return specific entropy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationTemperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.saturationTemperature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.saturationTemperature"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.saturationTemperature</h2>
+<p>
+<span class="ModelicaDescription">Saturation temperature in two-phase region</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the saturation temperature of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
+the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+<div><img src="Resources/Images/Media/R134a/log(p)Tsat-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature"
+></a> (Return saturation temperature).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Saturation temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationTemperature_derp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.saturationTemperature_derp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.saturationTemperature_derp"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.saturationTemperature_derp</h2>
+<p>
+<span class="ModelicaDescription">Derivative of saturation temperature in two-phase region</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the derivative of saturation temperature of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.saturationTemperature"
+> saturatuionTemperature</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_derp"
+></a> (Return derivative of saturation temperature w.r.t. pressure).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dTp</td><td>Derivative of saturation temperature w.r.t. pressure [K/Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationTemperature_der_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.saturationTemperature_der_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.saturationTemperature_der_p"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.saturationTemperature_der_p</h2>
+<p>
+<span class="ModelicaDescription">Time derivative of saturation temperature in two-phase region</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the time derivative of saturation temperature of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.saturationTemperature"
+> saturatuionTemperature</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>der_p</td><td>Time derivative of pressure</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_Tsat</td><td>Time derivative of saturation temperature</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bubbleDensity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.bubbleDensity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.bubbleDensity"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.bubbleDensity</h2>
+<p>
+<span class="ModelicaDescription">Density of liquid phase w.r.t. saturation pressure | use setSat_p function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the liquid phase density of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
+the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.bubbleDensity"
+></a> (Return bubble point density).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dl</td><td>Boiling curve density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dBubbleDensity_dPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleDensity_dPressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dBubbleDensity_dPressure"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dBubbleDensity_dPressure</h2>
+<p>
+<span class="ModelicaDescription">Derivative of liquid density in two-phase region w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the derivative of liquid density of R134a in the two-phase region with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleDensity"
+> bubbleDensity</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.dBubbleDensity_dPressure"
+></a> (Return bubble point density derivative).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddldp</td><td>Boiling curve density derivative [s2/m2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dBubbleDensity_dPressure_der_sat<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleDensity_dPressure_der_sat" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dBubbleDensity_dPressure_der_sat"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dBubbleDensity_dPressure_der_sat</h2>
+<p>
+<span class="ModelicaDescription">Time derivative of liquid density in two-phase region w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the time derivative of liquid density of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleDensity"
+> bubbleDensity</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation properties | pressure is used for interpolation</td></tr>
+<tr><td>der_sat</td><td>Derivative of saturation properties</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_ddldp</td><td>Time derivative of liquid density in two-phase region w.r.t. pressure</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dewDensity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dewDensity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dewDensity"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dewDensity</h2>
+<p>
+<span class="ModelicaDescription">Density of vapor phase w.r.t. saturation pressure | use setSat_p function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the vapor phase density of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
+the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.dewDensity"
+></a> (Return dew point density).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dv</td><td>Dew curve density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dDewDensity_dPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dDewDensity_dPressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dDewDensity_dPressure"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dDewDensity_dPressure</h2>
+<p>
+<span class="ModelicaDescription">Derivative of vapor density in two-phase region w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the derivative of vapor density of R134a in two-phase region with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewDensity"
+> dewDensity</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.dDewDensity_dPressure"
+></a> (Return dew point density derivative).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddvdp</td><td>Saturated steam density derivative [s2/m2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dDewDensity_dPressure_der_sat<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dDewDensity_dPressure_der_sat" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dDewDensity_dPressure_der_sat"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dDewDensity_dPressure_der_sat</h2>
+<p>
+<span class="ModelicaDescription">Time derivative of vapor density in two-phase region w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the time derivative of vapor density of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewDensity"
+> dewDensity</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation properties | pressure is used for interpolation</td></tr>
+<tr><td>der_sat</td><td>Derivative of saturation properties</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_ddvdp</td><td>Time derivative of vapor density in two-phase region w.r.t. pressure</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bubbleEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.bubbleEnthalpy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.bubbleEnthalpy"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.bubbleEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy of liquid phase w.r.t. saturation pressure | use setSat_p function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the liquid phase enthalpy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
+the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.bubbleEnthalpy"
+></a> (Return bubble point specific enthalpy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>hl</td><td>Boiling curve specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dBubbleEnthalpy_dPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleEnthalpy_dPressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dBubbleEnthalpy_dPressure"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dBubbleEnthalpy_dPressure</h2>
+<p>
+<span class="ModelicaDescription">Derivative of liquid specific enthalpy in two-phase region w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the derivative of liquid enthalpy of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleEnthalpy"
+> bubbleEnthalpy</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.dBubbleEnthalpy_dPressure"
+></a> (Return bubble point specific enthalpy derivative).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dhldp</td><td>Boiling curve specific enthalpy derivative [J.m.s2/kg2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dBubbleEnthalpy_dPressure_der_sat<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleEnthalpy_dPressure_der_sat" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dBubbleEnthalpy_dPressure_der_sat"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dBubbleEnthalpy_dPressure_der_sat</h2>
+<p>
+<span class="ModelicaDescription">Time derivative of liquid specific enthalpy in two-phase region w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the time derivative of liquid specific enthalpy of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleEnthalpy"
+> bubbleEnthalpy</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation properties | pressure is used for interpolation</td></tr>
+<tr><td>der_sat</td><td>Derivative of saturation properties</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_dhldp</td><td>Time derivative of liquid specific enthalpy in two-phase region w.r.t. pressure</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dewEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dewEnthalpy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dewEnthalpy"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dewEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy of vapor phase w.r.t. saturation pressure | use setSat_p function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the vapor phase enthalpy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
+the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.dewEnthalpy"
+></a> (Return dew point specific enthalpy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>hv</td><td>Dew curve specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dDewEnthalpy_dPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dDewEnthalpy_dPressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dDewEnthalpy_dPressure"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dDewEnthalpy_dPressure</h2>
+<p>
+<span class="ModelicaDescription">Derivative of vapor specific enthalpy in two-phase region w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the derivative of vapor enthalpy of R134a in the two-phase region with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewEnthalpy"
+> dewEnthalpy</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.dDewEnthalpy_dPressure"
+></a> (Return dew point specific enthalpy derivative).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dhvdp</td><td>Saturated steam specific enthalpy derivative [J.m.s2/kg2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dDewEnthalpy_dPressure_der_sat<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dDewEnthalpy_dPressure_der_sat" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dDewEnthalpy_dPressure_der_sat"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dDewEnthalpy_dPressure_der_sat</h2>
+<p>
+<span class="ModelicaDescription">Time derivative of vapor specific enthalpy in two-phase region w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the time derivative of vapor enthalpy of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewEnthalpy"
+> dewEnthalpy</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation properties | pressure is used for interpolation</td></tr>
+<tr><td>der_sat</td><td>Derivative of saturation properties</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_dhvdp</td><td>Derivative of vapor specific enthalpy in two-phase region w.r.t. pressure</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dewEntropy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dewEntropy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dewEntropy"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dewEntropy</h2>
+<p>
+<span class="ModelicaDescription">Specific entropy of vapor phase w.r.t. saturation pressure | use setSat_p function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the vapor phase entropy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
+the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.dewEntropy"
+></a> (Return dew point specific entropy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sv</td><td>Dew curve specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dDewEntropy_dPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dDewEntropy_dPressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dDewEntropy_dPressure"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dDewEntropy_dPressure</h2>
+<p>
+<span class="ModelicaDescription">Derivative of vapor specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the derivative of vapor entropy of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewEntropy"
+> dewEntropy</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation properties | pressure is used for interpolation</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dsvdp</td><td>Derivative of vapor specific entropy in two-phase region w.r.t. pressure</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dDewEntropy_dPressure_der_sat<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dDewEntropy_dPressure_der_sat" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dDewEntropy_dPressure_der_sat"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dDewEntropy_dPressure_der_sat</h2>
+<p>
+<span class="ModelicaDescription">Time derivative of vapor specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the time derivative of vapor specific entropy of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewEntropy"
+> dewEntropy</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation properties | pressure is used for interpolation</td></tr>
+<tr><td>der_sat</td><td>Derivative of saturation properties</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_dsvdp</td><td>Derivative of vapor specific entropy in two-phase region w.r.t. pressure</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bubbleEntropy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.bubbleEntropy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.bubbleEntropy"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.bubbleEntropy</h2>
+<p>
+<span class="ModelicaDescription">Specific entropy of liquid phase w.r.t. saturation pressure | use setSat_p function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the liquid phase entropy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
+the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.bubbleEntropy"
+></a> (Return bubble point specific entropy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sl</td><td>Boiling curve specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dBubbleEntropy_dPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleEntropy_dPressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dBubbleEntropy_dPressure"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dBubbleEntropy_dPressure</h2>
+<p>
+<span class="ModelicaDescription">Derivative of liquid specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the derivative of liquid entropy of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleEntropy"
+> bubbleEntropy</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation properties | pressure is used for interpolation</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dsldp</td><td>Derivative of liquid specific entropy in two-phase region w.r.t. pressure</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dBubbleEntropy_dPressure_der_sat<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dBubbleEntropy_dPressure_der_sat" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dBubbleEntropy_dPressure_der_sat"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dBubbleEntropy_dPressure_der_sat</h2>
+<p>
+<span class="ModelicaDescription">Time derivative of liquid specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the time derivative of liquid specific entropy of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleEntropy"
+> bubbleEntropy</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation properties | pressure is used for interpolation</td></tr>
+<tr><td>der_sat</td><td>Derivative of saturation properties</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_dsldp</td><td>Derivative of liquid specific entropy in two-phase region w.r.t. pressure</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.saturationPressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.saturationPressure"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.saturationPressure</h2>
+<p>
+<span class="ModelicaDescription">Saturation pressure w.r.t. temperature</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the saturation pressure of R134a from the state variable T (temperature). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+<div><img src="Resources/Images/Media/R134a/log(p)Tsat-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationPressure"
+></a> (Return saturation pressure).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Saturation pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificHeatCapacityCp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.specificHeatCapacityCp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.specificHeatCapacityCp"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.specificHeatCapacityCp</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant pressure | turns infinite in two-phase region! | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the specific heat capacity of R134a at <strong>constant pressure</strong> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<h4> Restrictions</h4>
+<p>This property is only defined in one-phase region.
+</p>
+<div><img src="Resources/Images/Media/R134a/log(p)cp-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificHeatCapacityCp"
+></a> (Return specific heat capacity at constant pressure).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cp</td><td>Specific heat capacity at constant pressure [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificHeatCapacityCv<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.specificHeatCapacityCv" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.specificHeatCapacityCv"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.specificHeatCapacityCv</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant volume | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the specific heat capacity of R134a at <strong>constant volume</strong> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<p>
+Please note, that the function can also be called in the two-phase region, but the output is not continuous for a phase transition (see Tillner-Roth and Baehr, 1994). Values in two-phase region are considerably higher than in one-phase domain. The following figure just shows one-phase properties.
+</p>
+<div><img src="Resources/Images/Media/R134a/log(p)cv-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificHeatCapacityCv"
+></a> (Return specific heat capacity at constant volume).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cv</td><td>Specific heat capacity at constant volume [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dynamicViscosity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dynamicViscosity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dynamicViscosity"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dynamicViscosity</h2>
+<p>
+<span class="ModelicaDescription">Dynamic viscosity w.r.t. temperature and density | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the dynamic viscosity of R134a from the state record (e.g., use setState_phX function for input). The dynamic viscosity is modelled by the corresponding states method of Klein, McLinden and Laesecke (1997).</p>
+<h4> Restrictions</h4>
+<p>This property is only defined in one-phase region.
+</p>
+<h4>References</h4>
+<dl><dt>Klein, McLinden and Laesecke: </dt>
+<dd><strong>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</strong>.
+Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
+</dl>
+<div><img src="Resources/Images/Media/R134a/log(p)eta-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.dynamicViscosity"
+></a> (Return dynamic viscosity).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>eta</td><td>Dynamic viscosity [Pa.s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE thermalConductivity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.thermalConductivity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.thermalConductivity"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.thermalConductivity</h2>
+<p>
+<span class="ModelicaDescription">Thermal conductivity w.r.t. thermodynamic state | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the thermal conductivity of R134a from the state record (e.g., use setState_phX function for input). The thermal conductivity is modelled by the corresponding states model of McLinden, Klein. and Perkins (2000).</p>
+<h4> Restrictions</h4>
+<p>This property is only defined in one-phase region.
+</p>
+<h4>References</h4>
+<dl><dt>McLinden, Klein. and Perkins: </dt>
+<dd><strong>An extended corresponding states model for the thermal conductivity
+of refrigerants and refrigerant mixtures</strong>.
+Int. J. Refrig., 23 (2000) 43-63.</dd>
+</dl>
+<div><img src="Resources/Images/Media/R134a/log(p)lambda-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.thermalConductivity"
+></a> (Return thermal conductivity).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>lambda</td><td>Thermal conductivity [W/(m.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE surfaceTension<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.surfaceTension" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.surfaceTension"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.surfaceTension</h2>
+<p>
+<span class="ModelicaDescription">Surface tension as a function of temperature (below critical point)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the surface tension of R134a from the saturation record (e.g., use setSat_T function for input). The property is modelled by an approach of Okada and Higashi (1994).</p>
+<h4> Restrictions</h4>
+<p>This property is only defined in two-phase region.
+</p>
+<h4>References</h4>
+<dl><dt>Okada and Higashi: </dt>
+<dd><strong>Surface tension correlation of HFC-134a and HCFC-123</strong>.
+Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
+</dl>
+<div><img src="Resources/Images/Media/R134a/Tsigma-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.surfaceTension"
+></a> (Return surface tension sigma in the two phase region).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sigma</td><td>Surface tension sigma in the two phase region [N/m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE velocityOfSound<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.velocityOfSound" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.velocityOfSound"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.velocityOfSound</h2>
+<p>
+<span class="ModelicaDescription">Velocity of sound w.r.t. thermodynamic state (only valid for one-phase)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the velocity of sound of R134a from the state record (e.g., use setState_phX function for input). The velocity of sound is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<h4> Restrictions</h4>
+<p>This property is only defined in one-phase region.
+</p>
+<div><img src="Resources/Images/Media/R134a/log(p)a-Diagram-R134a.png"/></div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.velocityOfSound"
+></a> (Return velocity of sound).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>a</td><td>Velocity of sound [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isothermalCompressibility<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.isothermalCompressibility" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.isothermalCompressibility"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.isothermalCompressibility</h2>
+<p>
+<span class="ModelicaDescription">Isothermal compressibility w.r.t. thermodynamic state (only valid for one-phase)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the isothermal compressibility of R134a from the state record (e.g., use setState_phX function for input). The isothermal compressibility is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<h4> Restrictions</h4>
+<p>This property is only defined in one-phase region.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isothermalCompressibility"
+></a> (Return overall the isothermal compressibility factor).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kappa</td><td>Isothermal compressibility [1/Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isobaricExpansionCoefficient<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.isobaricExpansionCoefficient" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.isobaricExpansionCoefficient"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.isobaricExpansionCoefficient</h2>
+<p>
+<span class="ModelicaDescription">Isobaric expansion coefficient w.r.t. thermodynamic state (only valid for one-phase)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the isobaric expansion coefficient of R134a from the state record (e.g., use setState_phX function for input). The isobaric expansion coefficient is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<h4> Restrictions</h4>
+<p>This property is only defined in one-phase region.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isobaricExpansionCoefficient"
+></a> (Return overall the isobaric expansion coefficient beta).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>beta</td><td>Isobaric expansion coefficient [1/K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicExponent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.isentropicExponent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.isentropicExponent"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.isentropicExponent</h2>
+<p>
+<span class="ModelicaDescription">Isentropic exponent gamma w.r.t. thermodynamic state | not defined in two-phase region | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the isentropic exponent of R134a from the state record (e.g., use setState_phX function for input). The isentropic exponent is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<h4> Restrictions</h4>
+<p>This property is only defined in one-phase region.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isentropicExponent"
+></a> (Return isentropic exponent).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gamma</td><td>Isentropic exponent [1]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificGibbsEnergy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.specificGibbsEnergy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.specificGibbsEnergy"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.specificGibbsEnergy</h2>
+<p>
+<span class="ModelicaDescription">Specific gibbs energy w.r.t. thermodynamic state</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the specific Gibbs energy of R134a from the state record (e.g., use setState_phX function for input). The isentropic exponent is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificGibbsEnergy"
+></a> (Return specific Gibbs energy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>g</td><td>Specific Gibbs energy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificHelmholtzEnergy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.specificHelmholtzEnergy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.specificHelmholtzEnergy"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.specificHelmholtzEnergy</h2>
+<p>
+<span class="ModelicaDescription">Helmholtz energy w.r.t. thermodynamic state</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the specific Helmholtz energy of R134a from the state record (e.g., use setState_phX function for input). The Helmholtz energy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificHelmholtzEnergy"
+></a> (Return specific Helmholtz energy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Specific Helmholtz energy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density_derh_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.density_derh_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.density_derh_p"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.density_derh_p</h2>
+<p>
+<span class="ModelicaDescription">Density derivative by specific enthalpy | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the density derivative w.r.t. specific enthalpy at constant pressure of R134a (e.g., use setState_phX function for input). The derivative is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). It can be used for manual state transformations (e.g. from density to specific enthalpy).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derh_p"
+></a> (Return density derivative w.r.t. specific enthalpy at constant pressure).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddhp</td><td>Density derivative w.r.t. specific enthalpy [kg.s2/m5]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density_derp_h<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.density_derp_h" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.density_derp_h"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.density_derp_h</h2>
+<p>
+<span class="ModelicaDescription">Density derivative by pressure | use setState_phX function for input</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the density derivative w.r.t. absolute pressure at constant specific enthalpy of R134a (e.g., use setState_phX function for input). The derivative is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). It can be used for manual state transformations (e.g. from density to pressure).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derp_h"
+></a> (Return density derivative w.r.t. pressure at constant specific enthalpy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddph</td><td>Density derivative w.r.t. pressure [s2/m2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.isentropicEnthalpy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.isentropicEnthalpy"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.isentropicEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Isentropic enthalpy of downstream pressure and upstream thermodynamic state (specific entropy)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This function calculates the specific enthalpy of R134a for an isentropic pressure change
+from refState.p to p_downstream (e.g., use setState_phX function for input of refState).
+</p>
+
+<p>
+The function can be used for instance to calculate an isentropic efficiency
+of a compressor or calculate the power consumption (obtained from the isentropic enthalpy)
+for a given efficiency.
+</p>
+
+<p>
+Example:
+</p>
+<blockquote><pre>
+  Medium.AbsolutePressure p_downstream=10e5;
+  Medium.SpecificEnthalpy h_downstream=4.1e5;
+  Medium.AbsolutePressure p_upstream=3e5;
+  Medium.SpecificEnthalpy h_upstream=4.0e5;
+
+  // Isentropic efficiency of a compressor:
+  Real eta_is;
+
+equation
+
+  h_is = isentropicEnthalpy(p_downstream, Medium.setState_phX(p_upstream, h_upstream));
+
+  eta_is = (h_is-h_upstream)/(h_downstream - h_upstream);
+</pre></blockquote>
+
+<h4>Restrictions</h4>
+<p>
+The isentropic efficiency function should not be applied in liquid region.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isentropicEnthalpy"
+></a> (Return isentropic enthalpy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p_downstream</td><td>Downstream pressure [Pa]</td></tr>
+<tr><td>refState</td><td>Reference state for entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h_is</td><td>Isentropic enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE derivsOf_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.derivsOf_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.derivsOf_ph"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.derivsOf_ph</h2>
+<p>
+<span class="ModelicaDescription">Derivatives required for inversion of temperature and density functions</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the derivatives required for an inversion of temperature and density function.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>derivs</td><td>Inverse derivatives for density and temperature</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dt_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dt_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dt_ph"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dt_ph</h2>
+<p>
+<span class="ModelicaDescription">Density and temperature w.r.t. pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the density and temperature of R134a from absolute pressure and specific enthalpy. In one-phase region the function calls the fundamental Helmholtz equation of Tillner-Roth (1994). In two-phase the density and temperature is computed from cubic splines for saturated pressure, liquid and vapor density.
+</p>
+<h4>Restrictions</h4>
+The function cannot be inverted in a numerical way. Please use functions <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.rho_props_ph"
+>rho_props_ph</a> and <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.T_props_ph"
+>T_props_ph</a> for this purpose.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dtofphOnePhase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dtofphOnePhase" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dtofphOnePhase"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dtofphOnePhase</h2>
+<p>
+<span class="ModelicaDescription">Density and temperature w.r.t. pressure and specific enthalpy in one-phase region</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the density and temperature of R134a from absolute pressure and specific enthalpy in one-phase region. The function calls the fundamental Helmholtz equation of Tillner-Roth (1994) which is requiring density and temperature for input. Thus, a newton iteration is performed to determine density and temperature. The newton iteration stops if the inputs for pressure difference delp and specific enthalpy difference delh are larger than the actual differences derived from the newton iteration.
+</p>
+<h4>Restrictions</h4>
+The function shall only be used for one-phase inputs since the fundamental equation is not valid for two-phase states.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Enthalpy [J/kg]</td></tr>
+<tr><td>delp</td><td>Absolute error in p in iteration [Pa]</td></tr>
+<tr><td>delh</td><td>Absolute error in h in iteration [J/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>error</td><td>1 if did not converged</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dtofpsOnePhase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dtofpsOnePhase" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dtofpsOnePhase"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dtofpsOnePhase</h2>
+<p>
+<span class="ModelicaDescription">Inverse iteration in one phase region (d,T) = f(p,s)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the density and temperature of R134a from absolute pressure and specific entropy in one-phase region. The function calls the fundamental helmholtz equation of Tillner-Roth (1994) which is requiring density and temperature for input. Thus, a newton iteration is performed to determine density and temperature. The newton iteration stops if the inputs for pressure difference delp and specific entropy difference dels are larger than the actual differences derived from the newton iteration.
+</p>
+<h4>Restrictions</h4>
+The function shall only be used for one-phase inputs since the fundamental equation is not valid for two-phase states. The iteration could fail for liquid states with high pressures.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>delp</td><td>Absolute iteration accuracy [Pa]</td></tr>
+<tr><td>dels</td><td>Absolute iteration accuracy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>error</td><td>Error flag: trouble if different from 0</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE f_R134a<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.f_R134a" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.f_R134a"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.f_R134a</h2>
+<p>
+<span class="ModelicaDescription">Calculation of helmholtz derivatives by density and temperature</span>
+</p>
+<h3>Information</h3>
+
+This function adds the ideal gas contribution of the fundamental equation to the residual contribution and computes the helmholtz derivatives w.r.t. temperature and density.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Helmholtz derivatives</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE fid_R134a<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.fid_R134a" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.fid_R134a"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.fid_R134a</h2>
+<p>
+<span class="ModelicaDescription">Helmholtz coefficients of ideal part</span>
+</p>
+<h3>Information</h3>
+
+This function computes the ideal gas helmholtz derivatives of the fundamental equation of Tillner-Roth and Baehr for R134a (1994) w.r.t. to reduced temperature (tau=T_crit/T) and reduced density (delta=rho/rho_crit).
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>delta</td><td>Reduced density (delta=d/dcrit)</td></tr>
+<tr><td>tau</td><td>Reduced temperature (tau=Tcrit/T)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fid</td><td>Helmholtz derivatives of ideal part</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE fres_R134a<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.fres_R134a" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.fres_R134a"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.fres_R134a</h2>
+<p>
+<span class="ModelicaDescription">Calculation of helmholtz derivatives</span>
+</p>
+<h3>Information</h3>
+
+This function computes the residual helmholtz derivatives of the fundamental equation of Tillner-Roth and Baehr for R134a (1994) w.r.t. to reduced temperature (tau=T_crit/T) and reduced density (delta=rho/rho_crit). The function can be used for special properties depending just on the residual derivative parts.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>delta</td><td>Reduced density (delta=d/dcrit)</td></tr>
+<tr><td>tau</td><td>Reduced temperature (tau=Tcrit/T)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Helmholtz derivatives</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getPhase_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.getPhase_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.getPhase_ph"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.getPhase_ph</h2>
+<p>
+<span class="ModelicaDescription">Number of phases by pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+
+This function computes the number of phases for R134a depending on the inputs for absolute pressure and specific enthalpy. It makes use of cubic spline functions for liquid and vapor specific enthalpy.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phase</td><td>Number of phases</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getPhase_ps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.getPhase_ps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.getPhase_ps"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.getPhase_ps</h2>
+<p>
+<span class="ModelicaDescription">Number of phases by pressure and entropy</span>
+</p>
+<h3>Information</h3>
+
+This function computes the number of phases for R134a depending on the inputs for absolute pressure and specific entropy. It makes use of cubic spline functions for liquid and vapor specific entropy.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phase</td><td>Number of phases</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofpsTwoPhase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.hofpsTwoPhase" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.hofpsTwoPhase"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.hofpsTwoPhase</h2>
+<p>
+<span class="ModelicaDescription">Isentropic specific enthalpy in two phase region h(p,s)</span>
+</p>
+<h3>Information</h3>
+
+This function computes the specific enthalpy in two-phase for R134a depending on the inputs for absolute pressure and specific entropy. It makes use of cubic spline functions for liquid and vapor specific enthalpy as well as specific entropy.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE R134a_liqofdT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.R134a_liqofdT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.R134a_liqofdT"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.R134a_liqofdT</h2>
+<p>
+<span class="ModelicaDescription">Properties on liquid boundary phase</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>liq</td><td>Properties on liquid boundary phase</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE R134a_vapofdT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.R134a_vapofdT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.R134a_vapofdT"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.R134a_vapofdT</h2>
+<p>
+<span class="ModelicaDescription">Properties on vapor boundary phase</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>vap</td><td>Properties on vapor boundary phase</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_ph_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.rho_ph_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.rho_ph_der"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.rho_ph_der</h2>
+<p>
+<span class="ModelicaDescription">Time derivative function of density_ph</span>
+</p>
+<h3>Information</h3>
+
+This function calculates the derivative of density w.r.t. time. It is used as derivative function for <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.rho_props_ph"
+> rho_props_ph</a>.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>derivs</td><td>Record for derivatives</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+<tr><td>h_der</td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d_der</td><td>Derivative of density</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.rho_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.rho_props_ph"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.rho_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Density as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+
+This function integrates the derivative of density w.r.t. time in order to allow a numerical inversion for the complex fundamental equation of state.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>derivs</td><td>Record for the calculation of rho_ph_der</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE T_ph_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.T_ph_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.T_ph_der"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.T_ph_der</h2>
+<p>
+<span class="ModelicaDescription">Time derivative function of T_ph</span>
+</p>
+<h3>Information</h3>
+
+This function calculates the derivative of temperature w.r.t. time. It is used as derivative function for <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.T_props_ph"
+> T_props_ph</a>.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>derivs</td><td>Auxiliary record</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+<tr><td>h_der</td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T_der</td><td>Derivative of temperature</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE T_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.T_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.T_props_ph"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.T_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Temperature as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+
+This function integrates the derivative of temperature w.r.t. time in order to allow a numerical inversion for the complex fundamental equation of state.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>derivs</td><td>Record for the calculation of T_ph_der</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setSmoothState<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.setSmoothState" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.setSmoothState"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.setSmoothState</h2>
+<p>
+<span class="ModelicaDescription">Smooth transition function between state_a and state_b</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.setSmoothState"
+></a> (Return thermodynamic state so that it smoothly approximates: if x &gt; 0 then state_a else state_b).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>m_flow or dp</td></tr>
+<tr><td>state_a</td><td>Thermodynamic state if x &gt; 0</td></tr>
+<tr><td>state_b</td><td>Thermodynamic state if x &lt; 0</td></tr>
+<tr><td>x_small</td><td>Smooth transition in the region -x_small &lt; x &lt; x_small</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Smooth thermodynamic state for all x (continuous and differentiable)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dofpT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.dofpT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dofpT"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dofpT</h2>
+<p>
+<span class="ModelicaDescription">Compute d for given p and T</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the density of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The safety margin to the phase boundary is 1[K] and 1000[Pa].
+</p>
+<h4>Restrictions</h4>
+The function cannot be inverted in a numerical way. Please use functions <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.rho_props_ph"
+>rho_props_ph</a> and <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.T_props_ph"
+>T_props_ph</a> for this purpose.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>delp</td><td>Iteration converged if (p-pre(p) &lt; delp) [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofpT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.hofpT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.hofpT"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.hofpT</h2>
+<p>
+<span class="ModelicaDescription">Compute h for given p and T</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates the specific enthalpy of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The safety margin to the phase boundary is 1[K] and 1000[Pa].
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>delp</td><td>Iteration converged if (p-pre(p) &lt; delp) [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific Enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE phaseBoundaryAssert<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.phaseBoundaryAssert</h2>
+<p>
+<span class="ModelicaDescription">Assert function for checking threshold to phase boundary</span>
+</p>
+<h3>Information</h3>
+
+This function is used as a guard for property functions using pTX as an input. Property functions for two-phase media using pressure and temperature as inputs shall not be used close to the phase boundary in order to avoid errors and high deviations for just small deviations in the input arguments. The refrigerant state can not be determined in the two-phase region using pressure and temperature.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Refrigerant pressure [Pa]</td></tr>
+<tr><td>T</td><td>Refrigerant temperature [K]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:49 2026.
+</address>
+</body>
+</html>

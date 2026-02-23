@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Clocked.Examples.Systems</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Examples of complete systems&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Systems<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Clocked.Examples.Systems"></a><a href="Modelica_Clocked_Examples.html#Modelica.Clocked.Examples"
+>Modelica.Clocked.Examples</a>.Systems</h2>
+<p>
+<span class="ModelicaDescription">Examples of complete systems</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains complete <strong>system models</strong> of
+simplified realistic applications.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousS.png" alt="Modelica.Clocked.Examples.Systems.ControlledMixingUnit" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_Systems.html#Modelica.Clocked.Examples.Systems.ControlledMixingUnit"
+>ControlledMixingUnit</a>
+</td>
+<td>Simple example of a mixing unit where a (discretized) nonlinear inverse plant model is used as feedforward controller</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousS.png" alt="Modelica.Clocked.Examples.Systems.EngineThrottleControl" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_Systems.html#Modelica.Clocked.Examples.Systems.EngineThrottleControl"
+>EngineThrottleControl</a>
+</td>
+<td>Closed-loop throttle control synchronized to the crankshaft angle of an
+   internal combustion engine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examplesdb5780a8cbc89938itiesS.png" alt="Modelica.Clocked.Examples.Systems.Utilities" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_Systems_Utilities.html#Modelica.Clocked.Examples.Systems.Utilities"
+>Utilities</a>
+</td>
+<td>Utilities for the examples</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlledMixingUnit<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousI.png" alt="Modelica.Clocked.Examples.Systems.ControlledMixingUnit" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.Systems.ControlledMixingUnit"></a><a href="Modelica_Clocked_Examples_Systems.html#Modelica.Clocked.Examples.Systems"
+>Modelica.Clocked.Examples.Systems</a>.ControlledMixingUnit</h2>
+<p>
+<span class="ModelicaDescription">Simple example of a mixing unit where a (discretized) nonlinear inverse plant model is used as feedforward controller</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Since a long time, Modelica is used to model advanced nonlinear control systems.
+Especially, Modelica allows a semi-automatic treatment of inverse nonlinear
+plant models. In the fundamental article (Looye et.al. 2005, see
+<a href="Modelica_Clocked_UsersGuide.html#Modelica.Clocked.UsersGuide.Literature"
+>Literature</a> or
+<a href="https://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf">Download</a>)
+this approach is described and several controller structures are presented to
+utilize an inverse plant model in the controller. This approach is attractive
+because it results in a systematic procedure to design a controller for the
+whole operating range of a plant. This is in contrast to standard controller
+design techniques that usually design a linear controller for a plant model
+that is linearized at a specific operating point. Therefore the operating range of such controllers is inherently limited.
+</p>
+
+<p>
+Up to Modelica 3.2, controllers with inverse plant models can only be
+defined as continuous-time systems. Via the export mechanism of a Modelica tool
+they could be exported with solvers embedded in the code and then used as
+sampled data system in other environments. However, it is not possible
+to re-import the sampled data system to Modelica.
+</p>
+
+<p>
+The synchronous features of Modelica 3.3 together with the
+Modelica.Clocked library offer now completely new possibilities,
+so that the inverse model can be designed and evaluated as sampled data
+system within Modelica and a Modelica simulation environment.
+This approach is shown at hand of a simple example using
+a nonlinear plant model of a
+mixing unit (F&ouml;llinger O. (1998): Nichtlineare Regelungen I,
+Oldenbourg Verlag, 8. Auflage, page 279) and utilizing this plant
+model as nonlinear feed-forward controller according to (Looye et.al. 2005):
+</p>
+
+<p>
+A substance A is flowing continuously into a mixing reactor.
+Due to a catalyst, the substance reacts and splits into several base
+substances that are continuously removed. The reaction generates
+energy and therefore the reactor is cooled with a cooling medium.
+The cooling temperature T_c(t) in [K] is the primary actuation signal.
+Substance A is described by its concentration c(t) in [mol/l] and
+its temperature T(t) in [K].
+The concentration c(t) is the signal to be primarily controlled
+and the temperature T(t) is the signal that is measured.
+These equations are collected together in input/output block
+<a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsMixingUnit.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit"
+>Utilities.ComponentsMixingUnit.MixingUnit</a>.
+</p>
+
+<div>
+<img src="Resources/Images/Clocked/Examples/ControlledMixingUnit_PlantModel.png" alt="ControlledMixingUnit_PlantModel.png">
+</div>
+
+<p>
+The design of the control system proceeds now in the following steps:
+</p>
+
+<h4>Pre-Filter</h4>
+<p>
+Inverting a model usually means that equations need to be symbolically
+differentiated and that higher derivatives of the inputs are needed
+(that are usually not available). One approach is to filter the inputs,
+so that a Modelica tool can determine the derivatives of the filtered
+input from the filter states. The minimum needed filter order is determined
+by first inverting the continuous-time plant model from the variable
+to be primarily controlled (here: "c") to the actuator input
+(here: "T_c"). This is performed with the help of block
+<a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.InverseBlockConstraints"
+>Modelica.Blocks.Math.InverseBlockConstraints</a>
+that allows connecting an external input to an output
+in the pre-filter design block
+<a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsMixingUnit.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.FilterOrder"
+>Utilities.ComponentsMixingUnit.FilterOrder</a>:
+</p>
+
+<div>
+<img src="Resources/Images/Clocked/Examples/ControlledMixingUnit_FilterDesign.png" alt="ControlledMixingUnit_FilterDesign.png">
+</div>
+
+<p>
+Translating this
+model will generate the continuous-time inverse plant model.
+However, a Modelica tool will give an error message that it
+has to differentiate the model, but this requires the
+<strong>second derivative</strong> of the external input c_ref and this derivative
+is not available. The conclusion is that a low pass filter of at
+least second order has to be connected between c_ref and c, for example
+<a href="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Filter"
+>Modelica.Blocks.Continuous.Filter</a>. Only filter types should be used that do not have "vibrations" in the time domain for
+a step input. Therefore, parameter <strong>analogFilter</strong> of the component should be
+selected as <strong>CriticalDamping</strong> (= only real poles), or
+<strong>Bessel</strong> (= nearly no vibrations, but steeper frequency response as
+CriticalDamping). The cut-off frequency <strong>f_cut</strong> is manually
+selected by simulations of the closed loop system. In the example,
+a CriticalDamping filter of third order (the third order is selected to
+get smoother signals) and a cut-off frequency of 1/300 Hz is used.
+</p>
+
+<h4>Design of Controller</h4>
+<p>
+The controller for the mixing unit is shown in the diagram layer of block
+at hand, as
+well as in the following figure:
+</p>
+
+<div>
+<img src="Resources/Images/Clocked/Examples/ControlledMixingUnit_Controller.png" alt="ControlledMixingUnit_Controller.png">
+</div>
+
+<p>
+It consists of the filter discussed above. The input to the filter is the reference
+concentration which is filtered by the low pass filter. The output of the filter
+is used as input to the concentration c in the inverse plant model.
+This model computes the desired cooling temperature T_c (which is used
+as desired cooling temperature at the output of the controller)
+and the desired temperature T (which is used as desired value for
+the feedback controller). This part of the control system is the
+"feed-forward" part that computes the desired actuator signal.
+As feedback controller a simple P controller with one gain is used.
+</p>
+
+<p>
+This controller could be defined as continuous-time system in previous Modelica
+versions. However, with Modelica 3.3 it is now also possible to define the
+controller as sampled data system. For this, the two inputs are sampled
+(sample1 and sample2) and the actuator output is hold (hold1).
+The controller partition is then associated with a periodic clock
+(via sample2) that has a sample period of 1 s and a
+solverMethod = "ExplicitEuler". Since the controller partition is a
+continuous-time system, it is discretized and solved with an explicit
+Euler method at every clock tick (by integrating from the previous to
+the actual time instant of the clock).
+</p>
+
+<h4>Simulation Results</h4>
+<p>
+The controller works perfectly if the same parameters for the plant
+and the inverse plant model are used (follows perfectly the filtered reference
+concentration). Changing all parameters of the inverse plant model by 50 %
+(with exception of parameter <strong>e</strong> since the plant is very sensitive to it)
+still results in a reasonable control behavior as shown in the next two figures:
+</p>
+
+<div>
+<img src="Resources/Images/Clocked/Examples/ControlledMixingUnit_Result.png" alt="ControlledMixingUnit_Result.png">
+</div>
+
+<p>
+The green curve in the upper window is the (clocked) output of the filter,
+that is, it is the desired concentration. The red curve in the upper window is the
+concentration of model mixingUnit, which is the concentration in the plant.
+Obviously, the concentration follows reasonably well the desired one. By using a more involved feedback controller, the control error could be substantially reduced.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>freq</td><td>Critical frequency of filter [Hz]</td></tr>
+<tr><td>c0</td><td>Nominal concentration [mol/l]</td></tr>
+<tr><td>T0</td><td>Nominal temperature [K]</td></tr>
+<tr><td>a1_inv</td><td>Process parameter of inverse plant model (see references in help)</td></tr>
+<tr><td>a21_inv</td><td>Process parameter of inverse plant model (see references in help)</td></tr>
+<tr><td>a22_inv</td><td>Process parameter of inverse plant model (see references in help)</td></tr>
+<tr><td>b_inv</td><td>Process parameter of inverse plant model (see references in help)</td></tr>
+<tr><td>k0_inv</td><td>Process parameter of inverse plant model (see references in help)</td></tr>
+<tr><td>eps</td><td>Process parameter (see references in help)</td></tr>
+<tr><td>x10</td><td>Relative offset between nominal concentration and initial concentration</td></tr>
+<tr><td>x20</td><td>Relative offset between nominal temperature and initial temperature</td></tr>
+<tr><td>u0</td><td>Relative offset between initial cooling temperature and nominal temperature</td></tr>
+<tr><td>pro</td><td>Deviations of plant to inverse plant parameters</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE EngineThrottleControl<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousI.png" alt="Modelica.Clocked.Examples.Systems.EngineThrottleControl" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.Systems.EngineThrottleControl"></a><a href="Modelica_Clocked_Examples_Systems.html#Modelica.Clocked.Examples.Systems"
+>Modelica.Clocked.Examples.Systems</a>.EngineThrottleControl</h2>
+<p>
+<span class="ModelicaDescription">Closed-loop throttle control synchronized to the crankshaft angle of an
+   internal combustion engine</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This example shows how to model a non-periodic synchronous sampled data systems
+with the <code>Modelica.Clocked library</code>. This is demonstrated at hand
+of a closed-loop throttle control synchronized to the crankshaft angle of an
+internal combustion engine. This system has the following properties:</p>
+<ul>
+<li> The engine speed is regulated with a throttle actuator.</li>
+<li> Controller execution is synchronized with the engine crankshaft angle.</li>
+<li> The influence of disturbances, such as a change in load torque, is reduced.</li>
+</ul>
+<p>
+The complete system is shown in the figure below (diagram-layer):
+</p>
+<img
+  src="Resources/Images/Clocked/Examples/EngineThrottleControl_Model.png"
+  alt="EngineThrottleControl_Model.png">
+<p>
+Block <code>speedControl</code> is the discrete control system. The boundaries
+of this controller are defined by <code>sample1</code>, <code>sample2</code> and
+<code>hold</code>. The sampling is done in terms of sensors within the engine
+which observe its crankshaft angle; every 180° rotation of the crankshaft, the engine
+internally synchronizes is throttles. The respective synchronization points are provided
+as clocked outputs that in turn are used to trigger the external controller. The speed
+controller therefore is automatically executed every half-rotation of the engine's
+crankshaft in sync with the engine's internal throttle-cycle. The following diagram
+illustrates the engine's respective internal setup:
+</p>
+<img
+  src="Resources/Images/Clocked/Examples/Engine_Model.png"
+  alt="Engine_Model.png">
+<p>
+The <code>crankshaftPositionEvent</code>-clock is the event-clock synchronizing the
+engine's internal throttle-cycle and external control. It produces a clock tick for
+every half-rotation and is implemented as
+<a href="Modelica_Clocked_ClockSignals_Clocks_Rotational.html#Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock"
+>RotationalClock</a>.
+</p><p>The following diagram illustrates the logic of such a rotational clock:
+</p>
+<img
+  src="Resources/Images/Clocked/Examples/RotationalClock_Model.png"
+  alt="RotationalClock_Model.png">
+<p>
+It accounts the angular of the last time a rotation has been
+recognized (<code>angular_offset</code>). Given
+<code>angular_offset</code>, the event-condition for rotations is:
+</p><p>
+<code>abs(angle - angular_offset) >= abs(trigger_interval)</code>
+</p><p>
+In our case, <code>angle</code> is the position of the crankshaft of the engine and
+<code>trigger_interval</code> is 180°. In the end,
+<code>crankshaftPositionEvent</code> samples it's own input angle to account
+an offset used to decide when to tick; the clock's event condition depends on
+the state present when the condition changed last time from being non-satisfied
+to being satisfied, i.e., the state when the clock last ticked.
+</p><p>
+<em>This example model is based on the following references:</em>
+</p>
+<dl>
+<dt>Crossley, P.R. and Cook, J. (1991):</dt>
+<dd> <strong>A nonlinear engine model for drivetrain system development</strong>.
+     International Conference on Control, Edinburgh, UK, March.<br>&nbsp;</dd>
+<dt>Simulink&reg; (R2010b) demo model <code>sldemo_enginewc.mdl</code>:</dt>
+<dd><strong>Engine Timing Model with Closed Loop Control</strong>.
+    The <code>EngineThrottleControl</code> example uses the same parameter values as the <code>sldemo_enginewc.mdl</code> demo model which is shipped with the Simulink&reg; software developed by The MathWorks, Inc.
+    Hence, the simulation results of these models can be compared conveniently.<br>&nbsp;</dd>
+</dl>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:33 2026.
+</address>
+</body>
+</html>

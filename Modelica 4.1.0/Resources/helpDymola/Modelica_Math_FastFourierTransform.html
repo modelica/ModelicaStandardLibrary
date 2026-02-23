@@ -1,0 +1,499 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.FastFourierTransform</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of functions for the Fast Fourier Transform (FFT)&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FastFourierTransform<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.FastFourierTransform"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.FastFourierTransform</h2>
+<p>
+<span class="ModelicaDescription">Library of functions for the Fast Fourier Transform (FFT)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package provides functions to compute the Fast Fourier Transform (FFT).</p>
+
+<p>
+For an example see <a href="Modelica_Math_FastFourierTransform_Examples.html#Modelica.Math.FastFourierTransform.Examples.RealFFT1"
+>Examples.RealFFT1</a>
+where the following signal is computed during simulation
+</p>
+
+<blockquote><pre>
+y = 5 + 3*sin(2*pi*2) + 1.5*cos(2*pi*3)
+</pre></blockquote>
+
+<p>
+the continuous-time signal y is sampled and the FFT is computed with a call to realFFT(f_max=4, f_resolution=0.2),
+resulting in:
+</p>
+
+<blockquote>
+<img src="Resources/Images/Math/FastFourierTransform/FFT1.png">
+</blockquote>
+
+<h4>References</h4>
+
+<dl>
+<dt>Mark Borgerding (2010):</dt>
+<dd> <strong>KissFFT, version 1.3.0</strong>.
+     <a href="http://sourceforge.net/projects/kissfft/">http://sourceforge.net/projects/kissfft/</a>.
+     <br>&nbsp;
+     </dd>
+
+<dt>James W. Cooley, John W. Tukey (1965):</dt>
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
+     <br>&nbsp;
+     </dd>
+
+<dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
+     Modelica 2015 Conference, Versailles, France,
+     pp. 491-500, Sept.23-25, 2015.
+     Download from:
+     <a href="http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf">http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf</a>
+     </dd>
+</dl>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.ExamplesS.png" alt="Modelica.Math.FastFourierTransform.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_FastFourierTransform_Examples.html#Modelica.Math.FastFourierTransform.Examples"
+>Examples</a>
+</td>
+<td>Examples demonstrating the usage of the Math.FastFourierTransform functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.FastFourierTransform.realFFTinfo" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTinfo"
+>realFFTinfo</a>
+</td>
+<td>Print information about real FFT for given f_max and f_resolution</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.FastFourierTransform.realFFTsamplePoints" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTsamplePoints"
+>realFFTsamplePoints</a>
+</td>
+<td>Return number of sample points for a real FFT</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.FastFourierTransform.realFFT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFT"
+>realFFT</a>
+</td>
+<td>Return amplitude and phase vectors for a real FFT</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.FastFourierTransform.realFFTwriteToFile" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTwriteToFile"
+>realFFTwriteToFile</a>
+</td>
+<td>Write real FFT computation to file</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Special.InternalS.png" alt="Modelica.Math.FastFourierTransform.Internal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_FastFourierTransform_Internal.html#Modelica.Math.FastFourierTransform.Internal"
+>Internal</a>
+</td>
+<td>Internal library that should not be used directly by a user</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE realFFTinfo<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.FastFourierTransform.realFFTinfo" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.FastFourierTransform.realFFTinfo"></a><a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform"
+>Modelica.Math.FastFourierTransform</a>.realFFTinfo</h2>
+<p>
+<span class="ModelicaDescription">Print information about real FFT for given f_max and f_resolution</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+<strong>realFFTinfo</strong>(f_max, f_resolution, f_max_factor=5);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+From the maximum interested frequency f_max (in [Hz]) and the frequency resolution f_resolution (in [Hz]) the
+function computes the key FFT data as used by the FFT blocks and prints them to the output window.
+</p>
+
+<h4>Example</h4>
+<blockquote>
+realFFTinfo(f_max=170, f_resolution=0.3)
+</blockquote>
+
+<p>
+results in the following output:
+</p>
+
+<blockquote><pre>
+... Real FFT properties
+ Desired:
+    f_max         = 170 Hz
+    f_resolution  = 0.3 Hz
+    f_max_factor  = 5
+ Calculated:
+    Number of sample points    = 5760 (= 2^7*3^2*5^1)
+    Sampling frequency         = 1728 Hz (= 0.3*5760)
+    Sampling period            = 0.000578704 s (= 1/1728)
+    Maximum FFT frequency      = 864 Hz (= 0.3*5760/2; f={0,0.3,0.6,...,864} Hz)
+    Number of frequency points = 2881 (= 5760/2+1)
+    Simulation time            = 3.33275 s
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTsamplePoints"
+>realFFTsamplePoints</a>,
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFT"
+>realFFT</a>,
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTwriteToFile"
+>realFFTwriteToFile</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f_max</td><td>Maximum frequency [Hz]</td></tr>
+<tr><td>f_resolution</td><td>Frequency resolution [Hz]</td></tr>
+<tr><td>f_max_factor</td><td>Maximum FFT frequency &gt;= f_max*f_max_factor (sample frequency = 2*Maximum FFT Frequency)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE realFFTsamplePoints<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.FastFourierTransform.realFFTsamplePoints" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.FastFourierTransform.realFFTsamplePoints"></a><a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform"
+>Modelica.Math.FastFourierTransform</a>.realFFTsamplePoints</h2>
+<p>
+<span class="ModelicaDescription">Return number of sample points for a real FFT</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+ns = <strong>realFFTsamplePoints</strong>(f_max, f_resolution, f_max_factor=5);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+From the maximum interested frequency f_max (in [Hz]) and the frequency resolution f_resolution (in [Hz]) the
+function computes the number of sample points ns that is as small as possible and fulfills the following criteria:
+</p>
+
+<ul>
+<li> Maximum FFT frequency &ge; f_max_factor*f_max (= the largest frequency value of the frequency vector).</li>
+<li> Frequency axis resolution is f_resolution.</li>
+<li> The number of sample points is expressed as 2^a*3^b*5^c
+     (and a,b,c are appropriate Integers).</li>
+<li> The number of sample points is even.</li>
+</ul>
+
+<p>
+Note, in the original publication about the efficient computation of FFT (Cooley and Tukey, 1965),
+the number of sample points must be 2^a. However, all newer FFT algorithms do not have
+this strong restriction and especially not the open source software
+<a href="http://sourceforge.net/projects/kissfft/">KissFFT</a> from Mark Borgerding
+used in this function
+</p>
+
+<h4>References</h4>
+
+<dl>
+<dt>Mark Borgerding (2010):</dt>
+<dd> <strong>KissFFT, version 1.3.0</strong>.
+     <a href="http://sourceforge.net/projects/kissfft/">http://sourceforge.net/projects/kissfft/</a>.
+     <br>&nbsp;
+     </dd>
+
+<dt>James W. Cooley, John W. Tukey (1965):</dt>
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
+     <br>&nbsp;
+     </dd>
+
+<dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
+     Modelica 2015 Conference, Versailles, France,
+     pp. 491-500, Sept.23-25, 2015.
+     Download from:
+     <a href="http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf">http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf</a>
+     </dd>
+</dl>
+
+<h4>Example</h4>
+<blockquote>
+ns = realFFTinfo(f_max=170, f_resolution=0.3)
+</blockquote>
+
+<p>
+results in the following output:
+</p>
+
+<blockquote><pre>
+ns = 5760
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTinfo"
+>realFFTinfo</a>,
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFT"
+>realFFT</a>,
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTwriteToFile"
+>realFFTwriteToFile</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f_max</td><td>Maximum frequency of interest [Hz]</td></tr>
+<tr><td>f_resolution</td><td>Frequency resolution [Hz]</td></tr>
+<tr><td>f_max_factor</td><td>Maximum FFT frequency &gt;= f_max*f_max_factor (sample frequency = 2*Maximum FFT Frequency)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ns</td><td>Number of sample points that can be expressed as ns = 2^i*3^j*5^k and ns is even</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE realFFT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.FastFourierTransform.realFFT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.FastFourierTransform.realFFT"></a><a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform"
+>Modelica.Math.FastFourierTransform</a>.realFFT</h2>
+<p>
+<span class="ModelicaDescription">Return amplitude and phase vectors for a real FFT</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+(info, amplitudes, phases) = <strong>realFFT</strong>(u);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The input argument of this function is a Real vector u. size(u,1) <strong>must</strong> be even. An efficient computation
+is performed, if size(u,1) = 2^a*3^b*5^c (a,b,c Integer &ge; 0).
+An appropriate length of vector u can be computed with function
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTsamplePoints"
+>realFFTsamplePoints</a>.
+Function <strong>realFFT</strong> computes a real FFT (Fast Fourier Transform) of u and returns the result
+in form of the outputs amplitudes and phases. Argument info provides additional information:
+</p>
+
+<blockquote><pre>
+info = 0: Successful FFT computation.
+info = 1: size(u,1) is not even.
+info = 3: Another error.
+</pre></blockquote>
+
+<p>
+Note, in the original publication about the efficient computation of FFT (Cooley and Tukey, 1965),
+the number of sample points must be 2^a. However, all newer FFT algorithms do not have
+this strong restriction and especially not the open source software
+<a href="http://sourceforge.net/projects/kissfft/">KissFFT</a> from Mark Borgerding
+used in this function.
+</p>
+
+<p>
+The function returns the FFT such that amplitudes[1] is the mean value of u (= sum(u)/size(u,1)), and
+amplitudes[i] is the amplitude of a sine-function at the i-th frequency.
+</p>
+
+<h4>References</h4>
+
+<dl>
+<dt>Mark Borgerding (2010):</dt>
+<dd> <strong>KissFFT, version 1.3.0</strong>.
+     <a href="http://sourceforge.net/projects/kissfft/">http://sourceforge.net/projects/kissfft/</a>.
+     <br>&nbsp;
+     </dd>
+
+<dt>James W. Cooley, John W. Tukey (1965):</dt>
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
+     <br>&nbsp;
+     </dd>
+
+<dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
+     Modelica 2015 Conference, Versailles, France,
+     pp. 491-500, Sept.23-25, 2015.
+     Download from:
+     <a href="http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf">http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf</a>
+     </dd>
+</dl>
+
+<h4>Example</h4>
+<blockquote>
+(info, A) = realFFT({0,0.1,0.2,0.4,0.5, 0.6})
+</blockquote>
+
+<p>
+See also <a href="Modelica_Math_FastFourierTransform_Examples.html#Modelica.Math.FastFourierTransform.Examples.RealFFT1"
+>Examples.RealFFT1</a>
+which is a complete example where an FFT is computed during simulation and stored on file.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTinfo"
+>realFFTinfo</a>,
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTsamplePoints"
+>realFFTsamplePoints</a>,
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTwriteToFile"
+>realFFTwriteToFile</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[:]</td><td>Signal for which FFT shall be computed (size(nu,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(nu,1) = 2^a*3^b*5^c, with a,b,c Integer &gt;= 0)</td></tr>
+<tr><td>nfi</td><td>Number of frequency points that shall be returned in amplitudes and phases (typically: nfi = max(1,min(integer(ceil(f_max/f_resolution))+1,nf))); the maximal possible value is nfi=div(size(u,1),2)+1)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>info</td><td>Information flag (0: FFT computed, 1: nu is not even, 3: another error)</td></tr>
+<tr><td>amplitudes[nfi]</td><td>Amplitudes of FFT</td></tr>
+<tr><td>phases[nfi]</td><td>Phases of FFT in [deg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE realFFTwriteToFile<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.FastFourierTransform.realFFTwriteToFile" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.FastFourierTransform.realFFTwriteToFile"></a><a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform"
+>Modelica.Math.FastFourierTransform</a>.realFFTwriteToFile</h2>
+<p>
+<span class="ModelicaDescription">Write real FFT computation to file</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+success = <strong>realFFTwriteToFile</strong>(t_computed, fileName, f_max, amplitudes, phases, format);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This functions stores the result of an FFT computation on file, so that it can
+be easily plotted. <strong>amplitudes</strong> and <strong>phases</strong> are the vectors that hold the
+amplitudes and phases values of an FFT computation. If the size of the phases vector is zero,
+no phases will be stored on file. Otherwise, phases must have the same dimension as the amplitudes
+vector. The frequency vector f is constructed within the function from the dimension of the
+amplitudes vector and the information that amplitudes[end] is at frequency <strong>f_max</strong>.
+The <strong>format</strong> argument defines the file format (for details see
+<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.writeRealMatrix"
+>writeRealMatrix</a>).
+Argument <strong>t_computed</strong> is the actual time instant when the FFT was computed.
+It is used in the print message after the result was stored on file.
+</p>
+
+<p>
+The matrix on file has the following structure:
+</p>
+
+<ul>
+<li> First column: Equidistant frequency vector f in Hz from 0 Hz ... f_max Hz.</li>
+<li> Second column: Amplitudes[:]</li>
+<li> Optional third column: Phases[:]</li>
+</ul>
+
+<h4>Example</h4>
+
+<p>
+See detailed example model:
+<a href="Modelica_Math_FastFourierTransform_Examples.html#Modelica.Math.FastFourierTransform.Examples.RealFFT1"
+>Examples.RealFFT1</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTinfo"
+>realFFTinfo</a>,
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFTsamplePoints"
+>realFFTsamplePoints</a>,
+<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform.realFFT"
+>realFFT</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>t_computed</td><td>Time instant at which the FFT was computed</td></tr>
+<tr><td>fileName</td><td>File where FFT shall be stored (if it exists, it is deleted and then re-created)</td></tr>
+<tr><td>f_max</td><td>Maximum frequency [Hz]</td></tr>
+<tr><td>amplitudes[:]</td><td>Amplitudes of FFT</td></tr>
+<tr><td>phases[:]</td><td>Phases of FFT (either provide no argument, or a vector with the same length as amplitudes)</td></tr>
+<tr><td>format</td><td>MATLAB MAT-file version: &quot;4&quot; -&gt; v4, &quot;6&quot; -&gt; v6, &quot;7&quot; -&gt; v7</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>success</td><td>= true, if successful</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:52 2026.
+</address>
+</body>
+</html>

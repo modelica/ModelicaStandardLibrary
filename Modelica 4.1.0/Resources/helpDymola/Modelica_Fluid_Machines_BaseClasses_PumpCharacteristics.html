@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Functions for pump characteristics&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PumpCharacteristics<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"></a><a href="Modelica_Fluid_Machines_BaseClasses.html#Modelica.Fluid.Machines.BaseClasses"
+>Modelica.Fluid.Machines.BaseClasses</a>.PumpCharacteristics</h2>
+<p>
+<span class="ModelicaDescription">Functions for pump characteristics</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberS.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseFlow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseFlow"
+>baseFlow</a>
+</td>
+<td>Base class for pump flow characteristics</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberS.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.basePower" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.basePower"
+>basePower</a>
+</td>
+<td>Base class for pump power consumption characteristics</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberS.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseEfficiency" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseEfficiency"
+>baseEfficiency</a>
+</td>
+<td>Base class for efficiency characteristics</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberS.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.linearFlow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.linearFlow"
+>linearFlow</a>
+</td>
+<td>Linear flow characteristic</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberS.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow"
+>quadraticFlow</a>
+</td>
+<td>Quadratic flow characteristic, including linear extrapolation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberS.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.polynomialFlow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.polynomialFlow"
+>polynomialFlow</a>
+</td>
+<td>Polynomial flow characteristic, including linear extrapolation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberS.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.constantEfficiency" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.constantEfficiency"
+>constantEfficiency</a>
+</td>
+<td>Constant efficiency characteristic</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberS.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.linearPower" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.linearPower"
+>linearPower</a>
+</td>
+<td>Linear power consumption characteristic</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberS.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticPower" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticPower"
+>quadraticPower</a>
+</td>
+<td>Quadratic power consumption characteristic</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE baseFlow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberI.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseFlow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseFlow"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"
+>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</a>.baseFlow</h2>
+<p>
+<span class="ModelicaDescription">Base class for pump flow characteristics</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V_flow</td><td>Volumetric flow rate [m3/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>head</td><td>Pump head [m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE basePower<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberI.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.basePower" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.basePower"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"
+>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</a>.basePower</h2>
+<p>
+<span class="ModelicaDescription">Base class for pump power consumption characteristics</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V_flow</td><td>Volumetric flow rate [m3/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>consumption</td><td>Power consumption [W]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE baseEfficiency<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberI.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseEfficiency" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseEfficiency"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"
+>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</a>.baseEfficiency</h2>
+<p>
+<span class="ModelicaDescription">Base class for efficiency characteristics</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V_flow</td><td>Volumetric flow rate [m3/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>eta</td><td>Efficiency</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE linearFlow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberI.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.linearFlow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.linearFlow"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"
+>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</a>.linearFlow</h2>
+<p>
+<span class="ModelicaDescription">Linear flow characteristic</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseFlow"
+>baseFlow</a> (Base class for pump flow characteristics).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V_flow</td><td>Volumetric flow rate [m3/s]</td></tr>
+<tr><td>V_flow_nominal[2]</td><td>Volume flow rate for two operating points (single pump) [m3/s]</td></tr>
+<tr><td>head_nominal[2]</td><td>Pump head for two operating points [m]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>head</td><td>Pump head [m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE quadraticFlow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberI.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"
+>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</a>.quadraticFlow</h2>
+<p>
+<span class="ModelicaDescription">Quadratic flow characteristic, including linear extrapolation</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseFlow"
+>baseFlow</a> (Base class for pump flow characteristics).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V_flow</td><td>Volumetric flow rate [m3/s]</td></tr>
+<tr><td>V_flow_nominal[3]</td><td>Volume flow rate for three operating points (single pump) [m3/s]</td></tr>
+<tr><td>head_nominal[3]</td><td>Pump head for three operating points [m]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>head</td><td>Pump head [m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE polynomialFlow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberI.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.polynomialFlow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.polynomialFlow"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"
+>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</a>.polynomialFlow</h2>
+<p>
+<span class="ModelicaDescription">Polynomial flow characteristic, including linear extrapolation</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseFlow"
+>baseFlow</a> (Base class for pump flow characteristics).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V_flow</td><td>Volumetric flow rate [m3/s]</td></tr>
+<tr><td>V_flow_nominal[:]</td><td>Volume flow rate for N operating points (single pump) [m3/s]</td></tr>
+<tr><td>head_nominal[:]</td><td>Pump head for N operating points [m]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>head</td><td>Pump head [m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE constantEfficiency<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberI.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.constantEfficiency" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.constantEfficiency"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"
+>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</a>.constantEfficiency</h2>
+<p>
+<span class="ModelicaDescription">Constant efficiency characteristic</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.baseEfficiency"
+>baseEfficiency</a> (Base class for efficiency characteristics).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V_flow</td><td>Volumetric flow rate [m3/s]</td></tr>
+<tr><td>eta_nominal</td><td>Nominal efficiency</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>eta</td><td>Efficiency</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE linearPower<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberI.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.linearPower" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.linearPower"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"
+>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</a>.linearPower</h2>
+<p>
+<span class="ModelicaDescription">Linear power consumption characteristic</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.basePower"
+>basePower</a> (Base class for pump power consumption characteristics).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V_flow</td><td>Volumetric flow rate [m3/s]</td></tr>
+<tr><td>V_flow_nominal[2]</td><td>Volume flow rate for two operating points (single pump) [m3/s]</td></tr>
+<tr><td>W_nominal[2]</td><td>Power consumption for two operating points [W]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>consumption</td><td>Power consumption [W]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE quadraticPower<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Basedb4991766f80a7a9umberI.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticPower" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticPower"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"
+>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</a>.quadraticPower</h2>
+<p>
+<span class="ModelicaDescription">Quadratic power consumption characteristic</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.basePower"
+>basePower</a> (Base class for pump power consumption characteristics).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V_flow</td><td>Volumetric flow rate [m3/s]</td></tr>
+<tr><td>V_flow_nominal[3]</td><td>Volume flow rate for three operating points (single pump) [m3/s]</td></tr>
+<tr><td>W_nominal[3]</td><td>Power consumption for three operating points [W]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>consumption</td><td>Power consumption [W]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:44 2026.
+</address>
+</body>
+</html>

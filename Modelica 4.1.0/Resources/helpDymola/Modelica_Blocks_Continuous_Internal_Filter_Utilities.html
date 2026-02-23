@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.Continuous.Internal.Filter.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Utility functions for filter computations&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.Continuous.Internal.Filter.Utilities"></a><a href="Modelica_Blocks_Continuous_Internal_Filter.html#Modelica.Blocks.Continuous.Internal.Filter"
+>Modelica.Blocks.Continuous.Internal.Filter</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Utility functions for filter computations</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingS.png" alt="Modelica.Blocks.Continuous.Internal.Filter.Utilities.BesselBaseCoefficients" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Continuous_Internal_Filter_Utilities.html#Modelica.Blocks.Continuous.Internal.Filter.Utilities.BesselBaseCoefficients"
+>BesselBaseCoefficients</a>
+</td>
+<td>Return coefficients of normalized low pass Bessel filter (= gain at cut-off frequency 1 rad/s is decreased 3dB)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingS.png" alt="Modelica.Blocks.Continuous.Internal.Filter.Utilities.toHighestPowerOne" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Continuous_Internal_Filter_Utilities.html#Modelica.Blocks.Continuous.Internal.Filter.Utilities.toHighestPowerOne"
+>toHighestPowerOne</a>
+</td>
+<td>Transform filter to form with highest power of s equal 1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingS.png" alt="Modelica.Blocks.Continuous.Internal.Filter.Utilities.normalizationFactor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Continuous_Internal_Filter_Utilities.html#Modelica.Blocks.Continuous.Internal.Filter.Utilities.normalizationFactor"
+>normalizationFactor</a>
+</td>
+<td>Compute correction factor of low pass filter such that amplitude at cut-off frequency is -3db (=10^(-3/20) = 0.70794...)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingS.png" alt="Modelica.Blocks.Continuous.Internal.Filter.Utilities.bandPassAlpha" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Continuous_Internal_Filter_Utilities.html#Modelica.Blocks.Continuous.Internal.Filter.Utilities.bandPassAlpha"
+>bandPassAlpha</a>
+</td>
+<td>Return alpha for band pass</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BesselBaseCoefficients<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingI.png" alt="Modelica.Blocks.Continuous.Internal.Filter.Utilities.BesselBaseCoefficients" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Continuous.Internal.Filter.Utilities.BesselBaseCoefficients"></a><a href="Modelica_Blocks_Continuous_Internal_Filter_Utilities.html#Modelica.Blocks.Continuous.Internal.Filter.Utilities"
+>Modelica.Blocks.Continuous.Internal.Filter.Utilities</a>.BesselBaseCoefficients</h2>
+<p>
+<span class="ModelicaDescription">Return coefficients of normalized low pass Bessel filter (= gain at cut-off frequency 1 rad/s is decreased 3dB)</span>
+</p>
+<h3>Information</h3>
+<p>The transfer function H(p) of a <em>n</em> 'th order Bessel filter is given by</p>
+<blockquote><pre>
+        Bn(0)
+H(p) = -------
+        Bn(p)
+</pre></blockquote>
+<p>with the denominator polynomial</p>
+<blockquote><pre>
+         n             n  (2n - k)!       p^k
+Bn(p) = sum c_k*p^k = sum ----------- * -------   (1)
+        k=0           k=0 (n - k)!k!    2^(n-k)
+</pre></blockquote>
+<p>and the numerator</p>
+<blockquote><pre>
+               (2n)!     1
+Bn(0) = c_0 = ------- * ---- .                    (2)
+                n!      2^n
+</pre></blockquote>
+<p>Although the coefficients c_k are integer numbers, it is not advisable to use the
+polynomials in an unfactorized form because the coefficients are fast growing with order
+n (c_0 is approximately 0.3e24 and 0.8e59 for order n=20 and order n=40
+respectively).</p>
+
+<p>Therefore, the polynomial Bn(p) is factorized to first and second order polynomials with
+real coefficients corresponding to zeros and poles representation that is used in this library.</p>
+
+<p>The function returns the coefficients which resulted from factorization of the normalized transfer function</p>
+<blockquote><pre>
+H'(p') = H(p),  p' = p/w0
+</pre></blockquote>
+<p>as well as</p>
+<blockquote><pre>
+alpha = 1/w0
+</pre></blockquote>
+<p>the reciprocal of the cut of frequency w0 where the gain of the transfer function is
+decreased 3dB.</p>
+
+<p>Both, coefficients and cut off frequency were calculated symbolically and were eventually evaluated
+with high precision calculation. The results were stored in this function as real
+numbers.</p>
+
+<h4>Calculation of normalized Bessel filter coefficients</h4>
+<p>Equation</p>
+<blockquote><pre>
+abs(H(j*w0)) = abs(Bn(0)/Bn(j*w0)) = 10^(-3/20)
+</pre></blockquote>
+<p>which must be fulfilled for cut off frequency w = w0 leads to</p>
+<blockquote><pre>
+[Re(Bn(j*w0))]^2 + [Im(Bn(j*w0))]^2 - (Bn(0)^2)*10^(3/10) = 0
+</pre></blockquote>
+<p>which has exactly one real solution w0 for each order n. This solutions of w0 are
+calculated symbolically first and evaluated by using high precise values of the
+coefficients c_k calculated by following (1) and (2).</p>
+
+<p>With w0, the coefficients of the factorized polynomial can be computed by calculating the
+zeros of the denominator polynomial</p>
+<blockquote><pre>
+        n
+Bn(p) = sum w0^k*c_k*(p/w0)^k
+        k=0
+</pre></blockquote>
+<p>of the normalized transfer function H'(p'). There exist n/2 of conjugate complex
+pairs of zeros (beta +-j*gamma) if n is even and one additional real zero (alpha) if n is
+odd. Finally, the coefficients a, b1_k, b2_k of the polynomials</p>
+<blockquote><pre>
+a*p + 1,  n is odd
+</pre></blockquote>
+<p>and</p>
+<blockquote><pre>
+b2_k*p^2 + b1_k*p + 1,   k = 1,... div(n,2)
+</pre></blockquote>
+<p>results from</p>
+<blockquote><pre>
+a = -1/alpha
+</pre></blockquote>
+<p>and</p>
+<blockquote><pre>
+b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>order</td><td>Order of filter in the range 1..41</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1[mod(order, 2)]</td><td>[p] coefficients of Bessel denominator polynomials (a*p + 1)</td></tr>
+<tr><td>c2[integer(order/2), 2]</td><td>[p^2, p] coefficients of Bessel denominator polynomials (b2*p^2 + b1*p + 1)</td></tr>
+<tr><td>alpha</td><td>Normalization factor</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE toHighestPowerOne<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingI.png" alt="Modelica.Blocks.Continuous.Internal.Filter.Utilities.toHighestPowerOne" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Continuous.Internal.Filter.Utilities.toHighestPowerOne"></a><a href="Modelica_Blocks_Continuous_Internal_Filter_Utilities.html#Modelica.Blocks.Continuous.Internal.Filter.Utilities"
+>Modelica.Blocks.Continuous.Internal.Filter.Utilities</a>.toHighestPowerOne</h2>
+<p>
+<span class="ModelicaDescription">Transform filter to form with highest power of s equal 1</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>den1[:]</td><td>[s] coefficients of polynomials (den1[i]*s + 1)</td></tr>
+<tr><td>den2[:, 2]</td><td>[s^2, s] coefficients of polynomials (den2[i,1]*s^2 + den2[i,2]*s + 1)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cr[size(den1, 1)]</td><td>[s^0] coefficients of polynomials cr[i]*(s+1/cr[i])</td></tr>
+<tr><td>c0[size(den2, 1)]</td><td>[s^0] coefficients of polynomials (s^2 + (den2[i,2]/den2[i,1])*s + (1/den2[i,1]))</td></tr>
+<tr><td>c1[size(den2, 1)]</td><td>[s^1] coefficients of polynomials (s^2 + (den2[i,2]/den2[i,1])*s + (1/den2[i,1]))</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE normalizationFactor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingI.png" alt="Modelica.Blocks.Continuous.Internal.Filter.Utilities.normalizationFactor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Continuous.Internal.Filter.Utilities.normalizationFactor"></a><a href="Modelica_Blocks_Continuous_Internal_Filter_Utilities.html#Modelica.Blocks.Continuous.Internal.Filter.Utilities"
+>Modelica.Blocks.Continuous.Internal.Filter.Utilities</a>.normalizationFactor</h2>
+<p>
+<span class="ModelicaDescription">Compute correction factor of low pass filter such that amplitude at cut-off frequency is -3db (=10^(-3/20) = 0.70794...)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c1[:]</td><td>[p] coefficients of denominator polynomials (c1[i}*p + 1)</td></tr>
+<tr><td>c2[:, 2]</td><td>[p^2, p] coefficients of denominator polynomials (c2[i,1]*p^2 + c2[i,2]*p + 1)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alpha</td><td>Correction factor (replace p by alpha*p)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bandPassAlpha<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingI.png" alt="Modelica.Blocks.Continuous.Internal.Filter.Utilities.bandPassAlpha" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Continuous.Internal.Filter.Utilities.bandPassAlpha"></a><a href="Modelica_Blocks_Continuous_Internal_Filter_Utilities.html#Modelica.Blocks.Continuous.Internal.Filter.Utilities"
+>Modelica.Blocks.Continuous.Internal.Filter.Utilities</a>.bandPassAlpha</h2>
+<p>
+<span class="ModelicaDescription">Return alpha for band pass</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A band pass with bandwidth "w" is determined from a low pass
+</p>
+
+<blockquote><pre>
+1/(p^2 + a*p + b)
+</pre></blockquote>
+
+<p>
+with the transformation
+</p>
+
+<blockquote><pre>
+new(p) = (p + 1/p)/w
+</pre></blockquote>
+
+<p>
+This results in the following derivation:
+</p>
+
+<blockquote><pre>
+1/(p^2 + a*p + b) -> 1/( (p+1/p)^2/w^2 + a*(p + 1/p)/w + b )
+                   = 1 /( ( p^2 + 1/p^2 + 2)/w^2 + (p + 1/p)*a/w + b )
+                   = w^2*p^2 / (p^4 + 2*p^2 + 1 + (p^3 + p)a*w + b*w^2*p^2)
+                   = w^2*p^2 / (p^4 + a*w*p^3 + (2+b*w^2)*p^2 + a*w*p + 1)
+</pre></blockquote>
+
+<p>
+This 4th order transfer function shall be split in to two transfer functions of order 2 each
+for numerical reasons. With the following formulation, the fourth order
+polynomial can be represented (with the unknowns "c" and "alpha"):
+</p>
+
+<blockquote><pre>
+g(p) = w^2*p^2 / ( (p*alpha)^2 + c*(p*alpha) + 1) * ( (p/alpha)^2 + c*(p/alpha) + 1)
+     = w^2*p^2 / ( p^4 + c*(alpha + 1/alpha)*p^3 + (alpha^2 + 1/alpha^2 + c^2)*p^2
+                                                 + c*(alpha + 1/alpha)*p + 1 )
+</pre></blockquote>
+
+<p>
+Comparison of coefficients:
+</p>
+
+<blockquote><pre>
+c*(alpha + 1/alpha) = a*w           -> c = a*w / (alpha + 1/alpha)
+alpha^2 + 1/alpha^2 + c^2 = 2+b*w^2 -> equation to determine alpha
+
+alpha^4 + 1 + a^2*w^2*alpha^4/(1+alpha^2)^2 = (2+b*w^2)*alpha^2
+  or z = alpha^2
+z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1 = 0
+</pre></blockquote>
+
+<p>
+Therefore the last equation has to be solved for "z" (basically, this means to compute
+a real zero of a fourth order polynomial):
+</p>
+
+<blockquote><pre>
+solve: 0 = f(z)  = z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1  for "z"
+           f(0)  = 1  &gt; 0
+           f(1)  = 1 + a^2*w^2/4 - (2+b*w^2) + 1
+                 = (a^2/4 - b)*w^2  &lt; 0
+                 // since b - a^2/4 > 0 requirement for complex conjugate poles
+-> 0 &lt; z &lt; 1
+</pre></blockquote>
+
+<p>
+This function computes the solution of this equation and returns "alpha = sqrt(z)";
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>a</td><td>Coefficient of s^1</td></tr>
+<tr><td>b</td><td>Coefficient of s^0</td></tr>
+<tr><td>w</td><td>Bandwidth angular frequency [rad/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alpha</td><td>Alpha factor to build up band pass</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:25 2026.
+</address>
+</body>
+</html>

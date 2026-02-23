@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.Random.Generators.Xorshift64star</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Random number generator xorshift64*&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Xorshift64star<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.Random.Generators.Xorshift64star"></a><a href="Modelica_Math_Random_Generators.html#Modelica.Math.Random.Generators"
+>Modelica.Math.Random.Generators</a>.Xorshift64star</h2>
+<p>
+<span class="ModelicaDescription">Random number generator xorshift64*</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Random number generator <strong>xorshift64*</strong>. This generator has a period of 2^64
+(the period defines the number of random numbers generated before the sequence begins to repeat itself).
+For an overview, comparison with other random number generators, and links to articles, see
+<a href="Modelica_Math_Random_Generators.html#Modelica.Math.Random.Generators"
+>Math.Random.Generators</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>nState=2</td>
+<td>The dimension of the internal state vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Random.Generators.Xorshift64star.initialState" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Random_Generators_Xorshift64star.html#Modelica.Math.Random.Generators.Xorshift64star.initialState"
+>initialState</a>
+</td>
+<td>Returns an initial state for the xorshift64* algorithm</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Random.Generators.Xorshift64star.random" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Random_Generators_Xorshift64star.html#Modelica.Math.Random.Generators.Xorshift64star.random"
+>random</a>
+</td>
+<td>Returns a uniform random number with the xorshift64* algorithm</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE initialState<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Random.Generators.Xorshift64star.initialState" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Random.Generators.Xorshift64star.initialState"></a><a href="Modelica_Math_Random_Generators_Xorshift64star.html#Modelica.Math.Random.Generators.Xorshift64star"
+>Modelica.Math.Random.Generators.Xorshift64star</a>.initialState</h2>
+<p>
+<span class="ModelicaDescription">Returns an initial state for the xorshift64* algorithm</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+state = Xorshift64star.<strong>initialState</strong>(localSeed, globalSeed);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Generates the initial state vector <strong>state</strong> for the Xorshift64star random number generator
+(= xorshift64* algorithm), from
+two Integer numbers given as input (arguments localSeed, globalSeed). Any Integer numbers
+can be given (including zero or negative number). The function returns
+a reasonable initial state vector with the following strategy:
+</p>
+
+<p>
+If both input
+arguments are zero, a fixed non-zero value is used internally for localSeed.
+According to <a href="http://vigna.di.unimi.it/ftp/papers/xorshift.pdf">xorshift.pdf</a>,
+the xorshift64* random number generator generates statistically random numbers from a
+bad seed within one iteration. To be on the safe side, actually 10 random numbers are generated
+and the returned state is the one from the last iteration.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  <strong>parameter</strong> Integer localSeed;
+  <strong>parameter</strong> Integer globalSeed;
+  Integer state[Xorshift64star.nState];
+<strong>initial equation</strong>
+  state = initialState(localSeed, globalSeed);
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Random_Generators_Xorshift64star.html#Modelica.Math.Random.Generators.Xorshift64star.random"
+>Random.Generators.Xorshift64star.random</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>localSeed</td><td>The local seed to be used for generating initial states</td></tr>
+<tr><td>globalSeed</td><td>The global seed to be combined with the local seed</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state[nState]</td><td>The generated initial states</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE random<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Random.Generators.Xorshift64star.random" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Random.Generators.Xorshift64star.random"></a><a href="Modelica_Math_Random_Generators_Xorshift64star.html#Modelica.Math.Random.Generators.Xorshift64star"
+>Modelica.Math.Random.Generators.Xorshift64star</a>.random</h2>
+<p>
+<span class="ModelicaDescription">Returns a uniform random number with the xorshift64* algorithm</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+(r, stateOut) = Xorshift64star.<strong>random</strong>(stateIn);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns a uniform random number r in the range 0 &lt; r &le; 1 with the xorshift64* algorithm.
+Input argument <strong>stateIn</strong> is the state vector of the previous call.
+Output argument <strong>stateOut</strong> is the updated state vector.
+If the function is called with identical stateIn vectors, exactly the
+same random number r is returned.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  <strong>parameter</strong> Integer localSeed;
+  <strong>parameter</strong> Integer globalSeed;
+  Real r;
+  Integer state[Xorshift64star.nState];
+<strong>initial equation</strong>
+  state = initialState(localSeed, globalSeed);
+<strong>equation</strong>
+  <strong>when</strong> sample(0,0.1) <strong>then</strong>
+    (r, state) = random(<strong>pre</strong>(state));
+  <strong>end when</strong>;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Random_Generators_Xorshift64star.html#Modelica.Math.Random.Generators.Xorshift64star.initialState"
+>Random.Generators.Xorshift64star.initialState</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>stateIn[nState]</td><td>The internal states for the random number generator</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>A random number with a uniform distribution on the interval (0,1]</td></tr>
+<tr><td>stateOut[nState]</td><td>The new internal states of the random number generator</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:52 2026.
+</address>
+</body>
+</html>

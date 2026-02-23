@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Units</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of type and unit definitions&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Units<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Units"></a><a href="Modelica.html#Modelica"
+>Modelica</a>.Units</h2>
+<p>
+<span class="ModelicaDescription">Library of type and unit definitions</span>
+</p>
+<h3>Information</h3>
+
+<p>This package provides predefined types, such as <em>Mass</em>,
+<em>Angle</em>, <em>Time</em>, based on the international standard
+on units, e.g.,
+</p>
+
+<blockquote><pre>
+<strong>type</strong> Angle = Real(<strong>final</strong> quantity = "Angle",
+                  <strong>final</strong> unit     = "rad",
+                  displayUnit   = "deg");
+</pre></blockquote>
+
+<p>
+Some of the types are derived SI units that are utilized in package Modelica
+(such as ComplexCurrent, which is a complex number where both the real and imaginary
+part have the SI unit Ampere).
+</p>
+
+<p>
+Furthermore, conversion functions from non SI-units to SI-units and vice versa
+are provided in subpackage
+<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Conversions</a>.
+</p>
+
+<p>
+For an introduction how units are used in the Modelica Standard Library
+with package Units, have a look at:
+<a href="Modelica_Units_UsersGuide.html#Modelica.Units.UsersGuide.HowToUseUnits"
+>How to use Units</a>.
+</p>
+
+<p>
+Copyright &copy; 1998-2025, Modelica Association and contributors
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Units.UsersGuideS.png" alt="Modelica.Units.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_UsersGuide.html#Modelica.Units.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s Guide of Units Library</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.SIS.png" alt="Modelica.Units.SI" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_SI.html#Modelica.Units.SI"
+>SI</a>
+</td>
+<td>Library of SI unit definitions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.NonSIS.png" alt="Modelica.Units.NonSI" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_NonSI.html#Modelica.Units.NonSI"
+>NonSI</a>
+</td>
+<td>Type definitions of non SI and other units</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.ConversionsS.png" alt="Modelica.Units.Conversions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Conversions</a>
+</td>
+<td>Conversion functions to/from non SI units and type definitions of non SI units</td>
+</tr>
+<tr>
+<td><img src="Modelica.Icons.IconsPackageS.png" alt="Modelica.Units.Icons" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Icons.html#Modelica.Units.Icons"
+>Icons</a>
+</td>
+<td>Icons for Units</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:52 2026.
+</address>
+</body>
+</html>

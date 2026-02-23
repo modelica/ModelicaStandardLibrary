@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Examples.AST_BatchPlant</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Model of the experimental batch plant at the Process Dynamics and Operations Group (DYN) at University of Dortmund (Prof. Engell)&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AST_BatchPlant<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Examples.AST_BatchPlant"></a><a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</a>.AST_BatchPlant</h2>
+<p>
+<span class="ModelicaDescription">Model of the experimental batch plant at the Process Dynamics and Operations Group (DYN) at University of Dortmund (Prof. Engell)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The process under consideration is an evaporation plant for a
+student lab at the Process Dynamics and Operations Group (DYN) (previously: Chair of "Anlagensteuerungstechnik" (AST)) of the
+University of Dortmund that evaporates a water sodium chloride
+mixture so that a higher concentrated solution is produced.
+The task of the students is to learn how to program the process
+control system. A picture of the batch plant is shown in the figure
+below.
+</p>
+
+<div>
+<img src="Resources/Images/Fluid/Examples/AST_BatchPlant/AST_BatchPlant1.jpg" border="1"
+     alt="AST_BatchPlant1.jpg">
+</div>
+
+<p>
+The flow sheet diagram is shown in the next figure.
+</p>
+
+<div>
+<img src="Resources/Images/Fluid/Examples/AST_BatchPlant/AST_BatchPlant2.png" border="1"
+     alt="AST_BatchPlant2.png">
+</div>
+
+<p>
+Pure water from tank B1 and concentrated sodium chloride
+solution from tank B2 are mixed in a mixing tank B3.
+After buffering in tank B4 the mixture flows to the
+evaporator B5. Here the water sodium chloride mixture
+is evaporated until the desired concentration is reached.
+The steam is condensed in the condenser K1 and cooled
+afterwards in the cooling tank B6. The concentrated
+solution is also led to a cooling tank B7. The cooled
+fluids are pumped back to the charging vessels by the
+pumps P1 and P2. Between the tanks several valves are
+present that are regulated by a central control system.
+</p>
+<p>
+This case study is described in more detail in this
+<a href="https://www.modelica.org/events/modelica2006/Proceedings/sessions/Session6b3.pdf">Modelica Conference 2006 paper</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.PumpingSystemS.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_AST_BatchPlant.html#Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater"
+>BatchPlant_StandardWater</a>
+</td>
+<td>Model of an experimental batch plant</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.DissipationS.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_AST_BatchPlant_BaseClasses.html#Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses"
+>BaseClasses</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.ExamplesS.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
+>Test</a>
+</td>
+<td>Test of used tank models</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BatchPlant_StandardWater<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.PumpingSystemI.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater"></a><a href="Modelica_Fluid_Examples_AST_BatchPlant.html#Modelica.Fluid.Examples.AST_BatchPlant"
+>Modelica.Fluid.Examples.AST_BatchPlant</a>.BatchPlant_StandardWater</h2>
+<p>
+<span class="ModelicaDescription">Model of an experimental batch plant</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Documentation for this example can be found on the <a href="Modelica_Fluid_Examples_AST_BatchPlant.html#Modelica.Fluid.Examples.AST_BatchPlant"
+>enclosing package</a>.
+</p>
+<div>
+<img src="Resources/Images/Fluid/Examples/AST_BatchPlant/BatchPlant_StandardWater.png" border="1"
+     alt="BatchPlant_StandardWater.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package BatchMedium</td><td>Component media</td></tr>
+<tr><td>pipeDiameter</td><td>Pipe diameter [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package BatchMedium</td><td>Component media</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:44 2026.
+</address>
+</body>
+</html>

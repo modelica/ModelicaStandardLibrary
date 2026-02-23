@@ -1,0 +1,1076 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Basic components for AC single-phase models&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase.html#Modelica.Electrical.QuasiStatic.SinglePhase"
+>Modelica.Electrical.QuasiStatic.SinglePhase</a>.Basic</h2>
+<p>
+<span class="ModelicaDescription">Basic components for AC single-phase models</span>
+</p>
+<h3>Information</h3>
+
+<p>This package hosts basic models for quasi-static single-phase circuits.
+Quasi-static theory for single-phase circuits can be found in the
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide.References"
+>references</a>.
+</p>
+<h4>See also</h4>
+
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Polyphase.Basic</a>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi05c343392fbfebf9roundS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground"
+>Ground</a>
+</td>
+<td>Electrical ground</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi5edf2e4b06612989istorS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>
+</td>
+<td>Single-phase linear resistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi5edf2e4b06612989istorS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>
+</td>
+<td>Single-phase linear conductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi220d00001d2bcf52citorS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>
+</td>
+<td>Single-phase linear capacitor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi9a522ee8e9a92953uctorS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>
+</td>
+<td>Single-phase linear inductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi4fc48128155faca5danceS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>
+</td>
+<td>Single-phase linear impedance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi18396d53b0d1c9daormerS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Transformer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Transformer"
+>Transformer</a>
+</td>
+<td>Transformer with two ports</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi4fc48128155faca5danceS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>
+</td>
+<td>Single-phase linear admittance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasid84c83bbc8d8601fistorS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>VariableResistor</a>
+</td>
+<td>Single-phase variable resistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasid84c83bbc8d8601fistorS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>VariableConductor</a>
+</td>
+<td>Single-phase variable conductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi44ffb850ca027d0bcitorS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>VariableCapacitor</a>
+</td>
+<td>Single-phase variable capacitor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi13bf8458271060c5uctorS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>VariableInductor</a>
+</td>
+<td>Single-phase variable inductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi72b73978c2761efcdanceS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>VariableImpedance</a>
+</td>
+<td>Single-phase variable impedance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi72b73978c2761efcdanceS.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>VariableAdmittance</a>
+</td>
+<td>Single-phase variable admittance</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Ground<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi05c343392fbfebf9roundI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.Ground</h2>
+<p>
+<span class="ModelicaDescription">Electrical ground</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Ground of a single-phase circuit. The potential at the ground node is zero.
+Every electrical circuit, e.g., a series resonance
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Examples.html#Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance"
+>
+          example</a>, has to contain at least one ground object.
+</p>
+
+
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Resistor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi5edf2e4b06612989istorI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.Resistor</h2>
+<p>
+<span class="ModelicaDescription">Single-phase linear resistor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The linear resistor connects the complex voltage <code><u>v</u></code> with the complex
+current <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>.
+The resistance <code>R</code> is allowed to be positive, zero, or negative.
+</p>
+
+<p>
+The resistor model also has an optional
+<a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>conditional heat port</a>.
+A linear temperature dependency of the resistance is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>R_ref</td><td>Reference resistance at T_ref [Ohm]</td></tr>
+<tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha_ref</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Conductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi5edf2e4b06612989istorI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.Conductor</h2>
+<p>
+<span class="ModelicaDescription">Single-phase linear conductor</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The linear conductor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = <u>v</u>*G</code>.
+The conductance <code>G</code> is allowed to be positive, zero, or negative.
+</p>
+
+<p>
+The conductor model also has an optional
+<a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>conditional heat port</a>.
+A linear temperature dependency of the conductance is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>G_ref</td><td>Reference conductance at T_ref [S]</td></tr>
+<tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha_ref</td><td>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Capacitor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi220d00001d2bcf52citorI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.Capacitor</h2>
+<p>
+<span class="ModelicaDescription">Single-phase linear capacitor</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The linear capacitor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = j*&omega;*C*<u>v</u></code>.
+The capacitance <code>C</code> is allowed to be positive, zero, or negative.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>C</td><td>Capacitance [F]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Inductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi9a522ee8e9a92953uctorI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.Inductor</h2>
+<p>
+<span class="ModelicaDescription">Single-phase linear inductor</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The linear inductor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>v</u> = j*&omega;*L*<u>i</u></code>.
+The Inductance <code>L</code> is allowed to be positive, zero, or negative.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>L</td><td>Inductance [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Impedance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi4fc48128155faca5danceI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.Impedance</h2>
+<p>
+<span class="ModelicaDescription">Single-phase linear impedance</span>
+</p>
+<h3>Information</h3>
+
+
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor.<br>
+<img src="Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/RX_impedance.png"></p>
+
+<p>
+The linear impedance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code>. The resistive
+component is modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> is determined from
+the actual operating temperature and the reference input resistance <code>real(Z_ref)</code>.
+A <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>conditional heat port</a> is considered.
+The reactive component <code>X_actual = imag(<u>Z</u>)</code>
+is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Z_ref</td><td>Complex impedance R_ref + j*X_ref</td></tr>
+<tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha_ref</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr><td>frequencyDependent</td><td>Consider frequency dependency, if true</td></tr>
+<tr><td>f_ref</td><td>Reference frequency, if frequency dependency is considered [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Transformer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi18396d53b0d1c9daormerI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Transformer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Transformer"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.Transformer</h2>
+<p>
+<span class="ModelicaDescription">Transformer with two ports</span>
+</p>
+<h3>Information</h3>
+
+<p>The transformer is a two port. The left port voltage <em>v1</em>, left port current <em>i1</em>, right port voltage <em>v2</em> and right port current <em>i2</em> are connected by the following relation:</p>
+<blockquote><pre> 
+| v1 |     | L1   M  |   | i1 |
+|    |  =  |         | . |    |
+| v2 |     | M    L2 |   | i2 |
+</pre></blockquote>
+<p><em>L1</em>, <em>L2</em>, and <em>M</em> are the primary, secondary, and coupling inductances respectively.</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>L1</td><td>Primary inductance [H]</td></tr>
+<tr><td>L2</td><td>Secondary inductance [H]</td></tr>
+<tr><td>M</td><td>Coupling inductance [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p1</td><td>Primary positive pin</td></tr>
+<tr><td>pin_p2</td><td>Secondary positive pin</td></tr>
+<tr><td>pin_n1</td><td>Primary negative pin</td></tr>
+<tr><td>pin_n2</td><td>Secondary negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Admittance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi4fc48128155faca5danceI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.Admittance</h2>
+<p>
+<span class="ModelicaDescription">Single-phase linear admittance</span>
+</p>
+<h3>Information</h3>
+
+
+<p>The admittance model represents a <strong>parallel</strong> connection of a conductor and either a capacitor or inductor.<br>
+<img src="Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/GB_admittance.png"></p>
+
+<p>
+The linear admittance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>i</u> = <u>Y</u>*<u>v</u></code>. The resistive
+component is modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> is determined from
+the actual operating temperature and the reference input conductance <code>real(Y_ref)</code>.
+A <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>conditional heat port</a> is considered.
+The reactive component <code>B_actual = imag(<u>Y</u>)</code>
+is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Y_ref</td><td>Complex admittance G_ref + j*B_ref</td></tr>
+<tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha_ref</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr><td>frequencyDependent</td><td>Consider frequency dependency, if true</td></tr>
+<tr><td>f_ref</td><td>Reference frequency, if frequency dependency is considered [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableResistor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasid84c83bbc8d8601fistorI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.VariableResistor</h2>
+<p>
+<span class="ModelicaDescription">Single-phase variable resistor</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The linear resistor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>.
+The resistance <code>R</code> is given as input signal.
+</p>
+
+<p>
+The variable resistor model also has an optional
+<a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>conditional heat port</a>.
+A linear temperature dependency of the resistance is also taken into account.
+</p>
+
+<h4>Note</h4>
+<p>
+A zero crossing of the R signal could cause singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha_ref</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>R_ref</td><td>Variable resistance [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableConductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasid84c83bbc8d8601fistorI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.VariableConductor</h2>
+<p>
+<span class="ModelicaDescription">Single-phase variable conductor</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The linear conductor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = G*<u>v</u></code>.
+The conductance <code>G</code> is given as input signal.
+</p>
+
+<p>
+The variable conductor model also has an optional
+<a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>conditional heat port</a>.
+A linear temperature dependency of the conductance is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha_ref</td><td>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>G_ref</td><td>Variable conductance [S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableCapacitor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi44ffb850ca027d0bcitorI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.VariableCapacitor</h2>
+<p>
+<span class="ModelicaDescription">Single-phase variable capacitor</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The linear capacitor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = j*&omega;*C*<u>v</u></code>.
+The capacitance <code>C</code> is given as input signal.
+</p>
+
+<h4>Note</h4>
+<p>
+The abstraction of a variable capacitor at quasi-static operation assumes:
+</p>
+
+<div>
+<img src="Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/dc_dt.png"
+     alt="dc_dt.png">.
+</div>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td>C</td><td>Variable capacitances [F]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableInductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi13bf8458271060c5uctorI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.VariableInductor</h2>
+<p>
+<span class="ModelicaDescription">Single-phase variable inductor</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The linear inductor connects the branch voltage <code><u>v</u></code> with the
+branch current <code><u>i</u></code> by <code><u>v</u> = j*&omega;*L*<u>i</u></code>. The inductance <code>L</code> is given as input signal.
+</p>
+
+<h4>Note</h4>
+<p>
+The abstraction of a variable inductor at quasi-static operation assumes:
+</p>
+
+<div>
+<img src="Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/dl_dt.png"
+     alt="dl_dt.png">
+</div>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>,
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td>L</td><td>Variable inductances [H]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableImpedance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi72b73978c2761efcdanceI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.VariableImpedance</h2>
+<p>
+<span class="ModelicaDescription">Single-phase variable impedance</span>
+</p>
+<h3>Information</h3>
+
+
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor.<br>
+<img src="Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/RX_impedance.png"></p>
+
+<p>
+The linear impedance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>i</u>*<u>Z</u> = <u>v</u></code>.
+The impedance <code>Z_ref = R_ref + j*X_ref</code> is given as complex input signal, representing the
+resistive and reactive component of the input impedance. The resistive
+component is modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> is determined from
+the actual operating temperature and the reference input resistance <code>real(Z_ref)</code>.
+The reactive component <code>X_actual = imag(<u>Z</u>)</code>
+is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>Note</h4>
+<p>
+A zero crossing of the real or imaginary part of the impedance signal <code>Z_ref</code> could cause
+singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha_ref</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr><td>frequencyDependent</td><td>Consider frequency dependency, if true</td></tr>
+<tr><td>f_ref</td><td>Reference frequency, if frequency dependency is considered [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>Z_ref</td><td>Variable complex impedance</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableAdmittance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi72b73978c2761efcdanceI.png" alt="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"></a><a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</a>.VariableAdmittance</h2>
+<p>
+<span class="ModelicaDescription">Single-phase variable admittance</span>
+</p>
+<h3>Information</h3>
+
+
+<p>The admittance model represents a <strong>parallel</strong> connection of a conductor and either a capacitor or inductor.<br>
+<img src="Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/GB_admittance.png"></p>
+
+<p>
+The linear admittance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>v</u>*<u>Y</u> = <u>i</u></code>.
+The admittance <code>Y_ref = G_ref + j*B_ref</code> is given as complex input signal, representing the
+resistive and reactive component of the input admittance. The resistive
+component is modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> is determined from
+the actual operating temperature and the reference input conductance <code>real(Y_ref)</code>.
+The reactive component <code>B_actual = imag(<u>Y</u>)</code>
+is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>Note</h4>
+<p>
+A zero crossing of the real or imaginary part of the admittance signal <code>Y_ref</code> could cause
+singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>Variable impedance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha_ref</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr><td>frequencyDependent</td><td>Consider frequency dependency, if true</td></tr>
+<tr><td>f_ref</td><td>Reference frequency, if frequency dependency is considered [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td>pin_n</td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>Y_ref</td><td>Variable complex admittance</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:40 2026.
+</address>
+</body>
+</html>

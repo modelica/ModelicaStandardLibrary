@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Polyphase.Sources</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Polyphase voltage and current sources&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Polyphase.Sources"></a><a href="Modelica_Electrical_Polyphase.html#Modelica.Electrical.Polyphase"
+>Modelica.Electrical.Polyphase</a>.Sources</h2>
+<p>
+<span class="ModelicaDescription">Polyphase voltage and current sources</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains time-dependent and controlled polyphase voltage and current sources:
+</p>
+<ul>
+<li>SignalVoltage: fed by Modelica.Blocks.Sources arbitrary waveforms of voltages are possible</li>
+<li>ConstantVoltage: constant polyphase voltages</li>
+<li>SineVoltage : phase shift between consecutive voltages by default given by
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a></li>
+<li>CosineVoltage : phase shift between consecutive voltages by default given by
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a></li>
+<li>SignalCurrent: fed by Modelica.Blocks.Sources arbitrary waveforms of currents are possible</li>
+<li>ConstantCurrent: constant polyphase currents</li>
+<li>SineCurrent : phase shift between consecutive currents by default given by
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a></li>
+<li>CosineCurrent : phase shift between consecutive currents by default given by
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a></li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</a> (Icon for packages containing sources).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp9606dcbb97310693ltageS.png" alt="Modelica.Electrical.Polyphase.Sources.SignalVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources.SignalVoltage"
+>SignalVoltage</a>
+</td>
+<td>Polyphase signal voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypc59e3bf7ec164203ltageS.png" alt="Modelica.Electrical.Polyphase.Sources.ConstantVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources.ConstantVoltage"
+>ConstantVoltage</a>
+</td>
+<td>Polyphase constant voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp9f870bda40487373ltageS.png" alt="Modelica.Electrical.Polyphase.Sources.SineVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources.SineVoltage"
+>SineVoltage</a>
+</td>
+<td>Polyphase sine voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypf550a46a9461e9daltageS.png" alt="Modelica.Electrical.Polyphase.Sources.CosineVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources.CosineVoltage"
+>CosineVoltage</a>
+</td>
+<td>Polyphase cosine voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp7aedcacae2d217a7rrentS.png" alt="Modelica.Electrical.Polyphase.Sources.SignalCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources.SignalCurrent"
+>SignalCurrent</a>
+</td>
+<td>Polyphase signal current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypaa852a0699f55337rrentS.png" alt="Modelica.Electrical.Polyphase.Sources.ConstantCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources.ConstantCurrent"
+>ConstantCurrent</a>
+</td>
+<td>Polyphase constant current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp846df9e935ab6247rrentS.png" alt="Modelica.Electrical.Polyphase.Sources.SineCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources.SineCurrent"
+>SineCurrent</a>
+</td>
+<td>Polyphase sine current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypda379279e182f8eerrentS.png" alt="Modelica.Electrical.Polyphase.Sources.CosineCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources.CosineCurrent"
+>CosineCurrent</a>
+</td>
+<td>Polyphase cosine current source</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignalVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp9606dcbb97310693ltageI.png" alt="Modelica.Electrical.Polyphase.Sources.SignalVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Sources.SignalVoltage"></a><a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources"
+>Modelica.Electrical.Polyphase.Sources</a>.SignalVoltage</h2>
+<p>
+<span class="ModelicaDescription">Polyphase signal voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources.SignalVoltage)
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+<tr><td>v[m]</td><td>Voltage between pin p and n (= p.v - n.v) as input signal [V]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConstantVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypc59e3bf7ec164203ltageI.png" alt="Modelica.Electrical.Polyphase.Sources.ConstantVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Sources.ConstantVoltage"></a><a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources"
+>Modelica.Electrical.Polyphase.Sources</a>.ConstantVoltage</h2>
+<p>
+<span class="ModelicaDescription">Polyphase constant voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.ConstantVoltage)
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>V[m]</td><td>Values of constant voltages [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SineVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp9f870bda40487373ltageI.png" alt="Modelica.Electrical.Polyphase.Sources.SineVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Sources.SineVoltage"></a><a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources"
+>Modelica.Electrical.Polyphase.Sources</a>.SineVoltage</h2>
+<p>
+<span class="ModelicaDescription">Polyphase sine voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
+with a default phase shift determined by
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>V[m]</td><td>Amplitudes of sine waves [V]</td></tr>
+<tr><td>phase[m]</td><td>Phases of sine waves [rad]</td></tr>
+<tr><td>f[m]</td><td>Frequencies of sine waves [Hz]</td></tr>
+<tr><td>offset[m]</td><td>Voltage offsets [V]</td></tr>
+<tr><td>startTime[m]</td><td>Time offsets [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CosineVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypf550a46a9461e9daltageI.png" alt="Modelica.Electrical.Polyphase.Sources.CosineVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Sources.CosineVoltage"></a><a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources"
+>Modelica.Electrical.Polyphase.Sources</a>.CosineVoltage</h2>
+<p>
+<span class="ModelicaDescription">Polyphase cosine voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m cosine voltage sources (Modelica.Electrical.Analog.Sources.CosineVoltage)
+with a default phase shift determined by
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>V[m]</td><td>Amplitudes of cosine waves [V]</td></tr>
+<tr><td>phase[m]</td><td>Phases of cosine waves [rad]</td></tr>
+<tr><td>f[m]</td><td>Frequencies of cosine waves [Hz]</td></tr>
+<tr><td>offset[m]</td><td>Voltage offsets [V]</td></tr>
+<tr><td>startTime[m]</td><td>Time offsets [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignalCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp7aedcacae2d217a7rrentI.png" alt="Modelica.Electrical.Polyphase.Sources.SignalCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Sources.SignalCurrent"></a><a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources"
+>Modelica.Electrical.Polyphase.Sources</a>.SignalCurrent</h2>
+<p>
+<span class="ModelicaDescription">Polyphase signal current source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources.SignalCurrent)
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+<tr><td>i[m]</td><td>Current flowing from pin p to pin n as input signal [A]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConstantCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypaa852a0699f55337rrentI.png" alt="Modelica.Electrical.Polyphase.Sources.ConstantCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Sources.ConstantCurrent"></a><a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources"
+>Modelica.Electrical.Polyphase.Sources</a>.ConstantCurrent</h2>
+<p>
+<span class="ModelicaDescription">Polyphase constant current source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m constant current sources (Modelica.Electrical.Analog.Sources.ConstantCurrent)
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>I[m]</td><td>Values of constant currents [A]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SineCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp846df9e935ab6247rrentI.png" alt="Modelica.Electrical.Polyphase.Sources.SineCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Sources.SineCurrent"></a><a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources"
+>Modelica.Electrical.Polyphase.Sources</a>.SineCurrent</h2>
+<p>
+<span class="ModelicaDescription">Polyphase sine current source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent)
+with a default phase shift determined by
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>I[m]</td><td>Amplitudes of sine waves [A]</td></tr>
+<tr><td>phase[m]</td><td>Phases of sine waves [rad]</td></tr>
+<tr><td>f[m]</td><td>Frequencies of sine waves [Hz]</td></tr>
+<tr><td>offset[m]</td><td>Current offsets [A]</td></tr>
+<tr><td>startTime[m]</td><td>Time offsets [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CosineCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypda379279e182f8eerrentI.png" alt="Modelica.Electrical.Polyphase.Sources.CosineCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Sources.CosineCurrent"></a><a href="Modelica_Electrical_Polyphase_Sources.html#Modelica.Electrical.Polyphase.Sources"
+>Modelica.Electrical.Polyphase.Sources</a>.CosineCurrent</h2>
+<p>
+<span class="ModelicaDescription">Polyphase cosine current source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m cosine current sources (Modelica.Electrical.Analog.Sources.CosineCurrent)
+with a default phase shift determined by
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>I[m]</td><td>Amplitudes of cosine waves [A]</td></tr>
+<tr><td>phase[m]</td><td>Phases of cosine waves [rad]</td></tr>
+<tr><td>f[m]</td><td>Frequencies of cosine waves [Hz]</td></tr>
+<tr><td>offset[m]</td><td>Current offsets [A]</td></tr>
+<tr><td>startTime[m]</td><td>Time offsets [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:40 2026.
+</address>
+</body>
+</html>

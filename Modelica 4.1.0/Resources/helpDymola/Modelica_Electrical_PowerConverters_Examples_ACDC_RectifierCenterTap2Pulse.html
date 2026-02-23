@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Center tap rectifier with two pulses&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RectifierCenterTap2Pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC.html#Modelica.Electrical.PowerConverters.Examples.ACDC"
+>Modelica.Electrical.PowerConverters.Examples.ACDC</a>.RectifierCenterTap2Pulse</h2>
+<p>
+<span class="ModelicaDescription">Center tap rectifier with two pulses</span>
+</p>
+<h3>Information</h3>
+
+<p>This package includes single-phase two pulse center tap rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.DiodeCenterTap2Pulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.DiodeCenterTap2Pulse"
+>DiodeCenterTap2Pulse</a>
+</td>
+<td>Two pulse diode rectifier with center tap with resistive load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_R" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_R"
+>ThyristorCenterTap2Pulse_R</a>
+</td>
+<td>Two pulse thyristor rectifier with center tap and resistive load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RL" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RL"
+>ThyristorCenterTap2Pulse_RL</a>
+</td>
+<td>Two pulse thyristor rectifier with center tap and R-L load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV"
+>ThyristorCenterTap2Pulse_RLV</a>
+</td>
+<td>Two pulse thyristor rectifier with center tap and R-L load and voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV_Characteristic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV_Characteristic"
+>ThyristorCenterTap2Pulse_RLV_Characteristic</a>
+</td>
+<td>Characteristic of two pulse thyristor rectifier with center tap and R-L load and voltage</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeCenterTap2Pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.DiodeCenterTap2Pulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.DiodeCenterTap2Pulse"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</a>.DiodeCenterTap2Pulse</h2>
+<p>
+<span class="ModelicaDescription">Two pulse diode rectifier with center tap with resistive load</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows an uncontrolled two pulse center tap diode rectifier with resistive load.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorCenterTap2Pulse_R<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_R" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_R"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</a>.ThyristorCenterTap2Pulse_R</h2>
+<p>
+<span class="ModelicaDescription">Two pulse thyristor rectifier with center tap and resistive load</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows a controlled center tap two pulse rectifier with resistive load.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Examples_ACDC_ExampleTemplates.html#Modelica.Electrical.PowerConverters.Examples.ACDC.ExampleTemplates.ThyristorCenterTap2Pulse"
+>ExampleTemplates.ThyristorCenterTap2Pulse</a> (Template of two pulse thyristor rectifier with center tap), <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>pulse2</td><td>&nbsp;</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorCenterTap2Pulse_RL<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RL" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RL"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</a>.ThyristorCenterTap2Pulse_RL</h2>
+<p>
+<span class="ModelicaDescription">Two pulse thyristor rectifier with center tap and R-L load</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows a controlled center tap two pulse rectifier with R-L load.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Examples_ACDC_ExampleTemplates.html#Modelica.Electrical.PowerConverters.Examples.ACDC.ExampleTemplates.ThyristorCenterTap2Pulse"
+>ExampleTemplates.ThyristorCenterTap2Pulse</a> (Template of two pulse thyristor rectifier with center tap), <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>pulse2</td><td>&nbsp;</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+<tr><td>L</td><td>Load resistance [H]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorCenterTap2Pulse_RLV<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</a>.ThyristorCenterTap2Pulse_RLV</h2>
+<p>
+<span class="ModelicaDescription">Two pulse thyristor rectifier with center tap and R-L load and voltage</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows a controlled center tap two pulse rectifier with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Examples_ACDC_ExampleTemplates.html#Modelica.Electrical.PowerConverters.Examples.ACDC.ExampleTemplates.ThyristorCenterTap2Pulse"
+>ExampleTemplates.ThyristorCenterTap2Pulse</a> (Template of two pulse thyristor rectifier with center tap), <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>pulse2</td><td>&nbsp;</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+<tr><td>L</td><td>Load resistance [H]</td></tr>
+<tr><td>VDC</td><td>DC load offset voltage [V]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorCenterTap2Pulse_RLV_Characteristic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV_Characteristic" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV_Characteristic"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</a>.ThyristorCenterTap2Pulse_RLV_Characteristic</h2>
+<p>
+<span class="ModelicaDescription">Characteristic of two pulse thyristor rectifier with center tap and R-L load and voltage</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows a controlled center tap two pulse rectifier with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>
+
+<p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2.firingAngle</code> to see control characteristic of this type of rectifier with R-L load including active voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Examples_ACDC_ExampleTemplates.html#Modelica.Electrical.PowerConverters.Examples.ACDC.ExampleTemplates.ThyristorCenterTap2Pulse"
+>ExampleTemplates.ThyristorCenterTap2Pulse</a> (Template of two pulse thyristor rectifier with center tap), <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>pulse2</td><td>&nbsp;</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+<tr><td>L</td><td>Load resistance [H]</td></tr>
+<tr><td>VDC</td><td>DC load offset voltage [V]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:40 2026.
+</address>
+</body>
+</html>

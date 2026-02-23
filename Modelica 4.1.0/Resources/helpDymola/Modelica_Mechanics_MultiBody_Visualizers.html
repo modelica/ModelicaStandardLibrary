@@ -1,0 +1,910 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody.Visualizers</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;3-dimensional visual objects used for animation&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Visualizers<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.MultiBody.Visualizers"></a><a href="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</a>.Visualizers</h2>
+<p>
+<span class="ModelicaDescription">3-dimensional visual objects used for animation</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Package <strong>Visualizers</strong> contains components to visualize
+3-dimensional shapes. These components are the basis for the
+animation features of the MultiBody library.
+</p>
+<h4>Content</h4>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape"
+>FixedShape</a><br>
+             <a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape2"
+>FixedShape2</a></td>
+      <td>Visualizing an elementary shape with dynamically varying shape attributes.
+      FixedShape has one connector frame_a, whereas FixedShape2 has additionally
+          a frame_b for easier connection to further visual objects.
+          The following shape types are supported:<br>&nbsp;<br>
+      <img src="Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png" alt="model Visualizers.FixedShape">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedFrame"
+>FixedFrame</a></td>
+      <td>Visualizing a coordinate system including axes labels with fixed sizes:<br>
+      <img src="Resources/Images/Mechanics/MultiBody/Visualizers/FixedFrame_small.png"
+       alt="model Visualizers.FixedFrame2">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedArrow"
+>FixedArrow</a>,<br>
+<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.SignalArrow"
+>SignalArrow</a></td>
+      <td>Visualizing an arrow. Model "FixedArrow" provides
+      a fixed sized arrow, model "SignalArrow" provides
+      an arrow with dynamically varying length that is defined
+      by an input signal vector:<br>
+      <img src="Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png">
+      </td>
+  </tr>
+
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.Torus"
+>Torus</a></td>
+      <td>Visualizing a torus:<br>
+      <img src="Resources/Images/Mechanics/MultiBody/Visualizers/TorusIcon.png">
+      </td>
+  </tr>
+
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel"
+>VoluminousWheel</a></td>
+      <td>Visualizing a wheel:<br>
+      <img src="Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheelIcon.png">
+      </td>
+  </tr>
+
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField"
+>PipeWithScalarField</a></td>
+      <td>Visualizing a pipe with a scalar field represented by a color coding:<br>
+      <img src="Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png">
+      </td>
+  </tr>
+
+<tr><td><a href="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced"
+>Advanced</a></td>
+      <td> <strong>Package</strong> that contains components to visualize
+          3-dimensional shapes where all parts of the shape
+          can vary dynamically. Basic knowledge of Modelica is
+          needed in order to utilize the components of this package.
+      </td>
+  </tr>
+</table>
+<p>
+The colors of the visualization components are declared with
+the predefined type <strong>MultiBody.Types.Color</strong>.
+This is a vector with 3 elements,
+{r, g, b}, and specifies the color of the shape.
+{r,g,b} are the "red", "green" and "blue" color parts.
+Note, r g, b are given as Integer[3] in the ranges 0&nbsp;&hellip;&nbsp;255,
+respectively.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB57c492904345de5eShapeS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.FixedShape" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape"
+>FixedShape</a>
+</td>
+<td>Visualizing an elementary shape with dynamically varying shape attributes (has one frame connector)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBe996ffe268bbcb8ahape2S.png" alt="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedShape2"
+>FixedShape2</a>
+</td>
+<td>Visualizing an elementary shape with dynamically varying shape attributes (has two frame connectors)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB74e956f84218ddfeFrameS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedFrame"
+>FixedFrame</a>
+</td>
+<td>Visualizing a coordinate system including axes labels (visualization data may vary dynamically)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB1d293c14426891acArrowS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedArrow"
+>FixedArrow</a>
+</td>
+<td>Visualizing an arrow with dynamically varying size in frame_a</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB7255314254765dd6ArrowS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.SignalArrow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.SignalArrow"
+>SignalArrow</a>
+</td>
+<td>Visualizing an arrow with dynamically varying size in frame_a based on input signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB11b90446210930f4TorusS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Torus" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.Torus"
+>Torus</a>
+</td>
+<td>Visualizing a torus</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB8e13bf1796e0510cWheelS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel"
+>VoluminousWheel</a>
+</td>
+<td>Visualizing a voluminous wheel</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB8b20f83f879a8f41FieldS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField"
+>PipeWithScalarField</a>
+</td>
+<td>Visualizing a pipe with scalar field quantities along the pipe axis</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB89ec5c7c3c548722angleS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Rectangle" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.Rectangle"
+>Rectangle</a>
+</td>
+<td>Visualizing a planar rectangular surface</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB5d14c9470f297ed7olorsS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Colors" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers_Colors.html#Modelica.Mechanics.MultiBody.Visualizers.Colors"
+>Colors</a>
+</td>
+<td>Library of functions operating on color</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBe0ce3d3d52d510eaancedS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Advanced" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced"
+>Advanced</a>
+</td>
+<td>Visualizers that require basic knowledge about Modelica in order to use them</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBb0469eb454d071a6ernalS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Internal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal"
+>Internal</a>
+</td>
+<td>Makeshift visualizers for display of three-dimensional fonts using cylinders</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedShape<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB57c492904345de5eShapeI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.FixedShape" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.FixedShape"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.FixedShape</h2>
+<p>
+<span class="ModelicaDescription">Visualizing an elementary shape with dynamically varying shape attributes (has one frame connector)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model <strong>FixedShape</strong> defines a visual shape that is
+shown at the location of its frame_a.
+All describing data such as size and color can vary dynamically by
+providing appropriate expressions in the input fields of the
+parameter menu. The only exception is parameter shapeType
+that cannot be changed during simulation.
+The following shapes are currently supported via
+parameter <strong>shapeType</strong> (e.g., shapeType="box"):<br>&nbsp;
+</p>
+
+<div>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png" alt="model Visualizers.FixedShape">
+</div>
+
+<p>
+The dark blue arrows in the figure above are directed along
+variable <strong>lengthDirection</strong>. The light blue arrows are directed
+along variable <strong>widthDirection</strong>. The <strong>coordinate systems</strong>
+in the figure represent frame_a of the FixedShape component.
+</p>
+
+<p>
+Additionally, <strong>external shapes</strong> can be specified as (not all options might be supported by all tools):
+</p>
+
+<ul>
+<li> <strong>"1", "2",&nbsp;&hellip;</strong><br>
+     define external shapes specified in DXF format in files "1.dxf", "2.dxf",&nbsp;&hellip;
+     The DXF-files must be found either in the current directory or in the directory where
+     the Shape instance is stored that references the DXF file.
+     This (very limited) option should not be used for new models. Example:<br>
+    shapeType="1".<br></li>
+
+<li> "<strong>modelica:</strong>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;"<br>
+     characterizes the file that is stored under the location of the
+     &lt;Modelica-name&gt; library path with the given relative file name.
+     Example:<br> shapeType = "modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf".<br></li>
+
+<li> "<strong>file:</strong>///&lt;absolute-file-name&gt;"<br>
+     characterizes an absolute file name in the file system. Example:<br>
+     shapeType="file:///C:/users/myname/shapes/piston.dxf".</li>
+</ul>
+
+<p>
+The supported file formats are tool dependent. Most tools support at least DXF-files
+but may support other format as well (such as stl, obj, 3ds).
+Since visualization files contain color and other data, the corresponding
+information in the model is usually ignored.
+For information about DXF files, see <a href="https://en.wikipedia.org/wiki/AutoCAD_DXF">Wikipedia</a>.
+As a default it is assumed that the DXF coordinates are in the "frame_a"-system and in meters, and that the 3dfaces are two-sided.
+Some tools support only 3dface (for geometry) and layer (for advanced coloring).</p>
+
+<p>
+The sizes of any of the above components are specified by the
+<strong>length</strong>, <strong>width</strong> and <strong>height</strong> variables.
+Via variable <strong>extra</strong> additional data can be defined:
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
+<tr>
+  <td>"cylinder"</td>
+  <td>if extra&nbsp;&gt;&nbsp;0, a black line is included in the
+      cylinder to show the rotation of it.</td>
+</tr>
+<tr>
+  <td>"cone"</td>
+  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+      extra = 1: cylinder<br>
+      extra = 0: "real" cone.</td>
+</tr>
+<tr>
+  <td>"pipe"</td>
+  <td>extra = outer-diameter / inner-diameter, i.e,<br>
+      extra = 1: cylinder that is completely hollow<br>
+      extra = 0: cylinder without a hole.</td>
+</tr>
+<tr>
+  <td>"gearwheel"</td>
+  <td>extra is the number of teeth of the (external) gear.
+If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
+The axis of the gearwheel is along "lengthDirection", and usually:
+width = height = 2*radiusOfGearWheel.</td>
+</tr>
+<tr>
+  <td>"spring"</td>
+  <td>extra is the number of windings of the spring.
+      Additionally, "height" is <strong>not</strong> the "height" but
+      2*coil-width.</td>
+</tr>
+<tr>
+  <td>external shape</td>
+  <td>extra = 0: Visualization from file is not scaled.<br>
+                     extra = 1: Visualization from file is scaled with "length", "width" and "height"
+                                of the shape</td>
+</tr>
+</table>
+<p>
+Parameter <strong>color</strong> is a vector with 3 elements,
+{r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
+{r,&nbsp;g,&nbsp;b} are the "red", "green" and "blue" color parts.
+Note, r, g and b are given as Integer[3] in the ranges 0&nbsp;&hellip;&nbsp;255,
+respectively. The predefined type
+<a  >MultiBody.Types.Color</a> contains a menu
+definition of the colors used in the MultiBody library together with a color editor.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer</a> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>shapeType</td><td>Type of shape</td></tr>
+<tr><td>r_shape[3]</td><td>Vector from frame_a to shape origin, resolved in frame_a [m]</td></tr>
+<tr><td>lengthDirection</td><td>Vector in length direction of shape, resolved in frame_a [1]</td></tr>
+<tr><td>widthDirection</td><td>Vector in width direction of shape, resolved in frame_a [1]</td></tr>
+<tr><td>length</td><td>Length of shape [m]</td></tr>
+<tr><td>width</td><td>Width of shape [m]</td></tr>
+<tr><td>height</td><td>Height of shape [m]</td></tr>
+<tr><td>color</td><td>Color of shape</td></tr>
+<tr><td>extra</td><td>Additional data for cylinder, cone, pipe, gearwheel and spring</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system in which visualization data is resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedShape2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBe996ffe268bbcb8ahape2I.png" alt="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.FixedShape2</h2>
+<p>
+<span class="ModelicaDescription">Visualizing an elementary shape with dynamically varying shape attributes (has two frame connectors)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model <strong>FixedShape2</strong> defines a visual shape that is
+shown at the location of its frame_a. This model is identical
+to <strong>FixedShape</strong> with the only difference that an
+additional frame_b is present which is parallel to frame_a.
+This makes it more convenient to connect several visual
+shapes together when building up more complex visual
+objects. All describing data such as size and color can vary dynamically by
+providing appropriate expressions in the input fields of the
+parameter menu. The only exception is parameter shapeType
+that cannot be changed during simulation.
+The following shapes are currently supported via
+parameter <strong>shapeType</strong> (e.g., shapeType="box"):<br>&nbsp;
+</p>
+
+<div>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png" alt="model Visualizers.FixedShape2">
+</div>
+
+<p>&nbsp;<br>
+The dark blue arrows in the figure above are directed along
+variable <strong>lengthDirection</strong>. The light blue arrows are directed
+along variable <strong>widthDirection</strong>. The <strong>coordinate systems</strong>
+in the figure represent frame_a of the FixedShape component.
+</p>
+
+<p>
+Additionally, <strong>external shapes</strong> can be specified as (not all options might be supported by all tools):
+</p>
+
+<ul>
+<li> <strong>"1", "2",&nbsp;&hellip;</strong><br>
+     define external shapes specified in DXF format in files "1.dxf", "2.dxf",&nbsp;&hellip;
+     The DXF-files must be found either in the current directory or in the directory where
+     the Shape instance is stored that references the DXF file.
+     This (very limited) option should not be used for new models. Example:<br>
+    shapeType="1".<br></li>
+
+<li> "<strong>modelica:</strong>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;"<br>
+     characterizes the file that is stored under the location of the
+     &lt;Modelica-name&gt; library path with the given relative file name.
+     Example:<br> shapeType = "modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf".<br></li>
+
+<li> "<strong>file:</strong>///&lt;absolute-file-name&gt;"<br>
+     characterizes an absolute file name in the file system. Example:<br>
+     shapeType="file:///C:/users/myname/shapes/piston.dxf".</li>
+</ul>
+
+<p>
+The supported file formats are tool dependent. Most tools support at least DXF-files
+but may support other format as well (such as stl, obj, 3ds).
+Since visualization files contain color and other data, the corresponding
+information in the model is usually ignored.
+For information about DXF files, see <a href="https://en.wikipedia.org/wiki/AutoCAD_DXF">Wikipedia</a>.
+As a default it is assumed that the DXF coordinates are in the "frame_a"-system and in meters, and that the 3dfaces are two-sided.
+Some tools support only 3dface (for geometry) and layer (for advanced coloring).
+</p>
+
+<p>
+The sizes of any of the above components are specified by the
+<strong>length</strong>, <strong>width</strong> and <strong>height</strong> variables.
+Via variable <strong>extra</strong> additional data can be defined:
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
+<tr>
+  <td>"cylinder"</td>
+  <td>if extra&nbsp;&gt;&nbsp;0, a black line is included in the
+      cylinder to show the rotation of it.</td>
+</tr>
+<tr>
+  <td>"cone"</td>
+  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+      extra = 1: cylinder<br>
+      extra = 0: "real" cone.</td>
+</tr>
+<tr>
+  <td>"pipe"</td>
+  <td>extra = outer-diameter / inner-diameter, i.e,<br>
+      extra = 1: cylinder that is completely hollow<br>
+      extra = 0: cylinder without a hole.</td>
+</tr>
+<tr>
+  <td>"gearwheel"</td>
+  <td>extra is the number of teeth of the (external) gear.
+If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
+The axis of the gearwheel is along "lengthDirection", and usually:
+width = height = 2*radiusOfGearWheel.</td>
+</tr>
+<tr>
+  <td>"spring"</td>
+  <td>extra is the number of windings of the spring.
+      Additionally, "height" is <strong>not</strong> the "height" but
+      2*coil-width.</td>
+</tr>
+<tr>
+  <td>external shape</td>
+  <td>extra = 0: Visualization from file is not scaled.<br>
+                     extra = 1: Visualization from file is scaled with "length", "width" and "height"
+                                of the shape</td>
+</tr>
+</table>
+<p>
+Parameter <strong>color</strong> is a vector with 3 elements,
+{r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
+{r,&nbsp;g,&nbsp;b} are the "red", "green" and "blue" color parts.
+Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;&hellip;&nbsp;255,
+respectively. The predefined type
+<a  >MultiBody.Types.Color</a> contains a menu
+definition of the colors used in the MultiBody library together with a color editor.
+</p>
+<p>
+In the following figure the relationships between
+frame_a and frame_b are shown. The origin of frame_b
+with respect to frame_a is specified via parameter
+vector&nbsp;<strong>r</strong>.
+</p>
+
+<div>
+<img src="Resources/Images/Mechanics/MultiBody/Parts/FixedTranslation.png" alt="Parts.FixedTranslation">
+</div>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>shapeType</td><td>Type of shape</td></tr>
+<tr><td>r_shape[3]</td><td>Vector from frame_a to shape origin, resolved in frame_a [m]</td></tr>
+<tr><td>lengthDirection</td><td>Vector in length direction of shape, resolved in frame_a [1]</td></tr>
+<tr><td>widthDirection</td><td>Vector in width direction of shape, resolved in frame_a [1]</td></tr>
+<tr><td>length</td><td>Length of shape [m]</td></tr>
+<tr><td>width</td><td>Width of shape [m]</td></tr>
+<tr><td>height</td><td>Height of shape [m]</td></tr>
+<tr><td>extra</td><td>Additional data for cylinder, cone, pipe, gearwheel and spring</td></tr>
+<tr><td>color</td><td>Color of shape</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a (all shape definition vectors are resolved in this frame)</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedFrame<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB74e956f84218ddfeFrameI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.FixedFrame</h2>
+<p>
+<span class="ModelicaDescription">Visualizing a coordinate system including axes labels (visualization data may vary dynamically)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model <strong>FixedFrame</strong> visualizes the three axes of
+its coordinate system <strong>frame_a</strong> together with appropriate axes
+labels. A typical example is shown in the following figure:
+<br>&nbsp;
+</p>
+
+<div>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/FixedFrame.png" alt="model Visualizers.FixedFrame">
+</div>
+
+<p>
+The sizes of the axes, the axes colors and the specular coefficient
+(= reflection factor for
+ambient light) can vary dynamically by
+providing appropriate expressions in the input fields of the
+parameter menu.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer</a> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>showLabels</td><td>= true, if labels shall be shown</td></tr>
+<tr><td>length</td><td>Length of axes arrows [m]</td></tr>
+<tr><td>diameter</td><td>Diameter of axes arrows [m]</td></tr>
+<tr><td>color_x</td><td>Color of x-arrow</td></tr>
+<tr><td>color_y</td><td>Color of y-arrow</td></tr>
+<tr><td>color_z</td><td>Color of z-arrow</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system in which visualization data is resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedArrow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB1d293c14426891acArrowI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.FixedArrow</h2>
+<p>
+<span class="ModelicaDescription">Visualizing an arrow with dynamically varying size in frame_a</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model <strong>FixedArrow</strong> defines an arrow that is
+shown at the location of its frame_a.
+<br>&nbsp;
+</p>
+
+<div>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png" alt="model Visualizers.FixedArrow">
+</div>
+
+<p>
+The direction of the arrow specified with vector
+<code>n</code> is with respect to frame_a, i.e., the local frame to which the
+arrow component is attached. The direction, length and color of the arrow
+can vary dynamically by providing appropriate expressions in the input
+fields of the parameter menu.
+</p>
+<p>
+The <code>quantity</code> parameter defines what the vector represents, allowing
+tools to scale e.g. forces and torques differently in a&nbsp;consistent way.
+For the default value <strong>RelativePosition</strong> the obvious scaling is
+1&nbsp;and the relative position is shown as is.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer</a> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>r_tail[3]</td><td>Vector from frame_a to arrow tail, resolved in frame_a [m]</td></tr>
+<tr><td>n</td><td>Vector in arrow direction, resolved in frame_a [1]</td></tr>
+<tr><td>length</td><td>Length of complete arrow [m]</td></tr>
+<tr><td>color</td><td>Color of arrow</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr><td>quantity</td><td>Kind of physical quantity represented by the vector</td></tr>
+<tr><td>headAtOrigin</td><td>= true, if the vector is pointing towards the origin of vector frame</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system in which visualization data is resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignalArrow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB7255314254765dd6ArrowI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.SignalArrow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.SignalArrow"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.SignalArrow</h2>
+<p>
+<span class="ModelicaDescription">Visualizing an arrow with dynamically varying size in frame_a based on input signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model <strong>SignalArrow</strong> defines an arrow that is dynamically visualized
+at the location where its frame_a is attached. The
+vector from the tail to the head of the arrow,
+resolved in frame_a, is defined via the signal vector of
+the connector <code>r_head</code> (<code><strong>Real</strong> r_head[3]</code>):<br>&nbsp;
+</p>
+
+<div>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png" alt="model Visualizers.SignalArrow">
+</div>
+<p>
+The <code>quantity</code> parameter defines what the vector represents, allowing
+tools to scale e.g. forces and torques differently in a&nbsp;consistent way.
+For the default value <strong>RelativePosition</strong> the obvious scaling is
+1&nbsp;and the relative position is shown as is.
+</p>
+<p>
+The tail of the arrow is defined with input <code>r_tail</code>
+with respect to frame_a (vector from the origin of frame_a to the arrow tail).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer</a> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>r_tail[3]</td><td>Vector from frame_a to arrow tail, resolved in frame_a [m]</td></tr>
+<tr><td>color</td><td>Color of arrow</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr><td>quantity</td><td>Kind of physical quantity represented by the vector</td></tr>
+<tr><td>headAtOrigin</td><td>= true, if the vector is pointing towards the origin of vector frame</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system in which visualization data is resolved</td></tr>
+<tr><td>r_head[3]</td><td>Vector resolved in frame_a</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Torus<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB11b90446210930f4TorusI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Torus" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.Torus"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.Torus</h2>
+<p>
+<span class="ModelicaDescription">Visualizing a torus</span>
+</p>
+<h3>Information</h3>
+ <p>
+Model <strong>Torus</strong> visualizes a torus. The center of the torus is located at
+connector frame_a (visualized by the red coordinate system in the figure below).
+The left image below shows a torus with <var>R</var>&nbsp;=&nbsp;0.5&nbsp;m and
+<var>r</var>&nbsp;=&nbsp;0.2&nbsp;m.
+The right images below shows the torus with the additional parameter
+settings:
+</p>
+<blockquote><pre>
+opening    =   45 degree
+startAngle = -135 degree
+stopAngle  =  135 degree
+</pre></blockquote>
+
+<blockquote>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png">
+</blockquote>
+
+<p>
+In the advanced menu the discretization of the surface visualization can be defined by
+the number <var>n<sub>R</sub></var> of points along the major radius of the torus and by
+the number <var>n<sub>r</sub></var> of points along the minor radius of the torus.
+In case the torus is closed (that is, <code>opening</code>&nbsp;=&nbsp;0&nbsp;degree),
+the actual number of points is one less (that is <var>n<sub>R</sub></var>&nbsp;-&nbsp;1, <var>n<sub>r</sub></var>&nbsp;-&nbsp;1), because the first and
+the last point of the parametrization coincide in this case.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer</a> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>R</td><td>Major radius (distance from center of torus to center of tube) [m]</td></tr>
+<tr><td>r</td><td>Minor radius (radius of tube) [m]</td></tr>
+<tr><td>opening</td><td>Opening angle of torus [rad]</td></tr>
+<tr><td>startAngle</td><td>Start angle of torus slice [rad]</td></tr>
+<tr><td>stopAngle</td><td>End angle of torus slice [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Material properties</td></tr>
+<tr><td>wireframe</td><td>= true: 3D model will be displayed without faces</td></tr>
+<tr><td>color</td><td>Color of surface</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr><td>transparency</td><td>Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Discretization</td></tr>
+<tr><td>n_R</td><td>Number of points along major radius R</td></tr>
+<tr><td>n_r</td><td>Number of points along minor radius r</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system in which visualization data is resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VoluminousWheel<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB8e13bf1796e0510cWheelI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.VoluminousWheel</h2>
+<p>
+<span class="ModelicaDescription">Visualizing a voluminous wheel</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model <strong>VoluminousWheel</strong> provides a simple visualization of a tire using
+a torus and a pipe shape object. The center of the wheel is located at
+connector frame_a (visualized by the red coordinate system in the figure below).
+</p>
+
+<blockquote>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheel.png">
+</blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer</a> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>rTire</td><td>Radius of the tire [m]</td></tr>
+<tr><td>rRim</td><td>Radius of the rim [m]</td></tr>
+<tr><td>width</td><td>Width of the tire [m]</td></tr>
+<tr><td>rCurvature</td><td>Radius of the tire&#39;s cross section [m]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Material properties</td></tr>
+<tr><td>color</td><td>Color of tire</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Discretization</td></tr>
+<tr><td>n_rTire</td><td>Number of points along rTire</td></tr>
+<tr><td>n_rCurvature</td><td>Number of points along rCurvature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system in which visualization data is resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PipeWithScalarField<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB8b20f83f879a8f41FieldI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.PipeWithScalarField</h2>
+<p>
+<span class="ModelicaDescription">Visualizing a pipe with scalar field quantities along the pipe axis</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model <strong>PipeWithScalarField</strong> visualizes a pipe and a scalar
+field along the pipe axis. The latter is shown by mapping the scalar
+field to color values with a color map and utilizing this color
+at the perimeter associated with the corresponding axis location.
+Typically the scalar field value is a temperature, but might
+be also another quantity.
+Predefined color maps are available from
+<a href="Modelica_Mechanics_MultiBody_Visualizers_Colors_ColorMaps.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps"
+>MultiBody.Visualizers.Colors.ColorMaps</a>
+and can be selected via parameter "colorMap".
+A color map with the corresponding scalar field values can be exported
+as vector-graphics in svg-format with function
+<a href="Modelica_Mechanics_MultiBody_Visualizers_Colors.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg"
+>MultiBody.Visualizers.Colors.colorMapToSvg</a>.
+Connector frame_a of this component is located in the center of the
+circle at the left side of the pipe and the pipe axis is oriented
+along the x-axis of frame_a, see figure below in which frame_a is visualized
+with a coordinate system:
+</p>
+
+<blockquote>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField.png">
+</blockquote>
+
+<p>
+The color coding is shown in the next figure. It was generated with
+<a href="Modelica_Mechanics_MultiBody_Visualizers_Colors.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg"
+>MultiBody.Visualizers.Colors.colorMapToSvg</a>
+using the following call:
+</p>
+
+<blockquote><pre>
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
+              height=50, nScalars=6, T_max=100, caption="Temperature in C");
+</pre></blockquote>
+
+<blockquote>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png">
+</blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer</a> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>rOuter</td><td>Outer radius of pipe [m]</td></tr>
+<tr><td>length</td><td>Length of pipe [m]</td></tr>
+<tr><td>xsi[:]</td><td>Vector of relative positions along the pipe with x[1] = 0, x[end] = 1</td></tr>
+<tr><td>T[size(xsi, 1)]</td><td>Vector of values at positions xsi*length (will be visualized by color)</td></tr>
+<tr><td>T_min</td><td>Minimum value of T that corresponds to colorMap[1,:]</td></tr>
+<tr><td>T_max</td><td>Maximum value of T that corresponds to colorMap[end,:]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Color coding</td></tr>
+<tr><td>replaceable function colorMap</td><td>Function defining the color map</td></tr>
+<tr><td>n_colors</td><td>Number of colors in the colorMap</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr><td>transparency</td><td>Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Discretization</td></tr>
+<tr><td>n_rOuter</td><td>Number of points along outer radius</td></tr>
+<tr><td>n_length</td><td>Number of points along length</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system in which visualization data is resolved</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Color coding</td></tr>
+<tr><td>replaceable function colorMap</td><td>Function defining the color map</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Rectangle<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB89ec5c7c3c548722angleI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Rectangle" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.Rectangle"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.Rectangle</h2>
+<p>
+<span class="ModelicaDescription">Visualizing a planar rectangular surface</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model visualizes a planar rectangle. The center of the rectangle is located at
+connector frame_a (visualized by the red coordinate system in the figure below).
+The figure below shows two rectangles of the same parameters
+</p>
+<blockquote><pre>
+nu = 8,
+nv = 3,
+length_u = 3,
+length_v = 2.
+</pre></blockquote>
+<p>
+The green rectangle on the right is visualized in wireframe thus highlighting the influence
+of the discretization. Moreover, the u-axis of this rectangle is modified
+so that the rectangle is rotated about the z-axis of frame_a.
+</p>
+
+<blockquote>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/Rectangle.png">
+</blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer</a> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>direction_u</td><td>Vector along u-axis of rectangle resolved in frame_a [1]</td></tr>
+<tr><td>direction_v</td><td>Vector along v-axis of rectangle resolved in frame_a [1]</td></tr>
+<tr><td>length_u</td><td>Length of rectangle in direction u [m]</td></tr>
+<tr><td>length_v</td><td>Length of rectangle in direction v [m]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Discretization</td></tr>
+<tr><td>nu</td><td>Number of points in direction u</td></tr>
+<tr><td>nv</td><td>Number of points in direction v</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Material properties</td></tr>
+<tr><td>wireframe</td><td>= true: 3D model will be displayed without faces</td></tr>
+<tr><td>color</td><td>Color of surface</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr><td>transparency</td><td>Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system in which visualization data is resolved</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:43 2026.
+</address>
+</body>
+</html>

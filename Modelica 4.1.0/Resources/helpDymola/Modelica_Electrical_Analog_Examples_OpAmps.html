@@ -1,0 +1,612 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Analog.Examples.OpAmps</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Examples with operational amplifiers&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OpAmps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Analog.Examples.OpAmps"></a><a href="Modelica_Electrical_Analog_Examples.html#Modelica.Electrical.Analog.Examples"
+>Modelica.Electrical.Analog.Examples</a>.OpAmps</h2>
+<p>
+<span class="ModelicaDescription">Examples with operational amplifiers</span>
+</p>
+<h3>Information</h3>
+
+<p>This package contains application examples of the components provided in the package
+<a href="Modelica_Electrical_Analog_Examples_OpAmps_OpAmpCircuits.html#Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits"
+>OpAmpCircuits</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.NonInvertingAmplifier" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.NonInvertingAmplifier"
+>NonInvertingAmplifier</a>
+</td>
+<td>Non-inverting amplifier</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.InvertingAmplifier" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.InvertingAmplifier"
+>InvertingAmplifier</a>
+</td>
+<td>Inverting amplifier</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.DifferentialAmplifier" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.DifferentialAmplifier"
+>DifferentialAmplifier</a>
+</td>
+<td>Differential amplifier</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Adder" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.Adder"
+>Adder</a>
+</td>
+<td>Inverting adder</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Subtracter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.Subtracter"
+>Subtracter</a>
+</td>
+<td>Inverting subtracter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Differentiator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.Differentiator"
+>Differentiator</a>
+</td>
+<td>Differentiating amplifier</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Integrator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.Integrator"
+>Integrator</a>
+</td>
+<td>Integrating amplifier</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.LowPass" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.LowPass"
+>LowPass</a>
+</td>
+<td>Low-pass filter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.HighPass" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.HighPass"
+>HighPass</a>
+</td>
+<td>High-pass filter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.ControlCircuit" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.ControlCircuit"
+>ControlCircuit</a>
+</td>
+<td>Control circuit</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.VoltageFollower" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.VoltageFollower"
+>VoltageFollower</a>
+</td>
+<td>Reproduce input voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Comparator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.Comparator"
+>Comparator</a>
+</td>
+<td>Comparator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.InvertingSchmittTrigger" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.InvertingSchmittTrigger"
+>InvertingSchmittTrigger</a>
+</td>
+<td>Inverting Schmitt trigger with hysteresis</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.SchmittTrigger" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.SchmittTrigger"
+>SchmittTrigger</a>
+</td>
+<td>Schmitt trigger with hysteresis</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator"
+>Multivibrator</a>
+</td>
+<td>Multivibrator with Schmitt trigger</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.SignalGenerator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.SignalGenerator"
+>SignalGenerator</a>
+</td>
+<td>Rectangle-Triangle generator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9557b6e68d70edcdnalogS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.LCOscillator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps.LCOscillator"
+>LCOscillator</a>
+</td>
+<td>LC oscillator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analocc03221cf941dc90cuitsS.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Examples_OpAmps_OpAmpCircuits.html#Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits"
+>OpAmpCircuits</a>
+</td>
+<td>Different circuits with operational amplifiers</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE NonInvertingAmplifier<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.NonInvertingAmplifier" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.NonInvertingAmplifier"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.NonInvertingAmplifier</h2>
+<p>
+<span class="ModelicaDescription">Non-inverting amplifier</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a non inverting amplifier.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InvertingAmplifier<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.InvertingAmplifier" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.InvertingAmplifier"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.InvertingAmplifier</h2>
+<p>
+<span class="ModelicaDescription">Inverting amplifier</span>
+</p>
+<h3>Information</h3>
+
+<p>This is an inverting amplifier.</p>
+<p>Note: <code>vOut</code> measure the negative output voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DifferentialAmplifier<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.DifferentialAmplifier" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.DifferentialAmplifier"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.DifferentialAmplifier</h2>
+<p>
+<span class="ModelicaDescription">Differential amplifier</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model demonstrates a differential amplifier to attenuate the input voltage to a level that can be handled by the measurement instrument.
+</p>
+<p>
+Two sinusoidal source voltages with a phase shift of 120&deg; (e.g., two phases of a three-phase system) feed a load resistor.
+The voltage at the load resistor has to be measured but is too high for direct measurement.
+</p>
+<h4>Notes</h4>
+<ul>
+<li>The output of the amplifier is inverted with respect to the differential input, as well as attenuated by the factor 1/data.k.</li>
+<li>The influence of the measurement instrument's input resistance on the measurement result is small.</li>
+<li>The current consumption of the amplifier inputs at the source circuit is small (<code>resistor1.i</code> and <code>resistor2.i</code>).</li>
+<li>The common of the source and the common of the amplifier are connected by a ground resistor.
+In case this resistance is low, a small current is flowing between the amplifier's common and the source's common (<code>resistorGround.i</code>).
+In case this resistance is high, the amplifier's common is floating with respect to the source's common with a high voltage (<code>resistorGround.v</code>).</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>data</td><td>Parameters for source, OpAmp and measurement</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Adder<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Adder" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.Adder"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.Adder</h2>
+<p>
+<span class="ModelicaDescription">Inverting adder</span>
+</p>
+<h3>Information</h3>
+
+<p>This is an inverting adder.</p>
+<p>Note: <code>vOut</code> measure the negative output voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Subtracter<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Subtracter" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.Subtracter"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.Subtracter</h2>
+<p>
+<span class="ModelicaDescription">Inverting subtracter</span>
+</p>
+<h3>Information</h3>
+
+<p>This is an inverting subtracter.</p>
+<p>Note: <code>vOut</code> measure the negative output voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Differentiator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Differentiator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.Differentiator"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.Differentiator</h2>
+<p>
+<span class="ModelicaDescription">Differentiating amplifier</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
+<p>Note: <code>vOut</code> measure the negative output voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Integrator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Integrator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.Integrator"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.Integrator</h2>
+<p>
+<span class="ModelicaDescription">Integrating amplifier</span>
+</p>
+<h3>Information</h3>
+
+<p>This is an (inverting) integrating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
+<p>Note: <code>vOut</code> measure the negative output voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LowPass<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.LowPass" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.LowPass"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.LowPass</h2>
+<p>
+<span class="ModelicaDescription">Low-pass filter</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a (inverting) low pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
+<p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
+<p>Note: <code>vOut</code> measure the negative output voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+<tr><td>fG</td><td>Limiting frequency [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HighPass<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.HighPass" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.HighPass"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.HighPass</h2>
+<p>
+<span class="ModelicaDescription">High-pass filter</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a (inverting) high pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
+<p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
+<p>Note: <code>vOut</code> measure the negative output voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+<tr><td>fG</td><td>Limiting frequency [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlCircuit<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.ControlCircuit" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.ControlCircuit"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.ControlCircuit</h2>
+<p>
+<span class="ModelicaDescription">Control circuit</span>
+</p>
+<h3>Information</h3>
+
+<p>This is an analog control circuit with operational amplifiers.</p>
+<p>Compare the analog solution with the block circuit, e.g. <code>firstOrder2B.y</code> and <code>firstOrder2A.v2</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T1</td><td>Small time constant [s]</td></tr>
+<tr><td>T2</td><td>Large time constant [s]</td></tr>
+<tr><td>Ti</td><td>Integral time constant [s]</td></tr>
+<tr><td>kp</td><td>Proportional gain</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VoltageFollower<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.VoltageFollower" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.VoltageFollower"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.VoltageFollower</h2>
+<p>
+<span class="ModelicaDescription">Reproduce input voltage</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a voltage follower. It reproduces the input voltage at the output without loading the input voltage source with a stiff output.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vps</td><td>Positive supply [V]</td></tr>
+<tr><td>Vns</td><td>Negative supply [V]</td></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+<tr><td>Ri</td><td>Inner resistance of input voltage source [Ohm]</td></tr>
+<tr><td>Rl</td><td>Load resistance [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Comparator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Comparator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.Comparator"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.Comparator</h2>
+<p>
+<span class="ModelicaDescription">Comparator</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a comparator. Resistance R1 can be chosen, resistance R2 is defined by the desired reference voltage Vref (between Vn and Vp). The output switches between Vn for input voltage &lt; Vref and Vp for input voltage &gt; Vref.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vps</td><td>Positive supply [V]</td></tr>
+<tr><td>Vns</td><td>Negative supply [V]</td></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+<tr><td>Vref</td><td>Reference voltage [V]</td></tr>
+<tr><td>k</td><td>Calculated potentiometer ratio to reach Vref</td></tr>
+<tr><td>R</td><td>Resistance of potentiometer [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InvertingSchmittTrigger<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.InvertingSchmittTrigger" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.InvertingSchmittTrigger"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.InvertingSchmittTrigger</h2>
+<p>
+<span class="ModelicaDescription">Inverting Schmitt trigger with hysteresis</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a (inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &gt; 0 + vHys and Vp for input voltage &lt; vHys*Vns/Vps.</p>
+<p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vps</td><td>Positive supply [V]</td></tr>
+<tr><td>Vns</td><td>Negative supply [V]</td></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+<tr><td>vHys</td><td>(Positive) hysteresis voltage [V]</td></tr>
+<tr><td>k</td><td>Auxiliary calculated parameter to be used in R2 calculation</td></tr>
+<tr><td>R1</td><td>Arbitrary resistance [Ohm]</td></tr>
+<tr><td>R2</td><td>Calculated resistance to reach hysteresis voltage [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SchmittTrigger<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.SchmittTrigger" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.SchmittTrigger"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.SchmittTrigger</h2>
+<p>
+<span class="ModelicaDescription">Schmitt trigger with hysteresis</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &gt; vHys and Vn for input voltage &lt; vHys*Vns/Vps.</p>
+<p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vps</td><td>Positive supply [V]</td></tr>
+<tr><td>Vns</td><td>Negative supply [V]</td></tr>
+<tr><td>Vin</td><td>Amplitude of input voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency of input voltage [Hz]</td></tr>
+<tr><td>vHys</td><td>(Positive) hysteresis voltage [V]</td></tr>
+<tr><td>k</td><td>Auxiliary calculated parameter to be used in R2 calculation</td></tr>
+<tr><td>R1</td><td>Arbitrary resistance [Ohm]</td></tr>
+<tr><td>R2</td><td>Calculated resistance to reach hysteresis voltage [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Multivibrator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.Multivibrator</h2>
+<p>
+<span class="ModelicaDescription">Multivibrator with Schmitt trigger</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a Multivibrator with Schmitt trigger according to:</p>
+<p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.3</p>
+<p>As the initialization system has two solutions, one with the op amp output at the lower saturation limit, and the other one with the two voltage inputs very close to each other, the <code>homotopyType</code> parameter is set to get the solver to converge to the former one, which is the required solution.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vps</td><td>Positive supply [V]</td></tr>
+<tr><td>Vns</td><td>Negative supply [V]</td></tr>
+<tr><td>f</td><td>Desired frequency [Hz]</td></tr>
+<tr><td>R1</td><td>Resistance 1 for adjusting the Schmitt trigger voltage level [Ohm]</td></tr>
+<tr><td>R2</td><td>Resistance 2 for adjusting the Schmitt trigger voltage level [Ohm]</td></tr>
+<tr><td>R</td><td>Arbitrary resistance [Ohm]</td></tr>
+<tr><td>C</td><td>Calculated capacitance to reach the desired frequency f [F]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignalGenerator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.SignalGenerator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.SignalGenerator"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.SignalGenerator</h2>
+<p>
+<span class="ModelicaDescription">Rectangle-Triangle generator</span>
+</p>
+<h3>Information</h3>
+
+<p>This signal generator consists of a Schmitt trigger and an integrator. The output of the Schmitt trigger part opamp (opAmp1) is a rectangular signal with the amplitude VAmp and the frequency f.
+The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f.</p>
+<p>Source:</p>
+<p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vps</td><td>Positive supply [V]</td></tr>
+<tr><td>Vns</td><td>Negative supply [V]</td></tr>
+<tr><td>VAmp</td><td>Desired amplitude of output [V]</td></tr>
+<tr><td>R1</td><td>Arbitrary resistance for Schmitt trigger part [Ohm]</td></tr>
+<tr><td>R2</td><td>Calculated resistance for Schmitt trigger to reach VAmp [Ohm]</td></tr>
+<tr><td>f</td><td>Desired frequency [Hz]</td></tr>
+<tr><td>R</td><td>Arbitrary resistance of integrator part [Ohm]</td></tr>
+<tr><td>C</td><td>Calculated capacitance of integrator part to reach f [F]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LCOscillator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.Electrical.Analog.Examples.OpAmps.LCOscillator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Examples.OpAmps.LCOscillator"></a><a href="Modelica_Electrical_Analog_Examples_OpAmps.html#Modelica.Electrical.Analog.Examples.OpAmps"
+>Modelica.Electrical.Analog.Examples.OpAmps</a>.LCOscillator</h2>
+<p>
+<span class="ModelicaDescription">LC oscillator</span>
+</p>
+<h3>Information</h3>
+
+<p>This is an LC oscillator according to:</p>
+<p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.1</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VAmp</td><td>Amplitude of output [V]</td></tr>
+<tr><td>f</td><td>Desired frequency [Hz]</td></tr>
+<tr><td>A</td><td>Amplification constant: A &gt; 1 amplification, A = 1 pure sinusoidal oscillation, A &lt; 0 damping</td></tr>
+<tr><td>L</td><td>Arbitrary inductance &gt; 0 [H]</td></tr>
+<tr><td>C</td><td>Calculated capacitance to reach frequency f [F]</td></tr>
+<tr><td>R</td><td>Damping resistance [Ohm]</td></tr>
+<tr><td>R1</td><td>Arbitrary high resistance [Ohm]</td></tr>
+<tr><td>R2</td><td>Calculated resistance to reach amplification A [Ohm]</td></tr>
+<tr><td>gamma</td><td>Calculated characteristical parameter</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:38 2026.
+</address>
+</body>
+</html>

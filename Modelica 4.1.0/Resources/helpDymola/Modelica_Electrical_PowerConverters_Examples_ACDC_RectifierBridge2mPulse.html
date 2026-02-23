@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;2*m pulse rectifier bridge&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RectifierBridge2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC.html#Modelica.Electrical.PowerConverters.Examples.ACDC"
+>Modelica.Electrical.PowerConverters.Examples.ACDC</a>.RectifierBridge2mPulse</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse rectifier bridge</span>
+</p>
+<h3>Information</h3>
+
+<p>This package includes polyphase bridge rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.DiodeBridge2mPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.DiodeBridge2mPulse"
+>DiodeBridge2mPulse</a>
+</td>
+<td>2*m pulse diode rectifier bridge with resistive load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse"
+>HalfControlledBridge2mPulse</a>
+</td>
+<td>2*m pulse half controlled rectifier bridge with resistive load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R"
+>ThyristorBridge2mPulse_R</a>
+</td>
+<td>2*m pulse thyristor rectifier bridge with resistive load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RL" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RL"
+>ThyristorBridge2mPulse_RL</a>
+</td>
+<td>2*m pulse thyristor rectifier bridge with R-L load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV"
+>ThyristorBridge2mPulse_RLV</a>
+</td>
+<td>2*m pulse thyristor rectifier bridge with R-L load and voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV_Characteristic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV_Characteristic"
+>ThyristorBridge2mPulse_RLV_Characteristic</a>
+</td>
+<td>Characteristic of 2*m pulse thyristor rectifier bridge with R-L load and voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseS.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_DC_Drive" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_DC_Drive"
+>ThyristorBridge2mPulse_DC_Drive</a>
+</td>
+<td>2*m pulse thyristor bridge feeding a DC drive</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeBridge2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.DiodeBridge2mPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.DiodeBridge2mPulse"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</a>.DiodeBridge2mPulse</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse diode rectifier bridge with resistive load</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows an uncontrolled <code>2*m</code> pulse diode bridge rectifier with resistive load, where <code>m</code> is the number of phases.</p>
+
+<p><code>2*m</code> pulse diode bridge example, where <code>m</code> is the number of phases.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HalfControlledBridge2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</a>.HalfControlledBridge2mPulse</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse half controlled rectifier bridge with resistive load</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows a half controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the half controlled bridge shows the same output voltage as the
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R"
+>full controlled bridge</a>.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorBridge2mPulse_R<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</a>.ThyristorBridge2mPulse_R</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse thyristor rectifier bridge with resistive load</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the full controlled bridge shows the same output voltage as the
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse"
+>half controlled bridge</a>.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Examples_ACDC_ExampleTemplates.html#Modelica.Electrical.PowerConverters.Examples.ACDC.ExampleTemplates.ThyristorBridge2mPulse"
+>ExampleTemplates.ThyristorBridge2mPulse</a> (Template of 2*m pulse bridge thyristor rectifier), <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>pulse2m</td><td>&nbsp;</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorBridge2mPulse_RL<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RL" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RL"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</a>.ThyristorBridge2mPulse_RL</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse thyristor rectifier bridge with R-L load</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load, where <code>m</code> is the number of phases.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Examples_ACDC_ExampleTemplates.html#Modelica.Electrical.PowerConverters.Examples.ACDC.ExampleTemplates.ThyristorBridge2mPulse"
+>ExampleTemplates.ThyristorBridge2mPulse</a> (Template of 2*m pulse bridge thyristor rectifier), <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>rectifier</td><td>&nbsp;</td></tr>
+<tr><td>pulse2m</td><td>&nbsp;</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+<tr><td>L</td><td>Load resistance [H]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorBridge2mPulse_RLV<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</a>.ThyristorBridge2mPulse_RLV</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse thyristor rectifier bridge with R-L load and voltage</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Examples_ACDC_ExampleTemplates.html#Modelica.Electrical.PowerConverters.Examples.ACDC.ExampleTemplates.ThyristorBridge2mPulse"
+>ExampleTemplates.ThyristorBridge2mPulse</a> (Template of 2*m pulse bridge thyristor rectifier), <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>pulse2m</td><td>&nbsp;</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+<tr><td>L</td><td>Load resistance [H]</td></tr>
+<tr><td>VDC</td><td>DC load offset voltage [V]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorBridge2mPulse_RLV_Characteristic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powercae18266f3fae0b2lse_RI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV_Characteristic" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV_Characteristic"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</a>.ThyristorBridge2mPulse_RLV_Characteristic</h2>
+<p>
+<span class="ModelicaDescription">Characteristic of 2*m pulse thyristor rectifier bridge with R-L load and voltage</span>
+</p>
+<h3>Information</h3>
+
+<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
+
+<p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2m.firingAngle</code> to see control characteristic of this type of rectifier with R-L load including active voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Examples_ACDC_ExampleTemplates.html#Modelica.Electrical.PowerConverters.Examples.ACDC.ExampleTemplates.ThyristorBridge2mPulse"
+>ExampleTemplates.ThyristorBridge2mPulse</a> (Template of 2*m pulse bridge thyristor rectifier), <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>pulse2m</td><td>&nbsp;</td></tr>
+<tr><td>Vdi0</td><td>Ideal max. DC voltage [V]</td></tr>
+<tr><td>R</td><td>Load resistance [Ohm]</td></tr>
+<tr><td>L</td><td>Load resistance [H]</td></tr>
+<tr><td>VDC</td><td>DC load offset voltage [V]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorBridge2mPulse_DC_Drive<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseI.png" alt="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_DC_Drive" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_DC_Drive"></a><a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"
+>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</a>.ThyristorBridge2mPulse_DC_Drive</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse thyristor bridge feeding a DC drive</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In this example a PM excited DC machine is started with nominal torque at nominal speed. After 5 seconds, load torque is reduced to zero over a period of additional 10 seconds. At 15 seconds, the machine is operating at no load.
+</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Vrms</td><td>RMS supply voltage [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>SMains</td><td>Mains short circuit apparent power [V.A]</td></tr>
+<tr><td>lamdaMains</td><td>Mains short circuit power factor</td></tr>
+<tr><td>Ld</td><td>Smoothing inductance [H]</td></tr>
+<tr><td>dcpmData</td><td>Data record of PM excited DC machine</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:40 2026.
+</address>
+</body>
+</html>

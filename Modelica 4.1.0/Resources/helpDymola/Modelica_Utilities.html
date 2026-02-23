@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of utility functions dedicated to scripting (operating on files, streams, strings, system)&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Utilities"></a><a href="Modelica.html#Modelica"
+>Modelica</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Library of utility functions dedicated to scripting (operating on files, streams, strings, system)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains Modelica <strong>functions</strong> that are
+especially suited for <strong>scripting</strong>. The functions might
+be used to work with strings, read data from file, write data
+to file or copy, move and remove files.
+</p>
+<p>
+For an introduction, have especially a look at:
+</p>
+<ul>
+<li> <a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide"
+>Modelica.Utilities.User's Guide</a>
+     discusses the most important aspects of this library.</li>
+<li> <a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
+>Modelica.Utilities.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p>
+The following main sublibraries are available:
+</p>
+<ul>
+<li> <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Files</a>
+     provides functions to operate on files and directories, e.g.,
+     to copy, move, remove files.</li>
+<li> <a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+>Streams</a>
+     provides functions to read from files and write to files.</li>
+<li> <a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
+>Strings</a>
+     provides functions to operate on strings. E.g.
+     substring, find, replace, sort, scanToken.</li>
+<li> <a href="Modelica_Utilities_System.html#Modelica.Utilities.System"
+>System</a>
+     provides functions to interact with the environment.
+     E.g., get or set the working directory or environment
+     variables and to send a command to the default shell.</li>
+</ul>
+
+<p>
+Copyright &copy; 1998-2025, Modelica Association and contributors
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.UsersGuideS.png" alt="Modelica.Utilities.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s Guide of Utilities Library</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.ExamplesS.png" alt="Modelica.Utilities.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
+>Examples</a>
+</td>
+<td>Examples to demonstrate the usage of package Modelica.Utilities</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.PolynomialsS.png" alt="Modelica.Utilities.Files" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Files</a>
+</td>
+<td>Functions to work with files and directories</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.PolynomialsS.png" alt="Modelica.Utilities.Streams" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+>Streams</a>
+</td>
+<td>Read from files and write to files</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.PolynomialsS.png" alt="Modelica.Utilities.Strings" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
+>Strings</a>
+</td>
+<td>Operations on strings</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.PolynomialsS.png" alt="Modelica.Utilities.System" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_System.html#Modelica.Utilities.System"
+>System</a>
+</td>
+<td>Interaction with environment</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.TypesS.png" alt="Modelica.Utilities.Types" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Types.html#Modelica.Utilities.Types"
+>Types</a>
+</td>
+<td>Type definitions used in package Modelica.Utilities</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Special.InternalS.png" alt="Modelica.Utilities.Internal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Internal.html#Modelica.Utilities.Internal"
+>Internal</a>
+</td>
+<td>Internal components that a user should usually not directly utilize</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:52 2026.
+</address>
+</body>
+</html>

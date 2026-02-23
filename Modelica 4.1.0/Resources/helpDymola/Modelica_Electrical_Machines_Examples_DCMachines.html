@@ -1,0 +1,598 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Machines.Examples.DCMachines</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Test examples of DC machines&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCMachines<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Machines.Examples.DCMachines"></a><a href="Modelica_Electrical_Machines_Examples.html#Modelica.Electrical.Machines.Examples"
+>Modelica.Electrical.Machines.Examples</a>.DCMachines</h2>
+<p>
+<span class="ModelicaDescription">Test examples of DC machines</span>
+</p>
+<h3>Information</h3>
+
+This package contains test examples of DC machines.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Start" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Start"
+>DCPM_Start</a>
+</td>
+<td>Test example: DC with permanent magnet starting with voltage ramp</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_CurrentControlled" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DCPM_CurrentControlled"
+>DCPM_CurrentControlled</a>
+</td>
+<td>Test example: DC with permanent magnet starting with current controller</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCEE_Start" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DCEE_Start"
+>DCEE_Start</a>
+</td>
+<td>Test example: DC with electrical excitation starting with voltage ramp</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start"
+>DCSE_Start</a>
+</td>
+<td>Test example: DC with serial excitation starting with voltage ramp</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_SinglePhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DCSE_SinglePhase"
+>DCSE_SinglePhase</a>
+</td>
+<td>Test example: DC with serial excitation starting with voltage ramp</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Temperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Temperature"
+>DCPM_Temperature</a>
+</td>
+<td>Test example: Investigate temperature dependency of a DCPM motor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling"
+>DCPM_Cooling</a>
+</td>
+<td>Test example: Cooling of a DCPM motor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStatic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStatic"
+>DCPM_QuasiStatic</a>
+</td>
+<td>Test example: Compare DCPM motors transient - quasi-static</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_withLosses" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DCPM_withLosses"
+>DCPM_withLosses</a>
+</td>
+<td>Test example: Investigate influence of losses on DCPM motor performance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics"
+>DC_CompareCharacteristics</a>
+</td>
+<td>Test example: Compare torque-speed characteristic of DC motors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive"
+>DCPM_Drive</a>
+</td>
+<td>Test example: drive with 2 permanent magnet DC machines</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCPM_Start<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Start" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Start"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DCPM_Start</h2>
+<p>
+<span class="ModelicaDescription">Test example: DC with permanent magnet starting with voltage ramp</span>
+</p>
+<h3>Information</h3>
+
+<strong>Test example: Permanent magnet DC machine started with an armature voltage ramp</strong><br>
+A voltage ramp is applied to the armature, causing the DC machine to start,
+and accelerating inertias.<br>At time tStep a load step is applied.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcpm.ia: armature current</li>
+<li>dcpm.wMechanical: motor's speed</li>
+<li>dcpm.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Va</td><td>Actual armature voltage [V]</td></tr>
+<tr><td>tStart</td><td>Start of armature voltage ramp [s]</td></tr>
+<tr><td>tRamp</td><td>Armature voltage ramp [s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>dcpmData</td><td>DC machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCPM_CurrentControlled<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_CurrentControlled" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_CurrentControlled"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DCPM_CurrentControlled</h2>
+<p>
+<span class="ModelicaDescription">Test example: DC with permanent magnet starting with current controller</span>
+</p>
+<h3>Information</h3>
+
+<strong>Test example: Permanent magnet DC machine started with current controller</strong><br>
+The current controller is parameterized according to absolute optimum.
+At time 0.1 s a reference current step with height = nominal armature current is applied,
+causing the DC machine to start, and accelerating inertias.
+<br>The machine is loaded by a quadratic speed dependent load torque.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcpm.ia: armature current</li>
+<li>dcpm.wMechanical: motor's speed</li>
+<li>dcpm.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>wLoad</td><td>Nominal load torque [rad/s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>Ra</td><td>Warm armature resistance [Ohm]</td></tr>
+<tr><td>ViNominal</td><td>Nominal induced voltage [V]</td></tr>
+<tr><td>Ta</td><td>Armature time constant [s]</td></tr>
+<tr><td>Ts</td><td>Dead time of inverter [s]</td></tr>
+<tr><td>k</td><td>Current controller proportional gain [Ohm]</td></tr>
+<tr><td>Ti</td><td>Current controller integral time constant [s]</td></tr>
+<tr><td>kPhi</td><td>Voltage constant [Wb]</td></tr>
+<tr><td>dcpmData</td><td>DC machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCEE_Start<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCEE_Start" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DCEE_Start"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DCEE_Start</h2>
+<p>
+<span class="ModelicaDescription">Test example: DC with electrical excitation starting with voltage ramp</span>
+</p>
+<h3>Information</h3>
+
+<strong>Test example: Electrically separate excited DC machine started with an armature voltage ramp</strong><br>
+A voltage ramp is applied to the armature, causing the DC machine to start,
+and accelerating inertias.<br>At time tStep a load step is applied.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcee.ia: armature current</li>
+<li>dcee.wMechanical: motor's speed</li>
+<li>dcee.tauElectrical: motor's torque</li>
+<li>dcee.ie: excitation current</li>
+</ul>
+Default machine parameters of model <em>DC_ElectricalExcited</em> are used.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Va</td><td>Actual armature voltage [V]</td></tr>
+<tr><td>tStart</td><td>Start of armature voltage ramp [s]</td></tr>
+<tr><td>tRamp</td><td>Armature voltage ramp [s]</td></tr>
+<tr><td>Ve</td><td>Actual excitation voltage [V]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>dceeData</td><td>DC machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCSE_Start<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DCSE_Start</h2>
+<p>
+<span class="ModelicaDescription">Test example: DC with serial excitation starting with voltage ramp</span>
+</p>
+<h3>Information</h3>
+
+<strong>Test example: Series excited DC machine started with a series resistor</strong><br>
+At constant source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
+and accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcse.ia: armature current</li>
+<li>dcse.wMechanical: motor's speed</li>
+<li>dcse.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <em>DC_SeriesExcited</em> are used.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Va</td><td>Actual armature voltage [V]</td></tr>
+<tr><td>tStart</td><td>Start of resistance ramp [s]</td></tr>
+<tr><td>tRamp</td><td>Resistance ramp [s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>wLoad</td><td>Nominal load speed [rad/s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>dcseData</td><td>DC machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCSE_SinglePhase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_SinglePhase" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_SinglePhase"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DCSE_SinglePhase</h2>
+<p>
+<span class="ModelicaDescription">Test example: DC with serial excitation starting with voltage ramp</span>
+</p>
+<h3>Information</h3>
+
+<strong>Test example: Series excited DC machine at single-phase AC voltage started with a series resistor</strong><br>
+At sinusoidal source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
+and accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcse.ia: armature current</li>
+<li>dcse.wMechanical: motor's speed</li>
+<li>dcse.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <em>DC_SeriesExcited</em> are used.<br>
+<strong>Note:</strong><br>
+Since both the field and the armature current are sinusoidal, the waveform of the torque is the square of sine.
+Due to the additional inductive voltage drops, output of the motor is lower, compared to the same motor (DCSE_Start) at DC voltage.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Va</td><td>Actual armature voltage RMS [V]</td></tr>
+<tr><td>tStart</td><td>Start of resistance ramp [s]</td></tr>
+<tr><td>tRamp</td><td>Resistance ramp [s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>wLoad</td><td>Nominal load speed [rad/s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>dcseData</td><td>DC machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCPM_Temperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Temperature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Temperature"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DCPM_Temperature</h2>
+<p>
+<span class="ModelicaDescription">Test example: Investigate temperature dependency of a DCPM motor</span>
+</p>
+<h3>Information</h3>
+
+<strong>Test example: Investigate influence of armature temperature on a DCPM motor</strong><br>
+The motor starts at no-load speed, then a load step is applied.<br>
+Beginning with the load step, the armature temperature rises exponentially from 20 degC to 80 degC.<br>
+Simulate for 3 seconds and plot (versus time):
+<ul>
+<li>dcpm.ia: armature current</li>
+<li>dcpm.wMechanical: motor's speed</li>
+<li>dcpm.tauElectrical: motor's torque</li>
+<li>thermalAmbientDCPM.Q_flow_a: motor's armature losses</li>
+</ul>
+Default machine parameters are used, but:
+<ul>
+<li>The armature winding material is set to Copper.</li>
+<li>Armature reference temperature is set to 80 degC.</li>
+<li>Nominal armature temperature is set to 80 degC.</li>
+</ul>
+So the machine is at the beginning in cold condition, ending in warm condition
+(with the same armature resistance as the unmodified machine).
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Va</td><td>Actual armature voltage [V]</td></tr>
+<tr><td>Ve</td><td>Actual excitation voltage [V]</td></tr>
+<tr><td>w0</td><td>No-load speed [rad/s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>dcpmData</td><td>DC machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCPM_Cooling<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DCPM_Cooling</h2>
+<p>
+<span class="ModelicaDescription">Test example: Cooling of a DCPM motor</span>
+</p>
+<h3>Information</h3>
+
+<strong>Test example: Demonstrate cooling of a DCPM motor</strong><br>
+The motor starts at no-load speed, then load pulses are applied.<br>
+The cooling circuit consists of armature's thermal capacitance,
+a thermal conductance between armature and core, core's thermal capacitance and
+a thermal conductance between core and coolant.
+The coolant flow circuit consists of inlet, volume flow, a pipe connected to the core and the outlet.<br>
+<strong>Please note:</strong>
+<ul>
+<li>All unused heat ports of the thermal port (i.e., without loss sources in the machine: brush, stray, friction, permanent magnet) have to be connected to a constant temperature source.</li>
+<li>The thermal capacitances (i.e., time constants) are unusual small to provide short simulation time!</li>
+<li>The coolant is a theoretical coolant with specific mass = 1 kg/m3 and cp = 1 J/kg.K.</li>
+<li>The thermal conductances as well as the coolant flow are parametrized such way, that:</li>
+</ul>
+<ol>
+<li>the total coolant's temperature rise is 10 K (over coolant inlet)</li>
+<li>the core's temperature rise is 27.5 K (over coolant's average temperature between inlet and outlet)</li>
+<li>the armature's temperature rise is 55 K (over coolant's average temperature between inlet and outlet)</li>
+</ol>
+Simulate for 25 seconds and plot (versus time):
+<ul>
+<li>armature.T: armature temperature</li>
+<li>core.T: core temperature</li>
+<li>cooling.T: coolant temperature at outlet</li>
+</ul>
+Therefore the armature temperature would reach nominal armature temperature at constant nominal load.<br>
+Default machine parameters are used, but:
+<ul>
+<li>The armature winding material is set to Copper.</li>
+<li>Armature reference temperature is set to 80 degC.</li>
+<li>Nominal armature temperature is set to 80 degC.</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Va</td><td>Actual armature voltage [V]</td></tr>
+<tr><td>Ve</td><td>Actual excitation voltage [V]</td></tr>
+<tr><td>w0</td><td>No-load speed [rad/s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>TAmbient</td><td>Ambient temperature [K]</td></tr>
+<tr><td>Ca</td><td>Armature&#39;s heat capacity [J/K]</td></tr>
+<tr><td>Cc</td><td>Core&#39;s heat capacity [J/K]</td></tr>
+<tr><td>G_armature_core</td><td>Heat conductance armature - core [W/K]</td></tr>
+<tr><td>G_core_cooling</td><td>Heat conductance core - cooling [W/K]</td></tr>
+<tr><td>CoolantFlow</td><td>Coolant flow [m3/s]</td></tr>
+<tr><td>dcpmData</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCPM_QuasiStatic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStatic" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStatic"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DCPM_QuasiStatic</h2>
+<p>
+<span class="ModelicaDescription">Test example: Compare DCPM motors transient - quasi-static</span>
+</p>
+<h3>Information</h3>
+
+<strong>Test example: Compare DCPM motors transient and quasi-static</strong><br>
+The motors start at no-load speed, then load pulses are applied.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcpm1.ia: armature current of transient model</li>
+<li>dcpm1.wMechanical: motor's speed of transient model</li>
+<li>dcpm1.tauElectrical: motor's torque of transient model</li>
+<li>dcpm2.ia: armature current of quasi-static model</li>
+<li>dcpm2.wMechanical: motor's speed of quasi-static model</li>
+<li>dcpm2.tauElectrical: motor's torque of quasi-static model</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Va</td><td>Actual armature voltage [V]</td></tr>
+<tr><td>Ve</td><td>Actual excitation voltage [V]</td></tr>
+<tr><td>w0</td><td>No-load speed [rad/s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>dcpmData</td><td>DC machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCPM_withLosses<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_withLosses" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_withLosses"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DCPM_withLosses</h2>
+<p>
+<span class="ModelicaDescription">Test example: Investigate influence of losses on DCPM motor performance</span>
+</p>
+<h3>Information</h3>
+
+<strong>Test example: Investigate influence of losses on DCPM motor performance</strong><br>
+Both motors are started with a voltage ramp applied to the armature, causing the DC machines to start,
+and accelerating inertias. Both machines are loading with a quadratic speed dependent load torque.<br>
+The first machine <code>dcpm1</code> uses default machine parameters of model <em>DC_PermanentMagnet</em>,
+the second machine <code>dcpm2</code> is parametrized with additional losses:<br>
+<table>
+<tr><td>                            </td><td>   dcpm1</td><td>   dcpm2</td><td>     </td></tr>
+<tr><td>Armature voltage            </td><td>     100</td><td>     100</td><td>    V</td></tr>
+<tr><td>Armature current            </td><td>     100</td><td>     100</td><td>    A</td></tr>
+<tr><td>Inner voltage               </td><td>    95.0</td><td>    94.5</td><td>    V</td></tr>
+<tr><td>Nominal speed               </td><td>  1425.0</td><td>  1417.5</td><td>  rpm</td></tr>
+<tr><td>Armature resistance         </td><td> 0.05000</td><td> 0.03864</td><td>  Ohm</td></tr>
+<tr><td>Temperature coefficient     </td><td>     n/a</td><td> 0.00392</td><td>  1/K</td></tr>
+<tr><td>Reference temperature       </td><td>     n/a</td><td>      20</td><td> degC</td></tr>
+<tr><td>Operation temperature       </td><td>     n/a</td><td>      95</td><td> degC</td></tr>
+<tr><td>Brush voltage drop          </td><td>     n/a</td><td>     0.5</td><td>    V</td></tr>
+<tr><td>Electrical input            </td><td>  10,000</td><td>  10,000</td><td>    W</td></tr>
+<tr><td>Armature copper losses      </td><td>     500</td><td>     500</td><td>    W</td></tr>
+<tr><td>Core losses                 </td><td>     n/a</td><td>     200</td><td>    W</td></tr>
+<tr><td>Stray load losses           </td><td>     n/a</td><td>      50</td><td>    W</td></tr>
+<tr><td>Friction losses             </td><td>     n/a</td><td>     100</td><td>    W</td></tr>
+<tr><td>Brush losses                </td><td>     n/a</td><td>      50</td><td>    W</td></tr>
+<tr><td>Mechanical output           </td><td>   9,500</td><td>   9,100</td><td>    W</td></tr>
+<tr><td>Nominal torque              </td><td>   63,66</td><td>   61,30</td><td>   Nm</td></tr>
+</table>
+<br>
+Note: The reference values (voltage, current, speed) are already propagated to the loss records,
+using the nominal operation point.<br>
+See:<br>
+Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johannes V. Gragger<br>
+<a href="https://2009.international.conference.modelica.org/proceedings/pages/papers/0103/0103_FI.pdf">
+The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
+Modelica 2009, 7<sup>th</sup> International Modelica Conference
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Va</td><td>Actual armature voltage [V]</td></tr>
+<tr><td>tStart</td><td>Start of armature voltage ramp [s]</td></tr>
+<tr><td>tRamp</td><td>Armature voltage ramp [s]</td></tr>
+<tr><td>TLoad1</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>wLoad1</td><td>Nominal load speed [rad/s]</td></tr>
+<tr><td>TLoad2</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>wLoad2</td><td>Nominal load speed [rad/s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>dcpmData1</td><td>Data of DC machine 1</td></tr>
+<tr><td>dcpmData2</td><td>Data of DC machine 2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DC_CompareCharacteristics<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DC_CompareCharacteristics</h2>
+<p>
+<span class="ModelicaDescription">Test example: Compare torque-speed characteristic of DC motors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+<strong>Test example: Compare characteristic of DC motors</strong><br>
+The motors are started at nominal speed, then load is ramped down. Simulate for 6 seconds and plot <code>dcxx.wMechanical</code> (motor speed) versus <code>dcxx.tauElectrical</code> (motor torque).
+Default machine parameters are used.
+</p>
+<p>
+Note that the characteristics of permanent magnet and electrical excited dc machine (at nominal excitation) is identical,
+but speed of the series excited dc machine rises when load torque is lowered.
+Dynamic increase of speed is determined by the sum of inertias.
+Load torque of the series excited is not lowered to zero, otherwise speed would rise infinitely.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Va</td><td>Actual armature voltage [V]</td></tr>
+<tr><td>Ve</td><td>Actual excitation voltage [V]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>tStart</td><td>Start of load torque ramp [s]</td></tr>
+<tr><td>tRamp</td><td>Load torque ramp [s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>dcpmData</td><td>Parameters of permanent magnet dc machine</td></tr>
+<tr><td>dceeData</td><td>Parameters of electrical excited dc machine</td></tr>
+<tr><td>dcseData</td><td>Parameters of series excited dc machine</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCPM_Drive<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive"></a><a href="Modelica_Electrical_Machines_Examples_DCMachines.html#Modelica.Electrical.Machines.Examples.DCMachines"
+>Modelica.Electrical.Machines.Examples.DCMachines</a>.DCPM_Drive</h2>
+<p>
+<span class="ModelicaDescription">Test example: drive with 2 permanent magnet DC machines</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This example demonstrates how to use a <a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.Coupling"
+>coupling</a> 
+to implement a drive consisting if two permanent magnet DC machines. 
+Note that <code>dcpm1</code> is turning in the positive direction, whereas <code>dcpm2</code> is turning in the opposite direction. 
+This is evident by comparing <code>speedSensor1.w</code> and <code>speedSensor2.w</code>. 
+Therefore, the armature of <code>dcpm2</code> is connected reversed to the source.
+</p>
+<p>
+Machine <code>dcpm1</code> starts the drive with a voltage ramp up to half of no-load speed, the armature of <code>dcpm2</code> is not connected. 
+Since the induced voltage of <code>dcpm2</code> is the same as that of <code>dcdcInverter2</code>, the <code>switch</code> is closed without any transient. 
+After that, the armature voltage of <code>dcpm2</code> is slightly increased, causing <code>dcpm2</code> to drive as motor and <code>dcpm1</code> to brake as generator. 
+Therefore, the speed <code>coupling.w</code> increases. 
+</p>
+<p>
+Note that in stationary operation the <code>battery</code> only delivers the losses of both machines, since power is exchanged directly between both machines. 
+Only during short time spans with transient operation power is delivered back to the <code>battery</code>, 
+which is the case after accelerating the whole drive when angular velocity settles. 
+An additional energy storage between the battery and the inverters (like a large capacitor or a super capacitor) would help to avoid such situations 
+and to smooth possible current spikes.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dcpmData</td><td>DC machine data</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:39 2026.
+</address>
+</body>
+</html>

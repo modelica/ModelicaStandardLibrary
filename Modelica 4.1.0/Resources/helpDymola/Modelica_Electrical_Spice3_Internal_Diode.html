@@ -1,0 +1,523 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Spice3.Internal.Diode</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Records and functions for diode model&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Diode<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Spice3.Internal.Diode"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.Diode</h2>
+<p>
+<span class="ModelicaDescription">Records and functions for diode model</span>
+</p>
+<h3>Information</h3>
+
+<p>This package Diode contains functions and record with data of the semiconductor diode model.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineParams" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineParams"
+>DiodeModelLineParams</a>
+</td>
+<td>Record for Diode model line parameters</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineVariables" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineVariables"
+>DiodeModelLineVariables</a>
+</td>
+<td>Record for Diode model line variables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.DiodeParams" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.DiodeParams"
+>DiodeParams</a>
+</td>
+<td>Record for Diode device parameters</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.DiodeVariables" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.DiodeVariables"
+>DiodeVariables</a>
+</td>
+<td>Variables for the diode model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.DiodeCalc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.DiodeCalc"
+>DiodeCalc</a>
+</td>
+<td>Diode variables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.CurrentsCapacitances" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.CurrentsCapacitances"
+>CurrentsCapacitances</a>
+</td>
+<td>Diode variables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeModelLineInitEquations" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.diodeModelLineInitEquations"
+>diodeModelLineInitEquations</a>
+</td>
+<td>Initial precalculation of model line parameters</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeInitEquations" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.diodeInitEquations"
+>diodeInitEquations</a>
+</td>
+<td>Initial calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeCalcTempDependencies" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.diodeCalcTempDependencies"
+>diodeCalcTempDependencies</a>
+</td>
+<td>Temperature dependency calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeNoBypassCode" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.diodeNoBypassCode"
+>diodeNoBypassCode</a>
+</td>
+<td>Calculation of currents</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeCalcAdditionalValues" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.diodeCalcAdditionalValues"
+>diodeCalcAdditionalValues</a>
+</td>
+<td>Calculation of additional values</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParameters" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParameters"
+>diodeRenameParameters</a>
+</td>
+<td>Technology parameter renaming</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDev" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDev"
+>diodeRenameParametersDev</a>
+</td>
+<td>Temperature calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDevTemp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDevTemp"
+>diodeRenameParametersDevTemp</a>
+</td>
+<td>Temperature calculation</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeModelLineParams<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineParams" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineParams"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.DiodeModelLineParams</h2>
+<p>
+<span class="ModelicaDescription">Record for Diode model line parameters</span>
+</p>
+<h3>Information</h3>
+
+<p>This record contains the model line (also called model card) parameters that are used for the diode model  in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_satCur</td><td>IS, Saturation current [A]</td></tr>
+<tr><td>m_resist</td><td>RS, Ohmic resistance [Ohm]</td></tr>
+<tr><td>m_emissionCoeff</td><td>N, Emission Coefficient</td></tr>
+<tr><td>m_transitTime</td><td>TT, Transit Time [s]</td></tr>
+<tr><td>m_junctionCap</td><td>CJO, Junction capacitance [F]</td></tr>
+<tr><td>m_junctionPot</td><td>VJ, Junction potential [V]</td></tr>
+<tr><td>m_gradingCoeff</td><td>M, Grading coefficient [1/K]</td></tr>
+<tr><td>m_activationEnergy</td><td>EG, Activation energy [eV]</td></tr>
+<tr><td>m_saturationCurrentExp</td><td>XTI, Saturation current temperature exp.</td></tr>
+<tr><td>m_depletionCapCoeff</td><td>FC, Forward bias junction fit parameter</td></tr>
+<tr><td>m_breakdownVoltage</td><td>BV, Reverse breakdown voltage [V]</td></tr>
+<tr><td>m_pBvIsGiven</td><td>BV is given value</td></tr>
+<tr><td>m_breakdownCurrent</td><td>IBV, Current at reverse breakdown voltage [A]</td></tr>
+<tr><td>m_nomTemp</td><td>TNOM, Parameter measurement temperature [K]</td></tr>
+<tr><td>m_fNcoef</td><td>KF, flicker noise coefficient</td></tr>
+<tr><td>m_fNexp</td><td>AF, flicker noise exponent</td></tr>
+<tr><td>m_conductance</td><td>G, Ohmic conductance [S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeModelLineVariables<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineVariables" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineVariables"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.DiodeModelLineVariables</h2>
+<p>
+<span class="ModelicaDescription">Record for Diode model line variables</span>
+</p>
+<h3>Information</h3>
+
+<p>This record contains the model line (also called model card) variables  that are used for the diode model in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_gradingCoeff</td><td>&nbsp;</td></tr>
+<tr><td>m_activationEnergy</td><td>&nbsp;</td></tr>
+<tr><td>m_depletionCapCoeff</td><td>&nbsp;</td></tr>
+<tr><td>m_conductance</td><td>[S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeParams<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.DiodeParams" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.DiodeParams"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.DiodeParams</h2>
+<p>
+<span class="ModelicaDescription">Record for Diode device parameters</span>
+</p>
+<h3>Information</h3>
+
+<p>This record contains the device parameters that are used for the diode model in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_area</td><td>AREA, Area factor</td></tr>
+<tr><td>m_bOff</td><td>OFF, Initially off</td></tr>
+<tr><td>m_dIC</td><td>IC, Initial device voltage [V]</td></tr>
+<tr><td>m_pIcIsGiven</td><td>IC is given value</td></tr>
+<tr><td>m_bSensArea</td><td>SENS_AREA, flag to request sensitivity WRT area</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeVariables<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.DiodeVariables" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.DiodeVariables"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.DiodeVariables</h2>
+<p>
+<span class="ModelicaDescription">Variables for the diode model</span>
+</p>
+<h3>Information</h3>
+
+<p>This record contains the model  variables that are used for the diode model in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_pBvIsGiven</td><td>Additional BV is given variable</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeCalc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.DiodeCalc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.DiodeCalc"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.DiodeCalc</h2>
+<p>
+<span class="ModelicaDescription">Diode variables</span>
+</p>
+<h3>Information</h3>
+
+<p>This record contains the model variables that are used for the diode model in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_tJctPot</td><td>[V]</td></tr>
+<tr><td>m_tJctCap</td><td>[F]</td></tr>
+<tr><td>m_tF1</td><td>&nbsp;</td></tr>
+<tr><td>m_f2</td><td>&nbsp;</td></tr>
+<tr><td>m_f3</td><td>&nbsp;</td></tr>
+<tr><td>m_tSatCur</td><td>[A]</td></tr>
+<tr><td>m_tVcrit</td><td>[V]</td></tr>
+<tr><td>m_dVte</td><td>&nbsp;</td></tr>
+<tr><td>m_tBrkdwnV</td><td>[V]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CurrentsCapacitances<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.CurrentsCapacitances" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.CurrentsCapacitances"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.CurrentsCapacitances</h2>
+<p>
+<span class="ModelicaDescription">Diode variables</span>
+</p>
+<h3>Information</h3>
+
+<p>This record contains the model variables that are used for the diode model in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_dCurrent</td><td>[A]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE diodeModelLineInitEquations<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeModelLineInitEquations" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.diodeModelLineInitEquations"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.diodeModelLineInitEquations</h2>
+<p>
+<span class="ModelicaDescription">Initial precalculation of model line parameters</span>
+</p>
+<h3>Information</h3>
+
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Input record with diode model line parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_v</td><td>Output record with diode model line variables</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE diodeInitEquations<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeInitEquations" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.diodeInitEquations"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.diodeInitEquations</h2>
+<p>
+<span class="ModelicaDescription">Initial calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>In this function some initial calculations for the diode model are done, especially concerning the handling of the breakthrough voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Input record with diode model line parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_v</td><td>Output record with diode variables</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE diodeCalcTempDependencies<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeCalcTempDependencies" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.diodeCalcTempDependencies"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.diodeCalcTempDependencies</h2>
+<p>
+<span class="ModelicaDescription">Temperature dependency calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>In this function for the diode model temperature dependencies are calculated using temperature treating functions from the equation package.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Input record diode model line parameters</td></tr>
+<tr><td>in_dp</td><td>Input record diode parameters</td></tr>
+<tr><td>in_m</td><td>Input record Model</td></tr>
+<tr><td>in_v</td><td>Input record diode variables</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_c</td><td>Output record with calculated values</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE diodeNoBypassCode<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeNoBypassCode" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.diodeNoBypassCode"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.diodeNoBypassCode</h2>
+<p>
+<span class="ModelicaDescription">Calculation of currents</span>
+</p>
+<h3>Information</h3>
+
+<p>This function diodeNoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Input record model line parameters for diode</td></tr>
+<tr><td>in_dp</td><td>Input record with parameters for diode</td></tr>
+<tr><td>in_c</td><td>Input record DiodeCalc</td></tr>
+<tr><td>in_m</td><td>Input record model</td></tr>
+<tr><td>in_m_mbInit</td><td>&nbsp;</td></tr>
+<tr><td>in_m_pVoltageValues[2]</td><td>[V]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_cc</td><td>Output record with calculated currents and capacitances</td></tr>
+<tr><td>m_dCap</td><td>Output capacitance [F]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE diodeCalcAdditionalValues<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeCalcAdditionalValues" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.diodeCalcAdditionalValues"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.diodeCalcAdditionalValues</h2>
+<p>
+<span class="ModelicaDescription">Calculation of additional values</span>
+</p>
+<h3>Information</h3>
+
+<p>This function is prepared for additional calculations but it is plain (inputs are written to the outputs) in the actual version of this library.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_v</td><td>Input record with diode variables</td></tr>
+<tr><td>in_p</td><td>Input record with diode model line parameters</td></tr>
+<tr><td>in_dp</td><td>Input record with diode parameters</td></tr>
+<tr><td>in_m_pVoltageValues[2]</td><td>[V]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_v</td><td>Output record with diode variables</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE diodeRenameParameters<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParameters" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParameters"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.diodeRenameParameters</h2>
+<p>
+<span class="ModelicaDescription">Technology parameter renaming</span>
+</p>
+<h3>Information</h3>
+
+<p>This function assigns the external (given by the user, e.g., IS) technology parameters
+to the internal parameters (e.g., m_satCur). It also does the analysis of the IsGiven values.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ex</td><td>Modelcard with technology parameters</td></tr>
+<tr><td>con</td><td>Spice constants</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>intern</td><td>Output record diode model line parameters</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE diodeRenameParametersDev<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDev" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDev"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.diodeRenameParametersDev</h2>
+<p>
+<span class="ModelicaDescription">Temperature calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>This function assigns the external (given by the user, e.g., AREA) device parameters
+to the internal parameters (e.g., m_area). It also does the analysis of the IsGiven values.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>TEMP</td><td>Temperature [K]</td></tr>
+<tr><td>AREA</td><td>Area factor</td></tr>
+<tr><td>IC</td><td>Initial condition value (VD, not implemented yet</td></tr>
+<tr><td>OFF</td><td>Optional initial condition: false - IC not used, true - IC used, not implemented yet</td></tr>
+<tr><td>SENS_AREA</td><td>Flag to request sensitivity WRT area, not implemented yet</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dev</td><td>Output record with calculated diode parameters</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE diodeRenameParametersDevTemp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDevTemp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDevTemp"></a><a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Modelica.Electrical.Spice3.Internal.Diode</a>.diodeRenameParametersDevTemp</h2>
+<p>
+<span class="ModelicaDescription">Temperature calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>This function calculates device parameters which are temperature dependent.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>TEMP</td><td>Temperature [degC]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dev_temp</td><td>Input record Model</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:41 2026.
+</address>
+</body>
+</html>

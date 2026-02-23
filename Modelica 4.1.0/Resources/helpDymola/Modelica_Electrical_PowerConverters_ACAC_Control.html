@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.PowerConverters.ACAC.Control</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Control components for AC to AC converters&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Control<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.PowerConverters.ACAC.Control"></a><a href="Modelica_Electrical_PowerConverters_ACAC.html#Modelica.Electrical.PowerConverters.ACAC"
+>Modelica.Electrical.PowerConverters.ACAC</a>.Control</h2>
+<p>
+<span class="ModelicaDescription">Control components for AC to AC converters</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power992694b12687f716AngleS.png" alt="Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACAC_Control.html#Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle"
+>VoltageToAngle</a>
+</td>
+<td>Reference voltage to firing angle converter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power5c2302cc840c881antrolS.png" alt="Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACAC_Control.html#Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl"
+>SoftStartControl</a>
+</td>
+<td>Soft start control</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VoltageToAngle<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power992694b12687f716AngleI.png" alt="Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle"></a><a href="Modelica_Electrical_PowerConverters_ACAC_Control.html#Modelica.Electrical.PowerConverters.ACAC.Control"
+>Modelica.Electrical.PowerConverters.ACAC.Control</a>.VoltageToAngle</h2>
+<p>
+<span class="ModelicaDescription">Reference voltage to firing angle converter</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block calculates firing angle from desired voltage,
+choosing either a linear (<code>Lin</code>) relationship or prescribing the first harmonic (<code>H01</code>)  or the root mean square (<code>RMS</code>) .
+Since calculating the firing angle from both the H01 and the RMS involves a nonlinear equation,
+both relationships have been precalculated and are interpolated from a table.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VNominal</td><td>Nominal voltage [V]</td></tr>
+<tr><td>voltage2Angle</td><td>Select type of calculation</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>vRef</td><td>Reference voltage</td></tr>
+<tr><td>firingAngle</td><td>Firing angle [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SoftStartControl<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power5c2302cc840c881antrolI.png" alt="Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl"></a><a href="Modelica_Electrical_PowerConverters_ACAC_Control.html#Modelica.Electrical.PowerConverters.ACAC.Control"
+>Modelica.Electrical.PowerConverters.ACAC.Control</a>.SoftStartControl</h2>
+<p>
+<span class="ModelicaDescription">Soft start control</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block models the functionality of a soft starter controller, controlling the output <code>vRef</code> in the range [0,1] with respect to nominal voltage.
+</p>
+<p>
+Boolean input <code>start = true</code> causes the output <code>vRef</code> to be risen according to a ramp: <code>vRef = vStart + (1 - vStart)*(time - t0)/tRampUp</code>.
+</p>
+<p>
+In case the current exceeds the specified maximum current <code>iMax</code> during the starting ramp, the ramp is stopped.
+When the current falls below the lower threshold of current control <code>iMin &lt; iMax</code>, the ramp is continued.
+</p>
+<p>
+Note: It is recommended to filter the measured current, e.g. using <a href="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Filter"
+>Modelica.Blocks.Continuous.Filter</a>
+</p>
+<p>
+Boolean input <code>start = false</code> causes the output <code>vRef</code> to be lowered according to a ramp: <code>vRef = -(time - t0)/tRampDown</code>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tRampUp</td><td>Start ramp duration [s]</td></tr>
+<tr><td>vStart</td><td>Start voltage / nominal voltage</td></tr>
+<tr><td>iMax</td><td>Maximum current / nominal current</td></tr>
+<tr><td>iMin</td><td>Lower threshold of current control</td></tr>
+<tr><td>INominal</td><td>Nominal current [A]</td></tr>
+<tr><td>tRampDown</td><td>Stop ramp duration [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>iRMS</td><td>Measured RMS current [A]</td></tr>
+<tr><td>vRef</td><td>Reference voltage</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:40 2026.
+</address>
+</body>
+</html>

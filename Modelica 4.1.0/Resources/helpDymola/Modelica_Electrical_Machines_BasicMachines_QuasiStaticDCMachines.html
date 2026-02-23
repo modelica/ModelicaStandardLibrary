@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Models of quasi-static DC machines&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE QuasiStaticDCMachines<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines"></a><a href="Modelica_Electrical_Machines_BasicMachines.html#Modelica.Electrical.Machines.BasicMachines"
+>Modelica.Electrical.Machines.BasicMachines</a>.QuasiStaticDCMachines</h2>
+<p>
+<span class="ModelicaDescription">Models of quasi-static DC machines</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains quasi-static models of DC machines;
+these models are fully compatible with the
+<a href="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines"
+>transient machine models of DC machines</a>;
+the only difference is that electrical transients are neglected.
+</p>
+<h4>Note</h4>
+<p>
+Quasi-static DC machine models are basically different from quasi-static induction machine models:
+Quasi-static DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
+whereas quasi-static induction machine models are based on time phasor theory,
+see <a href="Modelica_Electrical_QuasiStatic.html#Modelica.Electrical.QuasiStatic"
+>QuasiStatic Library</a>,
+where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicfc58d8e1936e1c4agnetS.png" alt="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_PermanentMagnet" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_BasicMachines_QuasiStaticDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_PermanentMagnet"
+>DC_PermanentMagnet</a>
+</td>
+<td>Quasi-static permanent magnet DC machine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machi8a9d08bcbb75e97ccitedS.png" alt="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_ElectricalExcited" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_BasicMachines_QuasiStaticDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_ElectricalExcited"
+>DC_ElectricalExcited</a>
+</td>
+<td>Quasi-static electrical shunt/separate excited linear DC machine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machi966f2e6159249d11citedS.png" alt="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_SeriesExcited" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_BasicMachines_QuasiStaticDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_SeriesExcited"
+>DC_SeriesExcited</a>
+</td>
+<td>Quasi-static series excited linear DC machine</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DC_PermanentMagnet<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicfc58d8e1936e1c4agnetI.png" alt="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_PermanentMagnet" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_PermanentMagnet"></a><a href="Modelica_Electrical_Machines_BasicMachines_QuasiStaticDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines"
+>Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines</a>.DC_PermanentMagnet</h2>
+<p>
+<span class="ModelicaDescription">Quasi-static permanent magnet DC machine</span>
+</p>
+<h3>Information</h3>
+
+<strong>Quasi-static model of a DC Machine with permanent magnets.</strong><br>
+This model is fully compatible with the
+<a href="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet"
+>transient machine model of a DC machine with permanent magnets</a>;
+the only difference is that electrical transients are neglected.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet"
+>Machines.BasicMachines.DCMachines.DC_PermanentMagnet</a> (Permanent magnet DC machine), <a href="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.QuasiStaticMachine"
+>Machines.Icons.QuasiStaticMachine</a>.</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Jr</td><td>Rotor&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>useSupport</td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td>Js</td><td>Stator&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>useThermalPort</td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Operational temperatures</td></tr>
+<tr><td>TaOperational</td><td>Operational armature temperature [K]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>phiMechanical</td><td>Mechanical angle of rotor against stator [rad]</td></tr>
+<tr><td>wMechanical</td><td>Mechanical angular velocity of rotor against stator [rad/s]</td></tr>
+<tr><td>ia</td><td>Armature current [A]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Nominal parameters</td></tr>
+<tr><td>VaNominal</td><td>Nominal armature voltage [V]</td></tr>
+<tr><td>IaNominal</td><td>Nominal armature current (&gt;0..Motor, &lt;0..Generator) [A]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>TaNominal</td><td>Nominal armature temperature [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Armature</td></tr>
+<tr><td>Ra</td><td>Armature resistance at TaRef [Ohm]</td></tr>
+<tr><td>TaRef</td><td>Reference temperature of armature resistance [K]</td></tr>
+<tr><td>alpha20a</td><td>Temperature coefficient of armature resistance [1/K]</td></tr>
+<tr><td>La</td><td>Armature inductance [H]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Losses</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>coreParameters</td><td>Armature core loss parameter record</td></tr>
+<tr><td>strayLoadParameters</td><td>Stray load loss parameter record</td></tr>
+<tr><td>brushParameters</td><td>Brush loss parameter record</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Shaft</td></tr>
+<tr><td>support</td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td>pin_ap</td><td>Positive armature pin</td></tr>
+<tr><td>pin_an</td><td>Negative armature pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DC_ElectricalExcited<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machi8a9d08bcbb75e97ccitedI.png" alt="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_ElectricalExcited" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_ElectricalExcited"></a><a href="Modelica_Electrical_Machines_BasicMachines_QuasiStaticDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines"
+>Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines</a>.DC_ElectricalExcited</h2>
+<p>
+<span class="ModelicaDescription">Quasi-static electrical shunt/separate excited linear DC machine</span>
+</p>
+<h3>Information</h3>
+
+<strong>Quasi-static model of a DC Machine with electrical shunt or separate excitation.</strong><br>
+This model is fully compatible with the
+<a href="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited"
+>transient machine model of a DC machine with electrical shunt or separate excitation</a>;
+the only difference is that electrical transients are neglected.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited"
+>Machines.BasicMachines.DCMachines.DC_ElectricalExcited</a> (Electrical shunt/separate excited linear DC machine), <a href="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.QuasiStaticMachine"
+>Machines.Icons.QuasiStaticMachine</a>.</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Jr</td><td>Rotor&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>useSupport</td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td>Js</td><td>Stator&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>useThermalPort</td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Operational temperatures</td></tr>
+<tr><td>TaOperational</td><td>Operational armature temperature [K]</td></tr>
+<tr><td>TeOperational</td><td>Operational (shunt) excitation temperature [K]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>phiMechanical</td><td>Mechanical angle of rotor against stator [rad]</td></tr>
+<tr><td>wMechanical</td><td>Mechanical angular velocity of rotor against stator [rad/s]</td></tr>
+<tr><td>ia</td><td>Armature current [A]</td></tr>
+<tr><td>ie</td><td>Field excitation current [A]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Nominal parameters</td></tr>
+<tr><td>VaNominal</td><td>Nominal armature voltage [V]</td></tr>
+<tr><td>IaNominal</td><td>Nominal armature current (&gt;0..Motor, &lt;0..Generator) [A]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>TaNominal</td><td>Nominal armature temperature [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Armature</td></tr>
+<tr><td>Ra</td><td>Armature resistance at TaRef [Ohm]</td></tr>
+<tr><td>TaRef</td><td>Reference temperature of armature resistance [K]</td></tr>
+<tr><td>alpha20a</td><td>Temperature coefficient of armature resistance [1/K]</td></tr>
+<tr><td>La</td><td>Armature inductance [H]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Losses</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>coreParameters</td><td>Armature core loss parameter record</td></tr>
+<tr><td>strayLoadParameters</td><td>Stray load loss parameter record</td></tr>
+<tr><td>brushParameters</td><td>Brush loss parameter record</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Excitation</td></tr>
+<tr><td>IeNominal</td><td>Nominal excitation current [A]</td></tr>
+<tr><td>Re</td><td>Field excitation resistance at TeRef [Ohm]</td></tr>
+<tr><td>TeRef</td><td>Reference temperature of excitation resistance [K]</td></tr>
+<tr><td>alpha20e</td><td>Temperature coefficient of excitation resistance [1/K]</td></tr>
+<tr><td>Le</td><td>Total field excitation inductance [H]</td></tr>
+<tr><td>sigmae</td><td>Stray fraction of total excitation inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Shaft</td></tr>
+<tr><td>support</td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td>pin_ap</td><td>Positive armature pin</td></tr>
+<tr><td>pin_an</td><td>Negative armature pin</td></tr>
+<tr><td>pin_ep</td><td>Positive excitation pin</td></tr>
+<tr><td>pin_en</td><td>Negative excitation pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DC_SeriesExcited<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machi966f2e6159249d11citedI.png" alt="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_SeriesExcited" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_SeriesExcited"></a><a href="Modelica_Electrical_Machines_BasicMachines_QuasiStaticDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines"
+>Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines</a>.DC_SeriesExcited</h2>
+<p>
+<span class="ModelicaDescription">Quasi-static series excited linear DC machine</span>
+</p>
+<h3>Information</h3>
+
+<strong>Quasi-static model of a DC Machine with Series excitation.</strong><br>
+This model is fully compatible with the
+<a href="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"
+>transient machine model of a DC machine with series excitation</a>;
+the only difference is that electrical transients are neglected.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"
+>Machines.BasicMachines.DCMachines.DC_SeriesExcited</a> (Series excited linear DC machine), <a href="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.QuasiStaticMachine"
+>Machines.Icons.QuasiStaticMachine</a>.</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Jr</td><td>Rotor&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>useSupport</td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td>Js</td><td>Stator&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>useThermalPort</td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Operational temperatures</td></tr>
+<tr><td>TaOperational</td><td>Operational armature temperature [K]</td></tr>
+<tr><td>TeOperational</td><td>Operational series excitation temperature [K]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>phiMechanical</td><td>Mechanical angle of rotor against stator [rad]</td></tr>
+<tr><td>wMechanical</td><td>Mechanical angular velocity of rotor against stator [rad/s]</td></tr>
+<tr><td>ia</td><td>Armature current [A]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Nominal parameters</td></tr>
+<tr><td>VaNominal</td><td>Nominal armature voltage [V]</td></tr>
+<tr><td>IaNominal</td><td>Nominal armature current (&gt;0..Motor, &lt;0..Generator) [A]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>TaNominal</td><td>Nominal armature temperature [K]</td></tr>
+<tr><td>TeNominal</td><td>Nominal series excitation temperature [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Armature</td></tr>
+<tr><td>Ra</td><td>Armature resistance at TaRef [Ohm]</td></tr>
+<tr><td>TaRef</td><td>Reference temperature of armature resistance [K]</td></tr>
+<tr><td>alpha20a</td><td>Temperature coefficient of armature resistance [1/K]</td></tr>
+<tr><td>La</td><td>Armature inductance [H]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Losses</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>coreParameters</td><td>Armature core loss parameter record</td></tr>
+<tr><td>strayLoadParameters</td><td>Stray load loss parameter record</td></tr>
+<tr><td>brushParameters</td><td>Brush loss parameter record</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Excitation</td></tr>
+<tr><td>Re</td><td>Series excitation resistance at TeRef [Ohm]</td></tr>
+<tr><td>TeRef</td><td>Reference temperature of excitation resistance [K]</td></tr>
+<tr><td>alpha20e</td><td>Temperature coefficient of excitation resistance [1/K]</td></tr>
+<tr><td>Le</td><td>Total field excitation inductance [H]</td></tr>
+<tr><td>sigmae</td><td>Stray fraction of total excitation inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Shaft</td></tr>
+<tr><td>support</td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td>pin_ap</td><td>Positive armature pin</td></tr>
+<tr><td>pin_an</td><td>Negative armature pin</td></tr>
+<tr><td>pin_ep</td><td>Positive series excitation pin</td></tr>
+<tr><td>pin_en</td><td>Negative series excitation pin</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:39 2026.
+</address>
+</body>
+</html>

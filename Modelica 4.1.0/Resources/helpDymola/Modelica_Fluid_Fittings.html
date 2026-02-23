@@ -1,0 +1,439 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Fittings</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Adaptors for connections of fluid components and the regulation of fluid flow&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Fittings<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Fittings"></a><a href="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</a>.Fittings</h2>
+<p>
+<span class="ModelicaDescription">Adaptors for connections of fluid components and the regulation of fluid flow</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This sublibrary contains models and functions providing pressure
+loss correlations. All models in this library have the property
+that no mass and no energy is stored in the component. Therefore,
+none of the models have a state.
+</p>
+
+<p>
+All functions are continuous and have a finite, non-zero, smooth, first derivative.
+The functions are all guaranteed to be strict monotonically increasing.
+The mentioned properties guarantee that a unique inverse of every
+function exists. Note, the usual quadratic pressure loss correlation
+</p>
+
+<ul>
+<li> in the form m_flow = f(dp) has an infinite derivative at zero
+     mass flow rate and is therefore problematic to use.</li>
+<li> in the form dp = f(m_flow) has a zero derivative at zero mass flow rate
+     and is therefore problematic to invert, since the inverse function has
+     then an infinite derivative at zero mass flow rate.</li>
+</ul>
+<p>
+The two mentioned problems are solved in this package by approximating
+the characteristics around zero mass flow rates with appropriate
+polynomials. The monotonicity is guaranteed using results from:
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Valves.Bas189dda6c26939035sticsS.png" alt="Modelica.Fluid.Fittings.Bends" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings_Bends.html#Modelica.Fluid.Fittings.Bends"
+>Bends</a>
+</td>
+<td>Flow models for bends</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Valves.Bas189dda6c26939035sticsS.png" alt="Modelica.Fluid.Fittings.Orifices" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings_Orifices.html#Modelica.Fluid.Fittings.Orifices"
+>Orifices</a>
+</td>
+<td>Flow models for orifices</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Valves.Bas189dda6c26939035sticsS.png" alt="Modelica.Fluid.Fittings.GenericResistances" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings_GenericResistances.html#Modelica.Fluid.Fittings.GenericResistances"
+>GenericResistances</a>
+</td>
+<td>Flow models for generic resistances</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Fittings.S36dbf064b1ec79deificeS.png" alt="Modelica.Fluid.Fittings.SimpleGenericOrifice" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.SimpleGenericOrifice"
+>SimpleGenericOrifice</a>
+</td>
+<td>Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Fittings.Sdf7a2f38058f6e9aificeS.png" alt="Modelica.Fluid.Fittings.SharpEdgedOrifice" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.SharpEdgedOrifice"
+>SharpEdgedOrifice</a>
+</td>
+<td>Pressure drop due to sharp edged orifice (for both flow directions)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Fittings.AbruptAdaptorS.png" alt="Modelica.Fluid.Fittings.AbruptAdaptor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.AbruptAdaptor"
+>AbruptAdaptor</a>
+</td>
+<td>Pressure drop in pipe due to suddenly expanding or reducing area (for both flow directions)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Fittings.MultiPortS.png" alt="Modelica.Fluid.Fittings.MultiPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.MultiPort"
+>MultiPort</a>
+</td>
+<td>Multiply a port; useful if multiple connections shall be made to a port exposing a state</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Fittings.TeeJunctionIdealS.png" alt="Modelica.Fluid.Fittings.TeeJunctionIdeal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.TeeJunctionIdeal"
+>TeeJunctionIdeal</a>
+</td>
+<td>Splitting/joining component with static balances for an infinitesimal control volume</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Fittings.T1cb9832c48731a7aolumeS.png" alt="Modelica.Fluid.Fittings.TeeJunctionVolume" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.TeeJunctionVolume"
+>TeeJunctionVolume</a>
+</td>
+<td>Splitting/joining component with static balances for a dynamic control volume</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.DissipationS.png" alt="Modelica.Fluid.Fittings.BaseClasses" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings_BaseClasses.html#Modelica.Fluid.Fittings.BaseClasses"
+>BaseClasses</a>
+</td>
+<td>Base classes used in the Fittings package (only of interest to build new component models)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SimpleGenericOrifice<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Fittings.S36dbf064b1ec79deificeI.png" alt="Modelica.Fluid.Fittings.SimpleGenericOrifice" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Fittings.SimpleGenericOrifice"></a><a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</a>.SimpleGenericOrifice</h2>
+<p>
+<span class="ModelicaDescription">Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This pressure drop component defines a
+simple, generic orifice, where the loss factor &zeta; is provided
+for one flow direction (e.g., from loss table of a book):
+</p>
+
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+</pre></blockquote>
+
+<p>
+where
+</p>
+<ul>
+<li> &Delta;p is the pressure drop: &Delta;p = port_a.p - port_b.p</li>
+<li> D is the diameter of the orifice at the position where
+     &zeta; is defined (either at port_a or port_b). If the orifice has not a
+     circular cross section, D = 4*A/P, where A is the cross section
+     area and P is the wetted perimeter.</li>
+<li> &zeta; is the loss factor with respect to D
+     that depends on the geometry of
+     the orifice. In the turbulent flow regime, it is assumed that
+     &zeta; is constant.<br>
+     For small mass flow rates, the flow is laminar and is approximated
+     by a polynomial that has a finite derivative for m_flow=0.</li>
+<li> v is the mean velocity.</li>
+<li> &rho; is the upstream density.</li>
+</ul>
+
+<p>
+Since the pressure loss factor zeta is provided only for a mass flow
+from port_a to port_b, the pressure loss is not correct when the
+flow is reversing. If reversing flow only occurs in a short time interval,
+this is most likely uncritical. If significant reversing flow
+can appear, this component should not be used.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>Modelica.Fluid.Interfaces.PartialTwoPortTransport</a> (Partial element transporting fluid between two ports without storage of mass or energy), <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedFlow"
+>Modelica.Fluid.Interfaces.PartialLumpedFlow</a> (Base class for a lumped momentum balance).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>m_flow</td><td>Mass flow rate in design flow direction [kg/s]</td></tr>
+<tr><td>pathLength</td><td>Length flow path [m]</td></tr>
+<tr><td>diameter</td><td>Diameter of orifice [m]</td></tr>
+<tr><td>zeta</td><td>Loss factor for flow of port_a -&gt; port_b</td></tr>
+<tr><td>use_zeta</td><td>= false to obtain zeta from dp_nominal and m_flow_nominal</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Nominal operating point</td></tr>
+<tr><td>m_flow_nominal</td><td>Mass flow rate for dp_nominal [kg/s]</td></tr>
+<tr><td>dp_nominal</td><td>Nominal pressure drop [Pa]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Dynamics</td></tr>
+<tr><td>momentumDynamics</td><td>Formulation of momentum balance</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>dp_start</td><td>Guess value of dp = port_a.p - port_b.p [Pa]</td></tr>
+<tr><td>m_flow_start</td><td>Guess value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Small mass flow rate for regularization of zero flow [kg/s]</td></tr>
+<tr><td>use_Re</td><td>= true, if turbulent region is defined by Re, otherwise by m_flow_small</td></tr>
+<tr><td>from_dp</td><td>= true, use m_flow = f(dp) else dp = f(m_flow)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Diagnostics</td></tr>
+<tr><td>show_T</td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td>show_V_flow</td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SharpEdgedOrifice<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Fittings.Sdf7a2f38058f6e9aificeI.png" alt="Modelica.Fluid.Fittings.SharpEdgedOrifice" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Fittings.SharpEdgedOrifice"></a><a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</a>.SharpEdgedOrifice</h2>
+<p>
+<span class="ModelicaDescription">Pressure drop due to sharp edged orifice (for both flow directions)</span>
+</p>
+<h3>Information</h3>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel"
+>BaseClasses.QuadraticTurbulent.BaseModel</a> (Generic pressure drop component with constant turbulent loss factor data and without an icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>data</td><td>Loss factor data</td></tr>
+<tr><td>length</td><td>Length of orifice [m]</td></tr>
+<tr><td>diameter</td><td>Inner diameter of pipe (= same at port_a and port_b) [m]</td></tr>
+<tr><td>leastDiameter</td><td>Smallest diameter of orifice [m]</td></tr>
+<tr><td>alpha</td><td>Angle of orifice [deg]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Nominal operating point</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal mass flow rate [kg/s]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>dp_start</td><td>Guess value of dp = port_a.p - port_b.p [Pa]</td></tr>
+<tr><td>m_flow_start</td><td>Guess value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Small mass flow rate for regularization of zero flow [kg/s]</td></tr>
+<tr><td>use_Re</td><td>= true, if turbulent region is defined by Re, otherwise by m_flow_small</td></tr>
+<tr><td>from_dp</td><td>= true, use m_flow = f(dp) else dp = f(m_flow)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Diagnostics</td></tr>
+<tr><td>show_T</td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td>show_V_flow</td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+<tr><td>show_Re</td><td>= true, if Reynolds number is included for plotting</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AbruptAdaptor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Fittings.AbruptAdaptorI.png" alt="Modelica.Fluid.Fittings.AbruptAdaptor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Fittings.AbruptAdaptor"></a><a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</a>.AbruptAdaptor</h2>
+<p>
+<span class="ModelicaDescription">Pressure drop in pipe due to suddenly expanding or reducing area (for both flow directions)</span>
+</p>
+<h3>Information</h3>
+
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea"
+>BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea</a> (Generic pressure drop component with constant turbulent loss factor data and without an icon, for non-constant cross section area).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>data</td><td>Loss factor data</td></tr>
+<tr><td>diameter_a</td><td>Inner diameter of pipe at port_a [m]</td></tr>
+<tr><td>diameter_b</td><td>Inner diameter of pipe at port_b [m]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Nominal operating point</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal mass flow rate [kg/s]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m_flow_start</td><td>Guess value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Small mass flow rate for regularization of zero flow [kg/s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Diagnostics</td></tr>
+<tr><td>show_T</td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td>show_V_flow</td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+<tr><td>show_Re</td><td>= true, if Reynolds number is included for plotting</td></tr>
+<tr><td>show_totalPressures</td><td>= true, if total pressures are included for plotting</td></tr>
+<tr><td>show_portVelocities</td><td>= true, if port velocities are included for plotting</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Fittings.MultiPortI.png" alt="Modelica.Fluid.Fittings.MultiPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Fittings.MultiPort"></a><a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</a>.MultiPort</h2>
+<p>
+<span class="ModelicaDescription">Multiply a port; useful if multiple connections shall be made to a port exposing a state</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model is useful if multiple connections shall be made to a port of a volume model exposing a state,
+like a pipe with ModelStructure av_vb.
+The mixing is shifted into the volume connected to port_a and the result is propagated back to each ports_b.
+</p>
+<p>
+If multiple connections were directly made to the volume,
+then ideal mixing would take place in the connection set, outside the volume. This is normally not intended.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+<tr><td>port_a</td><td>&nbsp;</td></tr>
+<tr><td>ports_b[nPorts_b]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TeeJunctionIdeal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Fittings.TeeJunctionIdealI.png" alt="Modelica.Fluid.Fittings.TeeJunctionIdeal" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Fittings.TeeJunctionIdeal"></a><a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</a>.TeeJunctionIdeal</h2>
+<p>
+<span class="ModelicaDescription">Splitting/joining component with static balances for an infinitesimal control volume</span>
+</p>
+<h3>Information</h3>
+
+  This model is the simplest implementation for a splitting/joining component for
+  three flows. Its use is not required. It just formulates the balance
+  equations in the same way that the connect semantics would formulate them anyways.
+  The main advantage of using this component is, that the user does not get
+  confused when looking at the specific enthalpy at each port which might be confusing
+  when not using a splitting/joining component. The reason for the confusion is that one examines the mixing
+  enthalpy of the infinitesimal control volume introduced with the connect statement when
+  looking at the specific enthalpy in the connector which
+  might not be equal to the specific enthalpy at the port in the "real world".
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Fittings_BaseClasses.html#Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction"
+>Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction</a> (Base class for a splitting/joining component with three ports).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_1</td><td>&nbsp;</td></tr>
+<tr><td>port_2</td><td>&nbsp;</td></tr>
+<tr><td>port_3</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TeeJunctionVolume<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Fittings.T1cb9832c48731a7aolumeI.png" alt="Modelica.Fluid.Fittings.TeeJunctionVolume" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Fittings.TeeJunctionVolume"></a><a href="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</a>.TeeJunctionVolume</h2>
+<p>
+<span class="ModelicaDescription">Splitting/joining component with static balances for a dynamic control volume</span>
+</p>
+<h3>Information</h3>
+
+  This model introduces a mixing volume into a junction.
+  This might be useful to examine the non-ideal mixing taking place in a real junction.
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Fittings_BaseClasses.html#Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction"
+>Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction</a> (Base class for a splitting/joining component with three ports), <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedVolume"
+>Modelica.Fluid.Interfaces.PartialLumpedVolume</a> (Lumped volume with mass and energy balance).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>fluidVolume</td><td>Volume [m3]</td></tr>
+<tr><td>V</td><td>Mixing volume inside junction [m3]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Dynamics</td></tr>
+<tr><td>energyDynamics</td><td>Formulation of energy balance</td></tr>
+<tr><td>massDynamics</td><td>Formulation of mass balance</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Initialization</td></tr>
+<tr><td>p_start</td><td>Start value of pressure [Pa]</td></tr>
+<tr><td>use_T_start</td><td>= true, use T_start, otherwise h_start</td></tr>
+<tr><td>T_start</td><td>Start value of temperature [K]</td></tr>
+<tr><td>h_start</td><td>Start value of specific enthalpy [J/kg]</td></tr>
+<tr><td>X_start[Medium.nX]</td><td>Start value of mass fractions m_i/m [kg/kg]</td></tr>
+<tr><td>C_start[Medium.nC]</td><td>Start value of trace substances</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_1</td><td>&nbsp;</td></tr>
+<tr><td>port_2</td><td>&nbsp;</td></tr>
+<tr><td>port_3</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:44 2026.
+</address>
+</body>
+</html>

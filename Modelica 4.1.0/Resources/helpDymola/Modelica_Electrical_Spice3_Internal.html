@@ -1,0 +1,805 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Spice3.Internal</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Collection of functions and records derived from the C++ Spice library&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Internal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Spice3.Internal"></a><a href="Modelica_Electrical_Spice3.html#Modelica.Electrical.Spice3"
+>Modelica.Electrical.Spice3</a>.Internal</h2>
+<p>
+<span class="ModelicaDescription">Collection of functions and records derived from the C++ Spice library</span>
+</p>
+<h3>Information</h3>
+
+<p>The package Internal contains functions and auxiliary models that are necessary for the Spice3 models. The package should not be used by the users of the Spice3-library.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3.Internal.MOSS.png" alt="Modelica.Electrical.Spice3.Internal.MOS" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.MOS"
+>MOS</a>
+</td>
+<td>Metal-Oxide Semiconductor Field-Effect Transistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardMOS" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardMOS"
+>ModelcardMOS</a>
+</td>
+<td>Record with technology parameters (.model)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3.Internal.MOSS.png" alt="Modelica.Electrical.Spice3.Internal.MOS2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.MOS2"
+>MOS2</a>
+</td>
+<td>Metal-Oxide Semiconductor Field-Effect Transistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardMOS2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardMOS2"
+>ModelcardMOS2</a>
+</td>
+<td>Record with technology parameters (.model)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3.Internal.BJT2S.png" alt="Modelica.Electrical.Spice3.Internal.BJT2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.BJT2"
+>BJT2</a>
+</td>
+<td>Bipolar junction transistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardBJT2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardBJT2"
+>ModelcardBJT2</a>
+</td>
+<td>Record with technology parameters (.model)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3.Internal.JFETS.png" alt="Modelica.Electrical.Spice3.Internal.JFET" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.JFET"
+>JFET</a>
+</td>
+<td>Junction Field-Effect Transistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardJFET" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardJFET"
+>ModelcardJFET</a>
+</td>
+<td>Record with technology parameters (.model)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice609bcb5fb1746e38DIODES.png" alt="Modelica.Electrical.Spice3.Internal.DIODE" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.DIODE"
+>DIODE</a>
+</td>
+<td>Diode model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardDIODE" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardDIODE"
+>ModelcardDIODE</a>
+</td>
+<td>Record with technology parameters (.model)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spiceb235c7d9ae24cce7istorS.png" alt="Modelica.Electrical.Spice3.Internal.R_SEMI" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.R_SEMI"
+>R_SEMI</a>
+</td>
+<td>Semiconductor resistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardR" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardR"
+>ModelcardR</a>
+</td>
+<td>Record with technology parameters (.model)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3da677316bc2449bcitorS.png" alt="Modelica.Electrical.Spice3.Internal.C_SEMI" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.C_SEMI"
+>C_SEMI</a>
+</td>
+<td>Semiconductor capacitor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardC" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardC"
+>ModelcardC</a>
+</td>
+<td>Record with technology parameters (.model)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.SpiceConstants" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</a>
+</td>
+<td>General constants of SPICE simulator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.MaterialParameters" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.MaterialParameters"
+>MaterialParameters</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Functions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Functions</a>
+</td>
+<td>Equations for semiconductor calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.SpiceRoot" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_SpiceRoot.html#Modelica.Electrical.Spice3.Internal.SpiceRoot"
+>SpiceRoot</a>
+</td>
+<td>Basic records and functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Model" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Model.html#Modelica.Electrical.Spice3.Internal.Model"
+>Model</a>
+</td>
+<td>Device Temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mosfet" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet"
+>Mosfet</a>
+</td>
+<td>Functions and records for MOSFETs</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Mos</a>
+</td>
+<td>Records and functions for MOSFETs level 1,2,3,6</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1"
+>Mos1</a>
+</td>
+<td>Records and functions for MOSFETs level 1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2"
+>Mos2</a>
+</td>
+<td>Records and functions for MOSFETs level 2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Diode" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Diode.html#Modelica.Electrical.Spice3.Internal.Diode"
+>Diode</a>
+</td>
+<td>Records and functions for diode model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Rsemiconductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Rsemiconductor.html#Modelica.Electrical.Spice3.Internal.Rsemiconductor"
+>Rsemiconductor</a>
+</td>
+<td>Records and functions for semiconductor resistor model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Bjt</a>
+</td>
+<td>Records and functions for bjt model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Fet" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Fet.html#Modelica.Electrical.Spice3.Internal.Fet"
+>Fet</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Jfet" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Jfet.html#Modelica.Electrical.Spice3.Internal.Jfet"
+>Jfet</a>
+</td>
+<td>Records and functions for Jfet</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5e7914696b1c7f10tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Csemiconductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Csemiconductor.html#Modelica.Electrical.Spice3.Internal.Csemiconductor"
+>Csemiconductor</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MOS<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice3.Internal.MOSI.png" alt="Modelica.Electrical.Spice3.Internal.MOS" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.MOS"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.MOS</h2>
+<p>
+<span class="ModelicaDescription">Metal-Oxide Semiconductor Field-Effect Transistor</span>
+</p>
+<h3>Information</h3>
+
+<p>MOSFET model, both N and P channel, LEVEL 1: Shichman-Hodges</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mtype</td><td>MOSFET type: 0 - N channel, 1 - P channel</td></tr>
+<tr><td>L</td><td>Length [m]</td></tr>
+<tr><td>W</td><td>Width [m]</td></tr>
+<tr><td>AD</td><td>Area of the drain diffusion [m2]</td></tr>
+<tr><td>AS</td><td>Area of the source diffusion [m2]</td></tr>
+<tr><td>PD</td><td>Perimeter of the drain junction [m]</td></tr>
+<tr><td>PS</td><td>Perimeter of the source junction [m]</td></tr>
+<tr><td>NRD</td><td>Number of squares of the drain diffusions</td></tr>
+<tr><td>NRS</td><td>Number of squares of the source diffusions</td></tr>
+<tr><td>OFF</td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td>IC</td><td>Initial condition values, not implemented yet [V]</td></tr>
+<tr><td>TEMP</td><td>Operating temperature of the device [degC]</td></tr>
+<tr><td>modelcard</td><td>MOSFET modelcard</td></tr>
+<tr><td>C</td><td>General constants of SPICE simulator</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>G</td><td>Gate node</td></tr>
+<tr><td>D</td><td>Drain node</td></tr>
+<tr><td>S</td><td>Source node</td></tr>
+<tr><td>B</td><td>Bulk node</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ModelcardMOS<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardMOS" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.ModelcardMOS"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.ModelcardMOS</h2>
+<p>
+<span class="ModelicaDescription">Record with technology parameters (.model)</span>
+</p>
+<h3>Information</h3>
+
+<p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 1: Shichman-Hodges</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VTO</td><td>Zero-bias threshold voltage, default 0 [V]</td></tr>
+<tr><td>KP</td><td>Transconductance parameter, default 2e-5 [A/V2]</td></tr>
+<tr><td>GAMMA</td><td>Bulk threshold parameter, default 0</td></tr>
+<tr><td>PHI</td><td>Surface potential, default 0.6 [V]</td></tr>
+<tr><td>LAMBDA</td><td>Channel-length modulation, default 0 [1/V]</td></tr>
+<tr><td>RD</td><td>Drain ohmic resistance, default 0 [Ohm]</td></tr>
+<tr><td>RS</td><td>Source ohmic resistance, default 0 [Ohm]</td></tr>
+<tr><td>CBD</td><td>Zero-bias B-D junction capacitance, default 0 [F]</td></tr>
+<tr><td>CBS</td><td>Zero-bias B-S junction capacitance, default 0 [F]</td></tr>
+<tr><td>IS</td><td>Bulk junction saturation current [A]</td></tr>
+<tr><td>PB</td><td>Bulk junction potential [V]</td></tr>
+<tr><td>CGSO</td><td>Gate-source overlap capacitance per meter channel width [F/m]</td></tr>
+<tr><td>CGDO</td><td>Gate-drain overlap capacitance per meter channel width [F/m]</td></tr>
+<tr><td>CGBO</td><td>Gate-bulk overlap capacitance per meter channel width [F/m]</td></tr>
+<tr><td>RSH</td><td>Drain and source diffusion sheet resistance [Ohm]</td></tr>
+<tr><td>CJ</td><td>Zero-bias bulk junction bottom cap. per sq-meter of junction area [F/m2]</td></tr>
+<tr><td>MJ</td><td>Bulk junction bottom grading coefficient</td></tr>
+<tr><td>CJSW</td><td>Zero-bias junction sidewall cap. per meter of junction perimeter [F/m]</td></tr>
+<tr><td>MJSW</td><td>Bulk junction sidewall grading coefficient</td></tr>
+<tr><td>JS</td><td>Bulk junction saturation current per sq-meter of junction area [A/m2]</td></tr>
+<tr><td>TOX</td><td>Oxide thickness, default 1e-7 [m]</td></tr>
+<tr><td>NSUB</td><td>Substrate doping, default 0</td></tr>
+<tr><td>NSS</td><td>Surface state density [1/cm2]</td></tr>
+<tr><td>TPG</td><td>Type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate</td></tr>
+<tr><td>LD</td><td>Lateral diffusion [m]</td></tr>
+<tr><td>UO</td><td>Surface mobility [cm2/(V.s)]</td></tr>
+<tr><td>KF</td><td>Flicker noise coefficient</td></tr>
+<tr><td>AF</td><td>Flicker noise exponent</td></tr>
+<tr><td>FC</td><td>Coefficient for forward-bias depletion capacitance formula</td></tr>
+<tr><td>TNOM</td><td>Parameter measurement temperature, default 27 [degC]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MOS2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice3.Internal.MOSI.png" alt="Modelica.Electrical.Spice3.Internal.MOS2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.MOS2"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.MOS2</h2>
+<p>
+<span class="ModelicaDescription">Metal-Oxide Semiconductor Field-Effect Transistor</span>
+</p>
+<h3>Information</h3>
+
+<p>MOSFET model, both N and P channel, LEVEL 2</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mtype</td><td>MOSFET type: 0 - N channel, 1 - P channel</td></tr>
+<tr><td>L</td><td>Length [m]</td></tr>
+<tr><td>W</td><td>Width [m]</td></tr>
+<tr><td>AD</td><td>Area of the drain diffusion [m2]</td></tr>
+<tr><td>AS</td><td>Area of the source diffusion [m2]</td></tr>
+<tr><td>PD</td><td>Perimeter of the drain junction [m]</td></tr>
+<tr><td>PS</td><td>Perimeter of the source junction [m]</td></tr>
+<tr><td>NRD</td><td>Number of squares of the drain diffusions</td></tr>
+<tr><td>NRS</td><td>Number of squares of the source diffusions</td></tr>
+<tr><td>OFF</td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td>IC_VDS</td><td>Initial condition value (VDS, not implemented yet) [V]</td></tr>
+<tr><td>IC_VGS</td><td>Initial condition value (VGS, not implemented yet) [V]</td></tr>
+<tr><td>IC_VBS</td><td>Initial condition value (VBS, not implemented yet) [V]</td></tr>
+<tr><td>UIC</td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td>TEMP</td><td>Operating temperature of the device [degC]</td></tr>
+<tr><td>modelcard</td><td>MOSFET modelcard</td></tr>
+<tr><td>IC</td><td>Initial condition values, not implemented yet [V]</td></tr>
+<tr><td>C</td><td>General constants of SPICE simulator</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>G</td><td>Gate node</td></tr>
+<tr><td>D</td><td>Drain node</td></tr>
+<tr><td>S</td><td>Source node</td></tr>
+<tr><td>B</td><td>Bulk node</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ModelcardMOS2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardMOS2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.ModelcardMOS2"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.ModelcardMOS2</h2>
+<p>
+<span class="ModelicaDescription">Record with technology parameters (.model)</span>
+</p>
+<h3>Information</h3>
+
+<p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 2</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records), <a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardMOS"
+>Spice3.Internal.ModelcardMOS</a> (Record with technology parameters (.model)).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VTO</td><td>Zero-bias threshold voltage, default 0 [V]</td></tr>
+<tr><td>KP</td><td>Transconductance parameter, default 2e-5 [A/V2]</td></tr>
+<tr><td>GAMMA</td><td>Bulk threshold parameter, default 0</td></tr>
+<tr><td>PHI</td><td>Surface potential, default 0.6 [V]</td></tr>
+<tr><td>LAMBDA</td><td>Channel-length modulation, default 0 [1/V]</td></tr>
+<tr><td>RD</td><td>Drain ohmic resistance, default 0 [Ohm]</td></tr>
+<tr><td>RS</td><td>Source ohmic resistance, default 0 [Ohm]</td></tr>
+<tr><td>CBD</td><td>Zero-bias B-D junction capacitance, default 0 [F]</td></tr>
+<tr><td>CBS</td><td>Zero-bias B-S junction capacitance, default 0 [F]</td></tr>
+<tr><td>IS</td><td>Bulk junction saturation current [A]</td></tr>
+<tr><td>PB</td><td>Bulk junction potential [V]</td></tr>
+<tr><td>CGSO</td><td>Gate-source overlap capacitance per meter channel width [F/m]</td></tr>
+<tr><td>CGDO</td><td>Gate-drain overlap capacitance per meter channel width [F/m]</td></tr>
+<tr><td>CGBO</td><td>Gate-bulk overlap capacitance per meter channel width [F/m]</td></tr>
+<tr><td>RSH</td><td>Drain and source diffusion sheet resistance [Ohm]</td></tr>
+<tr><td>CJ</td><td>Zero-bias bulk junction bottom cap. per sq-meter of junction area [F/m2]</td></tr>
+<tr><td>MJ</td><td>Bulk junction bottom grading coefficient</td></tr>
+<tr><td>CJSW</td><td>Zero-bias junction sidewall cap. per meter of junction perimeter [F/m]</td></tr>
+<tr><td>MJSW</td><td>Bulk junction sidewall grading coefficient</td></tr>
+<tr><td>JS</td><td>Bulk junction saturation current per sq-meter of junction area [A/m2]</td></tr>
+<tr><td>TOX</td><td>Oxide thickness, default 1e-7 [m]</td></tr>
+<tr><td>NSUB</td><td>Substrate doping, default 0</td></tr>
+<tr><td>NSS</td><td>Surface state density [1/cm2]</td></tr>
+<tr><td>TPG</td><td>Type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate</td></tr>
+<tr><td>LD</td><td>Lateral diffusion [m]</td></tr>
+<tr><td>UO</td><td>Surface mobility [cm2/(V.s)]</td></tr>
+<tr><td>KF</td><td>Flicker noise coefficient</td></tr>
+<tr><td>AF</td><td>Flicker noise exponent</td></tr>
+<tr><td>FC</td><td>Coefficient for forward-bias depletion capacitance formula</td></tr>
+<tr><td>TNOM</td><td>Parameter measurement temperature, default 27 [degC]</td></tr>
+<tr><td>NFS</td><td>Fast surface state density [1/cm2]</td></tr>
+<tr><td>XJ</td><td>Metallurgical junction depth [m]</td></tr>
+<tr><td>UCRIT</td><td>Critical field for mobility degradation (MOS2 only) [V/cm]</td></tr>
+<tr><td>UEXP</td><td>Critical field exponent in mobility degradation (MOS2 only)</td></tr>
+<tr><td>VMAX</td><td>Maximum drift velocity of carries [m/s]</td></tr>
+<tr><td>NEFF</td><td>Total channel charge (fixed and mobile) coefficient (MOS2 only)</td></tr>
+<tr><td>DELTA</td><td>Width effect on threshold voltage</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BJT2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice3.Internal.BJT2I.png" alt="Modelica.Electrical.Spice3.Internal.BJT2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.BJT2"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.BJT2</h2>
+<p>
+<span class="ModelicaDescription">Bipolar junction transistor</span>
+</p>
+<h3>Information</h3>
+
+<p>Bipolar junction transistor model, both NPN and PNP</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Spice3_Interfaces.html#Modelica.Electrical.Spice3.Interfaces.ConditionalSubstrate"
+>Spice3.Interfaces.ConditionalSubstrate</a> (Partial model to include a conditional substrate node).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSubstrateNode</td><td>= true, if SubstrateNode is enabled</td></tr>
+<tr><td>TBJT</td><td>Type of transistor (NPN=1, PNP=-1)</td></tr>
+<tr><td>AREA</td><td>Area factor</td></tr>
+<tr><td>OFF</td><td>Optional initial condition: false - IC not used, true - IC used, not implemented yet</td></tr>
+<tr><td>IC_VBE</td><td>Initial condition value (VBC, not implemented yet) [V]</td></tr>
+<tr><td>IC_VCE</td><td>Initial condition value (VBE, not implemented yet) [V]</td></tr>
+<tr><td>UIC</td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td>TEMP</td><td>Operating temperature of the device [degC]</td></tr>
+<tr><td>SENS_AREA</td><td>Flag to request sensitivity WRT area, not implemented yet</td></tr>
+<tr><td>modelcard</td><td>BJT modelcard</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>B</td><td>Base node</td></tr>
+<tr><td>C</td><td>Collector node</td></tr>
+<tr><td>E</td><td>Emitter node</td></tr>
+<tr><td>S</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ModelcardBJT2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardBJT2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.ModelcardBJT2"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.ModelcardBJT2</h2>
+<p>
+<span class="ModelicaDescription">Record with technology parameters (.model)</span>
+</p>
+<h3>Information</h3>
+
+<p>Modelcard parameters for BJT model, both PNP and NPN</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>TNOM</td><td>Parameter measurement temperature [degC]</td></tr>
+<tr><td>IS</td><td>Transport saturation current [A]</td></tr>
+<tr><td>BF</td><td>Ideal maximum forward beta F</td></tr>
+<tr><td>NF</td><td>Forward current emission coefficientF</td></tr>
+<tr><td>NE</td><td>B-E leakage emission coefficient</td></tr>
+<tr><td>ISE</td><td>B-E leakage saturation current, default = 0 [A]</td></tr>
+<tr><td>ISC</td><td>B-C leakage saturation current, default = 0 [A]</td></tr>
+<tr><td>BR</td><td>Ideal maximum reverse beta</td></tr>
+<tr><td>NR</td><td>Reverse current emission coefficient</td></tr>
+<tr><td>NC</td><td>B-C leakage emission coefficient</td></tr>
+<tr><td>VAF</td><td>Forward Early voltage [V]</td></tr>
+<tr><td>IKF</td><td>Forward beta roll-off corner current [A]</td></tr>
+<tr><td>VAR</td><td>Reverse Early voltage [V]</td></tr>
+<tr><td>IKR</td><td>Reverse beta roll-off corner current [A]</td></tr>
+<tr><td>RE</td><td>Emitter resistance [Ohm]</td></tr>
+<tr><td>RC</td><td>Collector resistance [Ohm]</td></tr>
+<tr><td>IRB</td><td>Current for base resistance = (rb+rbm)/2 [A]</td></tr>
+<tr><td>RB</td><td>Zero bias base resistance [Ohm]</td></tr>
+<tr><td>RBM</td><td>Minimum base resistance, default = 0.0 [Ohm]</td></tr>
+<tr><td>CJE</td><td>Zero bias B-E depletion capacitance [F]</td></tr>
+<tr><td>VJE</td><td>B-E built in potential [V]</td></tr>
+<tr><td>MJE</td><td>B-E junction exponential factor</td></tr>
+<tr><td>TF</td><td>Ideal forward transit time [s]</td></tr>
+<tr><td>XTF</td><td>Coefficient for bias dependence of TF</td></tr>
+<tr><td>ITF</td><td>High current dependence of TF, [A]</td></tr>
+<tr><td>VTF</td><td>Voltage giving VBC dependence of TF [V]</td></tr>
+<tr><td>PTF</td><td>Excess phase at freq=1/(TF*2*Pi) Hz [Hz]</td></tr>
+<tr><td>CJC</td><td>Zero bias B-C depletion capacitance [F]</td></tr>
+<tr><td>VJC</td><td>B-C built in potential [V]</td></tr>
+<tr><td>MJC</td><td>B-C junction grading coefficient</td></tr>
+<tr><td>XCJC</td><td>Fraction of B-C cap to internal base</td></tr>
+<tr><td>TR</td><td>Ideal reverse transit time [s]</td></tr>
+<tr><td>CJS</td><td>Zero bias C-S capacitance [F]</td></tr>
+<tr><td>VJS</td><td>Substrate junction built-in potential [V]</td></tr>
+<tr><td>MJS</td><td>Substrate junction grading coefficient</td></tr>
+<tr><td>XTB</td><td>Forward and reverse beta temperature exponent</td></tr>
+<tr><td>EG</td><td>Energy gap for IS temperature effect on IS [eV]</td></tr>
+<tr><td>XTI</td><td>Temperature exponent for IS</td></tr>
+<tr><td>KF</td><td>Flicker Noise Coefficient</td></tr>
+<tr><td>AF</td><td>Flicker Noise Exponent</td></tr>
+<tr><td>FC</td><td>Forward bias junction fit parameter</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE JFET<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice3.Internal.JFETI.png" alt="Modelica.Electrical.Spice3.Internal.JFET" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.JFET"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.JFET</h2>
+<p>
+<span class="ModelicaDescription">Junction Field-Effect Transistor</span>
+</p>
+<h3>Information</h3>
+
+<p>JFET model, both N and P channel</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for modeling the semiconductor models of the package Semiconductors.</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mtype</td><td>JFET type: 0 - N channel, 1 - P channel</td></tr>
+<tr><td>AREA</td><td>Number of parallel connected identical elements</td></tr>
+<tr><td>OFF</td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td>IC_VDS</td><td>Initial condition value (VDS, not implemented yet) [V]</td></tr>
+<tr><td>IC_VGS</td><td>Initial condition value (VGS, not implemented yet) [V]</td></tr>
+<tr><td>UIC</td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td>TEMP</td><td>Operating temperature of the device [degC]</td></tr>
+<tr><td>modelcard</td><td>JFET modelcard</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>G</td><td>Gate node</td></tr>
+<tr><td>D</td><td>Drain node</td></tr>
+<tr><td>S</td><td>Source node</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ModelcardJFET<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardJFET" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.ModelcardJFET"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.ModelcardJFET</h2>
+<p>
+<span class="ModelicaDescription">Record with technology parameters (.model)</span>
+</p>
+<h3>Information</h3>
+
+<p>Modelcard parameters for JFET model, both N and P channel</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for modeling the semiconductor models of the package Semiconductors.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>CGS</td><td>Zero-bias G-S junction capacitance, default 0 [F]</td></tr>
+<tr><td>CGD</td><td>Zero-bias G-D junction capacitance, default 0 [F]</td></tr>
+<tr><td>IS</td><td>Saturation current of pn junctions [A]</td></tr>
+<tr><td>FC</td><td>Coefficient for forward-bias depletion capacitance formula</td></tr>
+<tr><td>RD</td><td>Drain ohmic resistance, default 0 [Ohm]</td></tr>
+<tr><td>RS</td><td>Source ohmic resistance, default 0 [Ohm]</td></tr>
+<tr><td>TNOM</td><td>Parameter measurement temperature [degC]</td></tr>
+<tr><td>VTO</td><td>Zero-bias threshold voltage, default -2 [V]</td></tr>
+<tr><td>B</td><td>Dotierungsverlauf parameter, default 1 [1/V]</td></tr>
+<tr><td>BETA</td><td>Output admittance parameter, default 1e-4</td></tr>
+<tr><td>LAMBDA</td><td>Channel-length modulation, default 0 [1/V]</td></tr>
+<tr><td>PB</td><td>Junction potential of pn junctions [V]</td></tr>
+<tr><td>AF</td><td>Flicker noise exponent</td></tr>
+<tr><td>KF</td><td>Flicker noise coefficient</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DIODE<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice19a44b2994d43663DIODEI.png" alt="Modelica.Electrical.Spice3.Internal.DIODE" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.DIODE"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.DIODE</h2>
+<p>
+<span class="ModelicaDescription">Diode model</span>
+</p>
+<h3>Information</h3>
+
+<p>DIODE model</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPin"
+>Modelica.Electrical.Analog.Interfaces.TwoPin</a> (Component with two electrical pins).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>AREA</td><td>Area factor</td></tr>
+<tr><td>OFF</td><td>Optional initial condition: false - IC not used, true - IC used, not implemented yet</td></tr>
+<tr><td>IC</td><td>Initial condition value (VD, not implemented yet [V]</td></tr>
+<tr><td>TEMP</td><td>Operating temperature of the device [degC]</td></tr>
+<tr><td>SENS_AREA</td><td>Flag to request sensitivity WRT area, not implemented yet</td></tr>
+<tr><td>modelcarddiode</td><td>DIODE modelcard</td></tr>
+<tr><td>C</td><td>General constants of SPICE simulator</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ModelcardDIODE<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardDIODE" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.ModelcardDIODE"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.ModelcardDIODE</h2>
+<p>
+<span class="ModelicaDescription">Record with technology parameters (.model)</span>
+</p>
+<h3>Information</h3>
+
+<p>Modelcard parameters for DIODE model</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>IS</td><td>Saturation Current [A]</td></tr>
+<tr><td>RS</td><td>Ohmic resistance [Ohm]</td></tr>
+<tr><td>N</td><td>Emission coefficient</td></tr>
+<tr><td>TT</td><td>Transit time [s]</td></tr>
+<tr><td>CJO</td><td>Junction capacitance [F]</td></tr>
+<tr><td>VJ</td><td>Junction Potential [V]</td></tr>
+<tr><td>M</td><td>Grading coefficient</td></tr>
+<tr><td>EG</td><td>Activation Energy [eV]</td></tr>
+<tr><td>XTI</td><td>Saturation current temperature exponent</td></tr>
+<tr><td>FC</td><td>Forward bias junction fit parameter</td></tr>
+<tr><td>BV</td><td>Reverse breakdown voltage, default infinity [V]</td></tr>
+<tr><td>IBV</td><td>Current at reverse breakdown voltage [A]</td></tr>
+<tr><td>TNOM</td><td>Parameter measurement temperature [degC]</td></tr>
+<tr><td>KF</td><td>Flicker noise coefficient</td></tr>
+<tr><td>AF</td><td>Flicker noise exponent</td></tr>
+<tr><td>G</td><td>Ohmic conductance [S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE R_SEMI<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice6305bf11b7e4c93b_SEMII.png" alt="Modelica.Electrical.Spice3.Internal.R_SEMI" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.R_SEMI"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.R_SEMI</h2>
+<p>
+<span class="ModelicaDescription">Semiconductor resistor</span>
+</p>
+<h3>Information</h3>
+
+<p>Semiconductor resistance model</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>R</td><td>Resistance, if specified, geometrical information is overwritten [Ohm]</td></tr>
+<tr><td>TEMP</td><td>Temperature of resistor [degC]</td></tr>
+<tr><td>L</td><td>Length of the resistor [m]</td></tr>
+<tr><td>W</td><td>Width of the resistor, default DEFW (modelcard) [m]</td></tr>
+<tr><td>SENS_AREA</td><td>Parameter for sensitivity analyses, not implemented yet</td></tr>
+<tr><td>modelcard</td><td>Resistor modelcard</td></tr>
+<tr><td>C</td><td>General constants of SPICE simulator</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ModelcardR<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardR" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.ModelcardR"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.ModelcardR</h2>
+<p>
+<span class="ModelicaDescription">Record with technology parameters (.model)</span>
+</p>
+<h3>Information</h3>
+
+<p>Modelcard parameters for semiconductor resistance model</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>TC1</td><td>First order temperature coefficient [Ohm/K]</td></tr>
+<tr><td>TC2</td><td>Second order temperature coefficient [Ohm/K2]</td></tr>
+<tr><td>RSH</td><td>Sheet resistance [Ohm]</td></tr>
+<tr><td>TNOM</td><td>Parameter measurement temperature, default 27 [degC]</td></tr>
+<tr><td>DEFW</td><td>Default device width [m]</td></tr>
+<tr><td>NARROW</td><td>Narrowing of resistor due to side etching [m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE C_SEMI<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicea645535495e4c93b_SEMII.png" alt="Modelica.Electrical.Spice3.Internal.C_SEMI" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.C_SEMI"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.C_SEMI</h2>
+<p>
+<span class="ModelicaDescription">Semiconductor capacitor</span>
+</p>
+<h3>Information</h3>
+
+<p>Semiconductor capacitance model</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>C</td><td>Capacitance, if specified, geometrical information is overwritten [F]</td></tr>
+<tr><td>TEMP</td><td>Temperature of capacitor [degC]</td></tr>
+<tr><td>L</td><td>Length of the capacitor [m]</td></tr>
+<tr><td>W</td><td>Width of the capacitor, default DEFW (modelcard) [m]</td></tr>
+<tr><td>SENS_AREA</td><td>Parameter for sensitivity analyses, not implemented yet</td></tr>
+<tr><td>IC</td><td>Initial value [V]</td></tr>
+<tr><td>UIC</td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td>modelcard</td><td>Capacitor modelcard</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ModelcardC<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.ModelcardC" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.ModelcardC"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.ModelcardC</h2>
+<p>
+<span class="ModelicaDescription">Record with technology parameters (.model)</span>
+</p>
+<h3>Information</h3>
+
+<p>Modelcard parameters for semiconductor capacitance model</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>CJ</td><td>Junction bottom capacitance     F/meters2 [F/m2]</td></tr>
+<tr><td>CJSW</td><td>Junction sidewall capacitance   F/meters [F/m]</td></tr>
+<tr><td>DEFW</td><td>Default device width [m]</td></tr>
+<tr><td>NARROW</td><td>Narrowing due to side etching [m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpiceConstants<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.SpiceConstants" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.SpiceConstants"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.SpiceConstants</h2>
+<p>
+<span class="ModelicaDescription">General constants of SPICE simulator</span>
+</p>
+<h3>Information</h3>
+
+<p>General constants used by SPICE</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MaterialParameters<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.MaterialParameters" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.MaterialParameters"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.MaterialParameters</h2>
+<h3>Information</h3>
+
+<p>Definition of Material parameters</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:41 2026.
+</address>
+</body>
+</html>

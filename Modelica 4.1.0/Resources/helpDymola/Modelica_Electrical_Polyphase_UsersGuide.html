@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Polyphase.UsersGuide</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;User&#39;s Guide&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyphase.UsersGuideI.png" alt="Modelica.Electrical.Polyphase.UsersGuide" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.UsersGuide"></a><a href="Modelica_Electrical_Polyphase.html#Modelica.Electrical.Polyphase"
+>Modelica.Electrical.Polyphase</a>.UsersGuide</h2>
+
+<p>
+This library contains components for modelling of polyphase electrical circuits.
+The number of phases m is not restricted to three.
+The connector (named plug) contains an array of m single-phase <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.Pin"
+>pins</a>.
+Most of the components use an array of single-phase components from <a href="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</a>.
+</p>
+<h4>Note</h4>
+<p>
+For the orientation of an arbitrary number of phases m &gt; 3, see the <a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"
+>phase orientation concept</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypf6e7902613a79639ationS.png" alt="Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"
+>PhaseOrientation</a>
+</td>
+<td>Orientation of phases</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp800be10362d979e0ntactS.png" alt="Modelica.Electrical.Polyphase.UsersGuide.Contact" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.Contact"
+>Contact</a>
+</td>
+<td>Contact</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp1725a0abeebbb524NotesS.png" alt="Modelica.Electrical.Polyphase.UsersGuide.ReleaseNotes" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.ReleaseNotes"
+>ReleaseNotes</a>
+</td>
+<td>Release Notes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypefb77c855a9e9bfaencesS.png" alt="Modelica.Electrical.Polyphase.UsersGuide.References" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.References"
+>References</a>
+</td>
+<td>References</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PhaseOrientation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyphase.UsersGuideI.png" alt="Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"></a><a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide"
+>Modelica.Electrical.Polyphase.UsersGuide</a>.PhaseOrientation</h2>
+
+<p>
+<strong>In polyphase systems, the angular displacement of voltages and currents of the phases as well as the spatial displacement of machine windings have to follow the same rules, i.e., they are based on the same
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>orientation function</a>.</strong>
+</p>
+<h4>Symmetrical three-phase system</h4>
+<p>
+A symmetrical three-phases system consists of three sinusoidal sine waves with an angular displacement of 2 &pi; / 3.
+</p>
+<h4>Symmetrical polyphase system</h4>
+<p>
+In symmetrical polyphase systems odd and even phase numbers have to be distinguished.
+</p>
+<h5>Odd number of phases</h5>
+<p>
+For a symmetrical polyphase system with m phases the displacement of the sine waves is 2 &pi; / m.
+</p>
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption><strong>Fig. 1: </strong>Symmetrical (a) three-phase and (b) five-phase current system</caption>
+  <tr>
+    <td>
+      <img src="Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/phase35.png"
+           alt="phase35.png">
+    </td>
+  </tr>
+</table>
+<h5>Even number of phases</h5>
+<p>
+In case of an even number of phases the aligned orientation does not add any information. Instead the m phases are divided into two or more different groups (the base systems).
+</p>
+<p>
+The number of phases m can be divided by 2 recursively until the result is either an odd number or 2. The result of this division is called m<sub>Base</sub>, the number of phases of the base system.
+The number of base systems n<sub>Base</sub> is defined by the number of divisions, i.e., m = n<sub>Base</sub> * m<sub>Base</sub>.
+</p>
+<p>
+For a base system with m<sub>Base</sub> phases the displacement of the sine waves belonging to that base system is 2 &pi; / m<sub>Base</sub>.
+</p>
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption><strong>Fig. 2: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
+  <tr>
+    <td>
+      <img src="Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/phase610.png"
+           alt="phase610.png">
+    </td>
+  </tr>
+</table>
+<p>
+The displacement of the base systems is defined as &pi; / n<sub>Base</sub>.
+</p>
+<h4>Note</h4>
+<p>
+In array or matrices, the base systems are stored one after another.
+</p>
+<h4>Symmetrical components</h4>
+<p>
+For each base system of time phasors, symmetrical components can be calculated according to the idea of Charles L. Fortescue.
+</p>
+<p>
+The first symmetrical component is the direct component with positive sequence.<br>
+In case of  m<sub>Base</sub> = 2, the second component is the inverse component with negative sequence.<br>
+In case of  m<sub>Base</sub> &gt; 2, the components [2..m<sub>Base</sub> - 1] are components with non-positive sequence,<br>
+and the last component [m<sub>Base</sub>] is the zero sequence component.
+</p>
+<p>
+This set of symmetrical components is repeated for each of the n<sub>Base</sub> base systems.
+</p>
+<h4>Polygon connection</h4>
+<p>
+For polyphase systems, star connection of the m phases is unambiguous, i.e., each pin of the plug is connected to the starpoint pin,
+whereas for polygon connection (m<sub>Base</sub> - 1)/2 alternatives exist (refer to Fig. 3).
+</p>
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption><strong>Fig. 3: </strong>Line-to-neutral voltages and line-to-line voltages for different systems</caption>
+  <tr>
+    <td>
+      <img src="Resources/Images/Electrical/Polyphase/Polygon2phase.png" alt="Polygon2phase.png">
+    </td>
+    <td>
+      <img src="Resources/Images/Electrical/Polyphase/Polygon4phase.png" alt="Polygon4phase.png">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2 phase system
+    </td>
+    <td>
+      2 = 2 x 2 phase system
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="Resources/Images/Electrical/Polyphase/Polygon3phase.png" alt="Polygon3phase.png">
+    </td>
+    <td>
+      <img src="Resources/Images/Electrical/Polyphase/Polygon6phase.png" alt="Polygon6phase.png">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3 phase system
+    </td>
+    <td>
+      6 = 2 x 3 phase system
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="Resources/Images/Electrical/Polyphase/Polygon5phase.png" alt="Polygon5phase.png">
+    </td>
+    <td>
+      <img src="Resources/Images/Electrical/Polyphase/Polygon7phase.png" alt="Polygon7phase.png">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5 phase system: 2 alternative polygon connections
+    </td>
+    <td>
+      7 phase system: 3 alternative polygon connections
+    </td>
+  </tr>
+</table>
+<p>
+Therefore, using the <a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiDelta"
+>MultiDelta</a> component,
+the alternative has to be specified by the parameter kPolygon.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase"
+>User's guide</a> on polyphase winding.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp800be10362d979e0ntactI.png" alt="Modelica.Electrical.Polyphase.UsersGuide.Contact" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.UsersGuide.Contact"></a><a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide"
+>Modelica.Electrical.Polyphase.UsersGuide</a>.Contact</h2>
+
+<h4>Main authors</h4>
+
+<p>
+<strong>Dr. Christian Kral</strong><br>
+Electric Machines, Drives and Systems<br>
+1060 Vienna, Austria<br>
+email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a><br>
+</p>
+
+<p>
+<strong>Anton Haumer</strong><br>
+<a href="https://www.haumer.at">Technical Consulting &amp; Electrical Engineering</a><br>
+D-93049 Regensburg, Germany<br>
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a><br>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</a> (Icon for contact information).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReleaseNotes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp1725a0abeebbb524NotesI.png" alt="Modelica.Electrical.Polyphase.UsersGuide.ReleaseNotes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.UsersGuide.ReleaseNotes"></a><a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide"
+>Modelica.Electrical.Polyphase.UsersGuide</a>.ReleaseNotes</h2>
+
+
+<h5>Version 3.2.3, 2019-01-23 (Anton Haumer, Christian Kral)</h5>
+<ul>
+  <li>Shortened default component names, see
+      <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2301">#2301</a></li>
+<li>Removed redundant (and not identical) parameter m from
+    <a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MutualInductor"
+>MutualInductor</a>,
+    see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2202">#2202</a></li>
+<li>Changed epsilon from constant to parameter in
+    <a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MutualInductor"
+>MutualInductor</a>,
+    see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2200">#2200</a></li>
+<li>Added User's Guide</li>
+<li>Added blocks and functions for multiple base systems</li>
+</ul>
+
+<h5>Version 1.4.0, 2009-08-26 (Anton Haumer)</h5>
+<ul>
+<li>Added conditional HeatPorts as in Electrical.Analog</li>
+<li>Added switches with arc as in Electrical.Analog</li>
+</ul>
+
+<h5>Version 1.3.2, 2007-08-24 (Anton Haumer)</h5>
+<ul>
+<li>Removed redeclare type SignalType</li>
+</ul>
+
+<h5>Version 1.3.1, 2007-08-12 (Anton Haumer)</h5>
+<ul>
+<li>Improved documentation</li>
+</ul>
+
+<h5>Version 1.3.0, 2007-01-23 (Anton Haumer)</h5>
+<ul>
+<li>Improved some icons</li>
+</ul>
+
+<h5>Version 1.2, 2006-07-05 (Anton Haumer)</h5>
+<ul>
+<li>Removed annotation from pin of Interfaces.Plug</li>
+<li>Corrected usage of resistance/conductance</li>
+</ul>
+
+<h5>Version 1.1, 2006-01-12 (Anton Haumer)</h5>
+<ul>
+<li>Added Sensors.PowerSensor</li>
+</ul>
+
+<h5>Version 1.0, 2004-10-01 (Anton Haumer)</h5>
+<ul>
+  <li>Initial release version</li>
+</ul>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE References<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypefb77c855a9e9bfaencesI.png" alt="Modelica.Electrical.Polyphase.UsersGuide.References" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.UsersGuide.References"></a><a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide"
+>Modelica.Electrical.Polyphase.UsersGuide</a>.References</h2>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>[Ceraolo2014]</td>
+    <td>M. Ceraolo and D. Poli; <em>Fundamentals of Electric Power Engineering</em>, IEEE/Wiley 2014,
+      <a href="https://www.wiley.com/en-us/Fundamentals+of+Electric+Power+Engineering:+From+Electromagnetics+to+Power+Systems-p-9781118679692">ISBN 978-1-118-67969-2</a>.</td>
+  </tr>
+  <tr>
+    <td>[M&uuml;hl2017]</td>
+    <td>T. M&uuml;hl,
+      <em>Elektrische Messtechnik</em> (in German),
+      Springer Vieweg, 2017, <a href="https://doi.org/10.1007/978-3-658-15720-3">DOI 10.1007/978-3-658-15720-3</a>.</td>
+  </tr>
+  <tr>
+    <td>[Vaske1963]</td>
+    <td>P. Vaske,
+      &quot;&Uuml;ber die Drehfelder und Drehmomente symmetrischer Komponenten in Induktionsmaschinen,&quot;
+      (in German), <em>Archiv f&uuml;r Elektrotechnik</em>
+      vol 2, 1963, pp. 97-117.</td>
+  </tr>
+</table>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.References"
+>Modelica.Icons.References</a> (Icon for external references).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:40 2026.
+</address>
+</body>
+</html>

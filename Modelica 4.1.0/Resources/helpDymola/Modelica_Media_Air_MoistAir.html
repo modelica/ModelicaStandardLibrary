@@ -1,0 +1,2467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Air.MoistAir</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Air: Moist air model (190 ... 647 K)&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MoistAir<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Air.MoistAir"></a><a href="Modelica_Media_Air.html#Modelica.Media.Air"
+>Modelica.Media.Air</a>.MoistAir</h2>
+<p>
+<span class="ModelicaDescription">Air: Moist air model (190 ... 647 K)</span>
+</p>
+<h3>Information</h3>
+
+<h4>Thermodynamic Model</h4>
+<p>This package provides a full thermodynamic model of moist air including the fog region and temperatures below zero degC.
+The governing assumptions in this model are:</p>
+<ul>
+<li>the perfect gas law applies</li>
+<li>water volume other than that of steam is neglected</li></ul>
+<p>All extensive properties are expressed in terms of the total mass in order to comply with other media in this library. However, for moist air it is rather common to express the absolute humidity in terms of mass of dry air only, which has advantages when working with charts. In addition, care must be taken, when working with mass fractions with respect to total mass, that all properties refer to the same water content when being used in mathematical operations (which is always the case if based on dry air only). Therefore two absolute humidities are computed in the <strong>BaseProperties</strong> model: <strong>X</strong> denotes the absolute humidity in terms of the total mass while <strong>x</strong> denotes the absolute humidity per unit mass of dry air. In addition, the relative humidity <strong>phi</strong> is also computed.</p>
+<p>At the triple point temperature of water of 0.01 &deg;C or 273.16 K and a relative humidity greater than 1 fog may be present as liquid and as ice resulting in a specific enthalpy somewhere between those of the two isotherms for solid and liquid fog, respectively. For numerical reasons a coexisting mixture of 50% solid and 50% liquid fog is assumed in the fog region at the triple point in this model.</p>
+
+<h4>Range of validity</h4>
+<p>From the assumptions mentioned above it follows that the <strong>pressure</strong> should be in the region around <strong>atmospheric</strong> conditions or below (a few bars may still be fine though). Additionally a very high water content at low temperatures would yield incorrect densities, because the volume of the liquid or solid phase would not be negligible anymore. The model does not provide information on limits for water drop size in the fog region or transport information for the actual condensation or evaporation process in combination with surfaces. All excess water which is not in its vapour state is assumed to be still present in the air regarding its energy but not in terms of its spatial extent.<br><br>
+The thermodynamic model may be used for <strong>temperatures</strong> ranging from <strong>190 ... 647 K</strong>. This holds for all functions unless otherwise stated in their description. However, although the model works at temperatures above the saturation temperature it is questionable to use the term "relative humidity" in this region. Please note, that although several functions compute pure water properties, they are designed to be used within the moist air medium model where properties are dominated by air and steam in their vapor states, and not for pure liquid water applications.</p>
+
+<h4>Transport Properties</h4>
+<p>Several additional functions that are not needed to describe the thermodynamic system, but are required to model transport processes, like heat and mass transfer, may be called. They usually neglect the moisture influence unless otherwise stated.</p>
+
+<h4>Application</h4>
+<p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href="Modelica_Media_Examples.html#Modelica.Media.Examples.PsychrometricData"
+>PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
+
+<div>
+<img src="Resources/Images/Media/Air/Mollier.png"><br>
+<img src="Resources/Images/Media/Air/PsycroChart.png">
+</div>
+
+<p>
+<strong>Legend:</strong> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialCondensingGases.html#Modelica.Media.Interfaces.PartialCondensingGases"
+>Interfaces.PartialCondensingGases</a> (Base class for mixtures of condensing and non-condensing gases).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Water=1</td>
+<td>Index of water (in substanceNames, massFractions X, etc.)</td>
+</tr>
+<tr>
+<td>Air=2</td>
+<td>Index of air (in substanceNames, massFractions X, etc.)</td>
+</tr>
+<tr>
+<td>k_mair=steam.MM/dryair.MM</td>
+<td>Ratio of molar weights</td>
+</tr>
+<tr>
+<td>dryair=IdealGases.Common.SingleGasesData.Air</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>steam=IdealGases.Common.SingleGasesData.H2O</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>MMX={steam.MM,dryair.MM}</td>
+<td>Molar masses of components</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Air.MoistAir.ThermodynamicState" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.ThermodynamicState"
+>ThermodynamicState</a>
+</td>
+<td>ThermodynamicState record for moist air</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.T8cbda5110bac1e7artiesS.png" alt="Modelica.Media.Air.MoistAir.BaseProperties" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.BaseProperties"
+>BaseProperties</a>
+</td>
+<td>Moist air base properties record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.setState_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.setState_pTX"
+>setState_pTX</a>
+</td>
+<td>Return thermodynamic state as function of pressure p, temperature T and composition X</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.setState_phX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.setState_phX"
+>setState_phX</a>
+</td>
+<td>Return thermodynamic state as function of pressure p, specific enthalpy h and composition X</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.setState_dTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.setState_dTX"
+>setState_dTX</a>
+</td>
+<td>Return thermodynamic state as function of density d, temperature T and composition X</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.setSmoothState" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.setSmoothState"
+>setSmoothState</a>
+</td>
+<td>Return thermodynamic state so that it smoothly approximates: if x &gt; 0 then state_a else state_b</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.Xsaturation" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.Xsaturation"
+>Xsaturation</a>
+</td>
+<td>Return absolute humidity per unit mass of moist air at saturation as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.xsaturation" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.xsaturation"
+>xsaturation</a>
+</td>
+<td>Return absolute humidity per unit mass of dry air at saturation as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.xsaturation_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.xsaturation_pT"
+>xsaturation_pT</a>
+</td>
+<td>Return absolute humidity per unit mass of dry air at saturation as a function of pressure p and temperature T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.massFraction_pTphi" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.massFraction_pTphi"
+>massFraction_pTphi</a>
+</td>
+<td>Return steam mass fraction as a function of relative humidity phi and temperature T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.relativeHumidity_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.relativeHumidity_pTX"
+>relativeHumidity_pTX</a>
+</td>
+<td>Return relative humidity as a function of pressure p, temperature T and composition X</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.relativeHumidity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.relativeHumidity"
+>relativeHumidity</a>
+</td>
+<td>Return relative humidity as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.gasConstant" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.gasConstant"
+>gasConstant</a>
+</td>
+<td>Return ideal gas constant as a function from thermodynamic state, only valid for phi&lt;1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.gasConstant_X" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.gasConstant_X"
+>gasConstant_X</a>
+</td>
+<td>Return ideal gas constant as a function from composition X</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.saturationPressureLiquid" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.saturationPressureLiquid"
+>saturationPressureLiquid</a>
+</td>
+<td>Return saturation pressure of water as a function of temperature T in the range of 273.16 to 647.096 K</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.saturationPressureLiquid_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.saturationPressureLiquid_der"
+>saturationPressureLiquid_der</a>
+</td>
+<td>Derivative function for &#39;saturationPressureLiquid&#39;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.sublimationPressureIce" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.sublimationPressureIce"
+>sublimationPressureIce</a>
+</td>
+<td>Return sublimation pressure of water as a function of temperature T between 190 and 273.16 K</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.sublimationPressureIce_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.sublimationPressureIce_der"
+>sublimationPressureIce_der</a>
+</td>
+<td>Derivative function for &#39;sublimationPressureIce&#39;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.saturationPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.saturationPressure"
+>saturationPressure</a>
+</td>
+<td>Return saturation pressure of water as a function of temperature T between 190 and 647.096 K</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.saturationPressure_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.saturationPressure_der"
+>saturationPressure_der</a>
+</td>
+<td>Derivative function for &#39;saturationPressure&#39;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.saturationTemperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.saturationTemperature"
+>saturationTemperature</a>
+</td>
+<td>Return saturation temperature of water as a function of (partial) pressure p</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfVaporization" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfVaporization"
+>enthalpyOfVaporization</a>
+</td>
+<td>Return enthalpy of vaporization of water as a function of temperature T, 273.16 to 647.096 K</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.HeatCapacityOfWater" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.HeatCapacityOfWater"
+>HeatCapacityOfWater</a>
+</td>
+<td>Return specific heat capacity of water (liquid only) as a function of temperature T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfLiquid" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfLiquid"
+>enthalpyOfLiquid</a>
+</td>
+<td>Return enthalpy of liquid water as a function of temperature T(use enthalpyOfWater instead)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfGas" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfGas"
+>enthalpyOfGas</a>
+</td>
+<td>Return specific enthalpy of gas (air and steam) as a function of temperature T and composition X</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfCondensingGas" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfCondensingGas"
+>enthalpyOfCondensingGas</a>
+</td>
+<td>Return specific enthalpy of steam as a function of temperature T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfNonCondensingGas" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfNonCondensingGas"
+>enthalpyOfNonCondensingGas</a>
+</td>
+<td>Return specific enthalpy of dry air as a function of temperature T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfWater" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfWater"
+>enthalpyOfWater</a>
+</td>
+<td>Computes specific enthalpy of water (solid/liquid) near atmospheric pressure from temperature T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfWater_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfWater_der"
+>enthalpyOfWater_der</a>
+</td>
+<td>Derivative function of enthalpyOfWater</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.pressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.pressure"
+>pressure</a>
+</td>
+<td>Returns pressure of ideal gas as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.temperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.temperature"
+>temperature</a>
+</td>
+<td>Return temperature of ideal gas as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.T_phX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.T_phX"
+>T_phX</a>
+</td>
+<td>Return temperature as a function of pressure p, specific enthalpy h and composition X</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.density" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.density"
+>density</a>
+</td>
+<td>Returns density of ideal gas as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.specificEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificEnthalpy"
+>specificEnthalpy</a>
+</td>
+<td>Return specific enthalpy of moist air as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.h_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.h_pTX"
+>h_pTX</a>
+</td>
+<td>Return specific enthalpy of moist air as a function of pressure p, temperature T and composition X</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.h_pTX_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.h_pTX_der"
+>h_pTX_der</a>
+</td>
+<td>Derivative function of h_pTX</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.isentropicExponent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.isentropicExponent"
+>isentropicExponent</a>
+</td>
+<td>Return isentropic exponent (only for gas fraction!)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.isentropicEnthalpyApproximation" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.isentropicEnthalpyApproximation"
+>isentropicEnthalpyApproximation</a>
+</td>
+<td>Approximate calculation of h_is from upstream properties, downstream pressure, gas part only</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.Wate570624d6067612b2halpyS.png" alt="Modelica.Media.Air.MoistAir.specificInternalEnergy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificInternalEnergy"
+>specificInternalEnergy</a>
+</td>
+<td>Return specific internal energy of moist air as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX"
+>specificInternalEnergy_pTX</a>
+</td>
+<td>Return specific internal energy of moist air as a function of pressure p, temperature T and composition X</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX_der"
+>specificInternalEnergy_pTX_der</a>
+</td>
+<td>Derivative function for specificInternalEnergy_pTX</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.specificEntropy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificEntropy"
+>specificEntropy</a>
+</td>
+<td>Return specific entropy from thermodynamic state record, only valid for phi&lt;1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.Wate570624d6067612b2halpyS.png" alt="Modelica.Media.Air.MoistAir.specificGibbsEnergy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificGibbsEnergy"
+>specificGibbsEnergy</a>
+</td>
+<td>Return specific Gibbs energy as a function of the thermodynamic state record, only valid for phi&lt;1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.Wate570624d6067612b2halpyS.png" alt="Modelica.Media.Air.MoistAir.specificHelmholtzEnergy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificHelmholtzEnergy"
+>specificHelmholtzEnergy</a>
+</td>
+<td>Return specific Helmholtz energy as a function of the thermodynamic state record, only valid for phi&lt;1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.specificHeatCapacityCp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificHeatCapacityCp"
+>specificHeatCapacityCp</a>
+</td>
+<td>Return specific heat capacity at constant pressure as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.specificHeatCapacityCv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificHeatCapacityCv"
+>specificHeatCapacityCv</a>
+</td>
+<td>Return specific heat capacity at constant volume as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.dynamicViscosity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.dynamicViscosity"
+>dynamicViscosity</a>
+</td>
+<td>Return dynamic viscosity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.thermalConductivity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.thermalConductivity"
+>thermalConductivity</a>
+</td>
+<td>Return thermal conductivity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.velocityOfSound" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.velocityOfSound"
+>velocityOfSound</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.isobaricExpansionCoefficient" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.isobaricExpansionCoefficient"
+>isobaricExpansionCoefficient</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.isothermalCompressibility" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.isothermalCompressibility"
+>isothermalCompressibility</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.density_derp_h" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.density_derp_h"
+>density_derp_h</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.density_derh_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.density_derh_p"
+>density_derh_p</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.density_derp_T" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.density_derp_T"
+>density_derp_T</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.density_derT_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.density_derT_p"
+>density_derT_p</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.density_derX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.density_derX"
+>density_derX</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.molarMass" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.molarMass"
+>molarMass</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.T_psX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.T_psX"
+>T_psX</a>
+</td>
+<td>Return temperature as a function of pressure p, specific entropy s and composition X</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Air.MoistAir.setState_psX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.setState_psX"
+>setState_psX</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.MoistAir.s_pTXS.png" alt="Modelica.Media.Air.MoistAir.s_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.s_pTX"
+>s_pTX</a>
+</td>
+<td>Return specific entropy of moist air as a function of pressure p, temperature T and composition X (only valid for phi&lt;1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.MoistAir.s_pTXS.png" alt="Modelica.Media.Air.MoistAir.s_pTX_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.s_pTX_der"
+>s_pTX_der</a>
+</td>
+<td>Return specific entropy of moist air as a function of pressure p, temperature T and composition X (only valid for phi&lt;1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.MoistAdbf7b44bfcc602e9halpyS.png" alt="Modelica.Media.Air.MoistAir.isentropicEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.isentropicEnthalpy"
+>isentropicEnthalpy</a>
+</td>
+<td>Isentropic enthalpy (only valid for phi&lt;1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.UtilitiesS.png" alt="Modelica.Media.Air.MoistAir.Utilities" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir_Utilities.html#Modelica.Media.Air.MoistAir.Utilities"
+>Utilities</a>
+</td>
+<td>Utility functions</td>
+</tr>
+<tr>
+<th colspan="2">Inherited</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMixtureMedium.massFraction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMixtureMedium.html#Modelica.Media.Interfaces.PartialMixtureMedium.massFraction"
+>massFraction</a>
+</td>
+<td>Return independent mass fractions (if any)</td>
+</tr>
+<tr>
+<td>fluidConstants={IdealGases.Common.FluidData.H2O,IdealGases.Common.FluidData.N2}</td>
+<td>Constant data for the fluid</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMixtureMedium.moleToMassFractions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMixtureMedium.html#Modelica.Media.Interfaces.PartialMixtureMedium.moleToMassFractions"
+>moleToMassFractions</a>
+</td>
+<td>Return mass fractions X from mole fractions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMixtureMedium.massToMoleFractions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMixtureMedium.html#Modelica.Media.Interfaces.PartialMixtureMedium.massToMoleFractions"
+>massToMoleFractions</a>
+</td>
+<td>Return mole fractions from mass fractions X</td>
+</tr>
+<tr>
+<td>ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pTX</td>
+<td>Enumeration type for independent variables</td>
+</tr>
+<tr>
+<td>mediumName=&quot;Moist air&quot;</td>
+<td>Name of the medium</td>
+</tr>
+<tr>
+<td>substanceNames={&quot;water&quot;,&quot;air&quot;}</td>
+<td>Names of the mixture substances. Set substanceNames={mediumName} if only one substance.</td>
+</tr>
+<tr>
+<td>extraPropertiesNames=fill(&quot;&quot;, 0)</td>
+<td>Names of the additional (extra) transported properties. Set extraPropertiesNames=fill(&quot;&quot;,0) if unused</td>
+</tr>
+<tr>
+<td>singleState=false</td>
+<td>= true, if u and d are not a function of pressure</td>
+</tr>
+<tr>
+<td>reducedX=true</td>
+<td>= true, if medium contains the equation sum(X) = 1.0; set reducedX=true, if only one substance (see docu for details)</td>
+</tr>
+<tr>
+<td>fixedX=false</td>
+<td>= true, if medium contains the equation X = reference_X</td>
+</tr>
+<tr>
+<td>reference_p=101325</td>
+<td>Reference pressure of Medium: default 1 atmosphere</td>
+</tr>
+<tr>
+<td>reference_T=298.15</td>
+<td>Reference temperature of Medium: default 25 deg Celsius</td>
+</tr>
+<tr>
+<td>reference_X={0.01,0.99}</td>
+<td>Default mass fractions of medium</td>
+</tr>
+<tr>
+<td>p_default=101325</td>
+<td>Default value for pressure of medium (for initialization)</td>
+</tr>
+<tr>
+<td>T_default=Modelica.Units.Conversions.from_degC(20)</td>
+<td>Default value for temperature of medium (for initialization)</td>
+</tr>
+<tr>
+<td>h_default=specificEnthalpy_pTX(p_default, T_default, X_default)</td>
+<td>Default value for specific enthalpy of medium (for initialization)</td>
+</tr>
+<tr>
+<td>X_default=reference_X</td>
+<td>Default value for mass fractions of medium (for initialization)</td>
+</tr>
+<tr>
+<td>C_default=fill(0, nC)</td>
+<td>Default value for trace substances of medium (for initialization)</td>
+</tr>
+<tr>
+<td>nS=size(substanceNames, 1)</td>
+<td>Number of substances</td>
+</tr>
+<tr>
+<td>nX=nS</td>
+<td>Number of mass fractions</td>
+</tr>
+<tr>
+<td>nXi=if fixedX then 0 else if reducedX then nS - 1 else nS</td>
+<td>Number of structurally independent mass fractions (see docu for details)</td>
+</tr>
+<tr>
+<td>nC=size(extraPropertiesNames, 1)</td>
+<td>Number of extra (outside of standard mass-balance) transported properties</td>
+</tr>
+<tr>
+<td>C_nominal=1.0e-6*ones(nC)</td>
+<td>Default for the nominal values for the extra properties</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Interfaces.PartialMedium.FluidConstants" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.FluidConstants"
+>FluidConstants</a>
+</td>
+<td>Critical, triple, molecular and other standard data of fluid</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.prandtlNumber" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.prandtlNumber"
+>prandtlNumber</a>
+</td>
+<td>Return the Prandtl number</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.heatCapacity_cp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.heatCapacity_cp"
+>heatCapacity_cp</a>
+</td>
+<td>Alias for deprecated name</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.heatCapacity_cv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.heatCapacity_cv"
+>heatCapacity_cv</a>
+</td>
+<td>Alias for deprecated name</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.beta" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.beta"
+>beta</a>
+</td>
+<td>Alias for isobaricExpansionCoefficient for user convenience</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.kappa" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.kappa"
+>kappa</a>
+</td>
+<td>Alias of isothermalCompressibility for user convenience</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.specificEnthalpy_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificEnthalpy_pTX"
+>specificEnthalpy_pTX</a>
+</td>
+<td>Return specific enthalpy from p, T, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.specificEntropy_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificEntropy_pTX"
+>specificEntropy_pTX</a>
+</td>
+<td>Return specific entropy from p, T, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.density_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_pTX"
+>density_pTX</a>
+</td>
+<td>Return density from p, T, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.temperature_phX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.temperature_phX"
+>temperature_phX</a>
+</td>
+<td>Return temperature from p, h, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.density_phX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_phX"
+>density_phX</a>
+</td>
+<td>Return density from p, h, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.temperature_psX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.temperature_psX"
+>temperature_psX</a>
+</td>
+<td>Return temperature from p, s, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.density_psX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_psX"
+>density_psX</a>
+</td>
+<td>Return density from p, s, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Interfaces.PartialMedium.specificEnthalpy_psX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificEnthalpy_psX"
+>specificEnthalpy_psX</a>
+</td>
+<td>Return specific enthalpy from p, s, and X or Xi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.PartialMedium.MassFlowRate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</a>
+</td>
+<td>Type for mass flow rate with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.AbsolutePressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.AbsolutePressure"
+>AbsolutePressure</a>
+</td>
+<td>Type for absolute pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.Density" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.Density"
+>Density</a>
+</td>
+<td>Type for density with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DynamicViscosity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DynamicViscosity"
+>DynamicViscosity</a>
+</td>
+<td>Type for dynamic viscosity with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.EnthalpyFlowRate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.EnthalpyFlowRate"
+>EnthalpyFlowRate</a>
+</td>
+<td>Type for enthalpy flow rate with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.MassFraction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MassFraction"
+>MassFraction</a>
+</td>
+<td>Type for mass fraction with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.MoleFraction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MoleFraction"
+>MoleFraction</a>
+</td>
+<td>Type for mole fraction with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.MolarMass" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MolarMass"
+>MolarMass</a>
+</td>
+<td>Type for molar mass with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.MolarVolume" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MolarVolume"
+>MolarVolume</a>
+</td>
+<td>Type for molar volume with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.IsentropicExponent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.IsentropicExponent"
+>IsentropicExponent</a>
+</td>
+<td>Type for isentropic exponent with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SpecificEnergy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEnergy"
+>SpecificEnergy</a>
+</td>
+<td>Type for specific energy with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SpecificInternalEnergy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificInternalEnergy"
+>SpecificInternalEnergy</a>
+</td>
+<td>Type for specific internal energy with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SpecificEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEnthalpy"
+>SpecificEnthalpy</a>
+</td>
+<td>Type for specific enthalpy with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SpecificEntropy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEntropy"
+>SpecificEntropy</a>
+</td>
+<td>Type for specific entropy with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SpecificHeatCapacity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificHeatCapacity"
+>SpecificHeatCapacity</a>
+</td>
+<td>Type for specific heat capacity with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.SurfaceTension" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SurfaceTension"
+>SurfaceTension</a>
+</td>
+<td>Type for surface tension with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.Temperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.Temperature"
+>Temperature</a>
+</td>
+<td>Type for temperature with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.ThermalConductivity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ThermalConductivity"
+>ThermalConductivity</a>
+</td>
+<td>Type for thermal conductivity with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.PrandtlNumber" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.PrandtlNumber"
+>PrandtlNumber</a>
+</td>
+<td>Type for Prandtl number with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.VelocityOfSound" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.VelocityOfSound"
+>VelocityOfSound</a>
+</td>
+<td>Type for velocity of sound with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.ExtraProperty" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ExtraProperty"
+>ExtraProperty</a>
+</td>
+<td>Type for unspecified, mass-specific property transported by flow</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.CumulativeExtraProperty" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.CumulativeExtraProperty"
+>CumulativeExtraProperty</a>
+</td>
+<td>Type for conserved integral of unspecified, mass specific property</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.ExtraPropertyFlowRate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ExtraPropertyFlowRate"
+>ExtraPropertyFlowRate</a>
+</td>
+<td>Type for flow rate of unspecified, mass-specific property</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient"
+>IsobaricExpansionCoefficient</a>
+</td>
+<td>Type for isobaric expansion coefficient with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DipoleMoment" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DipoleMoment"
+>DipoleMoment</a>
+</td>
+<td>Type for dipole moment with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DerDensityByPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByPressure"
+>DerDensityByPressure</a>
+</td>
+<td>Type for partial derivative of density with respect to pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DerDensityByEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByEnthalpy"
+>DerDensityByEnthalpy</a>
+</td>
+<td>Type for partial derivative of density with respect to enthalpy with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DerEnthalpyByPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerEnthalpyByPressure"
+>DerEnthalpyByPressure</a>
+</td>
+<td>Type for partial derivative of enthalpy with respect to pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DerDensityByTemperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByTemperature"
+>DerDensityByTemperature</a>
+</td>
+<td>Type for partial derivative of density with respect to temperature with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.DerTemperatureByPressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerTemperatureByPressure"
+>DerTemperatureByPressure</a>
+</td>
+<td>Type for partial derivative of temperature with respect to pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Interfaces.Types.SaturationProperties" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SaturationProperties"
+>SaturationProperties</a>
+</td>
+<td>Saturation properties of two phase medium</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Interfaces.Types.FluidLimits" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.FluidLimits"
+>FluidLimits</a>
+</td>
+<td>Validity limits for fluid model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Interfaces.Types.FixedPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.FixedPhase"
+>FixedPhase</a>
+</td>
+<td>Phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.CommonS.png" alt="Modelica.Media.Interfaces.Types.Basic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types_Basic.html#Modelica.Media.Interfaces.Types.Basic"
+>Basic</a>
+</td>
+<td>The most basic version of a record used in several degrees of detail</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.CommonS.png" alt="Modelica.Media.Interfaces.Types.IdealGas" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types_IdealGas.html#Modelica.Media.Interfaces.Types.IdealGas"
+>IdealGas</a>
+</td>
+<td>The ideal gas version of a record used in several degrees of detail</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.CommonS.png" alt="Modelica.Media.Interfaces.Types.TwoPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types_TwoPhase.html#Modelica.Media.Interfaces.Types.TwoPhase"
+>TwoPhase</a>
+</td>
+<td>The two phase fluid version of a record used in several degrees of detail</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThermodynamicState<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conI.png" alt="Modelica.Media.Air.MoistAir.ThermodynamicState" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.ThermodynamicState"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.ThermodynamicState</h2>
+<p>
+<span class="ModelicaDescription">ThermodynamicState record for moist air</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMixtureMedium.html#Modelica.Media.Interfaces.PartialMixtureMedium.ThermodynamicState"
+></a> (Thermodynamic state variables).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Absolute pressure of medium [Pa]</td></tr>
+<tr><td>T</td><td>Temperature of medium [K]</td></tr>
+<tr><td>X[nX]</td><td>Mass fractions (= (component mass)/total mass  m_i/m) [kg/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BaseProperties<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.T8cbda5110bac1e7artiesI.png" alt="Modelica.Media.Air.MoistAir.BaseProperties" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.BaseProperties"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.BaseProperties</h2>
+<p>
+<span class="ModelicaDescription">Moist air base properties record</span>
+</p>
+<h3>Information</h3>
+
+<p>This model computes thermodynamic properties of moist air from three independent (thermodynamic or/and numerical) state variables. Preferred numerical states are temperature T, pressure p and the reduced composition vector Xi, which contains the water mass fraction only. As an EOS the <strong>ideal gas law</strong> is used and associated restrictions apply. The model can also be used in the <strong>fog region</strong>, when moisture is present in its liquid state. However, it is assumed that the liquid water volume is negligible compared to that of the gas phase. Computation of thermal properties is based on property data of <a href="Modelica_Media_Air_DryAirNasa.html#Modelica.Media.Air.DryAirNasa"
+> dry air</a> and water (source: VDI-W&auml;rmeatlas), respectively. Besides the standard thermodynamic variables <strong>absolute and relative humidity</strong>, x_water and phi, respectively, are given by the model. Upper case X denotes absolute humidity with respect to mass of moist air while absolute humidity with respect to mass of dry air only is denoted by a lower case x throughout the model. See <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>package description</a> for further information.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.BaseProperties"
+></a> (Base properties (p, d, T, h, u, R_s, MM and, if applicable, X and Xi) of a medium).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Absolute pressure of medium [Pa]</td></tr>
+<tr><td>Xi[nXi]</td><td>Structurally independent mass fractions [1]</td></tr>
+<tr><td>T</td><td>Temperature of medium [K]</td></tr>
+<tr><td>standardOrderComponents</td><td>If true, and reducedX = true, the last element of X will be computed from the other ones</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>preferredMediumStates</td><td>= true, if StateSelect.prefer shall be used for the independent property variables of the medium</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setState_pTX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.setState_pTX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.setState_pTX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.setState_pTX</h2>
+<p>
+<span class="ModelicaDescription">Return thermodynamic state as function of pressure p, temperature T and composition X</span>
+</p>
+<h3>Information</h3>
+
+The <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.ThermodynamicState"
+>thermodynamic state record</a> is computed from pressure p, temperature T and composition X.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setState_phX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.setState_phX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.setState_phX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.setState_phX</h2>
+<p>
+<span class="ModelicaDescription">Return thermodynamic state as function of pressure p, specific enthalpy h and composition X</span>
+</p>
+<h3>Information</h3>
+
+The <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.ThermodynamicState"
+>thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setState_dTX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.setState_dTX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.setState_dTX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.setState_dTX</h2>
+<p>
+<span class="ModelicaDescription">Return thermodynamic state as function of density d, temperature T and composition X</span>
+</p>
+<h3>Information</h3>
+
+The <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.ThermodynamicState"
+>thermodynamic state record</a> is computed from density d, temperature T and composition X.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setSmoothState<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.setSmoothState" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.setSmoothState"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.setSmoothState</h2>
+<p>
+<span class="ModelicaDescription">Return thermodynamic state so that it smoothly approximates: if x &gt; 0 then state_a else state_b</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.setSmoothState"
+></a> (Return thermodynamic state so that it smoothly approximates: if x &gt; 0 then state_a else state_b).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>m_flow or dp</td></tr>
+<tr><td>state_a</td><td>Thermodynamic state if x &gt; 0</td></tr>
+<tr><td>state_b</td><td>Thermodynamic state if x &lt; 0</td></tr>
+<tr><td>x_small</td><td>Smooth transition in the region -x_small &lt; x &lt; x_small</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Smooth thermodynamic state for all x (continuous and differentiable)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Xsaturation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.Xsaturation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.Xsaturation"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.Xsaturation</h2>
+<p>
+<span class="ModelicaDescription">Return absolute humidity per unit mass of moist air at saturation as a function of the thermodynamic state record</span>
+</p>
+<h3>Information</h3>
+
+Absolute humidity per unit mass of moist air at saturation is computed from pressure and temperature in the state record. Note, that unlike X_sat in the BaseProperties model this mass fraction refers to mass of moist air at saturation.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X_sat</td><td>Steam mass fraction of sat. boundary [kg/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE xsaturation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.xsaturation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.xsaturation"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.xsaturation</h2>
+<p>
+<span class="ModelicaDescription">Return absolute humidity per unit mass of dry air at saturation as a function of the thermodynamic state record</span>
+</p>
+<h3>Information</h3>
+
+Absolute humidity per unit mass of dry air at saturation is computed from pressure and temperature in the thermodynamic state record.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x_sat</td><td>Absolute humidity per unit mass of dry air [kg/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE xsaturation_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.xsaturation_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.xsaturation_pT"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.xsaturation_pT</h2>
+<p>
+<span class="ModelicaDescription">Return absolute humidity per unit mass of dry air at saturation as a function of pressure p and temperature T</span>
+</p>
+<h3>Information</h3>
+
+Absolute humidity per unit mass of dry air at saturation is computed from pressure and temperature.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x_sat</td><td>Absolute humidity per unit mass of dry air [kg/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE massFraction_pTphi<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.massFraction_pTphi" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.massFraction_pTphi"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.massFraction_pTphi</h2>
+<p>
+<span class="ModelicaDescription">Return steam mass fraction as a function of relative humidity phi and temperature T</span>
+</p>
+<h3>Information</h3>
+
+Absolute humidity per unit mass of moist air is computed from temperature, pressure and relative humidity.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phi</td><td>Relative humidity (0 ... 1.0)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X_steam</td><td>Absolute humidity, steam mass fraction [kg/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE relativeHumidity_pTX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.relativeHumidity_pTX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.relativeHumidity_pTX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.relativeHumidity_pTX</h2>
+<p>
+<span class="ModelicaDescription">Return relative humidity as a function of pressure p, temperature T and composition X</span>
+</p>
+<h3>Information</h3>
+
+Relative humidity is computed from pressure, temperature and composition with 1.0 as the upper limit at saturation. Water mass fraction is the first entry in the composition vector.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Composition [1]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phi</td><td>Relative humidity</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE relativeHumidity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.relativeHumidity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.relativeHumidity"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.relativeHumidity</h2>
+<p>
+<span class="ModelicaDescription">Return relative humidity as a function of the thermodynamic state record</span>
+</p>
+<h3>Information</h3>
+
+Relative humidity is computed from the thermodynamic state record with 1.0 as the upper limit at saturation.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phi</td><td>Relative humidity</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE gasConstant<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.gasConstant" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.gasConstant"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.gasConstant</h2>
+<p>
+<span class="ModelicaDescription">Return ideal gas constant as a function from thermodynamic state, only valid for phi&lt;1</span>
+</p>
+<h3>Information</h3>
+
+The ideal gas constant for moist air is computed from <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.ThermodynamicState"
+>thermodynamic state</a> assuming that all water is in the gas phase.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMixtureMedium.html#Modelica.Media.Interfaces.PartialMixtureMedium.gasConstant"
+></a> (Return the gas constant of the mixture (also for liquids)).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>R_s</td><td>Mixture gas constant [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE gasConstant_X<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.gasConstant_X" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.gasConstant_X"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.gasConstant_X</h2>
+<p>
+<span class="ModelicaDescription">Return ideal gas constant as a function from composition X</span>
+</p>
+<h3>Information</h3>
+
+The ideal gas constant for moist air is computed from the gas phase composition. The first entry in composition vector X is the steam mass fraction of the gas phase.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X[:]</td><td>Gas phase composition [1]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>R_s</td><td>Ideal gas constant [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationPressureLiquid<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.saturationPressureLiquid" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.saturationPressureLiquid"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.saturationPressureLiquid</h2>
+<p>
+<span class="ModelicaDescription">Return saturation pressure of water as a function of temperature T in the range of 273.16 to 647.096 K</span>
+</p>
+<h3>Information</h3>
+
+<p>Saturation pressure of water above the triple point temperature is computed from temperature.</p>
+<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Tsat</td><td>Saturation temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>psat</td><td>Saturation pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationPressureLiquid_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.saturationPressureLiquid_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.saturationPressureLiquid_der"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.saturationPressureLiquid_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function for &#39;saturationPressureLiquid&#39;</span>
+</p>
+<h3>Information</h3>
+
+<p>Saturation pressure of water above the triple point temperature is computed from temperature.</p>
+<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Tsat</td><td>Saturation temperature [K]</td></tr>
+<tr><td>dTsat</td><td>Saturation temperature derivative [K/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>psat_der</td><td>Saturation pressure derivative [Pa/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sublimationPressureIce<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.sublimationPressureIce" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.sublimationPressureIce"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.sublimationPressureIce</h2>
+<p>
+<span class="ModelicaDescription">Return sublimation pressure of water as a function of temperature T between 190 and 273.16 K</span>
+</p>
+<h3>Information</h3>
+
+<p>Sublimation pressure of water below the triple point temperature is computed from temperature.</p>
+<p>Source: W Wagner, A Saul, A Pruss: &quot;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&quot;, equation 3.5</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Tsat</td><td>Sublimation temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>psat</td><td>Sublimation pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sublimationPressureIce_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.sublimationPressureIce_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.sublimationPressureIce_der"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.sublimationPressureIce_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function for &#39;sublimationPressureIce&#39;</span>
+</p>
+<h3>Information</h3>
+
+<p>Sublimation pressure of water below the triple point temperature is computed from temperature.</p>
+<p>Source: W Wagner, A Saul, A Pruss: &quot;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&quot;, equation 3.5</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Tsat</td><td>Sublimation temperature [K]</td></tr>
+<tr><td>dTsat</td><td>Sublimation temperature derivative [K/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>psat_der</td><td>Sublimation pressure derivative [Pa/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.saturationPressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.saturationPressure"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.saturationPressure</h2>
+<p>
+<span class="ModelicaDescription">Return saturation pressure of water as a function of temperature T between 190 and 647.096 K</span>
+</p>
+<h3>Information</h3>
+
+Saturation pressure of water in the liquid and the solid region is computed using correlations. Functions for the
+<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.sublimationPressureIce"
+>solid</a> and the <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.saturationPressureLiquid"
+> liquid</a> region, respectively, are combined using the first derivative continuous <a href="Modelica_Media_Air_MoistAir_Utilities.html#Modelica.Media.Air.MoistAir.Utilities.spliceFunction"
+>spliceFunction</a>. This functions range of validity is from 190 to 647.096 K. For more information on the type of correlation used, see the documentation of the linked functions.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialCondensingGases.html#Modelica.Media.Interfaces.PartialCondensingGases.saturationPressure"
+></a> (Return saturation pressure of condensing fluid).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Tsat</td><td>Saturation temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>psat</td><td>Saturation pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationPressure_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.saturationPressure_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.saturationPressure_der"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.saturationPressure_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function for &#39;saturationPressure&#39;</span>
+</p>
+<h3>Information</h3>
+
+Derivative function of <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.saturationPressure"
+>saturationPressure</a>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Tsat</td><td>Saturation temperature [K]</td></tr>
+<tr><td>dTsat</td><td>Time derivative of saturation temperature [K/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>psat_der</td><td>Time derivative of saturation pressure [Pa/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationTemperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.saturationTemperature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.saturationTemperature"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.saturationTemperature</h2>
+<p>
+<span class="ModelicaDescription">Return saturation temperature of water as a function of (partial) pressure p</span>
+</p>
+<h3>Information</h3>
+
+Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.saturationPressure"
+>saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T_min</td><td>Lower boundary of solution [K]</td></tr>
+<tr><td>T_max</td><td>Upper boundary of solution [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Saturation temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE enthalpyOfVaporization<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfVaporization" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.enthalpyOfVaporization"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.enthalpyOfVaporization</h2>
+<p>
+<span class="ModelicaDescription">Return enthalpy of vaporization of water as a function of temperature T, 273.16 to 647.096 K</span>
+</p>
+<h3>Information</h3>
+
+<p>Enthalpy of vaporization of water is computed from temperature in the region of 273.16 to 647.096 K.</p>
+<p>Source: W Wagner, A Pruss: "International equations for the saturation properties of ordinary water substance. Revised according to the international temperature scale of 1990" (1993).</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialCondensingGases.html#Modelica.Media.Interfaces.PartialCondensingGases.enthalpyOfVaporization"
+></a> (Return vaporization enthalpy of condensing fluid).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>r0</td><td>Vaporization enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HeatCapacityOfWater<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.HeatCapacityOfWater" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.HeatCapacityOfWater"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.HeatCapacityOfWater</h2>
+<p>
+<span class="ModelicaDescription">Return specific heat capacity of water (liquid only) as a function of temperature T</span>
+</p>
+<h3>Information</h3>
+
+The specific heat capacity of water (liquid and solid) is calculated using a
+                 polynomial approach and data from VDI-Waermeatlas 8. Edition (Db1)
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cp_fl</td><td>Specific heat capacity of liquid [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE enthalpyOfLiquid<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfLiquid" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.enthalpyOfLiquid"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.enthalpyOfLiquid</h2>
+<p>
+<span class="ModelicaDescription">Return enthalpy of liquid water as a function of temperature T(use enthalpyOfWater instead)</span>
+</p>
+<h3>Information</h3>
+
+Specific enthalpy of liquid water is computed from temperature using a polynomial approach. Kept for compatibility reasons, better use <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfWater"
+>enthalpyOfWater</a> instead.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialCondensingGases.html#Modelica.Media.Interfaces.PartialCondensingGases.enthalpyOfLiquid"
+></a> (Return liquid enthalpy of condensing fluid).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Liquid enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE enthalpyOfGas<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfGas" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.enthalpyOfGas"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.enthalpyOfGas</h2>
+<p>
+<span class="ModelicaDescription">Return specific enthalpy of gas (air and steam) as a function of temperature T and composition X</span>
+</p>
+<h3>Information</h3>
+
+Specific enthalpy of moist air is computed from temperature, provided all water is in the gaseous state. The first entry in the composition vector X must be the mass fraction of steam. For a function that also covers the fog region please refer to <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.h_pTX"
+>h_pTX</a>.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialCondensingGases.html#Modelica.Media.Interfaces.PartialCondensingGases.enthalpyOfGas"
+></a> (Return enthalpy of non-condensing gas mixture).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Vector of mass fractions [kg/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE enthalpyOfCondensingGas<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfCondensingGas" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.enthalpyOfCondensingGas"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.enthalpyOfCondensingGas</h2>
+<p>
+<span class="ModelicaDescription">Return specific enthalpy of steam as a function of temperature T</span>
+</p>
+<h3>Information</h3>
+
+Specific enthalpy of steam is computed from temperature.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialCondensingGases.html#Modelica.Media.Interfaces.PartialCondensingGases.enthalpyOfCondensingGas"
+></a> (Return enthalpy of condensing gas (most often steam)).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE enthalpyOfNonCondensingGas<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfNonCondensingGas" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.enthalpyOfNonCondensingGas"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.enthalpyOfNonCondensingGas</h2>
+<p>
+<span class="ModelicaDescription">Return specific enthalpy of dry air as a function of temperature T</span>
+</p>
+<h3>Information</h3>
+
+Specific enthalpy of dry air is computed from temperature.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialCondensingGases.html#Modelica.Media.Interfaces.PartialCondensingGases.enthalpyOfNonCondensingGas"
+></a> (Return enthalpy of the non-condensing species).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE enthalpyOfWater<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfWater" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.enthalpyOfWater"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.enthalpyOfWater</h2>
+<p>
+<span class="ModelicaDescription">Computes specific enthalpy of water (solid/liquid) near atmospheric pressure from temperature T</span>
+</p>
+<h3>Information</h3>
+
+Specific enthalpy of water (liquid and solid) is computed from temperature using constant properties as follows:<br>
+<ul>
+<li>heat capacity of liquid water:4200 J/kg</li>
+<li>heat capacity of solid water: 2050 J/kg</li>
+<li>enthalpy of fusion (liquid=>solid): 333000 J/kg</li>
+</ul>
+Pressure is assumed to be around 1 bar. This function is usually used to determine the specific enthalpy of the liquid or solid fraction of moist air.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy of water [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE enthalpyOfWater_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.enthalpyOfWater_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.enthalpyOfWater_der"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.enthalpyOfWater_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function of enthalpyOfWater</span>
+</p>
+<h3>Information</h3>
+
+Derivative function for <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.enthalpyOfWater"
+>enthalpyOfWater</a>.
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>dT</td><td>Time derivative of temperature [K/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dh</td><td>Time derivative of specific enthalpy [J/(kg.s)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE pressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.pressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.pressure"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.pressure</h2>
+<p>
+<span class="ModelicaDescription">Returns pressure of ideal gas as a function of the thermodynamic state record</span>
+</p>
+<h3>Information</h3>
+
+Pressure is returned from the thermodynamic state record input as a simple assignment.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.pressure"
+></a> (Return pressure).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE temperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.temperature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.temperature"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.temperature</h2>
+<p>
+<span class="ModelicaDescription">Return temperature of ideal gas as a function of the thermodynamic state record</span>
+</p>
+<h3>Information</h3>
+
+Temperature is returned from the thermodynamic state record input as a simple assignment.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.temperature"
+></a> (Return temperature).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE T_phX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.T_phX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.T_phX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.T_phX</h2>
+<p>
+<span class="ModelicaDescription">Return temperature as a function of pressure p, specific enthalpy h and composition X</span>
+</p>
+<h3>Information</h3>
+
+Temperature is computed from pressure, specific enthalpy and composition via numerical inversion of function <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.h_pTX"
+>h_pTX</a>.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions of composition [kg/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.density" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.density"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.density</h2>
+<p>
+<span class="ModelicaDescription">Returns density of ideal gas as a function of the thermodynamic state record</span>
+</p>
+<h3>Information</h3>
+
+Density is computed from pressure, temperature and composition in the thermodynamic state record applying the ideal gas law.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density"
+></a> (Return density).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.specificEnthalpy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.specificEnthalpy"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.specificEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Return specific enthalpy of moist air as a function of the thermodynamic state record</span>
+</p>
+<h3>Information</h3>
+
+Specific enthalpy of moist air is computed from the thermodynamic state record. The fog region is included for both, ice and liquid fog.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificEnthalpy"
+></a> (Return specific enthalpy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_pTX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.h_pTX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.h_pTX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.h_pTX</h2>
+<p>
+<span class="ModelicaDescription">Return specific enthalpy of moist air as a function of pressure p, temperature T and composition X</span>
+</p>
+<h3>Information</h3>
+
+Specific enthalpy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction. The fog region is included for both, ice and liquid fog.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions of moist air [1]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy at p, T, X [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_pTX_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.h_pTX_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.h_pTX_der"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.h_pTX_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function of h_pTX</span>
+</p>
+<h3>Information</h3>
+
+Derivative function for <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.h_pTX"
+>h_pTX</a>.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions of moist air [1]</td></tr>
+<tr><td>dp</td><td>Pressure derivative [Pa/s]</td></tr>
+<tr><td>dT</td><td>Temperature derivative [K/s]</td></tr>
+<tr><td>dX[:]</td><td>Composition derivative [1/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h_der</td><td>Time derivative of specific enthalpy [J/(kg.s)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicExponent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.isentropicExponent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.isentropicExponent"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.isentropicExponent</h2>
+<p>
+<span class="ModelicaDescription">Return isentropic exponent (only for gas fraction!)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isentropicExponent"
+></a> (Return isentropic exponent).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gamma</td><td>Isentropic exponent [1]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicEnthalpyApproximation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.isentropicEnthalpyApproximation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.isentropicEnthalpyApproximation"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.isentropicEnthalpyApproximation</h2>
+<p>
+<span class="ModelicaDescription">Approximate calculation of h_is from upstream properties, downstream pressure, gas part only</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p2</td><td>Downstream pressure [Pa]</td></tr>
+<tr><td>state</td><td>Thermodynamic state at upstream location</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h_is</td><td>Isentropic enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificInternalEnergy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Interfaces5d2ba0c02f8c92f0onentI.png" alt="Modelica.Media.Air.MoistAir.specificInternalEnergy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.specificInternalEnergy"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.specificInternalEnergy</h2>
+<p>
+<span class="ModelicaDescription">Return specific internal energy of moist air as a function of the thermodynamic state record</span>
+</p>
+<h3>Information</h3>
+
+Specific internal energy is determined from the thermodynamic state record, assuming that the liquid or solid water volume is negligible.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions), <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificInternalEnergy"
+></a> (Return specific internal energy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Specific internal energy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificInternalEnergy_pTX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.specificInternalEnergy_pTX</h2>
+<p>
+<span class="ModelicaDescription">Return specific internal energy of moist air as a function of pressure p, temperature T and composition X</span>
+</p>
+<h3>Information</h3>
+
+Specific internal energy is determined from pressure p, temperature T and composition X, assuming that the liquid or solid water volume is negligible.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions of moist air [1]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Specific internal energy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificInternalEnergy_pTX_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX_der"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.specificInternalEnergy_pTX_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function for specificInternalEnergy_pTX</span>
+</p>
+<h3>Information</h3>
+
+Derivative function for <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX"
+>specificInternalEnergy_pTX</a>.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions of moist air [1]</td></tr>
+<tr><td>dp</td><td>Pressure derivative [Pa/s]</td></tr>
+<tr><td>dT</td><td>Temperature derivative [K/s]</td></tr>
+<tr><td>dX[:]</td><td>Mass fraction derivatives [1/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u_der</td><td>Specific internal energy derivative [J/(kg.s)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificEntropy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.specificEntropy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.specificEntropy"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.specificEntropy</h2>
+<p>
+<span class="ModelicaDescription">Return specific entropy from thermodynamic state record, only valid for phi&lt;1</span>
+</p>
+<h3>Information</h3>
+
+Specific entropy is calculated from the thermodynamic state record, assuming ideal gas behavior and including entropy of mixing. Liquid or solid water is not taken into account, the entire water content X[1] is assumed to be in the vapor state (relative humidity below 1.0).
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificEntropy"
+></a> (Return specific entropy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificGibbsEnergy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Interfaces5d2ba0c02f8c92f0onentI.png" alt="Modelica.Media.Air.MoistAir.specificGibbsEnergy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.specificGibbsEnergy"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.specificGibbsEnergy</h2>
+<p>
+<span class="ModelicaDescription">Return specific Gibbs energy as a function of the thermodynamic state record, only valid for phi&lt;1</span>
+</p>
+<h3>Information</h3>
+
+The Gibbs Energy is computed from the thermodynamic state record for moist air with a water content below saturation.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions), <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificGibbsEnergy"
+></a> (Return specific Gibbs energy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>g</td><td>Specific Gibbs energy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificHelmholtzEnergy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Interfaces5d2ba0c02f8c92f0onentI.png" alt="Modelica.Media.Air.MoistAir.specificHelmholtzEnergy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.specificHelmholtzEnergy"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.specificHelmholtzEnergy</h2>
+<p>
+<span class="ModelicaDescription">Return specific Helmholtz energy as a function of the thermodynamic state record, only valid for phi&lt;1</span>
+</p>
+<h3>Information</h3>
+
+The Specific Helmholtz Energy is computed from the thermodynamic state record for moist air with a water content below saturation.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions), <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificHelmholtzEnergy"
+></a> (Return specific Helmholtz energy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Specific Helmholtz energy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificHeatCapacityCp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.specificHeatCapacityCp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.specificHeatCapacityCp"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.specificHeatCapacityCp</h2>
+<p>
+<span class="ModelicaDescription">Return specific heat capacity at constant pressure as a function of the thermodynamic state record</span>
+</p>
+<h3>Information</h3>
+
+The specific heat capacity at constant pressure <strong>cp</strong> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificHeatCapacityCp"
+></a> (Return specific heat capacity at constant pressure).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cp</td><td>Specific heat capacity at constant pressure [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE specificHeatCapacityCv<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.specificHeatCapacityCv" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.specificHeatCapacityCv"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.specificHeatCapacityCv</h2>
+<p>
+<span class="ModelicaDescription">Return specific heat capacity at constant volume as a function of the thermodynamic state record</span>
+</p>
+<h3>Information</h3>
+
+The specific heat capacity at constant density <strong>cv</strong> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificHeatCapacityCv"
+></a> (Return specific heat capacity at constant volume).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cv</td><td>Specific heat capacity at constant volume [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dynamicViscosity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.dynamicViscosity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.dynamicViscosity"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.dynamicViscosity</h2>
+<p>
+<span class="ModelicaDescription">Return dynamic viscosity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K</span>
+</p>
+<h3>Information</h3>
+
+<p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected.</p>
+<p>Source: VDI Waermeatlas, 8th edition.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.dynamicViscosity"
+></a> (Return dynamic viscosity).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>eta</td><td>Dynamic viscosity [Pa.s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE thermalConductivity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.thermalConductivity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.thermalConductivity"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.thermalConductivity</h2>
+<p>
+<span class="ModelicaDescription">Return thermal conductivity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K</span>
+</p>
+<h3>Information</h3>
+
+<p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected.</p>
+<p>Source: VDI Waermeatlas, 8th edition.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.thermalConductivity"
+></a> (Return thermal conductivity).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>lambda</td><td>Thermal conductivity [W/(m.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE velocityOfSound<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.velocityOfSound" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.velocityOfSound"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.velocityOfSound</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.velocityOfSound"
+></a> (Return velocity of sound).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>a</td><td>Velocity of sound [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isobaricExpansionCoefficient<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.isobaricExpansionCoefficient" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.isobaricExpansionCoefficient"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.isobaricExpansionCoefficient</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isobaricExpansionCoefficient"
+></a> (Return overall the isobaric expansion coefficient beta).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>beta</td><td>Isobaric expansion coefficient [1/K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isothermalCompressibility<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.isothermalCompressibility" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.isothermalCompressibility"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.isothermalCompressibility</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isothermalCompressibility"
+></a> (Return overall the isothermal compressibility factor).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kappa</td><td>Isothermal compressibility [1/Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density_derp_h<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.density_derp_h" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.density_derp_h"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.density_derp_h</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derp_h"
+></a> (Return density derivative w.r.t. pressure at constant specific enthalpy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddph</td><td>Density derivative w.r.t. pressure [s2/m2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density_derh_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.density_derh_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.density_derh_p"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.density_derh_p</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derh_p"
+></a> (Return density derivative w.r.t. specific enthalpy at constant pressure).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddhp</td><td>Density derivative w.r.t. specific enthalpy [kg.s2/m5]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density_derp_T<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.density_derp_T" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.density_derp_T"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.density_derp_T</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derp_T"
+></a> (Return density derivative w.r.t. pressure at constant temperature).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddpT</td><td>Density derivative w.r.t. pressure [s2/m2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density_derT_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.density_derT_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.density_derT_p"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.density_derT_p</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derT_p"
+></a> (Return density derivative w.r.t. temperature at constant pressure).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddTp</td><td>Density derivative w.r.t. temperature [kg/(m3.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density_derX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.density_derX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.density_derX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.density_derX</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derX"
+></a> (Return density derivative w.r.t. mass fraction).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dddX[nX]</td><td>Derivative of density w.r.t. mass fraction [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE molarMass<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.molarMass" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.molarMass"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.molarMass</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.molarMass"
+></a> (Return the molar mass of the medium).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>MM</td><td>Mixture molar mass [kg/mol]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE T_psX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.T_psX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.T_psX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.T_psX</h2>
+<p>
+<span class="ModelicaDescription">Return temperature as a function of pressure p, specific entropy s and composition X</span>
+</p>
+<h3>Information</h3>
+
+Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.s_pTX"
+>s_pTX</a>.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions of composition [kg/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE setState_psX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Air.MoistAir.setState_psX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.setState_psX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.setState_psX</h2>
+<h3>Information</h3>
+
+The <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir.ThermodynamicState"
+>thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.setState_psX"
+></a> (Return thermodynamic state as function of p, s and composition X or Xi).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state</td><td>Thermodynamic state record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_pTX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.MoistAir.s_pTXI.png" alt="Modelica.Media.Air.MoistAir.s_pTX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.s_pTX"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.s_pTX</h2>
+<p>
+<span class="ModelicaDescription">Return specific entropy of moist air as a function of pressure p, temperature T and composition X (only valid for phi&lt;1)</span>
+</p>
+<h3>Information</h3>
+
+Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions of moist air [1]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy at p, T, X [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_pTX_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.MoistAir.s_pTXI.png" alt="Modelica.Media.Air.MoistAir.s_pTX_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.s_pTX_der"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.s_pTX_der</h2>
+<p>
+<span class="ModelicaDescription">Return specific entropy of moist air as a function of pressure p, temperature T and composition X (only valid for phi&lt;1)</span>
+</p>
+<h3>Information</h3>
+
+Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>X[:]</td><td>Mass fractions of moist air [1]</td></tr>
+<tr><td>dp</td><td>Derivative of pressure [Pa/s]</td></tr>
+<tr><td>dT</td><td>Derivative of temperature [K/s]</td></tr>
+<tr><td>dX[nX]</td><td>Derivative of mass fractions [1/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ds</td><td>Specific entropy at p, T, X [J/(kg.K.s)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.MoistAdbf7b44bfcc602e9halpyI.png" alt="Modelica.Media.Air.MoistAir.isentropicEnthalpy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.MoistAir.isentropicEnthalpy"></a><a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>Modelica.Media.Air.MoistAir</a>.isentropicEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Isentropic enthalpy (only valid for phi&lt;1)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions), <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isentropicEnthalpy"
+></a> (Return isentropic enthalpy).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p_downstream</td><td>Downstream pressure [Pa]</td></tr>
+<tr><td>refState</td><td>Reference state for entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h_is</td><td>Isentropic enthalpy [J/kg]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:46 2026.
+</address>
+</body>
+</html>

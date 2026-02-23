@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of media property models&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Media<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media"></a><a href="Modelica.html#Modelica"
+>Modelica</a>.Media</h2>
+<p>
+<span class="ModelicaDescription">Library of media property models</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This library contains <a href="Modelica_Media_Interfaces.html#Modelica.Media.Interfaces"
+>interface</a>
+definitions for media and the following <strong>property</strong> models for
+single and multiple substance fluids with one and multiple phases:
+</p>
+<ul>
+<li> <a href="Modelica_Media_IdealGases.html#Modelica.Media.IdealGases"
+>Ideal gases:</a><br>
+     1241 high precision gas models based on the
+     NASA Glenn coefficients, plus ideal gas mixture models based
+     on the same data.</li>
+<li> <a href="Modelica_Media_Water.html#Modelica.Media.Water"
+>Water models:</a><br>
+     ConstantPropertyLiquidWater, WaterIF97 (high precision
+     water model according to the IAPWS/IF97 standard)</li>
+<li> <a href="Modelica_Media_Air.html#Modelica.Media.Air"
+>Air models:</a><br>
+     SimpleAir, DryAirNasa, ReferenceAir, MoistAir, ReferenceMoistAir.</li>
+<li> <a href="Modelica_Media_Incompressible.html#Modelica.Media.Incompressible"
+>
+     Incompressible media:</a><br>
+     TableBased incompressible fluid models (properties are defined by tables rho(T),
+     HeatCapacity_cp(T), etc.)</li>
+<li> <a href="Modelica_Media_CompressibleLiquids.html#Modelica.Media.CompressibleLiquids"
+>
+     Compressible liquids:</a><br>
+     Simple liquid models with linear compressibility</li>
+<li> <a href="Modelica_Media_R134a.html#Modelica.Media.R134a"
+>Refrigerant Tetrafluoroethane (R134a)</a>.</li>
+</ul>
+<p>
+The following parts are useful, when newly starting with this library:</p>
+<ul>
+<li> <a href="Modelica_Media_UsersGuide.html#Modelica.Media.UsersGuide"
+>Modelica.Media.UsersGuide</a>.</li>
+<li> <a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+>Modelica.Media.UsersGuide.MediumUsage</a>
+     describes how to use a medium model in a component model.</li>
+<li> <a href="Modelica_Media_UsersGuide_MediumDefinition.html#Modelica.Media.UsersGuide.MediumDefinition"
+>
+     Modelica.Media.UsersGuide.MediumDefinition</a>
+     describes how a new fluid medium model has to be implemented.</li>
+<li> <a href="Modelica_Media_UsersGuide.html#Modelica.Media.UsersGuide.ReleaseNotes"
+>Modelica.Media.UsersGuide.ReleaseNotes</a>
+     summarizes the changes of the library releases.</li>
+<li> <a href="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p>
+Copyright &copy; 1998-2025, Modelica Association and contributors
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipation.UsersGuideS.png" alt="Modelica.Media.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_UsersGuide.html#Modelica.Media.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s Guide of Media Library</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.ExamplesS.png" alt="Modelica.Media.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Examples</a>
+</td>
+<td>Demonstrate usage of property models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.InterfacesS.png" alt="Modelica.Media.Interfaces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces.html#Modelica.Media.Interfaces"
+>Interfaces</a>
+</td>
+<td>Interfaces for media models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.CommonS.png" alt="Modelica.Media.Common" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common.html#Modelica.Media.Common"
+>Common</a>
+</td>
+<td>Data structures and fundamental functions for fluid properties</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.AirS.png" alt="Modelica.Media.Air" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air.html#Modelica.Media.Air"
+>Air</a>
+</td>
+<td>Medium models for air</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.AirS.png" alt="Modelica.Media.CompressibleLiquids" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_CompressibleLiquids.html#Modelica.Media.CompressibleLiquids"
+>CompressibleLiquids</a>
+</td>
+<td>Compressible liquid models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.AirS.png" alt="Modelica.Media.IdealGases" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_IdealGases.html#Modelica.Media.IdealGases"
+>IdealGases</a>
+</td>
+<td>Data and models of ideal gases (single, fixed and dynamic mixtures) from NASA source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.AirS.png" alt="Modelica.Media.Incompressible" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Incompressible.html#Modelica.Media.Incompressible"
+>Incompressible</a>
+</td>
+<td>Medium model for T-dependent properties, defined by tables or polynomials</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.AirS.png" alt="Modelica.Media.R134a" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a.html#Modelica.Media.R134a"
+>R134a</a>
+</td>
+<td>R134a: Medium model for R134a</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.AirS.png" alt="Modelica.Media.Water" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water.html#Modelica.Media.Water"
+>Water</a>
+</td>
+<td>Medium models for water</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:45 2026.
+</address>
+</body>
+</html>

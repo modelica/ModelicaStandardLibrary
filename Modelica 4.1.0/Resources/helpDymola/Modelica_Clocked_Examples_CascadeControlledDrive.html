@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Clocked.Examples.CascadeControlledDrive</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Examples based on a simple drive with cascade controller and different ways to define the sampling and super-sampling&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CascadeControlledDrive<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Clocked.Examples.CascadeControlledDrive"></a><a href="Modelica_Clocked_Examples.html#Modelica.Clocked.Examples"
+>Modelica.Clocked.Examples</a>.CascadeControlledDrive</h2>
+<p>
+<span class="ModelicaDescription">Examples based on a simple drive with cascade controller and different ways to define the sampling and super-sampling</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package shows the same example in different variants.
+</p>
+
+<p>
+Model <a href="Modelica_Clocked_Examples_CascadeControlledDrive.html#Modelica.Clocked.Examples.CascadeControlledDrive.Continuous"
+>CascadeControlledDrive.Continuous</a>
+is the <strong>continuous-time</strong> model from which the sampled-data versions are derived.
+The "CascadeControlledDrive" example adds another position control cascade to the
+<a href="Modelica_Clocked_Examples_SimpleControlledDrive.html#Modelica.Clocked.Examples.SimpleControlledDrive"
+>SimpleControlledDrive</a>
+example. This model demonstrates a control system with two cascaded control loops.
+The goal is to control the angle of the load inertia.
+</p>
+
+<p>
+The other example models under this package show different variants how
+the continuous-time model from above can be transformed to a periodic sampled-data
+system with two sample periods, where the two discrete-time controllers are
+precisely time-synchronized to each other.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousS.png" alt="Modelica.Clocked.Examples.CascadeControlledDrive.Continuous" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_CascadeControlledDrive.html#Modelica.Clocked.Examples.CascadeControlledDrive.Continuous"
+>Continuous</a>
+</td>
+<td>Drive with continuous-time cascade controller</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousS.png" alt="Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_CascadeControlledDrive.html#Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked"
+>SubClocked</a>
+</td>
+<td>Drive with clocked cascade controller where clocks are defined with sub-sampling and partitions with super-sampling</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousS.png" alt="Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_CascadeControlledDrive.html#Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled"
+>SuperSampled</a>
+</td>
+<td>Drive with clocked cascade controller where fastest partition is defined with a clock and slower partition is defined with super-sampling</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousS.png" alt="Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_CascadeControlledDrive.html#Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks"
+>AbsoluteClocks</a>
+</td>
+<td>Drive with clocked cascade controller where all partitions are defined with exact (integer) clock that need to be compatible to each other</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Continuous<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousI.png" alt="Modelica.Clocked.Examples.CascadeControlledDrive.Continuous" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.CascadeControlledDrive.Continuous"></a><a href="Modelica_Clocked_Examples_CascadeControlledDrive.html#Modelica.Clocked.Examples.CascadeControlledDrive"
+>Modelica.Clocked.Examples.CascadeControlledDrive</a>.Continuous</h2>
+<p>
+<span class="ModelicaDescription">Drive with continuous-time cascade controller</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Original cascade controlled drive with a
+<strong>continuous-time</strong> controller.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SubClocked<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousI.png" alt="Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked"></a><a href="Modelica_Clocked_Examples_CascadeControlledDrive.html#Modelica.Clocked.Examples.CascadeControlledDrive"
+>Modelica.Clocked.Examples.CascadeControlledDrive</a>.SubClocked</h2>
+<p>
+<span class="ModelicaDescription">Drive with clocked cascade controller where clocks are defined with sub-sampling and partitions with super-sampling</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Cascade control drive with discrete-time controller where one
+periodic clock is defined, the second periodic clock is derived by
+sub-sampling of the first clock, and both clocks are associated to
+the corresponding controller partitions.
+The super-sampling factor of block "super" is derived by
+clock inference.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SuperSampled<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousI.png" alt="Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled"></a><a href="Modelica_Clocked_Examples_CascadeControlledDrive.html#Modelica.Clocked.Examples.CascadeControlledDrive"
+>Modelica.Clocked.Examples.CascadeControlledDrive</a>.SuperSampled</h2>
+<p>
+<span class="ModelicaDescription">Drive with clocked cascade controller where fastest partition is defined with a clock and slower partition is defined with super-sampling</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Cascade control drive with discrete-time controller where one
+periodic clock is defined for the fastest control loop,
+and the periodic clock of the slower control loop is implicitly
+defined by the super-sampling factor defined at the "super" block.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AbsoluteClocks<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examplesabcf56b767462e65nuousI.png" alt="Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks"></a><a href="Modelica_Clocked_Examples_CascadeControlledDrive.html#Modelica.Clocked.Examples.CascadeControlledDrive"
+>Modelica.Clocked.Examples.CascadeControlledDrive</a>.AbsoluteClocks</h2>
+<p>
+<span class="ModelicaDescription">Drive with clocked cascade controller where all partitions are defined with exact (integer) clock that need to be compatible to each other</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Cascade control drive with discrete-time controller where two
+periodic clock with absolute periods are defined and
+are associated to
+the corresponding controller partitions.
+The super-sampling factor of block "super" is derived by
+clock inference.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:33 2026.
+</address>
+</body>
+</html>

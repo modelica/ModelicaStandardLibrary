@@ -1,0 +1,946 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Polyphase.Basic</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Basic components for electrical polyphase models&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Polyphase.Basic"></a><a href="Modelica_Electrical_Polyphase.html#Modelica.Electrical.Polyphase"
+>Modelica.Electrical.Polyphase</a>.Basic</h2>
+<p>
+<span class="ModelicaDescription">Basic components for electrical polyphase models</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains basic analog electrical polyphase components.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyphase.Basic.StarS.png" alt="Modelica.Electrical.Polyphase.Basic.Star" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Star"
+>Star</a>
+</td>
+<td>Star-connection</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp5c4aeb9b5e0b0a8fDeltaS.png" alt="Modelica.Electrical.Polyphase.Basic.Delta" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Delta"
+>Delta</a>
+</td>
+<td>Delta (polygon) connection</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp76369f56a85db56aiStarS.png" alt="Modelica.Electrical.Polyphase.Basic.MultiStar" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiStar"
+>MultiStar</a>
+</td>
+<td>Star connection of polyphase systems consisting of multiple base systems</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp74a630f80ace1934DeltaS.png" alt="Modelica.Electrical.Polyphase.Basic.MultiDelta" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiDelta"
+>MultiDelta</a>
+</td>
+<td>Delta (polygon) connection of polyphase systems consisting of multiple base systems</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp884c82f77401b3f1tanceS.png" alt="Modelica.Electrical.Polyphase.Basic.MultiStarResistance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiStarResistance"
+>MultiStarResistance</a>
+</td>
+<td>Resistance connection of star points</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polype0cbdae8bb4aaf4cstemsS.png" alt="Modelica.Electrical.Polyphase.Basic.SplitToSubsystems" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.SplitToSubsystems"
+>SplitToSubsystems</a>
+</td>
+<td>Split m phases to subsystems</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp3ff748c44ce6f8a6Pin_pS.png" alt="Modelica.Electrical.Polyphase.Basic.PlugToPin_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.PlugToPin_p"
+>PlugToPin_p</a>
+</td>
+<td>Connect one (positive) Pin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp3ff748c44ce6f8a6Pin_pS.png" alt="Modelica.Electrical.Polyphase.Basic.PlugToPin_n" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.PlugToPin_n"
+>PlugToPin_n</a>
+</td>
+<td>Connect one (negative) Pin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypbb8f70bd9cc0a159ins_pS.png" alt="Modelica.Electrical.Polyphase.Basic.PlugToPins_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.PlugToPins_p"
+>PlugToPins_p</a>
+</td>
+<td>Connect all (positive) Pins</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypbb8f70bd9cc0a159ins_pS.png" alt="Modelica.Electrical.Polyphase.Basic.PlugToPins_n" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.PlugToPins_n"
+>PlugToPins_n</a>
+</td>
+<td>Connect all (negative) Pins</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp5e700f56ea9f7227istorS.png" alt="Modelica.Electrical.Polyphase.Basic.Resistor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Resistor"
+>Resistor</a>
+</td>
+<td>Ideal linear electrical resistors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp5e700f56ea9f7227istorS.png" alt="Modelica.Electrical.Polyphase.Basic.Conductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Conductor"
+>Conductor</a>
+</td>
+<td>Ideal linear electrical conductors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polype93028a182e0ba0dcitorS.png" alt="Modelica.Electrical.Polyphase.Basic.Capacitor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Capacitor"
+>Capacitor</a>
+</td>
+<td>Ideal linear electrical capacitors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp99e30ff3055772fductorS.png" alt="Modelica.Electrical.Polyphase.Basic.Inductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Inductor"
+>Inductor</a>
+</td>
+<td>Ideal linear electrical inductors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polype121bec3da3cedbfuctorS.png" alt="Modelica.Electrical.Polyphase.Basic.SaturatingInductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.SaturatingInductor"
+>SaturatingInductor</a>
+</td>
+<td>Simple model of inductors with saturation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp37893fef4e35d813uctorS.png" alt="Modelica.Electrical.Polyphase.Basic.MutualInductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MutualInductor"
+>MutualInductor</a>
+</td>
+<td>Linear mutual inductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp0e0b02d3b022d3b3uctorS.png" alt="Modelica.Electrical.Polyphase.Basic.ZeroInductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.ZeroInductor"
+>ZeroInductor</a>
+</td>
+<td>Linear zero sequence inductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp4c17fdfc9d08a7a5ormerS.png" alt="Modelica.Electrical.Polyphase.Basic.Transformer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Transformer"
+>Transformer</a>
+</td>
+<td>Polyphase Transformer</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypa3cd02a636822f73istorS.png" alt="Modelica.Electrical.Polyphase.Basic.VariableResistor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.VariableResistor"
+>VariableResistor</a>
+</td>
+<td>Ideal linear electrical resistors with variable resistance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypa3cd02a636822f73istorS.png" alt="Modelica.Electrical.Polyphase.Basic.VariableConductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.VariableConductor"
+>VariableConductor</a>
+</td>
+<td>Ideal linear electrical conductors with variable conductance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp67c0aa91014b1294citorS.png" alt="Modelica.Electrical.Polyphase.Basic.VariableCapacitor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.VariableCapacitor"
+>VariableCapacitor</a>
+</td>
+<td>Ideal linear electrical capacitors with variable capacitance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypdf400343d94a2fa9uctorS.png" alt="Modelica.Electrical.Polyphase.Basic.VariableInductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.VariableInductor"
+>VariableInductor</a>
+</td>
+<td>Ideal linear electrical inductors with variable inductance</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Star<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyphase.Basic.StarI.png" alt="Modelica.Electrical.Polyphase.Basic.Star" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.Star"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.Star</h2>
+<p>
+<span class="ModelicaDescription">Star-connection</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Delta"
+>Delta</a>,
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiStar"
+>MultiStar</a>,
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiDelta"
+>MultiDelta</a>
+</p>
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Delta<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp5c4aeb9b5e0b0a8fDeltaI.png" alt="Modelica.Electrical.Polyphase.Basic.Delta" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.Delta"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.Delta</h2>
+<p>
+<span class="ModelicaDescription">Delta (polygon) connection</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1],
+thus establishing a so-called delta (or polygon) connection
+when used in parallel to another component.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Star"
+>Star</a>,
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiStar"
+>MultiStar</a>,
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiDelta"
+>MultiDelta</a>
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiStar<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp76369f56a85db56aiStarI.png" alt="Modelica.Electrical.Polyphase.Basic.MultiStar" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.MultiStar"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.MultiStar</h2>
+<p>
+<span class="ModelicaDescription">Star connection of polyphase systems consisting of multiple base systems</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Star (wye) connection of a polyphase circuit consisting of multiple base systems (see
+<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase"
+>polyphase guidelines</a>). The potentials at the star points are all equal.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Star"
+>Star</a>,
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Delta"
+>Delta</a>,
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiDelta"
+>MultiDelta</a>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>starpoints</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiDelta<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp74a630f80ace1934DeltaI.png" alt="Modelica.Electrical.Polyphase.Basic.MultiDelta" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.MultiDelta"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.MultiDelta</h2>
+<p>
+<span class="ModelicaDescription">Delta (polygon) connection of polyphase systems consisting of multiple base systems</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Delta (polygon) connection of a polyphase circuit consisting of multiple base systems (see
+<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase"
+>polyphase guidelines</a>).
+</p>
+<h4>Note</h4>
+<p>
+If kPolygon&lt;1 or kPolygon&gt;(mBasic - 1)/2, kPolygon is replaced by the value 1 without further warning.<br>
+In case of m=2, kPolygon=1 is the only valid choice.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Star"
+>Star</a>,
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.Delta"
+>Delta</a>,
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiStar"
+>MultiStar</a>
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>kPolygon</td><td>Alternative of polygon</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiStarResistance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp884c82f77401b3f1tanceI.png" alt="Modelica.Electrical.Polyphase.Basic.MultiStarResistance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.MultiStarResistance"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.MultiStarResistance</h2>
+<p>
+<span class="ModelicaDescription">Resistance connection of star points</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Multi star points are connected by resistors. This model is required to operate polyphase systems with even phase numbers to avoid ideal connections of start points of base systems; see
+<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase"
+>polyphase guidelines</a>.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>R</td><td>Insulation resistance between base systems [Ohm]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug</td><td>&nbsp;</td></tr>
+<tr><td>pin</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SplitToSubsystems<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polype0cbdae8bb4aaf4cstemsI.png" alt="Modelica.Electrical.Polyphase.Basic.SplitToSubsystems" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.SplitToSubsystems"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.SplitToSubsystems</h2>
+<p>
+<span class="ModelicaDescription">Split m phases to subsystems</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Splits the m phases in plug_p into subsystems, i.e., mSystems plugs with mBasic pins according to
+<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"
+>phase orientation</a> described in the users guide.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plugs_n[mSystems]</td><td>mSystems negative polyphase electrical plugs with mBasic pins each</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPin_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp3ff748c44ce6f8a6Pin_pI.png" alt="Modelica.Electrical.Polyphase.Basic.PlugToPin_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.PlugToPin_p"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.PlugToPin_p</h2>
+<p>
+<span class="ModelicaDescription">Connect one (positive) Pin</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connects pin <em>k</em> of plug_p to pin_p, leaving the other pins of plug_p unconnected.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>k</td><td>Phase index</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_p</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPin_n<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp3ff748c24ce6f8b8Pin_nI.png" alt="Modelica.Electrical.Polyphase.Basic.PlugToPin_n" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.PlugToPin_n"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.PlugToPin_n</h2>
+<p>
+<span class="ModelicaDescription">Connect one (negative) Pin</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connects pin <em>k</em> of plug_n to pin_n, leaving the other pins of plug_n unconnected.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>k</td><td>Phase index</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+<tr><td>pin_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPins_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypbb8f70bd9cc0a159ins_pI.png" alt="Modelica.Electrical.Polyphase.Basic.PlugToPins_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.PlugToPins_p"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.PlugToPins_p</h2>
+<p>
+<span class="ModelicaDescription">Connect all (positive) Pins</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connects all pins of plug_p to the pin array pin_p.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_p[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPins_n<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypbb8f70bb9cc0a147ins_nI.png" alt="Modelica.Electrical.Polyphase.Basic.PlugToPins_n" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.PlugToPins_n"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.PlugToPins_n</h2>
+<p>
+<span class="ModelicaDescription">Connect all (negative) Pins</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connects all pins of plug_n to the pin array pin_n.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+<tr><td>pin_n[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Resistor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp5e700f56ea9f7227istorI.png" alt="Modelica.Electrical.Polyphase.Basic.Resistor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.Resistor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.Resistor</h2>
+<p>
+<span class="ModelicaDescription">Ideal linear electrical resistors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>R[m]</td><td>Resistances R_ref at temperatures T_ref [Ohm]</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha[m]</td><td>Temperature coefficients of resistances at reference temperatures [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Conductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp5e700f56ea9f7227istorI.png" alt="Modelica.Electrical.Polyphase.Basic.Conductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.Conductor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.Conductor</h2>
+<p>
+<span class="ModelicaDescription">Ideal linear electrical conductors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>G[m]</td><td>Conductances G_ref at temperatures T_ref [S]</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha[m]</td><td>Temperature coefficients of conductances at reference temperatures [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Capacitor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polype93028a182e0ba0dcitorI.png" alt="Modelica.Electrical.Polyphase.Basic.Capacitor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.Capacitor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.Capacitor</h2>
+<p>
+<span class="ModelicaDescription">Ideal linear electrical capacitors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>C[m]</td><td>Capacitance [F]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Inductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp99e30ff3055772fductorI.png" alt="Modelica.Electrical.Polyphase.Basic.Inductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.Inductor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.Inductor</h2>
+<p>
+<span class="ModelicaDescription">Ideal linear electrical inductors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>L[m]</td><td>Inductance [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SaturatingInductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polype121bec3da3cedbfuctorI.png" alt="Modelica.Electrical.Polyphase.Basic.SaturatingInductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.SaturatingInductor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.SaturatingInductor</h2>
+<p>
+<span class="ModelicaDescription">Simple model of inductors with saturation</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m saturating inductors (Modelica.Electrical.Analog.Basic.SaturatingInductor)
+</p>
+<p>
+<strong>Attention!!!</strong><br>
+Each element of the array of saturatingInductors is only dependent on the current flowing through this element.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Inom[m]</td><td>Nominal current [A]</td></tr>
+<tr><td>Lnom[m]</td><td>Nominal inductance at Nominal current [H]</td></tr>
+<tr><td>Lzer[m]</td><td>Inductance near current=0 [H]</td></tr>
+<tr><td>Linf[m]</td><td>Inductance at large currents [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MutualInductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp37893fef4e35d813uctorI.png" alt="Modelica.Electrical.Polyphase.Basic.MutualInductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.MutualInductor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.MutualInductor</h2>
+<p>
+<span class="ModelicaDescription">Linear mutual inductor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of a polyphase inductor providing a mutual inductance matrix model.
+</p>
+<h4>Implementation</h4>
+<blockquote><pre>
+  v[1] = L[1,1]*der(i[1]) + L[1,2]*der(i[2]) + ... + L[1,m]*der(i[m])
+  v[2] = L[2,1]*der(i[1]) + L[2,2]*der(i[2]) + ... + L[2,m]*der(i[m])
+    :              :                         :                                :
+  v[m] = L[m,1]*der(i[1]) + L[m,2]*der(i[2]) + ... + L[m,m]*der(i[m])
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.OnePort"
+>Polyphase.Interfaces.OnePort</a> (Component with two electrical plugs and currents from plug_p to plug_n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>epsilon</td><td>Relative accuracy tolerance of matrix symmetry</td></tr>
+<tr><td>L[m, m]</td><td>Mutual inductance matrix [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ZeroInductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp0e0b02d3b022d3b3uctorI.png" alt="Modelica.Electrical.Polyphase.Basic.ZeroInductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.ZeroInductor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.ZeroInductor</h2>
+<p>
+<span class="ModelicaDescription">Linear zero sequence inductor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of a polyphase zero sequence inductor.
+</p>
+<h4>Implementation</h4>
+<blockquote><pre>
+v = Lzero*sum(der(i)) = Lzero*der(sum(i))
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.OnePort"
+>Polyphase.Interfaces.OnePort</a> (Component with two electrical plugs and currents from plug_p to plug_n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Lzero</td><td>Zero sequence inductance [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Transformer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp4c17fdfc9d08a7a5ormerI.png" alt="Modelica.Electrical.Polyphase.Basic.Transformer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.Transformer"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.Transformer</h2>
+<p>
+<span class="ModelicaDescription">Polyphase Transformer</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.FourPlug"
+>Interfaces.FourPlug</a> (Component with two polyphase electrical ports).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>L1[m]</td><td>Primary inductance [H]</td></tr>
+<tr><td>L2[m]</td><td>Secondary inductance [H]</td></tr>
+<tr><td>M[m]</td><td>Coupling inductance [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p1</td><td>Positive electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td>plug_p2</td><td>Positive electrical polyphase plug of port 2 with m pins</td></tr>
+<tr><td>plug_n1</td><td>Negative electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td>plug_n2</td><td>Negative electrical polyphase plug of port 2 with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableResistor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypa3cd02a636822f73istorI.png" alt="Modelica.Electrical.Polyphase.Basic.VariableResistor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.VariableResistor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.VariableResistor</h2>
+<p>
+<span class="ModelicaDescription">Ideal linear electrical resistors with variable resistance</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
+</p>
+<p>
+<strong>Attention!!!</strong><br>
+  It is recommended that none of the R_Port signals should not cross the zero value.
+  Otherwise depending on the surrounding circuit the probability of singularities is high.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha[m]</td><td>Temperature coefficients of resistances at reference temperatures [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+<tr><td>R[m]</td><td>[Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableConductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypa3cd02a636822f73istorI.png" alt="Modelica.Electrical.Polyphase.Basic.VariableConductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.VariableConductor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.VariableConductor</h2>
+<p>
+<span class="ModelicaDescription">Ideal linear electrical conductors with variable conductance</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
+</p>
+<p>
+<strong>Attention!!!</strong><br>
+  It is recommended that none of the G_Port signals should not cross the zero value.
+  Otherwise depending on the surrounding circuit the probability of singularities is high.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha[m]</td><td>Temperature coefficients of conductances at reference temperatures [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+<tr><td>G[m]</td><td>[S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableCapacitor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp67c0aa91014b1294citorI.png" alt="Modelica.Electrical.Polyphase.Basic.VariableCapacitor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.VariableCapacitor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.VariableCapacitor</h2>
+<p>
+<span class="ModelicaDescription">Ideal linear electrical capacitors with variable capacitance</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m variable capacitors (Modelica.Electrical.Analog.Basic.VariableCapacitor)
+</p>
+<p>
+It is required that each C_Port.signal &ge; 0, otherwise an
+assertion is raised. To avoid a variable index system,<br>
+C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
+Cmin is a parameter with default value Modelica.Constants.eps.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Cmin[m]</td><td>Minimum capacitance [F]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td>C[m]</td><td>[F]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableInductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypdf400343d94a2fa9uctorI.png" alt="Modelica.Electrical.Polyphase.Basic.VariableInductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Basic.VariableInductor"></a><a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic"
+>Modelica.Electrical.Polyphase.Basic</a>.VariableInductor</h2>
+<p>
+<span class="ModelicaDescription">Ideal linear electrical inductors with variable inductance</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Contains m variable inductors (Modelica.Electrical.Analog.Basic.VariableInductor)
+</p>
+<p>
+It is required that each L_Port.signal &ge; 0, otherwise an
+assertion is raised. To avoid a variable index system,<br>
+L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
+Lmin is a parameter with default value Modelica.Constants.eps.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Lmin[m]</td><td>Minimum inductance [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td>L[m]</td><td>[H]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:40 2026.
+</address>
+</body>
+</html>

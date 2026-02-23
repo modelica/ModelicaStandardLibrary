@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.FastFourierTransform.Examples</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Examples demonstrating the usage of the Math.FastFourierTransform functions&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.FastFourierTransform.Examples"></a><a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform"
+>Modelica.Math.FastFourierTransform</a>.Examples</h2>
+<p>
+<span class="ModelicaDescription">Examples demonstrating the usage of the Math.FastFourierTransform functions</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Nonlinear.E6344867bf136c7a4atto3S.png" alt="Modelica.Math.FastFourierTransform.Examples.RealFFT1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_FastFourierTransform_Examples.html#Modelica.Math.FastFourierTransform.Examples.RealFFT1"
+>RealFFT1</a>
+</td>
+<td>Example demonstrating the use of an FFT calculation during simulation (and storing both amplitudes and phases on file)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Nonlinear.E6344867bf136c7a4atto3S.png" alt="Modelica.Math.FastFourierTransform.Examples.RealFFT2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_FastFourierTransform_Examples.html#Modelica.Math.FastFourierTransform.Examples.RealFFT2"
+>RealFFT2</a>
+</td>
+<td>Example demonstrating the use of an FFT calculation during simulation (and storing only amplitudes on file)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RealFFT1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Nonlinear.E6344867bf136c7a4atto3I.png" alt="Modelica.Math.FastFourierTransform.Examples.RealFFT1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.FastFourierTransform.Examples.RealFFT1"></a><a href="Modelica_Math_FastFourierTransform_Examples.html#Modelica.Math.FastFourierTransform.Examples"
+>Modelica.Math.FastFourierTransform.Examples</a>.RealFFT1</h2>
+<p>
+<span class="ModelicaDescription">Example demonstrating the use of an FFT calculation during simulation (and storing both amplitudes and phases on file)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In this example the signal y
+</p>
+
+<blockquote><pre>
+y = 5 + 3*sin(2*pi*f1) + 1.5*cos(2*pi*f2)
+</pre></blockquote>
+
+<p>
+is sampled and an FFT is computed from the sampled signal (default: f1 = 2 Hz, f2 = 3 Hz).
+In the public part the FFT is stored up to f_max (internally in the protected part the FFT is stored up to 5*f_max).
+With the default values for f_max (= 4 Hz) and f_resolution (= 0.2 Hz), the following results are achieved:
+</p>
+
+<blockquote><pre>
+fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
+fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of sine
+fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of cosine
+</pre></blockquote>
+
+<p>
+A plot of the resulting FFT is shown in the next image:
+</p>
+
+<blockquote>
+<img src="Resources/Images/Math/FastFourierTransform/FFT1.png">
+</blockquote>
+
+<p>
+Note, phases of small amplitudes (= smaller as 0.0001*maximalAmplitude) are explicitly set to zero, since the corresponding
+"phase" is numerical noise (and would just be confusing).
+Furthermore, note that the FFT phases are with respect to a cos(..) signal.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f_max</td><td>Maximum frequency of interest [Hz]</td></tr>
+<tr><td>f_resolution</td><td>Frequency resolution [Hz]</td></tr>
+<tr><td>f1</td><td>Frequency of sine [Hz]</td></tr>
+<tr><td>f2</td><td>Frequency of cosine [Hz]</td></tr>
+<tr><td>FFT_resultFileName</td><td>File where FFT will be stored as [f,A,Phi], with f in [Hz] and A the amplitudes and Phi the phases in [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RealFFT2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Nonlinear.E6344867bf136c7a4atto3I.png" alt="Modelica.Math.FastFourierTransform.Examples.RealFFT2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.FastFourierTransform.Examples.RealFFT2"></a><a href="Modelica_Math_FastFourierTransform_Examples.html#Modelica.Math.FastFourierTransform.Examples"
+>Modelica.Math.FastFourierTransform.Examples</a>.RealFFT2</h2>
+<p>
+<span class="ModelicaDescription">Example demonstrating the use of an FFT calculation during simulation (and storing only amplitudes on file)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is the same example as <a href="Modelica_Math_FastFourierTransform_Examples.html#Modelica.Math.FastFourierTransform.Examples.RealFFT1"
+>Examples.RealFFT1</a>
+with the only difference that just the amplitudes of the FFT are stored on file (but not the phases).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f_max</td><td>Maximum frequency of interest [Hz]</td></tr>
+<tr><td>f_resolution</td><td>Frequency resolution [Hz]</td></tr>
+<tr><td>f1</td><td>Frequency of sine [Hz]</td></tr>
+<tr><td>f2</td><td>Frequency of cosine [Hz]</td></tr>
+<tr><td>FFT_resultFileName</td><td>File where FFT will be stored as [f,A,Phi], with f in [Hz] and A the amplitudes and Phi the phases in [rad]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:52 2026.
+</address>
+</body>
+</html>

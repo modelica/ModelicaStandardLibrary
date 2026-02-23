@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ObsoleteModelica4.Mechanics.MultiBody.Joints</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Components that constrain the motion between two frames&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Joints<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="ObsoleteModelica4.Mechanics.MultiBody.Joints"></a><a href="ObsoleteModelica4_Mechanics_MultiBody.html#ObsoleteModelica4.Mechanics.MultiBody"
+>ObsoleteModelica4.Mechanics.MultiBody</a>.Joints</h2>
+<p>
+<span class="ModelicaDescription">Components that constrain the motion between two frames</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="file:///ModelicaExtra/Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="ObsoleteModelica4.Mechani4e1a7b9879b80935maticS.png" alt="ObsoleteModelica4.Mechanics.MultiBody.Joints.Prismatic" width="20" height="20" align="top">&nbsp;<a href="ObsoleteModelica4_Mechanics_MultiBody_Joints.html#ObsoleteModelica4.Mechanics.MultiBody.Joints.Prismatic"
+>Prismatic</a>
+</td>
+<td>Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange, optional distance offset)</td>
+</tr>
+<tr>
+<td><img src="ObsoleteModelica4.Mechanib50258a04c0d1653oluteS.png" alt="ObsoleteModelica4.Mechanics.MultiBody.Joints.Revolute" width="20" height="20" align="top">&nbsp;<a href="ObsoleteModelica4_Mechanics_MultiBody_Joints.html#ObsoleteModelica4.Mechanics.MultiBody.Joints.Revolute"
+>Revolute</a>
+</td>
+<td>Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange, optional angle offset)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Prismatic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ObsoleteModelica4.Mechani4e1a7b9879b80935maticI.png" alt="ObsoleteModelica4.Mechanics.MultiBody.Joints.Prismatic" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ObsoleteModelica4.Mechanics.MultiBody.Joints.Prismatic"></a><a href="ObsoleteModelica4_Mechanics_MultiBody_Joints.html#ObsoleteModelica4.Mechanics.MultiBody.Joints"
+>ObsoleteModelica4.Mechanics.MultiBody.Joints</a>.Prismatic</h2>
+<p>
+<span class="ModelicaDescription">Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange, optional distance offset)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint where frame_b is translated along axis n which is fixed in frame_a.
+The two frames coincide when the relative distance "s = 0".
+</p>
+
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange "axis" represents the driving flange and
+flange "support" represents the bearing) can be enabled via
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href="file:///ModelicaExtra/Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
+>Modelica.Mechanics.Translational</a>
+library.
+
+</p>
+
+<p>
+In the "Advanced" menu it can be defined via parameter <strong>stateSelect</strong>
+that the relative distance "s" and its derivative shall be definitely
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the relative distance and its
+derivative as preferred states. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+
+<p>
+In the following figure the animation of a prismatic
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector "n" defining the translation axis
+(here: n = {1,1,0}).
+</p>
+
+<div>
+<img src="Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png">
+</div>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="file:///ModelicaExtra/Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</a> (Icon for classes that are obsolete and will be removed in later versions), <a href="file:///ModelicaExtra/Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint</a> (Base model for elementary joints (has two frames + outer world + assert to guarantee that the joint is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useAxisFlange</td><td>= true, if axis flange is enabled</td></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>n</td><td>Axis of translation resolved in frame_a (= same as in frame_b) [1]</td></tr>
+<tr><td>s_offset</td><td>Relative distance offset (distance between frame_a and frame_b = s_offset + s) [m]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>boxWidthDirection</td><td>Vector in width direction of box, resolved in frame_a [1]</td></tr>
+<tr><td>boxWidth</td><td>Width of prismatic joint box [m]</td></tr>
+<tr><td>boxHeight</td><td>Height of prismatic joint box [m]</td></tr>
+<tr><td>boxColor</td><td>Color of prismatic joint box</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use distance s and v=der(s) as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the joint with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the joint with one cut-force and cut-torque</td></tr>
+<tr><td>axis</td><td>1-dim. translational flange that drives the joint</td></tr>
+<tr><td>support</td><td>1-dim. translational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Revolute<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ObsoleteModelica4.Mechanib50258a04c0d1653oluteI.png" alt="ObsoleteModelica4.Mechanics.MultiBody.Joints.Revolute" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ObsoleteModelica4.Mechanics.MultiBody.Joints.Revolute"></a><a href="ObsoleteModelica4_Mechanics_MultiBody_Joints.html#ObsoleteModelica4.Mechanics.MultiBody.Joints"
+>ObsoleteModelica4.Mechanics.MultiBody.Joints</a>.Revolute</h2>
+<p>
+<span class="ModelicaDescription">Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange, optional angle offset)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when the rotation angle "phi = 0".
+</p>
+
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange "axis" represents the driving flange and
+flange "support" represents the bearing) can be enabled via
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href="file:///ModelicaExtra/Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</a>
+library.
+</p>
+
+<p>
+In the "Advanced" menu it can be defined via parameter <strong>stateSelect</strong>
+that the rotation angle "phi" and its derivative shall be definitely
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the joint angle and its
+derivative as preferred states. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+
+<p>
+If a <strong>planar loop</strong> is present, e.g., consisting of 4 revolute joints
+where the joint axes are all parallel to each other, then there is no
+longer a unique mathematical solution and the symbolic algorithms will
+fail. Usually, an error message will be printed pointing out this
+situation. In this case, one revolute joint of the loop has to be replaced
+by a Joints.RevolutePlanarLoopConstraint joint. The
+effect is that from the 5 constraints of a usual revolute joint,
+3 constraints are removed and replaced by appropriate known
+variables (e.g., the force in the direction of the axis of rotation is
+treated as known with value equal to zero; for standard revolute joints,
+this force is an unknown quantity).
+</p>
+
+<p>
+In the following figure the animation of a revolute
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector "n" defining the translation axis
+(here: n = {0,0,1}, phi.start = 45<sup>o</sup>).
+</p>
+
+<div>
+<img src="Resources/Images/Mechanics/MultiBody/Joints/Revolute.png">
+</div>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="file:///ModelicaExtra/Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</a> (Icon for classes that are obsolete and will be removed in later versions).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useAxisFlange</td><td>= true, if axis flange is enabled</td></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show axis as cylinder)</td></tr>
+<tr><td>n</td><td>Axis of rotation resolved in frame_a (= same as in frame_b) [1]</td></tr>
+<tr><td>phi_offset</td><td>Relative angle offset (angle = phi_offset + phi) [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>cylinderLength</td><td>Length of cylinder representing the joint axis [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinder representing the joint axis [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinder representing the joint axis</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use joint angle phi and w=der(phi) as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>axis</td><td>1-dim. rotational flange that drives the joint</td></tr>
+<tr><td>support</td><td>1-dim. rotational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)</td></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the joint with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the joint with one cut-force and cut-torque</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:53 2026.
+</address>
+</body>
+</html>

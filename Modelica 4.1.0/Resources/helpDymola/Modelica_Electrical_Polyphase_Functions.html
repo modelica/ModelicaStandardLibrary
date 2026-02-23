@@ -1,0 +1,477 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Polyphase.Functions</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Functions for polyphase systems&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Functions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Polyphase.Functions"></a><a href="Modelica_Electrical_Polyphase.html#Modelica.Electrical.Polyphase"
+>Modelica.Electrical.Polyphase</a>.Functions</h2>
+<p>
+<span class="ModelicaDescription">Functions for polyphase systems</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_FunctionsPackage.html#Modelica.Icons.FunctionsPackage"
+>Modelica.Icons.FunctionsPackage</a> (Icon for packages containing functions).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.quasiRMS" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.quasiRMS"
+>quasiRMS</a>
+</td>
+<td>Calculate continuous quasi RMS value of input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.activePower" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.activePower"
+>activePower</a>
+</td>
+<td>Calculate active power of voltage and current input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.symmetricOrientation" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a>
+</td>
+<td>Orientations of the resulting fundamental wave field phasors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.symmetricOrientationMatrix" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientationMatrix"
+>symmetricOrientationMatrix</a>
+</td>
+<td>Matrix symmetric orientation angles for creating the symmetric transformation matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.symmetricTransformationMatrix" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricTransformationMatrix"
+>symmetricTransformationMatrix</a>
+</td>
+<td>Transformation matrix for symmetrical components</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.symmetricBackTransformationMatrix" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricBackTransformationMatrix"
+>symmetricBackTransformationMatrix</a>
+</td>
+<td>Back transformation matrix for symmetrical components</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems"
+>numberOfSymmetricBaseSystems</a>
+</td>
+<td>Determines the number of symmetric base systems of m phase symmetric system</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.factorY2D" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.factorY2D"
+>factorY2D</a>
+</td>
+<td>Calculates factor Y voltage to polygon (delta) voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.factorY2DC" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.factorY2DC"
+>factorY2DC</a>
+</td>
+<td>Calculates factor of DC-voltage from RMS Y-voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.indexPositiveSequence" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.indexPositiveSequence"
+>indexPositiveSequence</a>
+</td>
+<td>Determines the indices of all positive sequences</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSS.png" alt="Modelica.Electrical.Polyphase.Functions.indexNonPositiveSequence" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.indexNonPositiveSequence"
+>indexNonPositiveSequence</a>
+</td>
+<td>Determines the indices of all non positive sequences</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE quasiRMS<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.quasiRMS" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.quasiRMS"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.quasiRMS</h2>
+<p>
+<span class="ModelicaDescription">Calculate continuous quasi RMS value of input</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This function determines the continuous quasi <a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RootMeanSquare"
+>RMS</a> value of a polyphase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+</p>
+<blockquote><pre>
+y = sqrt(sum(u[k]^2 for k in 1:m)/m)
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[:]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE activePower<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.activePower" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.activePower"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.activePower</h2>
+<p>
+<span class="ModelicaDescription">Calculate active power of voltage and current input</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Calculates instantaneous power from polyphase voltages and currents.
+In quasi-static operation, instantaneous power equals active power;
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Phase voltages [V]</td></tr>
+<tr><td>i[size(v, 1)]</td><td>Phase currents [A]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Active power [W]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE symmetricOrientation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.symmetricOrientation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.symmetricOrientation"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.symmetricOrientation</h2>
+<p>
+<span class="ModelicaDescription">Orientations of the resulting fundamental wave field phasors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This function determines the orientation angles of the symmetrical winding with m phases.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"
+>User's guide</a> on symmetrical components and orientation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>orientation[m]</td><td>Orientation of the resulting fundamental wave field phasors [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE symmetricOrientationMatrix<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.symmetricOrientationMatrix" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.symmetricOrientationMatrix"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.symmetricOrientationMatrix</h2>
+<p>
+<span class="ModelicaDescription">Matrix symmetric orientation angles for creating the symmetric transformation matrix</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This function determines the orientation matrix of the symmetrical winding with m phases.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"
+>User's guide</a> on symmetrical components and orientation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>oM[m, m]</td><td>Angles of symmetric transformation matrix [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE symmetricTransformationMatrix<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.symmetricTransformationMatrix" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.symmetricTransformationMatrix"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.symmetricTransformationMatrix</h2>
+<p>
+<span class="ModelicaDescription">Transformation matrix for symmetrical components</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This function determines the transformation matrix of the symmetrical winding with m phases.
+</p>
+<p>
+The transformation matrix can be used to determine the symmetrical components from time phasors.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"
+>User's guide</a> on symmetrical components and orientation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tM[m, m]</td><td>Transformation matrix for m phase symmetrical components</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE symmetricBackTransformationMatrix<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.symmetricBackTransformationMatrix" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.symmetricBackTransformationMatrix"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.symmetricBackTransformationMatrix</h2>
+<p>
+<span class="ModelicaDescription">Back transformation matrix for symmetrical components</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This function determines the back transformation matrix of the symmetrical winding with m phases.
+</p>
+<p>
+The back transformation matrix can be used to determine the time phasors from the symmetrical components.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"
+>User's guide</a> on symmetrical components and orientation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>bTM[m, m]</td><td>Back transformation matrix for m phase symmetrical components</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE numberOfSymmetricBaseSystems<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.numberOfSymmetricBaseSystems</h2>
+<p>
+<span class="ModelicaDescription">Determines the number of symmetric base systems of m phase symmetric system</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This function determines the number of base systems of the symmetrical winding with m phases.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"
+>User's guide</a> on symmetrical components and orientation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of symmetric base systems</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE factorY2D<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.factorY2D" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.factorY2D"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.factorY2D</h2>
+<p>
+<span class="ModelicaDescription">Calculates factor Y voltage to polygon (delta) voltage</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Calculates line-to-line voltage from line-to-neutral voltage.
+</p>
+<h4>Note</h4>
+<p>
+For m&gt;3 phases, more than one variant exists for the choice of the line-to-line voltage.
+If input kPolygon is not in the range of 1 &le; kPolygon &le; (mBasic - 1)/2, the function is evaluated for kPolygon = 1.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>kPolygon</td><td>Alternative of polygon</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Factor Y to D</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE factorY2DC<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.factorY2DC" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.factorY2DC"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.factorY2DC</h2>
+<p>
+<span class="ModelicaDescription">Calculates factor of DC-voltage from RMS Y-voltage</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Factor Yrms to DC</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE indexPositiveSequence<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.indexPositiveSequence" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.indexPositiveSequence"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.indexPositiveSequence</h2>
+<p>
+<span class="ModelicaDescription">Determines the indices of all positive sequences</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This function determines the indices of positive sequence of the symmetrical winding with m phases.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"
+>User's guide</a> on symmetrical components and orientation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ind[numberOfSymmetricBaseSystems(m)]</td><td>Number of symmetric base systems</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE indexNonPositiveSequence<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp71f09ab5107fc5besiRMSI.png" alt="Modelica.Electrical.Polyphase.Functions.indexNonPositiveSequence" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Functions.indexNonPositiveSequence"></a><a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions"
+>Modelica.Electrical.Polyphase.Functions</a>.indexNonPositiveSequence</h2>
+<p>
+<span class="ModelicaDescription">Determines the indices of all non positive sequences</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This function determines the indices of non-positive sequence of the symmetrical winding with m phases.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_Polyphase_UsersGuide.html#Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation"
+>User's guide</a> on symmetrical components and orientation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ind[numberOfSymmetricBaseSystems(m)*(integer(m/numberOfSymmetricBaseSystems(m)) - 1)]</td><td>Indices of non positive sequences</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:40 2026.
+</address>
+</body>
+</html>

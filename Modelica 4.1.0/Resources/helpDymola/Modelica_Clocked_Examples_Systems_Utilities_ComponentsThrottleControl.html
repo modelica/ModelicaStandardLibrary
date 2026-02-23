@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Utilities for the engine throttle control example&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ComponentsThrottleControl<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl"></a><a href="Modelica_Clocked_Examples_Systems_Utilities.html#Modelica.Clocked.Examples.Systems.Utilities"
+>Modelica.Clocked.Examples.Systems.Utilities</a>.ComponentsThrottleControl</h2>
+<p>
+<span class="ModelicaDescription">Utilities for the engine throttle control example</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examplesdceeccb7813856c1eBodyS.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.ThrottleBody" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.ThrottleBody"
+>ThrottleBody</a>
+</td>
+<td>Basic throttle body equations</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examples26dd91fbda01a3b3ifoldS.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.IntakeManifold" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.IntakeManifold"
+>IntakeManifold</a>
+</td>
+<td>Dynamics of the intake manifold</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examplesdceeccb7813856c1eBodyS.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.TorqueGeneration" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.TorqueGeneration"
+>TorqueGeneration</a>
+</td>
+<td>Torque generation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examples42e867214471c939ntrolS.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl"
+>SpeedControl</a>
+</td>
+<td>Discrete control of crankshaft speed by throttle actuation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examples2ba68841d9aa5890hargeS.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge"
+>CylinderAirCharge</a>
+</td>
+<td>Integrates the air mass flow into a cylinder. After the charge for one
+   cylinder is complete, resets the mass to 0.</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examples2ba68841d9aa5890hargeS.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.InductionToPowerDelay" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.InductionToPowerDelay"
+>InductionToPowerDelay</a>
+</td>
+<td>Accounts for the induction-to-power stroke lag.</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.Examples76d16745bf4903b1ngineS.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine"
+>Engine</a>
+</td>
+<td>Internal combustion engine.</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThrottleBody<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examplesdceeccb7813856c1eBodyI.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.ThrottleBody" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.ThrottleBody"></a><a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl"
+>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</a>.ThrottleBody</h2>
+<p>
+<span class="ModelicaDescription">Basic throttle body equations</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>P_0</td><td>Atmospheric pressure (bar) [bar]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Theta</td><td>Throttle angle (deg) [deg]</td></tr>
+<tr><td>Pm</td><td>Intake manifold pressure (bar) [bar]</td></tr>
+<tr><td>m_ai_der</td><td>Mass flow rate of air into manifold (g/s) [g/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IntakeManifold<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examples26dd91fbda01a3b3ifoldI.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.IntakeManifold" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.IntakeManifold"></a><a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl"
+>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</a>.IntakeManifold</h2>
+<p>
+<span class="ModelicaDescription">Dynamics of the intake manifold</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RTVmRatio</td><td>RT/V_m</td></tr>
+<tr><td>P_0</td><td>Initial value for P_m, (bar) [bar]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_ai_der</td><td>Mass flow rate of air into manifold (g/s) [g/s]</td></tr>
+<tr><td>N</td><td>Engine speed (rad/sec) [rad/s]</td></tr>
+<tr><td>m_ao_der</td><td>Mass flow rate of air out of manifold (g/s) [g/s]</td></tr>
+<tr><td>P_m</td><td>Intake manifold pressure (bar) [bar]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TorqueGeneration<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examplesdceeccb7813856c1eBodyI.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.TorqueGeneration" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.TorqueGeneration"></a><a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl"
+>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</a>.TorqueGeneration</h2>
+<p>
+<span class="ModelicaDescription">Torque generation</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>AFR</td><td>Air-fuel ratio</td></tr>
+<tr><td>sigma</td><td>Spark advance, BTDC</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_a</td><td>Mass of air charge in cylinder (delayed of 180deg crankshaft rotation) (g) [g]</td></tr>
+<tr><td>N</td><td>Engine speed (rad/sec) [rad/s]</td></tr>
+<tr><td>T_torque_e</td><td>Torque generated by engine [N.m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpeedControl<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examples42e867214471c939ntrolI.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl"></a><a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl"
+>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</a>.SpeedControl</h2>
+<p>
+<span class="ModelicaDescription">Discrete control of crankshaft speed by throttle actuation</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>k_p</td><td>Proportional gain</td></tr>
+<tr><td>k_I</td><td>Integral gain</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>N_des</td><td>Desired speed, (rad/s) [rad/s]</td></tr>
+<tr><td>N</td><td>Measured speed, (rad/s) [rad/s]</td></tr>
+<tr><td>Theta</td><td>Throttle angle (deg) [deg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CylinderAirCharge<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examples2ba68841d9aa5890hargeI.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge"></a><a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl"
+>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</a>.CylinderAirCharge</h2>
+<p>
+<span class="ModelicaDescription">Integrates the air mass flow into a cylinder. After the charge for one
+   cylinder is complete, resets the mass to 0.</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_a</td><td>Mass of an cylinder air charge (g) [g]</td></tr>
+<tr><td>m_ao_der</td><td>Mass flow rate of air out of manifold (g/s) [g/s]</td></tr>
+<tr><td>clock</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InductionToPowerDelay<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examples2ba68841d9aa5890hargeI.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.InductionToPowerDelay" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.InductionToPowerDelay"></a><a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl"
+>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</a>.InductionToPowerDelay</h2>
+<p>
+<span class="ModelicaDescription">Accounts for the induction-to-power stroke lag.</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_a</td><td>Mass of cylinder air charge (g) [g]</td></tr>
+<tr><td>m_a_delayed</td><td>180deg delayed mass of cylinder air charge (g) [g]</td></tr>
+<tr><td>clock</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Engine<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.Examples76d16745bf4903b1ngineI.png" alt="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine"></a><a href="Modelica_Clocked_Examples_Systems_Utilities_ComponentsThrottleControl.html#Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl"
+>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</a>.Engine</h2>
+<p>
+<span class="ModelicaDescription">Internal combustion engine.</span>
+</p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Theta</td><td>Throttle angle (deg) [deg]</td></tr>
+<tr><td>flange_b</td><td>&nbsp;</td></tr>
+<tr><td>synchronize</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:33 2026.
+</address>
+</body>
+</html>

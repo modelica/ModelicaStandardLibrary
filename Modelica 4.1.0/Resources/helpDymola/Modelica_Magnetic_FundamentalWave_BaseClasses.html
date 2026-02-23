@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Magnetic.FundamentalWave.BaseClasses</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Base classes of fundamental wave machines&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BaseClasses<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.FundamentalWave.BaseClasses"></a><a href="Modelica_Magnetic_FundamentalWave.html#Modelica.Magnetic.FundamentalWave"
+>Modelica.Magnetic.FundamentalWave</a>.BaseClasses</h2>
+<p>
+<span class="ModelicaDescription">Base classes of fundamental wave machines</span>
+</p>
+<h3>Information</h3>
+
+<p>This package contains partial models based on interface models and physical equations.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
+>Modelica.Icons.BasesPackage</a> (Icon for packages containing base classes).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundame048855394e2ae79alCageS.png" alt="Modelica.Magnetic.FundamentalWave.BaseClasses.Machine" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_BaseClasses.html#Modelica.Magnetic.FundamentalWave.BaseClasses.Machine"
+>Machine</a>
+</td>
+<td>Base model of machines</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Machine<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundame90a8ddd0d1c82a5cchineI.png" alt="Modelica.Magnetic.FundamentalWave.BaseClasses.Machine" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.BaseClasses.Machine"></a><a href="Modelica_Magnetic_FundamentalWave_BaseClasses.html#Modelica.Magnetic.FundamentalWave.BaseClasses"
+>Modelica.Magnetic.FundamentalWave.BaseClasses</a>.Machine</h2>
+<p>
+<span class="ModelicaDescription">Base model of machines</span>
+</p>
+<h3>Information</h3>
+
+<p>This partial model for induction machines contains elements common in all machine models.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.FundamentalWaveMachine"
+>Modelica.Electrical.Machines.Icons.FundamentalWaveMachine</a>.</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of stator phases</td></tr>
+<tr><td>Jr</td><td>Rotor inertia [kg.m2]</td></tr>
+<tr><td>useSupport</td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td>Js</td><td>Stator inertia [kg.m2]</td></tr>
+<tr><td>useThermalPort</td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td>p</td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td>fsNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>effectiveStatorTurns</td><td>Effective number of stator turns</td></tr>
+<tr><td>powerBalance</td><td>Power balance</td></tr>
+<tr><td>thermalAmbient</td><td>&nbsp;</td></tr>
+<tr><td>thermalPort</td><td>Thermal port of induction machines</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Operational temperatures</td></tr>
+<tr><td>TsOperational</td><td>Operational temperature of stator resistance [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Nominal resistances and inductances</td></tr>
+<tr><td>Rs</td><td>Stator resistance per phase at TRef [Ohm]</td></tr>
+<tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
+<tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
+<tr><td>Lssigma</td><td>Stator stray inductance [H]</td></tr>
+<tr><td>ratioCommonStatorLeakage</td><td>Ratio of common stray inductance / total stray inductance of stator winding</td></tr>
+<tr><td>Lszero</td><td>Stator zero inductance [H]</td></tr>
+<tr><td>L0</td><td>Salient inductance of an unchorded coil</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Losses</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>statorCoreParameters</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td>strayLoadParameters</td><td>Stray load loss parameter record</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Shaft</td></tr>
+<tr><td>support</td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td>plug_sp</td><td>Positive plug of stator</td></tr>
+<tr><td>plug_sn</td><td>Negative plug of stator</td></tr>
+<tr><td>thermalPort</td><td>Thermal port of induction machines</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:42 2026.
+</address>
+</body>
+</html>

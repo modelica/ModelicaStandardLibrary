@@ -1,0 +1,450 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.Discrete</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of discrete input/output blocks with fixed sample period&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Discrete<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.Discrete"></a><a href="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</a>.Discrete</h2>
+<p>
+<span class="ModelicaDescription">Library of discrete input/output blocks with fixed sample period</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains <strong>discrete control blocks</strong>
+with <strong>fixed sample period</strong>.
+Every component of this package is structured in the following way:
+</p>
+<ol>
+<li> A component has <strong>continuous real</strong> input and output signals.</li>
+<li> The <strong>input</strong> signals are <strong>sampled</strong> by the given sample period
+     defined via parameter <strong>samplePeriod</strong>.
+     The first sample instant is defined by parameter <strong>startTime</strong>.</li>
+<li> The <strong>output</strong> signals are computed from the sampled input signals.</li>
+</ol>
+<p>
+A <strong>sampled data system</strong> may consist of components of package <strong>Discrete</strong>
+and of every other purely <strong>algebraic</strong> input/output block, such
+as the components of packages <strong>Modelica.Blocks.Math</strong>,
+<strong>Modelica.Blocks.Nonlinear</strong> or <strong>Modelica.Blocks.Sources</strong>.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Discrete.SamplerS.png" alt="Modelica.Blocks.Discrete.Sampler" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete.Sampler"
+>Sampler</a>
+</td>
+<td>Ideal sampling of continuous signals</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Discrete.ZeroOrderHoldS.png" alt="Modelica.Blocks.Discrete.ZeroOrderHold" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete.ZeroOrderHold"
+>ZeroOrderHold</a>
+</td>
+<td>Zero order hold of a sampled-data system</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Discrete.FirstOrderHoldS.png" alt="Modelica.Blocks.Discrete.FirstOrderHold" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete.FirstOrderHold"
+>FirstOrderHold</a>
+</td>
+<td>First order hold of a sampled-data system</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Discrete.UnitDelayS.png" alt="Modelica.Blocks.Discrete.UnitDelay" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete.UnitDelay"
+>UnitDelay</a>
+</td>
+<td>Unit Delay Block</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Discrete.489a4a605eefaed0ctionS.png" alt="Modelica.Blocks.Discrete.TransferFunction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete.TransferFunction"
+>TransferFunction</a>
+</td>
+<td>Discrete Transfer Function block</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Discrete.StateSpaceS.png" alt="Modelica.Blocks.Discrete.StateSpace" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete.StateSpace"
+>StateSpace</a>
+</td>
+<td>Discrete State Space block</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Discrete.b0c5232e5a034d85mplerS.png" alt="Modelica.Blocks.Discrete.TriggeredSampler" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete.TriggeredSampler"
+>TriggeredSampler</a>
+</td>
+<td>Triggered sampling of continuous signals</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Discrete.b0c5232e5a034d85mplerS.png" alt="Modelica.Blocks.Discrete.TriggeredMax" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete.TriggeredMax"
+>TriggeredMax</a>
+</td>
+<td>Compute maximum, absolute value of continuous signal at trigger instants</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sampler<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Discrete.SamplerI.png" alt="Modelica.Blocks.Discrete.Sampler" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Discrete.Sampler"></a><a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
+>Modelica.Blocks.Discrete</a>.Sampler</h2>
+<p>
+<span class="ModelicaDescription">Ideal sampling of continuous signals</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Samples the continues input signal with a sampling rate defined
+via parameter <strong>samplePeriod</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.DiscreteSISO"
+>Interfaces.DiscreteSISO</a> (Single Input Single Output discrete control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>samplePeriod</td><td>Sample period of component [s]</td></tr>
+<tr><td>startTime</td><td>First sample time instant [s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ZeroOrderHold<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Discrete.ZeroOrderHoldI.png" alt="Modelica.Blocks.Discrete.ZeroOrderHold" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Discrete.ZeroOrderHold"></a><a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
+>Modelica.Blocks.Discrete</a>.ZeroOrderHold</h2>
+<p>
+<span class="ModelicaDescription">Zero order hold of a sampled-data system</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is identical to the sampled input signal at sample
+time instants and holds the output at the value of the last
+sample instant during the sample points.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.DiscreteSISO"
+>Interfaces.DiscreteSISO</a> (Single Input Single Output discrete control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>samplePeriod</td><td>Sample period of component [s]</td></tr>
+<tr><td>startTime</td><td>First sample time instant [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FirstOrderHold<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Discrete.FirstOrderHoldI.png" alt="Modelica.Blocks.Discrete.FirstOrderHold" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Discrete.FirstOrderHold"></a><a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
+>Modelica.Blocks.Discrete</a>.FirstOrderHold</h2>
+<p>
+<span class="ModelicaDescription">First order hold of a sampled-data system</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output signal is the extrapolation through the
+values of the last two sampled input signals.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.DiscreteSISO"
+>Modelica.Blocks.Interfaces.DiscreteSISO</a> (Single Input Single Output discrete control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>samplePeriod</td><td>Sample period of component [s]</td></tr>
+<tr><td>startTime</td><td>First sample time instant [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UnitDelay<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Discrete.UnitDelayI.png" alt="Modelica.Blocks.Discrete.UnitDelay" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Discrete.UnitDelay"></a><a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
+>Modelica.Blocks.Discrete</a>.UnitDelay</h2>
+<p>
+<span class="ModelicaDescription">Unit Delay Block</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block describes a unit delay:
+</p>
+<blockquote><pre>
+     1
+y = --- * u
+     z
+</pre></blockquote>
+<p>
+that is, the output signal y is the input signal u of the
+previous sample instant. Before the second sample instant,
+the output y is identical to parameter yStart.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.DiscreteSISO"
+>Interfaces.DiscreteSISO</a> (Single Input Single Output discrete control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y_start</td><td>Initial value of output signal</td></tr>
+<tr><td>samplePeriod</td><td>Sample period of component [s]</td></tr>
+<tr><td>startTime</td><td>First sample time instant [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TransferFunction<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Discrete.489a4a605eefaed0ctionI.png" alt="Modelica.Blocks.Discrete.TransferFunction" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Discrete.TransferFunction"></a><a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
+>Modelica.Blocks.Discrete</a>.TransferFunction</h2>
+<p>
+<span class="ModelicaDescription">Discrete Transfer Function block</span>
+</p>
+<h3>Information</h3>
+
+<p>The <strong>discrete transfer function</strong> block defines the
+transfer function between the input signal u and the output
+signal y. The numerator has the order nb-1, the denominator
+has the order na-1.</p>
+<blockquote><pre>
+       b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
+y(z) = -------------------------------------------- * u(z)
+       a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
+</pre></blockquote>
+<p>State variables <strong>x</strong> are defined according to
+<strong>controller canonical</strong> form. Initial values of the
+states can be set as start values of <strong>x</strong>.</p>
+<p>Example:</p>
+<blockquote><pre>
+Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
+</pre></blockquote>
+<p>results in the following transfer function:</p>
+<blockquote><pre>
+     2*z + 4
+y = --------- * u
+      z + 3
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.DiscreteSISO"
+>Interfaces.DiscreteSISO</a> (Single Input Single Output discrete control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>b[:]</td><td>Numerator coefficients of transfer function.</td></tr>
+<tr><td>a[:]</td><td>Denominator coefficients of transfer function.</td></tr>
+<tr><td>samplePeriod</td><td>Sample period of component [s]</td></tr>
+<tr><td>startTime</td><td>First sample time instant [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE StateSpace<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Discrete.StateSpaceI.png" alt="Modelica.Blocks.Discrete.StateSpace" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Discrete.StateSpace"></a><a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
+>Modelica.Blocks.Discrete</a>.StateSpace</h2>
+<p>
+<span class="ModelicaDescription">Discrete State Space block</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The <strong>discrete state space</strong> block defines the relation
+between the input u and the output y in state space form:
+</p>
+<blockquote><pre>
+x = A * pre(x) + B * u
+y = C * pre(x) + D * u
+</pre></blockquote>
+<p>
+where pre(x) is the value of the discrete state x at
+the previous sample time instant.
+The input is a vector of length nu, the output is a vector
+of length ny and nx is the number of states. Accordingly
+</p>
+<blockquote><pre>
+A has the dimension: A(nx,nx),
+B has the dimension: B(nx,nu),
+C has the dimension: C(ny,nx),
+D has the dimension: D(ny,nu)
+</pre></blockquote>
+<p>
+Example:
+</p>
+<blockquote><pre>
+parameter: A = [0.12, 2;3, 1.5]
+parameter: B = [2, 7;3, 1]
+parameter: C = [0.1, 2]
+parameter: D = zeros(ny,nu)
+
+results in the following equations:
+  [x[1]]   [0.12  2.00] [pre(x[1])]   [2.0  7.0] [u[1]]
+  [    ] = [          ]*[         ] + [        ]*[    ]
+  [x[2]]   [3.00  1.50] [pre(x[2])]   [0.1  2.0] [u[2]]
+                             [pre(x[1])]            [u[1]]
+       y[1]   = [0.1  2.0] * [         ] + [0  0] * [    ]
+                             [pre(x[2])]            [u[2]]
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.DiscreteMIMO"
+>Interfaces.DiscreteMIMO</a> (Multiple Input Multiple Output discrete control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>Matrix A of state space model</td></tr>
+<tr><td>B[size(A, 1), :]</td><td>Matrix B of state space model</td></tr>
+<tr><td>C[:, size(A, 1)]</td><td>Matrix C of state space model</td></tr>
+<tr><td>D[size(C, 1), size(B, 2)]</td><td>Matrix D of state space model</td></tr>
+<tr><td>samplePeriod</td><td>Sample period of component [s]</td></tr>
+<tr><td>startTime</td><td>First sample time instant [s]</td></tr>
+<tr><td>nin</td><td>Number of inputs</td></tr>
+<tr><td>nout</td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nin]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y[nout]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TriggeredSampler<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Discrete.b0c5232e5a034d85mplerI.png" alt="Modelica.Blocks.Discrete.TriggeredSampler" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Discrete.TriggeredSampler"></a><a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
+>Modelica.Blocks.Discrete</a>.TriggeredSampler</h2>
+<p>
+<span class="ModelicaDescription">Triggered sampling of continuous signals</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Samples the continuous input signal whenever the trigger input
+signal is rising (i.e., trigger changes from <strong>false</strong> to
+<strong>true</strong>) and provides the sampled input signal as output.
+Before the first sampling, the output signal is equal to
+the initial value defined via parameter <strong>y0</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.DiscreteBlock"
+>Modelica.Blocks.Icons.DiscreteBlock</a> (Graphical layout of discrete block component icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y_start</td><td>Initial value of output signal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector with a Real input signal</td></tr>
+<tr><td>y</td><td>Connector with a Real output signal</td></tr>
+<tr><td>trigger</td><td>Trigger input</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TriggeredMax<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Discrete.b0c5232e5a034d85mplerI.png" alt="Modelica.Blocks.Discrete.TriggeredMax" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Discrete.TriggeredMax"></a><a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
+>Modelica.Blocks.Discrete</a>.TriggeredMax</h2>
+<p>
+<span class="ModelicaDescription">Compute maximum, absolute value of continuous signal at trigger instants</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Samples the continuous input signal whenever the trigger input
+signal is rising (i.e., trigger changes from <strong>false</strong> to
+<strong>true</strong>). The maximum, absolute value of the input signal
+at the sampling point is provided as output signal.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.DiscreteBlock"
+>Modelica.Blocks.Icons.DiscreteBlock</a> (Graphical layout of discrete block component icon).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector with a Real input signal</td></tr>
+<tr><td>y</td><td>Connector with a Real output signal</td></tr>
+<tr><td>trigger</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:26 2026.
+</address>
+</body>
+</html>

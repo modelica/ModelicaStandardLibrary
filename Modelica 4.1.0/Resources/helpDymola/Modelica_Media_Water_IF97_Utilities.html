@@ -1,0 +1,3031 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Water.IF97_Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Low level and utility computation for high accuracy water properties according to the IAPWS/IF97 standard&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IF97_Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Water.IF97_Utilities"></a><a href="Modelica_Media_Water.html#Modelica.Media.Water"
+>Modelica.Media.Water</a>.IF97_Utilities</h2>
+<p>
+<span class="ModelicaDescription">Low level and utility computation for high accuracy water properties according to the IAPWS/IF97 standard</span>
+</p>
+<h3>Information</h3>
+
+<h4>Package description</h4>
+<p>
+This package provides high accuracy physical properties for water according
+to the IAPWS/IF97 standard. It has been part of the ThermoFluid Modelica library and been extended,
+reorganized and documented to become part of the Modelica Standard library.
+</p>
+<p>
+An important feature that distinguishes this implementation of the IF97 steam property standard
+is that this implementation has been explicitly designed to work well in dynamic simulations. Computational
+performance has been of high importance. This means that there often exist several ways to get the same result
+from different functions if one of the functions is called often but can be optimized for that purpose.
+</p>
+<p>
+The original documentation of the IAPWS/IF97 steam properties can freely be distributed with computer
+implementations, so for curious minds the complete standard documentation is provided with the Modelica
+properties library. The following documents are included
+(in directory Modelica/Resources/Documentation/Media/Water/IF97documentation):
+</p>
+<ul>
+  <li>
+    <a href="Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a> The standards document for the main part of the IF97.
+  </li>
+  <li>
+    <a href="Resources/Documentation/Media/Water/IF97documentation/Back3.pdf">Back3.pdf</a> The backwards equations for region 3.
+  </li>
+  <li>
+    <a href="Resources/Documentation/Media/Water/IF97documentation/crits.pdf">crits.pdf</a> The critical point data.
+  </li>
+  <li>
+    <a href="Resources/Documentation/Media/Water/IF97documentation/meltsub.pdf">meltsub.pdf</a> The melting- and sublimation line formulation (in IF97_Utilities.BaseIF97.IceBoundaries)
+  </li>
+  <li>
+    <a href="Resources/Documentation/Media/Water/IF97documentation/surf.pdf">surf.pdf</a> The surface tension standard definition
+  </li>
+  <li>
+    <a href="Resources/Documentation/Media/Water/IF97documentation/thcond.pdf">thcond.pdf</a> The thermal conductivity standard definition
+  </li>
+  <li>
+    <a href="Resources/Documentation/Media/Water/IF97documentation/visc.pdf">visc.pdf</a> The viscosity standard definition
+  </li>
+</ul>
+
+<h4>Package contents</h4>
+<ul>
+  <li>
+    Package <strong>BaseIF97</strong> contains the implementation of the IAPWS-IF97 as described in
+    <a href="Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a>. The explicit backwards equations for region 3 from
+    <a href="Resources/Documentation/Media/Water/IF97documentation/Back3.pdf">Back3.pdf</a> are implemented as initial values for an inverse iteration of the exact
+    function in IF97 for the input pairs (p,h) and (p,s).
+    The low-level functions in BaseIF97 are not needed for standard simulation usage,
+    but can be useful for experts and some special purposes.
+  </li>
+  <li>
+    Function <strong>water_ph</strong> returns all properties needed for a dynamic control volume model and properties of general
+    interest using pressure p and specific entropy enthalpy h as dynamic states in the record ThermoProperties_ph.
+  </li>
+  <li>
+    Function <strong>water_ps</strong> returns all properties needed for a dynamic control volume model and properties of general
+    interest using pressure p and specific entropy s as dynamic states in the record ThermoProperties_ps.
+  </li>
+  <li>
+    Function <strong>water_dT</strong> returns all properties needed for a dynamic control volume model and properties of general
+    interest using density d and temperature T as dynamic states in the record ThermoProperties_dT.
+  </li>
+  <li>
+    Function <strong>water_pT</strong> returns all properties needed for a dynamic control volume model and properties of general
+    interest using pressure p and temperature T as dynamic states in the record ThermoProperties_pT. Due to the coupling of
+    pressure and temperature in the two-phase region, this model can obviously
+    only be used for one-phase models or models treating both phases independently.
+  </li>
+  <li>
+    Function <strong>hl_p</strong> computes the liquid specific enthalpy as a function of pressure. For overcritical pressures,
+    the critical specific enthalpy is returned
+  </li>
+  <li>
+    Function <strong>hv_p</strong> computes the vapour specific enthalpy as a function of pressure. For overcritical pressures,
+    the critical specific enthalpy is returned
+  </li>
+  <li>
+    Function <strong>sl_p</strong> computes the liquid specific entropy as a function of pressure. For overcritical pressures,
+    the critical  specific entropy is returned
+  </li>
+  <li>
+    Function <strong>sv_p</strong> computes the vapour  specific entropy as a function of pressure. For overcritical pressures,
+    the critical  specific entropy is returned
+  </li>
+  <li>
+    Function <strong>rhol_T</strong> computes the liquid density as a function of temperature. For overcritical temperatures,
+    the critical density is returned
+  </li>
+  <li>
+    Function <strong>rhol_T</strong> computes the vapour density as a function of temperature. For overcritical temperatures,
+    the critical density is returned
+  </li>
+  <li>
+    Function <strong>dynamicViscosity</strong> computes the dynamic viscosity as a function of density and temperature.
+  </li>
+  <li>
+    Function <strong>thermalConductivity</strong> computes the thermal conductivity as a function of density, temperature and pressure.
+    <strong>Important note</strong>: Obviously only two of the three
+    inputs are really needed, but using three inputs speeds up the computation and the three variables
+    are known in most models anyways. The inputs d,T and p have to be consistent.
+  </li>
+  <li>
+    Function <strong>surfaceTension</strong> computes the surface tension between vapour
+    and liquid water as a function of temperature.
+  </li>
+  <li>
+    Function <strong>isentropicEnthalpy</strong> computes the specific enthalpy h(p,s,phase) in all regions.
+    The phase input is needed due to discontinuous derivatives at the phase boundary.
+  </li>
+  <li>
+    Function <strong>dynamicIsentropicEnthalpy</strong> computes the specific enthalpy h(p,s,,dguess,Tguess,phase) in all regions.
+    The phase input is needed due to discontinuous derivatives at the phase boundary. Tguess and dguess are initial guess
+    values for the density and temperature consistent with p and s. This function should be preferred in
+    dynamic simulations where good guesses are often available.
+  </li>
+</ul>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
+  </li>
+  <li>
+    Code reorganization, enhanced documentation, additional functions:   <em>December, 2002</em>
+    by <a href="https://github.com/hubertus65">Hubertus Tummescheit</a> and moved to Modelica
+    properties library.
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit, previously at<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+</address>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.CommonS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>BaseIF97</a>
+</td>
+<td>Modelica Physical Property Model: the new industrial formulation IAPWS-IF97</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conS.png" alt="Modelica.Media.Water.IF97_Utilities.iter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.iter"
+>iter</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph"
+>waterBaseProp_ph</a>
+</td>
+<td>Intermediate property record for water</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.waterBaseProp_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.waterBaseProp_ps"
+>waterBaseProp_ps</a>
+</td>
+<td>Intermediate property record for water</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rho_props_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rho_props_ps"
+>rho_props_ps</a>
+</td>
+<td>Density as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rho_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rho_ps"
+>rho_ps</a>
+</td>
+<td>Density as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.T_props_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.T_props_ps"
+>T_props_ps</a>
+</td>
+<td>Temperature as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.T_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.T_ps"
+>T_ps</a>
+</td>
+<td>Temperature as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.h_props_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.h_props_ps"
+>h_props_ps</a>
+</td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.h_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.h_ps"
+>h_ps</a>
+</td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.phase_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.phase_ps"
+>phase_ps</a>
+</td>
+<td>Phase as a function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.phase_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.phase_ph"
+>phase_ph</a>
+</td>
+<td>Phase as a function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.phase_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.phase_dT"
+>phase_dT</a>
+</td>
+<td>Phase as a function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rho_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rho_props_ph"
+>rho_props_ph</a>
+</td>
+<td>Density as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rho_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rho_ph"
+>rho_ph</a>
+</td>
+<td>Density as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rho_ph_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rho_ph_der"
+>rho_ph_der</a>
+</td>
+<td>Derivative function of rho_ph</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.T_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.T_props_ph"
+>T_props_ph</a>
+</td>
+<td>Temperature as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.T_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.T_ph"
+>T_ph</a>
+</td>
+<td>Temperature as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.T_ph_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.T_ph_der"
+>T_ph_der</a>
+</td>
+<td>Derivative function of T_ph</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.s_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.s_props_ph"
+>s_props_ph</a>
+</td>
+<td>Specific entropy as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.s_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.s_ph"
+>s_ph</a>
+</td>
+<td>Specific entropy as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.s_ph_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.s_ph_der"
+>s_ph_der</a>
+</td>
+<td>Specific entropy as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cv_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cv_props_ph"
+>cv_props_ph</a>
+</td>
+<td>Specific heat capacity at constant volume as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cv_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cv_ph"
+>cv_ph</a>
+</td>
+<td>Specific heat capacity at constant volume as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.regionAssertReal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.regionAssertReal"
+>regionAssertReal</a>
+</td>
+<td>Assert function for inlining</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cp_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cp_props_ph"
+>cp_props_ph</a>
+</td>
+<td>Specific heat capacity at constant pressure as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cp_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cp_ph"
+>cp_ph</a>
+</td>
+<td>Specific heat capacity at constant pressure as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.beta_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.beta_props_ph"
+>beta_props_ph</a>
+</td>
+<td>Isobaric expansion coefficient as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.beta_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.beta_ph"
+>beta_ph</a>
+</td>
+<td>Isobaric expansion coefficient as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.kappa_props_ph"
+>kappa_props_ph</a>
+</td>
+<td>Isothermal compressibility factor as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.kappa_ph"
+>kappa_ph</a>
+</td>
+<td>Isothermal compressibility factor as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_ph"
+>velocityOfSound_props_ph</a>
+</td>
+<td>Speed of sound as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.velocityOfSound_ph"
+>velocityOfSound_ph</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_ph"
+>isentropicExponent_props_ph</a>
+</td>
+<td>Isentropic exponent as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.isentropicExponent_ph"
+>isentropicExponent_ph</a>
+</td>
+<td>Isentropic exponent as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.ddph_props" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.ddph_props"
+>ddph_props</a>
+</td>
+<td>Density derivative by pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.ddph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.ddph"
+>ddph</a>
+</td>
+<td>Density derivative by pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.ddhp_props" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.ddhp_props"
+>ddhp_props</a>
+</td>
+<td>Density derivative by specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.ddhp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.ddhp"
+>ddhp</a>
+</td>
+<td>Density derivative by specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.waterBaseProp_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.waterBaseProp_pT"
+>waterBaseProp_pT</a>
+</td>
+<td>Intermediate property record for water (p and T preferred states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rho_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rho_props_pT"
+>rho_props_pT</a>
+</td>
+<td>Density as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rho_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rho_pT"
+>rho_pT</a>
+</td>
+<td>Density as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.h_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.h_props_pT"
+>h_props_pT</a>
+</td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.h_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.h_pT"
+>h_pT</a>
+</td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.h_pT_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.h_pT_der"
+>h_pT_der</a>
+</td>
+<td>Derivative function of h_pT</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rho_pT_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rho_pT_der"
+>rho_pT_der</a>
+</td>
+<td>Derivative function of rho_pT</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.s_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.s_props_pT"
+>s_props_pT</a>
+</td>
+<td>Specific entropy as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.s_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.s_pT"
+>s_pT</a>
+</td>
+<td>Temperature as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cv_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cv_props_pT"
+>cv_props_pT</a>
+</td>
+<td>Specific heat capacity at constant volume as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cv_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cv_pT"
+>cv_pT</a>
+</td>
+<td>Specific heat capacity at constant volume as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cp_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cp_props_pT"
+>cp_props_pT</a>
+</td>
+<td>Specific heat capacity at constant pressure as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cp_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cp_pT"
+>cp_pT</a>
+</td>
+<td>Specific heat capacity at constant pressure as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.beta_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.beta_props_pT"
+>beta_props_pT</a>
+</td>
+<td>Isobaric expansion coefficient as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.beta_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.beta_pT"
+>beta_pT</a>
+</td>
+<td>Isobaric expansion coefficient as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.kappa_props_pT"
+>kappa_props_pT</a>
+</td>
+<td>Isothermal compressibility factor as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.kappa_pT"
+>kappa_pT</a>
+</td>
+<td>Isothermal compressibility factor as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_pT"
+>velocityOfSound_props_pT</a>
+</td>
+<td>Speed of sound as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.velocityOfSound_pT"
+>velocityOfSound_pT</a>
+</td>
+<td>Speed of sound as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_pT"
+>isentropicExponent_props_pT</a>
+</td>
+<td>Isentropic exponent as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.isentropicExponent_pT"
+>isentropicExponent_pT</a>
+</td>
+<td>Isentropic exponent as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.waterBaseProp_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.waterBaseProp_dT"
+>waterBaseProp_dT</a>
+</td>
+<td>Intermediate property record for water (d and T preferred states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.h_props_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.h_props_dT"
+>h_props_dT</a>
+</td>
+<td>Specific enthalpy as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.h_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.h_dT"
+>h_dT</a>
+</td>
+<td>Specific enthalpy as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.h_dT_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.h_dT_der"
+>h_dT_der</a>
+</td>
+<td>Derivative function of h_dT</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.p_props_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.p_props_dT"
+>p_props_dT</a>
+</td>
+<td>Pressure as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.p_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.p_dT"
+>p_dT</a>
+</td>
+<td>Pressure as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.p_dT_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.p_dT_der"
+>p_dT_der</a>
+</td>
+<td>Derivative function of p_dT</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.s_props_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.s_props_dT"
+>s_props_dT</a>
+</td>
+<td>Specific entropy as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.s_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.s_dT"
+>s_dT</a>
+</td>
+<td>Temperature as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cv_props_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cv_props_dT"
+>cv_props_dT</a>
+</td>
+<td>Specific heat capacity at constant volume as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cv_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cv_dT"
+>cv_dT</a>
+</td>
+<td>Specific heat capacity at constant volume as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cp_props_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cp_props_dT"
+>cp_props_dT</a>
+</td>
+<td>Specific heat capacity at constant pressure as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.cp_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.cp_dT"
+>cp_dT</a>
+</td>
+<td>Specific heat capacity at constant pressure as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.beta_props_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.beta_props_dT"
+>beta_props_dT</a>
+</td>
+<td>Isobaric expansion coefficient as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.beta_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.beta_dT"
+>beta_dT</a>
+</td>
+<td>Isobaric expansion coefficient as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_props_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.kappa_props_dT"
+>kappa_props_dT</a>
+</td>
+<td>Isothermal compressibility factor as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.kappa_dT"
+>kappa_dT</a>
+</td>
+<td>Isothermal compressibility factor as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_dT"
+>velocityOfSound_props_dT</a>
+</td>
+<td>Speed of sound as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.velocityOfSound_dT"
+>velocityOfSound_dT</a>
+</td>
+<td>Speed of sound as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_dT"
+>isentropicExponent_props_dT</a>
+</td>
+<td>Isentropic exponent as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.isentropicExponent_dT"
+>isentropicExponent_dT</a>
+</td>
+<td>Isentropic exponent as function of density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.hl_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.hl_p"
+>hl_p</a>
+</td>
+<td>Compute the saturated liquid specific h(p)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.hv_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.hv_p"
+>hv_p</a>
+</td>
+<td>Compute the saturated vapour specific h(p)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.sl_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.sl_p"
+>sl_p</a>
+</td>
+<td>Compute the saturated liquid specific s(p)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.sv_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.sv_p"
+>sv_p</a>
+</td>
+<td>Compute the saturated vapour specific s(p)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rhol_T" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rhol_T"
+>rhol_T</a>
+</td>
+<td>Compute the saturated liquid d(T)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rhov_T" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rhov_T"
+>rhov_T</a>
+</td>
+<td>Compute the saturated vapour d(T)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rhol_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rhol_p"
+>rhol_p</a>
+</td>
+<td>Compute the saturated liquid d(p)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.rhov_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.rhov_p"
+>rhov_p</a>
+</td>
+<td>Compute the saturated vapour d(p)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.dynamicViscosity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.dynamicViscosity"
+>dynamicViscosity</a>
+</td>
+<td>Compute eta(d,T) in the one-phase region</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.thermalConductivity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.thermalConductivity"
+>thermalConductivity</a>
+</td>
+<td>Compute lambda(d,T,p) in the one-phase region</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.surfaceTension" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.surfaceTension"
+>surfaceTension</a>
+</td>
+<td>Compute sigma(T) at saturation T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy"
+>isentropicEnthalpy</a>
+</td>
+<td>Isentropic specific enthalpy from p,s (preferably use dynamicIsentropicEnthalpy in dynamic simulation!)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_props" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_props"
+>isentropicEnthalpy_props</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_der"
+>isentropicEnthalpy_der</a>
+</td>
+<td>Derivative of isentropic specific enthalpy from p,s</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarS.png" alt="Modelica.Media.Water.IF97_Utilities.dynamicIsentropicEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.dynamicIsentropicEnthalpy"
+>dynamicIsentropicEnthalpy</a>
+</td>
+<td>Isentropic specific enthalpy from p,s and good guesses of d and T</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE iter<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatiodc92da7b0d699097N_conI.png" alt="Modelica.Media.Water.IF97_Utilities.iter" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.iter"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.iter</h2>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE waterBaseProp_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.waterBaseProp_ph</h2>
+<p>
+<span class="ModelicaDescription">Intermediate property record for water</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>Phase: 2 for two-phase, 1 for one phase, 0 if unknown</td></tr>
+<tr><td>region</td><td>If 0, do region computation, otherwise assume the region is this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE waterBaseProp_ps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.waterBaseProp_ps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.waterBaseProp_ps"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.waterBaseProp_ps</h2>
+<p>
+<span class="ModelicaDescription">Intermediate property record for water</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>phase</td><td>Phase: 2 for two-phase, 1 for one phase, 0 if unknown</td></tr>
+<tr><td>region</td><td>If 0, do region computation, otherwise assume the region is this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_props_ps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rho_props_ps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rho_props_ps"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rho_props_ps</h2>
+<p>
+<span class="ModelicaDescription">Density as function of pressure and specific entropy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>properties</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_ps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rho_ps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rho_ps"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rho_ps</h2>
+<p>
+<span class="ModelicaDescription">Density as function of pressure and specific entropy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE T_props_ps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.T_props_ps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.T_props_ps"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.T_props_ps</h2>
+<p>
+<span class="ModelicaDescription">Temperature as function of pressure and specific entropy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>properties</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE T_ps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.T_ps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.T_ps"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.T_ps</h2>
+<p>
+<span class="ModelicaDescription">Temperature as function of pressure and specific entropy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_props_ps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.h_props_ps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.h_props_ps"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.h_props_ps</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy as function or pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_ps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.h_ps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.h_ps"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.h_ps</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy as function or pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE phase_ps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.phase_ps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.phase_ps"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.phase_ps</h2>
+<p>
+<span class="ModelicaDescription">Phase as a function of pressure and specific entropy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phase</td><td>True if in liquid or gas or supercritical region</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE phase_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.phase_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.phase_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.phase_ph</h2>
+<p>
+<span class="ModelicaDescription">Phase as a function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phase</td><td>True if in liquid or gas or supercritical region</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE phase_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.phase_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.phase_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.phase_dT</h2>
+<p>
+<span class="ModelicaDescription">Phase as a function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phase</td><td>True if in liquid or gas or supercritical region</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rho_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rho_props_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rho_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Density as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>properties</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rho_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rho_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rho_ph</h2>
+<p>
+<span class="ModelicaDescription">Density as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_ph_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rho_ph_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rho_ph_der"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rho_ph_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function of rho_ph</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>properties</td><td>Auxiliary record</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+<tr><td>h_der</td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho_der</td><td>Derivative of density</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE T_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.T_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.T_props_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.T_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Temperature as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>properties</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE T_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.T_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.T_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.T_ph</h2>
+<p>
+<span class="ModelicaDescription">Temperature as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE T_ph_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.T_ph_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.T_ph_der"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.T_ph_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function of T_ph</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>properties</td><td>Auxiliary record</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+<tr><td>h_der</td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T_der</td><td>Derivative of temperature</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.s_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.s_props_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.s_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Specific entropy as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>properties</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.s_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.s_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.s_ph</h2>
+<p>
+<span class="ModelicaDescription">Specific entropy as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_ph_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.s_ph_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.s_ph_der"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.s_ph_der</h2>
+<p>
+<span class="ModelicaDescription">Specific entropy as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>properties</td><td>Auxiliary record</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+<tr><td>h_der</td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s_der</td><td>Derivative of entropy</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cv_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cv_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cv_props_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cv_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant volume as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cv</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cv_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cv_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cv_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cv_ph</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant volume as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cv</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE regionAssertReal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.regionAssertReal" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.regionAssertReal"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.regionAssertReal</h2>
+<p>
+<span class="ModelicaDescription">Assert function for inlining</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>check</td><td>Condition to check</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dummy</td><td>Dummy output</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cp_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cp_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cp_props_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cp_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant pressure as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cp</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cp_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cp_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cp_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cp_ph</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant pressure as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cp</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE beta_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.beta_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.beta_props_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.beta_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Isobaric expansion coefficient as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>beta</td><td>Isobaric expansion coefficient [1/K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE beta_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.beta_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.beta_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.beta_ph</h2>
+<p>
+<span class="ModelicaDescription">Isobaric expansion coefficient as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>beta</td><td>Isobaric expansion coefficient [1/K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kappa_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.kappa_props_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.kappa_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Isothermal compressibility factor as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kappa</td><td>Isothermal compressibility factor [1/Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kappa_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.kappa_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.kappa_ph</h2>
+<p>
+<span class="ModelicaDescription">Isothermal compressibility factor as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kappa</td><td>Isothermal compressibility factor [1/Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE velocityOfSound_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.velocityOfSound_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Speed of sound as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v_sound</td><td>Speed of sound [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE velocityOfSound_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.velocityOfSound_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.velocityOfSound_ph</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v_sound</td><td>Speed of sound [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicExponent_props_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.isentropicExponent_props_ph</h2>
+<p>
+<span class="ModelicaDescription">Isentropic exponent as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gamma</td><td>Isentropic exponent</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicExponent_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.isentropicExponent_ph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.isentropicExponent_ph</h2>
+<p>
+<span class="ModelicaDescription">Isentropic exponent as function of pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gamma</td><td>Isentropic exponent</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ddph_props<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.ddph_props" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.ddph_props"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.ddph_props</h2>
+<p>
+<span class="ModelicaDescription">Density derivative by pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddph</td><td>Density derivative by pressure [s2/m2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ddph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.ddph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.ddph"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.ddph</h2>
+<p>
+<span class="ModelicaDescription">Density derivative by pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddph</td><td>Density derivative by pressure [s2/m2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ddhp_props<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.ddhp_props" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.ddhp_props"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.ddhp_props</h2>
+<p>
+<span class="ModelicaDescription">Density derivative by specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddhp</td><td>Density derivative by specific enthalpy [kg.s2/m5]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ddhp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.ddhp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.ddhp"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.ddhp</h2>
+<p>
+<span class="ModelicaDescription">Density derivative by specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ddhp</td><td>Density derivative by specific enthalpy [kg.s2/m5]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE waterBaseProp_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.waterBaseProp_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.waterBaseProp_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.waterBaseProp_pT</h2>
+<p>
+<span class="ModelicaDescription">Intermediate property record for water (p and T preferred states)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>region</td><td>If 0, do region computation, otherwise assume the region is this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rho_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rho_props_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rho_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Density as function or pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rho_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rho_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rho_pT</h2>
+<p>
+<span class="ModelicaDescription">Density as function or pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.h_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.h_props_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.h_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy as function or pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.h_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.h_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.h_pT</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy as function or pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_pT_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.h_pT_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.h_pT_der"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.h_pT_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function of h_pT</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+<tr><td>T_der</td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h_der</td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_pT_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rho_pT_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rho_pT_der"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rho_pT_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function of rho_pT</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+<tr><td>T_der</td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho_der</td><td>Derivative of density</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.s_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.s_props_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.s_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Specific entropy as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.s_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.s_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.s_pT</h2>
+<p>
+<span class="ModelicaDescription">Temperature as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cv_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cv_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cv_props_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cv_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant volume as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cv</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cv_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cv_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cv_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cv_pT</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant volume as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cv</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cp_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cp_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cp_props_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cp_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant pressure as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cp</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cp_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cp_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cp_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cp_pT</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant pressure as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cp</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE beta_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.beta_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.beta_props_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.beta_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Isobaric expansion coefficient as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>beta</td><td>Isobaric expansion coefficient [1/K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE beta_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.beta_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.beta_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.beta_pT</h2>
+<p>
+<span class="ModelicaDescription">Isobaric expansion coefficient as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>beta</td><td>Isobaric expansion coefficient [1/K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kappa_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.kappa_props_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.kappa_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Isothermal compressibility factor as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kappa</td><td>Isothermal compressibility factor [1/Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kappa_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.kappa_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.kappa_pT</h2>
+<p>
+<span class="ModelicaDescription">Isothermal compressibility factor as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kappa</td><td>Isothermal compressibility factor [1/Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE velocityOfSound_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.velocityOfSound_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Speed of sound as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v_sound</td><td>Speed of sound [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE velocityOfSound_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.velocityOfSound_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.velocityOfSound_pT</h2>
+<p>
+<span class="ModelicaDescription">Speed of sound as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v_sound</td><td>Speed of sound [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicExponent_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.isentropicExponent_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Isentropic exponent as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gamma</td><td>Isentropic exponent</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicExponent_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.isentropicExponent_pT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.isentropicExponent_pT</h2>
+<p>
+<span class="ModelicaDescription">Isentropic exponent as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gamma</td><td>Isentropic exponent</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE waterBaseProp_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.waterBaseProp_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.waterBaseProp_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.waterBaseProp_dT</h2>
+<p>
+<span class="ModelicaDescription">Intermediate property record for water (d and T preferred states)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phase</td><td>Phase: 2 for two-phase, 1 for one phase, 0 if unknown</td></tr>
+<tr><td>region</td><td>If 0, do region computation, otherwise assume the region is this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_props_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.h_props_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.h_props_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.h_props_dT</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.h_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.h_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.h_dT</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_dT_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.h_dT_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.h_dT_der"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.h_dT_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function of h_dT</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+<tr><td>d_der</td><td>Derivative of density</td></tr>
+<tr><td>T_der</td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h_der</td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE p_props_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.p_props_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.p_props_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.p_props_dT</h2>
+<p>
+<span class="ModelicaDescription">Pressure as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE p_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.p_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.p_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.p_dT</h2>
+<p>
+<span class="ModelicaDescription">Pressure as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE p_dT_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.p_dT_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.p_dT_der"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.p_dT_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function of p_dT</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+<tr><td>d_der</td><td>Derivative of density</td></tr>
+<tr><td>T_der</td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_props_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.s_props_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.s_props_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.s_props_dT</h2>
+<p>
+<span class="ModelicaDescription">Specific entropy as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.s_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.s_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.s_dT</h2>
+<p>
+<span class="ModelicaDescription">Temperature as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cv_props_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cv_props_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cv_props_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cv_props_dT</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant volume as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cv</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cv_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cv_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cv_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cv_dT</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant volume as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cv</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cp_props_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cp_props_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cp_props_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cp_props_dT</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant pressure as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cp</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cp_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.cp_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.cp_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.cp_dT</h2>
+<p>
+<span class="ModelicaDescription">Specific heat capacity at constant pressure as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cp</td><td>Specific heat capacity [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE beta_props_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.beta_props_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.beta_props_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.beta_props_dT</h2>
+<p>
+<span class="ModelicaDescription">Isobaric expansion coefficient as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>beta</td><td>Isobaric expansion coefficient [1/K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE beta_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.beta_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.beta_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.beta_dT</h2>
+<p>
+<span class="ModelicaDescription">Isobaric expansion coefficient as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>beta</td><td>Isobaric expansion coefficient [1/K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kappa_props_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_props_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.kappa_props_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.kappa_props_dT</h2>
+<p>
+<span class="ModelicaDescription">Isothermal compressibility factor as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kappa</td><td>Isothermal compressibility factor [1/Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kappa_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.kappa_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.kappa_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.kappa_dT</h2>
+<p>
+<span class="ModelicaDescription">Isothermal compressibility factor as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kappa</td><td>Isothermal compressibility factor [1/Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE velocityOfSound_props_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.velocityOfSound_props_dT</h2>
+<p>
+<span class="ModelicaDescription">Speed of sound as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v_sound</td><td>Speed of sound [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE velocityOfSound_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.velocityOfSound_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.velocityOfSound_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.velocityOfSound_dT</h2>
+<p>
+<span class="ModelicaDescription">Speed of sound as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v_sound</td><td>Speed of sound [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicExponent_props_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.isentropicExponent_props_dT</h2>
+<p>
+<span class="ModelicaDescription">Isentropic exponent as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gamma</td><td>Isentropic exponent</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicExponent_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicExponent_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.isentropicExponent_dT"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.isentropicExponent_dT</h2>
+<p>
+<span class="ModelicaDescription">Isentropic exponent as function of density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gamma</td><td>Isentropic exponent</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hl_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.hl_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.hl_p"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.hl_p</h2>
+<p>
+<span class="ModelicaDescription">Compute the saturated liquid specific h(p)</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hv_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.hv_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.hv_p"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.hv_p</h2>
+<p>
+<span class="ModelicaDescription">Compute the saturated vapour specific h(p)</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sl_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.sl_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.sl_p"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.sl_p</h2>
+<p>
+<span class="ModelicaDescription">Compute the saturated liquid specific s(p)</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sv_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.sv_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.sv_p"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.sv_p</h2>
+<p>
+<span class="ModelicaDescription">Compute the saturated vapour specific s(p)</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhol_T<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rhol_T" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rhol_T"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rhol_T</h2>
+<p>
+<span class="ModelicaDescription">Compute the saturated liquid d(T)</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density of water at the boiling point [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhov_T<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rhov_T" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rhov_T"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rhov_T</h2>
+<p>
+<span class="ModelicaDescription">Compute the saturated vapour d(T)</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density of steam at the condensation point [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhol_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rhol_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rhol_p"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rhol_p</h2>
+<p>
+<span class="ModelicaDescription">Compute the saturated liquid d(p)</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Saturation pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density of steam at the condensation point [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhov_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.rhov_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.rhov_p"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.rhov_p</h2>
+<p>
+<span class="ModelicaDescription">Compute the saturated vapour d(p)</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Saturation pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density of steam at the condensation point [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dynamicViscosity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.dynamicViscosity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.dynamicViscosity"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.dynamicViscosity</h2>
+<p>
+<span class="ModelicaDescription">Compute eta(d,T) in the one-phase region</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>p</td><td>Pressure (only needed for region of validity) [Pa]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known (unused)</td></tr>
+<tr><td>checkLimits</td><td>Check if inputs d,T,P are in region of validity</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>eta</td><td>Dynamic viscosity [Pa.s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE thermalConductivity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.thermalConductivity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.thermalConductivity"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.thermalConductivity</h2>
+<p>
+<span class="ModelicaDescription">Compute lambda(d,T,p) in the one-phase region</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>industrialMethod</td><td>If true, the industrial method is used, otherwise the scientific one</td></tr>
+<tr><td>checkLimits</td><td>Check if inputs d,T,P are in region of validity</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>lambda</td><td>Thermal conductivity [W/(m.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE surfaceTension<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.surfaceTension" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.surfaceTension"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.surfaceTension</h2>
+<p>
+<span class="ModelicaDescription">Compute sigma(T) at saturation T</span>
+</p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sigma</td><td>Surface tension in SI units [N/m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.isentropicEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Isentropic specific enthalpy from p,s (preferably use dynamicIsentropicEnthalpy in dynamic simulation!)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicEnthalpy_props<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_props" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_props"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.isentropicEnthalpy_props</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Isentropic enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isentropicEnthalpy_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_der"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.isentropicEnthalpy_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative of isentropic specific enthalpy from p,s</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+<tr><td>p_der</td><td>Pressure derivative</td></tr>
+<tr><td>s_der</td><td>Entropy derivative</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h_der</td><td>Specific enthalpy derivative</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dynamicIsentropicEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio25572ec0cb74f301minarI.png" alt="Modelica.Media.Water.IF97_Utilities.dynamicIsentropicEnthalpy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.dynamicIsentropicEnthalpy"></a><a href="Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities"
+>Modelica.Media.Water.IF97_Utilities</a>.dynamicIsentropicEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Isentropic specific enthalpy from p,s and good guesses of d and T</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>dguess</td><td>Good guess density, e.g., from adjacent volume [kg/m3]</td></tr>
+<tr><td>Tguess</td><td>Good guess temperature, e.g., from adjacent volume [K]</td></tr>
+<tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:51 2026.
+</address>
+</body>
+</html>

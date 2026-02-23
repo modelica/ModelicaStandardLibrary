@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library for technical 3phase transformers&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Transformers<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers"></a><a href="Modelica_Electrical_QuasiStatic_Machines_BasicMachines.html#Modelica.Electrical.QuasiStatic.Machines.BasicMachines"
+>Modelica.Electrical.QuasiStatic.Machines.BasicMachines</a>.Transformers</h2>
+<p>
+<span class="ModelicaDescription">Library for technical 3phase transformers</span>
+</p>
+<h3>Information</h3>
+
+This package contains components to model technical three-phase transformers:
+<ul>
+<li>Transformer: transformer model to choose connection / vector group</li>
+<li>Yy: Transformers with primary Y / secondary y</li>
+<li>Yd: Transformers with primary Y / secondary d</li>
+<li>Yz: Transformers with primary Y / secondary zig-zag</li>
+<li>Dy: Transformers with primary D / secondary y</li>
+<li>Dd: Transformers with primary D / secondary d</li>
+<li>Dz: Transformers with primary D / secondary zig-zag</li>
+</ul>
+<p>
+Transformers are modeled by an ideal transformer, adding primary and secondary winding resistances and stray inductances.<br>
+All transformers extend from the base model <em>PartialTransformer</em>, adding the primary and secondary connection.<br>
+<strong>VectorGroup</strong> defines the phase shift between primary and secondary voltages, expressed by a number phase shift/30 degree
+(i.e., the hour on a clock face). Therefore each transformer is identified by two characters and a two-digit number,
+e.g., Yd11 ... primary connection Y (star), secondary connection d (delta), vector group 11 (phase shift 330 degree)<br>
+With the "supermodel" <em>Transformer</em> the user may choose primary and secondary connection as well as the vector group.<br>
+It calculates winding ratio as well as primary and secondary winding resistances and stray inductances,
+distributing them equally to primary and secondary winding, from the following parameters:
+</p>
+<ul>
+<li>nominal frequency</li>
+<li>primary voltage (RMS line-to-line)</li>
+<li>secondary voltage (RMS line-to-line)</li>
+<li>nominal apparent power</li>
+<li>impedance voltage drop</li>
+<li>short-circuit copper losses</li>
+</ul>
+The <strong>impedance voltage drop</strong> indicates the (absolute value of the) voltage drop at nominal load (current) as well as
+the voltage we have to apply to the primary winding to achieve nominal current in the short-circuited secondary winding.
+<p>
+<strong>Please pay attention</strong> to proper grounding of the primary and secondary part of the whole circuit.<br>
+The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
+<strong>In some cases (Yy or Yz) it may be necessary to ground one of the transformer's starpoints
+even though the source's and/or load's starpoint are grounded; you may use a reasonable high earthing resistance.</strong>
+</p>
+<strong>Limitations and assumptions:</strong><br>
+<ul>
+<li>number of phases is limited to 3, therefore definition as a constant m=3</li>
+<li>symmetry of the three phases resp. limbs</li>
+<li>saturation is neglected, i.e., inductances are constant</li>
+<li>magnetizing current is neglected</li>
+<li>magnetizing losses are neglected</li>
+<li>additional (stray) losses are neglected</li>
+</ul>
+<strong>Further development:</strong>
+<ul>
+<li>modeling magnetizing current, including saturation</li>
+<li>temperature dependency of winding resistances</li>
+</ul>
+<dl>
+  <dt><strong>Main Authors:</strong></dt>
+  <dd>
+  <a href="https://www.haumer.at/">Anton Haumer</a><br>
+  Technical Consulting &amp; Electrical Engineering<br>
+  D-93049 Regensburg<br>Germany<br>
+  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+  </dd>
+</dl>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3398fd1d444ec6c8rs.YyS.png" alt="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Machines_BasicMachines_Transformers_Yy.html#Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy"
+>Yy</a>
+</td>
+<td>Transformers: primary Y / secondary y</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3398fd1d444ec6c8rs.YyS.png" alt="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Machines_BasicMachines_Transformers_Yd.html#Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd"
+>Yd</a>
+</td>
+<td>Transformers: primary Y / secondary d</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3398fd1d444ec6c8rs.YyS.png" alt="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Machines_BasicMachines_Transformers_Yz.html#Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz"
+>Yz</a>
+</td>
+<td>Transformers: primary Y / secondary zig-zag</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3398fd1d444ec6c8rs.YyS.png" alt="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Machines_BasicMachines_Transformers_Dy.html#Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy"
+>Dy</a>
+</td>
+<td>Transformers: primary D / secondary y</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3398fd1d444ec6c8rs.YyS.png" alt="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dd" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Machines_BasicMachines_Transformers_Dd.html#Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dd"
+>Dd</a>
+</td>
+<td>Transformers: primary D / secondary d</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3398fd1d444ec6c8rs.YyS.png" alt="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Machines_BasicMachines_Transformers_Dz.html#Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz"
+>Dz</a>
+</td>
+<td>Transformers: primary D / secondary zig-zag</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:41 2026.
+</address>
+</body>
+</html>

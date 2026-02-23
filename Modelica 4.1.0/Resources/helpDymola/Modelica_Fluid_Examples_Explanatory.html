@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Examples.Explanatory</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;A set of examples illustrating when special attention has to be paid&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Explanatory<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Examples.Explanatory"></a><a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</a>.Explanatory</h2>
+<p>
+<span class="ModelicaDescription">A set of examples illustrating when special attention has to be paid</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.PumpingSystemS.png" alt="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory.MeasuringTemperature"
+>MeasuringTemperature</a>
+</td>
+<td>Differences between using one port with and without explicit junction model and two port sensors for fluid temperature measuring</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.PumpingSystemS.png" alt="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings"
+>MomentumBalanceFittings</a>
+</td>
+<td>Illustrating a case in which kinetic terms play a major role in the momentum balance</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MeasuringTemperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.PumpingSystemI.png" alt="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature"></a><a href="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory"
+>Modelica.Fluid.Examples.Explanatory</a>.MeasuringTemperature</h2>
+<p>
+<span class="ModelicaDescription">Differences between using one port with and without explicit junction model and two port sensors for fluid temperature measuring</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model demonstrates the differences that occur when using
+one- and two-port temperature sensors with and without explicit junction models.
+As shown in the next figure, the same system is shown in 3 different variations.
+In all cases exactly the same fluid system is defined. The only difference is
+how the temperature is measured:
+</p>
+
+<blockquote>
+<img src="Resources/Images/Fluid/Examples/Explanatory/MeasuringTemperature1.png"
+     alt="MeasuringTemperature1.png">
+</blockquote>
+
+<p>
+A pre-defined mass flow rate is present so that fluid flows from the reservoir to the
+tanks and after 0.5 s the mass flows from the tanks to the reservoir.
+The reservoir has a temperature of 50<sup>0</sup>C whereas the tanks have an
+initial temperature of 20<sup>0</sup>C and of 80<sup>0</sup>C. The initial height of the
+tanks is made in such a form that fluid always flows out of the cold tank.
+When the fluid flows from the reservoir to the tanks, then it mixes with the
+cold tank and enters the hot tank.
+When the fluid flow from the tanks to the reservoir, then the cold and hot water
+from the two tanks first mixes and the flows to the reservoir.
+</p>
+
+<p>
+A one-port sensor measures the <em>mixing</em> temperature at a connection point.
+Therefore T_onePort.T (the blue curve in the figure below) is the
+temperature of the mixing point.
+A two-port sensor measures the temperature at the <em>upstream</em> side.
+Therefore T_twoPort.T (the red curve in the figure below which is identical
+to the green curve) shows first the temperature of the reservoir and then
+the mixing temperature when fluid flows from the tanks to the reservoir.
+The same is measured with T_junction.T (the green curve below), because
+the one-port sensor is connected between the mass flow source and the junction
+and since the mixing takes place in the junction, the same situation is
+present as for T_twoPort.T.
+</p>
+
+<blockquote>
+<img src="Resources/Images/Fluid/Examples/Explanatory/MeasuringTemperature2.png"
+     alt="MeasuringTemperature2.png">
+</blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MomentumBalanceFittings<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.PumpingSystemI.png" alt="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings"></a><a href="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory"
+>Modelica.Fluid.Examples.Explanatory</a>.MomentumBalanceFittings</h2>
+<p>
+<span class="ModelicaDescription">Illustrating a case in which kinetic terms play a major role in the momentum balance</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This example shows the use of a sudden expansion / contraction model, which is connected to two boundary conditions prescribing static pressure. Notice that the prescribed static pressure on the right boundary is higher than on the left one. Still, the fluid flows from left to right.
+</p>
+<p>
+The reason for this is that the boundary conditions model infinite reservoirs with an infinite diameter and thus zero flow velocity. The sudden expansion model does however have two ends with finite diameters, and, as explained in the <a href="Modelica_Fluid_UsersGuide.html#Modelica.Fluid.UsersGuide.Overview"
+>Overview</a> of the Users' Guide, the momentum balance is not fulfilled exactly for this type of connections. Using a simple <code>connect()</code>-statement, the difference of the kinetic terms is neglected, which is not reasonable in the present model: At the left boundary condition it is zero, and on the left side of the sudden expansion it has a non-zero value. It is not reasonable to neglect it in the shown model, because there is little friction and therefore these kinetic effects dominate. Consequently, only modelling these effects explicitly leads to the correct results.
+</p>
+<p>
+To do so, two additional sudden expansions / contractions are included in the model. The diameter is set to a large value (<code>1e60</code>) close to the boundaries and the proper values close to the original model. These additional components now introduce <em>exact</em> momentum balances and the results are as expected.
+</p>
+<p>
+The total pressures offer an additional perspective on the model. After setting the parameter <code>show_totalPressures</code> on the Advanced tab of the <code>AbruptAdaptor</code>s to <code>true</code>, the total pressures are included in said models and may be plotted. This allows to confirm that the <strong>total</strong> pressure <em>always</em> reduces along the flow direction, even in the upper model.
+</p>
+
+<img src="Resources/Images/Fluid/Examples/Explanatory/MomentumBalanceFittings.png" border="1"
+     alt="MomentumBalanceFittings.png">
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:44 2026.
+</address>
+</body>
+</html>

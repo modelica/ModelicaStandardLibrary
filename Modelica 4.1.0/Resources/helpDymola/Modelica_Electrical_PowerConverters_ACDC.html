@@ -1,0 +1,785 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.PowerConverters.ACDC</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;AC to DC converters&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ACDC<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.PowerConverters.ACDC"></a><a href="Modelica_Electrical_PowerConverters.html#Modelica.Electrical.PowerConverters"
+>Modelica.Electrical.PowerConverters</a>.ACDC</h2>
+<p>
+<span class="ModelicaDescription">AC to DC converters</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.PowerConverters.ACDCS.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>Control</a>
+</td>
+<td>Control components for rectifiers</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powerb528815a795dbb4ePulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2Pulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2Pulse"
+>DiodeBridge2Pulse</a>
+</td>
+<td>Two pulse Graetz diode rectifier bridge</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powerc15a7aebdc9677c1PulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2Pulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2Pulse"
+>ThyristorBridge2Pulse</a>
+</td>
+<td>Two pulse Graetz thyristor rectifier bridge</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powercef410326fbb073bPulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2Pulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2Pulse"
+>HalfControlledBridge2Pulse</a>
+</td>
+<td>Two pulse Graetz half controlled rectifier bridge</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powerd75436535b9a054cPulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2Pulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2Pulse"
+>DiodeCenterTap2Pulse</a>
+</td>
+<td>Two pulse diode rectifier with center tap</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power66e8ee1ebdd3d849PulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2Pulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2Pulse"
+>ThyristorCenterTap2Pulse</a>
+</td>
+<td>Two pulse thyristor rectifier with center tap</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powerced199d4e59a054cPulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTapmPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTapmPulse"
+>DiodeCenterTapmPulse</a>
+</td>
+<td>m pulse diode rectifier with center tap</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power5e66519f03d3d849PulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTapmPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTapmPulse"
+>ThyristorCenterTapmPulse</a>
+</td>
+<td>m pulse thyristor rectifier with center tap</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powera96e502353eb97eaPulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse"
+>DiodeBridge2mPulse</a>
+</td>
+<td>2*m pulse diode rectifier bridge</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powere7010556e292069ePulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2mPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2mPulse"
+>ThyristorBridge2mPulse</a>
+</td>
+<td>2*m pulse thyristor rectifier bridge</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powerdc9868ab8f4c19c8PulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2mPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2mPulse"
+>HalfControlledBridge2mPulse</a>
+</td>
+<td>2*m pulse half controlled rectifier bridge</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powerd75436535b9a054cPulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2mPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2mPulse"
+>DiodeCenterTap2mPulse</a>
+</td>
+<td>2*m pulse diode rectifier with center tap</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power66e8ee1ebdd3d849PulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2mPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2mPulse"
+>ThyristorCenterTap2mPulse</a>
+</td>
+<td>2*m pulse thyristor rectifier with center tap</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeBridge2Pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powerb528815a795dbb4ePulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2Pulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2Pulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.DiodeBridge2Pulse</h2>
+<p>
+<span class="ModelicaDescription">Two pulse Graetz diode rectifier bridge</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>
+This is a two pulse Graetz diode rectifier bridge. The circuit topology is the same as in
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"
+>Examples.ACDC.RectifierCenterTap2Pulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin"
+>PowerConverters.Interfaces.ACDC.ACtwoPin</a> (Positive and negative AC pin), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin"
+>PowerConverters.Interfaces.ACDC.DCtwoPin</a> (Positive and negative DC pins), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RonDiode</td><td>Closed diode resistance [Ohm]</td></tr>
+<tr><td>GoffDiode</td><td>Opened diode conductance [S]</td></tr>
+<tr><td>VkneeDiode</td><td>Diode forward threshold voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac_p</td><td>Positive AC input</td></tr>
+<tr><td>ac_n</td><td>Negative AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>dc_n</td><td>Negative DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorBridge2Pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powerc15a7aebdc9677c1PulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2Pulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2Pulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.ThyristorBridge2Pulse</h2>
+<p>
+<span class="ModelicaDescription">Two pulse Graetz thyristor rectifier bridge</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>
+This is a two pulse Graetz thyristor rectifier bridge. The firing signal <code>fire_p</code> are connected
+with thyristor <code>thyristor_p1</code> and <code>thyristor_n2</code>.
+The firing signal <code>fire_n</code> are connected
+with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See example
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"
+>Examples.ACDC.RectifierCenterTap2Pulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin"
+>PowerConverters.Interfaces.ACDC.ACtwoPin</a> (Positive and negative AC pin), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin"
+>PowerConverters.Interfaces.ACDC.DCtwoPin</a> (Positive and negative DC pins), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network), <a href="Modelica_Electrical_PowerConverters_Interfaces_Enable.html#Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2"
+>Interfaces.Enable.Enable2</a> (Partial model providing enable parameter and optional enable input for two firing signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RonThyristor</td><td>Closed thyristor resistance [Ohm]</td></tr>
+<tr><td>GoffThyristor</td><td>Opened thyristor conductance [S]</td></tr>
+<tr><td>VkneeThyristor</td><td>Thyristor forward threshold voltage [V]</td></tr>
+<tr><td>offStart_p1</td><td>Boolean start value of variable thyristor_p1.off</td></tr>
+<tr><td>offStart_p2</td><td>Boolean start value of variable thyristor_p2.off</td></tr>
+<tr><td>offStart_n1</td><td>Boolean start value of variable thyristor_n1.off</td></tr>
+<tr><td>offStart_n2</td><td>Boolean start value of variable thyristor_n2.off</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Enable</td></tr>
+<tr><td>useConstantEnable</td><td>Disable boolean input and use constantEnable, if true</td></tr>
+<tr><td>constantEnable</td><td>Constant enabling of firing signals</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac_p</td><td>Positive AC input</td></tr>
+<tr><td>ac_n</td><td>Negative AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>dc_n</td><td>Negative DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>enable</td><td>Enables fire and notFire</td></tr>
+<tr><td>fire_p</td><td>Firing signal of positive potential transistor</td></tr>
+<tr><td>fire_n</td><td>Firing signal of negative potential transistor</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HalfControlledBridge2Pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powercef410326fbb073bPulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2Pulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2Pulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.HalfControlledBridge2Pulse</h2>
+<p>
+<span class="ModelicaDescription">Two pulse Graetz half controlled rectifier bridge</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>
+This is a two pulse Graetz half controlled rectifier bridge. The firing signal <code>fire_p</code> is connected
+with thyristor <code>thyristor_p1</code>.
+The firing signal <code>fire_n</code> is connected
+with thyristor <code>thyristor_p2</code>.
+The circuit topology is the same as in
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"
+>Examples.ACDC.RectifierCenterTap2Pulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin"
+>PowerConverters.Interfaces.ACDC.ACtwoPin</a> (Positive and negative AC pin), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin"
+>PowerConverters.Interfaces.ACDC.DCtwoPin</a> (Positive and negative DC pins), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network), <a href="Modelica_Electrical_PowerConverters_Interfaces_Enable.html#Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2"
+>Interfaces.Enable.Enable2</a> (Partial model providing enable parameter and optional enable input for two firing signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RonDiode</td><td>Closed diode resistance [Ohm]</td></tr>
+<tr><td>GoffDiode</td><td>Opened diode conductance [S]</td></tr>
+<tr><td>VkneeDiode</td><td>Diode forward threshold voltage [V]</td></tr>
+<tr><td>RonThyristor</td><td>Closed thyristor resistance [Ohm]</td></tr>
+<tr><td>GoffThyristor</td><td>Opened thyristor conductance [S]</td></tr>
+<tr><td>VkneeThyristor</td><td>Thyristor forward threshold voltage [V]</td></tr>
+<tr><td>offStart_p1</td><td>Boolean start value of variable thyristor_p1.off</td></tr>
+<tr><td>offStart_p2</td><td>Boolean start value of variable thyristor_p2.off</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Enable</td></tr>
+<tr><td>useConstantEnable</td><td>Disable boolean input and use constantEnable, if true</td></tr>
+<tr><td>constantEnable</td><td>Constant enabling of firing signals</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac_p</td><td>Positive AC input</td></tr>
+<tr><td>ac_n</td><td>Negative AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>dc_n</td><td>Negative DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>enable</td><td>Enables fire and notFire</td></tr>
+<tr><td>fire_p</td><td>Firing signal of positive potential transistor</td></tr>
+<tr><td>fire_n</td><td>Firing signal of negative potential transistor</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeCenterTap2Pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powerd75436535b9a054cPulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2Pulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2Pulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.DiodeCenterTap2Pulse</h2>
+<p>
+<span class="ModelicaDescription">Two pulse diode rectifier with center tap</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>
+This is a two pulse diode rectifier with center tap. In order to operate this rectifier a voltage with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"
+>Examples.ACDC.RectifierCenterTap2Pulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin"
+>PowerConverters.Interfaces.ACDC.ACtwoPin</a> (Positive and negative AC pin), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin"
+>PowerConverters.Interfaces.ACDC.DCpin</a> (Single DC pin), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RonDiode</td><td>Closed diode resistance [Ohm]</td></tr>
+<tr><td>GoffDiode</td><td>Opened diode conductance [S]</td></tr>
+<tr><td>VkneeDiode</td><td>Diode forward threshold voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac_p</td><td>Positive AC input</td></tr>
+<tr><td>ac_n</td><td>Negative AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorCenterTap2Pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power66e8ee1ebdd3d849PulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2Pulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2Pulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.ThyristorCenterTap2Pulse</h2>
+<p>
+<span class="ModelicaDescription">Two pulse thyristor rectifier with center tap</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>This a two pulse thyristor rectifier with center tap. In order to operate this rectifier a voltage with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2Pulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse"
+>Examples.ACDC.RectifierCenterTap2Pulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin"
+>PowerConverters.Interfaces.ACDC.ACtwoPin</a> (Positive and negative AC pin), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin"
+>PowerConverters.Interfaces.ACDC.DCpin</a> (Single DC pin), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network), <a href="Modelica_Electrical_PowerConverters_Interfaces_Enable.html#Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2"
+>Interfaces.Enable.Enable2</a> (Partial model providing enable parameter and optional enable input for two firing signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RonThyristor</td><td>Closed thyristor resistance [Ohm]</td></tr>
+<tr><td>GoffThyristor</td><td>Opened thyristor conductance [S]</td></tr>
+<tr><td>VkneeThyristor</td><td>Thyristor forward threshold voltage [V]</td></tr>
+<tr><td>offStart_p</td><td>Boolean start value of variable thyristor_p.off</td></tr>
+<tr><td>offStart_n</td><td>Boolean start value of variable thyristor_n.off</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Enable</td></tr>
+<tr><td>useConstantEnable</td><td>Disable boolean input and use constantEnable, if true</td></tr>
+<tr><td>constantEnable</td><td>Constant enabling of firing signals</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac_p</td><td>Positive AC input</td></tr>
+<tr><td>ac_n</td><td>Negative AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>enable</td><td>Enables fire and notFire</td></tr>
+<tr><td>fire_p</td><td>Firing signal of positive potential transistor</td></tr>
+<tr><td>fire_n</td><td>Firing signal of negative potential transistor</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeCenterTapmPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powerced199d4e59a054cPulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTapmPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTapmPulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.DiodeCenterTapmPulse</h2>
+<p>
+<span class="ModelicaDescription">m pulse diode rectifier with center tap</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>.
+</p>
+
+<p>
+This is a m pulse diode rectifier with center tap. All voltage sources must have one interconnected plug (tap). This rectifiers works only with odd number of phases due the symmetry constrains of even phase numbers implemented in
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a>.
+The circuit topology is the same as in
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTapmPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse"
+>Examples.ACDC.RectifierCenterTapmPulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug"
+>PowerConverters.Interfaces.ACDC.ACplug</a> (AC polyphase plug), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin"
+>PowerConverters.Interfaces.ACDC.DCpin</a> (Single DC pin), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>RonDiode</td><td>Closed diode resistance [Ohm]</td></tr>
+<tr><td>GoffDiode</td><td>Opened diode conductance [S]</td></tr>
+<tr><td>VkneeDiode</td><td>Diode forward threshold voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac</td><td>AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorCenterTapmPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power5e66519f03d3d849PulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTapmPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTapmPulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.ThyristorCenterTapmPulse</h2>
+<p>
+<span class="ModelicaDescription">m pulse thyristor rectifier with center tap</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>
+This is a m pulse thyristor rectifier with center tap. All voltage sources must have one interconnected plug (tap). This rectifiers works only with odd number of phases due the symmetry constrains of even phase numbers implemented in
+<a href="Modelica_Electrical_Polyphase_Functions.html#Modelica.Electrical.Polyphase.Functions.symmetricOrientation"
+>symmetricOrientation</a>.
+See example
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTapmPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse"
+>Examples.ACDC.RectifierCenterTapmPulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug"
+>PowerConverters.Interfaces.ACDC.ACplug</a> (AC polyphase plug), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin"
+>PowerConverters.Interfaces.ACDC.DCpin</a> (Single DC pin), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network), <a href="Modelica_Electrical_PowerConverters_Interfaces_Enable.html#Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1m"
+>Interfaces.Enable.Enable1m</a> (Partial model providing enable parameter and optional enable input for m firing signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RonThyristor</td><td>Closed thyristor resistance [Ohm]</td></tr>
+<tr><td>GoffThyristor</td><td>Opened thyristor conductance [S]</td></tr>
+<tr><td>VkneeThyristor</td><td>Thyristor forward threshold voltage [V]</td></tr>
+<tr><td>offStart[m]</td><td>Boolean start value of variable thyristor_p[:].off</td></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Enable</td></tr>
+<tr><td>useConstantEnable</td><td>Disable boolean input and use constantEnable, if true</td></tr>
+<tr><td>constantEnable</td><td>Constant enabling of firing signals</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac</td><td>AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>fire_p[m]</td><td>Firing signals of positive potential transistors</td></tr>
+<tr><td>enable</td><td>Enables fire and notFire</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeBridge2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powera96e502353eb97eaPulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.DiodeBridge2mPulse</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse diode rectifier bridge</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>
+This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"
+>Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for polyphase circuits with even phase numbers greater than three the
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiStarResistance"
+>MultiStarResistance</a> shall be used for grounding the voltage sources.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug"
+>PowerConverters.Interfaces.ACDC.ACplug</a> (AC polyphase plug), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin"
+>PowerConverters.Interfaces.ACDC.DCtwoPin</a> (Positive and negative DC pins), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>RonDiode</td><td>Closed diode resistance [Ohm]</td></tr>
+<tr><td>GoffDiode</td><td>Opened diode conductance [S]</td></tr>
+<tr><td>VkneeDiode</td><td>Diode forward threshold voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac</td><td>AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>dc_n</td><td>Negative DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorBridge2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powere7010556e292069ePulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2mPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2mPulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.ThyristorBridge2mPulse</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse thyristor rectifier bridge</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>
+This is a 2*m pulse thyristor rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. It is important to note that for polyphase circuits with phase even phase numbers greater than three the
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiStarResistance"
+>MultiStarResistance</a> shall be used for grounding the voltage sources.
+See example
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"
+>Examples.ACDC.RectifierBridge2mPulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug"
+>PowerConverters.Interfaces.ACDC.ACplug</a> (AC polyphase plug), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin"
+>PowerConverters.Interfaces.ACDC.DCtwoPin</a> (Positive and negative DC pins), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network), <a href="Modelica_Electrical_PowerConverters_Interfaces_Enable.html#Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2m"
+>Interfaces.Enable.Enable2m</a> (Partial model providing enable parameter and optional enable input for 2*m firing signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RonThyristor</td><td>Closed thyristor resistance [Ohm]</td></tr>
+<tr><td>GoffThyristor</td><td>Opened thyristor conductance [S]</td></tr>
+<tr><td>VkneeThyristor</td><td>Thyristor forward threshold voltage [V]</td></tr>
+<tr><td>offStart_p[m]</td><td>Boolean start value of variable thyristor_p[:].off</td></tr>
+<tr><td>offStart_n[m]</td><td>Boolean start value of variable thyristor_n[:].off</td></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Enable</td></tr>
+<tr><td>useConstantEnable</td><td>Disable boolean input and use constantEnable, if true</td></tr>
+<tr><td>constantEnable</td><td>Constant enabling of firing signals</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac</td><td>AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>dc_n</td><td>Negative DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>fire_p[m]</td><td>Firing signals of positive potential transistors</td></tr>
+<tr><td>enable</td><td>Enables fire and notFire</td></tr>
+<tr><td>fire_n[m]</td><td>Firing signals of negative potential transistors</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HalfControlledBridge2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powerdc9868ab8f4c19c8PulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2mPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2mPulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.HalfControlledBridge2mPulse</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse half controlled rectifier bridge</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>
+This is a 2*m pulse half controlled rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierBridge2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse"
+>Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for polyphase circuits with even phase numbers greater than three the
+<a href="Modelica_Electrical_Polyphase_Basic.html#Modelica.Electrical.Polyphase.Basic.MultiStarResistance"
+>MultiStarResistance</a> shall be used for grounding the voltage sources.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug"
+>PowerConverters.Interfaces.ACDC.ACplug</a> (AC polyphase plug), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin"
+>PowerConverters.Interfaces.ACDC.DCtwoPin</a> (Positive and negative DC pins), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network), <a href="Modelica_Electrical_PowerConverters_Interfaces_Enable.html#Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1m"
+>Interfaces.Enable.Enable1m</a> (Partial model providing enable parameter and optional enable input for m firing signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RonDiode</td><td>Closed diode resistance [Ohm]</td></tr>
+<tr><td>GoffDiode</td><td>Opened diode conductance [S]</td></tr>
+<tr><td>VkneeDiode</td><td>Diode forward threshold voltage [V]</td></tr>
+<tr><td>RonThyristor</td><td>Closed thyristor resistance [Ohm]</td></tr>
+<tr><td>GoffThyristor</td><td>Opened thyristor conductance [S]</td></tr>
+<tr><td>VkneeThyristor</td><td>Thyristor forward threshold voltage [V]</td></tr>
+<tr><td>offStart_p[m]</td><td>Boolean start value of variable thyristor_p[:].off</td></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Enable</td></tr>
+<tr><td>useConstantEnable</td><td>Disable boolean input and use constantEnable, if true</td></tr>
+<tr><td>constantEnable</td><td>Constant enabling of firing signals</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac</td><td>AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>dc_n</td><td>Negative DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>fire_p[m]</td><td>Firing signals of positive potential transistors</td></tr>
+<tr><td>enable</td><td>Enables fire and notFire</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DiodeCenterTap2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power25cbeb8e0bdc572ePulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2mPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2mPulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.DiodeCenterTap2mPulse</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse diode rectifier with center tap</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>
+This is a 2*m pulse diode rectifier with center tap. In order to operate this rectifier a voltage source with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse"
+>Examples.ACDC.RectifierCenterTap2mPulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPlug"
+>PowerConverters.Interfaces.ACDC.ACtwoPlug</a> (Two AC polyphase plugs), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin"
+>PowerConverters.Interfaces.ACDC.DCpin</a> (Single DC pin), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>RonDiode</td><td>Closed diode resistance [Ohm]</td></tr>
+<tr><td>GoffDiode</td><td>Opened diode conductance [S]</td></tr>
+<tr><td>VkneeDiode</td><td>Diode forward threshold voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac_p</td><td>Positive potential AC input</td></tr>
+<tr><td>ac_n</td><td>Negative potential AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThyristorCenterTap2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power9ee5f86fc227fb92PulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2mPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2mPulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.ThyristorCenterTap2mPulse</h2>
+<p>
+<span class="ModelicaDescription">2*m pulse thyristor rectifier with center tap</span>
+</p>
+<h3>Information</h3>
+
+<p>
+General information about AC/DC converters can be found at the
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>AC/DC converter concept</a>
+</p>
+
+<p>
+This is a 2*m pulse thyristor rectifier with center tap. In order to operate this rectifier a voltage source with center tap is required. The center tap has to be connected with the negative pin of the load. See example
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC_RectifierCenterTap2mPulse.html#Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse"
+>Examples.ACDC.RectifierCenterTap2mPulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Converter"
+>Icons.Converter</a> (Converter icon), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPlug"
+>PowerConverters.Interfaces.ACDC.ACtwoPlug</a> (Two AC polyphase plugs), <a href="Modelica_Electrical_PowerConverters_Interfaces_ACDC.html#Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin"
+>PowerConverters.Interfaces.ACDC.DCpin</a> (Single DC pin), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network), <a href="Modelica_Electrical_PowerConverters_Interfaces_Enable.html#Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2m"
+>Interfaces.Enable.Enable2m</a> (Partial model providing enable parameter and optional enable input for 2*m firing signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RonThyristor</td><td>Closed thyristor resistance [Ohm]</td></tr>
+<tr><td>GoffThyristor</td><td>Opened thyristor conductance [S]</td></tr>
+<tr><td>VkneeThyristor</td><td>Thyristor forward threshold voltage [V]</td></tr>
+<tr><td>offStart_p[m]</td><td>Boolean start value of variable thyristor_p[:].off</td></tr>
+<tr><td>offStart_n[m]</td><td>Boolean start value of variable thyristor_n[:].off</td></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Enable</td></tr>
+<tr><td>useConstantEnable</td><td>Disable boolean input and use constantEnable, if true</td></tr>
+<tr><td>constantEnable</td><td>Constant enabling of firing signals</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ac_p</td><td>Positive potential AC input</td></tr>
+<tr><td>ac_n</td><td>Negative potential AC input</td></tr>
+<tr><td>dc_p</td><td>Positive DC output</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>fire_p[m]</td><td>Firing signals of positive potential transistors</td></tr>
+<tr><td>enable</td><td>Enables fire and notFire</td></tr>
+<tr><td>fire_n[m]</td><td>Firing signals of negative potential transistors</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:40 2026.
+</address>
+</body>
+</html>

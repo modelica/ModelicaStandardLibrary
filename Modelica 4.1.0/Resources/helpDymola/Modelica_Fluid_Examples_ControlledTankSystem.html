@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Examples.ControlledTankSystem</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Tank system with controller, start/stop/shut operation and diagram animation&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlledTankSystem<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Examples.ControlledTankSystem"></a><a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</a>.ControlledTankSystem</h2>
+<p>
+<span class="ModelicaDescription">Tank system with controller, start/stop/shut operation and diagram animation</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.PumpingSystemS.png" alt="Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_ControlledTankSystem.html#Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks"
+>ControlledTanks</a>
+</td>
+<td>Demonstrating the controller of a tank filling/emptying system</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.UtilitiesS.png" alt="Modelica.Fluid.Examples.ControlledTankSystem.Utilities" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_ControlledTankSystem_Utilities.html#Modelica.Fluid.Examples.ControlledTankSystem.Utilities"
+>Utilities</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlledTanks<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.PumpingSystemI.png" alt="Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks"></a><a href="Modelica_Fluid_Examples_ControlledTankSystem.html#Modelica.Fluid.Examples.ControlledTankSystem"
+>Modelica.Fluid.Examples.ControlledTankSystem</a>.ControlledTanks</h2>
+<p>
+<span class="ModelicaDescription">Demonstrating the controller of a tank filling/emptying system</span>
+</p>
+<h3>Information</h3>
+
+<p>
+With this example, the controller of a tank filling/emptying system
+is demonstrated.
+</p>
+
+<p>
+The basic operation is to fill and empty the two tanks:
+</p>
+<ol>
+<li> Valve 1 is opened and tank 1 is filled.</li>
+<li> When tank 1 reaches its fill level limit,
+     valve 1 is closed.</li>
+<li> After a waiting time, valve 2 is
+     opened and the fluid flows from tank 1 into tank 2.</li>
+<li> When tank 1 reaches its minimum level, valve 2 is closed.</li>
+<li> After a waiting time, valve 3 is opened and
+     the fluid flows out of tank 2</li>
+<li> When tank 2 reaches its minimum level, valve 3 is closed</li>
+</ol>
+<p>
+The above "normal" process can be influenced by three
+buttons:
+</p>
+<ul>
+<li> Button <strong>start</strong> starts the above process.
+     When this button is pressed after a "stop" or
+     "shut" operation, the process operation continues.
+     </li>
+<li> Button <strong>stop</strong> stops the above process by
+     closing all valves. Then, the controller waits for
+     further input (either "start" or "shut" operation).</li>
+<li> Button <strong>shut</strong> is used to shutdown the process,
+     by emptying at once both tanks by opening valve 2 and
+     valve 3. When this is achieved,
+     the process goes back to its start configuration
+     where all 3 valves are closed.
+     Clicking on "start", restarts the process.</li>
+</ul>
+
+<p>
+The demo-run uses the following button presses:
+</p>
+
+<ul>
+<li> Button <strong>start</strong> pressed at 20 s.</li>
+<li> Button <strong>stop</strong> pressed at 220 s</li>
+<li> Button <strong>start</strong> pressed at 280 s</li>
+<li> Button <strong>stop</strong> pressed at 650 s</li>
+<li> Button <strong>shut</strong> pressed at 700 s</li>
+<li> Simulate for 900 s</li>
+</ul>
+
+<p>
+This example is based on
+</p>
+
+<dl>
+<dt>Dressler I. (2004):</dt>
+<dd> <strong>Code Generation From JGrafchart to Modelica</strong>.
+     Master thesis, supervisor: Karl-Erik &Aring;rz&eacute;n,
+     Department of Automatic Control, Lund Institute of Technology,
+     Lund, Sweden, March 30, 2004<br>&nbsp;</dd>
+</dl>
+
+<img src="Resources/Images/Fluid/Examples/ControlledTankSystem/ControlledTanks.png" border="1"
+     alt="ControlledTanks.png">
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:44 2026.
+</address>
+</body>
+</html>

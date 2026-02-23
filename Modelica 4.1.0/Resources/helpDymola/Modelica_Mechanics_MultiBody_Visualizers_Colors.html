@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody.Visualizers.Colors</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of functions operating on color&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Colors<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.MultiBody.Visualizers.Colors"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.Colors</h2>
+<p>
+<span class="ModelicaDescription">Library of functions operating on color</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains functions to operate on colors.
+Note, a color is represented as a Real array with 3 elements where
+the elements are the red, green, blue values of the RGB color model.
+Every element must be in the range 0&nbsp;&hellip;&nbsp;255.
+The type of a color is Real and not Integer in order that a color
+can be used with less problems in a model, since in a model an Integer
+type could only be used in a when-clause. Typical declaration of a color value:
+</p>
+
+<blockquote><pre>
+Real color[3](each min=0, each max=255);
+</pre></blockquote>
+
+<p>
+This definition is also available as type
+<a  >Modelica.Mechanics.MultiBody.Types.RealColor</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_FunctionsPackage.html#Modelica.Icons.FunctionsPackage"
+>Modelica.Icons.FunctionsPackage</a> (Icon for packages containing functions).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB5d14c9470f297ed7olorsS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers_Colors_ColorMaps.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps"
+>ColorMaps</a>
+</td>
+<td>Library of functions returning color maps</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB9ec915416930e74eToSvgS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers_Colors.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg"
+>colorMapToSvg</a>
+</td>
+<td>Save a color map on file in svg (scalable vector graphics) format</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB9ec915416930e74eToSvgS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers_Colors.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor"
+>scalarToColor</a>
+</td>
+<td>Map a scalar to a color using a color map</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE colorMapToSvg<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB9ec915416930e74eToSvgI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg"></a><a href="Modelica_Mechanics_MultiBody_Visualizers_Colors.html#Modelica.Mechanics.MultiBody.Visualizers.Colors"
+>Modelica.Mechanics.MultiBody.Visualizers.Colors</a>.colorMapToSvg</h2>
+<p>
+<span class="ModelicaDescription">Save a color map on file in svg (scalable vector graphics) format</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Colors.<strong>colorMapToSvg</strong>(colorMap);
+Colors.<strong>colorMapToSvg</strong>(colorMap,
+                     fileName   = "colorMap.svg",
+                     width      =  10,  // [mm]
+                     height     = 100,  // [mm]
+                     x          =  20,  // [mm]
+                     y          =  10,  // [mm]
+                     T_min      =   0,
+                     T_max      = 100,
+                     nScalars   =  11,
+                     format     = ".3g",
+                     fontSize   =  11,  // [pt]
+                     textWidth  =   8,  // [mm]
+                     caption    = "",
+                     headerType = Colors.colorMapToSvg.Header.svgBeginAndEnd)
+                                                           // svgBegin
+                                                           // svgEnd
+                                                           // svgNoHeader
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function saves the color map "Real colorMap[:,3]" on file "fileName"
+in svg format. The color map has a width of "width" and a height of "height" and
+the upper left corner is placed at coordinates "(x,y)".
+Over the color map, a caption "caption" is placed.
+On the right side of the color map, a set of scalar field values T is
+displayed where "T_min" is placed at colorMap[1,:],
+"T_max" is placed at colorMap[end,:] and "nScalars" values between
+"T_min" and "T_max" (including T_min and T_max) are shown.
+The printing format of the numbers is defined with "format", see definition below.
+With argument "headerType" it is defined whether "svg" begin and end
+lines are printed. If the "begin" svg tag shall be printed, file "fileName"
+is deleted, if it already exists. Otherwise, all output is appended to the
+file "fileName".
+</p>
+
+<p>
+A "svg" file can be displayed by a web browser, such as
+<a href="http://www.mozilla.org/firefox">Firefox</a> by dragging the
+file in the browser window.
+Alternatively, a svg-file can be loaded in a graphics program,
+such as the free <a href="http://inkscape.org">Inkscape</a>,
+can be manipulated and can be exported in other graphic formats.
+The following image was generated with a call to "colorMapToSvg", the
+generated file was loaded in Inkscape and exported in "png" format:
+</p>
+
+<blockquote>
+<img src="Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/jet.png">
+</blockquote>
+
+<p>
+The "format" argument defines the string formatting according to
+ANSI-C without "%" and "*" character<br>
+(e.g., ".6g", "14.5e", "+6f"). In particular:
+</p>
+
+<p>
+format = "[&lt;flags&gt;] [&lt;width&gt;] [.&lt;precision&gt;] &lt;conversion&gt;"
+with
+</p>
+
+<blockquote>
+<table>
+<tr>
+  <td>&lt;flags&gt;</td>
+  <td> zero, one or more of<br>
+       "-": left adjustment of the converted number<br>
+       "+": number will always be printed with a sign<br>
+       "0": padding to the field width with leading zeros</td></tr>
+<tr>
+  <td>&lt;width&gt;</td>
+  <td> Minimum field width. The converted number will be printed in a field at<br>
+       least this wide and wider if necessary. If the converted number has<br>
+       fewer characters it will be padded on the left (or the right depending<br>
+       on &lt;flags&gt;) with blanks or 0 (depending on &lt;flags&gt;).</td></tr>
+<tr>
+  <td>&lt;precision&gt;</td>
+  <td> The number of digits to be printed after the decimal point for<br>
+       e, E, or f conversions, or the number of significant digits for<br>
+       g or G conversions.</td></tr>
+<tr>
+  <td> &lt;conversion&gt;</td>
+  <td> = "e": Exponential notation using a  lower case e<br>
+       = "E": Exponential notation using an upper case E<br>
+       = "f": Fixed point notation<br>
+       = "g": Either "e" or "f"<br>
+       = "G": Same as "g", but with upper case E</td></tr>
+</table>
+</blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>colorMap[:, 3]</td><td>Color map to be stored in svg format</td></tr>
+<tr><td>fileName</td><td>File where the svg representation shall be stored</td></tr>
+<tr><td>width</td><td>Width in svg-figure [mm]</td></tr>
+<tr><td>height</td><td>Height in svg-figure [mm]</td></tr>
+<tr><td>x</td><td>X-Coordinate of left upper corner [mm]</td></tr>
+<tr><td>y</td><td>Y-Coordinate of left upper corner [mm]</td></tr>
+<tr><td>T_min</td><td>Value of scalar corresponding to colorMap[1,:]</td></tr>
+<tr><td>T_max</td><td>Value of scalar corresponding to colorMap[end,:]</td></tr>
+<tr><td>nScalars</td><td>Number of scalars to be displayed at the right side</td></tr>
+<tr><td>format</td><td>Format of the numbers</td></tr>
+<tr><td>fontSize</td><td>Font size in [pt]</td></tr>
+<tr><td>textWidth</td><td>Numbers are right justified starting at x+width+textWidth [mm]</td></tr>
+<tr><td>caption</td><td>Caption above the map</td></tr>
+<tr><td>headerType</td><td>Type of header</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE scalarToColor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB9ec915416930e74eToSvgI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor"></a><a href="Modelica_Mechanics_MultiBody_Visualizers_Colors.html#Modelica.Mechanics.MultiBody.Visualizers.Colors"
+>Modelica.Mechanics.MultiBody.Visualizers.Colors</a>.scalarToColor</h2>
+<p>
+<span class="ModelicaDescription">Map a scalar to a color using a color map</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+//Real T, T_min, T_max, colorMap[:,3];
+Colors.<strong>scalarToColor</strong>(T, T_min, T_max, colorMap);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns an rgb color Real[3] that corresponds to the value of "T".
+The color is selected from the colorMap by interpolation so that
+"T_min" corresponds to "colorMap[1,:]" and
+"T_max" corresponds to "colorMap[end,:]".
+</p>
+
+<h4>See also</h4>
+<a href="Modelica_Mechanics_MultiBody_Visualizers_Colors_ColorMaps.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps"
+>ColorMaps</a>,
+<a href="Modelica_Mechanics_MultiBody_Visualizers_Colors.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg"
+>colorMapToSvg</a>,
+<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField"
+>PipeWithScalarField</a>.
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Scalar value</td></tr>
+<tr><td>T_min</td><td>T &lt;= T_min is mapped to colorMap[1,:]</td></tr>
+<tr><td>T_max</td><td>T &gt;= T_max is mapped to colorMap[end,:]</td></tr>
+<tr><td>colorMap[:, 3]</td><td>Color map</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>color[3]</td><td>Color of scalar value T</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:43 2026.
+</address>
+</body>
+</html>

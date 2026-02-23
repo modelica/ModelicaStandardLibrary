@@ -1,0 +1,426 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.Special</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of special mathematical functions&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Special<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.Special"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.Special</h2>
+<p>
+<span class="ModelicaDescription">Library of special mathematical functions</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This sublibrary contains functions to compute often used mathematical operators that
+cannot be expressed analytically.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Special.erf" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Special.html#Modelica.Math.Special.erf"
+>erf</a>
+</td>
+<td>Error function erf(u) = 2/sqrt(pi)*Integral_0_u exp(-t^2)*d</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Special.erfc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfc"
+>erfc</a>
+</td>
+<td>Complementary error function erfc(u) = 1 - erf(u)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Special.erfInv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfInv"
+>erfInv</a>
+</td>
+<td>Inverse error function: u = erf(erfInv(u))</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Special.erfcInv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfcInv"
+>erfcInv</a>
+</td>
+<td>Inverse complementary error function: u = erfc(erfcInv(u))</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Special.sinc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Special.html#Modelica.Math.Special.sinc"
+>sinc</a>
+</td>
+<td>Unnormalized sinc function: sinc(u) = sin(u)/u</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Special.InternalS.png" alt="Modelica.Math.Special.Internal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Special_Internal.html#Modelica.Math.Special.Internal"
+>Internal</a>
+</td>
+<td>Internal utility functions that should not be directly utilized by the user</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE erf<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Special.erf" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Special.erf"></a><a href="Modelica_Math_Special.html#Modelica.Math.Special"
+>Modelica.Math.Special</a>.erf</h2>
+<p>
+<span class="ModelicaDescription">Error function erf(u) = 2/sqrt(pi)*Integral_0_u exp(-t^2)*d</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Special.<strong>erf</strong>(u);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the error function erf(u) = 2/sqrt(pi)*Integral_0_u exp(-t^2)*dt numerically with a relative precision of about 1e-15. The implementation utilizes the formulation of the Boost library
+(53-bit implementation of <a href="http://www.boost.org/doc/libs/1_57_0/boost/math/special_functions/erf.hpp">erf.hpp</a>,
+developed by John Maddock). Plot
+of the function:
+</p>
+
+<blockquote>
+<img src="Resources/Images/Math/Special/erf.png">
+</blockquote>
+
+<p>
+For more details, see <a href="http://en.wikipedia.org/wiki/Error_function">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+erf(0)    // = 0
+erf(10)   // = 1
+erf(0.5)  // = 0.520499877813047
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfc"
+>erfc</a>,
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfInv"
+>erfInv</a>,
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfcInv"
+>erfcInv</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Input argument</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>= 2/sqrt(pi)*Integral_0_u exp(-t^2)*dt</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE erfc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Special.erfc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Special.erfc"></a><a href="Modelica_Math_Special.html#Modelica.Math.Special"
+>Modelica.Math.Special</a>.erfc</h2>
+<p>
+<span class="ModelicaDescription">Complementary error function erfc(u) = 1 - erf(u)</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Special.<strong>erfc</strong>(u);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the complementary error function erfc(u) = 1 - erf(u) with a relative precision of about 1e-15. The implementation utilizes the formulation of the Boost library
+(53-bit implementation of <a href="http://www.boost.org/doc/libs/1_57_0/boost/math/special_functions/erf.hpp">erf.hpp</a>
+developed by John Maddock). Plot
+of the function:
+</p>
+
+<blockquote>
+<img src="Resources/Images/Math/Special/erfc.png">
+</blockquote>
+
+<p>
+If u is large and erf(u) is subtracted from 1.0, the result is not accurate.
+It is then better to use erfc(u). For more details,
+see <a href="http://en.wikipedia.org/wiki/Error_function">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+erfc(0)    // = 1
+erfc(10)   // = 0
+erfc(0.5)  // = 0.4795001221869534
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erf"
+>erf</a>,
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfInv"
+>erfInv</a>,
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfcInv"
+>erfcInv</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Input argument</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>= 1 - erf(u)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE erfInv<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Special.erfInv" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Special.erfInv"></a><a href="Modelica_Math_Special.html#Modelica.Math.Special"
+>Modelica.Math.Special</a>.erfInv</h2>
+<p>
+<span class="ModelicaDescription">Inverse error function: u = erf(erfInv(u))</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Special.<strong>erfInv</strong>(u);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the inverse of the error function erf(u) = 2/sqrt(pi)*Integral_0_u exp(-t^2)*dt numerically with a relative precision of about 1e-15. Therefore, u = erf(erfInv(u)). Input argument u must be in the range
+(otherwise an assertion is raised):
+</p>
+
+<blockquote>
+-1 &le; u &le; 1
+</blockquote>
+
+<p>
+If u = 1, the function returns Modelica.Constants.inf.<br>
+If u = -1, the function returns -Modelica.Constants.inf<br>
+The implementation utilizes the formulation of the Boost library (<a href="http://www.boost.org/doc/libs/1_57_0/boost/math/special_functions/detail/erf_inv.hpp">erf_inv.hpp</a>,
+developed by John Maddock).<br>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="Resources/Images/Math/Special/erfInv.png">
+</blockquote>
+
+<p>
+For more details, see <a href="http://en.wikipedia.org/wiki/Error_function">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+erfInv(0)            // = 0
+erfInv(0.5)          // = 0.4769362762044699
+erfInv(0.999999)     // = 3.458910737275499
+erfInv(0.9999999999) // = 4.572824958544925
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erf"
+>erf</a>,
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfc"
+>erfc</a>,
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfcInv"
+>erfcInv</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Input argument in the range -1 &lt;= u &lt;= 1</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>= inverse of error function</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE erfcInv<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Special.erfcInv" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Special.erfcInv"></a><a href="Modelica_Math_Special.html#Modelica.Math.Special"
+>Modelica.Math.Special</a>.erfcInv</h2>
+<p>
+<span class="ModelicaDescription">Inverse complementary error function: u = erfc(erfcInv(u))</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Special.<strong>erfInv</strong>(u);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the inverse of the complementary error function
+erfc(u) = 1 - erf(u) with a relative precision of about 1e-15.
+Therefore, u = erfc(erfcInv(u)) and erfcInv(u) = erfInv(1 - u). Input argument u must be in the range
+(otherwise an assertion is raised):
+</p>
+
+<blockquote>
+0 &le; u &le; 2
+</blockquote>
+
+<p>
+If u = 2, the function returns -Modelica.Constants.inf.<br>
+If u = 0, the function returns Modelica.Constants.inf<br>
+The implementation utilizes the formulation of the Boost library (<a href="http://www.boost.org/doc/libs/1_57_0/boost/math/special_functions/detail/erf_inv.hpp">erf_inv.hpp</a>,
+developed by John Maddock).<br>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="Resources/Images/Math/Special/erfcInv.png">
+</blockquote>
+
+<p>
+For more details, see <a href="http://en.wikipedia.org/wiki/Error_function">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+erfcInv(1)         // = 0
+erfcInv(0.5)       // = 0.4769362762044699
+erfInv(1.999999)   // = -3.4589107372909473
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erf"
+>erf</a>,
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfc"
+>erfc</a>,
+<a href="Modelica_Math_Special.html#Modelica.Math.Special.erfInv"
+>erfInv</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Input argument</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>erfcInv(u)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sinc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Special.sinc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Special.sinc"></a><a href="Modelica_Math_Special.html#Modelica.Math.Special"
+>Modelica.Math.Special</a>.sinc</h2>
+<p>
+<span class="ModelicaDescription">Unnormalized sinc function: sinc(u) = sin(u)/u</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Special.<strong>sinc</strong>(u);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the unnormalized sinc function sinc(u) = sin(u)/u. The implementation utilizes
+a Taylor series approximation for small values of u. Plot
+of the function:
+</p>
+
+<blockquote>
+<img src="Resources/Images/Math/Special/sinc.png">
+</blockquote>
+
+<p>
+For more details, see <a href="http://en.wikipedia.org/wiki/Sinc_function">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+sinc(0)   // = 1
+sinc(3)   // = 0.0470400026866224
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Input argument</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>= sinc(u) = sin(u)/u</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:52 2026.
+</address>
+</body>
+</html>

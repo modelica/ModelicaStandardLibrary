@@ -1,0 +1,440 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.StateGraph</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of hierarchical state machine components to model discrete event and reactive systems&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE StateGraph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.StateGraph"></a><a href="Modelica.html#Modelica"
+>Modelica</a>.StateGraph</h2>
+<p>
+<span class="ModelicaDescription">Library of hierarchical state machine components to model discrete event and reactive systems</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Note, there is a much improved version of this library called
+"Modelica_StateGraph2". If this library is not yet distributed with your
+Modelica tool, you can download it from
+<a href="https://github.com/modelica/Modelica_StateGraph2">https://github.com/modelica/Modelica_StateGraph2</a>.
+In the
+<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2"
+>Users Guide</a>
+a detailed comparison is given. It is highly recommended to use Modelica_StateGraph2 instead
+of Modelica.StateGraph.
+</p>
+
+<p>
+Library <strong>StateGraph</strong> is a <strong>free</strong> Modelica package providing
+components to model <strong>discrete event</strong> and <strong>reactive</strong>
+systems in a convenient
+way. It is based on the JGrafchart method and
+takes advantage of Modelica features for
+the "action" language. JGrafchart is a further development of
+Grafcet to include elements of StateCharts that are not present
+in Grafcet/Sequential Function Charts. Therefore, the StateGraph
+library has a similar modeling power as StateCharts but avoids
+some deficiencies of StateCharts.
+</p>
+<p>
+For an introduction, have especially a look at:
+</p>
+<ul>
+<li> <a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
+>StateGraph.UsersGuide</a>
+     discusses the most important aspects how to use this library.</li>
+<li> <a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>StateGraph.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p>
+A typical model generated with this library is shown
+in the next figure where on the left hand side a two-tank
+system with a tank controller and on the right hand side the
+top-level part of the tank controller as a StateGraph is shown:
+</p>
+
+<div>
+<img src="Resources/Images/StateGraph/UsersGuide/ControlledTanks1_small.png">
+
+<img src="Resources/Images/StateGraph/UsersGuide/ControlledTanks2_small.png">
+</div>
+
+<p>
+The unique feature of the StateGraph library with respect to JGrafcharts,
+Grafcet, Sequential Function Charts, and StateCharts, is Modelica's
+"single assignment rule" that requires that every variable is defined
+by exactly one equation. This leads to a different "action" definition
+as in these formalisms. The advantage is that the translator can either
+determine a useful evaluation sequence by equation sorting or
+reports an error if this is not possible, e.g., because a model
+would lead to a non-determinism or to a dead-lock. As a side effect,
+this leads also to simpler and more easier to understand models and
+global variables are no longer needed (whereas in JGrafcharts,
+Grafcet, Sequential Function Charts and StateCharts global variables
+are nearly always needed).
+</p>
+
+<p>
+Copyright &copy; 1998-2025, Modelica Association and contributors
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.UsersGuideS.png" alt="Modelica.StateGraph.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s Guide of StateGraph Library</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.ExamplesS.png" alt="Modelica.StateGraph.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Examples</a>
+</td>
+<td>Examples to demonstrate the usage of the components of the StateGraph library</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.IntegerS1ae8f7be7606ecc1facesS.png" alt="Modelica.StateGraph.Interfaces" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Interfaces</a>
+</td>
+<td>Connectors and partial models</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.InitialStepS.png" alt="Modelica.StateGraph.InitialStep" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph.html#Modelica.StateGraph.InitialStep"
+>InitialStep</a>
+</td>
+<td>Initial step (= step that is active when simulation starts)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Initiaa9cbf9d12ade80eignalS.png" alt="Modelica.StateGraph.InitialStepWithSignal" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph.html#Modelica.StateGraph.InitialStepWithSignal"
+>InitialStepWithSignal</a>
+</td>
+<td>Initial step (= step that is active when simulation starts). Connector &#39;active&#39; is true when the step is active</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.StepS.png" alt="Modelica.StateGraph.Step" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</a>
+</td>
+<td>Ordinary step (= step that is not active when simulation starts)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.StepWithSignalS.png" alt="Modelica.StateGraph.StepWithSignal" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph.html#Modelica.StateGraph.StepWithSignal"
+>StepWithSignal</a>
+</td>
+<td>Ordinary step (= step that is not active when simulation starts). Connector &#39;active&#39; is true when the step is active</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.TransitionS.png" alt="Modelica.StateGraph.Transition" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</a>
+</td>
+<td>Transition where the fire condition is set by a modification of variable condition</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.TransitionWithSignalS.png" alt="Modelica.StateGraph.TransitionWithSignal" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph.html#Modelica.StateGraph.TransitionWithSignal"
+>TransitionWithSignal</a>
+</td>
+<td>Transition where the fire condition is set by a Boolean input signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.AlternativeS.png" alt="Modelica.StateGraph.Alternative" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph.html#Modelica.StateGraph.Alternative"
+>Alternative</a>
+</td>
+<td>Alternative splitting of execution path (use component between two steps)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.ParallelS.png" alt="Modelica.StateGraph.Parallel" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph.html#Modelica.StateGraph.Parallel"
+>Parallel</a>
+</td>
+<td>Parallel splitting of execution path (use component between two transitions)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.PartialCompositeStepS.png" alt="Modelica.StateGraph.PartialCompositeStep" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph.html#Modelica.StateGraph.PartialCompositeStep"
+>PartialCompositeStep</a>
+</td>
+<td>Superclass of a subgraph, i.e., a composite step that has internally a StateGraph</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.StateGraphRootS.png" alt="Modelica.StateGraph.StateGraphRoot" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph.html#Modelica.StateGraph.StateGraphRoot"
+>StateGraphRoot</a>
+</td>
+<td>Root of a StateGraph (has to be present on the highest level of a StateGraph)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InitialStep<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.InitialStepI.png" alt="Modelica.StateGraph.InitialStep" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.InitialStep"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.InitialStep</h2>
+<p>
+<span class="ModelicaDescription">Initial step (= step that is active when simulation starts)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialStep"
+>Interfaces.PartialStep</a> (Partial step with one input and one output transition port).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort[nIn]</td><td>Vector of step input connectors</td></tr>
+<tr><td>outPort[nOut]</td><td>Vector of step output connectors</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InitialStepWithSignal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Initiaa9cbf9d12ade80eignalI.png" alt="Modelica.StateGraph.InitialStepWithSignal" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.InitialStepWithSignal"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.InitialStepWithSignal</h2>
+<p>
+<span class="ModelicaDescription">Initial step (= step that is active when simulation starts). Connector &#39;active&#39; is true when the step is active</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialStep"
+>Interfaces.PartialStep</a> (Partial step with one input and one output transition port).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort[nIn]</td><td>Vector of step input connectors</td></tr>
+<tr><td>outPort[nOut]</td><td>Vector of step output connectors</td></tr>
+<tr><td>active</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Step<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.StepI.png" alt="Modelica.StateGraph.Step" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Step"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.Step</h2>
+<p>
+<span class="ModelicaDescription">Ordinary step (= step that is not active when simulation starts)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialStep"
+>Interfaces.PartialStep</a> (Partial step with one input and one output transition port).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort[nIn]</td><td>Vector of step input connectors</td></tr>
+<tr><td>outPort[nOut]</td><td>Vector of step output connectors</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE StepWithSignal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.StepWithSignalI.png" alt="Modelica.StateGraph.StepWithSignal" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.StepWithSignal"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.StepWithSignal</h2>
+<p>
+<span class="ModelicaDescription">Ordinary step (= step that is not active when simulation starts). Connector &#39;active&#39; is true when the step is active</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialStep"
+>Interfaces.PartialStep</a> (Partial step with one input and one output transition port).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort[nIn]</td><td>Vector of step input connectors</td></tr>
+<tr><td>outPort[nOut]</td><td>Vector of step output connectors</td></tr>
+<tr><td>active</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Transition<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.TransitionI.png" alt="Modelica.StateGraph.Transition" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Transition"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.Transition</h2>
+<p>
+<span class="ModelicaDescription">Transition where the fire condition is set by a modification of variable condition</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialTransition"
+>Interfaces.PartialTransition</a> (Partial transition with input and output connections).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>localCondition</td><td>= true, if transition may fire</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Fire condition</td></tr>
+<tr><td>condition</td><td>= true, if transition may fire (time varying expression)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Timer</td></tr>
+<tr><td>enableTimer</td><td>= true, if timer is enabled</td></tr>
+<tr><td>waitTime</td><td>Wait time before transition fires [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort</td><td>Vector of transition input connectors</td></tr>
+<tr><td>outPort</td><td>Vector of transition output connectors</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TransitionWithSignal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.TransitionWithSignalI.png" alt="Modelica.StateGraph.TransitionWithSignal" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.TransitionWithSignal"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.TransitionWithSignal</h2>
+<p>
+<span class="ModelicaDescription">Transition where the fire condition is set by a Boolean input signal</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialTransition"
+>Interfaces.PartialTransition</a> (Partial transition with input and output connections).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>localCondition</td><td>= true, if transition may fire</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Timer</td></tr>
+<tr><td>enableTimer</td><td>= true, if timer is enabled</td></tr>
+<tr><td>waitTime</td><td>Wait time before transition fires [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>condition</td><td>&nbsp;</td></tr>
+<tr><td>inPort</td><td>Vector of transition input connectors</td></tr>
+<tr><td>outPort</td><td>Vector of transition output connectors</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Alternative<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.AlternativeI.png" alt="Modelica.StateGraph.Alternative" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Alternative"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.Alternative</h2>
+<p>
+<span class="ModelicaDescription">Alternative splitting of execution path (use component between two steps)</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nBranches</td><td>Number of alternative branches</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort</td><td>&nbsp;</td></tr>
+<tr><td>outPort</td><td>&nbsp;</td></tr>
+<tr><td>join[nBranches]</td><td>&nbsp;</td></tr>
+<tr><td>split[nBranches]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Parallel<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.ParallelI.png" alt="Modelica.StateGraph.Parallel" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Parallel"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.Parallel</h2>
+<p>
+<span class="ModelicaDescription">Parallel splitting of execution path (use component between two transitions)</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nBranches</td><td>Number of parallel branches that are executed in parallel</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort</td><td>&nbsp;</td></tr>
+<tr><td>outPort</td><td>&nbsp;</td></tr>
+<tr><td>join[nBranches]</td><td>&nbsp;</td></tr>
+<tr><td>split[nBranches]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialCompositeStep<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.PartialCompositeStepI.png" alt="Modelica.StateGraph.PartialCompositeStep" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.PartialCompositeStep"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.PartialCompositeStep</h2>
+<p>
+<span class="ModelicaDescription">Superclass of a subgraph, i.e., a composite step that has internally a StateGraph</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Exception connections</td></tr>
+<tr><td>nSuspend</td><td>Number of suspend ports</td></tr>
+<tr><td>nResume</td><td>Number of resume ports</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort</td><td>&nbsp;</td></tr>
+<tr><td>outPort</td><td>&nbsp;</td></tr>
+<tr><td>suspend[nSuspend]</td><td>&nbsp;</td></tr>
+<tr><td>resume[nResume]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE StateGraphRoot<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.StateGraphRootI.png" alt="Modelica.StateGraph.StateGraphRoot" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.StateGraphRoot"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.StateGraphRoot</h2>
+<p>
+<span class="ModelicaDescription">Root of a StateGraph (has to be present on the highest level of a StateGraph)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+On the highest level of a StateGraph, an instance of StateGraphRoot
+has to be present.
+</p>
+<p>
+The StateGraphRoot object is needed, since all Step objects have
+an "outer" reference to communicate with the "nearest" CompositeStep
+(which inherits from PartialCompositeStep), especially to abort
+a CompositeStep via the "suspend" port. Even if no "CompositeStep" is present,
+on highest level a corresponding "inner" definition is needed
+and is provided by the StateGraphRoot object.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.CompositeStepState"
+>StateGraph.Interfaces.CompositeStepState</a> (Communication channel between CompositeSteps and steps in the CompositeStep).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>subgraphStatePort</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:37 2026.
+</address>
+</body>
+</html>
