@@ -578,8 +578,8 @@ based on the following references:
      Volume 35 - n. 1, 2001.<br>&nbsp;</dd>
 
 <dt>Harel, D. (1987):</dt>
-<dd> <a href=\"http://www.inf.ed.ac.uk/teaching/courses/seoc1/2005_2006/resources/statecharts.pdf\">
-      A Visual Formalism for Complex Systems</a>.
+<dd> <a href=\"https://doi.org/10.1016/0167-6423(87)90035-9\">
+      Statecharts: A Visual Formalism for Complex Systems</a>.
       Science of Computer Programming 8, 231-274. Department of Applied Mathematics,
       The Weizmann Institute of Science, Rehovot, Israel.<br>&nbsp;</dd>
 
