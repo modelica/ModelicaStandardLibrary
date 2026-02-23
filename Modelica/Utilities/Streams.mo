@@ -6,7 +6,7 @@ package Streams "Read from files and write to files"
     extends Modelica.Icons.Function;
     input String string="" "String to be printed";
     input String fileName="" "File where to print (empty string is the terminal)" annotation(Dialog(saveSelector(filter="Text files (*.txt)", caption="Text file to store the output of print(..)")));
-  external "C" ModelicaInternal_print(string, fileName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" ModelicaInternal_print(string, fileName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -44,7 +44,7 @@ Streams.print(\"x = \" + String(y), \"mytestfile.txt\");
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read" annotation(Dialog(loadSelector(filter="Text files (*.txt)", caption="Open text file for reading")));
     output String stringVector[countLines(fileName)] "Content of file";
-  external "C" ModelicaInternal_readFile(fileName,stringVector,size(stringVector,1)) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" ModelicaInternal_readFile(fileName,stringVector,size(stringVector,1)) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -66,7 +66,7 @@ Note, a fileName can be defined as URI by using the helper function
     input Integer lineNumber(min=1) "Number of line to read";
     output String string "Line of text";
     output Boolean endOfFile "If true, end-of-file was reached when trying to read line";
-  external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -91,7 +91,7 @@ and endOfFile=true. Otherwise endOfFile=false.
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read" annotation(Dialog(loadSelector(filter="Text files (*.txt)", caption="Open text file for counting lines")));
     output Integer numberOfLines "Number of lines in file";
-  external "C" numberOfLines=  ModelicaInternal_countLines(fileName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" numberOfLines=  ModelicaInternal_countLines(fileName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -140,7 +140,7 @@ Streams.error(\"x (= \" + String(x) + \")\\nhas to be in the range 0 .. 1\");
   impure function close "Close file"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be closed" annotation(Dialog(loadSelector(filter="Text files (*.txt)", caption="Close text file")));
-  external "C" ModelicaStreams_closeFile(fileName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" ModelicaStreams_closeFile(fileName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -159,7 +159,7 @@ Close file if it is open. Ignore call if file is already closed or does not exis
     input String matrixName "Name / identifier of the 2D Real array on the file";
     output Integer dim[2] "Number of rows and columns of the 2D Real array";
   external "C" ModelicaIO_readMatrixSizes(fileName, matrixName, dim)
-    annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaIO.h\"", Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaIO.h\"", Library={"ModelicaIO", "ModelicaMatIO", "zlib"}, License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaIO.txt", "modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaMatIO.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_zlib.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_portable-snippets.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_c99-snprintf.txt"});
     annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -196,7 +196,7 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
     input Boolean verboseRead = true "= true: Print info message; = false: No info message";
     output Real matrix[nrow, ncol] "2D Real array";
   external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), verboseRead)
-    annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaIO.h\"", Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaIO.h\"", Library={"ModelicaIO", "ModelicaMatIO", "zlib"}, License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaIO.txt", "modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaMatIO.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_zlib.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_portable-snippets.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_c99-snprintf.txt"});
     annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -238,7 +238,7 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
                          choice="7" "MATLAB v7 MAT file"));
     output Boolean success "true if successful";
   external "C" success = ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format)
-    annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaIO.h\"", Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaIO.h\"", Library={"ModelicaIO", "ModelicaMatIO", "zlib"}, License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaIO.txt", "modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaMatIO.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_zlib.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_portable-snippets.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_c99-snprintf.txt"});
     annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
