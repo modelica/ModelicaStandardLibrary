@@ -623,7 +623,35 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
               points={{-76,-40},{-30.68,-40},{-30.68,13.4833}}, color={127,0,127}));
           annotation (Documentation(info="<html>
 <p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the results plot both the input vector x and the output vector y.</p>
-</html>"),
+</html>",
+              figures = {
+                Figure(
+                  title = "Vector delay",
+                  identifier = "bb03f",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = delay.x[1], legend = "Input vector x[1]"),
+                        Curve(y = delay.y[1], legend = "Output vector y[1]")
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = delay.x[2], legend = "Input vector x[2]"),
+                        Curve(y = delay.y[2], legend = "Output vector y[2]")
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = delay.x[3], legend = "Input vector x[3]"),
+                        Curve(y = delay.y[3], legend = "Output vector y[3]")
+                      }
+                    )
+                  }
+                )
+              }
+            ),
         experiment(StopTime=10));
         end VectorDelay;
 
@@ -659,7 +687,29 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREG component.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "Data vectors",
+                  identifier = "82f8d",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = dFFREG.dataIn[1]),
+                        Curve(y = dFFREG.dataOut[1])
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = dFFREG.dataIn[2]),
+                        Curve(y = dFFREG.dataOut[2])
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end DFFREG;
 
         model DFFREGL "Pulse triggered D-Register-Bank, low active reset"
@@ -693,7 +743,29 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGL component.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "Data vectors",
+                  identifier = "a2a4c",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = dFFREGL.dataIn[1]),
+                        Curve(y = dFFREGL.dataOut[1])
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = dFFREGL.dataIn[2]),
+                        Curve(y = dFFREGL.dataOut[2])
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end DFFREGL;
 
         model DFFREGSRH "Pulse triggered D-Register-Bank, high active set and reset"
@@ -730,7 +802,29 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=15),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGSRH component.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "Data vectors",
+                  identifier = "fe175",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = dFFREGSRH.dataIn[1]),
+                        Curve(y = dFFREGSRH.dataOut[1])
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = dFFREGSRH.dataIn[2]),
+                        Curve(y = dFFREGSRH.dataOut[2])
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end DFFREGSRH;
 
         model DFFREGSRL "Pulse triggered D-Register-Bank, low active set and reset"
@@ -765,7 +859,29 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=15),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGSRL component.</p>
-</html>"));
+</html>",
+            figures = {
+              Figure(
+                title = "Data vectors",
+                identifier = "13e10",
+                preferred = true,
+                plots = {
+                  Plot(
+                    curves = {
+                      Curve(y = dFFREGSRL.dataIn[1]),
+                      Curve(y = dFFREGSRL.dataOut[1])
+                    }
+                  ),
+                  Plot(
+                    curves = {
+                      Curve(y = dFFREGSRL.dataIn[2]),
+                      Curve(y = dFFREGSRL.dataOut[2])
+                    }
+                  )
+                }
+              )
+            }
+          ));
         end DFFREGSRL;
 
         model DLATREG "Level sensitive D-Register-Bank, high active reset"
@@ -798,7 +914,29 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREG component.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "Data vectors",
+                  identifier = "c2afe",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = dLATREG.dataIn[1]),
+                        Curve(y = dLATREG.dataOut[1])
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = dLATREG.dataIn[2]),
+                        Curve(y = dLATREG.dataOut[2])
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end DLATREG;
 
         model DLATREGL "Level sensitive D-Register-Bank, low active reset"
@@ -830,7 +968,29 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGL component.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "Data vectors",
+                  identifier = "7acc3",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = dLATREGL.dataIn[1]),
+                        Curve(y = dLATREGL.dataOut[1])
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = dLATREGL.dataIn[2]),
+                        Curve(y = dLATREGL.dataOut[2])
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end DLATREGL;
 
         model DLATREGSRH "Level sensitive D-Register-Bank, high active set and reset"
@@ -867,7 +1027,29 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGSRH component.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "Data vectors",
+                  identifier = "a1817",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = dLATREGSRH.dataIn[1]),
+                        Curve(y = dLATREGSRH.dataOut[1])
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = dLATREGSRH.dataIn[2]),
+                        Curve(y = dLATREGSRH.dataOut[2])
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end DLATREGSRH;
 
         model DLATREGSRL "Level sensitive D-Register-Bank, low active set and reset"
@@ -903,7 +1085,28 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGSRL component.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "Data vectors",
+                  identifier = "c6ff6",
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = dLATREGSRL.dataIn[1]),
+                        Curve(y = dLATREGSRL.dataOut[1])
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = dLATREGSRL.dataIn[2]),
+                        Curve(y = dLATREGSRL.dataOut[2])
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end DLATREGSRL;
 
         model NXFER "Functionality test of NXFERGATE"
@@ -959,7 +1162,24 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NRXFER component.  After simulation until 12 s plot x, enable, and y of the <code>nRXFERGATE </code>component. To verify the result compare to the truth table <code>NRXferTable</code>.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "nRXFERGATE variables",
+                  identifier = "db6a5",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = nRXFERGATE.x),
+                        Curve(y = nRXFERGATE.enable),
+                        Curve(y = nRXFERGATE.y)
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end NRXFER;
 
         model BUF3S "Functionality test of BUF3S"
@@ -988,7 +1208,24 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the <code>bUF3S</code> component. To verify the result compare to the truth table Buf3sTable.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "bUF3S variables",
+                  identifier = "f247e",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = bUF3S.x),
+                        Curve(y = bUF3S.enable),
+                        Curve(y = bUF3S.y)
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end BUF3S;
 
         model INV3S "Functionality test of INV3S"
@@ -1015,7 +1252,24 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the <code>iNV3S</code> component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "iNV3S variables",
+                  identifier = "ae64e",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = iNV3S.x),
+                        Curve(y = iNV3S.enable),
+                        Curve(y = iNV3S.y)
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end INV3S;
 
         model WiredX "Functionality test of WiredX"
@@ -1069,7 +1323,28 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.WiredX component. The input width is set to two. After simulation until 12 s plot x[1], x[2], and y of the WiredX component. To verify the result compare to the truth table  Tables.ResolutionTable.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "wiredX variables",
+                  identifier = "164de",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = wiredX.x[1]),
+                        Curve(y = wiredX.x[2])
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = wiredX.y)
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end WiredX;
 
         model MUX2x1 "Simple Multiplexer test"
@@ -1103,7 +1378,29 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (experiment(StopTime=15),
             Documentation(info="<html>
 <p>This example is a simple test of a single multiplexer component with 2 inputs prescribed by sources, one select input, and one output. After simulation until 15 s plot Mux2x1.in0, Mux2x1.in1, Mux2x1.sel, and Mux2x1.out. Compare the output signal with the input signals. If the select signal changes, the output switches to the other input.</p>
-</html>"));
+</html>",
+              figures = {
+                Figure(
+                  title = "Mux2x1 variables",
+                  identifier = "a08b4",
+                  preferred = true,
+                  plots = {
+                    Plot(
+                      curves = {
+                        Curve(y = Mux2x1.in0),
+                        Curve(y = Mux2x1.in1)
+                      }
+                    ),
+                    Plot(
+                      curves = {
+                        Curve(y = Mux2x1.sel),
+                        Curve(y = Mux2x1.out)
+                      }
+                    )
+                  }
+                )
+              }
+            ));
         end MUX2x1;
 
         model RAM "Simple RAM test example"
