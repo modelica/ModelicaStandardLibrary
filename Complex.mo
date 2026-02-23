@@ -23,7 +23,9 @@ operator record Complex "Complex number with overloaded operators"
             fillColor={248,248,248},
             fillPattern=FillPattern.HorizontalCylinder,
             extent={{-100,-100},{100,100}},
-            radius=25.0), Rectangle(
+            radius=25.0,
+            pattern=LinePattern.None),
+                          Rectangle(
             lineColor={128,128,128},
             extent={{-100,-100},{100,100}},
             radius=25.0)}));
@@ -71,7 +73,8 @@ operator record Complex "Complex number with overloaded operators"
             fillColor={248,248,248},
             fillPattern=FillPattern.HorizontalCylinder,
             extent={{-100,-100},{100,100}},
-            radius=25.0),
+            radius=25.0,
+            pattern=LinePattern.None),
           Rectangle(
             lineColor={128,128,128},
             extent={{-100,-100},{100,100}},
@@ -128,7 +131,8 @@ operator record Complex "Complex number with overloaded operators"
             fillColor={248,248,248},
             fillPattern=FillPattern.HorizontalCylinder,
             extent={{-100,-100},{100,100}},
-            radius=25.0),
+            radius=25.0,
+            pattern=LinePattern.None),
           Rectangle(
             lineColor={128,128,128},
             extent={{-100,-100},{100,100}},

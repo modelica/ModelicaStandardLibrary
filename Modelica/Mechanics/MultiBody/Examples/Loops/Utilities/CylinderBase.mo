@@ -193,7 +193,8 @@ equation
         Rectangle(
           extent={{-58,53},{58,-23}},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-60,45},{60,39}},
           fillPattern=FillPattern.Solid),

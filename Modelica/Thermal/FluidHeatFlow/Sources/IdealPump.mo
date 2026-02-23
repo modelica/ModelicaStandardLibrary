@@ -64,9 +64,11 @@ Thermodynamic equations are defined by BaseClasses.TwoPort.
         Rectangle(
           extent={{-10,-40},{10,-100}},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={175,175,175}),
+          fillColor={175,175,175},
+          pattern=LinePattern.None),
         Polygon(
           points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={0,0,255})}));
+          fillColor={0,0,255},
+          pattern=LinePattern.None)}));
 end IdealPump;

@@ -112,13 +112,15 @@ equation
           lineColor={64,64,64},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={255,255,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(
           extent={{30,-60},{100,60}},
           lineColor={64,64,64},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={255,255,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
         Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
         Rectangle(
