@@ -72,5 +72,26 @@ equation
 <li>In the beginning, the clutch is free and the brake fixes the ring of the planetary. Thus we obtain a gearRatio = 1/(1 + planetary.ratio).</li>
 <li>At time = 2 s, the brake frees the ring of the planetary, whereas the clutch blocks the ring and the sun. Thus we obtain a gearRatio = 1.</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Gear ratio and velocities",
+          identifier = "5bac2",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = gearRatio, legend = "Gear ratio in planetary gear")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = wEngine, legend = "Angular velocity of engine"),
+                Curve(y = wLoad, legend = "Angular velocity of load")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SimpleGearShift;
