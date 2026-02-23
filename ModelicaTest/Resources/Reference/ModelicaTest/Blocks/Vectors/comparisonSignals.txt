@@ -1,0 +1,3 @@
+time
+scalarProduct.y
+normalizeVector.y
