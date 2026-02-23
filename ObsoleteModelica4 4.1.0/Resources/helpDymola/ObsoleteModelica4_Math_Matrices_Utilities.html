@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ObsoleteModelica4.Math.Matrices.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Utility functions that should not be directly utilized by the user&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="ObsoleteModelica4.Math.Matrices.Utilities"></a><a href="ObsoleteModelica4_Math_Matrices.html#ObsoleteModelica4.Math.Matrices"
+>ObsoleteModelica4.Math.Matrices</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Utility functions that should not be directly utilized by the user</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="ObsoleteModelica4.Blocks.ef30fe5e27544414eDataS.png" alt="ObsoleteModelica4.Math.Matrices.Utilities.householderReflection" width="20" height="20" align="top">&nbsp;<a href="ObsoleteModelica4_Math_Matrices_Utilities.html#ObsoleteModelica4.Math.Matrices.Utilities.householderReflection"
+>householderReflection</a>
+</td>
+<td>Reflect each of the vectors a_i of matrix  A=[a_1, a_2, ..., a_n] on a plane with orthogonal vector u</td>
+</tr>
+<tr>
+<td><img src="ObsoleteModelica4.Blocks.ef30fe5e27544414eDataS.png" alt="ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation" width="20" height="20" align="top">&nbsp;<a href="ObsoleteModelica4_Math_Matrices_Utilities.html#ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation"
+>householderSimilarityTransformation</a>
+</td>
+<td>Perform the similarity transformation S*A*S of matrix A with symmetric householder matrix S = I - 2u*u&#39;</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE householderReflection<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ObsoleteModelica4.Blocks.ef30fe5e27544414eDataI.png" alt="ObsoleteModelica4.Math.Matrices.Utilities.householderReflection" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ObsoleteModelica4.Math.Matrices.Utilities.householderReflection"></a><a href="ObsoleteModelica4_Math_Matrices_Utilities.html#ObsoleteModelica4.Math.Matrices.Utilities"
+>ObsoleteModelica4.Math.Matrices.Utilities</a>.householderReflection</h2>
+<p>
+<span class="ModelicaDescription">Reflect each of the vectors a_i of matrix  A=[a_1, a_2, ..., a_n] on a plane with orthogonal vector u</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<strong>householderReflection</strong>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the Householder reflection (transformation)
+</p>
+<blockquote>
+ <strong>Ar</strong> = <strong>Q</strong>*<strong>A</strong>
+</blockquote>
+with
+<blockquote>
+ <strong>Q</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>)
+</blockquote>
+<p>
+where <strong>u</strong> is Householder vector, i.e., the normal vector of the reflection plane.
+</p>
+<p>
+Householder reflection is widely used in numerical linear algebra, e.g., to perform QR decompositions.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+// First step of QR decomposition
+  import   ObsoleteModelica4.Math.Vectors.Utilities;
+
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real Ar[3,3];
+  Real u[:];
+
+  u=Utilities.householderVector(A[:,1],{1,0,0});
+  // u= {0.763, 0.646, 0}
+
+  Ar=householderReflection(A,u);
+ // Ar = [-6.0828,   -5.2608,   -4.4388;
+ //        0.0,      -1.1508,   -2.3016;
+ //        0.0,       2.0,       0.0]
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="ObsoleteModelica4_Math_Matrices_Utilities.html#ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation"
+>Matrices.Utilities.housholderSimilarityTransformation</a>,<br>
+<a href="ObsoleteModelica4_Math_Vectors_Utilities.html#ObsoleteModelica4.Math.Vectors.Utilities.householderReflection"
+>Vectors.Utilities.householderReflection</a>,<br>
+<a href="ObsoleteModelica4_Math_Vectors_Utilities.html#ObsoleteModelica4.Math.Vectors.Utilities.householderVector"
+>Vectors.Utilities.householderVector</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions), <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</a> (Icon for classes that are obsolete and will be removed in later versions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>Rectangular matrix</td></tr>
+<tr><td>u[size(A, 1)]</td><td>Householder vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RA[size(A, 1), size(A, 2)]</td><td>Reflection of A</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE householderSimilarityTransformation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ObsoleteModelica4.Blocks.ef30fe5e27544414eDataI.png" alt="ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation"></a><a href="ObsoleteModelica4_Math_Matrices_Utilities.html#ObsoleteModelica4.Math.Matrices.Utilities"
+>ObsoleteModelica4.Math.Matrices.Utilities</a>.householderSimilarityTransformation</h2>
+<p>
+<span class="ModelicaDescription">Perform the similarity transformation S*A*S of matrix A with symmetric householder matrix S = I - 2u*u&#39;</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+  As = Matrices.<strong>householderSimilarityTransformation</strong>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the Householder similarity transformation
+</p>
+<blockquote>
+ <strong>As</strong> = <strong>S</strong>*<strong>A</strong>*<strong>S</strong>
+</blockquote>
+with
+<blockquote>
+ <strong>S</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>).
+</blockquote>
+<p>
+This transformation is widely used for transforming non-symmetric matrices to a Hessenberg form.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+// First step of Hessenberg decomposition
+  import   ObsoleteModelica4.Math.Vectors.Utilities;
+
+  Real A[4,4] = [1,2,3,4;
+                 3,4,5,6;
+                 9,8,7,6;
+                 1,2,0,0];
+  Real Ar[4,4];
+  Real u[4]={0,0,0,0};
+
+  u[2:4]=Utilities.householderVector(A[2:4,1],{1,0,0});
+  // u= = {0, 0.8107, 0.5819, 0.0647}
+
+  Ar=householderSimilarityTransformation(A,u);
+ //  Ar = [1.0,     -3.8787,    -1.2193,    3.531;
+          -9.5394, 11.3407,      6.4336,   -5.9243;
+           0.0,     3.1307,      0.7525,   -3.3670;
+           0.0,     0.8021,     -1.1656,   -1.0932]
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="ObsoleteModelica4_Math_Matrices_Utilities.html#ObsoleteModelica4.Math.Matrices.Utilities.householderReflection"
+>Matrices.Utilities.householderReflection</a>,<br>
+<a href="ObsoleteModelica4_Math_Vectors_Utilities.html#ObsoleteModelica4.Math.Vectors.Utilities.householderReflection"
+>Vectors.Utilities.householderReflection</a>,<br>
+<a href="ObsoleteModelica4_Math_Vectors_Utilities.html#ObsoleteModelica4.Math.Vectors.Utilities.householderVector"
+>Vectors.Utilities.householderVector</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions), <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</a> (Icon for classes that are obsolete and will be removed in later versions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>Square matrix A</td></tr>
+<tr><td>u[size(A, 1)]</td><td>Householder vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>SAS[size(A, 1), size(A, 1)]</td><td>Transformation of matrix A</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 17:00:14 2026.
+</address>
+</body>
+</html>

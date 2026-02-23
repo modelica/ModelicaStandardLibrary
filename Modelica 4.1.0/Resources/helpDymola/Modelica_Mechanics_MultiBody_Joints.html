@@ -1,0 +1,1408 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody.Joints</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Components that constrain the motion between two frames&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Joints<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.MultiBody.Joints"></a><a href="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</a>.Joints</h2>
+<p>
+<span class="ModelicaDescription">Components that constrain the motion between two frames</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains <strong>joint components</strong>,
+that is, idealized, massless elements that constrain
+the motion between frames. In subpackage <strong>Assemblies</strong>
+aggregation joint components are provided to handle
+kinematic loops analytically (this means that non-linear systems
+of equations occurring in these joint aggregations are analytically
+solved, i.e., robustly and efficiently).
+</p>
+<h4>Content</h4>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Prismatic"
+>Prismatic</a></td>
+      <td>Prismatic joint and actuated prismatic joint
+          (1 translational degree-of-freedom, 2 potential states)<br>
+      <img src="../Images/Mechanics/MultiBody/Joints/Prismatic.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Revolute</a>
+ </td>
+      <td>Revolute and actuated revolute joint
+          (1 rotational degree-of-freedom, 2 potential states)<br>
+      <img src="../Images/Mechanics/MultiBody/Joints/Revolute.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Cylindrical"
+>Cylindrical</a></td>
+      <td>Cylindrical joint (2 degrees-of-freedom, 4 potential states)<br>
+      <img src="../Images/Mechanics/MultiBody/Joints/Cylindrical.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Universal"
+>Universal</a></td>
+      <td>Universal joint (2 degrees-of-freedom, 4 potential states)<br>
+      <img src="../Images/Mechanics/MultiBody/Joints/Universal.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Planar"
+>Planar</a></td>
+      <td>Planar joint (3 degrees-of-freedom, 6 potential states)<br>
+      <img src="../Images/Mechanics/MultiBody/Joints/Planar.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Spherical"
+>Spherical</a></td>
+      <td>Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)<br>
+      <img src="../Images/Mechanics/MultiBody/Joints/Spherical.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.FreeMotion"
+>FreeMotion</a></td>
+      <td>Free motion joint (6 degrees-of-freedom, 12 potential states)<br>
+      <img src="../Images/Mechanics/MultiBody/Joints/FreeMotion.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.SphericalSpherical"
+>SphericalSpherical</a></td>
+      <td>Spherical - spherical joint aggregation (1 constraint,
+          no potential states) with an optional point mass in the middle<br>
+      <img src="../Images/Mechanics/MultiBody/Joints/SphericalSpherical.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.UniversalSpherical"
+>UniversalSpherical</a></td>
+      <td>Universal - spherical joint aggregation (1 constraint, no potential states)<br>
+      <img src="../Images/Mechanics/MultiBody/Joints/UniversalSpherical.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.GearConstraint"
+>GearConstraint</a></td>
+      <td>Ideal 3-dim. gearbox (arbitrary shaft directions)
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+>MultiBody.Joints.Assemblies</a></td>
+      <td><strong>Package</strong> of joint aggregations for analytic loop handling.
+      </td>
+  </tr>
+  <tr><td><a href="Modelica_Mechanics_MultiBody_Joints_Constraints.html#Modelica.Mechanics.MultiBody.Joints.Constraints"
+>MultiBody.Joints.Constraints</a></td>
+      <td><strong>Package</strong> of components that define joints by constraints
+      </td>
+  </tr>
+</table>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB12ed122f47d68dffmaticS.png" alt="Modelica.Mechanics.MultiBody.Joints.Prismatic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Prismatic"
+>Prismatic</a>
+</td>
+<td>Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBd7bba5fd0dfe6475oluteS.png" alt="Modelica.Mechanics.MultiBody.Joints.Revolute" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Revolute</a>
+</td>
+<td>Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBa08b70748af276d3raintS.png" alt="Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint"
+>RevolutePlanarLoopConstraint</a>
+</td>
+<td>Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB6d8954db901a8483ricalS.png" alt="Modelica.Mechanics.MultiBody.Joints.Cylindrical" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Cylindrical"
+>Cylindrical</a>
+</td>
+<td>Cylindrical joint (2 degrees-of-freedom, 4 potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB1b127e2c4d5f1510ersalS.png" alt="Modelica.Mechanics.MultiBody.Joints.Universal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Universal"
+>Universal</a>
+</td>
+<td>Universal joint (2 degrees-of-freedom, 4 potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBb2853a49a080fa3dlanarS.png" alt="Modelica.Mechanics.MultiBody.Joints.Planar" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Planar"
+>Planar</a>
+</td>
+<td>Planar joint (3 degrees-of-freedom, 6 potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB52392b9e2a22d3e0ricalS.png" alt="Modelica.Mechanics.MultiBody.Joints.Spherical" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Spherical"
+>Spherical</a>
+</td>
+<td>Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB2ec90ac53a337ea3otionS.png" alt="Modelica.Mechanics.MultiBody.Joints.FreeMotion" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.FreeMotion"
+>FreeMotion</a>
+</td>
+<td>Free motion joint (6 degrees-of-freedom, 12 potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB2ec90ac53a337ea3otionS.png" alt="Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit"
+>FreeMotionScalarInit</a>
+</td>
+<td>Free motion joint with scalar initialization and state selection (6 degrees-of-freedom, 12 potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB50c40bd3976f9592ricalS.png" alt="Modelica.Mechanics.MultiBody.Joints.SphericalSpherical" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.SphericalSpherical"
+>SphericalSpherical</a>
+</td>
+<td>Spherical - spherical joint aggregation (1 constraint, no potential states) with an optional point mass in the middle</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBb66e46bd2fb1997dricalS.png" alt="Modelica.Mechanics.MultiBody.Joints.UniversalSpherical" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.UniversalSpherical"
+>UniversalSpherical</a>
+</td>
+<td>Universal - spherical joint aggregation (1 constraint, no potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB815d811b5f9f4a56raintS.png" alt="Modelica.Mechanics.MultiBody.Joints.GearConstraint" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.GearConstraint"
+>GearConstraint</a>
+</td>
+<td>Ideal 3-dim. gearbox (arbitrary shaft directions)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB51f0fa31a2720404WheelS.png" alt="Modelica.Mechanics.MultiBody.Joints.RollingWheel" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.RollingWheel"
+>RollingWheel</a>
+</td>
+<td>Joint (no mass, no inertia) that describes an ideal rolling wheel (rolling on the plane z=0)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB52c028b9820311ecelSetS.png" alt="Modelica.Mechanics.MultiBody.Joints.RollingWheelSet" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.RollingWheelSet"
+>RollingWheelSet</a>
+</td>
+<td>Joint (no mass, no inertia) that describes an ideal rolling wheel set (two ideal rolling wheels connected together by an axis)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB377e64637aef9e4ebliesS.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+>Assemblies</a>
+</td>
+<td>Components that aggregate several joints for analytic loop handling</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB377e64637aef9e4ebliesS.png" alt="Modelica.Mechanics.MultiBody.Joints.Constraints" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints_Constraints.html#Modelica.Mechanics.MultiBody.Joints.Constraints"
+>Constraints</a>
+</td>
+<td>Components that define joints by constraints</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB59a99cdcc9510a06ernalS.png" alt="Modelica.Mechanics.MultiBody.Joints.Internal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints_Internal.html#Modelica.Mechanics.MultiBody.Joints.Internal"
+>Internal</a>
+</td>
+<td>Components used for analytic solution of kinematic loops (use only if you know what you are doing)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Prismatic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB12ed122f47d68dffmaticI.png" alt="Modelica.Mechanics.MultiBody.Joints.Prismatic" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Prismatic"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.Prismatic</h2>
+<p>
+<span class="ModelicaDescription">Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint where frame_b is translated along axis n which is fixed in frame_a.
+The two frames coincide when the relative distance "s = 0".
+</p>
+
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange "axis" represents the driving flange and
+flange "support" represents the bearing) can be enabled via
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
+>Modelica.Mechanics.Translational</a>
+library.
+
+</p>
+
+<p>
+In the "Advanced" menu it can be defined via parameter <strong>stateSelect</strong>
+that the relative distance "s" and its derivative shall be definitely
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the relative distance and its
+derivative as preferred states. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+
+<p>
+In the following figure the animation of a prismatic
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector "n" defining the translation axis
+(here: n = {1,1,0}).
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Joints/Prismatic.png">
+</div>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint</a> (Base model for elementary joints (has two frames + outer world + assert to guarantee that the joint is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useAxisFlange</td><td>= true, if axis flange is enabled</td></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>n</td><td>Axis of translation resolved in frame_a (= same as in frame_b) [1]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>boxWidthDirection</td><td>Vector in width direction of box, resolved in frame_a [1]</td></tr>
+<tr><td>boxWidth</td><td>Width of prismatic joint box [m]</td></tr>
+<tr><td>boxHeight</td><td>Height of prismatic joint box [m]</td></tr>
+<tr><td>boxColor</td><td>Color of prismatic joint box</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use distance s and v=der(s) as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the joint with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the joint with one cut-force and cut-torque</td></tr>
+<tr><td>axis</td><td>1-dim. translational flange that drives the joint</td></tr>
+<tr><td>support</td><td>1-dim. translational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Revolute<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBd7bba5fd0dfe6475oluteI.png" alt="Modelica.Mechanics.MultiBody.Joints.Revolute" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Revolute"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.Revolute</h2>
+<p>
+<span class="ModelicaDescription">Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange)</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when the rotation angle "phi = 0".
+</p>
+
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange "axis" represents the driving flange and
+flange "support" represents the bearing) can be enabled via
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</a>
+library.
+
+</p>
+
+<p>
+In the "Advanced" menu it can be defined via parameter <strong>stateSelect</strong>
+that the rotation angle "phi" and its derivative shall be definitely
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the joint angle and its
+derivative as preferred states. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+<p>
+If a <strong>planar loop</strong> is present, e.g., consisting of 4 revolute joints
+where the joint axes are all parallel to each other, then there is no
+longer a unique mathematical solution and the symbolic algorithms will
+fail. Usually, an error message will be printed pointing out this
+situation. In this case, one revolute joint of the loop has to be replaced
+by a Joints.RevolutePlanarLoopConstraint joint. The
+effect is that from the 5 constraints of a usual revolute joint,
+3 constraints are removed and replaced by appropriate known
+variables (e.g., the force in the direction of the axis of rotation is
+treated as known with value equal to zero; for standard revolute joints,
+this force is an unknown quantity).
+</p>
+
+<p>
+In the following figure the animation of a revolute
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector "n" defining the translation axis
+(here: n = {0,0,1}, phi.start = 45<sup>o</sup>).
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Joints/Revolute.png">
+</div>
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useAxisFlange</td><td>= true, if axis flange is enabled</td></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show axis as cylinder)</td></tr>
+<tr><td>n</td><td>Axis of rotation resolved in frame_a (= same as in frame_b) [1]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>cylinderLength</td><td>Length of cylinder representing the joint axis [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinder representing the joint axis [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinder representing the joint axis</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use joint angle phi and w=der(phi) as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>axis</td><td>1-dim. rotational flange that drives the joint</td></tr>
+<tr><td>support</td><td>1-dim. rotational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)</td></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the joint with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the joint with one cut-force and cut-torque</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RevolutePlanarLoopConstraint<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBa08b70748af276d3raintI.png" alt="Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.RevolutePlanarLoopConstraint</h2>
+<p>
+<span class="ModelicaDescription">Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a and
+where this joint is used in a planar loop providing 2 constraint equations
+on position level.
+</p>
+
+<p>
+If a <strong>planar loop</strong> is present, e.g., consisting of 4 revolute joints
+where the joint axes are all parallel to each other, then there is no
+unique mathematical solution if all revolute joints are modelled with
+Joints.Revolute and the symbolic algorithms will
+fail. The reason is that, e.g., the cut-forces in the revolute joints perpendicular
+to the planar loop are not uniquely defined when 3-dim. descriptions of revolute
+joints are used. Usually, an error message will be printed pointing out this
+situation. In this case, <strong>one</strong> revolute joint in the loop has to be replaced by
+model Joints.RevolutePlanarLoopCutJoint. The
+effect is that from the 5 constraints of a 3-dim. revolute joint,
+3 constraints are removed and replaced by appropriate known
+variables (e.g., the force in the direction of the axis of rotation is
+treated as known with value equal to zero; for standard revolute joints,
+this force is an unknown quantity).
+</p>
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show axis as cylinder)</td></tr>
+<tr><td>n</td><td>Axis of rotation resolved in frame_a (= same as in frame_b) [1]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>cylinderLength</td><td>Length of cylinder representing the joint axis [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinder representing the joint axis [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinder representing the joint axis</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the joint with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the joint with one cut-force and cut-torque</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Cylindrical<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB6d8954db901a8483ricalI.png" alt="Modelica.Mechanics.MultiBody.Joints.Cylindrical" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Cylindrical"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.Cylindrical</h2>
+<p>
+<span class="ModelicaDescription">Cylindrical joint (2 degrees-of-freedom, 4 potential states)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint where frame_b rotates around and translates along axis n
+which is fixed in frame_a. The two frames coincide when
+"phi=revolute.phi=0" and "s=prismatic.s=0". This joint
+has the following potential states;
+</p>
+<ul>
+<li> The relative angle phi [rad] around axis n,</li>
+<li> the relative distance s [m] along axis n,</li>
+<li> the relative angular velocity w [rad/s] (= der(phi))
+     and</li>
+<li> the relative velocity v [m/s] (= der(s)).</li>
+</ul>
+<p>
+They are used as candidates for automatic selection of states
+from the tool. This may be enforced by setting "stateSelect=StateSelect.<strong>always</strong>"
+in the <strong>Advanced</strong> menu. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the "StateSelect.always" setting.
+</p>
+<p>
+In the following figure the animation of a cylindrical
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector "n" defining the cylinder axis
+(here: n = {0,0,1}).
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Joints/Cylindrical.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show cylinder)</td></tr>
+<tr><td>n</td><td>Cylinder axis resolved in frame_a (= same as in frame_b) [1]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinder [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinder</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use joint coordinates (phi, s, w, v) as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Universal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB1b127e2c4d5f1510ersalI.png" alt="Modelica.Mechanics.MultiBody.Joints.Universal" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Universal"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.Universal</h2>
+<p>
+<span class="ModelicaDescription">Universal joint (2 degrees-of-freedom, 4 potential states)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint where frame_a rotates around axis n_a which is fixed in frame_a
+and frame_b rotates around axis n_b which is fixed in frame_b.
+The two frames coincide when
+"revolute_a.phi=0" and "revolute_b.phi=0". This joint
+has the following potential states;
+</p>
+<ul>
+<li> The relative angle phi_a = revolute_a.phi [rad] around axis n_a,</li>
+<li> the relative angle phi_b = revolute_b.phi [rad] around axis n_b,</li>
+<li> the relative angular velocity w_a (= der(phi_a))  and</li>
+<li> the relative angular velocity w_b (= der(phi_b)).</li>
+</ul>
+<p>
+They are used as candidates for automatic selection of states
+from the tool. This may be enforced by setting "stateSelect=StateSelect.<strong>always</strong>"
+in the <strong>Advanced</strong> menu. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the "StateSelect.always" setting.
+</p>
+
+<p>
+In the following figure the animation of a universal
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint
+(here: n_a = {0,0,1}, n_b = {0,1,0}, phi_a.start = 90<sup>o</sup>,
+phi_b.start = 45<sup>o</sup>).
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Joints/Universal.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>n_a</td><td>Axis of revolute joint 1 resolved in frame_a [1]</td></tr>
+<tr><td>n_b</td><td>Axis of revolute joint 2 resolved in frame_b [1]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>cylinderLength</td><td>Length of cylinders representing the joint axes [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinders representing the joint axes [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinders representing the joint axes</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use joint coordinates (phi_a, phi_b, w_a, w_b) as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Planar<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBb2853a49a080fa3dlanarI.png" alt="Modelica.Mechanics.MultiBody.Joints.Planar" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Planar"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.Planar</h2>
+<p>
+<span class="ModelicaDescription">Planar joint (3 degrees-of-freedom, 6 potential states)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint where frame_b can move in a plane and can rotate around an
+axis orthogonal to the plane. The plane is defined by
+vector n which is perpendicular to the plane and by vector n_x,
+which points in the direction of the x-axis of the plane.
+frame_a and frame_b coincide when s_x=prismatic_x.s=0,
+s_y=prismatic_y.s=0 and phi=revolute.phi=0. This joint has the following
+potential states:
+</p>
+<ul>
+<li> the relative distance s_x = prismatic_x.s [m] along axis n_x,</li>
+<li> the relative distance s_y = prismatic_y.s [m] along axis n_y = cross(n,n_x),</li>
+<li> the relative angle phi = revolute.phi [rad] around axis n,</li>
+<li> the relative velocity v_x (= der(s_x)).</li>
+<li> the relative velocity v_y (= der(s_y)).</li>
+<li> the relative angular velocity w (= der(phi))</li>
+</ul>
+<p>
+They are used as candidates for automatic selection of states
+from the tool. This may be enforced by setting "stateSelect=StateSelect.<strong>always</strong>"
+in the <strong>Advanced</strong> menu. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the "StateSelect.always" setting.
+</p>
+<p>
+In the following figure the animation of a planar
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrows are parameter
+vectors "n" and "n_x"
+(here: n = {0,1,0}, n_x = {0,0,1}, s_x.start = 0.5,
+s_y.start = 0.5, phi.start = 45<sup>o</sup>).
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Joints/Planar.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>n</td><td>Axis orthogonal to unconstrained plane, resolved in frame_a (= same as in frame_b) [1]</td></tr>
+<tr><td>n_x</td><td>Vector in direction of x-axis of plane, resolved in frame_a (n_x shall be orthogonal to n) [1]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>cylinderLength</td><td>Length of revolute cylinder [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of revolute cylinder [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of revolute cylinder</td></tr>
+<tr><td>boxWidth</td><td>Width of prismatic joint boxes [m]</td></tr>
+<tr><td>boxHeight</td><td>Height of prismatic joint boxes [m]</td></tr>
+<tr><td>boxColor</td><td>Color of prismatic joint boxes</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use joint coordinates (s_x, s_y, phi, v_x, v_y, w) as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Spherical<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB52392b9e2a22d3e0ricalI.png" alt="Modelica.Mechanics.MultiBody.Joints.Spherical" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Spherical"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.Spherical</h2>
+<p>
+<span class="ModelicaDescription">Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint with <strong>3 constraints</strong> that define that the origin of
+frame_a and the origin of frame_b coincide. By default this joint
+defines only the 3 constraints without any potential states.
+If parameter <strong>enforceStates</strong> is set to <strong>true</strong>
+in the "Advanced" menu, three states are introduced.
+Depending on parameter <strong>useQuaternions</strong> these are either
+quaternions and the relative angular velocity or 3 angles
+and the angle derivatives. In the latter case the orientation
+of frame_b is computed by rotating frame_a along the axes defined
+in parameter vector "sequence_angleStates" (default = {1,2,3}, i.e.,
+the Cardan angle sequence) around the angles used as states.
+For example, the default is to rotate the x-axis of frame_a
+around angles[1], the new y-axis around angles[2] and the new z-axis
+around angles[3], arriving at frame_b. If angles are used
+as states there is the slight disadvantage that
+a singular configuration is present leading to a division by zero.
+</p>
+<p>
+If this joint is used in a <strong>chain</strong> structure, a Modelica translator
+has to select orientation coordinates of a body as states, if the
+default setting is used. It is usually better to use relative coordinates
+in the spherical joint as states, and therefore in this situation
+parameter enforceStates might be set to <strong>true</strong>.
+</p>
+<p>
+If this joint is used in a <strong>loop</strong> structure, the default
+setting results in a <strong>cut-joint</strong> that
+breaks the loop in independent kinematic pieces, hold together
+by the constraints of this joint. As a result, a Modelica translator
+will first try to select 3 generalized coordinates in the joints of
+the remaining parts of the loop and their first derivative as states
+and if this is not possible, e.g., because there are only spherical
+joints in the loop, will select coordinates from a body of the loop
+as states.
+</p>
+<p>
+In the following figure the animation of a spherical
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint.
+(here: angles_start = {45, 45, 45}<sup>o</sup>).
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Joints/Spherical.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show sphere)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>sphereDiameter</td><td>Diameter of sphere representing the spherical joint [m]</td></tr>
+<tr><td>sphereColor</td><td>Color of sphere representing the spherical joint</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Initialization</td></tr>
+<tr><td>angles_fixed</td><td>= true, if angles_start are used as initial values, else as guess values</td></tr>
+<tr><td>angles_start[3]</td><td>Initial values of angles to rotate frame_a around &#39;sequence_start&#39; axes into frame_b [rad]</td></tr>
+<tr><td>sequence_start</td><td>Sequence of rotations to rotate frame_a into frame_b at initial time</td></tr>
+<tr><td>w_rel_a_fixed</td><td>= true, if w_rel_a_start are used as initial values, else as guess values</td></tr>
+<tr><td>w_rel_a_start[3]</td><td>Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a [rad/s]</td></tr>
+<tr><td>z_rel_a_fixed</td><td>= true, if z_rel_a_start are used as initial values, else as guess values</td></tr>
+<tr><td>z_rel_a_start[3]</td><td>Initial values of angular acceleration z_rel_a = der(w_rel_a) [rad/s2]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>enforceStates</td><td>= true, if relative variables of spherical joint shall be used as states (StateSelect.always)</td></tr>
+<tr><td>useQuaternions</td><td>= true, if quaternions shall be used as states otherwise use 3 angles as states (provided enforceStates=true)</td></tr>
+<tr><td>sequence_angleStates</td><td>Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FreeMotion<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB2ec90ac53a337ea3otionI.png" alt="Modelica.Mechanics.MultiBody.Joints.FreeMotion" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.FreeMotion"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.FreeMotion</h2>
+<p>
+<span class="ModelicaDescription">Free motion joint (6 degrees-of-freedom, 12 potential states)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint which does not constrain the motion between frame_a and frame_b.
+Such a joint is only meaningful if the <strong>relative</strong> distance and orientation
+between frame_a and frame_b, and their derivatives, shall be used
+as <strong>states</strong>.
+</p>
+<p>
+Note, that <strong>bodies</strong> such as Parts.Body, Parts.BodyShape,
+have potential states describing the distance
+and orientation, and their derivatives, between the <strong>world frame</strong> and
+a <strong>body fixed frame</strong>.
+Therefore, if these potential state variables are suited,
+a FreeMotion joint is not needed.
+</p>
+<p>
+The states of the FreeMotion object are:
+</p>
+<ul>
+<li> The <strong>relative position vector</strong> r_rel_a from the origin of
+     frame_a to the origin of frame_b, resolved in
+     frame_a and the <strong>relative velocity</strong> v_rel_a of the origin of
+     frame_b with respect to the origin of frame_a, resolved in frame_a
+     (= der(r_rel_a)).
+</li>
+<li> If parameter <strong>useQuaternions</strong> in the "Advanced" menu
+     is <strong>true</strong> (this is the default), then <strong>4 quaternions</strong>
+     are states. Additionally, the coordinates of the
+     relative angular velocity vector are 3 potential states.<br>
+     If <strong>useQuaternions</strong> in the "Advanced" menu
+     is <strong>false</strong>, then <strong>3 angles</strong> and the derivatives of
+     these angles are potential states. The orientation of frame_b
+     is computed by rotating frame_a along the axes defined
+     in parameter vector "sequence_angleStates" (default = {1,2,3}, i.e.,
+     the Cardan angle sequence) around the angles used as states.
+     For example, the default is to rotate the x-axis of frame_a
+     around angles[1], the new y-axis around angles[2] and the new z-axis
+     around angles[3], arriving at frame_b.
+ </li>
+</ul>
+<p>
+The quaternions have the slight disadvantage that there is a
+non-linear constraint equation between the 4 quaternions.
+Therefore, at least one non-linear equation has to be solved
+during simulation. A tool might, however, analytically solve this
+simple constraint equation. Using the 3 angles as states has the
+disadvantage that there is a singular configuration in which a
+division by zero will occur. If it is possible to determine in advance
+for an application class that this singular configuration is outside
+of the operating region, the 3 angles might be used as
+states by setting <strong>useQuaternions</strong> = <strong>false</strong>.
+</p>
+<p>
+In text books about 3-dimensional mechanics often 3 angles and the
+angular velocity are used as states. This is not the case here, since
+3 angles and their derivatives are used as states
+(if useQuaternions = false). The reason
+is that for real-time simulation the discretization formula of the
+integrator might be "inlined" and solved together with the model equations.
+By appropriate symbolic transformation the performance is
+drastically increased if angles and their
+derivatives are used as states, instead of angles and the angular
+velocity.
+</p>
+<p>
+If parameter
+<strong>enforceStates</strong> is set to <strong>true</strong> (= the default)
+in the "Advanced" menu,
+then FreeMotion variables are forced to be used as states according
+to the setting of parameters "useQuaternions" and
+"sequence_angleStates".
+</p>
+<p>
+In the following figure the animation of a FreeMotion
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint.
+(here: r_rel_a_start = {0.5, 0, 0.5}, angles_start = {45, 45, 45}<sup>o</sup>).
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Joints/FreeMotion.png">
+</div>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show arrow from frame_a to frame_b)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>r_rel_a[3]</td><td>Position vector from origin of frame_a to origin of frame_b, resolved in frame_a [m]</td></tr>
+<tr><td>v_rel_a[3]</td><td>= der(r_rel_a), i.e., velocity of origin of frame_b with respect to origin of frame_a, resolved in frame_a [m/s]</td></tr>
+<tr><td>a_rel_a[3]</td><td>= der(v_rel_a) [m/s2]</td></tr>
+<tr><td>angles_fixed</td><td>= true, if angles_start are used as initial values, else as guess values</td></tr>
+<tr><td>angles_start[3]</td><td>Initial values of angles to rotate frame_a around &#39;sequence_start&#39; axes into frame_b [rad]</td></tr>
+<tr><td>sequence_start</td><td>Sequence of rotations to rotate frame_a into frame_b at initial time</td></tr>
+<tr><td>w_rel_a_fixed</td><td>= true, if w_rel_a_start are used as initial values, else as guess values</td></tr>
+<tr><td>w_rel_a_start[3]</td><td>Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a [rad/s]</td></tr>
+<tr><td>z_rel_a_fixed</td><td>= true, if z_rel_a_start are used as initial values, else as guess values</td></tr>
+<tr><td>z_rel_a_start[3]</td><td>Initial values of angular acceleration z_rel_a = der(w_rel_a) [rad/s2]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>arrowColor</td><td>Color of arrow</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>enforceStates</td><td>= true, if relative variables between frame_a and frame_b shall be used as states</td></tr>
+<tr><td>useQuaternions</td><td>= true, if quaternions shall be used as states otherwise use 3 angles as states</td></tr>
+<tr><td>sequence_angleStates</td><td>Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FreeMotionScalarInit<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB2ec90ac53a337ea3otionI.png" alt="Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.FreeMotionScalarInit</h2>
+<p>
+<span class="ModelicaDescription">Free motion joint with scalar initialization and state selection (6 degrees-of-freedom, 12 potential states)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint which does not constrain the motion between frame_a and frame_b.
+Such a joint is meaningful if the <strong>relative</strong> distance and orientation
+between frame_a and frame_b, and their derivatives, shall be used
+as <strong>states</strong> or shall be used for non-standard
+<strong>initialization</strong>. This joint allows to <strong>initialize</strong>
+every <strong>scalar</strong> element of the relative quantities, as well
+as to define <strong>StateSelect</strong> attributes for every
+<strong>scalar</strong> element separately.
+</p>
+
+<p>
+In the following figure the animation of a FreeMotionScalarInit
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint.
+(here: r_rel_a_1(start = 0.5), r_rel_a_2(start = 0), r_rel_a_3(start = 0.5),
+       angle_1(start = 45<sup>o</sup>), angle_2(start = 45<sup>o</sup>), angle_3(start = 45<sup>o</sup>)).
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Joints/FreeMotion.png">
+</div>
+
+<p>
+A example to use this joint for the initialization of a planar double pendulum by providing
+its tip position, is shown in
+<a href="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip"
+>Examples.Elementary.DoublePendulumInitTip</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show arrow from frame_a to frame_b)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Translational initialization</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a</td></tr>
+<tr><td>use_r</td><td>= true, if r_rel_a shall be used</td></tr>
+<tr><td>r_rel_a_1</td><td>Relative distance r_rel_a[1] [m]</td></tr>
+<tr><td>r_rel_a_2</td><td>Relative distance r_rel_a[2] [m]</td></tr>
+<tr><td>r_rel_a_3</td><td>Relative distance r_rel_a[3] [m]</td></tr>
+<tr><td>r_rel_a_1_stateSelect</td><td>StateSelect of r_rel_a[1]</td></tr>
+<tr><td>r_rel_a_2_stateSelect</td><td>StateSelect of r_rel_a[2]</td></tr>
+<tr><td>r_rel_a_3_stateSelect</td><td>StateSelect of r_rel_a[3]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Velocity vector v_rel_a = der(r_rel_a)</td></tr>
+<tr><td>use_v</td><td>= true, if v_rel_a shall be used</td></tr>
+<tr><td>v_rel_a_1</td><td>Relative velocity v_rel_a[1] [m/s]</td></tr>
+<tr><td>v_rel_a_2</td><td>Relative velocity v_rel_a[2] [m/s]</td></tr>
+<tr><td>v_rel_a_3</td><td>Relative velocity v_rel_a[3] [m/s]</td></tr>
+<tr><td>v_rel_a_1_stateSelect</td><td>StateSelect of v_rel_a[1]</td></tr>
+<tr><td>v_rel_a_2_stateSelect</td><td>StateSelect of v_rel_a[2]</td></tr>
+<tr><td>v_rel_a_3_stateSelect</td><td>StateSelect of v_rel_a[3]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Acceleration vector a_rel_a = der(v_rel_a)</td></tr>
+<tr><td>use_a</td><td>= true, if a_rel_a shall be used</td></tr>
+<tr><td>a_rel_a_1</td><td>Relative acceleration a_rel_a[1] [m/s2]</td></tr>
+<tr><td>a_rel_a_2</td><td>Relative acceleration a_rel_a[2] [m/s2]</td></tr>
+<tr><td>a_rel_a_3</td><td>Relative acceleration a_rel_a[3] [m/s2]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Angle initialization</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Angles to rotate frame_a to frame_b along sequence_start</td></tr>
+<tr><td>use_angle</td><td>= true, if angle shall be used</td></tr>
+<tr><td>sequence_start</td><td>Sequence of angle rotations</td></tr>
+<tr><td>angle_1</td><td>First rotation angle or dummy [rad]</td></tr>
+<tr><td>angle_2</td><td>Second rotation angle or dummy [rad]</td></tr>
+<tr><td>angle_3</td><td>Third rotation angle or dummy [rad]</td></tr>
+<tr><td>angle_1_stateSelect</td><td>StateSelect of angle_1</td></tr>
+<tr><td>angle_2_stateSelect</td><td>StateSelect of angle_2</td></tr>
+<tr><td>angle_3_stateSelect</td><td>StateSelect of angle_3</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">angle_d = der(angle)</td></tr>
+<tr><td>use_angle_d</td><td>= true, if angle_d shall be used</td></tr>
+<tr><td>angle_d_1</td><td>= der(angle_1) [rad/s]</td></tr>
+<tr><td>angle_d_2</td><td>= der(angle_2) [rad/s]</td></tr>
+<tr><td>angle_d_3</td><td>= der(angle_3) [rad/s]</td></tr>
+<tr><td>angle_d_1_stateSelect</td><td>StateSelect of angle_d_1</td></tr>
+<tr><td>angle_d_2_stateSelect</td><td>StateSelect of angle_d_2</td></tr>
+<tr><td>angle_d_3_stateSelect</td><td>StateSelect of angle_d_3</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">angle_dd = der(angle_d)</td></tr>
+<tr><td>use_angle_dd</td><td>= true, if angle_dd shall be used</td></tr>
+<tr><td>angle_dd_1</td><td>= der(angle_d_1) [rad/s2]</td></tr>
+<tr><td>angle_dd_2</td><td>= der(angle_d_2) [rad/s2]</td></tr>
+<tr><td>angle_dd_3</td><td>= der(angle_d_3) [rad/s2]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Angular velocity initialization</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b</td></tr>
+<tr><td>use_w</td><td>= true, if w_rel_b shall be used</td></tr>
+<tr><td>w_rel_b_1</td><td>Relative angular velocity w_rel_b[1] [rad/s]</td></tr>
+<tr><td>w_rel_b_2</td><td>Relative angular velocity w_rel_b[2] [rad/s]</td></tr>
+<tr><td>w_rel_b_3</td><td>Relative angular velocity w_rel_b[3] [rad/s]</td></tr>
+<tr><td>w_rel_b_1_stateSelect</td><td>StateSelect of w_rel_b[1]</td></tr>
+<tr><td>w_rel_b_2_stateSelect</td><td>StateSelect of w_rel_b[2]</td></tr>
+<tr><td>w_rel_b_3_stateSelect</td><td>StateSelect of w_rel_b[3]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Angular acceleration z_rel_b = der(w_rel_b)</td></tr>
+<tr><td>use_z</td><td>= true, if z_rel_b shall be used</td></tr>
+<tr><td>z_rel_b_1</td><td>Relative angular acceleration z_rel_b[1] [rad/s2]</td></tr>
+<tr><td>z_rel_b_2</td><td>Relative angular acceleration z_rel_b[2] [rad/s2]</td></tr>
+<tr><td>z_rel_b_3</td><td>Relative angular acceleration z_rel_b[3] [rad/s2]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>arrowColor</td><td>Color of arrow</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Translational initialization</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a</td></tr>
+<tr><td>r_rel_a_1</td><td>Relative distance r_rel_a[1] [m]</td></tr>
+<tr><td>r_rel_a_2</td><td>Relative distance r_rel_a[2] [m]</td></tr>
+<tr><td>r_rel_a_3</td><td>Relative distance r_rel_a[3] [m]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Velocity vector v_rel_a = der(r_rel_a)</td></tr>
+<tr><td>v_rel_a_1</td><td>Relative velocity v_rel_a[1] [m/s]</td></tr>
+<tr><td>v_rel_a_2</td><td>Relative velocity v_rel_a[2] [m/s]</td></tr>
+<tr><td>v_rel_a_3</td><td>Relative velocity v_rel_a[3] [m/s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Acceleration vector a_rel_a = der(v_rel_a)</td></tr>
+<tr><td>a_rel_a_1</td><td>Relative acceleration a_rel_a[1] [m/s2]</td></tr>
+<tr><td>a_rel_a_2</td><td>Relative acceleration a_rel_a[2] [m/s2]</td></tr>
+<tr><td>a_rel_a_3</td><td>Relative acceleration a_rel_a[3] [m/s2]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Angle initialization</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Angles to rotate frame_a to frame_b along sequence_start</td></tr>
+<tr><td>angle_1</td><td>First rotation angle or dummy [rad]</td></tr>
+<tr><td>angle_2</td><td>Second rotation angle or dummy [rad]</td></tr>
+<tr><td>angle_3</td><td>Third rotation angle or dummy [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">angle_d = der(angle)</td></tr>
+<tr><td>angle_d_1</td><td>= der(angle_1) [rad/s]</td></tr>
+<tr><td>angle_d_2</td><td>= der(angle_2) [rad/s]</td></tr>
+<tr><td>angle_d_3</td><td>= der(angle_3) [rad/s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">angle_dd = der(angle_d)</td></tr>
+<tr><td>angle_dd_1</td><td>= der(angle_d_1) [rad/s2]</td></tr>
+<tr><td>angle_dd_2</td><td>= der(angle_d_2) [rad/s2]</td></tr>
+<tr><td>angle_dd_3</td><td>= der(angle_d_3) [rad/s2]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Angular velocity initialization</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b</td></tr>
+<tr><td>w_rel_b_1</td><td>Relative angular velocity w_rel_b[1] [rad/s]</td></tr>
+<tr><td>w_rel_b_2</td><td>Relative angular velocity w_rel_b[2] [rad/s]</td></tr>
+<tr><td>w_rel_b_3</td><td>Relative angular velocity w_rel_b[3] [rad/s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Angular acceleration z_rel_b = der(w_rel_b)</td></tr>
+<tr><td>z_rel_b_1</td><td>Relative angular acceleration z_rel_b[1] [rad/s2]</td></tr>
+<tr><td>z_rel_b_2</td><td>Relative angular acceleration z_rel_b[2] [rad/s2]</td></tr>
+<tr><td>z_rel_b_3</td><td>Relative angular acceleration z_rel_b[3] [rad/s2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SphericalSpherical<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB50c40bd3976f9592ricalI.png" alt="Modelica.Mechanics.MultiBody.Joints.SphericalSpherical" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.SphericalSpherical"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.SphericalSpherical</h2>
+<p>
+<span class="ModelicaDescription">Spherical - spherical joint aggregation (1 constraint, no potential states) with an optional point mass in the middle</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Joint that has a spherical joint on each of its two ends.
+The rod connecting the two spherical joints is approximated by a
+point mass that is located in the middle of the rod. When the mass
+is set to zero (default), special code for a massless body is generated.
+In the following default animation figure, the two spherical joints are
+represented by two red spheres, the connecting rod by a grey cylinder
+and the point mass in the middle of the rod by a light blue sphere:
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Joints/SphericalSpherical.png" alt="model Joints.SphericalSpherical">
+</div>
+
+<p>
+This joint introduces <strong>one constraint</strong> defining that the distance between
+the origin of frame_a and the origin of frame_b is constant (= rodLength).
+It is highly recommended to use this joint in loops
+whenever possible, because this enhances the efficiency
+considerably due to smaller systems of non-linear algebraic
+equations.
+</p>
+<p>
+It is sometimes desirable to <strong>compute</strong> the <strong>rodLength</strong>
+of the connecting rod during initialization. For this, parameter
+<strong>computeLength</strong> has to be set to <strong>true</strong> and instead <strong>one</strong> other,
+easier to determine, position variable in the same loop
+needs to have a fixed attribute of <strong>true</strong>. For example,
+if a loop consists of one Revolute joint, one Prismatic joint and
+a SphericalSpherical joint, one may fix the start values of the revolute
+joint angle and of the relative distance of the prismatic joint
+in order to compute the rodLength of the rod.
+</p>
+<p>
+It is not possible to connect other components, such as a body with mass
+properties or a special visual shape object to the rod connecting
+the two spherical joints. If this is needed, use instead joint Joints.<strong>UniversalSpherical</strong>
+that has this property.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>showMass</td><td>= true, if mass shall be shown (provided animation = true and m &gt; 0)</td></tr>
+<tr><td>computeRodLength</td><td>= true, if rodLength shall be computed during initialization (see info)</td></tr>
+<tr><td>rodLength</td><td>Distance between the origins of frame_a and frame_b (if computeRodLength=true, guess value) [m]</td></tr>
+<tr><td>m</td><td>Mass of rod (= point mass located in middle of rod) [kg]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>sphereDiameter</td><td>Diameter of spheres representing the spherical joints [m]</td></tr>
+<tr><td>sphereColor</td><td>Color of spheres representing the spherical joints</td></tr>
+<tr><td>rodDiameter</td><td>Diameter of rod connecting the two spherical joint [m]</td></tr>
+<tr><td>rodColor</td><td>Color of rod connecting the two spherical joints</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true and showMass = true and m &gt; 0</td></tr>
+<tr><td>massDiameter</td><td>Diameter of sphere representing the mass point [m]</td></tr>
+<tr><td>massColor</td><td>Color of sphere representing the mass point</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>kinematicConstraint</td><td>= false, if no constraint shall be defined, due to analytically solving a kinematic loop (&quot;false&quot; should not be used by user, but only by MultiBody.Joints.Assemblies joints)</td></tr>
+<tr><td>constraintResidue</td><td>Constraint equation of joint in residue form: Either length constraint (= default) or equation to compute rod force (for analytic solution of loops in combination with Internal.RevoluteWithLengthConstraint/PrismaticWithLengthConstraint)</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UniversalSpherical<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBb66e46bd2fb1997dricalI.png" alt="Modelica.Mechanics.MultiBody.Joints.UniversalSpherical" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.UniversalSpherical"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.UniversalSpherical</h2>
+<p>
+<span class="ModelicaDescription">Universal - spherical joint aggregation (1 constraint, no potential states)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This component consists of a <strong>universal joint</strong> at frame_a and
+a <strong>spherical joint</strong> at frame_b that are connected together with
+a <strong>rigid rod</strong>, see default animation figure (the arrows are not
+part of the default animation):
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Joints/UniversalSpherical.png" alt="model Joints.UniversalSpherical">
+</div>
+
+<p>
+This joint aggregation has no mass and no inertia and introduces the constraint
+that the distance between the origin of frame_a and the origin of frame_b is constant
+(= Frames.length(rRod_ia)). The universal joint is defined in the following way:
+</p>
+
+<ul>
+<li> The rotation <strong>axis</strong> of revolute joint <strong>1</strong> is along parameter
+     vector n1_a which is fixed in frame_a.</li>
+<li> The rotation <strong>axis</strong> of revolute joint <strong>2</strong> is perpendicular to
+     axis 1 and to the line connecting the universal and the spherical joint.</li>
+</ul>
+<p>
+The definition of axis 2 of the universal joint is performed according
+to the most often occurring case for the sake of simplicity. Otherwise, the treatment is much more
+complicated and the number of operations is considerably higher,
+if axis 2 is not orthogonal to axis 1 and to the connecting rod.
+</p>
+<p>
+Note, there is a <strong>singularity</strong> when axis 1 and the connecting rod are parallel
+to each other. Therefore, if possible n1_a should be selected in such a way that it
+is perpendicular to rRod_ia in the initial configuration (i.e., the
+distance to the singularity is as large as possible).
+</p>
+<p>
+An additional <strong>frame_ia</strong> is present. It is <strong>fixed</strong> in the connecting
+<strong>rod</strong> at the origin of <strong>frame_a</strong>. The placement of frame_ia on the rod
+is implicitly defined by the universal joint (frame_a and frame_ia coincide
+when the angles of the two revolute joints of the universal joint are zero)
+and by parameter vector <strong>rRod_ia</strong>, the position vector
+from the origin of frame_a to the origin of frame_b, resolved in frame_<strong>ia</strong>.
+</p>
+<p>
+The easiest way to define the parameters of this joint is by moving the
+MultiBody system in a <strong>reference configuration</strong> where <strong>all frames</strong>
+of all components are <strong>parallel</strong> to other (alternatively,
+at least frame_a and frame_ia of the UniversalSpherical joint
+should be parallel to other when defining an instance of this
+component). Since frame_a and frame_ia are parallel to other,
+vector <strong>rRod_ia</strong> from frame_a to frame_b resolved in frame_<strong>ia</strong> can be resolved
+in frame_<strong>a</strong> (or the <strong>world frame</strong>, if all frames are parallel to other).
+</p>
+<p>
+This joint aggregation can be used in cases where
+in reality a rod with spherical joints at end are present.
+Such a system has an additional degree of freedom to rotate
+the rod along its axis. In practice this rotation is usually
+of no interest and is mathematically removed by replacing one
+of the spherical joints by a universal joint. Still, in most
+cases the Joints.SphericalSpherical joint aggregation can be used instead
+of the UniversalSpherical joint
+since the rod is animated and its mass properties are approximated by
+a point mass in the middle of the rod. The SphericalSpherical joint
+has the advantage that it does not have a singular configuration.
+</p>
+<p>
+In the public interface of the UniversalSpherical joint, the following
+(final) <strong>parameters</strong> are provided:
+</p>
+<blockquote><pre>
+<strong>parameter</strong> Real rodLength(unit="m")  "Length of rod";
+<strong>parameter</strong> Real eRod_ia[3] "Unit vector along rod, resolved in frame_ia";
+<strong>parameter</strong> Real e2_ia  [3] "Unit vector along axis 2, resolved in frame_ia";
+</pre></blockquote>
+<p>
+This allows a more convenient definition of data which is related to the rod.
+For example, if a box shall be connected at frame_ia directing from
+the origin of frame_a to the middle of the rod, this might be defined as:
+</p>
+<blockquote><pre>
+  Modelica.Mechanics.MultiBody.Joints.UniversalSpherical jointUS(rRod_ia={1.2, 1, 0.2});
+  Modelica.Mechanics.MultiBody.Visualizers.FixedShape    shape(shapeType       = "box",
+                                            lengthDirection = jointUS.eRod_ia,
+                                            widthDirection  = jointUS.e2_ia,
+                                            length          = jointUS.rodLength/2,
+                                            width           = jointUS.rodLength/10);
+<strong>equation</strong>
+  <strong>connect</strong>(jointUS.frame_ia, shape.frame_a);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>showUniversalAxes</td><td>= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)</td></tr>
+<tr><td>computeRodLength</td><td>= true, if distance between frame_a and frame_b shall be computed during initialization (see info)</td></tr>
+<tr><td>n1_a</td><td>Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod) [1]</td></tr>
+<tr><td>rRod_ia[3]</td><td>Vector from origin of frame_a to origin of frame_b, resolved in frame_ia (if computeRodLength=true, rRod_ia is only an axis vector along the connecting rod) [m]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>sphereDiameter</td><td>Diameter of spheres representing the universal and the spherical joint [m]</td></tr>
+<tr><td>sphereColor</td><td>Color of spheres representing the universal and the spherical joint</td></tr>
+<tr><td>rodShapeType</td><td>Shape type of rod connecting the universal and the spherical joint</td></tr>
+<tr><td>rodWidth</td><td>Width of rod shape in direction of axis 2 of universal joint. [m]</td></tr>
+<tr><td>rodHeight</td><td>Height of rod shape in direction that is orthogonal to rod and to axis 2 [m]</td></tr>
+<tr><td>rodExtra</td><td>Additional parameter depending on rodShapeType</td></tr>
+<tr><td>rodColor</td><td>Color of rod shape connecting the universal and the spherical joints</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true and showUniversalAxes</td></tr>
+<tr><td>cylinderLength</td><td>Length of cylinders representing the two universal joint axes [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinders representing the two universal joint axes [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinders representing the two universal joint axes</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>kinematicConstraint</td><td>= false, if no constraint shall be defined, due to analytically solving a kinematic loop</td></tr>
+<tr><td>constraintResidue</td><td>Constraint equation of joint in residue form: Either length constraint (= default) or equation to compute rod force (for analytic solution of loops in combination with Internal.RevoluteWithLengthConstraint/PrismaticWithLengthConstraint)</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_ia</td><td>Coordinate system at the origin of frame_a, fixed at the rod connecting the universal with the spherical joint</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE GearConstraint<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB815d811b5f9f4a56raintI.png" alt="Modelica.Mechanics.MultiBody.Joints.GearConstraint" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.GearConstraint"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.GearConstraint</h2>
+<p>
+<span class="ModelicaDescription">Ideal 3-dim. gearbox (arbitrary shaft directions)</span>
+</p>
+<h3>Information</h3>
+
+<p>This ideal massless joint provides a gear constraint between
+frames <code>frame_a</code> and <code>frame_b</code>. The axes of rotation
+of <code>frame_a</code> and <code>frame_b</code> may be arbitrary.</p>
+<p><strong>Reference</strong><br>
+<span style="font-variant:small-caps">Schweiger</span>, Christian ;
+<span style="font-variant:small-caps">Otter</span>, Martin:
+<a href="https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">Modelling
+3D Mechanical Effects of 1-dim. Powertrains</a>. In: <em>Proceedings of the 3rd International
+Modelica Conference</em>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
+November 3-4, 2003, pp. 149-158</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ratio</td><td>Gear speed ratio</td></tr>
+<tr><td>n_a</td><td>Axis of rotation of shaft a (same coordinates in frame_a, frame_b, bearing) [1]</td></tr>
+<tr><td>n_b</td><td>Axis of rotation of shaft b (same coordinates in frame_a, frame_b, bearing) [1]</td></tr>
+<tr><td>r_a[3]</td><td>Vector from frame bearing to frame_a resolved in bearing [m]</td></tr>
+<tr><td>r_b[3]</td><td>Vector from frame bearing to frame_b resolved in bearing [m]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>stateSelect</td><td>Priority to use joint coordinates (phi_a, phi_b, w_a, w_b) as states</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>bearing</td><td>Coordinate system fixed in the bearing</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RollingWheel<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB51f0fa31a2720404WheelI.png" alt="Modelica.Mechanics.MultiBody.Joints.RollingWheel" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.RollingWheel"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.RollingWheel</h2>
+<p>
+<span class="ModelicaDescription">Joint (no mass, no inertia) that describes an ideal rolling wheel (rolling on the plane z=0)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A joint for a wheel rolling on the x-y plane of the world frame.
+The rolling contact is considered being ideal, i.e. there is no
+slip between the wheel and the ground. This is simply
+gained by two non-holonomic constraint equations on velocity level
+defined for both longitudinal and lateral direction of the wheel.
+There is also a holonomic constraint equation on position level
+granting a permanent contact of the wheel to the ground, i.e.
+the wheel can not take off.
+</p>
+<p>
+The origin of the frame frame_a is placed in the intersection
+of the wheel spin axis with the wheel middle plane and rotates
+with the wheel itself. The y-axis of frame_a is identical with
+the wheel spin axis, i.e. the wheel rotates about y-axis of frame_a.
+A wheel body collecting the mass and inertia should be connected to
+this frame.
+</p>
+
+<h4>Note</h4>
+<p>
+To work properly, the gravity acceleration vector g of the world must point in the negative z-axis, i.e.
+</p>
+<blockquote><pre>
+<span style="font-family:'Courier New',courier; color:#0000ff;">inner</span> <span style="font-family:'Courier New',courier; color:#ff0000;">Modelica.Mechanics.MultiBody.World</span> world(n={0,0,-1});
+</pre></blockquote>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>radius</td><td>Wheel radius [m]</td></tr>
+<tr><td>stateSelect</td><td>Priority to use generalized coordinates as states</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>angles[3]</td><td>Angles to rotate world-frame into frame_a around z-, y-, x-axis [rad]</td></tr>
+<tr><td>der_angles[3]</td><td>Derivative of angles [rad/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RollingWheelSet<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB52c028b9820311ecelSetI.png" alt="Modelica.Mechanics.MultiBody.Joints.RollingWheelSet" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.RollingWheelSet"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.RollingWheelSet</h2>
+<p>
+<span class="ModelicaDescription">Joint (no mass, no inertia) that describes an ideal rolling wheel set (two ideal rolling wheels connected together by an axis)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+An assembly joint for a wheelset rolling on the x-y plane of the world frame.
+The frames frame1 and frame2 are connected to rotating wheels; the frameMiddle moves
+in a plane parallel to the x-y plane of the world and should be connected to the vehicle body.
+</p>
+
+<h4>Note</h4>
+<p>
+To work properly, the gravity acceleration vector g of the world must point in the negative z-axis, i.e.
+</p>
+<blockquote><pre>
+<span style="font-family:'Courier New',courier; color:#0000ff;">inner</span> <span style="font-family:'Courier New',courier; color:#ff0000;">Modelica.Mechanics.MultiBody.World</span> world(n={0,0,-1});
+</pre></blockquote>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation of wheel set shall be enabled</td></tr>
+<tr><td>radius</td><td>Radius of one wheel [m]</td></tr>
+<tr><td>track</td><td>Distance between the two wheels (= axle track) [m]</td></tr>
+<tr><td>stateSelect</td><td>Priority to use the generalized coordinates as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frameMiddle</td><td>Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)</td></tr>
+<tr><td>frame1</td><td>Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)</td></tr>
+<tr><td>frame2</td><td>Frame fixed in center point of right wheel (y-axis: along wheel axis, z-Axis: upwards)</td></tr>
+<tr><td>axis1</td><td>1-dim. rotational flange that drives the joint</td></tr>
+<tr><td>axis2</td><td>1-dim. rotational flange that drives the joint</td></tr>
+<tr><td>support</td><td>Support of 1D axes</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:24 2026.
+</address>
+</body>
+</html>

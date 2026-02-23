@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Air.ReferenceAir</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;ReferenceAir: Detailed dry air model with a large operating range (130 ... 2000 K, 0 ... 2000 MPa) based on Helmholtz equations of state&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReferenceAir<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Air.ReferenceAir"></a><a href="Modelica_Media_Air.html#Modelica.Media.Air"
+>Modelica.Media.Air</a>.ReferenceAir</h2>
+<p>
+<span class="ModelicaDescription">ReferenceAir: Detailed dry air model with a large operating range (130 ... 2000 K, 0 ... 2000 MPa) based on Helmholtz equations of state</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Calculation of fluid properties of air in the fluid region of 130 Kelvin to 2000 Kelvin at pressures up to 2000 MPa. To use this package in your model, select <a href="Modelica_Media_Air_ReferenceAir_Air_dT.html#Modelica.Media.Air.ReferenceAir.Air_dT"
+>
+Air_dT</a>, <a href="Modelica_Media_Air_ReferenceAir_Air_pT.html#Modelica.Media.Air.ReferenceAir.Air_pT"
+>
+Air_pT</a> or <a href="Modelica_Media_Air_ReferenceAir_Air_ph.html#Modelica.Media.Air.ReferenceAir.Air_ph"
+>Air_ph</a> according to which variables you choose to determine your state.
+</p>
+
+<h4>Restriction</h4>
+<p>
+The functions provided by this package shall be used inside of the restricted limits according to the referenced literature.
+</p>
+
+<ul>
+<li>
+<strong>p &le; 2000 MPa</strong>
+</li>
+<li>
+<strong>130 K &le; T &le; 2000 K</strong>
+</li>
+</ul>
+
+<h4>References</h4>
+<dl>
+<dt>Lemmon, E. W., Jacobsen, R. T., Penoncello, S. G., Friend, D. G.:</dt>
+<dd><strong>Thermodynamic Properties of Air and Mixtures of Nitrogen, Argon,
+and Oxygen From 60 to 2000 K at Pressures to 2000 MPa</strong>. J. Phys. Chem. Ref. Data, Vol. 29, No. 3, 2000.
+</dd>
+<dt>Lemmon, E. W., Jacobsen, R. T.:</dt>
+<dd><strong>Viscosity and Thermal Conductivity Equations for
+Nitrogen, Oxygen, Argon, and Air</strong>. International Journal of Thermophysics, Vol. 25, No. 1, January 2004
+</dd>
+</dl>
+
+<h4>Verification</h4>
+<p>
+The verification report for the development of this library is provided
+<a href="../Documentation/Media/MoMoLib_VerificationResults_XRG.pdf">here</a>.
+</p>
+
+<h4>Acknowledgment</h4>
+<p>
+This library was developed by XRG Simulation GmbH as part of the <a href="http://www.cleansky.eu/">Clean Sky</a> JTI project (Project title: MoMoLib-Modelica Model Library Development for Media, Magnetic Systems and Wavelets; Project number: 296369; Theme: JTI-CS-2011-1-SGO-02-026: Modelica Model Library Development Part I). The partial financial support for the development of this library by the European Union is highly appreciated.
+</p>
+
+<p>
+Some parts of this library refer to the ThermoFluid library developed at Lund University (<a href="http://thermofluid.sourceforge.net/">http://thermofluid.sourceforge.net</a>).
+</p>
+
+<p>
+Copyright &copy; 2013-2025, Modelica Association and contributors
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>airConstants</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Air.ReferenceAir.MolarHeatCapacity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceAir.html#Modelica.Media.Air.ReferenceAir.MolarHeatCapacity"
+>MolarHeatCapacity</a>
+</td>
+<td>Type for molar heat capacity with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Air.ReferenceAir.MolarDensity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceAir.html#Modelica.Media.Air.ReferenceAir.MolarDensity"
+>MolarDensity</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces0c6338b2e9951708olumeS.png" alt="Modelica.Media.Air.ReferenceAir.IsothermalExpansionCoefficient" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceAir.html#Modelica.Media.Air.ReferenceAir.IsothermalExpansionCoefficient"
+>IsothermalExpansionCoefficient</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.SimpleAirS.png" alt="Modelica.Media.Air.ReferenceAir.Air_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceAir_Air_ph.html#Modelica.Media.Air.ReferenceAir.Air_ph"
+>Air_ph</a>
+</td>
+<td>ReferenceAir.Air_ph: Detailed dry air model (130 ... 2000 K) explicit in p and h</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.SimpleAirS.png" alt="Modelica.Media.Air.ReferenceAir.Air_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceAir_Air_pT.html#Modelica.Media.Air.ReferenceAir.Air_pT"
+>Air_pT</a>
+</td>
+<td>ReferenceAir.Air_pT: Detailed dry air model (130 ... 2000 K) explicit in p and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.SimpleAirS.png" alt="Modelica.Media.Air.ReferenceAir.Air_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceAir_Air_dT.html#Modelica.Media.Air.ReferenceAir.Air_dT"
+>Air_dT</a>
+</td>
+<td>ReferenceAir.Air_dT: Detailed dry air model (130 ... 2000 K) explicit in d and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.TwoPhaseWaterS.png" alt="Modelica.Media.Air.ReferenceAir.Air_Base" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceAir_Air_Base.html#Modelica.Media.Air.ReferenceAir.Air_Base"
+>Air_Base</a>
+</td>
+<td>Properties of dry air calculated using the equation of state by Lemmon et. al.</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.UtilitiesS.png" alt="Modelica.Media.Air.ReferenceAir.Air_Utilities" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Air_Utilities</a>
+</td>
+<td>Low level and utility computation for high accuracy dry air properties</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MolarHeatCapacity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Air.ReferenceAir.MolarHeatCapacity"></a><a href="Modelica_Media_Air_ReferenceAir.html#Modelica.Media.Air.ReferenceAir"
+>Modelica.Media.Air.ReferenceAir</a>.MolarHeatCapacity</h2>
+<p>
+<span class="ModelicaDescription">Type for molar heat capacity with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>min</td><td>0</td></tr>
+<tr><td>max</td><td>3.e5</td></tr>
+<tr><td>start</td><td>3.e1</td></tr>
+<tr><td>nominal</td><td>3.e1</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MolarDensity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Air.ReferenceAir.MolarDensity"></a><a href="Modelica_Media_Air_ReferenceAir.html#Modelica.Media.Air.ReferenceAir"
+>Modelica.Media.Air.ReferenceAir</a>.MolarDensity</h2>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>quantity</td><td>&quot;MolarDensity&quot;</td></tr>
+<tr><td>unit</td><td>&quot;mol/m3&quot;</td></tr>
+<tr><td>min</td><td>0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IsothermalExpansionCoefficient<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Air.ReferenceAir.IsothermalExpansionCoefficient"></a><a href="Modelica_Media_Air_ReferenceAir.html#Modelica.Media.Air.ReferenceAir"
+>Modelica.Media.Air.ReferenceAir</a>.IsothermalExpansionCoefficient</h2>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Value</th></tr>
+<tr><td>unit</td><td>&quot;1&quot;</td></tr>
+<tr><td>min</td><td>0</td></tr>
+<tr><td>max</td><td>1e8</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:27 2026.
+</address>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Clocked.BooleanSignals.TimeBasedSources</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Package of signal source blocks generating clocked simulation time based Boolean signals&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TimeBasedSources<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Clocked.BooleanSignals.TimeBasedSources"></a><a href="Modelica_Clocked_BooleanSignals.html#Modelica.Clocked.BooleanSignals"
+>Modelica.Clocked.BooleanSignals</a>.TimeBasedSources</h2>
+<p>
+<span class="ModelicaDescription">Package of signal source blocks generating clocked simulation time based Boolean signals</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package provides <strong>source</strong> components akin to the blocks provided in
+<a href="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</a>, but with the difference
+that they provide a <strong>clocked</strong> output signal.
+</p>
+<p>
+As an effect it is not necessary to use an intermediate Sample block if the output signal
+is connected to a system that requires a clocked input signal. Therefore, it it can be slightly more convenient
+to use the blocks provided in this package than to use the blocks offered by <a href="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</a>
+(since one does not need to add an additional Sample block for the transition from a continuous time signal to a clocked signal).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</a> (Icon for packages containing sources).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.BooleanS8b4fb74e30cc0a91.StepS.png" alt="Modelica.Clocked.BooleanSignals.TimeBasedSources.Step" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_BooleanSignals_TimeBasedSources.html#Modelica.Clocked.BooleanSignals.TimeBasedSources.Step"
+>Step</a>
+</td>
+<td>Generate step signal of type Boolean</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.BooleanS1545cebf19b13623PulseS.png" alt="Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_BooleanSignals_TimeBasedSources.html#Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse"
+>Pulse</a>
+</td>
+<td>Generate pulse signal of type Boolean</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Step<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.BooleanS8b4fb74e30cc0a91.StepI.png" alt="Modelica.Clocked.BooleanSignals.TimeBasedSources.Step" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.BooleanSignals.TimeBasedSources.Step"></a><a href="Modelica_Clocked_BooleanSignals_TimeBasedSources.html#Modelica.Clocked.BooleanSignals.TimeBasedSources"
+>Modelica.Clocked.BooleanSignals.TimeBasedSources</a>.Step</h2>
+<p>
+<span class="ModelicaDescription">Generate step signal of type Boolean</span>
+</p>
+<h3>Information</h3>
+
+<p>The block is similar to the block in <a href="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanStep"
+>Modelica.Blocks.Sources.BooleanStep</a>,
+but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
+<p>
+The Boolean output y is a step signal:
+</p>
+
+<div>
+<img src="../Images/Blocks/Sources/BooleanStep.png" alt="BooleanStep.png">
+</div>
+
+<h4>Example</h4>
+<p>
+See model <a href="Modelica_Clocked_Examples_Elementary_BooleanSignals.html#Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep"
+>Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep</a>.
+<br>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_BooleanSignals_Interfaces.html#Modelica.Clocked.BooleanSignals.Interfaces.PartialClockedSO"
+>BooleanSignals.Interfaces.PartialClockedSO</a> (Block with clocked single output Boolean signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>startTime</td><td>Time instant of step start [s]</td></tr>
+<tr><td>startValue</td><td>Output before startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Connector of clocked, Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.BooleanS1545cebf19b13623PulseI.png" alt="Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse"></a><a href="Modelica_Clocked_BooleanSignals_TimeBasedSources.html#Modelica.Clocked.BooleanSignals.TimeBasedSources"
+>Modelica.Clocked.BooleanSignals.TimeBasedSources</a>.Pulse</h2>
+<p>
+<span class="ModelicaDescription">Generate pulse signal of type Boolean</span>
+</p>
+<h3>Information</h3>
+
+<p>The block is similar to the block in <a href="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanPulse"
+>Modelica.Blocks.Sources.BooleanPulse</a>,
+but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).
+</p>
+<p>
+The Boolean output y is a pulse signal:
+</p>
+
+<div>
+<img src="../Images/Blocks/Sources/Pulse.png" alt="Pulse.png">
+</div>
+<h4>Example</h4>
+<p>
+See model <a href="Modelica_Clocked_Examples_Elementary_BooleanSignals.html#Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse"
+>Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse</a>.
+<br>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_BooleanSignals_Interfaces.html#Modelica.Clocked.BooleanSignals.Interfaces.PartialClockedSO"
+>BooleanSignals.Interfaces.PartialClockedSO</a> (Block with clocked single output Boolean signals).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>width</td><td>Width of pulse in % of period</td></tr>
+<tr><td>period</td><td>Time for one period [s]</td></tr>
+<tr><td>startTime</td><td>Time instant of first pulse [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Connector of clocked, Real output signal</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:05 2026.
+</address>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Polyphase two level inverter example&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PolyphaseTwoLevel<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel"></a><a href="Modelica_Electrical_PowerConverters_Examples_DCAC.html#Modelica.Electrical.PowerConverters.Examples.DCAC"
+>Modelica.Electrical.PowerConverters.Examples.DCAC</a>.PolyphaseTwoLevel</h2>
+<p>
+<span class="ModelicaDescription">Polyphase two level inverter example</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseS.png" alt="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_R" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_DCAC_PolyphaseTwoLevel.html#Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_R"
+>PolyphaseTwoLevel_R</a>
+</td>
+<td>Polyphase DC to AC converter with R load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseS.png" alt="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_DCAC_PolyphaseTwoLevel.html#Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL"
+>PolyphaseTwoLevel_RL</a>
+</td>
+<td>Polyphase DC to AC converter with R-L load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseS.png" alt="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_Examples_DCAC_PolyphaseTwoLevel.html#Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM"
+>ThreePhaseTwoLevel_PWM</a>
+</td>
+<td>Test of pulse width modulation methods</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PolyphaseTwoLevel_R<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseI.png" alt="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_R" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_R"></a><a href="Modelica_Electrical_PowerConverters_Examples_DCAC_PolyphaseTwoLevel.html#Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel"
+>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</a>.PolyphaseTwoLevel_R</h2>
+<p>
+<span class="ModelicaDescription">Polyphase DC to AC converter with R load</span>
+</p>
+<h3>Information</h3>
+
+<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href="Modelica_Electrical_PowerConverters_Examples_DCAC_PolyphaseTwoLevel.html#Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL"
+>PolyphaseTwoLevel_RL</a>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>f</td><td>Switching frequency [Hz]</td></tr>
+<tr><td>f1</td><td>Fundamental wave AC frequency [Hz]</td></tr>
+<tr><td>R</td><td>Resistance [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PolyphaseTwoLevel_RL<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseI.png" alt="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL"></a><a href="Modelica_Electrical_PowerConverters_Examples_DCAC_PolyphaseTwoLevel.html#Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel"
+>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</a>.PolyphaseTwoLevel_RL</h2>
+<p>
+<span class="ModelicaDescription">Polyphase DC to AC converter with R-L load</span>
+</p>
+<h3>Information</h3>
+
+<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> directly show the switching pattern of the inverter.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>f</td><td>Switching frequency [Hz]</td></tr>
+<tr><td>f1</td><td>Fundamental wave AC frequency [Hz]</td></tr>
+<tr><td>R</td><td>Resistance [Ohm]</td></tr>
+<tr><td>L</td><td>Inductance [H]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThreePhaseTwoLevel_PWM<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power4dfc81f62dabe47ePulseI.png" alt="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM"></a><a href="Modelica_Electrical_PowerConverters_Examples_DCAC_PolyphaseTwoLevel.html#Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel"
+>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</a>.ThreePhaseTwoLevel_PWM</h2>
+<p>
+<span class="ModelicaDescription">Test of pulse width modulation methods</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A reference space vector (formed by real part = cosine and imaginary part = sine) of length &radic;2*RMS and frequency 2 Hz is applied.
+The resulting switching patterns are applied to a three-phase twolevel bridge with switching frequency 100 Hz, fed by DC voltage = &radic;2*&radic;3*1
+where 1 is the theoretical maximum voltage from terminal to neutral.
+The resulting voltages with reference to midpoint of the DC voltage are measured.
+</p>
+<p>
+The RMS of the first harmonic of the first of these voltages is calculated.
+Please note that the value of the first harmonic is valid after the first period (i.e. 0.5 s).
+</p>
+<p>
+Furthermore, these three voltages are transformed to the corresponding space phasor.
+Note that the zero component is not zero, indicating the shift of the neutral with respect to the midpoint of the DC voltage.
+</p>
+<p>
+The space phasor is rotated to the coordinate system rotating with 2*&pi;*2 Hz.
+To suppress the influence of switching, real and imaginary part of the rotated phasor are filtered.
+The polar representation of this rotated and filtered phasor are calculated.
+</p>
+<p>
+Please note that the filter has a settle time depending on the filter parameters.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>RMS</td><td>Reference RMS Y</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:20 2026.
+</address>
+</body>
+</html>

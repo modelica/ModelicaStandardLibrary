@@ -1,0 +1,434 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody.UsersGuide.Tutorial</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Tutorial&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Tutorial<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBody.UsersGuideI.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial"></a><a href="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide"
+>Modelica.Mechanics.MultiBody.UsersGuide</a>.Tutorial</h2>
+
+<p>
+This tutorial provides an introduction into the
+MultiBody library.
+</p>
+<ol>
+<li><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView"
+>Overview of
+MultiBody library</a> summarizes the most important aspects.
+</li>
+<li><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample"
+>A first example</a>
+  describes in detail all the steps to build a simple pendulum model.
+</li>
+<li><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures"
+>Loop structures</a>
+  explains how to model kinematic loops, especially by analytically
+  solving non-linear equations.
+</li>
+<li><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"
+>ConnectionOfLineForces</a>
+  explains how to connect line force components directly together.
+</li>
+</ol>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB2d291d75bbd27608rViewS.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView"
+>OverView</a>
+</td>
+<td>Overview of MultiBody library</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB2d291d75bbd27608rViewS.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample"
+>FirstExample</a>
+</td>
+<td>A first example</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.UsersGuideS.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures"
+>LoopStructures</a>
+</td>
+<td>Loop structures</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB2d291d75bbd27608rViewS.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"
+>ConnectionOfLineForces</a>
+</td>
+<td>Connection of LineForces</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OverView<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBody.UsersGuideI.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView"></a><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial"
+>Modelica.Mechanics.MultiBody.UsersGuide.Tutorial</a>.OverView</h2>
+
+<p>
+Library <strong>MultiBody</strong> is a <strong>free</strong> Modelica package providing
+3-dimensional mechanical components to model in a convenient way
+<strong>mechanical systems</strong>, such as robots, mechanisms, vehicles.
+A basic feature is that all components have <strong>animation</strong> information
+with appropriate default sizes and colors. A typical screenshot of the
+animation of a double pendulum is shown in the figure below, together
+with its schematic.
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumSmall.png">
+
+<img src="../Images/Mechanics/MultiBody/UsersGuide/Tutorial/DoublePendulumDiagramSmall.png" alt="double pendulum (diagram layer)">
+</div>
+
+<p>
+Note, that all components - the coordinate system of the world frame,
+the gravity acceleration vector, the revolute joints and the
+bodies - are visualized in the animation.<br>
+This library replaces the long available ModelicaAdditions.MultiBody
+library, since it is much more easier to use and more powerful.
+The main features of the library are:
+</p>
+<ul>
+<li>About <strong>60 main components</strong>, i.e., joint, force, part,
+    body, sensor and visualizer components that are ready to use
+    and have useful default animation properties. One-dimensional
+    force laws can be defined with components of the Modelica.Mechanics.Rotational
+    and of the Modelica.Mechanics.Translational library and can be
+    connected via available flange connectors to MultiBody
+    components.</li>
+<li>About <strong>75 functions</strong> to operate in a convenient way on
+    orientation objects, e.g., to transform vector quantities between
+    frames, or compute the orientation object of a planar rotation.
+    The basic idea is to hide the actual definition of an <strong>orientation</strong>
+    by providing essentially an <strong>Orientation</strong> type together with
+    <strong>functions</strong> operating on instances of this type. Orientation
+    objects based on a 3x3 transformation matrix and on quaternions
+    are provided. As a side effect, the equations in all other
+    components are simpler and easier to understand.</li>
+<li> <strong>A World model</strong> has to be present in every model on top
+     level. Here the gravity field is defined (currently: no gravity,
+     uniform gravity, point gravity), the visualization of the
+     world coordinate system and default settings for animation.
+     If a world model is not present, it is automatically provided
+     together with a warning message.</li>
+<li><strong>Built-in animation properties</strong> of all components, such as
+    joints, forces, bodies, sensors. This allows an easy visual
+    check of the constructed model. Animation of every component
+    can be switched off via a parameter. The animation of a complete
+    system can be switched off via one parameter in the <strong>world</strong>
+    model. If animation is switched off, all equations related
+    to animation are removed from the generated code. This is especially
+    important for real-time simulation.</li>
+<li><strong>Automatic handling of kinematic loops</strong>.
+    Components can be connected together in a nearly arbitrary fashion.
+    It does not matter whether components are flipped. This does not
+    influence the efficiency. If kinematic loop structures occur,
+    this is automatically handled in an efficient way by a new
+    technique to transform a certain class of overdetermined sets of
+    differential algebraic equations symbolically to a system where
+    the number of equations and unknowns are the same (the user need
+    <strong>not</strong> cut loops with special cut-joints to construct a
+    tree-structure).</li>
+<li><strong>Automatic state selection from joints and bodies</strong>.
+    Most joints and all bodies have potential states. A Modelica
+    translator will use the generalized coordinates
+    of joints as states if possible. If this is not possible,
+    states are selected from body coordinates. As a consequence,
+    strange joints with 6 degrees of freedom are not necessary
+    to define a body moving freely in space. An advanced user
+    may select states manually from the <strong>Advanced</strong> menu of the
+    corresponding components or use a Modelica parameter modification
+    to set the "stateSelect" attribute directly.</li>
+<li> <strong>Analytic solution of kinematic loops</strong>. The non-linear
+    equations occurring in kinematic loops are solved <strong>analytically</strong>
+    for a large class of mechanisms, such as a 4 bar mechanism,
+    a slider-crank mechanism or a MacPherson suspension. This is performed
+    by constructing such loops with assembly joints JointXXX,
+    available in the Modelica.Mechanics.MultiBody.Joints package. Assembly joints consist
+    of 3 joints that have together 6 degrees of freedom, i.e., no
+    constraints.They do not have potential states. When the motion
+    of the two frame connectors are provided, a non-linear system of
+    equation is solved analytically to compute the motion of the 3 joints.
+    Analytic loop handling is especially important for real-time simulation.</li>
+<li> <strong>Line force components may have mass</strong>.
+     Masses of line force components are located on the line on which
+     the force is acting. They approximate the mass properties of
+     a real physical device by one or two point masses. For example,
+     a spring has often significant mass that has to be taken into
+     account. If masses are set to zero, the additional code to handle
+     these point masses is removed. If the masses are taken into
+     account, the calculation overhead is small (the reason is that
+     the occurring kinematic loops are analytically solved).</li>
+<li> <strong>Force components may be connected directly together</strong>, e.g.,
+     3-dimensional springs in series connection. Usually,
+     multi-body programs have the restriction that force components
+     can only be connected between two bodies. Such restrictions are
+     not present in the Modelica multi-body library, since it is
+     a fully object-oriented, equation based library. Usually, if
+     force components are connected directly together, non-linear
+     systems of equations occur. The advantage is often, that this
+     may avoid stiff systems that would occur if a small mass has
+     to be put in between the two force elements.</li>
+<li><strong>Initialization definition is available via menus</strong>.
+    Initialization of states in joints and bodies can be
+    performed in the parameter menu, <strong>without</strong> typing Modelica
+    statements. For non-standard initialization, the usual
+    Modelica commands can be used.</li>
+<li><strong>Multi-body specific error messages</strong>. Annotations
+    and assert statements have been introduced that provide
+    in many cases warning or error messages that are related
+    to the library components (and not to specific equations
+    as it is usual in Modelica libraries). This requires
+    appropriate tool support, as it is.</li>
+<li><strong>Inverse models</strong> of mechanical systems can be easily
+    defined by using motion generators, e.g.,
+    Modelica.Mechanics.Rotational.Position. Also, non-standard
+    inverse models can be generated, e.g., when elasticity is present
+    it might be necessary to differentiate equations several times.</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FirstExample<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBody.UsersGuideI.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample"></a><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial"
+>Modelica.Mechanics.MultiBody.UsersGuide.Tutorial</a>.FirstExample</h2>
+
+<p>
+As a first example it shall be demonstrated how to build up, simulate
+and animate a <strong>simple pendulum</strong>.
+</p>
+<p>
+A simple pendulum consisting of a <strong>body</strong> and a <strong>revolute</strong> joint
+with <strong>linear damping</strong> in the joint, is first build-up as
+Modelica composition diagram, resulting in:
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/UsersGuide/Tutorial/PendulumSchematic1.png"
+alt="Modelica composition diagram of simple pendulum">
+</div>
+
+<p>
+In the following figure the location of the used
+model components is shown. Drag these components in the diagram layer
+and connect them according to the figure:
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/UsersGuide/Tutorial/PendulumSchematic2.png">
+</div>
+
+<p>
+Every model that uses model components from the MultiBody library
+must have an instance of the Modelica.Mechanics.MultiBody.World model on highest level.
+The reason is that in the world object the gravity field is defined
+(uniform gravity or point gravity), as well as the default sizes of
+animation shapes and this information is reported to all used
+components. If the World object is missing, a warning message is
+printed and an instance of the World object with default settings is
+automatically utilized (this feature is defined with annotations).
+</p>
+<p>
+In a second step the parameters of the dragged components need to be
+defined. Some parameters are vectors that have to be defined with respect
+to a local coordinate system of the corresponding component. The easiest
+way to perform this is to define a <strong>reference configuration</strong> of your
+multi-body model: In this configuration, the relative coordinates of
+all joints are zero. This means that all coordinate systems on all
+components are parallel to each other. Therefore, this just means
+that all vectors are resolved in the world frame in this configuration.
+</p>
+<p>
+The reference configuration for the simple pendulum shall be defined
+in the following way: The y-axis of the world frame is directed
+upwards, i.e., the opposite direction of the gravity acceleration.
+The x-axis of the world frame is orthogonal to it. The revolute joint
+is placed in the origin of the world frame. The rotation axis of the revolute
+joint is directed along the z-axis of the world frame. The body is
+placed on the x-axis of the world frame (i.e., the rotation angle of the
+revolute joint is zero, when the body is on the x-axis).
+In the following figures the definition of this reference configuration
+is shown in the parameter menus of the revolute joint and the body:
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/UsersGuide/Tutorial/ActuatedRevoluteParameters.png">
+<br>
+<img src="../Images/Mechanics/MultiBody/UsersGuide/Tutorial/BodyParameters.png">
+</div>
+
+<p>
+Translate and simulate the model.
+Automatically, all defined components are visualized in
+an animation using default absolute or relative sizes
+of the components. For example, a body is visualized as
+a sphere and as a cylinder. The default size of the sphere is defined
+as parameter in the world object. You may change this size
+in the "Animation" parameter menu of the body (see parameter menu
+above). The default size of the cylinder is defined relatively
+to the size of the sphere (half of the sphere size).
+With default settings, the following animation is defined:
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Examples/Elementary/Pendulum.png">
+</div>
+
+<p>
+The world coordinate system is visualized as coordinate system
+with axes labels. The direction of the gravity acceleration
+vector is shown as green arrow. The red cylinder represents
+the rotation axis of the revolute joint and the light blue
+shapes represent the body. The center of mass of the body is
+in the middle of the light blue sphere.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConnectionOfLineForces<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBody.UsersGuideI.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"></a><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial"
+>Modelica.Mechanics.MultiBody.UsersGuide.Tutorial</a>.ConnectionOfLineForces</h2>
+
+<p>
+Line force elements, such as a
+<a href="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Spring"
+>Spring</a>,
+are usually connected between two parts. In fact, this is the only possibility
+in most multi-body programs. In an equation based system like Modelica, more
+general connections are possible. In particular
+<strong>3-dimensional line force</strong> elements can be connected together
+in <strong>series</strong> without having a body with mass at the
+connection point. This is advantageous since stiff systems can be avoided, say, due to
+a stiff spring and a small mass at the connection point.
+For an example, see model
+<a href="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings"
+>ThreeSprings</a>:
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings.png">
+</div>
+
+<p>
+Here, three springs are connected together at one point, without having a body
+at the connection point of the springs. There is one difficulty: In such a situation
+the orientation object at the connection point is undefined, because
+the springs do not transmit torques. Translation will therefore fail, if three springs
+and a body are connected together in this way. To handle such a case, all line force
+elements have flags "fixedRotationAtFrame_a" and "fixedRotationAtFrame_b" in their
+"Advanced" parameter menu. For example, if "fixedRotationAtFrame_b = <strong>true</strong>",
+the orientation object at frame_b is explicitly set to a null rotation, i.e.,
+</p>
+
+<blockquote><pre>
+frame_b.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+</pre></blockquote>
+
+<p>
+This means that the coordinate system in the connection point of the three springs
+is always parallel to the world frame. When this option is selected, the corresponding
+frame in the line force icon is marked with a red circle and with the text "R=0".
+This is shown in the next figure, where this option is selected for spring3.frame_b:
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/UsersGuide/Tutorial/ThreeSpringsDiagramLayer.png">
+</div>
+
+<p>
+Note, if this flag is not set to <strong>true</strong>, a translation error will occur.
+Due to the usage of overdetermined connectors in the MultiBody library, the error
+message will be something like:
+</p>
+
+<blockquote><p>
+"The overdetermined connectors &lt;&hellip;&gt; are connected but do not have any root defined"
+</p></blockquote>
+
+<p>
+The two flags "fixedRotationAtFrame_a" and "fixedRotationAtFrame_b must be set very carefully
+because a wrong definition can lead to a model that simulates, but the simulation
+result is wrong. This is the case whenever the movement of the resulting system depends
+on the orientation object that was arbitrarily set in parallel to the world frame.
+A typical example is shown in the next figure:
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/UsersGuide/Tutorial/ThreeSprings2DiagramLayer.png">
+</div>
+
+<p>
+Here, spring3.frame_b.R is defined to be in parallel to the world frame.
+However, this is then also the orientation of fixedTranslation.frame_a, and this
+in turn means that the left part of the fixedTranslation object is always in parallel
+to the world frame. Since this is not correct, this model
+will result in a <strong>wrong simulation result</strong>
+This system is mathematically not well-defined and does not have a solution.
+The only way to model such a system is by providing a mass and an inertia tensor
+to fixedTranslation. Then, the flags are not needed, because the "connection"
+point of the springs is a body where the absolution position vector and the
+orientation matrix of the body-fixed coordinate system are used as states.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:24 2026.
+</address>
+</body>
+</html>

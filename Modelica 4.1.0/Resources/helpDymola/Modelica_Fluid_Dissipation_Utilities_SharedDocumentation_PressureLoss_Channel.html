@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Channel<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipation.UsersGuideI.png" alt="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel"></a><a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss</a>.Channel</h2>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio912cec1e7c1b7a73artedS.png" alt="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel.dp_internalFlowOverall" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Channel.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel.dp_internalFlowOverall"
+>dp_internalFlowOverall</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dp_internalFlowOverall<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipation.UsersGuideI.png" alt="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel.dp_internalFlowOverall" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel.dp_internalFlowOverall"></a><a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Channel.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel</a>.dp_internalFlowOverall</h2>
+
+<p>
+Calculation of pressure loss for an internal flow through different geometries at overall flow regime for single-phase fluid flow considering surface roughness.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li>
+      <strong>developed fluid flow</strong>
+ </li>
+</ul>
+
+<h4>Geometry</h4>
+
+<div>
+<img src="../Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Channel/pLchannel.png" alt="pLchannel"/>
+</div>
+
+<h4>Calculation</h4>
+<p>
+The pressure loss <strong>dp</strong> for channels is determined by:
+</p>
+
+<blockquote><pre>
+dp = zeta_TOT * (rho/2) * velocity^2
+</pre></blockquote>
+
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> rho            </strong></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><strong> velocity       </strong></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><strong> zeta_TOT       </strong></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+
+<p>
+<strong>Channels with different shape of its cross sectional area are calculated</strong> according to <em>[Miller 1978, p. 138, fig. 8.5-8-6]</em>
+</p>
+<p>
+The pressure loss of these channels is similar to its calculation in straight pipes. There are three different flow regimes observed (laminar,transition,turbulent). The pressure loss coefficient (<strong>zeta_TOT</strong>) of a channel is calculated in dependence of the flow regime as follows:
+</p>
+
+<ul>
+  <li><strong>Laminar regime (Re &le; Re_lam_leave)</strong>:
+     <blockquote><pre>
+zeta_TOT = CF_lam/Re * (L/d_hyd)
+     </pre></blockquote></li>
+  <li><p><strong>Transition regime (Re_lam_leave &le; 4e4)</strong></p>
+        <p>This calculation is done using a smoothing function interpolating between the laminar and the turbulent flow regime.</p></li>
+  <li><p><strong>Turbulent regime (Re &ge; 4e3)</strong>:</p>
+        <p>The turbulent regime can be calculated with the pressure loss correlations for a straight pipe with the hydraulic diameter of
+           the chosen geometry instead of the internal diameter of a straight pipe according to <em>[VDI 2002, p. Lab 4, sec. 2.1]</em> .
+           The documentation of turbulent fluid flow for a straight pipe is shown in
+           <a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent"
+>dp_turbulent</a>.</p></li>
+</ul>
+
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> CF_lam        </strong></td><td> as correction factor considering the geometry for laminar regime [-],</td></tr>
+<tr><td><strong> L             </strong></td><td> as length of geometry perpendicular to cross sectional area [m],</td></tr>
+<tr><td><strong> d_hyd         </strong></td><td> as hydraulic diameter of geometry [m],</td></tr>
+<tr><td><strong> Re            </strong></td><td> as Reynolds number [-],</td></tr>
+<tr><td><strong> zeta_TOT      </strong></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+
+<p>
+Note that the beginning of the laminar regime depends on the chosen surface roughness of the channel and cannot be beneath <strong>Re &le; 1e3</strong>.
+</p>
+<h4>Verification</h4>
+<p>
+The Darcy friction factor (<strong>lambda_FRI</strong>) of a channel with different shapes of its cross sectional area are shown in dependence of the Reynolds number (<strong>Re</strong>) in the figures below.
+</p>
+
+<div>
+<img src="../Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Channel/dp_internalFlowOverall.png" alt="dp_internalFlowOverall"/>
+</div>
+
+<p>
+The Darcy friction factor (<strong>lambda_FRI</strong>) for different geometries has been obtained at the same hydraulic diameter and the same mean velocity of the internal flow. Note that there is no difference of the Darcy friction factor in the turbulent regime if using the same hydraulic diameter for all geometries. Roughness can be considered but it is not used for this validation.
+</p>
+<h4>References</h4>
+<dl>
+<dt>Miller,D.S.:</dt>
+    <dd><strong>Internal flow systems</strong>.
+    Volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1978.</dd>
+<dt>VDI:</dt>
+    <dd><strong>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</strong>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:26 2026.
+</address>
+</body>
+</html>

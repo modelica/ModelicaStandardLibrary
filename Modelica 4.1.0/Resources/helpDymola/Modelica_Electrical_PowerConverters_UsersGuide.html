@@ -1,0 +1,410 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.PowerConverters.UsersGuide</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;User&#39;s Guide&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power6035078070008aa3GuideI.png" alt="Modelica.Electrical.PowerConverters.UsersGuide" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.UsersGuide"></a><a href="Modelica_Electrical_PowerConverters.html#Modelica.Electrical.PowerConverters"
+>Modelica.Electrical.PowerConverters</a>.UsersGuide</h2>
+
+<p>
+This library provides power converters for DC and AC single-phase and polyphase electrical systems. The PowerConverters library contains three types of converters.
+</p>
+
+<ul>
+  <li>AC/DC converters (rectifiers)</li>
+  <li>DC/AC converters (inverters)</li>
+  <li>DC/DC converters</li>
+  <li>AC/AC converters</li>
+</ul>
+
+<p>
+AC/AC converters currently only provide dimmer and soft starter with triacs.
+</p>
+
+<h4>Converter characteristics</h4>
+
+<ul>
+  <li>All converter models rely on existing diode, thyristor and switch models provided in the
+      <a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Analog.Ideal</a> and the
+      <a href="Modelica_Electrical_Polyphase_Ideal.html#Modelica.Electrical.Polyphase.Ideal"
+>Polyphase.Ideal</a>
+      package of the Modelica Standard Library.</li>
+  <li>Switching losses and recovery effects are not considered</li>
+  <li>Only conduction losses are taken into account</li>
+  <li>The parameters of the semiconductors include
+  <ul>
+    <li>The on state resistance <code>Ron</code></li>
+    <li>The off state conductance <code>Goff</code></li>
+    <li>The knee voltage <code>Vknee</code></li>
+  </ul></li>
+  <li>Each converter is equipped with an optional heat port which can be enabled by the parameter
+      <code>useHeatPort</code>; the heat ports of all semiconductors are connected,
+      so all temperatures of all semiconductors are equal and the heat flow of the converter heat port
+      is determined by the sum of all semiconductor heat flows</li>
+  <li>Each converter contains boolean firing inputs provides variables <code>offStart...</code>
+      to specify the initial conditions of the off state of each semiconductor</li>
+  <li>The boolean firing signals are enabled either by means of the a parameter <code>constantEnable</code> or by a conditional signal input, enabled by <code>useConstantEnable = false</code></li>
+  <li>The number of phases of polyphase converters is not restricted to three</li>
+</ul>
+
+<h4>Literature</h4>
+
+<p>
+General background knowledge on power converters and power electronics can be found in
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.References"
+>[Skvarenina01]</a> and
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.References"
+>[Luo05]</a>.
+A freely available book is available in
+<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.References"
+>[Williams2006]</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power335cf0c939dc3486nceptS.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"
+>ACDCConcept</a>
+</td>
+<td>AC/DC converter concept</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power335cf0c939dc3486nceptS.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept"
+>DCACConcept</a>
+</td>
+<td>DC/AC converter concept</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power335cf0c939dc3486nceptS.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.DCDCConcept" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.DCDCConcept"
+>DCDCConcept</a>
+</td>
+<td>DC/DC converter concept</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power335cf0c939dc3486nceptS.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.ACACConcept" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ACACConcept"
+>ACACConcept</a>
+</td>
+<td>AC/AC converter concept</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power33cc54b218572a04ntactS.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.Contact" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.Contact"
+>Contact</a>
+</td>
+<td>Contact</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power73b9dd48264ea503NotesS.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.ReleaseNotes" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.ReleaseNotes"
+>ReleaseNotes</a>
+</td>
+<td>Release Notes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power05472a7a136ca6bdencesS.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.References" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.References"
+>References</a>
+</td>
+<td>References</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ACDCConcept<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power6035078070008aa3GuideI.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept"></a><a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide"
+>Modelica.Electrical.PowerConverters.UsersGuide</a>.ACDCConcept</h2>
+
+
+<p>AC/DC converters are also called rectifiers</p>
+
+<h4>Component classification</h4>
+
+<p>Conventional AC/DC converters contain diodes and thyristors. If thyristors are used, the output voltage of the rectifier can be controlled. If only diodes are used, the output voltages is solely dependent on the input voltage and the characteristic of applied diodes.</p>
+<ul>
+  <li>Diode rectifiers</li>
+  <li>Thyristor rectifiers</li>
+  <li>Half controlled rectifiers; half of the semiconductors are diodes and the others are thyristors, respectively</li>
+</ul>
+
+<h4>Topology classification</h4>
+
+<p>The PowerConverters library provides bridge and center tap rectifiers for single and polyphase supply, see
+<a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>AC/DC converters</a>.</p>
+
+<h4>Control</h4>
+
+<p>For each of the provided rectifiers a
+<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>control model</a> is available.
+These control models have electrical connectors to be connected with the AC supply.
+The firing angle of thyristor rectifiers can either be set by a parameter or a signal input.
+</p>
+
+<h4>Examples</h4>
+
+<p>A variety of examples is provided at
+<a href="Modelica_Electrical_PowerConverters_Examples_ACDC.html#Modelica.Electrical.PowerConverters.Examples.ACDC"
+>Examples.ACDC</a>.
+These examples include different kinds of DC loads. Even the control characteristics
+of the rectifiers can be obtained experimentally; the names of these models
+contain <code>_Characteristic</code>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCACConcept<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power6035078070008aa3GuideI.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept"></a><a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide"
+>Modelica.Electrical.PowerConverters.UsersGuide</a>.DCACConcept</h2>
+
+
+<p>There are a single-phase and polyphase DC/AC converter model provided by the PowerConverters library.</p>
+
+<h4>Control</h4>
+
+<p>Currently there are
+<a href="Modelica_Electrical_PowerConverters_DCAC_Control.html#Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM"
+>space vector PWM</a> and
+<a href="Modelica_Electrical_PowerConverters_DCAC_Control.html#Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM"
+>intersective PWM</a> models provided.
+However, for operating the single-phase inverter the PWM
+<a href="Modelica_Electrical_PowerConverters_DCDC_Control.html#Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM"
+>controller</a>
+can be used.
+</p>
+
+<h4>Examples</h4>
+
+<p>Some examples are provided at
+<a href="Modelica_Electrical_PowerConverters_Examples_DCAC.html#Modelica.Electrical.PowerConverters.Examples.DCAC"
+>Examples.DCAC</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCDCConcept<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power6035078070008aa3GuideI.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.DCDCConcept" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.UsersGuide.DCDCConcept"></a><a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide"
+>Modelica.Electrical.PowerConverters.UsersGuide</a>.DCDCConcept</h2>
+
+
+<p>The following DC/DC converter topologies are currently included in the PowerConverters library.</p>
+
+<ul>
+<li>Chopper step down and step up converter</li>
+<li>H bridge converter; four quadrant operation</li>
+</ul>
+
+<h4>Control</h4>
+
+<p>A pulse width modulation (PWM)
+<a href="Modelica_Electrical_PowerConverters_DCDC_Control.html#Modelica.Electrical.PowerConverters.DCDC.Control"
+>controller</a>
+is provided.
+</p>
+
+<h4>Examples</h4>
+
+<p>Some examples are provided at
+<a href="Modelica_Electrical_PowerConverters_Examples_DCDC.html#Modelica.Electrical.PowerConverters.Examples.DCDC"
+>Examples.DCDC</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ACACConcept<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power6035078070008aa3GuideI.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.ACACConcept" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.UsersGuide.ACACConcept"></a><a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide"
+>Modelica.Electrical.PowerConverters.UsersGuide</a>.ACACConcept</h2>
+
+
+<p>The following AC/AC converter topologies are currently included in the PowerConverters library.</p>
+
+<ul>
+<li>Single-phase dimmer with <a href="Modelica_Electrical_PowerConverters_ACAC.html#Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac"
+>triac</a></li>
+<li>Polyphase induction machine soft starter with <a href="Modelica_Electrical_PowerConverters_ACAC.html#Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac"
+>triac</a></li>
+</ul>
+
+<h4>Control</h4>
+
+<p>To apply firing signals to the triac, the
+<a href="Modelica_Electrical_PowerConverters_DCDC_Control.html#Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM"
+>SignalPWM model</a> is provided.
+</p>
+<p>
+The <a href="Modelica_Electrical_PowerConverters_ACAC_Control.html#Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle"
+>Voltage2Angle block</a>
+calculates phase angle from reference voltage.
+</p>
+<p>
+To control the soft start of an induction machine,
+the <a href="Modelica_Electrical_PowerConverters_ACAC_Control.html#Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl"
+>SoftStartControl block</a>
+is provided. It applies a voltage ramp during start, setting the ramp on hold whenever the measured current exceeds the maximum current.
+Furthermore, a ramp down can be applied for stopping the drive.
+</p>
+
+<h4>Examples</h4>
+
+<p>Some examples are provided at
+<a href="Modelica_Electrical_PowerConverters_Examples_ACAC.html#Modelica.Electrical.PowerConverters.Examples.ACAC"
+>Examples.ACAC</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power33cc54b218572a04ntactI.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.Contact" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.UsersGuide.Contact"></a><a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide"
+>Modelica.Electrical.PowerConverters.UsersGuide</a>.Contact</h2>
+
+<h4>Main authors</h4>
+
+<p>
+<strong>Dr. Christian Kral</strong><br>
+<a href="https://christiankral.net/">Electric Machines, Drives and Systems</a><br>
+A-1060 Vienna, Austria<br>
+email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a>
+</p>
+
+<p>
+<strong>Anton Haumer</strong><br>
+<a href="https://www.haumer.at">Technical Consulting &amp; Electrical Engineering</a><br>
+D-93049 Regensburg, Germany<br>
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</a> (Icon for contact information).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReleaseNotes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power73b9dd48264ea503NotesI.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.ReleaseNotes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.UsersGuide.ReleaseNotes"></a><a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide"
+>Modelica.Electrical.PowerConverters.UsersGuide</a>.ReleaseNotes</h2>
+
+<h5>Version 3.2.3, 2019-01-23</h5>
+<ul>
+<li>Added instantaneous power calculations of DC and AC interface partial models, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2198">#2198</a></li>
+<li>Replaced Modelica_Electrical_PowerConverters by Modelica.Electrical.PowerConverter, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2196">#2196</a></li>
+<li>Unified location of PowerConverter connectors in diagram layer, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2185">#2185</a></li>
+<li>Fixed broken hyper links</li>
+<li>Replaced pin declaration by <code>extends</code> according to <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2065">#2065</a></li>
+</ul>
+
+<h5>Version 1.2.0, 2014-04-06</h5>
+<ul>
+<li>Moved enabling signals from control to inverter models due to consistency reasons</li>
+<li>Added partial models for enabling firing signals</li>
+</ul>
+
+<h5>Version 1.1.0, 2014-03-24</h5>
+<ul>
+<li>Removed StepUp converter due to consistency reasons</li>
+</ul>
+
+<h5>Version 1.0.0, 2014-03-24</h5>
+<ul>
+<li>First tagged version</li>
+</ul>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE References<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power05472a7a136ca6bdencesI.png" alt="Modelica.Electrical.PowerConverters.UsersGuide.References" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.UsersGuide.References"></a><a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide"
+>Modelica.Electrical.PowerConverters.UsersGuide</a>.References</h2>
+
+<h4>References</h4>
+
+<table border="0" cellspacing="0" cellpadding="2">
+    <tr>
+      <td>[Skvarenina01]</td>
+      <td>Timothy L. Skvarenina,
+        <a href="http://www.crcpress.com/product/isbn/9780849373367">
+        <em>The Power Electronics Handbook</em></a>,
+        CRC Press 2001, ISBN 9780849373367</td>
+    </tr>
+
+    <tr>
+      <td>[Luo05]</td>
+      <td>Fang Lin Luo, Hong Ye and Muhammad H. Rashid,
+        <a href="https://www.elsevier.com/books/digital-power-electronics-and-applications/luo/978-0-12-088757-6"><em>Digital Power Electronics and Applications</em></a>,
+        Elsevier Academic Press, 2005, ISBN 978-0120887576</td>
+    </tr>
+
+    <tr>
+      <td>[Williams2006]</td>
+      <td><a href="http://personal.strath.ac.uk/barry.williams/book.htm">
+<em>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</em></a>, available at <a href="http://personal.strath.ac.uk/barry.williams/book.htm">University of Strathclyde</a>, ISBN 978-0-9553384-0-3</td>
+    </tr>
+</table>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.References"
+>Modelica.Icons.References</a> (Icon for external references).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:19 2026.
+</address>
+</body>
+</html>

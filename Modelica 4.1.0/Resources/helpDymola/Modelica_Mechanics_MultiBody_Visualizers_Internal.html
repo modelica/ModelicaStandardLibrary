@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody.Visualizers.Internal</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Makeshift visualizers for display of three-dimensional fonts using cylinders&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Internal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.MultiBody.Visualizers.Internal"></a><a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</a>.Internal</h2>
+<p>
+<span class="ModelicaDescription">Makeshift visualizers for display of three-dimensional fonts using cylinders</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains components to construct 3-dim. fonts
+with "cylinder" elements for the animation window.
+This is a makeshift as long as the support of 3-dim. fonts is not specified in the
+Modelica language. The components are used to construct the "x", "y",
+"z" labels of coordinates systems in the animation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBd7efdcb19c2e0398LinesS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines"
+>FixedLines</a>
+</td>
+<td>Visualizing a set of lines as cylinders (e.g., used to display characters)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB0cfe68c16d63fddbLinesS.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines"
+>Lines</a>
+</td>
+<td>Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedLines<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBd7efdcb19c2e0398LinesI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines"></a><a href="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal"
+>Modelica.Mechanics.MultiBody.Visualizers.Internal</a>.FixedLines</h2>
+<p>
+<span class="ModelicaDescription">Visualizing a set of lines as cylinders (e.g., used to display characters)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+With model <strong>FixedLines</strong> a set of lines is defined
+that are located relatively to frame_a. Every line
+is represented by a cylinder. This allows to define simple shaped
+3-dimensional characters. An example is shown in the
+following figure:<br>&nbsp;
+</p>
+<div><img src="../Images/Mechanics/MultiBody/Visualizers/Internal/FixedLines.png" alt="model Visualizers.Internal.FixedLines"></div>
+<p>&nbsp;<br>
+The two letters "x" and "y" are constructed with 4 lines
+by providing the following data for parameter <strong>lines</strong>
+</p>
+<blockquote><pre>
+lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+</pre></blockquote>
+<p>
+Via parameter vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional
+coordinate system is defined. The points defined with parameter
+<strong>lines</strong> are with respect to this coordinate system. For example
+"[0, 0; 1, 1]" defines a line that starts at {0,0} and ends at {1,1}.
+The diameter and color of all line cylinders are identical.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer</a> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>scale</td><td>The &#39;lines&#39; are visualized &#39;scale&#39; times bigger</td></tr>
+<tr><td>lines[:, 2, 2]</td><td>List of start and end points of cylinders resolved along n_x and n_y [m]</td></tr>
+<tr><td>diameter</td><td>Diameter of the cylinders defined by lines [m]</td></tr>
+<tr><td>r_lines[3]</td><td>Position vector from origin of frame_a to the origin of the &#39;lines&#39; frame, resolved in frame_a [m]</td></tr>
+<tr><td>n_x[3]</td><td>Vector in direction of x-axis of &#39;lines&#39; frame, resolved in frame_a. [1]</td></tr>
+<tr><td>n_y[3]</td><td>Vector in direction of y-axis of &#39;lines&#39; frame, resolved in frame_a. [1]</td></tr>
+<tr><td>color</td><td>Color of cylinders</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system in which visualization data is resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Lines<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB0cfe68c16d63fddbLinesI.png" alt="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines"></a><a href="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal"
+>Modelica.Mechanics.MultiBody.Visualizers.Internal</a>.Lines</h2>
+<p>
+<span class="ModelicaDescription">Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+With model <strong>Lines</strong> a set of dynamic lines is defined
+that are located relatively to frame_a. Every line
+is represented by a cylinder. This allows, e.g., to define simple shaped
+3-dimensional characters. Note, if the lines are fixed relatively to frame_a,
+it is more convenient to use model <strong>Visualizers.Internal.FixedLines</strong>.
+An example for dynamic lines is shown in the following figure:<br>&nbsp;
+</p>
+<div><img src="../Images/Mechanics/MultiBody/Visualizers/Internal/FixedLines.png" alt="model Visualizers.Internal.FixedLines"></div>
+<p>&nbsp;<br>
+The two letters "x" and "y" are constructed with 4 lines
+by providing the following data for input variable <strong>lines</strong>
+</p>
+<blockquote><pre>
+lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+</pre></blockquote>
+<p>
+Via vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional
+coordinate system is defined. The points defined with variable
+<strong>lines</strong> are with respect to this coordinate system. For example
+"[0, 0; 1, 1]" defines a line that starts at {0,0} and ends at {1,1}.
+The diameter and color of all line cylinders are identical
+and are defined by parameters.
+</p>
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>R</td><td>Orientation object to rotate the world frame into the object frame</td></tr>
+<tr><td>r[3]</td><td>Position vector from origin of world frame to origin of object frame, resolved in world frame [m]</td></tr>
+<tr><td>r_lines[3]</td><td>Position vector from origin of object frame to the origin of &#39;lines&#39; frame, resolved in object frame [m]</td></tr>
+<tr><td>n_x[3]</td><td>Vector in direction of x-axis of &#39;lines&#39; frame, resolved in object frame [1]</td></tr>
+<tr><td>n_y[3]</td><td>Vector in direction of y-axis of &#39;lines&#39; frame, resolved in object frame [1]</td></tr>
+<tr><td>lines[:, 2, 2]</td><td>List of start and end points of cylinders resolved in an x-y frame defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]} [m]</td></tr>
+<tr><td>diameter</td><td>Diameter of the cylinders defined by lines [m]</td></tr>
+<tr><td>color</td><td>Color of cylinders</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:24 2026.
+</address>
+</body>
+</html>

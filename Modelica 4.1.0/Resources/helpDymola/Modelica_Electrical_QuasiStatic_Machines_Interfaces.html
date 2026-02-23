@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStatic.Machines.Interfaces</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;SpacePhasor connector and PartialMachines&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStatic.Machines.Interfaces"></a><a href="Modelica_Electrical_QuasiStatic_Machines.html#Modelica.Electrical.QuasiStatic.Machines"
+>Modelica.Electrical.QuasiStatic.Machines</a>.Interfaces</h2>
+<p>
+<span class="ModelicaDescription">SpacePhasor connector and PartialMachines</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains partial models for quasi-static transformer and space phasor models.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
+>Modelica.Icons.InterfacesPackage</a> (Icon for packages containing interfaces).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasiae01e1c9eecb0bba.Dd00S.png" alt="Modelica.Electrical.QuasiStatic.Machines.Interfaces.PartialBasicTransformer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Machines_Interfaces.html#Modelica.Electrical.QuasiStatic.Machines.Interfaces.PartialBasicTransformer"
+>PartialBasicTransformer</a>
+</td>
+<td>Partial model of three-phase transformer</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialBasicTransformer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasiae01e1c9eecb0bba.Dd00I.png" alt="Modelica.Electrical.QuasiStatic.Machines.Interfaces.PartialBasicTransformer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Machines.Interfaces.PartialBasicTransformer"></a><a href="Modelica_Electrical_QuasiStatic_Machines_Interfaces.html#Modelica.Electrical.QuasiStatic.Machines.Interfaces"
+>Modelica.Electrical.QuasiStatic.Machines.Interfaces</a>.PartialBasicTransformer</h2>
+<p>
+<span class="ModelicaDescription">Partial model of three-phase transformer</span>
+</p>
+<h3>Information</h3>
+
+Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
+Circuit layout (vector group) of primary and secondary windings have to be defined.
+<br><strong>Default values for transformer's parameters (a realistic example) are:</strong><br>
+<table>
+<tr>
+<td>turns ratio n</td>
+<td>1</td><td> </td>
+</tr>
+<tr>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
+</tr>
+<tr>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
+</tr>
+<tr>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
+</tr>
+<tr>
+<td>nominal apparent power</td>
+<td>30</td><td>kVA</td>
+</tr>
+<tr>
+<td>primary resistance R1</td>
+<td>0.005</td><td>Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td>reference temperature T1Ref</td>
+<td>20</td><td>&deg;C</td>
+</tr>
+<tr>
+<td>temperature coefficient alpha20_1 </td>
+<td>0</td><td>1/K</td>
+</tr>
+<tr>
+<td>primary stray inductance L1sigma</td>
+<td>78E-6</td><td>H per phase</td>
+</tr>
+<tr>
+<td>secondary resistance R2</td>
+<td>0.005</td><td>Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td>reference temperature T2Ref</td>
+<td>20</td><td>&deg;C</td>
+</tr>
+<tr>
+<td>temperature coefficient alpha20_2 </td>
+<td>0</td><td>1/K</td>
+</tr>
+<tr>
+<td>secondary stray inductance L2sigma</td>
+<td>78E-6</td><td>H per phase</td>
+</tr>
+<tr>
+<td>operational temperature T1Operational</td>
+<td>20</td><td>&deg;C</td>
+</tr>
+<tr>
+<td>operational temperature T2Operational</td>
+<td>20</td><td>&deg;C</td>
+</tr>
+<tr>
+<td>These values give the operational parameters:</td>
+<td> </td><td> </td>
+</tr>
+<tr>
+<td>nominal voltage drop</td>
+<td>0.05</td><td>p.u.</td>
+</tr>
+<tr>
+<td>nominal copper losses</td>
+<td>300</td><td>W</td>
+</tr>
+</table>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.QuasiStaticTransformer"
+>Modelica.Electrical.Machines.Icons.QuasiStaticTransformer</a>.</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)</td></tr>
+<tr><td>useThermalPort</td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Operational temperatures</td></tr>
+<tr><td>T1Operational</td><td>Operational temperature of primary resistance [K]</td></tr>
+<tr><td>T2Operational</td><td>Operational temperature of secondary resistance [K]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Nominal resistances and inductances</td></tr>
+<tr><td>R1</td><td>Primary resistance per phase at TRef [Ohm]</td></tr>
+<tr><td>T1Ref</td><td>Reference temperature of primary resistance [K]</td></tr>
+<tr><td>alpha20_1</td><td>Temperature coefficient of primary resistance at 20 degC [1/K]</td></tr>
+<tr><td>L1sigma</td><td>Primary stray inductance per phase [H]</td></tr>
+<tr><td>R2</td><td>Secondary resistance per phase at TRef [Ohm]</td></tr>
+<tr><td>T2Ref</td><td>Reference temperature of secondary resistance [K]</td></tr>
+<tr><td>alpha20_2</td><td>Temperature coefficient of secondary resistance at 20 degC [1/K]</td></tr>
+<tr><td>L2sigma</td><td>Secondary stray inductance per phase [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug1</td><td>Primary plug</td></tr>
+<tr><td>plug2</td><td>Secondary plug</td></tr>
+<tr><td>thermalPort</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:21 2026.
+</address>
+</body>
+</html>

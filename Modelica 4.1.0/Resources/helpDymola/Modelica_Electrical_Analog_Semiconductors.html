@@ -1,0 +1,758 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Analog.Semiconductors</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Semiconductor devices such as diode, MOS and bipolar transistor&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Semiconductors<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Analog.Semiconductors"></a><a href="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</a>.Semiconductors</h2>
+<p>
+<span class="ModelicaDescription">Semiconductor devices such as diode, MOS and bipolar transistor</span>
+</p>
+<h3>Information</h3>
+
+<p>This package contains semiconductor devices:</p>
+<ul>
+<li>diode</li>
+<li>MOS transistors</li>
+<li>bipolar transistors</li>
+<li>thyristor</li>
+<li>triac</li>
+</ul>
+<p>Most of the semiconductor devices contain a conditional heat port, which is not active by default. If it is active the loss power is calculated to be used in a thermal net. The heating variants of the semiconductor devices are provided to use the thermal port temperature in the electric calculation. That means that for a true thermal electric interaction the heating device models have to be used.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoa285c1e4a5427a6fuctorS.png" alt="Modelica.Electrical.Analog.Semiconductors.Diode" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.Diode"
+>Diode</a>
+</td>
+<td>Simple diode with heating port</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoa285c1e4a5427a6fuctorS.png" alt="Modelica.Electrical.Analog.Semiconductors.Diode2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.Diode2"
+>Diode2</a>
+</td>
+<td>Improved diode model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoa285c1e4a5427a6fuctorS.png" alt="Modelica.Electrical.Analog.Semiconductors.ZDiode" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.ZDiode"
+>ZDiode</a>
+</td>
+<td>Zener diode with 3 working areas</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobf8b9b5febbdfd12.NMOSS.png" alt="Modelica.Electrical.Analog.Semiconductors.NMOS" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NMOS"
+>NMOS</a>
+</td>
+<td>Simple NMOS transistor with heating port</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobfd03695ebb2fd12.PMOSS.png" alt="Modelica.Electrical.Analog.Semiconductors.PMOS" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.PMOS"
+>PMOS</a>
+</td>
+<td>Simple PMOS transistor with heating port</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobd10b48c0f5dec4ds.NPNS.png" alt="Modelica.Electrical.Analog.Semiconductors.NPN" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NPN"
+>NPN</a>
+</td>
+<td>Simple NPN BJT according to Ebers-Moll with heating port</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobd11399a0f5d9793s.PNPS.png" alt="Modelica.Electrical.Analog.Semiconductors.PNP" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.PNP"
+>PNP</a>
+</td>
+<td>Simple PNP BJT according to Ebers-Moll with heating port</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powS.png" alt="Modelica.Electrical.Analog.Semiconductors.pow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.pow"
+>pow</a>
+</td>
+<td>Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powS.png" alt="Modelica.Electrical.Analog.Semiconductors.powlin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.powlin"
+>powlin</a>
+</td>
+<td>Power function (1 - x)^(-y) linearly continued for x &gt; 0 (provided y = const.)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powS.png" alt="Modelica.Electrical.Analog.Semiconductors.exlin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.exlin"
+>exlin</a>
+</td>
+<td>Exponential function linearly continued for x &gt; Maxexp</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powS.png" alt="Modelica.Electrical.Analog.Semiconductors.exlin2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.exlin2"
+>exlin2</a>
+</td>
+<td>Exponential function linearly continued for x &lt; MinExp and x &gt; Maxexp</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobf547550617f3d43istorS.png" alt="Modelica.Electrical.Analog.Semiconductors.Thyristor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.Thyristor"
+>Thyristor</a>
+</td>
+<td>Simple Thyristor Model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo519d008f92e7d5d7TriacS.png" alt="Modelica.Electrical.Analog.Semiconductors.SimpleTriac" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.SimpleTriac"
+>SimpleTriac</a>
+</td>
+<td>Simple triac, based on Semiconductors.Thyristor model</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Diode<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analoa285c1e4a5427a6fuctorI.png" alt="Modelica.Electrical.Analog.Semiconductors.Diode" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.Diode"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.Diode</h2>
+<p>
+<span class="ModelicaDescription">Simple diode with heating port</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The simple diode is an electrical one port, where a heat port is added, which is
+defined in the Modelica.Thermal library. It consists of the diode itself and a parallel ohmic
+resistance <em>R</em>. If <em>useTemperatureDependency</em> is set to <em>true</em>, the diode formula is:
+</p>
+<blockquote><pre>
+           v/N/vt_t
+i = Ids (e          - 1)
+</pre></blockquote>
+where <em>vt_t</em> depends on the temperature of the heat port:
+<blockquote><pre>
+vt_t = k*temp/q
+</pre></blockquote>
+<p>
+If <em>useTemperatureDependency</em> is set to <em>false</em>, the diode formula utilizes the voltage equivalent of the temperature, i.e.,
+</p>
+<blockquote><pre>
+           v/Vt
+i = Ids (e      - 1).
+</pre></blockquote>
+<p>
+If the exponent <em>v/N/vt_t</em> or <em>v/Vt</em>, respectively, reaches the limit <em>Maxexp</em>, the diode characteristic is linearly continued to avoid overflow.<br>
+The thermal power is calculated by <em>i*v</em>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ids</td><td>Saturation current [A]</td></tr>
+<tr><td>useTemperatureDependency</td><td>= true, if the diode current depends on temperature, otherwise utilizes the voltage equivalent of temperature</td></tr>
+<tr><td>Vt</td><td>Voltage equivalent of temperature (kT/qn) [V]</td></tr>
+<tr><td>Maxexp</td><td>Max. exponent for linear continuation</td></tr>
+<tr><td>R</td><td>Parallel ohmic resistance [Ohm]</td></tr>
+<tr><td>EG</td><td>Activation energy</td></tr>
+<tr><td>N</td><td>Emission coefficient</td></tr>
+<tr><td>TNOM</td><td>Parameter measurement temperature [K]</td></tr>
+<tr><td>XTI</td><td>Temperature exponent of saturation current</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Diode2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analoa285c1e4a5427a6fuctorI.png" alt="Modelica.Electrical.Analog.Semiconductors.Diode2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.Diode2"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.Diode2</h2>
+<p>
+<span class="ModelicaDescription">Improved diode model</span>
+</p>
+<h3>Information</h3>
+
+<p>This diode model is an improved version of the <a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.Diode"
+>simple diode</a> model. It includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
+<ul>
+<li>lower half of reversed bias region including breakdown: -Ids&middot;(exp(-(vd+Bv)/(N&middot;Vt)) + 1 - 2&middot;exp(-Bv/(2&middot;N&middot;Vt)))</li>
+<li>upper half of reverse biased region and forward biased region before conduction: Ids&middot;(exp(vd/(N&middot;Vt)) - 1)</li>
+<li>forward biased region after conduction: iVdMax + (vd - VdMax)&middot;diVdMax</li>
+</ul>
+<p>Temperature dependent behaviour is modelled when useHeatPort=true. In that case, the Vt parameter is ignored, and Vt is computed as k&middot;T/q, where</p>
+<ul>
+<li>k is Boltzmann&#39;s constant</li>
+<li>T is the heat port temperature.</li>
+<li>q is the electron charge.</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr><td>Vf</td><td>Forward voltage [V]</td></tr>
+<tr><td>Ids</td><td>Reverse saturation current [A]</td></tr>
+<tr><td>Rs</td><td>Ohmic resistance [Ohm]</td></tr>
+<tr><td>Vt</td><td>Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC) [V]</td></tr>
+<tr><td>N</td><td>Emission coefficient</td></tr>
+<tr><td>Bv</td><td>Reverse breakdown voltage [V]</td></tr>
+<tr><td>Gp</td><td>Parallel conductance for numerical stability [S]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ZDiode<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo754dde2ddf69b74bDiodeI.png" alt="Modelica.Electrical.Analog.Semiconductors.ZDiode" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.ZDiode"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.ZDiode</h2>
+<p>
+<span class="ModelicaDescription">Zener diode with 3 working areas</span>
+</p>
+<h3>Information</h3>
+
+<p>The simple Zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:</p>
+<blockquote><pre>
+              v/Vt                -(v+Bv)/(Nbv*Vt)
+i  =  Ids ( e      - 1) - Ibv ( e                  ).
+</pre></blockquote>
+<p>If the exponent in one of the two branches reaches the limit <em>Maxexp</em>, the diode characteristic is linearly continued to avoid overflow.</p>
+<p><br>The Zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known Zener knee voltage) is exceeded.</p>
+<p>The thermal power is calculated by <em>i*v</em>.</p><p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ids</td><td>Saturation current [A]</td></tr>
+<tr><td>Vt</td><td>Voltage equivalent of temperature (kT/qn) [V]</td></tr>
+<tr><td>Maxexp</td><td>Max. exponent for linear continuation</td></tr>
+<tr><td>R</td><td>Parallel ohmic resistance [Ohm]</td></tr>
+<tr><td>Bv</td><td>Breakthrough voltage = Zener- or Z-voltage [V]</td></tr>
+<tr><td>Ibv</td><td>Breakthrough knee current [A]</td></tr>
+<tr><td>Nbv</td><td>Breakthrough emission coefficient</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE NMOS<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobf8b9b5febbdfd12.NMOSI.png" alt="Modelica.Electrical.Analog.Semiconductors.NMOS" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.NMOS"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.NMOS</h2>
+<p>
+<span class="ModelicaDescription">Simple NMOS transistor with heating port</span>
+</p>
+<h3>Information</h3>
+
+<p>The NMOS model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href="Modelica_Electrical_Analog_UsersGuide.html#Modelica.Electrical.Analog.UsersGuide.References"
+>Spiro1990</a>].
+<br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
+</p>
+<blockquote><pre>
+W       L      Beta         Vt      K2     K5       dW       dL
+m       m      A/V^2        V       -      -        m        m
+12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
+60.e-6  3.e-6  0.048e-3     0.1     0.08   0.68    -1.2e-6  -0.9e-6      enhancement
+12.e-6  4.e-6  0.0625e-3   -0.8     0.21   0.78    -1.2e-6  -0.9e-6      zero
+50.e-6  8.e-6  0.0299e-3    0.24    1.144  0.7311  -5.4e-6  -4.e-6
+20.e-6  6.e-6  0.041e-3     0.8     1.144  0.7311  -2.5e-6  -1.5e-6
+30.e-6  9.e-6  0.025e-3    -4.0     0.861  0.878   -3.4e-6  -1.74e-6
+30.e-6  5.e-6  0.031e-3     0.6     1.5    0.72     0       -3.9e-6
+50.e-6  6.e-6  0.0414e-3   -3.8     0.34   0.8     -1.6e-6  -2.e-6       depletion
+50.e-6  5.e-6  0.03e-3      0.37    0.23   0.86    -1.6e-6  -2.e-6       enhancement
+50.e-6  6.e-6  0.038e-3    -0.9     0.23   0.707   -1.6e-6  -2.e-6       zero
+20.e-6  4.e-6  0.06776e-3   0.5409  0.065  0.71    -0.8e-6  -0.2e-6
+20.e-6  4.e-6  0.06505e-3   0.6209  0.065  0.71    -0.8e-6  -0.2e-6
+20.e-6  4.e-6  0.05365e-3   0.6909  0.03   0.8     -0.3e-6  -0.2e-6
+20.e-6  4.e-6  0.05365e-3   0.4909  0.03   0.8     -0.3e-6  -0.2e-6
+12.e-6  4.e-6  0.023e-3    -4.5     0.29   0.6      0        0           depletion
+60.e-6  3.e-6  0.022e-3     0.1     0.11   0.65     0        0           enhancement
+12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
+20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
+</pre></blockquote>
+<p><strong>References:</strong> [<a href="Modelica_Electrical_Analog_UsersGuide.html#Modelica.Electrical.Analog.UsersGuide.References"
+>Spiro1990</a>]</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>W</td><td>Width [m]</td></tr>
+<tr><td>L</td><td>Length [m]</td></tr>
+<tr><td>Beta</td><td>Transconductance parameter [A/V2]</td></tr>
+<tr><td>Vt</td><td>Zero bias threshold voltage [V]</td></tr>
+<tr><td>K2</td><td>Bulk threshold parameter</td></tr>
+<tr><td>K5</td><td>Reduction of pinch-off region</td></tr>
+<tr><td>dW</td><td>Narrowing of channel [m]</td></tr>
+<tr><td>dL</td><td>Shortening of channel [m]</td></tr>
+<tr><td>RDS</td><td>Drain-Source-Resistance [Ohm]</td></tr>
+<tr><td>useTemperatureDependency</td><td>= true, if parameters Beta, K2 and Vt depend on temperature</td></tr>
+<tr><td>Tnom</td><td>Parameter measurement temperature [K]</td></tr>
+<tr><td>kvt</td><td>Fitting parameter for Vt</td></tr>
+<tr><td>kk2</td><td>Fitting parameter for K2</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>D</td><td>Drain</td></tr>
+<tr><td>G</td><td>Gate</td></tr>
+<tr><td>S</td><td>Source</td></tr>
+<tr><td>B</td><td>Bulk</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PMOS<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobfd03695ebb2fd12.PMOSI.png" alt="Modelica.Electrical.Analog.Semiconductors.PMOS" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.PMOS"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.PMOS</h2>
+<p>
+<span class="ModelicaDescription">Simple PMOS transistor with heating port</span>
+</p>
+<h3>Information</h3>
+
+<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href="Modelica_Electrical_Analog_UsersGuide.html#Modelica.Electrical.Analog.UsersGuide.References"
+>Spiro1990</a>].
+<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
+<p><strong>References:</strong> [<a href="Modelica_Electrical_Analog_UsersGuide.html#Modelica.Electrical.Analog.UsersGuide.References"
+>Spiro1990</a>]</p>
+<p>Some typical parameter sets are:</p>
+<blockquote><pre>
+W       L      Beta        Vt    K2     K5      dW       dL
+m       m      A/V^2       V     -      -       m        m
+50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
+20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
+30.e-6  5.e-6  0.0059e-3  -0.3   0.98   1.01    0       -3.9e-6
+30.e-6  5.e-6  0.0152e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
+20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>W</td><td>Width [m]</td></tr>
+<tr><td>L</td><td>Length [m]</td></tr>
+<tr><td>Beta</td><td>Transconductance parameter [A/V2]</td></tr>
+<tr><td>Vt</td><td>Zero bias threshold voltage [V]</td></tr>
+<tr><td>K2</td><td>Bulk threshold parameter</td></tr>
+<tr><td>K5</td><td>Reduction of pinch-off region</td></tr>
+<tr><td>dW</td><td>Narrowing of channel [m]</td></tr>
+<tr><td>dL</td><td>Shortening of channel [m]</td></tr>
+<tr><td>RDS</td><td>Drain-Source-Resistance [Ohm]</td></tr>
+<tr><td>useTemperatureDependency</td><td>= true, if parameters Beta, K2 and Vt depend on temperature</td></tr>
+<tr><td>Tnom</td><td>Parameter measurement temperature [K]</td></tr>
+<tr><td>kvt</td><td>Fitting parameter for Vt</td></tr>
+<tr><td>kk2</td><td>Fitting parameter for K2</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>D</td><td>Drain</td></tr>
+<tr><td>G</td><td>Gate</td></tr>
+<tr><td>S</td><td>Source</td></tr>
+<tr><td>B</td><td>Bulk</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE NPN<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobd10b48c0f5dec4ds.NPNI.png" alt="Modelica.Electrical.Analog.Semiconductors.NPN" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.NPN"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.NPN</h2>
+<p>
+<span class="ModelicaDescription">Simple NPN BJT according to Ebers-Moll with heating port</span>
+</p>
+<h3>Information</h3>
+
+<p>This model is a simple model of a bipolar NPN junction transistor according to Ebers-Moll.
+<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>A typical parameter set is (the parameter Vt is no longer used):</p>
+<blockquote><pre>
+Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
+-   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
+50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15
+</pre></blockquote>
+<p><strong>References:</strong> [<a href="Modelica_Electrical_Analog_UsersGuide.html#Modelica.Electrical.Analog.UsersGuide.References"
+>Vlach1983</a>]</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Bf</td><td>Forward beta</td></tr>
+<tr><td>Br</td><td>Reverse beta</td></tr>
+<tr><td>Is</td><td>Transport saturation current [A]</td></tr>
+<tr><td>Vak</td><td>Early voltage (inverse), 1/Volt [1/V]</td></tr>
+<tr><td>Tauf</td><td>Ideal forward transit time [s]</td></tr>
+<tr><td>Taur</td><td>Ideal reverse transit time [s]</td></tr>
+<tr><td>Ccs</td><td>Collector-substrate(ground) cap. [F]</td></tr>
+<tr><td>Cje</td><td>Base-emitter zero bias depletion cap. [F]</td></tr>
+<tr><td>Cjc</td><td>Base-coll. zero bias depletion cap. [F]</td></tr>
+<tr><td>Phie</td><td>Base-emitter diffusion voltage [V]</td></tr>
+<tr><td>Me</td><td>Base-emitter gradation exponent</td></tr>
+<tr><td>Phic</td><td>Base-collector diffusion voltage [V]</td></tr>
+<tr><td>Mc</td><td>Base-collector gradation exponent</td></tr>
+<tr><td>Gbc</td><td>Base-collector conductance [S]</td></tr>
+<tr><td>Gbe</td><td>Base-emitter conductance [S]</td></tr>
+<tr><td>EMin</td><td>If x &lt; EMin, the exp(x) function is linearized</td></tr>
+<tr><td>EMax</td><td>If x &gt; EMax, the exp(x) function is linearized</td></tr>
+<tr><td>useTemperatureDependency</td><td>= true, if parameters Bf, Br, Is and Vt depend on temperature</td></tr>
+<tr><td>Vt</td><td>Voltage equivalent of temperature [V]</td></tr>
+<tr><td>Tnom</td><td>Parameter measurement temperature [K]</td></tr>
+<tr><td>XTI</td><td>Temperature exponent for effect on Is</td></tr>
+<tr><td>XTB</td><td>Forward and reverse beta temperature exponent</td></tr>
+<tr><td>EG</td><td>Energy gap for temperature effect on Is [V]</td></tr>
+<tr><td>NF</td><td>Forward current emission coefficient</td></tr>
+<tr><td>NR</td><td>Reverse current emission coefficient</td></tr>
+<tr><td>IC</td><td>Initial value of collector to substrate voltage [V]</td></tr>
+<tr><td>UIC</td><td>Decision if initial value IC should be used</td></tr>
+<tr><td>useSubstrate</td><td>= false, if substrate is implicitly grounded</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>C</td><td>Collector</td></tr>
+<tr><td>B</td><td>Base</td></tr>
+<tr><td>E</td><td>Emitter</td></tr>
+<tr><td>S</td><td>Substrate</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PNP<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobd11399a0f5d9793s.PNPI.png" alt="Modelica.Electrical.Analog.Semiconductors.PNP" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.PNP"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.PNP</h2>
+<p>
+<span class="ModelicaDescription">Simple PNP BJT according to Ebers-Moll with heating port</span>
+</p>
+<h3>Information</h3>
+
+<p>This model is a simple model of a bipolar PNP junction transistor according to Ebers-Moll.
+<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>A typical parameter set is (the parameter Vt is no longer used):</p>
+<blockquote><pre>
+Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
+-   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
+50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15
+</pre></blockquote>
+<p><strong>References:</strong> [<a href="Modelica_Electrical_Analog_UsersGuide.html#Modelica.Electrical.Analog.UsersGuide.References"
+>Vlach1983</a>]</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Bf</td><td>Forward beta</td></tr>
+<tr><td>Br</td><td>Reverse beta</td></tr>
+<tr><td>Is</td><td>Transport saturation current [A]</td></tr>
+<tr><td>Vak</td><td>Early voltage (inverse), 1/Volt [1/V]</td></tr>
+<tr><td>Tauf</td><td>Ideal forward transit time [s]</td></tr>
+<tr><td>Taur</td><td>Ideal reverse transit time [s]</td></tr>
+<tr><td>Ccs</td><td>Collector-substrate(ground) cap. [F]</td></tr>
+<tr><td>Cje</td><td>Base-emitter zero bias depletion cap. [F]</td></tr>
+<tr><td>Cjc</td><td>Base-coll. zero bias depletion cap. [F]</td></tr>
+<tr><td>Phie</td><td>Base-emitter diffusion voltage [V]</td></tr>
+<tr><td>Me</td><td>Base-emitter gradation exponent</td></tr>
+<tr><td>Phic</td><td>Base-collector diffusion voltage [V]</td></tr>
+<tr><td>Mc</td><td>Base-collector gradation exponent</td></tr>
+<tr><td>Gbc</td><td>Base-collector conductance [S]</td></tr>
+<tr><td>Gbe</td><td>Base-emitter conductance [S]</td></tr>
+<tr><td>EMin</td><td>If x &lt; EMin, the exp(x) function is linearized</td></tr>
+<tr><td>EMax</td><td>If x &gt; EMax, the exp(x) function is linearized</td></tr>
+<tr><td>useTemperatureDependency</td><td>= true, if parameters Bf, Br, Is and Vt depend on temperature</td></tr>
+<tr><td>Vt</td><td>Voltage equivalent of temperature [V]</td></tr>
+<tr><td>Tnom</td><td>Parameter measurement temperature [K]</td></tr>
+<tr><td>XTI</td><td>Temperature exponent for effect on Is</td></tr>
+<tr><td>XTB</td><td>Forward and reverse beta temperature exponent</td></tr>
+<tr><td>EG</td><td>Energy gap for temperature effect on Is [V]</td></tr>
+<tr><td>NF</td><td>Forward current emission coefficient</td></tr>
+<tr><td>NR</td><td>Reverse current emission coefficient</td></tr>
+<tr><td>IC</td><td>Initial value of collector to substrate voltage [V]</td></tr>
+<tr><td>UIC</td><td>Decision if initial value IC should be used</td></tr>
+<tr><td>useSubstrate</td><td>= false, if substrate is implicitly grounded</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>C</td><td>Collector</td></tr>
+<tr><td>B</td><td>Base</td></tr>
+<tr><td>E</td><td>Emitter</td></tr>
+<tr><td>S</td><td>Substrate</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE pow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powI.png" alt="Modelica.Electrical.Analog.Semiconductors.pow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.pow"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.pow</h2>
+<p>
+<span class="ModelicaDescription">Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>z</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE powlin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powI.png" alt="Modelica.Electrical.Analog.Semiconductors.powlin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.powlin"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.powlin</h2>
+<p>
+<span class="ModelicaDescription">Power function (1 - x)^(-y) linearly continued for x &gt; 0 (provided y = const.)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>z</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE exlin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powI.png" alt="Modelica.Electrical.Analog.Semiconductors.exlin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.exlin"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.exlin</h2>
+<p>
+<span class="ModelicaDescription">Exponential function linearly continued for x &gt; Maxexp</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>Maxexp</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>z</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE exlin2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powI.png" alt="Modelica.Electrical.Analog.Semiconductors.exlin2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.exlin2"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.exlin2</h2>
+<p>
+<span class="ModelicaDescription">Exponential function linearly continued for x &lt; MinExp and x &gt; Maxexp</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>Minexp</td><td>&nbsp;</td></tr>
+<tr><td>Maxexp</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>z</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Thyristor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobf547550617f3d43istorI.png" alt="Modelica.Electrical.Analog.Semiconductors.Thyristor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.Thyristor"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.Thyristor</h2>
+<p>
+<span class="ModelicaDescription">Simple Thyristor Model</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a simple thyristor model with three pins: Anode, Cathode and Gate. There are three operating modes:conducting, blocking and reverse breakthrough.
+<br>As long as the thyristor is in blocking mode it behaves like a linear resistance Roff=VDRM^2/(VTM*IH). But if the voltage between anode and cathode exceeds VDRM or a positive gate current flows for a sufficient time the mode changes to conducting mode. The model stays in conducting mode until the anode current falls below the holding current IH. There is no way to switch off the thyristor via the gate. If the voltage between anode and cathode is negative, the model represents a diode (parameters Vt, Nbv) with reverse breakthrough voltage VRRM.</p>
+<div>
+<img src="../Images/Electrical/Analog/Semiconductors/Thyristor.png"
+     alt="Thyristor.png">
+</div>
+<p>The dV/dt switch on is not taken into account in this model. The gate circuit is not influenced by the main circuit.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VDRM</td><td>Forward breakthrough voltage [V]</td></tr>
+<tr><td>VRRM</td><td>Reverse breakthrough voltage [V]</td></tr>
+<tr><td>IDRM</td><td>Saturation current [A]</td></tr>
+<tr><td>VTM</td><td>Conducting voltage [V]</td></tr>
+<tr><td>IH</td><td>Holding current [A]</td></tr>
+<tr><td>ITM</td><td>Conducting current [A]</td></tr>
+<tr><td>VGT</td><td>Gate trigger voltage [V]</td></tr>
+<tr><td>IGT</td><td>Gate trigger current [A]</td></tr>
+<tr><td>TON</td><td>Switch on time [s]</td></tr>
+<tr><td>TOFF</td><td>Switch off time [s]</td></tr>
+<tr><td>Vt</td><td>Voltage equivalent of temperature (kT/qn) [V]</td></tr>
+<tr><td>Nbv</td><td>Reverse Breakthrough emission coefficient</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr><td>vRef</td><td>[V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>Anode</td><td>&nbsp;</td></tr>
+<tr><td>Cathode</td><td>&nbsp;</td></tr>
+<tr><td>Gate</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SimpleTriac<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo519d008f92e7d5d7TriacI.png" alt="Modelica.Electrical.Analog.Semiconductors.SimpleTriac" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.SimpleTriac"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.SimpleTriac</h2>
+<p>
+<span class="ModelicaDescription">Simple triac, based on Semiconductors.Thyristor model</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a simple TRIAC model based on the extended thyristor model Modelica.Electrical.Analog.Semiconductors.Thyristor.
+<br>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode.
+<br>Further information regarding the electrical component TRIAC can be detected in documentation of the ideal TRIAC model.
+<br>As an additional information: this model is based on the Modelica.Electrical.Analog.Semiconductors.Thyristor.</p>
+<p><strong>Attention:</strong> The model seems to be very sensitive with respect to the choice of some parameters (e.g., VDRM, VRRM). This is caused by the thyristor model. Further investigations are necessary.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VDRM</td><td>Forward breakthrough voltage [V]</td></tr>
+<tr><td>VRRM</td><td>Reverse breakthrough voltage [V]</td></tr>
+<tr><td>IDRM</td><td>Saturation current [A]</td></tr>
+<tr><td>VTM</td><td>Conducting voltage [V]</td></tr>
+<tr><td>IH</td><td>Holding current [A]</td></tr>
+<tr><td>ITM</td><td>Conducting current [A]</td></tr>
+<tr><td>VGT</td><td>Gate trigger voltage [V]</td></tr>
+<tr><td>IGT</td><td>Gate trigger current [A]</td></tr>
+<tr><td>TON</td><td>Switch on time [s]</td></tr>
+<tr><td>TOFF</td><td>Switch off time [s]</td></tr>
+<tr><td>Vt</td><td>Voltage equivalent of temperature (kT/qn) [V]</td></tr>
+<tr><td>Nbv</td><td>Reverse Breakthrough emission coefficient</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Cathode</td></tr>
+<tr><td>p</td><td>Anode</td></tr>
+<tr><td>g</td><td>Gate</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:09 2026.
+</address>
+</body>
+</html>

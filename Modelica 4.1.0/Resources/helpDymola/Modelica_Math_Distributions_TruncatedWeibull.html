@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.Distributions.TruncatedWeibull</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of truncated Weibull distribution functions&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TruncatedWeibull<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.Distributions.TruncatedWeibull"></a><a href="Modelica_Math_Distributions.html#Modelica.Math.Distributions"
+>Modelica.Math.Distributions</a>.TruncatedWeibull</h2>
+<p>
+<span class="ModelicaDescription">Library of truncated Weibull distribution functions</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package provides
+</p>
+<ul>
+<li> probability density function (= derivative of cumulative distribution function),</li>
+<li> cumulative distribution function, and</li>
+<li> quantile (= inverse cumulative distribution function).</li>
+</ul>
+<p>
+of the <strong>truncated Weibull</strong> distribution. Examples:
+</p>
+
+<blockquote>
+<img src="../Images/Math/Distributions/TruncatedWeibull.density.png">
+</blockquote>
+
+<blockquote>
+<img src="../Images/Math/Distributions/TruncatedWeibull.cumulative.png">
+</blockquote>
+
+<blockquote>
+<img src="../Images/Math/Distributions/TruncatedWeibull.quantile.png">
+</blockquote>
+
+<p>
+For more details<br>
+of the Weibull distribution, see
+<a href="http://en.wikipedia.org/wiki/Weibull_distribution">Wikipedia</a>,<br>
+of truncated distributions, see
+<a href="http://en.wikipedia.org/wiki/Truncated_distribution">Wikipedia</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Distributions.TruncatedWeibull.density" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull.density"
+>density</a>
+</td>
+<td>Density of truncated Weibull distribution</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Distributions.TruncatedWeibull.cumulative" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull.cumulative"
+>cumulative</a>
+</td>
+<td>Cumulative distribution function of truncated Weibull distribution</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Distributions.TruncatedWeibull.quantile" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull.quantile"
+>quantile</a>
+</td>
+<td>Quantile of truncated Weibull distribution</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE density<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Distributions.TruncatedWeibull.density" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Distributions.TruncatedWeibull.density"></a><a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull"
+>Modelica.Math.Distributions.TruncatedWeibull</a>.density</h2>
+<p>
+<span class="ModelicaDescription">Density of truncated Weibull distribution</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Weibull.<strong>density</strong>(u, u_min=0, u_max=1, lambda=1, k=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the probability density function according to a
+<strong>truncated Weibull</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+scale parameter of original distribution <strong>lambda</strong> and
+shape parameter of original distribution <strong>k</strong>.
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="../Images/Math/Distributions/TruncatedWeibull.density.png">
+</blockquote>
+
+<p>
+For more details<br>
+of the Weibull distribution, see
+<a href="http://en.wikipedia.org/wiki/Weibull_distribution">Wikipedia</a>,<br>
+of truncated distributions, see
+<a href="http://en.wikipedia.org/wiki/Truncated_distribution">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+density(0.5)             // = 0.9595173756674719
+density(0.5,0,0.8,0.5,2) // = 1.5948036466479143
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull.cumulative"
+>TruncatedWeibull.cumulative</a>,
+<a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull.quantile"
+>TruncatedWeibull.quantile</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Distributions_Interfaces.html#Modelica.Math.Distributions.Interfaces.partialTruncatedDensity"
+>Modelica.Math.Distributions.Interfaces.partialTruncatedDensity</a> (Common interface of truncated probability density functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Random number over the real axis (-inf &lt; u &lt; inf)</td></tr>
+<tr><td>u_min</td><td>Lower limit of u</td></tr>
+<tr><td>u_max</td><td>Upper limit of u</td></tr>
+<tr><td>lambda</td><td>Scale parameter of the Weibull distribution</td></tr>
+<tr><td>k</td><td>Shape parameter of the Weibull distribution</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Density of u</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cumulative<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Distributions.TruncatedWeibull.cumulative" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Distributions.TruncatedWeibull.cumulative"></a><a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull"
+>Modelica.Math.Distributions.TruncatedWeibull</a>.cumulative</h2>
+<p>
+<span class="ModelicaDescription">Cumulative distribution function of truncated Weibull distribution</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Weibull.<strong>cumulative</strong>(u, u_min=0, u_max=1, lambda=1, k=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the cumulative distribution function according to a
+<strong>truncated Weibull</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+scale parameter of original distribution <strong>lambda</strong> and
+shape parameter of original distribution <strong>k</strong>.
+The returned value y is in the range:
+</p>
+
+<blockquote>
+0 &le; y &le; 1
+</blockquote>
+
+<p>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="../Images/Math/Distributions/TruncatedWeibull.cumulative.png">
+</blockquote>
+
+<p>
+For more details<br>
+of the Weibull distribution, see
+<a href="http://en.wikipedia.org/wiki/Weibull_distribution">Wikipedia</a>,<br>
+of truncated distributions, see
+<a href="http://en.wikipedia.org/wiki/Truncated_distribution">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+cumulative(0.5)             // = 0.6224593312018546
+cumulative(0.5,0,0.8,0.5,2) // = 0.6850805314988328
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull.density"
+>TruncatedWeibull.density</a>,
+<a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull.quantile"
+>TruncatedWeibull.quantile</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Distributions_Interfaces.html#Modelica.Math.Distributions.Interfaces.partialTruncatedCumulative"
+>Modelica.Math.Distributions.Interfaces.partialTruncatedCumulative</a> (Common interface of truncated cumulative distribution functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Value over the real axis (-inf &lt; u &lt; inf)</td></tr>
+<tr><td>u_min</td><td>Lower limit of u</td></tr>
+<tr><td>u_max</td><td>Upper limit of u</td></tr>
+<tr><td>lambda</td><td>Scale parameter of the Weibull distribution</td></tr>
+<tr><td>k</td><td>Shape parameter of the Weibull distribution</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Value in the range 0 &lt;= y &lt;= 1</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE quantile<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Distributions.TruncatedWeibull.quantile" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Distributions.TruncatedWeibull.quantile"></a><a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull"
+>Modelica.Math.Distributions.TruncatedWeibull</a>.quantile</h2>
+<p>
+<span class="ModelicaDescription">Quantile of truncated Weibull distribution</span>
+</p>
+<h3>Information</h3>
+
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Weibull.<strong>quantile</strong>(u, y_min=0, y_max=1, lambda=1, k=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the inverse cumulative distribution function (= quantile) according to a
+<strong>truncated Weibull</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+scale parameter of original distribution <strong>lambda</strong> and
+shape parameter of original distribution <strong>k</strong>.
+Input argument u must be in the range:
+</p>
+
+<blockquote>
+<p>
+0 &le; u &le; 1
+</p>
+</blockquote>
+
+<p>
+Output argument y is in the range:
+</p>
+
+<blockquote>
+<p>
+y_min &le; y &le; y_max
+</p>
+</blockquote>
+
+<p>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="../Images/Math/Distributions/TruncatedWeibull.quantile.png">
+</blockquote>
+
+<p>
+For more details<br>
+of the Weibull distribution, see
+<a href="http://en.wikipedia.org/wiki/Weibull_distribution">Wikipedia</a>,<br>
+of truncated distributions, see
+<a href="http://en.wikipedia.org/wiki/Truncated_distribution">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+quantile(0.001)           // = 0.0006323204312624211;
+quantile(0.5,0,1,0.5,0.9) // = 0.256951787882498
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull.density"
+>TruncatedWeibull.density</a>,
+<a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull.cumulative"
+>TruncatedWeibull.cumulative</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Distributions_Interfaces.html#Modelica.Math.Distributions.Interfaces.partialTruncatedQuantile"
+>Modelica.Math.Distributions.Interfaces.partialTruncatedQuantile</a> (Common interface of truncated quantile functions (= inverse cumulative distribution functions)).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Random number in the range 0 &lt;= u &lt;= 1</td></tr>
+<tr><td>y_min</td><td>Lower limit of y</td></tr>
+<tr><td>y_max</td><td>Upper limit of y</td></tr>
+<tr><td>lambda</td><td>Scale parameter of the Weibull distribution</td></tr>
+<tr><td>k</td><td>Shape parameter of the Weibull distribution</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Random number u transformed according to the given distribution</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:32 2026.
+</address>
+</body>
+</html>
