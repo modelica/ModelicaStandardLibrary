@@ -121,5 +121,36 @@ comparisonWithFEA.y[3]                 // static inductance obtained with FEA as
 <p>
 As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Simple vs. advanced solenoid",
+          identifier = "e851b",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = x_set.y, y = simpleSolenoid.armature.flange_a.f, legend = "Simple solenoid model electromagnetic force vs. armature position"),
+                Curve(x = x_set.y, y = advancedSolenoid.armature.flange_a.f, legend = "Advanced solenoid model electromagnetic force vs. armature position"),
+                Curve(x = x_set.y, y = comparisonWithFEA.y[1], legend = "FEA model electromagnetic force vs. armature position")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(x = x_set.y, y = simpleSolenoid.g_mFeArm.Phi, legend = "Simple solenoid model magnetic flux vs. armature position"),
+                Curve(x = x_set.y, y = advancedSolenoid.g_mFeArm.Phi, legend = "Advanced solenoid model magnetic flux vs. armature position"),
+                Curve(x = x_set.y, y = comparisonWithFEA.y[2], legend = "FEA model magnetic flux vs. armature position")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(x = x_set.y, y = simpleSolenoid.coil.L_stat, legend = "Simple solenoid model static inductance vs. armature position"),
+                Curve(x = x_set.y, y = advancedSolenoid.L_statTot, legend = "Advanced solenoid model static inductance vs. armature position"),
+                Curve(x = x_set.y, y = comparisonWithFEA.y[3], legend = "FEA model static inductance vs. armature position")
+              }
+            )
+          }
+        )
+      }
+    ));
 end ComparisonQuasiStatic;

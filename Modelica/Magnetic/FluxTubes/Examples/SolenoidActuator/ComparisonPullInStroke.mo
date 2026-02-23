@@ -441,5 +441,36 @@ Plot window for position:
 <p>
 The characteristic current drop during pull-in is due to both armature motion and increasing inductance with decreasing air gap length. Bouncing occurs when  armature and load of each model arrive at the stopper at minimum position. Although the pull-in times of the two magnetic network models are relatively close to the time obtained with the reference model, the accuracy of the advanced solenoid model is better, as one can tell from a comparison of the current rise at the beginning of the stroke.
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Simple vs advanced solenoid",
+          identifier = "ff1cf",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = simpleSolenoid.p.i, legend = "Current from simple solenoid model"),
+                Curve(y = advancedSolenoid.p.i, legend = "Current from advanced solenoid model"),
+                Curve(y = comparisonWithFEA.y[1], legend = "Current from FEA model")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = simpleSolenoid.armature.flange_a.f, legend = "Reluctance force of simple solenoid model"),
+                Curve(y = advancedSolenoid.armature.flange_a.f, legend = "Reluctance force of advanced solenoid model"),
+                Curve(y = comparisonWithFEA.y[2], legend = "Reluctance force of FEA model")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = simpleSolenoid.x, legend = "Armature position of simple solenoid model"),
+                Curve(y = advancedSolenoid.x, legend = "Armature position of advanced solenoid model"),
+                Curve(y = comparisonWithFEA.y[3], legend = "Armature position of FEA model")
+              }
+            )
+          }
+        )
+      }
+    ));
 end ComparisonPullInStroke;
