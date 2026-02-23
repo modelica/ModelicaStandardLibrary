@@ -43,6 +43,7 @@ model SymmetricPolyphaseWinding
   parameter Real ratioCommonLeakage(final min=0, final max=1)=1
     "Ratio of common stray inductance / total stray inductance";
   parameter SI.Inductance Lzero "Zero sequence inductance of winding";
+  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed";
   parameter Real effectiveTurns=1 "Effective number of turns per phase";
   parameter SI.Conductance GcRef "Electrical reference core loss reluctance";
   final parameter Integer nBase=Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)
@@ -76,7 +77,8 @@ model SymmetricPolyphaseWinding
     final Lsigma=(1 - ratioCommonLeakage)*Lsigma)
                                             "Symmetric winding"
     annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
-  Modelica.Electrical.Polyphase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero)
+  Modelica.Electrical.Polyphase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero,
+    final useZeroSystem=useZeroSystem)
     if mBase<>2 "Zero sequence inductance of winding"
     annotation (Placement(transformation(
         origin={-70,-30},

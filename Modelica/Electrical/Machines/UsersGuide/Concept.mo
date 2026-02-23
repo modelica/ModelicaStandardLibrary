@@ -13,7 +13,8 @@ class Concept "Concept"
 <li>constant parameters, i.e., no saturation, no skin effect</li>
 </ul>
 <p>
-You may have a look at a short summary of space phasor theory at <a href=\"https://www.haumer.at/refimg/SpacePhasors.pdf\">https://www.haumer.at/refimg/SpacePhasors.pdf</a>
+You may have a look at a short summary of space phasor theory at <a href=\"https://www.haumer.at/refimg/SpacePhasors.pdf\">https://www.haumer.at/refimg/SpacePhasors.pdf</a><br>
+For a short explanation of the zero system see <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ZeroSystem\">the User&apos;s Guide of the FundamentalWave library</a>.
 </p>
 <strong>Further development:</strong>
 <ul>
