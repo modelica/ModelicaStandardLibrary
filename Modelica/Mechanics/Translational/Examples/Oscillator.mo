@@ -77,6 +77,22 @@ conditions s(start=-0.5) and v(start=0) for the sliding masses
 are set.
 If damping is added the amplitudes are bounded.
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Mass position",
+          identifier = "2191a",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = mass1.s, legend = "Position of mass1"),
+                Curve(y = mass2.s, legend = "Position of mass2")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=1.0, Interval=0.001));
 end Oscillator;
