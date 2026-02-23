@@ -26,5 +26,27 @@ equation
       Interval=0.0002),
     Documentation(info="<html>
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>. The instantaneous voltage and current directly show the switch pattern of the inverter. The average voltage and average current reveal the fundamental wave of the voltage and current, each of them being basically in phase with the command <code>sine.y</code>.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltage and current",
+          identifier = "03aa4",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentSensor.i, legend = "Measured value of current"),
+                Curve(y = fundamentalWaveCurrent.y_rms, legend = "Root mean square of current in fundamentalWaveCurrent")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = voltageSensor.v, legend = "Measure value of voltage"),
+                Curve(y = fundamentalWaveVoltage.y_rms, legend = "Root mean square of voltage in fundamentalWaveVoltage")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SinglePhaseTwoLevel_R;

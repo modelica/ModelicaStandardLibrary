@@ -26,7 +26,29 @@ equation
 <p>This example demonstrates the switching on of an R-L load operated by an H bridge.
 DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the input voltage.
 Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y</code>, total voltage <code>voltageSensor.v</code> and voltage <code>meanVoltage.v</code>. The waveform the average current is determined by the time constant <code>L/R</code> of the load.</p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Voltage and current",
+          identifier = "b15df",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentSensor.i, legend = "Measured value of current"),
+                Curve(y = meanCurrent.y, legend = "Mean value of current")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = voltageSensor.v, legend = "Measured value of voltage"),
+                Curve(y = meanVoltage.y, legend = "Mean value of voltage")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(
       StopTime=0.1,
       Interval=0.0002,

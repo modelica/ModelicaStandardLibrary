@@ -34,5 +34,27 @@ equation
       Interval=0.0002),
     Documentation(info="<html>
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>. The instantaneous voltage directly show the switch pattern of the inverter. The current shows a particular ripple determined by the input voltage and the switching frequency. The average voltage is basically in phase with the command <code>sine.y</code>. The average current has a phase shift due to the R-L load.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltage and current",
+          identifier = "3d04b",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentSensor.i, legend = "Measure value of current"),
+                Curve(y = fundamentalWaveCurrent.y_rms, legend = "Root mean square of current in fundamentalWaveCurrent")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = voltageSensor.v, legend = "Measure value of voltage"),
+                Curve(y = fundamentalWaveVoltage.y_rms, legend = "Root mean square of voltage in fundamentalWaveVoltage")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SinglePhaseTwoLevel_RL;

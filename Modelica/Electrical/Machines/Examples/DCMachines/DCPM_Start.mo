@@ -78,5 +78,22 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcpm.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "9246c",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = dcpm.ia, legend = "Armature current"),
+                Curve(y = dcpm.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = dcpm.tauElectrical, legend = "Motor torque")
+              }
+            )
+          }
+        )
+      }
+    ));
 end DCPM_Start;
