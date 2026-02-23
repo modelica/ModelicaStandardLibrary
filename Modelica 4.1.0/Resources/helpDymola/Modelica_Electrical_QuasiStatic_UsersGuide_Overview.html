@@ -1,0 +1,535 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStatic.UsersGuide.Overview</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Overview&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Overview<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi971f23af67e2d009GuideI.png" alt="Modelica.Electrical.QuasiStatic.UsersGuide.Overview" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.UsersGuide.Overview"></a><a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide"
+>Modelica.Electrical.QuasiStatic.UsersGuide</a>.Overview</h2>
+
+<p>
+The <a href="Modelica_Electrical_QuasiStatic.html#Modelica.Electrical.QuasiStatic"
+>Modelica.Electrical.QuasiStatic</a>
+library addresses the analysis of electrical circuits with purely sinusoidal
+voltages and currents. The main characteristics of the library are:
+</p>
+
+<ul>
+  <li>Only pure sinusoidal voltages and currents are taken into account.
+      Higher harmonic voltages and currents are not considered.</li>
+  <li>Any electrical transient effects are neglected.</li>
+  <li>The electrical components of this library are strictly linear.</li>
+  <li>The angular frequency <code>omega</code> of the voltages and currents of
+      a circuit are determined from a reference angle <code>gamma</code> by means of
+      <code>omega = der(gamma)</code>.</li>
+  <li>The reference angle <code>gamma</code> is not a global quantity
+      since it propagated through the connector.
+      Therefore, independent circuits of different frequencies can be modeled in one model.</li>
+  <li>The connectors contain the real and the imaginary part of the voltage and the current
+      <a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction"
+>RMS phasors</a></li>
+
+</ul>
+
+<p>
+The main intention of this library is the modeling of quasi-static behavior
+of single-phase and polyphase
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit"
+>AC circuits</a>
+with fixed and variable frequency. Quasi-static theory and applications can be
+found in
+[<a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide.References"
+>Dorf1993</a>],
+[<a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide.References"
+>Burton1994</a>],
+[<a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide.References"
+>Landolt1936</a>],
+[<a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide.References"
+>Philippow1967</a>],
+[<a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide.References"
+>Weyh1967</a>],
+[<a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide.References"
+>Vaske1973</a>].
+</p>
+
+<h4>Note</h4>
+<p>
+A general electrical circuit can be a DC circuit, an AC circuit with periodic sinusoidal or non-sinusoidal voltages and currents
+or a transient circuit without particular waveform of voltages and currents.
+Therefore a coupling model between a quasi-static circuit and a general (transient) electrical circuit
+has to be designed carefully taking the specific application into account.
+As an example, you may look at the <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Utilities.html#Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter"
+>
+ideal AC DC converter</a>, which is used in the
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Examples.html#Modelica.Electrical.QuasiStatic.SinglePhase.Examples.Rectifier"
+>rectifier example</a>.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3e6d649c9c184854ossarS.png" alt="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction"
+>Introduction</a>
+</td>
+<td>Introduction to phasors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3e6d649c9c184854ossarS.png" alt="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit"
+>ACCircuit</a>
+</td>
+<td>AC circuit</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3e6d649c9c184854ossarS.png" alt="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power"
+>Power</a>
+</td>
+<td>Real and reactive power</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3e6d649c9c184854ossarS.png" alt="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem"
+>ReferenceSystem</a>
+</td>
+<td>Reference system</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Introduction<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi971f23af67e2d009GuideI.png" alt="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction"></a><a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview"
+>Modelica.Electrical.QuasiStatic.UsersGuide.Overview</a>.Introduction</h2>
+
+
+<p>
+The purely sinusoidal voltage
+</p>
+
+<div>
+<img
+ border="0"
+ src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img1.png"
+ alt="v=\sqrt{2}V_{\mathrm{RMS}}\cos(\omega t+\varphi_{v})">
+</div>
+
+<p>
+in the time domain can be represented by a complex
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide.Glossar"
+>rms</a> phasor
+</p>
+
+<div>
+<img
+ border="0"
+ src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img2.png"
+ alt="\underline{v}=V_{\mathrm{RMS}}e^{j\varphi_{v}}.">
+</div>
+
+<p>For these quasi-static
+phasor the following relationship applies:</p>
+
+<div>
+<img
+ border="0"
+ src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img3.png"
+ alt="\begin{displaymath}
+v=\mathrm{Re}(\sqrt{2}\underline{v}e^{j\omega t})\end{displaymath}">
+</div>
+
+<p>
+This equation is also illustrated in Fig. 1.
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/phasor_voltage.png"
+           alt="phasor_voltage.png">
+    </td>
+  </tr>
+  <caption>Fig. 1: Relationship between voltage phasor and time domain voltage</caption>
+</table>
+
+<p>
+From the above equation it is obvious that for <em>t</em> = 0
+the time domain voltage is <em>v</em> = cos(<em>&phi;<sub>v</sub></em>).
+The complex representation of the phasor corresponds with this instance, too, since
+the phasor is leading the real axis by the angle <em>&phi;<sub>v</sub></em>.
+</p>
+
+<p>
+The explanation given for sinusoidal voltages can certainly also be applied
+to sinusoidal currents.</p>
+
+<h4>See also</h4>
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit"
+>
+          AC circuit</a>,
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power"
+>
+          Power</a>,
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem"
+>
+          Reference system</a>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ACCircuit<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi971f23af67e2d009GuideI.png" alt="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit"></a><a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview"
+>Modelica.Electrical.QuasiStatic.UsersGuide.Overview</a>.ACCircuit</h2>
+
+<p>
+A simple
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Examples.html#Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance"
+>
+          example</a> of a series connection of a resistor, an inductor and a capacitor
+as depicted in Fig. 1 should be explained in the following. For various frequencies,
+the voltage drops across the resistor, the inductor and the capacitor should be determined.
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/resonance_circuit.png"
+           alt="resonance_circuit.png">
+    </td>
+  </tr>
+  <caption>Fig. 1: Series AC circuit of a resistor and an inductor at variable frequency</caption>
+</table>
+
+<p>
+The voltage drop across the resistor
+</p>
+
+<div>
+<img
+ border="0"
+ src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img1.png"
+ alt="\underline{v}_{r}=R\underline{i}">
+</div>
+
+<p>
+and the inductor
+</p>
+
+<div>
+<img
+ border="0"
+ src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img2.png"
+ alt="\underline{v}_{l}=j\omega L\underline{i}">
+</div>
+
+<p>
+and the capacitor
+</p>
+
+<div>
+<img
+ border="0"
+ src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img3.png"
+ alt="\underline{v}_{l}=j\omega L\underline{i}">
+</div>
+
+<p>
+add up to the total voltage
+</p>
+
+<div>
+<img
+ border="0"
+ src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img4.png"
+ alt="\underline{v}=\underline{v}_{r}+\underline{v}_{l}">
+</div>
+
+<p>
+as illustrated in the phasor diagram of Fig. 2.
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/phasor_diagram.png"
+           alt="phasor_diagram.png">
+    </td>
+  </tr>
+  <caption>Fig. 2: Phasor diagram of a resistor and inductance series connection</caption>
+</table>
+
+<p>Due to the series connection of the resistor, inductor and capacitor, the three currents are all equal:</p>
+
+<div>
+<img border="0"
+ src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img5.png"
+ alt="img5.png">
+</div>
+
+<h4>See also</h4>
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction"
+>
+          Introduction</a>,
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power"
+>
+          Power</a>,
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem"
+>
+          Reference system</a>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Power<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi971f23af67e2d009GuideI.png" alt="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power"></a><a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview"
+>Modelica.Electrical.QuasiStatic.UsersGuide.Overview</a>.Power</h2>
+
+
+<p>For periodic waveforms, the average value of the instantaneous power is <strong>real power</strong> <em>P</em>.
+<strong>Reactive power</strong> <em>Q</em> is a term
+associated with inductors and capacitors. For pure inductors and capacitors, real power is equal to zero.
+Yet, there is instantaneous power exchanged with connecting network.
+</p>
+
+The
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Examples.html#Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance"
+>
+          series resonance circuit</a> which was also addressed in the
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit"
+>
+          AC circuit</a>
+will be investigated.
+
+<h5>Power of a resistor</h5>
+
+<p>
+The instantaneous voltage and current are in phase:
+</p>
+<div>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/v_r.png"
+                   alt="v_r.png"><br>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/i_r.png"
+                   alt="i_r.png">
+</div>
+
+<p>
+Therefore, the instantaneous power is
+</p>
+<div>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_r.png"
+                   alt="power_r.png">
+</div>
+
+<p>A graphical representation of these equations is depicted in Fig. 1</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_resistor.png"
+           alt="power_resistor.png">
+    </td>
+  </tr>
+  <caption>Fig. 1: Instantaneous voltage, current of power of a resistor</caption>
+</table>
+
+<p>Real power of the resistor is the average of instantaneous power:</p>
+<div>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/p_r.png"
+                   alt="p_r.png">
+</div>
+
+<h5>Power of an inductor</h5>
+
+<p>
+The instantaneous voltage leads the current by a quarter of the period:
+</p>
+<div>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/v_l.png"
+                   alt="v_l.png"><br>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/i_l.png"
+                   alt="i_l.png">
+</div>
+
+<p>
+Therefore, the instantaneous power is
+</p>
+<div>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_l.png"
+                   alt="power_l.png">
+</div>
+
+<p>A graphical representation of these equations is depicted in Fig. 2</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_inductor.png"
+           alt="power_inductor.png">
+    </td>
+  </tr>
+  <caption>Fig. 2: Instantaneous voltage, current of power of an inductor</caption>
+</table>
+
+<p>Reactive power of the inductor is:</p>
+<div>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/q_l.png"
+                   alt="q_l.png">
+</div>
+
+<h5>Power of a capacitor</h5>
+
+<p>
+The instantaneous voltage lags the current by a quarter of the period:
+</p>
+<div>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/v_c.png"
+                   alt="v_c.png"><br>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/i_c.png"
+                   alt="i_c.png">
+</div>
+
+<p>
+Therefore, the instantaneous power is
+</p>
+<div>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_c.png"
+                   alt="power_c.png">
+</div>
+
+<p>A graphical representation of these equations is depicted in Fig. 3</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_capacitor.png"
+           alt="power_capacitor.png">
+    </td>
+  </tr>
+  <caption>Fig. 3: Instantaneous voltage, current of power of a capacitor</caption>
+</table>
+
+<p>Reactive power of the capacitor is:</p>
+<div>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/q_c.png"
+                   alt="q_c.png">
+</div>
+
+<h5>Complex apparent power</h5>
+
+<p>For an arbitrary component with two pins, real and reactive power can be determined by the complex phasors:</p>
+<div>
+<img border="0"  src="../Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/s.png"
+                   alt="s.png">
+</div>
+
+<p>
+In this equation <sup>*</sup> represents the conjugate complex operator
+</p>
+
+<h4>See also</h4>
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction"
+>
+          Introduction</a>,
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit"
+>
+          AC circuit</a>,
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem"
+>
+          Reference system</a>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReferenceSystem<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi971f23af67e2d009GuideI.png" alt="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem"></a><a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview"
+>Modelica.Electrical.QuasiStatic.UsersGuide.Overview</a>.ReferenceSystem</h2>
+
+<p>
+The reference angle <code>gamma</code>:
+</p>
+<ul>
+  <li>defines the angular frequency <code>omega</code> of the voltages and currents
+      of a circuit by means of <code>omega = der(gamma)</code>.</li>
+  <li>is not a global quantity since it propagated through the connector.
+      Therefore, independent circuits of different frequencies can be modeled in one model.</li>
+  <li>is present only once in a polyphase connector;
+      a polyphase component has only one reference angle common to all phases.</li>
+  <li>can be either constant or variable, but it has to be consistent in one contiguous circuit.</li>
+  <li>is defined by the sources.</li>
+</ul>
+<p>
+Designing new components, the guidelines of <a href="https://specification.modelica.org/maint/3.6/connectors-and-connections.html#connection-graphs-and-their-operators">Section&nbsp;9.4.1 <em>Connection Graphs and Their Operators</em> of the Modelica&nbsp;3.6 specification</a> have to be taken into account.
+</p>
+
+<h4>See also</h4>
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction"
+>
+          Introduction</a>,
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit"
+>
+          AC circuit</a>,
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power"
+>
+          Power</a>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:21 2026.
+</address>
+</body>
+</html>

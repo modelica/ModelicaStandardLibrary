@@ -1,0 +1,606 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.Translational.UsersGuide</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;User&#39;s Guide of Translational Library&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl22acd789f66f8ce4GuideI.png" alt="Modelica.Mechanics.Translational.UsersGuide" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.UsersGuide"></a><a href="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
+>Modelica.Mechanics.Translational</a>.UsersGuide</h2>
+
+<p>Library <strong>Translational</strong> is a <strong>free</strong> Modelica package providing 1-dimensional, translational mechanical components to model in a convenient way translational mechanical systems.
+More details are given in the following sub-sections:
+</p>
+
+<ul>
+<li> <a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.Overview"
+>Overview</a></li>
+<li> <a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors"
+>Flange Connectors</a></li>
+<li> <a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.SupportForces"
+>Support Forces</a></li>
+<li> <a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.SignConventions"
+>Sign Conventions</a></li>
+<li> <a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.UserDefinedComponents"
+>User Defined Components</a></li>
+<li> <a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.StateSelection"
+>State Selection</a></li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translf3f78c0ebc861b8frviewS.png" alt="Modelica.Mechanics.Translational.UsersGuide.Overview" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.Overview"
+>Overview</a>
+</td>
+<td>Overview</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translf3f78c0ebc861b8frviewS.png" alt="Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors"
+>FlangeConnectors</a>
+</td>
+<td>Flange Connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translf3f78c0ebc861b8frviewS.png" alt="Modelica.Mechanics.Translational.UsersGuide.SupportForces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.SupportForces"
+>SupportForces</a>
+</td>
+<td>Support Forces</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translf3f78c0ebc861b8frviewS.png" alt="Modelica.Mechanics.Translational.UsersGuide.SignConventions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.SignConventions"
+>SignConventions</a>
+</td>
+<td>Sign Conventions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translf3f78c0ebc861b8frviewS.png" alt="Modelica.Mechanics.Translational.UsersGuide.UserDefinedComponents" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.UserDefinedComponents"
+>UserDefinedComponents</a>
+</td>
+<td>User Defined Components</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translf3f78c0ebc861b8frviewS.png" alt="Modelica.Mechanics.Translational.UsersGuide.StateSelection" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.StateSelection"
+>StateSelection</a>
+</td>
+<td>State Selection</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl7dd1975b77576d8entactS.png" alt="Modelica.Mechanics.Translational.UsersGuide.Contact" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.Contact"
+>Contact</a>
+</td>
+<td>Contact</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Overview<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl22acd789f66f8ce4GuideI.png" alt="Modelica.Mechanics.Translational.UsersGuide.Overview" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.UsersGuide.Overview"></a><a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide"
+>Modelica.Mechanics.Translational.UsersGuide</a>.Overview</h2>
+
+
+<p>
+This package contains components to model <strong>1-dimensional translational
+mechanical</strong> systems, including different types of masses,
+external forces, spring/damper elements,
+frictional elements, elastogaps, elements to measure position, velocity,
+acceleration or the cut-force of a flange. In sublibrary
+<strong><a href="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Examples</a></strong>
+several examples are present to demonstrate the usage of
+the elements. Just open the corresponding example model and simulate
+the model according to the provided description.
+</p>
+<p>
+A unique feature of this library is the <strong>component-oriented</strong>
+modeling of <strong>Coulomb friction</strong> elements, such as support friction.
+Even (dynamically) coupled friction elements can be handled
+<strong>without</strong> introducing stiffness, which leads to fast simulations.
+The underlying theory is based on the solution of mixed
+continuous/discrete systems of equations, i.e., equations where the
+<strong>unknowns</strong> are of type <strong>Real</strong>, <strong>Integer</strong> or <strong>Boolean</strong>.
+Provided appropriate numerical algorithms for the solution of such types of
+systems are available in the simulation tool, the simulation of
+(dynamically) coupled friction elements of this library is
+<strong>efficient</strong> and <strong>reliable</strong>.
+</p>
+
+<div>
+<img src="../Images/Mechanics/Translational/UsersGuide/drive1.png" alt="drive1">
+</div>
+
+<p>
+A simple example of the usage of this library is given in the
+figure above. This model consists of a <code>mass1</code> with mass <var>m</var>&nbsp;=&nbsp;1&nbsp;kg which
+is connected via a spring to a <code>mass2</code> with mass <var>m</var>&nbsp;=&nbsp;5&nbsp;kg.
+The left mass is driven via an external, sinusoidal force.
+The <strong>filled</strong> and <strong>non-filled green squares</strong> at the left and
+right side of a component represent <strong>mechanical flanges</strong>.
+Drawing a line between such squares means that the corresponding
+flanges are <strong>rigidly attached</strong> to each other.
+By convention in this library, the connector characterized as a
+<strong>filled</strong> green square is called <strong>flange_a</strong> and placed at the
+left side of the component in the &quot;design view&quot; and the connector
+characterized as a <strong>non-filled</strong> green square is called <strong>flange_b</strong>
+and placed at the right side of the component in the &quot;design view&quot;.
+The two connectors are completely <strong>identical</strong>, with the only
+exception that the graphical layout is a little bit different in order
+to distinguish them for easier access of the connector variables.
+For example, <code>mass1.flange_a.f</code> is the cut-force in the connector
+<code>flange_a</code> of component <code>mass1</code>.
+</p>
+<p>
+The components of this
+library can be <strong>connected</strong> together in an <strong>arbitrary</strong> way. E.g., it is
+possible to connect two springs or two shafts with mass directly
+together, see figure below.
+</p>
+
+<div>
+<img src="../Images/Mechanics/Translational/UsersGuide/driveConnections1.png" alt="driveConnections1"><br>
+<img src="../Images/Mechanics/Translational/UsersGuide/driveConnections2.png" alt="driveConnections2"><br>
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FlangeConnectors<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl22acd789f66f8ce4GuideI.png" alt="Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors"></a><a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide"
+>Modelica.Mechanics.Translational.UsersGuide</a>.FlangeConnectors</h2>
+
+<p>
+A flange is described by the connector class
+<strong><a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</a></strong>
+or <strong><a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</a></strong>.
+As already noted in section <a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.Overview"
+>Overview</a>,
+the two connector
+classes are completely identical. There is only a difference in the icons,
+in order to easier identify a flange variable in a diagram.
+Both connector classes contain the following variables:
+</p>
+<blockquote><pre>
+SI.Position   s &quot;Absolute position of flange&quot;;
+<strong>flow</strong> SI.Force f &quot;Cut force directed into flange&quot;;
+</pre></blockquote>
+
+<p>
+If needed, the velocity <code>v</code> and the
+acceleration <code>a</code> of a flange connector can be
+determined by differentiation of the flange position <code>s</code>:
+</p>
+<blockquote><pre>
+v = <strong>der</strong>(s);    a = <strong>der</strong>(v);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SupportForces<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl22acd789f66f8ce4GuideI.png" alt="Modelica.Mechanics.Translational.UsersGuide.SupportForces" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.UsersGuide.SupportForces"></a><a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide"
+>Modelica.Mechanics.Translational.UsersGuide</a>.SupportForces</h2>
+
+
+<p>The following figure shows examples of components equipped with
+a support flange (framed flange in the lower center), which can be used
+to fix components on the ground or on other moving elements or to combine
+them with force elements. Via Boolean parameter <strong>useSupport</strong>, the
+support flange is enabled or disabled. If it is enabled, it must be connected.
+If it is disabled, it needs not be connected.
+</p>
+
+<div>
+<img src="../Images/Mechanics/Translational/UsersGuide/bearing.png" alt="bearing">
+</div>
+
+<p>
+Depending on the setting of <strong>useSupport</strong>, the icon of the corresponding
+component is changing, to either show the support flange or a ground mounting.
+For example, the two implementations in the following figure give
+identical results.
+</p>
+
+<div>
+<img src="../Images/Mechanics/Translational/UsersGuide/bearing2.png" alt="bearing2">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignConventions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl22acd789f66f8ce4GuideI.png" alt="Modelica.Mechanics.Translational.UsersGuide.SignConventions" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.UsersGuide.SignConventions"></a><a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide"
+>Modelica.Mechanics.Translational.UsersGuide</a>.SignConventions</h2>
+
+
+<p>
+The variables of a component of this library can be accessed in the
+usual way. However, since most of these variables are basically elements
+of <strong>vectors</strong>, i.e., have a direction, the question arises how the
+signs of variables shall be interpreted. The basic idea is explained
+at hand of the following figure:
+</p>
+
+<div>
+<img src="../Images/Mechanics/Translational/UsersGuide/drive2.png" alt="drive2">
+</div>
+
+<p>
+First, one has to define
+a <strong>positive</strong> direction of this line, called <strong>axis of movement</strong>.
+In the top of the figure this is characterized by an arrow
+and a corresponding text. The simple rule is now:
+If a variable of a component is positive and can be interpreted as
+the element of a vector (e.g., force or velocity vector), the
+corresponding vector is directed into the positive direction
+of the axis of movement. In the following figure, the right-most
+mass of the figure above is displayed with the positive
+vector direction displayed according to this rule:
+</p>
+
+<div>
+<img src="../Images/Mechanics/Translational/UsersGuide/drive3.png" alt="drive3">
+</div>
+<p>
+The cut-force <code>mass2.flange_a.f</code>
+of the right mass is directed into the
+direction of movement if the values are positive. Similarly,
+the velocity <code>mass2.v</code> of the right mass
+is also directed into the
+direction of movement if the values are positive
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UserDefinedComponents<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl22acd789f66f8ce4GuideI.png" alt="Modelica.Mechanics.Translational.UsersGuide.UserDefinedComponents" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.UsersGuide.UserDefinedComponents"></a><a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide"
+>Modelica.Mechanics.Translational.UsersGuide</a>.UserDefinedComponents</h2>
+
+<p>
+In this section some hints are given to define your own
+1-dimensional translational components which are compatible with the
+elements of this package.
+It is convenient to define a new
+component by inheritance from one of the following base classes,
+which are defined in sublibrary
+<a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Interfaces</a>:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption>List of common base classes for 1-dimensional translational components</caption>
+  <tr><th>Name</th><th>Description</th></tr>
+  <tr>
+    <td><a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialCompliant"
+>PartialCompliant</a>
+    </td>
+    <td> Compliant connection of two translational 1-dim. flanges
+         (used for force laws such as a spring or a damper).
+    </td>
+  </tr>
+  <tr>
+    <td><a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates"
+>PartialCompliantWithRelativeStates</a>
+    </td>
+    <td> Same as &quot;PartialCompliant&quot;, but relative position and relative speed are
+         defined as preferred states. Use this partial model if the force law
+         needs anyway the relative speed. The advantage is that it is usually better
+         to use relative positions between drive train components
+         as states, especially, if the position is not limited.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2"
+>PartialElementaryTwoFlangesAndSupport2</a>
+    </td>
+    <td> Partial model for a 1-dim. translational component consisting of the flange of
+         an input shaft, the flange of an output shaft and the support.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>PartialForce</a>
+    </td>
+    <td> Partial model of an external force acting at the flange (accelerates the flange).
+    </td>
+  </tr>
+  <tr>
+    <td><a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges"
+>PartialTwoFlanges</a>
+    </td>
+    <td> General connection of two translational 1-dim. flanges.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor"
+>PartialAbsoluteSensor</a>
+    </td>
+    <td> Measure absolute flange variables.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>PartialRelativeSensor</a>
+    </td>
+    <td> Measure relative flange variables.
+    </td>
+  </tr>
+</table>
+
+<p>
+The difference between these base classes are the auxiliary
+variables defined in the model and the relations between
+the flange variables already defined in the base class.
+For example, in model <strong>PartialCompliant</strong> there is no
+support flange, whereas in model
+<strong>PartialElementaryTwoFlangesAndSupport2</strong>
+there is a support flange.
+</p>
+<p>
+The equations of a mechanical component are vector equations, i.e.,
+they need to be expressed in a common coordinate system.
+Therefore, a <strong>local axis of movement</strong> has to be
+defined for a component. All vector quantities, such as cut-forces or
+velocities have to be expressed according to this definition.
+Examples for such a definition are given in the following figure
+for a mass component:
+</p>
+
+<div>
+<img src="../Images/Mechanics/Translational/UsersGuide/driveAxis.png" alt="driveAxis">
+</div>
+
+<p>
+As can be seen, all vectors are directed into the direction
+of the movement axis. The positions in the flanges are defined
+correspondingly.
+</p>
+<p>
+On first view, one may assume that the selected local
+coordinate system has an influence on the usage of the
+component. But this is not the case, as shown in the next figure:
+</p>
+
+<div>
+<img src="../Images/Mechanics/Translational/UsersGuide/masses.png" alt="masses">
+</div>
+
+<p>
+In the figure, the <strong>local</strong> axes of translation of the components
+are shown. The connection of two masses in the left and in the
+right part of the figure are completely equivalent, i.e., the right
+part is just a different drawing of the left part. This is due to the
+fact, that by a connection, the two local coordinate systems are
+made identical and the (automatically) generated connection equations
+(= positions are identical, cut-forces sum-up to zero) are also
+expressed in this common coordinate system. Therefore, even if in
+the left figure it seems to be that the velocity vector of
+<code>mass2</code> goes from right to left, in reality it goes from
+left to right as shown in the right part of the figure, where the
+local coordinate systems are drawn such that they are aligned.
+Note, that the simple rule stated in section
+<a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.SignConventions"
+>Sign conventions</a>
+also determines that
+the velocity of <code>mass2</code> in the left part of the
+figure is directed from left to right.
+</p>
+<p>
+To summarize, the local coordinate system selected for a component
+is just necessary in order that the equations of this component
+are expressed correctly. The selection of the coordinate system
+is arbitrary and has no influence on the usage of the component.
+Especially, the actual direction of, e.g., a cut-force is most
+easily determined by the rule of section
+<a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide.SignConventions"
+>Sign conventions</a>.
+A more strict determination
+by aligning coordinate systems and then using the vector direction
+of the local coordinate systems, often requires a re-drawing of the
+diagram and is therefore less convenient to use.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE StateSelection<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl22acd789f66f8ce4GuideI.png" alt="Modelica.Mechanics.Translational.UsersGuide.StateSelection" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.UsersGuide.StateSelection"></a><a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide"
+>Modelica.Mechanics.Translational.UsersGuide</a>.StateSelection</h2>
+
+<p>
+Only a few components of the Translational library use the der(&hellip;) operator
+and are therefore candidates to have states. Most important, component
+<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Mass</a>
+defines the absolute position and the absolute velocity of this
+component as candidate for states. In the &quot;Advanced&quot; menu the built-in StateSelect
+enumeration can be set to define the priority to use these variables as states.
+Without further action, in most cases a tool will select these variables as states.
+</p>
+
+<p>
+For positioning drive trains where the goal is to position a load, the absolute positions of the components are bounded,
+and the issue discussed below is not present.
+</p>
+
+<p>
+For drive trains where the goal is to control the velocity of a load,
+the absolute positions of the components are quickly increasing
+during operation. This is critical, because then the step size control of time
+integrators might no longer work appropriately.
+</p>
+
+<p>
+Integrators with step size control adjust their time step size automatically
+to meet user defined error bounds (&quot;tolerances&quot;).
+Typically the local error estimate <var>EST<sub>i</sub></var> is compared with a mixed
+bound for absolute and relative errors.
+</p>
+
+<blockquote><pre>
+EST_i &le; abstol_i + reltol_i*|x_i|
+</pre></blockquote>
+
+<p>
+Here, <var>abstol<sub>i</sub></var> and <var>reltol<sub>i</sub></var> denote the bounds
+for the absolute and relative error of state variable <var>x<sub>i</sub></var>, respectively.
+This mixed error bound is used since it is more robust than a pure relative error
+based error bound if the nominal value <var>x<sub>i</sub></var>  is (very) close to&nbsp;0.
+In a Modelica simulation model, typically the same relative tolerance <var>reltol</var> is used for all
+states and the absolute tolerances are computed using the relative tolerance and the
+nominal values of the states:
+</p>
+
+<blockquote><pre>
+reltol_i = reltol
+abstol_i = reltol*x_i(nominal)*0.01
+</pre></blockquote>
+
+<p>
+This error control fails if the state variable <var>x<sub>i</sub></var> grows without
+bounds (such as for a drive train), since then the allowed error
+also grows without bounds. The effect is that the error control on this variable is practically
+switched off. The correct way to handle this would be to set
+<var>reltol<sub>i</sub></var>&nbsp;=&nbsp;0 on such a state
+variable and only use an absolute tolerance for the step size control.
+</p>
+
+<p>
+At the time of the library design, there was not yet a possibility to provide this information in Modelica.
+In order to reduce this effect, it is advisable to not use absolute positions, but
+relative positions as states. A user can define relative variables as states
+explicitly with component
+<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.RelativeStates"
+>RelativeStates</a>.
+Furthermore, all compliant components, such as
+<a href="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.SpringDamper"
+>SpringDamper</a> are
+defining the relative position and the relative velocity as preferred states.
+Therefore, a tool will select in most cases relative positions as states.
+</p>
+
+<p>
+The relative positions of compliant components are usually small.
+Without further action, the error control would not work properly on variables
+that are so small (so often switching the error control off). The remedy is to define
+explicitly a nominal value on the relative position. This definition is provided in the
+&quot;Advanced&quot; menu of the compliant components with parameter &quot;s_nominal&quot;.
+The default value is 1e-4&nbsp;m, to be in the order of a compliant deformation of a
+drive.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl7dd1975b77576d8entactI.png" alt="Modelica.Mechanics.Translational.UsersGuide.Contact" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.UsersGuide.Contact"></a><a href="Modelica_Mechanics_Translational_UsersGuide.html#Modelica.Mechanics.Translational.UsersGuide"
+>Modelica.Mechanics.Translational.UsersGuide</a>.Contact</h2>
+
+<h4>Library officers</h4>
+
+<p>
+For current information on library officers please refer to the main
+<a href="Modelica_UsersGuide.html#Modelica.UsersGuide.Contact"
+>Contact</a> section.
+</p>
+
+<h4>Main contributors</h4>
+
+<dl>
+<dt>Main author until 2006:</dt>
+<dd>Peter Beater</dd>
+<dd>Universit&auml;t Paderborn, Abteilung Soest</dd>
+<dd>Fachbereich Maschinenbau/Automatisierungstechnik</dd>
+<dd>L&uuml;becker Ring 2</dd>
+<dd>D 59494 Soest</dd>
+<dd>Germany</dd>
+<dd>email: <a href="mailto:info@beater.de">info@beater.de</a></dd>
+<dd><br /></dd>
+
+<dt>Other authors:</dt>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> (DLR-SR)</dd>
+<dd>Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)</dd>
+<dd>Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)</dd>
+<dd>M&uuml;nchener Straße 20</dd>
+<dd>D-82234 We&szlig;ling</dd>
+<dd>Germany</dd>
+<dd>email: <a href="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</a></dd>
+<dd>&nbsp;</dd>
+
+<dd>Christian Schweiger (DLR-RM, until 2006)</dd>
+<dd>&nbsp;</dd>
+
+<dd><a href="https://www.haumer.at/">Anton Haumer</a></dd>
+<dd>Technical Consulting &amp; Electrical Engineering</dd>
+<dd>D-93049 Regensburg, Germany</dd>
+<dd>email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a></dd>
+</dl>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</a> (Icon for contact information).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:25 2026.
+</address>
+</body>
+</html>

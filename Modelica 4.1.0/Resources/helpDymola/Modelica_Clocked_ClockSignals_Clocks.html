@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Clocked.ClockSignals.Clocks</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of blocks that generate clocks&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Clocks<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Clocked.ClockSignals.Clocks"></a><a href="Modelica_Clocked_ClockSignals.html#Modelica.Clocked.ClockSignals"
+>Modelica.Clocked.ClockSignals</a>.Clocks</h2>
+<p>
+<span class="ModelicaDescription">Library of blocks that generate clocks</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains blocks that generate clock signals. For an introduction
+to clocks see
+<a href="Modelica_Clocked_UsersGuide.html#Modelica.Clocked.UsersGuide.Clocks"
+>UsersGuide.Clocks</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</a> (Icon for packages containing sources).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSig67c0c6a81ee718b6ClockS.png" alt="Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_ClockSignals_Clocks.html#Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock"
+>PeriodicRealClock</a>
+</td>
+<td>Generate a periodic clock signal with a period defined by a Real number</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSig67c0c6a81ee718b6ClockS.png" alt="Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_ClockSignals_Clocks.html#Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock"
+>PeriodicExactClock</a>
+</td>
+<td>Generate a periodic clock signal with a period defined by an Integer number with resolution</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSig145fd98d442cd883ClockS.png" alt="Modelica.Clocked.ClockSignals.Clocks.EventClock" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_ClockSignals_Clocks.html#Modelica.Clocked.ClockSignals.Clocks.EventClock"
+>EventClock</a>
+</td>
+<td>Generate a clock signal when the Boolean input changes from false to true</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSignalsS.png" alt="Modelica.Clocked.ClockSignals.Clocks.Rotational" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_ClockSignals_Clocks_Rotational.html#Modelica.Clocked.ClockSignals.Clocks.Rotational"
+>Rotational</a>
+</td>
+<td>Library of blocks that generate a clock tick each time an observed input angle changes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSignalsS.png" alt="Modelica.Clocked.ClockSignals.Clocks.Logical" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_ClockSignals_Clocks_Logical.html#Modelica.Clocked.ClockSignals.Clocks.Logical"
+>Logical</a>
+</td>
+<td>Library of blocks for combining several input clock signals by logical combinators</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PeriodicRealClock<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.ClockSig67c0c6a81ee718b6ClockI.png" alt="Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock"></a><a href="Modelica_Clocked_ClockSignals_Clocks.html#Modelica.Clocked.ClockSignals.Clocks"
+>Modelica.Clocked.ClockSignals.Clocks</a>.PeriodicRealClock</h2>
+<p>
+<span class="ModelicaDescription">Generate a periodic clock signal with a period defined by a Real number</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This component generates a periodic clock that starts ticking when
+the simulation starts. The <strong>period</strong> is defined in seconds
+by a <strong>Real</strong> number. If clocks are synchronized relatively to each other
+then only one of the clocks can be defined with PeriodicRealClock.
+</p>
+
+<p>
+For an introduction to clocks see
+<a href="Modelica_Clocked_UsersGuide.html#Modelica.Clocked.UsersGuide.Clocks"
+>UsersGuide.Clocks</a>.
+If exact, integer based, time synchronization with absolute period definitions is
+desired, use block
+<a href="Modelica_Clocked_ClockSignals_Clocks.html#Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock"
+>PeriodicExactClock</a>
+to generate a periodic clock signal.
+</p>
+
+<p>
+If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
+has to be defined that is used to integrate the partition from the previous
+to the current clock tick. This is performed by setting parameter <strong>useSolver</strong>
+= <strong>true</strong> and defining the integration method as String with
+parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>.
+For an example, see
+<a href="Modelica_Clocked_Examples_Systems.html#Modelica.Clocked.Examples.Systems.ControlledMixingUnit"
+>Examples.Systems.ControlledMixingUnit</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_ClockSignals_Interfaces.html#Modelica.Clocked.ClockSignals.Interfaces.PartialPeriodicClock"
+>Clocked.ClockSignals.Interfaces.PartialPeriodicClock</a> (Icon, connector, and solver method of a block that generates a periodic clock).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>period</td><td>Period of clock (defined as Real number) [s]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>useSolver</td><td>= true, if solverMethod shall be explicitly defined</td></tr>
+<tr><td>solverMethod</td><td>Integration method used for discretized continuous-time partitions</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PeriodicExactClock<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.ClockSig67c0c6a81ee718b6ClockI.png" alt="Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock"></a><a href="Modelica_Clocked_ClockSignals_Clocks.html#Modelica.Clocked.ClockSignals.Clocks"
+>Modelica.Clocked.ClockSignals.Clocks</a>.PeriodicExactClock</h2>
+<p>
+<span class="ModelicaDescription">Generate a periodic clock signal with a period defined by an Integer number with resolution</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This component generates a periodic clock that starts ticking when
+the simulation starts. The <strong>period</strong> is defined as the product
+of a resolution, defined with enumeration
+<a href="Modelica_Clocked_Types.html#Modelica.Clocked.Types.Resolution"
+>Resolution</a>,
+and Integer parameter <strong>factor</strong>. Internally, the period is
+represented as a rational number. All clocks with rational number definitions
+are exactly time synchronized to each other.
+</p>
+
+<p>
+Example:
+</p>
+
+<blockquote><pre>
+import Modelica.Clocked.ClockSignals.Clocks;
+import Modelica.Clocked.Types;
+Clocks.PeriodicExactClock periodicClock(factor=10,
+                                        resolution=Types.Resolution.ms);
+// Clock ticks every 1/100 seconds
+</pre></blockquote>
+
+<p>
+For an introduction to clocks see
+<a href="Modelica_Clocked_UsersGuide.html#Modelica.Clocked.UsersGuide.Clocks"
+>UsersGuide.Clocks</a>.
+</p>
+
+<p>
+If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
+has to be defined that is used to integrate the partition from the previous
+to the current clock tick. This is performed by setting parameter <strong>useSolver</strong>
+= <strong>true</strong> and defining the integration method as String with
+parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>.
+For an example, see
+<a href="Modelica_Clocked_Examples_Systems.html#Modelica.Clocked.Examples.Systems.ControlledMixingUnit"
+>Examples.Systems.ControlledMixingUnit</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_ClockSignals_Interfaces.html#Modelica.Clocked.ClockSignals.Interfaces.PartialPeriodicClock"
+>Clocked.ClockSignals.Interfaces.PartialPeriodicClock</a> (Icon, connector, and solver method of a block that generates a periodic clock).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>factor</td><td>Sample factor with respect to resolution</td></tr>
+<tr><td>resolution</td><td>Clock resolution</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>useSolver</td><td>= true, if solverMethod shall be explicitly defined</td></tr>
+<tr><td>solverMethod</td><td>Integration method used for discretized continuous-time partitions</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE EventClock<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.ClockSig145fd98d442cd883ClockI.png" alt="Modelica.Clocked.ClockSignals.Clocks.EventClock" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.ClockSignals.Clocks.EventClock"></a><a href="Modelica_Clocked_ClockSignals_Clocks.html#Modelica.Clocked.ClockSignals.Clocks"
+>Modelica.Clocked.ClockSignals.Clocks</a>.EventClock</h2>
+<p>
+<span class="ModelicaDescription">Generate a clock signal when the Boolean input changes from false to true</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This component generates a clock signal triggered by a continuous-time
+Boolean input signal u: Whenever the Boolean input signal <strong>u</strong>
+changes from <strong>false</strong> to <strong>true</strong>, then the output
+clock signal <strong>y</strong> ticks.
+</p>
+
+<p>
+For an introduction to clocks see
+<a href="Modelica_Clocked_UsersGuide.html#Modelica.Clocked.UsersGuide.Clocks"
+>UsersGuide.Clocks</a>.
+</p>
+
+<p>
+If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
+has to be defined that is used to integrate the partition from the previous
+to the current clock tick. This is performed by setting parameter <strong>useSolver</strong>
+= <strong>true</strong> and defining the integration method as String with
+parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>.
+For an example, see
+<a href="Modelica_Clocked_Examples_Systems.html#Modelica.Clocked.Examples.Systems.ControlledMixingUnit"
+>Examples.Systems.ControlledMixingUnit</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_ClockSignals_Interfaces.html#Modelica.Clocked.ClockSignals.Interfaces.PartialClock"
+>Clocked.ClockSignals.Interfaces.PartialClock</a> (Icon, connector, and solver method of a block that generates a clock).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>useSolver</td><td>= true, if solverMethod shall be explicitly defined</td></tr>
+<tr><td>solverMethod</td><td>Integration method used for discretized continuous-time partitions</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:03 2026.
+</address>
+</body>
+</html>

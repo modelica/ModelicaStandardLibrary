@@ -1,0 +1,862 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.Tables.Internal</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Internal external object definitions for table functions that should not be directly utilized by the user&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Internal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.Tables.Internal"></a><a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+>Modelica.Blocks.Tables</a>.Internal</h2>
+<p>
+<span class="ModelicaDescription">Internal external object definitions for table functions that should not be directly utilized by the user</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inc49f4c65b7a5a71dDBaseS.png" alt="Modelica.Blocks.Tables.Internal.CombiTable2DBase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.CombiTable2DBase"
+>CombiTable2DBase</a>
+</td>
+<td>Base class for variants of table look-up in two dimensions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTimeTableValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTimeTableValue"
+>getTimeTableValue</a>
+</td>
+<td>Interpolate 1-dim. table where first column is time</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTimeTableValueNoDer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTimeTableValueNoDer"
+>getTimeTableValueNoDer</a>
+</td>
+<td>Interpolate 1-dim. table where first column is time (but do not provide a derivative function)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTimeTableValueNoDer2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTimeTableValueNoDer2"
+>getTimeTableValueNoDer2</a>
+</td>
+<td>Interpolate 1-dim. table where first column is time (but do not provide a second derivative function)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getDerTimeTableValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getDerTimeTableValue"
+>getDerTimeTableValue</a>
+</td>
+<td>Derivative of interpolated 1-dim. table where first column is time</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getDerTimeTableValueNoDer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getDerTimeTableValueNoDer"
+>getDerTimeTableValueNoDer</a>
+</td>
+<td>Derivative of interpolated 1-dim. table where first column is time (but do not provide a derivative function)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getDer2TimeTableValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getDer2TimeTableValue"
+>getDer2TimeTableValue</a>
+</td>
+<td>Second derivative of interpolated 1-dim. table where first column is time</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTimeTableTmin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTimeTableTmin"
+>getTimeTableTmin</a>
+</td>
+<td>Return minimum abscissa value of 1-dim. table where first column is time</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTimeTableTmax" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTimeTableTmax"
+>getTimeTableTmax</a>
+</td>
+<td>Return maximum abscissa value of 1-dim. table where first column is time</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getNextTimeEvent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getNextTimeEvent"
+>getNextTimeEvent</a>
+</td>
+<td>Return next time event value of 1-dim. table where first column is time</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTable1DValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTable1DValue"
+>getTable1DValue</a>
+</td>
+<td>Interpolate 1-dim. table defined by matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTable1DValueNoDer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTable1DValueNoDer"
+>getTable1DValueNoDer</a>
+</td>
+<td>Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTable1DValueNoDer2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTable1DValueNoDer2"
+>getTable1DValueNoDer2</a>
+</td>
+<td>Interpolate 1-dim. table defined by matrix (but do not provide a second derivative function)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getDerTable1DValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getDerTable1DValue"
+>getDerTable1DValue</a>
+</td>
+<td>Derivative of interpolated 1-dim. table defined by matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getDerTable1DValueNoDer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getDerTable1DValueNoDer"
+>getDerTable1DValueNoDer</a>
+</td>
+<td>Derivative of interpolated 1-dim. table defined by matrix (but do not provide a second derivative function)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getDer2Table1DValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getDer2Table1DValue"
+>getDer2Table1DValue</a>
+</td>
+<td>Second derivative of interpolated 1-dim. table defined by matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTable1DAbscissaUmin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTable1DAbscissaUmin"
+>getTable1DAbscissaUmin</a>
+</td>
+<td>Return minimum abscissa value of 1-dim. table defined by matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTable1DAbscissaUmax" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTable1DAbscissaUmax"
+>getTable1DAbscissaUmax</a>
+</td>
+<td>Return maximum abscissa value of 1-dim. table defined by matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTable2DValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTable2DValue"
+>getTable2DValue</a>
+</td>
+<td>Interpolate 2-dim. table defined by matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTable2DValueNoDer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTable2DValueNoDer"
+>getTable2DValueNoDer</a>
+</td>
+<td>Interpolate 2-dim. table defined by matrix (but do not provide a derivative function)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTable2DValueNoDer2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTable2DValueNoDer2"
+>getTable2DValueNoDer2</a>
+</td>
+<td>Interpolate 2-dim. table defined by matrix (but do not provide a second derivative function)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getDerTable2DValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getDerTable2DValue"
+>getDerTable2DValue</a>
+</td>
+<td>Derivative of interpolated 2-dim. table defined by matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getDerTable2DValueNoDer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getDerTable2DValueNoDer"
+>getDerTable2DValueNoDer</a>
+</td>
+<td>Derivative of interpolated 2-dim. table defined by matrix (but do not provide a second derivative function)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getDer2Table2DValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getDer2Table2DValue"
+>getDer2Table2DValue</a>
+</td>
+<td>Second derivative of interpolated 2-dim. table defined by matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTable2DAbscissaUmin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTable2DAbscissaUmin"
+>getTable2DAbscissaUmin</a>
+</td>
+<td>Return minimum abscissa value of 2-dim. table defined by matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueS.png" alt="Modelica.Blocks.Tables.Internal.getTable2DAbscissaUmax" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.getTable2DAbscissaUmax"
+>getTable2DAbscissaUmax</a>
+</td>
+<td>Return maximum abscissa value of 2-dim. table defined by matrix</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CombiTable2DBase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inc49f4c65b7a5a71dDBaseI.png" alt="Modelica.Blocks.Tables.Internal.CombiTable2DBase" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.CombiTable2DBase"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.CombiTable2DBase</h2>
+<p>
+<span class="ModelicaDescription">Base class for variants of table look-up in two dimensions</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Table data definition</td></tr>
+<tr><td>tableOnFile</td><td>= true, if table is defined on file or in function usertab</td></tr>
+<tr><td>table[:, :]</td><td>Table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0, 0; 0, 1])</td></tr>
+<tr><td>tableName</td><td>Table name on file or in function usertab (see docu)</td></tr>
+<tr><td>fileName</td><td>File where matrix is stored</td></tr>
+<tr><td>delimiter</td><td>Column delimiter character for CSV file</td></tr>
+<tr><td>nHeaderLines</td><td>Number of header lines to ignore for CSV file</td></tr>
+<tr><td>verboseRead</td><td>= true, if info message that file is loading is to be printed</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Table data interpretation</td></tr>
+<tr><td>smoothness</td><td>Smoothness of table interpolation</td></tr>
+<tr><td>extrapolation</td><td>Extrapolation of data outside the definition range</td></tr>
+<tr><td>verboseExtrapolation</td><td>= true, if warning messages are to be printed if table input is outside the definition range</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTimeTableValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTimeTableValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTimeTableValue"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTimeTableValue</h2>
+<p>
+<span class="ModelicaDescription">Interpolate 1-dim. table where first column is time</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>timeIn</td><td>(Scaled) time value</td></tr>
+<tr><td>nextTimeEvent</td><td>(Scaled) next time event in table</td></tr>
+<tr><td>pre_nextTimeEvent</td><td>Pre-value of (scaled) next time event in table</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTimeTableValueNoDer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTimeTableValueNoDer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTimeTableValueNoDer"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTimeTableValueNoDer</h2>
+<p>
+<span class="ModelicaDescription">Interpolate 1-dim. table where first column is time (but do not provide a derivative function)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>timeIn</td><td>(Scaled) time value</td></tr>
+<tr><td>nextTimeEvent</td><td>(Scaled) next time event in table</td></tr>
+<tr><td>pre_nextTimeEvent</td><td>Pre-value of (scaled) next time event in table</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTimeTableValueNoDer2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTimeTableValueNoDer2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTimeTableValueNoDer2"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTimeTableValueNoDer2</h2>
+<p>
+<span class="ModelicaDescription">Interpolate 1-dim. table where first column is time (but do not provide a second derivative function)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>timeIn</td><td>(Scaled) time value</td></tr>
+<tr><td>nextTimeEvent</td><td>(Scaled) next time event in table</td></tr>
+<tr><td>pre_nextTimeEvent</td><td>Pre-value of (scaled) next time event in table</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getDerTimeTableValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getDerTimeTableValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getDerTimeTableValue"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getDerTimeTableValue</h2>
+<p>
+<span class="ModelicaDescription">Derivative of interpolated 1-dim. table where first column is time</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>timeIn</td><td>(Scaled) time value</td></tr>
+<tr><td>nextTimeEvent</td><td>(Scaled) next time event in table</td></tr>
+<tr><td>pre_nextTimeEvent</td><td>Pre-value of (scaled) next time event in table</td></tr>
+<tr><td>der_timeIn</td><td>Derivative of (scaled) time value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_y</td><td>Derivative of interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getDerTimeTableValueNoDer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getDerTimeTableValueNoDer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getDerTimeTableValueNoDer"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getDerTimeTableValueNoDer</h2>
+<p>
+<span class="ModelicaDescription">Derivative of interpolated 1-dim. table where first column is time (but do not provide a derivative function)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>timeIn</td><td>(Scaled) time value</td></tr>
+<tr><td>nextTimeEvent</td><td>(Scaled) next time event in table</td></tr>
+<tr><td>pre_nextTimeEvent</td><td>Pre-value of (scaled) next time event in table</td></tr>
+<tr><td>der_timeIn</td><td>Derivative of (scaled) time value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_y</td><td>Derivative of interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getDer2TimeTableValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getDer2TimeTableValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getDer2TimeTableValue"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getDer2TimeTableValue</h2>
+<p>
+<span class="ModelicaDescription">Second derivative of interpolated 1-dim. table where first column is time</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>timeIn</td><td>(Scaled) time value</td></tr>
+<tr><td>nextTimeEvent</td><td>(Scaled) next time event in table</td></tr>
+<tr><td>pre_nextTimeEvent</td><td>Pre-value of (scaled) next time event in table</td></tr>
+<tr><td>der_timeIn</td><td>Derivative of (scaled) time value</td></tr>
+<tr><td>der2_timeIn</td><td>Second derivative of (scaled) time value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der2_y</td><td>Second derivative of interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTimeTableTmin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTimeTableTmin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTimeTableTmin"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTimeTableTmin</h2>
+<p>
+<span class="ModelicaDescription">Return minimum abscissa value of 1-dim. table where first column is time</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>timeMin</td><td>Minimum abscissa value in table</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTimeTableTmax<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTimeTableTmax" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTimeTableTmax"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTimeTableTmax</h2>
+<p>
+<span class="ModelicaDescription">Return maximum abscissa value of 1-dim. table where first column is time</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>timeMax</td><td>Maximum abscissa value in table</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getNextTimeEvent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getNextTimeEvent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getNextTimeEvent"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getNextTimeEvent</h2>
+<p>
+<span class="ModelicaDescription">Return next time event value of 1-dim. table where first column is time</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>timeIn</td><td>(Scaled) time value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nextTimeEvent</td><td>(Scaled) next time event in table</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTable1DValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTable1DValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTable1DValue"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTable1DValue</h2>
+<p>
+<span class="ModelicaDescription">Interpolate 1-dim. table defined by matrix</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTable1DValueNoDer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTable1DValueNoDer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTable1DValueNoDer"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTable1DValueNoDer</h2>
+<p>
+<span class="ModelicaDescription">Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTable1DValueNoDer2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTable1DValueNoDer2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTable1DValueNoDer2"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTable1DValueNoDer2</h2>
+<p>
+<span class="ModelicaDescription">Interpolate 1-dim. table defined by matrix (but do not provide a second derivative function)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getDerTable1DValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getDerTable1DValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getDerTable1DValue"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getDerTable1DValue</h2>
+<p>
+<span class="ModelicaDescription">Derivative of interpolated 1-dim. table defined by matrix</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+<tr><td>der_u</td><td>Derivative of abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_y</td><td>Derivative of interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getDerTable1DValueNoDer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getDerTable1DValueNoDer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getDerTable1DValueNoDer"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getDerTable1DValueNoDer</h2>
+<p>
+<span class="ModelicaDescription">Derivative of interpolated 1-dim. table defined by matrix (but do not provide a second derivative function)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+<tr><td>der_u</td><td>Derivative of abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_y</td><td>Derivative of interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getDer2Table1DValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getDer2Table1DValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getDer2Table1DValue"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getDer2Table1DValue</h2>
+<p>
+<span class="ModelicaDescription">Second derivative of interpolated 1-dim. table defined by matrix</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>icol</td><td>Column number</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+<tr><td>der_u</td><td>Derivative of abscissa value</td></tr>
+<tr><td>der2_u</td><td> Second derivative of abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der2_y</td><td>Second derivative of interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTable1DAbscissaUmin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTable1DAbscissaUmin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTable1DAbscissaUmin"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTable1DAbscissaUmin</h2>
+<p>
+<span class="ModelicaDescription">Return minimum abscissa value of 1-dim. table defined by matrix</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>uMin</td><td>Minimum abscissa value in table</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTable1DAbscissaUmax<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTable1DAbscissaUmax" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTable1DAbscissaUmax"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTable1DAbscissaUmax</h2>
+<p>
+<span class="ModelicaDescription">Return maximum abscissa value of 1-dim. table defined by matrix</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>uMax</td><td>Maximum abscissa value in table</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTable2DValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTable2DValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTable2DValue"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTable2DValue</h2>
+<p>
+<span class="ModelicaDescription">Interpolate 2-dim. table defined by matrix</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>u1</td><td>Value of first independent variable</td></tr>
+<tr><td>u2</td><td>Value of second independent variable</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTable2DValueNoDer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTable2DValueNoDer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTable2DValueNoDer"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTable2DValueNoDer</h2>
+<p>
+<span class="ModelicaDescription">Interpolate 2-dim. table defined by matrix (but do not provide a derivative function)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>u1</td><td>Value of first independent variable</td></tr>
+<tr><td>u2</td><td>Value of second independent variable</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTable2DValueNoDer2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTable2DValueNoDer2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTable2DValueNoDer2"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTable2DValueNoDer2</h2>
+<p>
+<span class="ModelicaDescription">Interpolate 2-dim. table defined by matrix (but do not provide a second derivative function)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>u1</td><td>Value of first independent variable</td></tr>
+<tr><td>u2</td><td>Value of second independent variable</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getDerTable2DValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getDerTable2DValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getDerTable2DValue"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getDerTable2DValue</h2>
+<p>
+<span class="ModelicaDescription">Derivative of interpolated 2-dim. table defined by matrix</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>u1</td><td>Value of first independent variable</td></tr>
+<tr><td>u2</td><td>Value of second independent variable</td></tr>
+<tr><td>der_u1</td><td>Derivative of first independent variable</td></tr>
+<tr><td>der_u2</td><td>Derivative of second independent variable</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_y</td><td>Derivative of interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getDerTable2DValueNoDer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getDerTable2DValueNoDer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getDerTable2DValueNoDer"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getDerTable2DValueNoDer</h2>
+<p>
+<span class="ModelicaDescription">Derivative of interpolated 2-dim. table defined by matrix (but do not provide a second derivative function)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>u1</td><td>Value of first independent variable</td></tr>
+<tr><td>u2</td><td>Value of second independent variable</td></tr>
+<tr><td>der_u1</td><td>Derivative of first independent variable</td></tr>
+<tr><td>der_u2</td><td>Derivative of second independent variable</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der_y</td><td>Derivative of interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getDer2Table2DValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getDer2Table2DValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getDer2Table2DValue"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getDer2Table2DValue</h2>
+<p>
+<span class="ModelicaDescription">Second derivative of interpolated 2-dim. table defined by matrix</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+<tr><td>u1</td><td>Value of first independent variable</td></tr>
+<tr><td>u2</td><td>Value of second independent variable</td></tr>
+<tr><td>der_u1</td><td>Derivative of first independent variable</td></tr>
+<tr><td>der_u2</td><td>Derivative of second independent variable</td></tr>
+<tr><td>der2_u1</td><td>Second derivative of first independent variable</td></tr>
+<tr><td>der2_u2</td><td>Second derivative of second independent variable</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>der2_y</td><td>Second derivative of interpolated value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTable2DAbscissaUmin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTable2DAbscissaUmin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTable2DAbscissaUmin"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTable2DAbscissaUmin</h2>
+<p>
+<span class="ModelicaDescription">Return minimum abscissa value of 2-dim. table defined by matrix</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>uMin[2]</td><td>Minimum abscissa value in table</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTable2DAbscissaUmax<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.Inbfd6ed422b6606d0ValueI.png" alt="Modelica.Blocks.Tables.Internal.getTable2DAbscissaUmax" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.Internal.getTable2DAbscissaUmax"></a><a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Modelica.Blocks.Tables.Internal</a>.getTable2DAbscissaUmax</h2>
+<p>
+<span class="ModelicaDescription">Return maximum abscissa value of 2-dim. table defined by matrix</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tableID</td><td>External table object</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>uMax[2]</td><td>Maximum abscissa value in table</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:00 2026.
+</address>
+</body>
+</html>

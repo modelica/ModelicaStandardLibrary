@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ObsoleteModelica4</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library that contains components from Modelica Standard Library 3.2.3 that have been removed from version 4.0.0&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ObsoleteModelica4<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="ObsoleteModelica4"></a>ObsoleteModelica4</h2>
+<p>
+<span class="ModelicaDescription">Library that contains components from Modelica Standard Library 3.2.3 that have been removed from version 4.0.0</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains models and blocks from the Modelica Standard Library
+version 3.2.3 that are no longer available in version 4.0.0
+The conversion script for version 4.0.0 changes references in existing
+user models automatically to the models and blocks of package
+ObsoleteModelica4. The user should <strong>manually</strong> replace all
+references to ObsoleteModelica4 in his/her models to the models
+that are recommended in the documentation of the respective model.
+</p>
+
+<p>
+In most cases, this means that a model with the name
+"ObsoleteModelica4.XXX" should be renamed to "Modelica.XXX"
+and then a manual adaptation is needed. For example, a reference to
+ObsoleteModelica4.Math.Matrices.LAPACK.dgeqpf
+should be replaced by
+Modelica.Math.Matrices.LAPACK.dgeqp3.
+This usually requires some changes at the place where
+the class is used (besides the renaming of the underlying class).
+</p>
+
+<p>
+The models in ObsoleteModelica4 are either not according to the Modelica Language
+version 3.4 and higher, or the model was changed to get a better design.
+In all cases, an automatic conversion to the new implementation
+was not feasible, since too complicated.
+</p>
+
+<p>
+In order to easily detect obsolete models and blocks, all of them are specially
+marked in the icon layer with a red box.
+</p>
+
+<p>
+Copyright &copy; 2019-2025, Modelica Association and contributors
+</p>
+
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="ObsoleteModelica4.BlocksS.png" alt="ObsoleteModelica4.Blocks" width="20" height="20" align="top">&nbsp;<a href="ObsoleteModelica4_Blocks.html#ObsoleteModelica4.Blocks"
+>Blocks</a>
+</td>
+<td>Library of basic input/output control blocks (continuous, discrete, logical, table blocks)</td>
+</tr>
+<tr>
+<td><img src="ObsoleteModelica4.ElectricalS.png" alt="ObsoleteModelica4.Electrical" width="20" height="20" align="top">&nbsp;<a href="ObsoleteModelica4_Electrical.html#ObsoleteModelica4.Electrical"
+>Electrical</a>
+</td>
+<td>Library of electrical models (analog, digital, machines, polyphase)</td>
+</tr>
+<tr>
+<td><img src="ObsoleteModelica4.BlocksS.png" alt="ObsoleteModelica4.Mechanics" width="20" height="20" align="top">&nbsp;<a href="ObsoleteModelica4_Mechanics.html#ObsoleteModelica4.Mechanics"
+>Mechanics</a>
+</td>
+<td>Library of 1-dim. and 3-dim. mechanical components (multi-body, rotational, translational)</td>
+</tr>
+<tr>
+<td><img src="ObsoleteModelica4.BlocksS.png" alt="ObsoleteModelica4.Media" width="20" height="20" align="top">&nbsp;<a href="ObsoleteModelica4_Media.html#ObsoleteModelica4.Media"
+>Media</a>
+</td>
+<td>Library of media property models</td>
+</tr>
+<tr>
+<td><img src="ObsoleteModelica4.BlocksS.png" alt="ObsoleteModelica4.Math" width="20" height="20" align="top">&nbsp;<a href="ObsoleteModelica4_Math.html#ObsoleteModelica4.Math"
+>Math</a>
+</td>
+<td>Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices</td>
+</tr>
+<tr>
+<td><img src="ObsoleteModelica4.BlocksS.png" alt="ObsoleteModelica4.Magnetic" width="20" height="20" align="top">&nbsp;<a href="ObsoleteModelica4_Magnetic.html#ObsoleteModelica4.Magnetic"
+>Magnetic</a>
+</td>
+<td>Library of magnetic models</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 17:00:13 2026.
+</address>
+</body>
+</html>

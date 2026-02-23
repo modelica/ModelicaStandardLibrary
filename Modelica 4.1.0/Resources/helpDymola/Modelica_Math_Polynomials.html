@@ -1,0 +1,516 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.Polynomials</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of functions operating on polynomials (including polynomial fitting)&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Polynomials<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.Polynomials"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.Polynomials</h2>
+<p>
+<span class="ModelicaDescription">Library of functions operating on polynomials (including polynomial fitting)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains functions to operate on polynomials,
+in particular to determine the derivative and the integral
+of a polynomial and to use a polynomial to fit a given set
+of data points.
+</p>
+
+<p>
+Copyright &copy; 2004-2025, Modelica Association and contributors
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_FunctionsPackage.html#Modelica.Icons.FunctionsPackage"
+>Modelica.Icons.FunctionsPackage</a> (Icon for packages containing functions).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.evaluate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.evaluate"
+>evaluate</a>
+</td>
+<td>Evaluate polynomial at a given abscissa value</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.evaluateWithRange" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.evaluateWithRange"
+>evaluateWithRange</a>
+</td>
+<td>Evaluate polynomial at a given abscissa value with linear extrapolation outside of the defined range</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.derivative" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.derivative"
+>derivative</a>
+</td>
+<td>Derivative of polynomial</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.derivativeValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.derivativeValue"
+>derivativeValue</a>
+</td>
+<td>Value of derivative of polynomial at abscissa value u</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.secondDerivativeValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.secondDerivativeValue"
+>secondDerivativeValue</a>
+</td>
+<td>Value of 2nd derivative of polynomial at abscissa value u</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.integral" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.integral"
+>integral</a>
+</td>
+<td>Indefinite integral of polynomial p(u)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.integralValue" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.integralValue"
+>integralValue</a>
+</td>
+<td>Integral of polynomial p(u) from u_low to u_high</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.fitting" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.fitting"
+>fitting</a>
+</td>
+<td>Computes the coefficients of a polynomial that fits a set of data points in a least-squares sense</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.evaluate_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.evaluate_der"
+>evaluate_der</a>
+</td>
+<td>Evaluate derivative of polynomial at a given abscissa value</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.evaluateWithRange_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.evaluateWithRange_der"
+>evaluateWithRange_der</a>
+</td>
+<td>Evaluate derivative of polynomial at a given abscissa value with extrapolation outside of the defined range</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.integralValue_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.integralValue_der"
+>integralValue_der</a>
+</td>
+<td>Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibniz rule)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.derivativeValue_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.derivativeValue_der"
+>derivativeValue_der</a>
+</td>
+<td>Time derivative of derivative of polynomial</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Polynomials.roots" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials.roots"
+>roots</a>
+</td>
+<td>Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE evaluate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.evaluate" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.evaluate"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.evaluate</h2>
+<p>
+<span class="ModelicaDescription">Evaluate polynomial at a given abscissa value</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[:]</td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Value of polynomial at u</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE evaluateWithRange<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.evaluateWithRange" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.evaluateWithRange"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.evaluateWithRange</h2>
+<p>
+<span class="ModelicaDescription">Evaluate polynomial at a given abscissa value with linear extrapolation outside of the defined range</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[:]</td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td>uMin</td><td>Polynomial valid in the range uMin .. uMax</td></tr>
+<tr><td>uMax</td><td>Polynomial valid in the range uMin .. uMax</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Value of polynomial at u. Outside of uMin,uMax, linear extrapolation is used</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE derivative<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.derivative" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.derivative"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.derivative</h2>
+<p>
+<span class="ModelicaDescription">Derivative of polynomial</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p1[:]</td><td>Polynomial coefficients (p1[1] is coefficient of highest power)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p2[size(p1, 1) - 1]</td><td>Derivative of polynomial p1</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE derivativeValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.derivativeValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.derivativeValue"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.derivativeValue</h2>
+<p>
+<span class="ModelicaDescription">Value of derivative of polynomial at abscissa value u</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[:]</td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Value of derivative of polynomial at u</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE secondDerivativeValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.secondDerivativeValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.secondDerivativeValue"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.secondDerivativeValue</h2>
+<p>
+<span class="ModelicaDescription">Value of 2nd derivative of polynomial at abscissa value u</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[:]</td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Value of 2nd derivative of polynomial at u</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE integral<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.integral" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.integral"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.integral</h2>
+<p>
+<span class="ModelicaDescription">Indefinite integral of polynomial p(u)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p1[:]</td><td>Polynomial coefficients (p1[1] is coefficient of highest power)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p2[size(p1, 1) + 1]</td><td>Polynomial coefficients of indefinite integral of polynomial p1 (polynomial p2 + C is the indefinite integral of p1, where C is an arbitrary constant)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE integralValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.integralValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.integralValue"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.integralValue</h2>
+<p>
+<span class="ModelicaDescription">Integral of polynomial p(u) from u_low to u_high</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[:]</td><td>Polynomial coefficients</td></tr>
+<tr><td>u_high</td><td>High integrand value</td></tr>
+<tr><td>u_low</td><td>Low integrand value, default 0</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>integral</td><td>Integral of polynomial p from u_low to u_high</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE fitting<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.fitting" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.fitting"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.fitting</h2>
+<p>
+<span class="ModelicaDescription">Computes the coefficients of a polynomial that fits a set of data points in a least-squares sense</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Polynomials.fitting(u,y,n) computes the coefficients of a polynomial
+p(u) of degree "n" that fits the data "p(u[i]) - y[i]"
+in a least squares sense. The polynomial is
+returned as a vector p[n+1] that has the following definition:
+</p>
+<blockquote><pre>
+p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[:]</td><td>Abscissa data values</td></tr>
+<tr><td>y[size(u, 1)]</td><td>Ordinate data values</td></tr>
+<tr><td>n</td><td>Order of desired polynomial that fits the data points (u,y)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[n + 1]</td><td>Polynomial coefficients of polynomial that fits the date points</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE evaluate_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.evaluate_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.evaluate_der"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.evaluate_der</h2>
+<p>
+<span class="ModelicaDescription">Evaluate derivative of polynomial at a given abscissa value</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[:]</td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+<tr><td>du</td><td>Delta of abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dy</td><td>Value of derivative of polynomial at u</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE evaluateWithRange_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.evaluateWithRange_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.evaluateWithRange_der"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.evaluateWithRange_der</h2>
+<p>
+<span class="ModelicaDescription">Evaluate derivative of polynomial at a given abscissa value with extrapolation outside of the defined range</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[:]</td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td>uMin</td><td>Polynomial valid in the range uMin .. uMax</td></tr>
+<tr><td>uMax</td><td>Polynomial valid in the range uMin .. uMax</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+<tr><td>du</td><td>Delta of abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dy</td><td>Value of derivative of polynomial at u</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE integralValue_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.integralValue_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.integralValue_der"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.integralValue_der</h2>
+<p>
+<span class="ModelicaDescription">Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibniz rule)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[:]</td><td>Polynomial coefficients</td></tr>
+<tr><td>u_high</td><td>High integrand value</td></tr>
+<tr><td>u_low</td><td>Low integrand value, default 0</td></tr>
+<tr><td>du_high</td><td>High integrand value</td></tr>
+<tr><td>du_low</td><td>Low integrand value, default 0</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dintegral</td><td>Integral of polynomial p from u_low to u_high</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE derivativeValue_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.derivativeValue_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.derivativeValue_der"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.derivativeValue_der</h2>
+<p>
+<span class="ModelicaDescription">Time derivative of derivative of polynomial</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[:]</td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td>u</td><td>Abscissa value</td></tr>
+<tr><td>du</td><td>Delta of abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dy</td><td>Time-derivative of derivative of polynomial w.r.t. input variable at u</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE roots<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Polynomials.roots" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Polynomials.roots"></a><a href="Modelica_Math_Polynomials.html#Modelica.Math.Polynomials"
+>Modelica.Math.Polynomials</a>.roots</h2>
+<p>
+<span class="ModelicaDescription">Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+r = Polynomials.<strong>roots</strong>(p);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the roots of a polynomial P of x
+</p>
+<blockquote><pre>
+P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
+</pre></blockquote>
+<p>
+with the coefficient vector <strong>p</strong>. It is assumed that the first element of <strong>p</strong> is not zero, i.e., that the polynomial is of order size(p,1)-1.
+</p>
+<p>
+To compute the roots, the eigenvalues of the corresponding companion matrix <strong>C</strong>
+</p>
+<blockquote><pre>
+       |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
+       |    1            0                0               0           0     |
+       |    0            1      ...       0               0           0     |
+<strong>C</strong> =    |    .            .      ...       .               .           .     |
+       |    .            .      ...       .               .           .     |
+       |    0            0      ...       0               1           0     |
+</pre></blockquote>
+<p>
+are calculated. These are the roots of the polynomial.<br>
+Since the companion matrix has already Hessenberg form, the transformation to Hessenberg form has not to be performed.
+Function <a href="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg"
+>eigenvaluesHessenberg</a><br>
+provides efficient eigenvalue computation for those matrices.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+r = <strong>roots</strong>({1,2,3});
+// r = [-1.0,  1.41421356237309;
+//      -1.0, -1.41421356237309]
+// which corresponds to the roots: -1.0 +/- j*1.41421356237309
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p[:]</td><td>Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>roots[max(0, size(p, 1) - 1), 2]</td><td>roots[:,1] and roots[:,2] are the real and imaginary parts of the roots of polynomial p</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:32 2026.
+</address>
+</body>
+</html>

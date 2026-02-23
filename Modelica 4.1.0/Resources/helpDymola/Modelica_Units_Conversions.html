@@ -1,0 +1,1079 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Units.Conversions</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Conversion functions to/from non SI units and type definitions of non SI units&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Conversions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Units.Conversions"></a><a href="Modelica_Units.html#Modelica.Units"
+>Modelica.Units</a>.Conversions</h2>
+<p>
+<span class="ModelicaDescription">Conversion functions to/from non SI units and type definitions of non SI units</span>
+</p>
+<h3>Information</h3>
+
+<p>This package provides conversion functions from the non SI Units
+defined in package <code>Modelica.Units.NonSI</code> to the
+corresponding SI Units defined in package <code>Modelica.Units.SI</code> and vice
+versa. It is recommended to use these functions in the following
+way (note, that all functions have one Real input and one Real output
+argument):</p>
+<blockquote><pre>
+<strong>import</strong> Modelica.Units.SI;
+<strong>import</strong> Modelica.Units.Conversions.{from_degC, from_deg, from_rpm};
+   ...
+<strong>parameter</strong> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to kelvin
+<strong>parameter</strong> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
+<strong>parameter</strong> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
+                                                   // to radian per seconds
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_unit1S.png" alt="Modelica.Units.Conversions.to_unit1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_unit1"
+>to_unit1</a>
+</td>
+<td>Change the unit of a Real number to unit=&quot;1&quot;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degCS.png" alt="Modelica.Units.Conversions.to_degC" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_degC"
+>to_degC</a>
+</td>
+<td>Convert from kelvin to degree Celsius</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.from_degCS.png" alt="Modelica.Units.Conversions.from_degC" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_degC"
+>from_degC</a>
+</td>
+<td>Convert from degree Celsius to kelvin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degCS.png" alt="Modelica.Units.Conversions.to_degF" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_degF"
+>to_degF</a>
+</td>
+<td>Convert from kelvin to degree Fahrenheit</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.from_degCS.png" alt="Modelica.Units.Conversions.from_degF" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_degF"
+>from_degF</a>
+</td>
+<td>Convert from degree Fahrenheit to kelvin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degCS.png" alt="Modelica.Units.Conversions.to_degRk" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_degRk"
+>to_degRk</a>
+</td>
+<td>Convert from kelvin to degree Rankine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.from_degCS.png" alt="Modelica.Units.Conversions.from_degRk" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_degRk"
+>from_degRk</a>
+</td>
+<td>Convert from degree Rankine to kelvin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.to_deg" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_deg"
+>to_deg</a>
+</td>
+<td>Convert from radian to degree</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.from_deg" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_deg"
+>from_deg</a>
+</td>
+<td>Convert from degree to radian</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.to_rpm" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_rpm"
+>to_rpm</a>
+</td>
+<td>Convert from radian per second to revolutions per minute</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.from_rpm" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_rpm"
+>from_rpm</a>
+</td>
+<td>Convert from revolutions per minute to radian per second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.to_kmh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_kmh"
+>to_kmh</a>
+</td>
+<td>Convert from metre per second to kilometre per hour</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.from_kmh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_kmh"
+>from_kmh</a>
+</td>
+<td>Convert from kilometre per hour to metre per second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_dayS.png" alt="Modelica.Units.Conversions.to_day" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_day"
+>to_day</a>
+</td>
+<td>Convert from second to day</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.from_dayS.png" alt="Modelica.Units.Conversions.from_day" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_day"
+>from_day</a>
+</td>
+<td>Convert from day to second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_hourS.png" alt="Modelica.Units.Conversions.to_hour" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_hour"
+>to_hour</a>
+</td>
+<td>Convert from second to hour</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.from_dayS.png" alt="Modelica.Units.Conversions.from_hour" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_hour"
+>from_hour</a>
+</td>
+<td>Convert from hour to second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_minuteS.png" alt="Modelica.Units.Conversions.to_minute" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_minute"
+>to_minute</a>
+</td>
+<td>Convert from second to minute</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.from_dayS.png" alt="Modelica.Units.Conversions.from_minute" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_minute"
+>from_minute</a>
+</td>
+<td>Convert from minute to second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.to_litre" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_litre"
+>to_litre</a>
+</td>
+<td>Convert from cubic metre to litre</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.from_litre" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_litre"
+>from_litre</a>
+</td>
+<td>Convert from litre to cubic metre</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.from_AhS.png" alt="Modelica.Units.Conversions.from_Ah" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_Ah"
+>from_Ah</a>
+</td>
+<td>Convert from Ampere hours to Coulomb</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_AhS.png" alt="Modelica.Units.Conversions.to_Ah" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_Ah"
+>to_Ah</a>
+</td>
+<td>Convert from Coulomb to Ampere hours</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.from_WhS.png" alt="Modelica.Units.Conversions.from_Wh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_Wh"
+>from_Wh</a>
+</td>
+<td>Convert from watt hour to joule</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_WhS.png" alt="Modelica.Units.Conversions.to_Wh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_Wh"
+>to_Wh</a>
+</td>
+<td>Convert from joule to watt hour</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_WhS.png" alt="Modelica.Units.Conversions.to_kWh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_kWh"
+>to_kWh</a>
+</td>
+<td>Convert from joule to kilo watt hour</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.from_WhS.png" alt="Modelica.Units.Conversions.from_kWh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_kWh"
+>from_kWh</a>
+</td>
+<td>Convert from kilo watt hour to joule</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.to_bar" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_bar"
+>to_bar</a>
+</td>
+<td>Convert from Pascal to bar</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.from_bar" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_bar"
+>from_bar</a>
+</td>
+<td>Convert from bar to Pascal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.to_gps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_gps"
+>to_gps</a>
+</td>
+<td>Convert from kilogram per second to gram per second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.from_gps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_gps"
+>from_gps</a>
+</td>
+<td>Convert from gram per second to kilogram per second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.from_Hz" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_Hz"
+>from_Hz</a>
+</td>
+<td>Convert from Hz to rad/s</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.to_Hz" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_Hz"
+>to_Hz</a>
+</td>
+<td>Convert from rad/s to Hz</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.to_cm2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.to_cm2"
+>to_cm2</a>
+</td>
+<td>Convert from square metre to square centimetre</td>
+</tr>
+<tr>
+<td><img src="Modelica.Units.Conversions.to_degS.png" alt="Modelica.Units.Conversions.from_cm2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions.from_cm2"
+>from_cm2</a>
+</td>
+<td>Convert from square centimetre to square metre</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_unit1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_unit1I.png" alt="Modelica.Units.Conversions.to_unit1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_unit1"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_unit1</h2>
+<p>
+<span class="ModelicaDescription">Change the unit of a Real number to unit=&quot;1&quot;</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Modelica.Units.Conversions.<strong>to_unit1</strong>(r);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Conversions.<strong>to_unit1</strong>(r)</code>" returns r with unit="1".
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+Modelica.Units.SI.Velocity v = {3,2,1};
+Real direction[3](unit="1") = to_unit1(v);   // Automatically vectorized call of to_unit1
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>r</td><td>Real number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>Real number r with unit=&quot;1&quot; [1]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_degC<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degCI.png" alt="Modelica.Units.Conversions.to_degC" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_degC"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_degC</h2>
+<p>
+<span class="ModelicaDescription">Convert from kelvin to degree Celsius</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Kelvin</td><td>Value in kelvin [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Celsius</td><td>Value in degree Celsius [degC]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_degC<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.from_degCI.png" alt="Modelica.Units.Conversions.from_degC" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_degC"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_degC</h2>
+<p>
+<span class="ModelicaDescription">Convert from degree Celsius to kelvin</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Celsius</td><td>Value in degree Celsius [degC]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Kelvin</td><td>Value in kelvin [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_degF<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degCI.png" alt="Modelica.Units.Conversions.to_degF" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_degF"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_degF</h2>
+<p>
+<span class="ModelicaDescription">Convert from kelvin to degree Fahrenheit</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Kelvin</td><td>Value in kelvin [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Fahrenheit</td><td>Value in degree Fahrenheit [degF]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_degF<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.from_degCI.png" alt="Modelica.Units.Conversions.from_degF" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_degF"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_degF</h2>
+<p>
+<span class="ModelicaDescription">Convert from degree Fahrenheit to kelvin</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Fahrenheit</td><td>Value in degree Fahrenheit [degF]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Kelvin</td><td>Value in kelvin [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_degRk<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degCI.png" alt="Modelica.Units.Conversions.to_degRk" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_degRk"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_degRk</h2>
+<p>
+<span class="ModelicaDescription">Convert from kelvin to degree Rankine</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Kelvin</td><td>Value in kelvin [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Rankine</td><td>Value in degree Rankine [degRk]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_degRk<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.from_degCI.png" alt="Modelica.Units.Conversions.from_degRk" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_degRk"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_degRk</h2>
+<p>
+<span class="ModelicaDescription">Convert from degree Rankine to kelvin</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Rankine</td><td>Value in degree Rankine [degRk]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Kelvin</td><td>Value in kelvin [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_deg<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.to_deg" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_deg"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_deg</h2>
+<p>
+<span class="ModelicaDescription">Convert from radian to degree</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>radian</td><td>Value in radian [rad]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>degree</td><td>Value in degree [deg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_deg<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.from_deg" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_deg"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_deg</h2>
+<p>
+<span class="ModelicaDescription">Convert from degree to radian</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>degree</td><td>Value in degree [deg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>radian</td><td>Value in radian [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_rpm<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.to_rpm" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_rpm"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_rpm</h2>
+<p>
+<span class="ModelicaDescription">Convert from radian per second to revolutions per minute</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rs</td><td>Value in radian per second [rad/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rpm</td><td>Value in revolutions per minute [rev/min]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_rpm<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.from_rpm" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_rpm"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_rpm</h2>
+<p>
+<span class="ModelicaDescription">Convert from revolutions per minute to radian per second</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rpm</td><td>Value in revolutions per minute [rev/min]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rs</td><td>Value in radian per second [rad/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_kmh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.to_kmh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_kmh"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_kmh</h2>
+<p>
+<span class="ModelicaDescription">Convert from metre per second to kilometre per hour</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ms</td><td>Value in metre per second [m/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kmh</td><td>Value in kilometre per hour [km/h]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_kmh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.from_kmh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_kmh"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_kmh</h2>
+<p>
+<span class="ModelicaDescription">Convert from kilometre per hour to metre per second</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kmh</td><td>Value in kilometre per hour [km/h]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ms</td><td>Value in metre per second [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_day<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_dayI.png" alt="Modelica.Units.Conversions.to_day" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_day"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_day</h2>
+<p>
+<span class="ModelicaDescription">Convert from second to day</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Value in second [s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>day</td><td>Value in day [d]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_day<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.from_dayI.png" alt="Modelica.Units.Conversions.from_day" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_day"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_day</h2>
+<p>
+<span class="ModelicaDescription">Convert from day to second</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>day</td><td>Value in day [d]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Value in second [s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_hour<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_hourI.png" alt="Modelica.Units.Conversions.to_hour" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_hour"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_hour</h2>
+<p>
+<span class="ModelicaDescription">Convert from second to hour</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Value in second [s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>hour</td><td>Value in hour [h]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_hour<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.from_hourI.png" alt="Modelica.Units.Conversions.from_hour" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_hour"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_hour</h2>
+<p>
+<span class="ModelicaDescription">Convert from hour to second</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>hour</td><td>Value in hour [h]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Value in second [s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_minute<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_minuteI.png" alt="Modelica.Units.Conversions.to_minute" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_minute"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_minute</h2>
+<p>
+<span class="ModelicaDescription">Convert from second to minute</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Value in second [s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>minute</td><td>Value in minute [min]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_minute<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.from_minuteI.png" alt="Modelica.Units.Conversions.from_minute" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_minute"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_minute</h2>
+<p>
+<span class="ModelicaDescription">Convert from minute to second</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>minute</td><td>Value in minute [min]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Value in second [s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_litre<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.to_litre" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_litre"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_litre</h2>
+<p>
+<span class="ModelicaDescription">Convert from cubic metre to litre</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m3</td><td>Value in cubic metre [m3]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>litre</td><td>Value in litre [l]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_litre<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.from_litre" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_litre"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_litre</h2>
+<p>
+<span class="ModelicaDescription">Convert from litre to cubic metre</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>litre</td><td>Value in litre [l]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m3</td><td>Value in cubic metre [m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_Ah<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.from_AhI.png" alt="Modelica.Units.Conversions.from_Ah" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_Ah"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_Ah</h2>
+<p>
+<span class="ModelicaDescription">Convert from Ampere hours to Coulomb</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>AmpereHour</td><td>Value in ampere hours [A.h]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Coulomb</td><td>Value in coulomb [C]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_Ah<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_AhI.png" alt="Modelica.Units.Conversions.to_Ah" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_Ah"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_Ah</h2>
+<p>
+<span class="ModelicaDescription">Convert from Coulomb to Ampere hours</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Coulomb</td><td>Value in coulomb [C]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>AmpereHour</td><td>Value in ampere hours [A.h]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_Wh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.from_WhI.png" alt="Modelica.Units.Conversions.from_Wh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_Wh"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_Wh</h2>
+<p>
+<span class="ModelicaDescription">Convert from watt hour to joule</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>WattHour</td><td>Value in watt hour [W.h]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Joule</td><td>Value in joule [J]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_Wh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_WhI.png" alt="Modelica.Units.Conversions.to_Wh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_Wh"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_Wh</h2>
+<p>
+<span class="ModelicaDescription">Convert from joule to watt hour</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Joule</td><td>Value in joule [J]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>WattHour</td><td>Value in watt hour [W.h]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_kWh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_kWhI.png" alt="Modelica.Units.Conversions.to_kWh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_kWh"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_kWh</h2>
+<p>
+<span class="ModelicaDescription">Convert from joule to kilo watt hour</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>J</td><td>Value in joule [J]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kWh</td><td>Value in kWh [kW.h]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_kWh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.from_kWhI.png" alt="Modelica.Units.Conversions.from_kWh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_kWh"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_kWh</h2>
+<p>
+<span class="ModelicaDescription">Convert from kilo watt hour to joule</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kWh</td><td>Value in kWh [kW.h]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>J</td><td>Value in joule [J]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_bar<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.to_bar" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_bar"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_bar</h2>
+<p>
+<span class="ModelicaDescription">Convert from Pascal to bar</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Pa</td><td>Value in Pascal [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>bar</td><td>Value in bar [bar]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_bar<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.from_bar" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_bar"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_bar</h2>
+<p>
+<span class="ModelicaDescription">Convert from bar to Pascal</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>bar</td><td>Value in bar [bar]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Pa</td><td>Value in Pascal [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_gps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.to_gps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_gps"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_gps</h2>
+<p>
+<span class="ModelicaDescription">Convert from kilogram per second to gram per second</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kgps</td><td>Value in kg/s [kg/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gps</td><td>Value in g/s [g/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_gps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.from_gps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_gps"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_gps</h2>
+<p>
+<span class="ModelicaDescription">Convert from gram per second to kilogram per second</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gps</td><td>Value in g/s [g/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kgps</td><td>Value in kg/s [kg/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_Hz<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.from_Hz" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_Hz"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_Hz</h2>
+<p>
+<span class="ModelicaDescription">Convert from Hz to rad/s</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Value in hertz [Hz]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>w</td><td>Value in radian per second [rad/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_Hz<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.to_Hz" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_Hz"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_Hz</h2>
+<p>
+<span class="ModelicaDescription">Convert from rad/s to Hz</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>w</td><td>Value in radian per second [rad/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Value in hertz [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE to_cm2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.to_cm2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.to_cm2"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.to_cm2</h2>
+<p>
+<span class="ModelicaDescription">Convert from square metre to square centimetre</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m2</td><td>Value in square metre [m2]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cm2</td><td>Value in square centimetre [cm2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE from_cm2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Units.Conversions.to_degI.png" alt="Modelica.Units.Conversions.from_cm2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Units.Conversions.from_cm2"></a><a href="Modelica_Units_Conversions.html#Modelica.Units.Conversions"
+>Modelica.Units.Conversions</a>.from_cm2</h2>
+<p>
+<span class="ModelicaDescription">Convert from square centimetre to square metre</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Units_Icons.html#Modelica.Units.Icons.Conversion"
+>Modelica.Units.Icons.Conversion</a> (Base icon for conversion functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cm2</td><td>Value in square centimetre [cm2]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m2</td><td>Value in square metre [m2]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:32 2026.
+</address>
+</body>
+</html>

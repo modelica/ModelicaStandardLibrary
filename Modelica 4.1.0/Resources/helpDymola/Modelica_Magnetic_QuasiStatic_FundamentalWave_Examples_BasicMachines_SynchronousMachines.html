@@ -1,0 +1,413 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Synchronous machine examples&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SynchronousMachines<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines"></a><a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines"
+>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines</a>.SynchronousMachines</h2>
+<p>
+<span class="ModelicaDescription">Synchronous machine examples</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_OpenCircuit" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_OpenCircuit"
+>SMPM_OpenCircuit</a>
+</td>
+<td>Test example: PermanentMagnetSynchronousMachine with inverter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Mains" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Mains"
+>SMPM_Mains</a>
+</td>
+<td>Permanent magnet synchronous machine operated at mains with step torque load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource"
+>SMPM_CurrentSource</a>
+</td>
+<td>Test example: PermanentMagnetSynchronousMachine fed by current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_MTPA" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_MTPA"
+>SMPM_MTPA</a>
+</td>
+<td>Test example: PermanentMagnetSynchronousMachine, investigating maximum torque per Amps</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening"
+>SMPM_FieldWeakening</a>
+</td>
+<td>Test example: Investigate field weakening of a PermanentMagnetSynchronousMachine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator"
+>SMEE_Generator</a>
+</td>
+<td>Electrical excited synchronous machine operating as generator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource"
+>SMR_CurrentSource</a>
+</td>
+<td>Test example: Synchronous reluctance machine fed by current source</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_OpenCircuit<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_OpenCircuit" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_OpenCircuit"></a><a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines"
+>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</a>.SMPM_OpenCircuit</h2>
+<p>
+<span class="ModelicaDescription">Test example: PermanentMagnetSynchronousMachine with inverter</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This example compares a time transient and a quasi-static model of a permanent magnet synchronous machine.
+The machines are operated at constant mechanical angular velocity.</p>
+
+<p>
+Simulate for 0.1 second and plot (versus time):
+</p>
+
+<ul>
+<li><code>potentialSenor.phi|potentialSensorQS.abs_y[1]</code>: potential of terminal</li>
+</ul>
+
+<h5>Note</h5>
+<p>The resistors connected to the terminals of the windings of the quasi-static machine model are necessary to numerically stabilize the simulation.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>smpmData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_Mains<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Mains" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Mains"></a><a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines"
+>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</a>.SMPM_Mains</h2>
+<p>
+<span class="ModelicaDescription">Permanent magnet synchronous machine operated at mains with step torque load</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+This example compares a time transient and a quasi-static model of a permanent magnet synchronous machine. The machines start with zero load and synchronous speed. At time <code>tStep</code> the machines are loaded with nominal torque.</p>
+
+<p>
+Simulate for 1 second and plot (versus time):
+</p>
+
+<ul>
+<li><code>currentQuasiRMSSensor|currentQuasiRMSSensorQS.I</code>: (equivalent) RMS stator current</li>
+<li><code>smpm|smpmQS.wMechanical</code>: machine speed</li>
+<li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>f</td><td>Supply frequency [Hz]</td></tr>
+<tr><td>V</td><td>Supply voltage [V]</td></tr>
+<tr><td>T_Load</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
+<tr><td>J_Load</td><td>Load inertia [kg.m2]</td></tr>
+<tr><td>smpmData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_CurrentSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource"></a><a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines"
+>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</a>.SMPM_CurrentSource</h2>
+<p>
+<span class="ModelicaDescription">Test example: PermanentMagnetSynchronousMachine fed by current source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This example compares a time transient and a quasi-static model of a permanent magnet synchronous machine. The machines are fed by a current source. The current components are oriented at the magnetic field orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque. The machines start to accelerate from standstill.</p>
+
+<p>
+Simulate for 2 seconds and plot (versus time):
+</p>
+
+<ul>
+<li><code>smpm|smpmQS.wMechanical</code>: machine speed</li>
+<li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
+</ul>
+
+<h5>Note</h5>
+<p>The resistors connected to the terminals of the windings of the quasi-static machine model are necessary
+to numerically stabilize the simulation.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>f</td><td>Actual frequency [Hz]</td></tr>
+<tr><td>tRamp</td><td>Frequency ramp [s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>smpmData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_MTPA<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_MTPA" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_MTPA"></a><a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines"
+>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</a>.SMPM_MTPA</h2>
+<p>
+<span class="ModelicaDescription">Test example: PermanentMagnetSynchronousMachine, investigating maximum torque per Amps</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This example investigates the maximum torque per amps (MTPA) of a quasi-static permanent magnet synchronous machine.
+The machines is operated at constant speed. The current magnitude is kept constant and the current angle is
+rotated from 0 to 360 degrees with the simulation period of one second.</p>
+
+<p>
+In this simulation the angle is the following angles are calculated:</p>
+
+<ul>
+<li><code>phi_v</code> = angle of voltage phasor</li>
+<li><code>phi_i</code> = angle of current phasor</li>
+<li><code>phiphi_v - phi_i</code> = angle between voltage and current phasor</li>
+<li><code>theta</code> = rotor displacement angle</li>
+<li><code>epsilon = phi - theta</code> = current angle</li>
+</ul>
+
+<p>
+Simulate for 1 second and plot (versus angle epsilon):
+</p>
+
+<ul>
+<li><code>smpmQS.tauElectrical</code>: machine torque</li>
+<li><code>smpmQS.abs_vs[1]</code>: machine phase voltage magnitude</li>
+<li><code>phi</code>: phase angle between voltage and current phasor</li>
+</ul>
+
+<h5>Note</h5>
+<p>The resistors connected to the terminals of the windings of the quasi-static machine model are necessary
+to numerically stabilize the simulation.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>f</td><td>Actual frequency [Hz]</td></tr>
+<tr><td>tRamp</td><td>Frequency ramp [s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>wNominal</td><td>Nominal angular velocity [rad/s]</td></tr>
+<tr><td>positiveRange</td><td>Use positive range of angles, if true</td></tr>
+<tr><td>smpmData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_FieldWeakening<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening"></a><a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines"
+>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</a>.SMPM_FieldWeakening</h2>
+<p>
+<span class="ModelicaDescription">Test example: Investigate field weakening of a PermanentMagnetSynchronousMachine</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This example demonstrates idealized field weakening of a quasistatic permanent magnet synchronous machine.
+</p>
+
+<p>
+At standstill, the q-axis current is prescribed by a short ramp up to the nominal current.
+The d-axis current is controlled to keep voltage &le; nominal voltage, while speed is varied up to four times nominal speed like in an automotive application. 
+Total stator current is kept &le; nominal total current. Simulate and plot versus <code>smpm.wMechanical</code>:
+</p>
+
+<ul>
+<li><code>fieldWeakeningController.vs</code>: stator voltage</li>
+<li><code>fieldWeakeningController.is</code>: stator current</li>
+<li><code>fieldWeakeningController.id</code>: d-axis current</li>
+<li><code>fieldWeakeningController.iq</code>: q-axis current</li>
+</ul>
+
+<p>
+It can be seen that when field weakening begins negative d-axis current is increased from zero while the q-axis current current has to be reduced (current limit) 
+to enable increase of the d-axis current (voltage limit).
+</p>
+
+<h5>Note</h5>
+<ul>
+<li>The resistors connected to the quasi-static source model are necessary to numerically stabilize the simulation.</li>
+<li>Inertia of the machine is set to zero to enable a proper comparison of electrical and mechanical power.</li>
+<li><code>INominal</code> denotes total nominal current, which can be applied without exceeding maximum temperature.</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>INominal</td><td>Nominal RMS current per phase [A]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>smpmData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMEE_Generator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator"></a><a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines"
+>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</a>.SMEE_Generator</h2>
+<p>
+<span class="ModelicaDescription">Electrical excited synchronous machine operating as generator</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This example compares a time transient and a quasi-static model of a electrically excited synchronous machine.
+The electrically excited synchronous generators are connected to the grid and driven with constant speed.
+Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
+rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.
+</p>
+
+<p>
+Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDisplacementAngle</code>:
+</p>
+
+<ul>
+<li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
+</ul>
+
+<p>Since the rotor slip is very low the transient and quasi-static electromagnetic torque are practically equal.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of stator phases</td></tr>
+<tr><td>VsNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>fsNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>w</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>Ie</td><td>Excitation current [A]</td></tr>
+<tr><td>Ie0</td><td>Initial excitation current [A]</td></tr>
+<tr><td>gamma0</td><td>Initial rotor displacement angle [rad]</td></tr>
+<tr><td>smeeData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMR_CurrentSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt3474955be05aa559tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource"></a><a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Examples_BasicMachines_SynchronousMachines.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines"
+>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</a>.SMR_CurrentSource</h2>
+<p>
+<span class="ModelicaDescription">Test example: Synchronous reluctance machine fed by current source</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This example compares a time transient and a quasi-static model of a synchronous reluctance machine.
+The machines are fed by a current source. The current components are oriented at the magnetic field
+orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque.
+The machines start to accelerate from standstill.</p>
+
+<p>
+Simulate for 2 seconds and plot (versus time):
+</p>
+
+<ul>
+<li><code>smpm|smpmQS.wMechanical</code>: machine speed</li>
+<li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>f</td><td>Actual frequency [Hz]</td></tr>
+<tr><td>tRamp</td><td>Frequency ramp [s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>smrData</td><td>Synchronous machine data</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:23 2026.
+</address>
+</body>
+</html>

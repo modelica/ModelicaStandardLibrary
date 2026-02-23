@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.CompressibleLiquids</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Compressible liquid models&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CompressibleLiquids<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.CompressibleLiquids"></a><a href="Modelica_Media.html#Modelica.Media"
+>Modelica.Media</a>.CompressibleLiquids</h2>
+<p>
+<span class="ModelicaDescription">Compressible liquid models</span>
+</p>
+<h3>Information</h3>
+
+
+<h4>Fluid models with linear compressibility, using PartialLinearFluid as base class.</h4>
+<p>The linear compressibility fluid models contained in this package are based on the assumptions that:
+</p>
+<ul>
+<li>The specific heat capacity at constant pressure (cp) is constant</li>
+<li>The isobaric expansion coefficient (beta) is constant</li>
+<li>The isothermal compressibility (kappa) is constant</li>
+<li>Pressure and temperature are used as states</li>
+</ul>
+<p>
+This results in models that are only valid for small temperature ranges, but sufficient to model compressibility and e.g., the "water hammer" effect. Another advantage id that only 3 values need to be measured to have an initial model. Hydraulic fluids can often be approximated by this type of model.
+</p>
+<p>
+That means that the density is a linear function in temperature and in pressure.
+In order to define the complete model, a number of constant reference values are needed which
+are computed at the reference values of the states pressure p and temperature T. The model can
+be interpreted as a linearization of a full non-linear fluid model (but it is not linear in all
+thermodynamic coordinates). Reference values are needed for
+</p>
+<ol>
+<li>the density (reference_d),</li>
+<li>the specific enthalpy (reference_h),</li>
+<li>the specific entropy (reference_s).</li>
+</ol>
+<p>
+Apart from that, a user needs to define the molar mass, MM_const.
+Note that it is possible to define a fluid by computing the reference
+values from a full non-linear fluid model by computing the package constants
+using the standard functions defined in a fluid package (see example in Common, LinearWater_pT).
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.CommonS.png" alt="Modelica.Media.CompressibleLiquids.Common" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_CompressibleLiquids_Common.html#Modelica.Media.CompressibleLiquids.Common"
+>Common</a>
+</td>
+<td>Base classes for compressible liquids</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.TwoPhaseWaterS.png" alt="Modelica.Media.CompressibleLiquids.LinearColdWater" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_CompressibleLiquids_LinearColdWater.html#Modelica.Media.CompressibleLiquids.LinearColdWater"
+>LinearColdWater</a>
+</td>
+<td>Cold water model with linear compressibility</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.TwoPhaseWaterS.png" alt="Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_CompressibleLiquids_LinearWater_pT_Ambient.html#Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient"
+>LinearWater_pT_Ambient</a>
+</td>
+<td>Liquid, linear compressibility water model at 1.01325 bar and 25 degree Celsius</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:28 2026.
+</address>
+</body>
+</html>

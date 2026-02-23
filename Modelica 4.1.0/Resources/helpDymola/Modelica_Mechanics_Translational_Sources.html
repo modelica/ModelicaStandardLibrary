@@ -1,0 +1,698 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.Translational.Sources</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Sources to drive 1D translational mechanical components&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.Translational.Sources"></a><a href="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
+>Modelica.Mechanics.Translational</a>.Sources</h2>
+<p>
+<span class="ModelicaDescription">Sources to drive 1D translational mechanical components</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains ideal sources to drive 1D mechanical translational drive trains.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</a> (Icon for packages containing sources).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl310dd47c56f8fb35itionS.png" alt="Modelica.Mechanics.Translational.Sources.Position" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Position"
+>Position</a>
+</td>
+<td>Forced movement of a flange according to a reference position</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl310dd47c56f8fb35itionS.png" alt="Modelica.Mechanics.Translational.Sources.Speed" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Speed"
+>Speed</a>
+</td>
+<td>Forced movement of a flange according to a reference speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl310dd47c56f8fb35itionS.png" alt="Modelica.Mechanics.Translational.Sources.Accelerate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Accelerate"
+>Accelerate</a>
+</td>
+<td>Forced movement of a flange according to an acceleration signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl310dd47c56f8fb35itionS.png" alt="Modelica.Mechanics.Translational.Sources.Move" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Move"
+>Move</a>
+</td>
+<td>Forced movement of a flange according to a position, velocity and acceleration signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl0b5a015ca416af63ForceS.png" alt="Modelica.Mechanics.Translational.Sources.Force" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Force"
+>Force</a>
+</td>
+<td>External force acting on a drive train element as input signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translcf0eb24682d5e446orce2S.png" alt="Modelica.Mechanics.Translational.Sources.Force2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Force2"
+>Force2</a>
+</td>
+<td>Input signal acting as force on two flanges</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Translbdc01a9e0be03cf2ForceS.png" alt="Modelica.Mechanics.Translational.Sources.InverseSpeedDependentForce" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.InverseSpeedDependentForce"
+>InverseSpeedDependentForce</a>
+</td>
+<td>Force reciprocal dependent on speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transld7cc48a70cf598faForceS.png" alt="Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce"
+>LinearSpeedDependentForce</a>
+</td>
+<td>Linear dependency of force versus speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl203e06d20d145747ForceS.png" alt="Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce"
+>QuadraticSpeedDependentForce</a>
+</td>
+<td>Quadratic dependency of force versus speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl873e79f42a8d35b2ForceS.png" alt="Modelica.Mechanics.Translational.Sources.ConstantForce" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.ConstantForce"
+>ConstantForce</a>
+</td>
+<td>Constant force, not dependent on speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transle3730a1bde3c105aForceS.png" alt="Modelica.Mechanics.Translational.Sources.SignForce" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.SignForce"
+>SignForce</a>
+</td>
+<td>Constant force changing sign with speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl6b8fa33c2bd2e973SpeedS.png" alt="Modelica.Mechanics.Translational.Sources.ConstantSpeed" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.ConstantSpeed"
+>ConstantSpeed</a>
+</td>
+<td>Constant speed, not dependent on force</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl7b5b939086121dbaeStepS.png" alt="Modelica.Mechanics.Translational.Sources.ForceStep" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.ForceStep"
+>ForceStep</a>
+</td>
+<td>Constant force, not dependent on speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Transl384f670d8f5e648eForceS.png" alt="Modelica.Mechanics.Translational.Sources.EddyCurrentForce" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.EddyCurrentForce"
+>EddyCurrentForce</a>
+</td>
+<td>Simple model of a translational eddy current brake</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Position<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl310dd47c56f8fb35itionI.png" alt="Modelica.Mechanics.Translational.Sources.Position" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.Position"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.Position</h2>
+<p>
+<span class="ModelicaDescription">Forced movement of a flange according to a reference position</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input signal <strong>s_ref</strong> defines the <strong>reference
+position</strong> in [m]. Flange <strong>flange</strong> is <strong>forced</strong>
+to move relative to the support connector according to this reference motion. According to parameter
+<strong>exact</strong> (default = <strong>false</strong>), this is done in the following way:
+</p>
+<ol>
+<li><strong>exact=true</strong><br>
+    The reference position is treated <strong>exactly</strong>. This is only possible, if
+    the input signal is defined by an analytical function which can be
+    differentiated at least twice. If this prerequisite is fulfilled,
+    the Modelica translator will differentiate the input signal twice
+    in order to compute the reference acceleration of the flange.</li>
+<li><strong>exact=false</strong><br>
+    The reference position is <strong>filtered</strong> and the second derivative
+    of the filtered curve is used to compute the reference acceleration
+    of the flange. This second derivative is <strong>not</strong> computed by
+    numerical differentiation but by an appropriate realization of the
+    filter. For filtering, a second order Bessel filter is used.
+    The critical frequency (also called cut-off frequency) of the
+    filter is defined via parameter <strong>f_crit</strong> in [Hz]. This value
+    should be selected in such a way that it is higher as the essential
+    low frequencies in the signal.</li>
+</ol>
+<p>
+The input signal can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>s</td><td>Distance between flange and support (= flange.s - support.s) [m]</td></tr>
+<tr><td>exact</td><td>Is true/false for exact treatment/filtering of the input signal, respectively</td></tr>
+<tr><td>f_crit</td><td>If exact=false, critical frequency of filter to filter input signal [Hz]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>v</td><td>If exact=false, absolute velocity of flange else dummy [m/s]</td></tr>
+<tr><td>a</td><td>If exact=false, absolute acceleration of flange else dummy [m/s2]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>s_ref</td><td>Reference position of flange as input signal [m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Speed<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl310dd47c56f8fb35itionI.png" alt="Modelica.Mechanics.Translational.Sources.Speed" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.Speed"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.Speed</h2>
+<p>
+<span class="ModelicaDescription">Forced movement of a flange according to a reference speed</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input signal <strong>v_ref</strong> defines the <strong>reference
+speed</strong> in [m/s]. Flange <strong>flange</strong> is <strong>forced</strong>
+to move relative to the support connector  according to this reference motion. According to parameter
+<strong>exact</strong> (default = <strong>false</strong>), this is done in the following way:
+</p>
+<ol>
+<li><strong>exact=true</strong><br>
+    The reference speed is treated <strong>exactly</strong>. This is only possible, if
+    the input signal is defined by an analytical function which can be
+    differentiated at least once. If this prerequisite is fulfilled,
+    the Modelica translator will differentiate the input signal once
+    in order to compute the reference acceleration of the flange.</li>
+<li><strong>exact=false</strong><br>
+    The reference speed is <strong>filtered</strong> and the first derivative
+    of the filtered curve is used to compute the reference acceleration
+    of the flange. This first derivative is <strong>not</strong> computed by
+    numerical differentiation but by an appropriate realization of the
+    filter. For filtering, a first order filter is used.
+    The critical frequency (also called cut-off frequency) of the
+    filter is defined via parameter <strong>f_crit</strong> in [Hz]. This value
+    should be selected in such a way that it is higher as the essential
+    low frequencies in the signal.</li>
+</ol>
+<p>
+The input signal can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>exact</td><td>Is true/false for exact treatment/filtering of the input signal, respectively</td></tr>
+<tr><td>f_crit</td><td>If exact=false, critical frequency of filter to filter input signal [Hz]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>s</td><td>Distance between flange and support (= flange.s - support.s) [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>v_ref</td><td>Reference speed of flange as input signal [m/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Accelerate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl310dd47c56f8fb35itionI.png" alt="Modelica.Mechanics.Translational.Sources.Accelerate" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.Accelerate"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.Accelerate</h2>
+<p>
+<span class="ModelicaDescription">Forced movement of a flange according to an acceleration signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input signal <strong>a_ref</strong> in [m/s2] moves the 1D translational flange
+connector flange with a&nbsp;predefined <em>acceleration</em>, i.e., the flange
+is <em>forced</em> to move relative to the support connector with this acceleration.
+The velocity and the position of the flange are also predefined and are determined by
+integration of the acceleration.
+</p>
+<p>
+The acceleration <var>a<sub>ref</sub></var>(<var>t</var>) can be provided from one
+of the signal generator blocks of the block library Modelica.Blocks.Source.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>s</td><td>Distance between flange and support (= flange.s - support.s) [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>a_ref</td><td>Absolute acceleration of flange as input signal [m/s2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Move<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl310dd47c56f8fb35itionI.png" alt="Modelica.Mechanics.Translational.Sources.Move" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.Move"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.Move</h2>
+<p>
+<span class="ModelicaDescription">Forced movement of a flange according to a position, velocity and acceleration signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Flange <strong>flange</strong> is <strong>forced</strong> to move relative to the support connector with a predefined motion
+according to the input signals:
+</p>
+<blockquote><pre>
+u[1]: position of flange
+u[2]: velocity of flange
+u[3]: acceleration of flange
+</pre></blockquote>
+<p>
+The user has to guarantee that the input signals are consistent to each other,
+i.e., that u[2] is the derivative of u[1] and that
+u[3] is the derivative of u[2]. There are, however,
+also applications where by purpose these conditions do not hold. For example,
+if only the position dependent terms of a mechanical system shall be
+calculated, one may provide position = position(t) and set the velocity
+and the acceleration to zero.
+</p>
+<p>
+The input signals can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>u[3]</td><td>Position, velocity and acceleration of flange as input signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Force<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl0b5a015ca416af63ForceI.png" alt="Modelica.Mechanics.Translational.Sources.Force" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.Force"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.Force</h2>
+<p>
+<span class="ModelicaDescription">External force acting on a drive train element as input signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input signal "f" in [N] characterizes an <em>external
+force</em> which acts (with positive sign) at a flange,
+i.e., the component connected to the flange is driven by force f.
+</p>
+<p>
+Input signal f can be provided from one of the signal generator
+blocks of Modelica.Blocks.Source.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>f</td><td>Driving force as input signal [N]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Force2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Translcf0eb24682d5e446orce2I.png" alt="Modelica.Mechanics.Translational.Sources.Force2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.Force2"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.Force2</h2>
+<p>
+<span class="ModelicaDescription">Input signal acting as force on two flanges</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input signal "f" in [N] characterizes an <em>external
+force</em> which acts (with positive sign) at both flanges,
+i.e., the components connected to these flanges are driven by force f.
+</p>
+<p>
+Input signal s can be provided from one of the signal generator
+blocks of Modelica.Blocks.Source.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges"
+>Translational.Interfaces.PartialTwoFlanges</a> (Component with two translational 1D flanges).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>(left) driving flange (flange axis directed into cut plane, e. g. from left to right)</td></tr>
+<tr><td>flange_b</td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td>f</td><td>Driving force as input signal [N]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InverseSpeedDependentForce<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Translbdc01a9e0be03cf2ForceI.png" alt="Modelica.Mechanics.Translational.Sources.InverseSpeedDependentForce" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.InverseSpeedDependentForce"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.InverseSpeedDependentForce</h2>
+<p>
+<span class="ModelicaDescription">Force reciprocal dependent on speed</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of inverse speed dependent force.
+</p>
+<p>
+Parameter ForceDirection chooses whether direction of force is
+the same in both directions of movement or not.
+If ForceDirection =&nbsp;false, regularization near zero speed
+avoids numerical problems.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>Translational.Interfaces.PartialForce</a> (Partial model of a force acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>f_nominal</td><td>Nominal force (if negative, torque is acting as load in positive direction of motion) [N]</td></tr>
+<tr><td>ForceDirection</td><td>Same direction of force in both directions of motion</td></tr>
+<tr><td>v_nominal</td><td>Nominal speed [m/s]</td></tr>
+<tr><td>v0</td><td>Regularization below v0 [m/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LinearSpeedDependentForce<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transld7cc48a70cf598faForceI.png" alt="Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.LinearSpeedDependentForce</h2>
+<p>
+<span class="ModelicaDescription">Linear dependency of force versus speed</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of force, linearly dependent on velocity of flange.<br>
+Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>Modelica.Mechanics.Translational.Interfaces.PartialForce</a> (Partial model of a force acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>f_nominal</td><td>Nominal force (if negative, force is acting as load in positive direction of motion) [N]</td></tr>
+<tr><td>ForceDirection</td><td>Same direction of force in both directions of motion</td></tr>
+<tr><td>v_nominal</td><td>Nominal speed [m/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE QuadraticSpeedDependentForce<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl203e06d20d145747ForceI.png" alt="Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.QuadraticSpeedDependentForce</h2>
+<p>
+<span class="ModelicaDescription">Quadratic dependency of force versus speed</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of force, quadratic dependent on velocity of flange.<br>
+Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>Modelica.Mechanics.Translational.Interfaces.PartialForce</a> (Partial model of a force acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>f_nominal</td><td>Nominal force (if negative, force is acting as load in positive direction of motion) [N]</td></tr>
+<tr><td>ForceDirection</td><td>Same direction of force in both directions of motion</td></tr>
+<tr><td>v_nominal</td><td>Nominal speed [m/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConstantForce<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl873e79f42a8d35b2ForceI.png" alt="Modelica.Mechanics.Translational.Sources.ConstantForce" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.ConstantForce"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.ConstantForce</h2>
+<p>
+<span class="ModelicaDescription">Constant force, not dependent on speed</span>
+</p>
+<h3>Information</h3>
+
+<p>Model of constant force, not dependent on velocity of flange.</p>
+<p>Please note:<br>
+Positive force accelerates in positive direction of movement, but brakes in reverse direction of movement.<br>
+Negative force brakes in positive direction of movement, but accelerates in reverse direction of movement.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>Modelica.Mechanics.Translational.Interfaces.PartialForce</a> (Partial model of a force acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>f_constant</td><td>Nominal force (if negative, force is acting as load in positive direction of motion) [N]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignForce<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transle3730a1bde3c105aForceI.png" alt="Modelica.Mechanics.Translational.Sources.SignForce" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.SignForce"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.SignForce</h2>
+<p>
+<span class="ModelicaDescription">Constant force changing sign with speed</span>
+</p>
+<h3>Information</h3>
+
+<p>Model of constant force which changes sign with direction of movement.</p>
+<p>Please note:<br>
+Positive force accelerates in both directions of movement.<br>
+Negative force brakes in both directions of movement.</p>
+<p>Around zero speed regularization avoids numerical problems.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>Modelica.Mechanics.Translational.Interfaces.PartialForce</a> (Partial model of a force acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>f_nominal</td><td>Nominal force (if negative, force is acting as load) [N]</td></tr>
+<tr><td>reg</td><td>Type of regularization</td></tr>
+<tr><td>v0</td><td>Regularization below v0 [m/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConstantSpeed<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl6b8fa33c2bd2e973SpeedI.png" alt="Modelica.Mechanics.Translational.Sources.ConstantSpeed" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.ConstantSpeed"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.ConstantSpeed</h2>
+<p>
+<span class="ModelicaDescription">Constant speed, not dependent on force</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of <strong>fixed</strong> velocity of flange, not dependent on force.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>Modelica.Mechanics.Translational.Interfaces.PartialForce</a> (Partial model of a force acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>v_fixed</td><td>Fixed speed (if negative, force is acting as load) [m/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ForceStep<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl7b5b939086121dbaeStepI.png" alt="Modelica.Mechanics.Translational.Sources.ForceStep" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.ForceStep"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.ForceStep</h2>
+<p>
+<span class="ModelicaDescription">Constant force, not dependent on speed</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of a force step at time startTime.
+Positive force accelerates in positive direction of <code>flange</code> translation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>Modelica.Mechanics.Translational.Interfaces.PartialForce</a> (Partial model of a force acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>stepForce</td><td>Height of force step (if negative, force is acting as load) [N]</td></tr>
+<tr><td>offsetForce</td><td>Offset of force [N]</td></tr>
+<tr><td>startTime</td><td>Force = offset for time &lt; startTime [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE EddyCurrentForce<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Transl384f670d8f5e648eForceI.png" alt="Modelica.Mechanics.Translational.Sources.EddyCurrentForce" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Translational.Sources.EddyCurrentForce"></a><a href="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Modelica.Mechanics.Translational.Sources</a>.EddyCurrentForce</h2>
+<p>
+<span class="ModelicaDescription">Simple model of a translational eddy current brake</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a simple model of a translational <strong>eddy current brake</strong>. The force versus speed characteristic is defined by Kloss' equation.</p>
+<p>The influence of excitation is either constant (<code>useExcitationInput=false</code>) or given by the optional input <code>excitation</code> (<code>useExcitationInput=true</code>). 
+Note that maximum force depends on square of excitation (magnetic field).</p>
+<p><strong>Thermal behaviour:</strong><br>
+The resistance of the braking fin is influenced by the actual temperature Theatport, which in turn shifts the speed v_nominal at which the (unchanged) maximum torque occurs.<br>
+If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>
+However, the speed v_nominal at which the maximum torque occurs is adapted from reference temperature TRef to the operational temperature.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>Modelica.Mechanics.Translational.Interfaces.PartialForce</a> (Partial model of a force acting at the flange (accelerates the flange)), <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useExcitationInput</td><td>Enable signal input for excitation</td></tr>
+<tr><td>constantExcitation</td><td>Excitation=1 to reach maximum force</td></tr>
+<tr><td>f_nominal</td><td>Constant maximum force (always braking) [N]</td></tr>
+<tr><td>v_nominal</td><td>Nominal speed (leads to maximum force) at reference temperature [m/s]</td></tr>
+<tr><td>TRef</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha20</td><td>Temperature coefficient of material [1/K]</td></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of component</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+<tr><td>excitation</td><td>Excitation</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:25 2026.
+</address>
+</body>
+</html>

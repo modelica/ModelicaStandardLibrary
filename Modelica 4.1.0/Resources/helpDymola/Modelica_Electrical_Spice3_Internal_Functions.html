@@ -1,0 +1,727 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Spice3.Internal.Functions</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Equations for semiconductor calculation&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Functions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Spice3.Internal.Functions"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.Functions</h2>
+<p>
+<span class="ModelicaDescription">Equations for semiconductor calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>The package Equation contains functions that are needed to model the semiconductor models. Some of these functions are used by several semiconductor models.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp"
+>junctionPotDepTemp</a>
+</td>
+<td>Temperature dependency of junction potential</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET"
+>saturationCurDepTempSPICE3MOSFET</a>
+</td>
+<td>Temperature dependency of saturation current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit"
+>junctionVCrit</a>
+</td>
+<td>Voltage limitation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3"
+>junctionParamDepTempSPICE3</a>
+</td>
+<td>Temperature dependency of junction parameters</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs"
+>junctionCapCoeffs</a>
+</td>
+<td>Coefficient calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFETRevised" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFETRevised"
+>junction2SPICE3MOSFETRevised</a>
+</td>
+<td>Junction current and conductance calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionCapRevised" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junctionCapRevised"
+>junctionCapRevised</a>
+</td>
+<td>Junction capacity</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3"
+>saturationCurDepTempSPICE3</a>
+</td>
+<td>Temperature dependency of saturation current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionVoltage23SPICE3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junctionVoltage23SPICE3"
+>junctionVoltage23SPICE3</a>
+</td>
+<td>Junction Voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junction3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junction3"
+>junction3</a>
+</td>
+<td>Junction current and conductance calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime"
+>junctionCapTransTime</a>
+</td>
+<td>Junction capacitance transittime calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junction2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junction2"
+>junction2</a>
+</td>
+<td>Junction current and conductance calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.resDepTemp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.resDepTemp"
+>resDepTemp</a>
+</td>
+<td>Temperature dependent conductance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.resDepGeom" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.resDepGeom"
+>resDepGeom</a>
+</td>
+<td>Resistance dependent from width and narrow</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3JFET" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3JFET"
+>saturationCurDepTempSPICE3JFET</a>
+</td>
+<td>Temperature dependency of saturation current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.capDepGeom" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.capDepGeom"
+>capDepGeom</a>
+</td>
+<td>Capacitance dependent from width and narrow</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp"
+>energyGapDepTemp</a>
+</td>
+<td>Temperature dependency of energy gap</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3BJT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3BJT"
+>junction2SPICE3BJT</a>
+</td>
+<td>Junction current and conductance calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp_old" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp_old"
+>energyGapDepTemp_old</a>
+</td>
+<td>Temperature dependency of energy gap</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junctionPotDepTemp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junctionPotDepTemp</h2>
+<p>
+<span class="ModelicaDescription">Temperature dependency of junction potential</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates the temperature dependent junction potential based on the actual and the nominal temperature.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phi0</td><td>[V]</td></tr>
+<tr><td>temp</td><td>Device Temperature [K]</td></tr>
+<tr><td>tnom</td><td>Nominal Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ret</td><td>Output voltage [V]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationCurDepTempSPICE3MOSFET<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.saturationCurDepTempSPICE3MOSFET</h2>
+<p>
+<span class="ModelicaDescription">Temperature dependency of saturation current</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates the temperature dependent saturation current based on the actual and the nominal temperature.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>satcur0</td><td>Saturation current [A]</td></tr>
+<tr><td>temp</td><td>Device Temperature [K]</td></tr>
+<tr><td>tnom</td><td>Nominal Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ret</td><td>Output current</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junctionVCrit<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junctionVCrit</h2>
+<p>
+<span class="ModelicaDescription">Voltage limitation</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function limits the junction voltage. If it increases 1e10, it is hold to be constant at that value.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>temp</td><td>Temperature [K]</td></tr>
+<tr><td>ncoeff</td><td>&nbsp;</td></tr>
+<tr><td>satcur</td><td>Saturation current [A]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ret</td><td>Output value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junctionParamDepTempSPICE3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junctionParamDepTempSPICE3</h2>
+<p>
+<span class="ModelicaDescription">Temperature dependency of junction parameters</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates several temperature dependent junction parameters based on the actual and the nominal temperature.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phi0</td><td>[V]</td></tr>
+<tr><td>cap0</td><td>&nbsp;</td></tr>
+<tr><td>mcoeff</td><td>&nbsp;</td></tr>
+<tr><td>temp</td><td>Device temperature [K]</td></tr>
+<tr><td>tnom</td><td>Nominal temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>junctionpot</td><td>Junction potential [V]</td></tr>
+<tr><td>junctioncap</td><td>Junction capacitance</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junctionCapCoeffs<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junctionCapCoeffs</h2>
+<p>
+<span class="ModelicaDescription">Coefficient calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal auxiliary function calculates some coefficients which are necessary for the calculation of junction capacities.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mj</td><td>&nbsp;</td></tr>
+<tr><td>fc</td><td>&nbsp;</td></tr>
+<tr><td>phij</td><td>[V]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f1</td><td>[V]</td></tr>
+<tr><td>f2</td><td>&nbsp;</td></tr>
+<tr><td>f3</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junction2SPICE3MOSFETRevised<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFETRevised" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFETRevised"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junction2SPICE3MOSFETRevised</h2>
+<p>
+<span class="ModelicaDescription">Junction current and conductance calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>voltage</td><td>Input voltage [V]</td></tr>
+<tr><td>temp</td><td>Device Temperature [K]</td></tr>
+<tr><td>ncoeff</td><td>&nbsp;</td></tr>
+<tr><td>satcur</td><td>Saturation current [A]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_current</td><td>Calculated current [A]</td></tr>
+<tr><td>out_cond</td><td>Calculated conductance [S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junctionCapRevised<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionCapRevised" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junctionCapRevised"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junctionCapRevised</h2>
+<p>
+<span class="ModelicaDescription">Junction capacity</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates the charge and the capacitance of the junction capacity dependent from the given voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>capin</td><td>Input capacitance [F]</td></tr>
+<tr><td>voltage</td><td>Input voltage [V]</td></tr>
+<tr><td>depcap</td><td>[V]</td></tr>
+<tr><td>mj</td><td>&nbsp;</td></tr>
+<tr><td>phij</td><td>&nbsp;</td></tr>
+<tr><td>f1</td><td>[V]</td></tr>
+<tr><td>f2</td><td>&nbsp;</td></tr>
+<tr><td>f3</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>capout</td><td>Output capacitance [F]</td></tr>
+<tr><td>charge</td><td>Output charge [C]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationCurDepTempSPICE3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.saturationCurDepTempSPICE3</h2>
+<p>
+<span class="ModelicaDescription">Temperature dependency of saturation current</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates the temperature dependent saturation current based on the actual and the nominal temperature.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>satcur0</td><td>Saturation current [A]</td></tr>
+<tr><td>temp</td><td>Device Temperature [K]</td></tr>
+<tr><td>tnom</td><td>Nominal Temperature [K]</td></tr>
+<tr><td>emissioncoeff</td><td>&nbsp;</td></tr>
+<tr><td>energygap</td><td>&nbsp;</td></tr>
+<tr><td>satcurexp</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ret</td><td>Output value [A]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junctionVoltage23SPICE3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionVoltage23SPICE3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junctionVoltage23SPICE3"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junctionVoltage23SPICE3</h2>
+<p>
+<span class="ModelicaDescription">Junction Voltage</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates the junction voltage based on the actual temperature, voltage and saturation current.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>vb</td><td>[V]</td></tr>
+<tr><td>ivb</td><td>[A]</td></tr>
+<tr><td>satcur</td><td>Saturation current [A]</td></tr>
+<tr><td>temp</td><td>Device temperature [K]</td></tr>
+<tr><td>ncoeff</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v23</td><td>Output value [V]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junction3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junction3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junction3"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junction3</h2>
+<p>
+<span class="ModelicaDescription">Junction current and conductance calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>voltage</td><td>Input voltage [V]</td></tr>
+<tr><td>temp</td><td>Device Temperature [K]</td></tr>
+<tr><td>ncoeff</td><td>&nbsp;</td></tr>
+<tr><td>satcur</td><td>Saturation current [A]</td></tr>
+<tr><td>v23</td><td>[V]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>current</td><td>Output current [A]</td></tr>
+<tr><td>cond</td><td>Output conductance [S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junctionCapTransTime<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junctionCapTransTime</h2>
+<p>
+<span class="ModelicaDescription">Junction capacitance transittime calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates the capacitance and the charge dependent on the transittime.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>capin</td><td>Input capacitance [F]</td></tr>
+<tr><td>voltage</td><td>Input voltage [V]</td></tr>
+<tr><td>depcap</td><td>[V]</td></tr>
+<tr><td>mj</td><td>&nbsp;</td></tr>
+<tr><td>phij</td><td>&nbsp;</td></tr>
+<tr><td>f1</td><td>[V]</td></tr>
+<tr><td>f2</td><td>&nbsp;</td></tr>
+<tr><td>f3</td><td>&nbsp;</td></tr>
+<tr><td>transittime</td><td>[s]</td></tr>
+<tr><td>conduct</td><td>Input conductance [S]</td></tr>
+<tr><td>current</td><td>Input current [A]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>capout</td><td>Output capacitance [F]</td></tr>
+<tr><td>charge</td><td>Output charge [C]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junction2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junction2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junction2"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junction2</h2>
+<p>
+<span class="ModelicaDescription">Junction current and conductance calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>voltage</td><td>Input Voltage [V]</td></tr>
+<tr><td>temp</td><td>Device Temperature [K]</td></tr>
+<tr><td>ncoeff</td><td>&nbsp;</td></tr>
+<tr><td>satcur</td><td>Saturation current [A]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>current</td><td>Output current [A]</td></tr>
+<tr><td>cond</td><td>Output conductance [S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE resDepTemp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.resDepTemp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.resDepTemp"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.resDepTemp</h2>
+<p>
+<span class="ModelicaDescription">Temperature dependent conductance</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates the conductance in dependency from the temperature.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resist</td><td>Input resistance [Ohm]</td></tr>
+<tr><td>temp</td><td>Device temperature [K]</td></tr>
+<tr><td>tnom</td><td>Nominal temperature [K]</td></tr>
+<tr><td>tc1</td><td>&nbsp;</td></tr>
+<tr><td>tc2</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>conduct</td><td>Output conductance [S]</td></tr>
+<tr><td>dCond_dTemp</td><td>Output value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE resDepGeom<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.resDepGeom" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.resDepGeom"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.resDepGeom</h2>
+<p>
+<span class="ModelicaDescription">Resistance dependent from width and narrow</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates the resistance in dependency from the geometrical values (width, narrow) and resistivity.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rsh</td><td>Input sheet resistance</td></tr>
+<tr><td>width</td><td>Input transistor width [m]</td></tr>
+<tr><td>length</td><td>Input transistor length [m]</td></tr>
+<tr><td>narrow</td><td>Input narrow [m]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out</td><td>Output value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE saturationCurDepTempSPICE3JFET<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3JFET" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3JFET"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.saturationCurDepTempSPICE3JFET</h2>
+<p>
+<span class="ModelicaDescription">Temperature dependency of saturation current</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>satcur0</td><td>Saturation current [A]</td></tr>
+<tr><td>temp</td><td>Device Temperature [K]</td></tr>
+<tr><td>tnom</td><td>Nominal Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ret</td><td>Output value [A]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE capDepGeom<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.capDepGeom" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.capDepGeom"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.capDepGeom</h2>
+<p>
+<span class="ModelicaDescription">Capacitance dependent from width and narrow</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cap0</td><td>Junction bottom capacitance [F/m2]</td></tr>
+<tr><td>capsw0</td><td>Junction sidewall capacitance [F/m]</td></tr>
+<tr><td>width</td><td>Input capacitor width [m]</td></tr>
+<tr><td>length</td><td>Input capacitor length [m]</td></tr>
+<tr><td>narrow</td><td>Input narrow [m]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out</td><td>Output value [F]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE energyGapDepTemp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.energyGapDepTemp</h2>
+<p>
+<span class="ModelicaDescription">Temperature dependency of energy gap</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates the temperature dependent energy gap based on the actual temperature, and two coefficients given as input to the function.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>temp</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ret</td><td>Output Gap Energy [eV]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE junction2SPICE3BJT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3BJT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3BJT"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.junction2SPICE3BJT</h2>
+<p>
+<span class="ModelicaDescription">Junction current and conductance calculation</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>voltage</td><td>Input Voltage [V]</td></tr>
+<tr><td>temp</td><td>Device Temperature [K]</td></tr>
+<tr><td>ncoeff1</td><td>&nbsp;</td></tr>
+<tr><td>ncoeff2</td><td>&nbsp;</td></tr>
+<tr><td>satcur1</td><td>Saturation current [A]</td></tr>
+<tr><td>satcur2</td><td>Saturation current [A]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>current1</td><td>Output current [A]</td></tr>
+<tr><td>cond1</td><td>Output conductance [S]</td></tr>
+<tr><td>current2</td><td>Output current [A]</td></tr>
+<tr><td>cond2</td><td>Output conductance [S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE energyGapDepTemp_old<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp_old" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp_old"></a><a href="Modelica_Electrical_Spice3_Internal_Functions.html#Modelica.Electrical.Spice3.Internal.Functions"
+>Modelica.Electrical.Spice3.Internal.Functions</a>.energyGapDepTemp_old</h2>
+<p>
+<span class="ModelicaDescription">Temperature dependency of energy gap</span>
+</p>
+<h3>Information</h3>
+
+<p>This internal function calculates the temperature dependent energy gap based on the actual temperature, and two coefficients given as input to the function.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>temp</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ret</td><td>Output voltage [V]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:22 2026.
+</address>
+</body>
+</html>

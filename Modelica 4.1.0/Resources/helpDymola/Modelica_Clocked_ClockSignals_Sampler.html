@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Clocked.ClockSignals.Sampler</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of blocks that sub-, super-, shift-sample clock signals&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sampler<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Clocked.ClockSignals.Sampler"></a><a href="Modelica_Clocked_ClockSignals.html#Modelica.Clocked.ClockSignals"
+>Modelica.Clocked.ClockSignals</a>.Sampler</h2>
+<p>
+<span class="ModelicaDescription">Library of blocks that sub-, super-, shift-sample clock signals</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains blocks that sub-sample, super-sample, and shift-sample
+a clock signal.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSig05226a6472610848ampleS.png" alt="Modelica.Clocked.ClockSignals.Sampler.SubSample" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_ClockSignals_Sampler.html#Modelica.Clocked.ClockSignals.Sampler.SubSample"
+>SubSample</a>
+</td>
+<td>Sub-sample the input clock and provide it as output clock</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSig616ba0bb3af1eb98ampleS.png" alt="Modelica.Clocked.ClockSignals.Sampler.SuperSample" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_ClockSignals_Sampler.html#Modelica.Clocked.ClockSignals.Sampler.SuperSample"
+>SuperSample</a>
+</td>
+<td>Super-sample the input clock and provide it as output clock</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSigd0d77f0abaf25281ampleS.png" alt="Modelica.Clocked.ClockSignals.Sampler.ShiftSample" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_ClockSignals_Sampler.html#Modelica.Clocked.ClockSignals.Sampler.ShiftSample"
+>ShiftSample</a>
+</td>
+<td>Shift the input clock by a fraction of the last interval and provide it as output clock</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SubSample<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.ClockSig05226a6472610848ampleI.png" alt="Modelica.Clocked.ClockSignals.Sampler.SubSample" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.ClockSignals.Sampler.SubSample"></a><a href="Modelica_Clocked_ClockSignals_Sampler.html#Modelica.Clocked.ClockSignals.Sampler"
+>Modelica.Clocked.ClockSignals.Sampler</a>.SubSample</h2>
+<p>
+<span class="ModelicaDescription">Sub-sample the input clock and provide it as output clock</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block sub-samples the input clock u and provides it as
+output clock y.
+</p>
+
+<p>
+To be more precise:
+The clock y is factor-times slower than the clock u. The first activation of clock y coincides with the first activation of clock u. The sub-sampling factor is defined by Integer parameter <strong>factor</strong>.
+</p>
+
+<h4>Example</h4>
+
+<p>
+The following
+<a href="Modelica_Clocked_Examples_Elementary_ClockSignals.html#Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample"
+>example</a>
+generates a periodic clock of 20 ms period, and
+then sub-samples the resulting clock signal with a factor of 3:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="../Images/Clocked/ClockSignals/SubSample_Model.png" alt="SubSample_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="../Images/Clocked/ClockSignals/SubSample_Result.png" alt="SubSample_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+<p>
+As can be seen, subSample.y picks every third-value of periodicClock.y due to the
+sub-sampling, and the sub-sampling factor = 3 is displayed in the icon of the
+subSample block. Note the down-arrow in the icon of the subSample block indicates that
+clock subSample.y is slower as clock subSample.u.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>factor</td><td>Sub-sampling factor (&gt;= 1)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of a clock as input signal</td></tr>
+<tr><td>y</td><td>Connector of a clock as output signal (clock y is slower as clock of u)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SuperSample<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.ClockSig616ba0bb3af1eb98ampleI.png" alt="Modelica.Clocked.ClockSignals.Sampler.SuperSample" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.ClockSignals.Sampler.SuperSample"></a><a href="Modelica_Clocked_ClockSignals_Sampler.html#Modelica.Clocked.ClockSignals.Sampler"
+>Modelica.Clocked.ClockSignals.Sampler</a>.SuperSample</h2>
+<p>
+<span class="ModelicaDescription">Super-sample the input clock and provide it as output clock</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block super-samples the clock input signal u and provides it as
+clock output signal y.
+</p>
+
+<p>
+To be more precise:
+Clock y is factor-times faster than clock u. The first activation of clock y coincides with the first activation of clock u. The super-sampling factor is defined by Integer parameter <strong>factor</strong>.
+</p>
+
+<h4>Example</h4>
+
+<p>
+The following
+<a href="Modelica_Clocked_Examples_Elementary_ClockSignals.html#Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample"
+>example</a>
+generates a periodic clock of 20 ms period, and
+then super-samples the resulting clock with a factor of 3:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="../Images/Clocked/ClockSignals/SuperSample_Model.png" alt="SuperSample_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="../Images/Clocked/ClockSignals/SuperSample_Result.png" alt="SuperSample_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+<p>
+As can be seen, superSample introduces factor-1 additional clock ticks for the
+output clock y. The super-sampling factor = 3 is displayed in the icon of the
+superSample block. Note the up-arrow in the icon of the superSample block indicates that
+clock superSample.y is faster as clock superSample.u.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>factor</td><td>Super-sampling factor (&gt;= 1)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of a clock as input signal</td></tr>
+<tr><td>y</td><td>Connector of a clock as output signal (clock y is faster as clock of u)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ShiftSample<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.ClockSigd0d77f0abaf25281ampleI.png" alt="Modelica.Clocked.ClockSignals.Sampler.ShiftSample" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.ClockSignals.Sampler.ShiftSample"></a><a href="Modelica_Clocked_ClockSignals_Sampler.html#Modelica.Clocked.ClockSignals.Sampler"
+>Modelica.Clocked.ClockSignals.Sampler</a>.ShiftSample</h2>
+<p>
+<span class="ModelicaDescription">Shift the input clock by a fraction of the last interval and provide it as output clock</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block shifts the first activation of clock output y by
+fraction shiftCounter/resolution of the period (or for a non-periodic signal by a fraction of the last interval).
+Here, <strong>shiftCounter</strong> and <strong>resolution</strong> are positive Integer parameters.
+</p>
+
+<p>
+To be more precise:
+The block constructs (conceptually) a clock &ldquo;cBase&rdquo;
+</p>
+
+<blockquote><pre>
+<strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), shiftCounter)
+</pre></blockquote>
+
+<p>
+and clock y starts at the second clock tick of cBase.
+</p>
+
+<h4>Example</h4>
+
+<p>
+The following
+<a href="Modelica_Clocked_Examples_Elementary_ClockSignals.html#Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample"
+>example</a>
+generates a periodic clock of 20 ms period, and
+then shifts it with shiftCounter = 4 and resolution = 3:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="../Images/Clocked/ClockSignals/ShiftSample_Model.png" alt="ShiftSample_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="../Images/Clocked/ClockSignals/ShiftSample_Result.png" alt="ShiftSample_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+<p>
+The first activation of clock output y of block shiftSample1 is shifted in time (4/3*20ms). The parameter values <strong>shiftCounter</strong> = 4 and <strong>resolution</strong> = 3 are visible at the bottom of the icon.
+</p>
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Shift first clock activation for &#39;shiftCounter/resolution*interval(u)&#39; seconds</td></tr>
+<tr><td>shiftCounter</td><td>Numerator of shifting formula</td></tr>
+<tr><td>resolution</td><td>Denominator of shifting formula</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of clock input signal</td></tr>
+<tr><td>y</td><td>Connector of clock output signal</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:03 2026.
+</address>
+</body>
+</html>

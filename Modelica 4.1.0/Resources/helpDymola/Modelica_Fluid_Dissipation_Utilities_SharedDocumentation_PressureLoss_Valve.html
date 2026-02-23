@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Valve<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipation.UsersGuideI.png" alt="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve"></a><a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss</a>.Valve</h2>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio912cec1e7c1b7a73artedS.png" alt="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.dp_severalGeometryOverall" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Valve.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.dp_severalGeometryOverall"
+>dp_severalGeometryOverall</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dp_severalGeometryOverall<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipation.UsersGuideI.png" alt="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.dp_severalGeometryOverall" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.dp_severalGeometryOverall"></a><a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Valve.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve</a>.dp_severalGeometryOverall</h2>
+
+<p>
+Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li>
+      <strong>developed fluid flow</strong>
+ </li>
+ <li>
+      <strong>ball valve</strong>
+ </li>
+ <li>
+      <strong>diaphragm valve</strong>
+ </li>
+ <li>
+      <strong>butterfly valve</strong>
+ </li>
+ <li>
+      <strong>gate valve</strong>
+ </li>
+ <li>
+      <strong>sluice valve</strong>
+ </li>
+</ul>
+
+<h4>Geometry</h4>
+<p>
+Wide variations in valve geometry are possible and a manufacturer will not necessarily maintain geometric similarity between valves of the same type but of different size. Here pressure loss can be estimated for the following types of a valve:
+</p>
+<ul>
+ <li>
+      <strong>ball valve</strong>
+ </li>
+ <li>
+      <strong>diaphragm valve</strong>
+ </li>
+ <li>
+      <strong>butterfly valve</strong>
+ </li>
+ <li>
+      <strong>gate valve</strong>
+ </li>
+ <li>
+      <strong>sluice valve</strong>
+ </li>
+</ul>
+
+<h4>Calculation</h4>
+<p>
+The mass flow rate <strong>m_flow</strong> for valves out of pressure loss is determined by:
+</p>
+
+<blockquote><pre>
+m_flow = [rho * dp * Av^2 / (zeta_TOT/2]^0.5
+m_flow = (2/zeta_TOT)^0.5 * Av * (rho * dp)^0.5
+m_flow = valveCharacteristic * Av * (rho * dp)^0.5
+</pre></blockquote>
+
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> rho                        </strong></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><strong> Av                         </strong></td><td> as (metric) flow coefficient (cross sectional area) [m^2],</td></tr>
+<tr><td><strong> m_flow                     </strong></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><strong> valveCharacteristic        </strong></td><td> as coefficient of a valve in dependence of its opening [-],</td></tr>
+<tr><td><strong> velocity                   </strong></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><strong> zeta_TOT                   </strong></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+
+<p>
+The <strong>valveCharacteristic</strong> is determined out of a correlation for the pressure loss coefficient (<strong>zeta_TOT</strong>) in dependence of its opening. The reason for introducing an additional variable
+<strong>valveCharacteristic</strong> is a different definition of the following pressure loss correlations of valves.
+</p>
+
+<h4>Verification</h4>
+<p>
+The pressure loss coefficient (<strong>zeta_TOT</strong>) of a valve with different geometries are shown in dependence of the <strong>opening</strong> in the figure below.
+</p>
+
+<div>
+<img src="../Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Valve/dp_severalGeometryOverall_z.png" alt="dp_severalGeometryOverall_z">
+</div>
+
+<p>
+Note that the pressure loss coefficients (<strong>zeta_TOT</strong>) are numerically optimized for very small openings (opening &le; 5%). At openings smaller than 5% the pressure loss coefficient is smoothly set
+to a maximum value (<strong>zeta_TOT_max</strong>) to be adjusted as parameter. Therefore a very small leakage mass flow rate can be adjusted for a given pressure difference at almost closed valves. A very small
+leakage mass flow rate can often be neglected in system simulation with valves, whereas the numerical behaviour of the simulation is improved.
+</p>
+<p>
+The mass flow rate of different valves at a constant opening of 50% in dependence of pressure loss is shown in the figure below.
+</p>
+
+<div>
+<img src="../Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Valve/dp_severalGeometryOverall.png" alt="dp_severalGeometryOverall"/>
+</div>
+
+<h4>References</h4>
+<dl>
+<dt>Miller,D.S.:</dt>
+    <dd><strong>Internal flow systems</strong>.
+    Volume 5th of BHRA Fluid Engineering Series. BHRA Fluid Engineering, 1978.</dd>
+</dl>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:26 2026.
+</address>
+</body>
+</html>

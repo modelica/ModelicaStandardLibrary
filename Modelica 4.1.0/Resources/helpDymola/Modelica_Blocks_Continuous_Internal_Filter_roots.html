@@ -1,0 +1,440 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.Continuous.Internal.Filter.roots</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Filter roots and gain as needed for block implementations&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE roots<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.Continuous.Internal.Filter.roots"></a><a href="Modelica_Blocks_Continuous_Internal_Filter.html#Modelica.Blocks.Continuous.Internal.Filter"
+>Modelica.Blocks.Continuous.Internal.Filter</a>.roots</h2>
+<p>
+<span class="ModelicaDescription">Filter roots and gain as needed for block implementations</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingS.png" alt="Modelica.Blocks.Continuous.Internal.Filter.roots.lowPass" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Continuous_Internal_Filter_roots.html#Modelica.Blocks.Continuous.Internal.Filter.roots.lowPass"
+>lowPass</a>
+</td>
+<td>Return low pass filter roots as needed for block for given cut-off frequency</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingS.png" alt="Modelica.Blocks.Continuous.Internal.Filter.roots.highPass" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Continuous_Internal_Filter_roots.html#Modelica.Blocks.Continuous.Internal.Filter.roots.highPass"
+>highPass</a>
+</td>
+<td>Return high pass filter roots as needed for block for given cut-off frequency</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingS.png" alt="Modelica.Blocks.Continuous.Internal.Filter.roots.bandPass" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Continuous_Internal_Filter_roots.html#Modelica.Blocks.Continuous.Internal.Filter.roots.bandPass"
+>bandPass</a>
+</td>
+<td>Return band pass filter roots as needed for block for given cut-off frequency</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingS.png" alt="Modelica.Blocks.Continuous.Internal.Filter.roots.bandStop" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Continuous_Internal_Filter_roots.html#Modelica.Blocks.Continuous.Internal.Filter.roots.bandStop"
+>bandStop</a>
+</td>
+<td>Return band stop filter roots as needed for block for given cut-off frequency</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE lowPass<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingI.png" alt="Modelica.Blocks.Continuous.Internal.Filter.roots.lowPass" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Continuous.Internal.Filter.roots.lowPass"></a><a href="Modelica_Blocks_Continuous_Internal_Filter_roots.html#Modelica.Blocks.Continuous.Internal.Filter.roots"
+>Modelica.Blocks.Continuous.Internal.Filter.roots</a>.lowPass</h2>
+<p>
+<span class="ModelicaDescription">Return low pass filter roots as needed for block for given cut-off frequency</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The goal is to implement the filter in the following form:
+</p>
+
+<blockquote><pre>
+// real pole:
+ der(x) = r*x - r*u
+     y  = x
+
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = x2;
+
+          ku = (a^2 + b^2)/b
+</pre></blockquote>
+<p>
+This representation has the following transfer function:
+</p>
+<blockquote><pre>
+// real pole:
+    s*y = r*y - r*u
+  or
+    (s-r)*y = -r*u
+  or
+    y = -r/(s-r)*u
+
+  comparing coefficients with
+    y = cr/(s + cr)*u  ->  r = -cr      // r is the real eigenvalue
+
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  ->  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  ->  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   ->  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = x2
+
+  comparing coefficients with
+    y = c0/(s^2 + c1*s + c0)*u  ->  a  = -c1/2
+                                    b  = sqrt(c0 - a^2)
+                                    ku = c0/b
+                                       = (a^2 + b^2)/b
+
+  comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+  shows that:
+    a: real part of eigenvalue
+    b: imaginary part of eigenvalue
+
+  time -> infinity:
+    y(s=0) = x2(s=0) = 1
+             x1(s=0) = -ku*a/(a^2 + b^2)*u
+                     = -(a/b)*u
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cr_in[:]</td><td>Coefficients of real poles of base filter</td></tr>
+<tr><td>c0_in[:]</td><td>Coefficients of s^0 term of base filter if conjugate complex pole</td></tr>
+<tr><td>c1_in[size(c0_in, 1)]</td><td>Coefficients of s^1 term of base filter if conjugate complex pole</td></tr>
+<tr><td>f_cut</td><td>Cut-off frequency [Hz]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>r[size(cr_in, 1)]</td><td>Real eigenvalues</td></tr>
+<tr><td>a[size(c0_in, 1)]</td><td>Real parts of complex conjugate eigenvalues</td></tr>
+<tr><td>b[size(c0_in, 1)]</td><td>Imaginary parts of complex conjugate eigenvalues</td></tr>
+<tr><td>ku[size(c0_in, 1)]</td><td>Input gain</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE highPass<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingI.png" alt="Modelica.Blocks.Continuous.Internal.Filter.roots.highPass" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Continuous.Internal.Filter.roots.highPass"></a><a href="Modelica_Blocks_Continuous_Internal_Filter_roots.html#Modelica.Blocks.Continuous.Internal.Filter.roots"
+>Modelica.Blocks.Continuous.Internal.Filter.roots</a>.highPass</h2>
+<p>
+<span class="ModelicaDescription">Return high pass filter roots as needed for block for given cut-off frequency</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The goal is to implement the filter in the following form:
+</p>
+
+<blockquote><pre>
+// real pole:
+ der(x) = r*x - r*u
+     y  = -x + u
+
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = k1*x1 + k2*x2 + u;
+
+          ku = (a^2 + b^2)/b
+          k1 = 2*a/ku
+          k2 = (a^2 - b^2) / (b*ku)
+             = (a^2 - b^2) / (a^2 + b^2)
+             = (1 - (b/a)^2) / (1 + (b/a)^2)
+</pre></blockquote>
+<p>
+This representation has the following transfer function:
+</p>
+<blockquote><pre>
+// real pole:
+    s*x = r*x - r*u
+  or
+    (s-r)*x = -r*u   -> x = -r/(s-r)*u
+  or
+    y = r/(s-r)*u + (s-r)/(s-r)*u
+      = (r+s-r)/(s-r)*u
+      = s/(s-r)*u
+
+// comparing coefficients with
+    y = s/(s + cr)*u  ->  r = -cr      // r is the real eigenvalue
+
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  ->  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  ->  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   ->  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = k1*x1 + k2*x2 + u
+       = (k1*ku*(s-a) + k2*b*ku +  s^2 - 2*a*s + a^2 + b^2) /
+         (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + (k1*ku - 2*a)*s + k2*b*ku - k1*ku*a + a^2 + b^2) /
+         (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + (2*a-2*a)*s + a^2 - b^2 - 2*a^2 + a^2 + b^2) /
+         (s^2 - 2*a*s + a^2 + b^2)*u
+       = s^2 / (s^2 - 2*a*s + a^2 + b^2)*u
+
+// comparing coefficients with
+    y = s^2/(s^2 + c1*s + c0)*u  ->  a = -c1/2
+                                     b = sqrt(c0 - a^2)
+
+// comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+// shows that:
+//   a: real part of eigenvalue
+//   b: imaginary part of eigenvalue
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cr_in[:]</td><td>Coefficients of real poles of base filter</td></tr>
+<tr><td>c0_in[:]</td><td>Coefficients of s^0 term of base filter if conjugate complex pole</td></tr>
+<tr><td>c1_in[size(c0_in, 1)]</td><td>Coefficients of s^1 term of base filter if conjugate complex pole</td></tr>
+<tr><td>f_cut</td><td>Cut-off frequency [Hz]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>r[size(cr_in, 1)]</td><td>Real eigenvalues</td></tr>
+<tr><td>a[size(c0_in, 1)]</td><td>Real parts of complex conjugate eigenvalues</td></tr>
+<tr><td>b[size(c0_in, 1)]</td><td>Imaginary parts of complex conjugate eigenvalues</td></tr>
+<tr><td>ku[size(c0_in, 1)]</td><td>Gains of input terms</td></tr>
+<tr><td>k1[size(c0_in, 1)]</td><td>Gains of y = k1*x1 + k2*x + u</td></tr>
+<tr><td>k2[size(c0_in, 1)]</td><td>Gains of y = k1*x1 + k2*x + u</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bandPass<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingI.png" alt="Modelica.Blocks.Continuous.Internal.Filter.roots.bandPass" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Continuous.Internal.Filter.roots.bandPass"></a><a href="Modelica_Blocks_Continuous_Internal_Filter_roots.html#Modelica.Blocks.Continuous.Internal.Filter.roots"
+>Modelica.Blocks.Continuous.Internal.Filter.roots</a>.bandPass</h2>
+<p>
+<span class="ModelicaDescription">Return band pass filter roots as needed for block for given cut-off frequency</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The goal is to implement the filter in the following form:
+</p>
+
+<blockquote><pre>
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = k1*x1 + k2*x2;
+
+          ku = (a^2 + b^2)/b
+          k1 = cn/ku
+          k2 = cn*a/(b*ku)
+</pre></blockquote>
+<p>
+This representation has the following transfer function:
+</p>
+<blockquote><pre>
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  ->  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  ->  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   ->  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = k1*x1 + k2*x2
+       = (k1*ku*(s-a) + k2*b*ku) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (k1*ku*s + k2*b*ku - k1*ku*a) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (cn*s + cn*a - cn*a) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = cn*s / (s^2 - 2*a*s + a^2 + b^2)*u
+
+  comparing coefficients with
+    y = cn*s / (s^2 + c1*s + c0)*u  ->  a = -c1/2
+                                        b = sqrt(c0 - a^2)
+
+  comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+  shows that:
+    a: real part of eigenvalue
+    b: imaginary part of eigenvalue
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cr_in[:]</td><td>Coefficients of real poles of base filter</td></tr>
+<tr><td>c0_in[:]</td><td>Coefficients of s^0 term of base filter if conjugate complex pole</td></tr>
+<tr><td>c1_in[size(c0_in, 1)]</td><td>Coefficients of s^1 term of base filter if conjugate complex pole</td></tr>
+<tr><td>f_min</td><td>Band of band pass filter is f_min (A=-3db) .. f_max (A=-3db) [Hz]</td></tr>
+<tr><td>f_max</td><td>Upper band frequency [Hz]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>a[size(cr_in, 1) + 2*size(c0_in, 1)]</td><td>Real parts of complex conjugate eigenvalues</td></tr>
+<tr><td>b[size(cr_in, 1) + 2*size(c0_in, 1)]</td><td>Imaginary parts of complex conjugate eigenvalues</td></tr>
+<tr><td>ku[size(cr_in, 1) + 2*size(c0_in, 1)]</td><td>Gains of input terms</td></tr>
+<tr><td>k1[size(cr_in, 1) + 2*size(c0_in, 1)]</td><td>Gains of y = k1*x1 + k2*x</td></tr>
+<tr><td>k2[size(cr_in, 1) + 2*size(c0_in, 1)]</td><td>Gains of y = k1*x1 + k2*x</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bandStop<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Continuou18adee36f45d2a60mpingI.png" alt="Modelica.Blocks.Continuous.Internal.Filter.roots.bandStop" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Continuous.Internal.Filter.roots.bandStop"></a><a href="Modelica_Blocks_Continuous_Internal_Filter_roots.html#Modelica.Blocks.Continuous.Internal.Filter.roots"
+>Modelica.Blocks.Continuous.Internal.Filter.roots</a>.bandStop</h2>
+<p>
+<span class="ModelicaDescription">Return band stop filter roots as needed for block for given cut-off frequency</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The goal is to implement the filter in the following form:
+</p>
+
+<blockquote><pre>
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = k1*x1 + k2*x2 + u;
+
+          ku = (a^2 + b^2)/b
+          k1 = 2*a/ku
+          k2 = (c0 + a^2 - b^2)/(b*ku)
+</pre></blockquote>
+<p>
+This representation has the following transfer function:
+</p>
+<blockquote><pre>
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  ->  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  ->  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   ->  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = k1*x1 + k2*x2 + u
+       = (k1*ku*(s-a) + k2*b*ku + s^2 - 2*a*s + a^2 + b^2) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + (k1*ku-2*a)*s + k2*b*ku - k1*ku*a + a^2 + b^2) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + c0 + a^2 - b^2 - 2*a^2 + a^2 + b^2) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + c0) / (s^2 - 2*a*s + a^2 + b^2)*u
+
+  comparing coefficients with
+    y = (s^2 + c0) / (s^2 + c1*s + c0)*u  ->  a = -c1/2
+                                              b = sqrt(c0 - a^2)
+
+  comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+  shows that:
+    a: real part of eigenvalue
+    b: imaginary part of eigenvalue
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cr_in[:]</td><td>Coefficients of real poles of base filter</td></tr>
+<tr><td>c0_in[:]</td><td>Coefficients of s^0 term of base filter if conjugate complex pole</td></tr>
+<tr><td>c1_in[size(c0_in, 1)]</td><td>Coefficients of s^1 term of base filter if conjugate complex pole</td></tr>
+<tr><td>f_min</td><td>Band of band stop filter is f_min (A=-3db) .. f_max (A=-3db) [Hz]</td></tr>
+<tr><td>f_max</td><td>Upper band frequency [Hz]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>a[size(cr_in, 1) + 2*size(c0_in, 1)]</td><td>Real parts of complex conjugate eigenvalues</td></tr>
+<tr><td>b[size(cr_in, 1) + 2*size(c0_in, 1)]</td><td>Imaginary parts of complex conjugate eigenvalues</td></tr>
+<tr><td>ku[size(cr_in, 1) + 2*size(c0_in, 1)]</td><td>Gains of input terms</td></tr>
+<tr><td>k1[size(cr_in, 1) + 2*size(c0_in, 1)]</td><td>Gains of y = k1*x1 + k2*x</td></tr>
+<tr><td>k2[size(cr_in, 1) + 2*size(c0_in, 1)]</td><td>Gains of y = k1*x1 + k2*x</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:58:55 2026.
+</address>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Polyphase.Interfaces</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Interfaces for electrical polyphase models&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Polyphase.Interfaces"></a><a href="Modelica_Electrical_Polyphase.html#Modelica.Electrical.Polyphase"
+>Modelica.Electrical.Polyphase</a>.Interfaces</h2>
+<p>
+<span class="ModelicaDescription">Interfaces for electrical polyphase models</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains connectors and interfaces (partial models) for
+electrical polyphase components, based on Modelica.Electrical.Analog.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
+>Modelica.Icons.InterfacesPackage</a> (Icon for packages containing interfaces).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp7a51914994617993.PlugS.png" alt="Modelica.Electrical.Polyphase.Interfaces.Plug" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.Plug"
+>Plug</a>
+</td>
+<td>Polyphase electrical plug with m pins</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp8d567fd6cb0cd0e9ePlugS.png" alt="Modelica.Electrical.Polyphase.Interfaces.PositivePlug" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.PositivePlug"
+>PositivePlug</a>
+</td>
+<td>Positive polyphase electrical plug with m pins</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp94ddbe9ac42658e9ePlugS.png" alt="Modelica.Electrical.Polyphase.Interfaces.NegativePlug" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.NegativePlug"
+>NegativePlug</a>
+</td>
+<td>Negative polyphase electrical plug with m pins</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp6646952464eb7260tPortS.png" alt="Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>ConditionalHeatPort</a>
+</td>
+<td>Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp18f6dec78b6ef4f6oPlugS.png" alt="Modelica.Electrical.Polyphase.Interfaces.TwoPlug" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>TwoPlug</a>
+</td>
+<td>Component with one polyphase electrical port</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polyp18f6dec78b6ef4f6oPlugS.png" alt="Modelica.Electrical.Polyphase.Interfaces.OnePort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.OnePort"
+>OnePort</a>
+</td>
+<td>Component with two electrical plugs and currents from plug_p to plug_n</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypcf57cb335bc0f860rPlugS.png" alt="Modelica.Electrical.Polyphase.Interfaces.FourPlug" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.FourPlug"
+>FourPlug</a>
+</td>
+<td>Component with two polyphase electrical ports</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Polypcf57cb335bc0f860rPlugS.png" alt="Modelica.Electrical.Polyphase.Interfaces.TwoPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPort"
+>TwoPort</a>
+</td>
+<td>Component with two polyphase electrical ports, including currents</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Plug<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Polyphase.Interfaces.Plug"></a><a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces"
+>Modelica.Electrical.Polyphase.Interfaces</a>.Plug</h2>
+<p>
+<span class="ModelicaDescription">Polyphase electrical plug with m pins</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connectors PositivePlug and NegativePlug are nearly identical.
+The only difference is that the icons are different in order
+to identify more easily the plugs of a component.
+Usually, connector PositivePlug is used for the positive and
+connector NegativePlug for the negative plug of an electrical component.<br>
+Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>pin[m]</td><td>Pins of the plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PositivePlug<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp8d567fd6cb0cd0e9ePlugI.png" alt="Modelica.Electrical.Polyphase.Interfaces.PositivePlug" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Interfaces.PositivePlug"></a><a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces"
+>Modelica.Electrical.Polyphase.Interfaces</a>.PositivePlug</h2>
+<p>
+<span class="ModelicaDescription">Positive polyphase electrical plug with m pins</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connectors PositivePlug and NegativePlug are nearly identical.
+The only difference is that the icons are different in order
+to identify more easily the plugs of a component.
+Usually, connector PositivePlug is used for the positive and
+connector NegativePlug for the negative plug of an electrical component.<br>
+Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.Plug"
+>Plug</a> (Polyphase electrical plug with m pins).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>pin[m]</td><td>Pins of the plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE NegativePlug<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp94ddbe9ac42658e9ePlugI.png" alt="Modelica.Electrical.Polyphase.Interfaces.NegativePlug" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Interfaces.NegativePlug"></a><a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces"
+>Modelica.Electrical.Polyphase.Interfaces</a>.NegativePlug</h2>
+<p>
+<span class="ModelicaDescription">Negative polyphase electrical plug with m pins</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connectors PositivePlug and NegativePlug are nearly identical.
+The only difference is that the icons are different in order
+to identify more easily the plugs of a component.
+Usually, connector PositivePlug is used for the positive and
+connector NegativePlug for the negative plug of an electrical component.<br>
+Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.Plug"
+>Plug</a> (Polyphase electrical plug with m pins).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>pin[m]</td><td>Pins of the plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConditionalHeatPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp6646952464eb7260tPortI.png" alt="Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"></a><a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces"
+>Modelica.Electrical.Polyphase.Interfaces</a>.ConditionalHeatPort</h2>
+<p>
+<span class="ModelicaDescription">Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This partial model provides conditional heat ports for the connection to a thermal network.
+</p>
+<ul>
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
+     the fixed device temperatures.</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, all heat ports are available.</li>
+</ul>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TwoPlug<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp18f6dec78b6ef4f6oPlugI.png" alt="Modelica.Electrical.Polyphase.Interfaces.TwoPlug" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Interfaces.TwoPlug"></a><a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces"
+>Modelica.Electrical.Polyphase.Interfaces</a>.TwoPlug</h2>
+<p>
+<span class="ModelicaDescription">Component with one polyphase electrical port</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Superclass of elements which have <strong>two</strong> electrical plugs:
+the positive plug connector <em>plug_p</em>, and the negative plug connector <em>plug_n</em>.
+The currents flowing into plug_p are provided explicitly as currents i[m].
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OnePort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polyp18f6dec78b6ef4f6oPlugI.png" alt="Modelica.Electrical.Polyphase.Interfaces.OnePort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Interfaces.OnePort"></a><a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces"
+>Modelica.Electrical.Polyphase.Interfaces</a>.OnePort</h2>
+<p>
+<span class="ModelicaDescription">Component with two electrical plugs and currents from plug_p to plug_n</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Superclass of elements which have <strong>two</strong> electrical plugs:
+the positive plug connector <em>plug_p</em>, and the negative plug connector <em>plug_n</em>.
+The currents flowing into plug_p are provided explicitly as currents i[m].
+It is assumed that the currents flowing into plug_p are identical to the currents flowing out of plug_n.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.TwoPlug"
+>TwoPlug</a> (Component with one polyphase electrical port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td>plug_n</td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FourPlug<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypcf57cb335bc0f860rPlugI.png" alt="Modelica.Electrical.Polyphase.Interfaces.FourPlug" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Interfaces.FourPlug"></a><a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces"
+>Modelica.Electrical.Polyphase.Interfaces</a>.FourPlug</h2>
+<p>
+<span class="ModelicaDescription">Component with two polyphase electrical ports</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Superclass of elements which have <strong>four</strong> electrical plugs.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p1</td><td>Positive electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td>plug_p2</td><td>Positive electrical polyphase plug of port 2 with m pins</td></tr>
+<tr><td>plug_n1</td><td>Negative electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td>plug_n2</td><td>Negative electrical polyphase plug of port 2 with m pins</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TwoPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Polypcf57cb335bc0f860rPlugI.png" alt="Modelica.Electrical.Polyphase.Interfaces.TwoPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Polyphase.Interfaces.TwoPort"></a><a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces"
+>Modelica.Electrical.Polyphase.Interfaces</a>.TwoPort</h2>
+<p>
+<span class="ModelicaDescription">Component with two polyphase electrical ports, including currents</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Superclass of elements which have <strong>four</strong> electrical plugs.
+It is assumed that the currents flowing into plug_p1 are identical to the currents flowing out of plug_n1,
+and that the currents flowing into plug_p2 are identical to the currents flowing out of plug_n2.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.FourPlug"
+>FourPlug</a> (Component with two polyphase electrical ports).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p1</td><td>Positive electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td>plug_p2</td><td>Positive electrical polyphase plug of port 2 with m pins</td></tr>
+<tr><td>plug_n1</td><td>Negative electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td>plug_n2</td><td>Negative electrical polyphase plug of port 2 with m pins</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:19 2026.
+</address>
+</body>
+</html>

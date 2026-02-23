@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Clocked</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Clock triggered blocks for describing synchronous behavior suited for implementation of control
+systems&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Clocked<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Clocked"></a><a href="Modelica.html#Modelica"
+>Modelica</a>.Clocked</h2>
+<p>
+<span class="ModelicaDescription">Clock triggered blocks for describing synchronous behavior suited for implementation of control
+systems</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Library <strong>Modelica.Clocked</strong> is a Modelica package
+to precisely define and synchronize sampled data systems with different sampling rates.
+The library has elements to define periodic clocks and event clocks that trigger elements to sample, sub-sample, super-sample, or shift-sample partitions synchronously. Optionally, quantization effects, computational delay or noise can be simulated. Continuous-time equations can be automatically discretized and utilized in a sampled data system. The sample rate of
+a partition need to be defined only at one location.
+</p>
+
+<p>
+In the following
+<a href="Modelica_Clocked_Examples_SimpleControlledDrive.html#Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController"
+>example</a>
+a simple sampled data system is shown, where the borders of the
+discrete-time partition are marked by the sample and hold operators, a clocked PI
+controller is used in the partition and the sample
+rate is defined at one location with a clock:
+</p>
+
+<div>
+<img src="../Images/Clocked/SimpleSampledSystem.png" alt="Simple sampled-data system">
+</div>
+<p>
+The initial version of this library was developed and released under the name <strong>Modelica_Synchronous</strong> library
+before the library became a package of the Modelica Standard Library using the name <strong>Modelica.Clocked</strong>.
+The basic principles and components are the same as in the initial library, therefore the introductory material
+for <strong>Modelica_Synchronous</strong> is still valid, in particular:
+</p>
+<ul>
+<li> <a href="../Documentation/Clocked/Modelica_Synchronous.pdf">Modelica_Synchronous.pdf</a>
+     is a slide set that provides an overview of the Library.</li>
+<li><a href="https://www.doi.org/10.3384/ecp1207627">A Library for Synchronous Control Systems in Modelica</a> is the corresponding paper.</li>
+</ul>
+<p>
+Furthermore:
+</p>
+<ul>
+<li> <a href="Modelica_Clocked_UsersGuide.html#Modelica.Clocked.UsersGuide"
+>User's Guide</a>
+     discusses the most important aspects of this library.</li>
+<li><a href="Modelica_Clocked_UsersGuide_ReleaseNotes.html#Modelica.Clocked.UsersGuide.ReleaseNotes"
+>Release Notes</a>
+     summarizes the changes of the library releases.</li>
+<li> <a href="Modelica_Clocked_UsersGuide.html#Modelica.Clocked.UsersGuide.Contact"
+>Contact</a>
+     gives author and acknowledgement information for this library.</li>
+</ul>
+<p>
+<em>Copyright &copy; 2012-2025, Modelica Association and contributors.</em>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.UsersGuideS.png" alt="Modelica.Clocked.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_UsersGuide.html#Modelica.Clocked.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s Guide</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ExamplesS.png" alt="Modelica.Clocked.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Examples.html#Modelica.Clocked.Examples"
+>Examples</a>
+</td>
+<td>Library of examples to demonstrate the usage of package Modelica.Clocked</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSignalsS.png" alt="Modelica.Clocked.ClockSignals" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_ClockSignals.html#Modelica.Clocked.ClockSignals"
+>ClockSignals</a>
+</td>
+<td>Library of blocks for clocked signals</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSignalsS.png" alt="Modelica.Clocked.RealSignals" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_RealSignals.html#Modelica.Clocked.RealSignals"
+>RealSignals</a>
+</td>
+<td>Library of clocked blocks for Real signals</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSignalsS.png" alt="Modelica.Clocked.IntegerSignals" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_IntegerSignals.html#Modelica.Clocked.IntegerSignals"
+>IntegerSignals</a>
+</td>
+<td>Library of clocked blocks for Integer signals</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.ClockSignalsS.png" alt="Modelica.Clocked.BooleanSignals" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_BooleanSignals.html#Modelica.Clocked.BooleanSignals"
+>BooleanSignals</a>
+</td>
+<td>Library of clocked blocks for Boolean signals</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.TypesS.png" alt="Modelica.Clocked.Types" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_Types.html#Modelica.Clocked.Types"
+>Types</a>
+</td>
+<td>Library of types with choices, especially to build menus</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:01 2026.
+</address>
+</body>
+</html>

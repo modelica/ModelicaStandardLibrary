@@ -1,0 +1,1486 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Analog.Sources</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Time-dependent and controlled voltage and current sources&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Analog.Sources"></a><a href="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</a>.Sources</h2>
+<p>
+<span class="ModelicaDescription">Time-dependent and controlled voltage and current sources</span>
+</p>
+<h3>Information</h3>
+
+<p>This package contains time-dependent and controlled voltage and current sources. Most of the sources use the behavior modeled in the Modelica.Blocks.Sources package. All sources are ideal in the sense that <strong>no</strong> internal resistances are included.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</a> (Icon for packages containing sources).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo3b14d7a8b1cb6b1eltageS.png" alt="Modelica.Electrical.Analog.Sources.SignalVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SignalVoltage"
+>SignalVoltage</a>
+</td>
+<td>Generic voltage source using the input signal as source voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo40111d4118de27d4ourceS.png" alt="Modelica.Electrical.Analog.Sources.ConstantVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ConstantVoltage"
+>ConstantVoltage</a>
+</td>
+<td>Source for constant voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo896b46b0234261c0ltageS.png" alt="Modelica.Electrical.Analog.Sources.StepVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.StepVoltage"
+>StepVoltage</a>
+</td>
+<td>Step voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo3232e3b62344c9c0ltageS.png" alt="Modelica.Electrical.Analog.Sources.RampVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.RampVoltage"
+>RampVoltage</a>
+</td>
+<td>Ramp voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo2f6e899f2341ca68ltageS.png" alt="Modelica.Electrical.Analog.Sources.SineVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SineVoltage"
+>SineVoltage</a>
+</td>
+<td>Sine voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo9a5e9f57b29b8457ltageS.png" alt="Modelica.Electrical.Analog.Sources.CosineVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.CosineVoltage"
+>CosineVoltage</a>
+</td>
+<td>Cosine voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo90fb2a011197f04eitudeS.png" alt="Modelica.Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude"
+>SineVoltageVariableFrequencyAndAmplitude</a>
+</td>
+<td>Sine voltage source with variable frequency and amplitude</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoe0b1a6a9bf68d300itudeS.png" alt="Modelica.Electrical.Analog.Sources.CosineVoltageVariableFrequencyAndAmplitude" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.CosineVoltageVariableFrequencyAndAmplitude"
+>CosineVoltageVariableFrequencyAndAmplitude</a>
+</td>
+<td>Cosine voltage source with variable frequency and amplitude</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo3a86f46265b2f848ltageS.png" alt="Modelica.Electrical.Analog.Sources.ExpSineVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ExpSineVoltage"
+>ExpSineVoltage</a>
+</td>
+<td>Exponentially damped sine voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoabe0de966329743fltageS.png" alt="Modelica.Electrical.Analog.Sources.ExponentialsVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ExponentialsVoltage"
+>ExponentialsVoltage</a>
+</td>
+<td>Rising and falling exponential voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analob4a0a5db2e438ab7ltageS.png" alt="Modelica.Electrical.Analog.Sources.PulseVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.PulseVoltage"
+>PulseVoltage</a>
+</td>
+<td>Pulse voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoe9f8b8458e4da465ltageS.png" alt="Modelica.Electrical.Analog.Sources.SawToothVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SawToothVoltage"
+>SawToothVoltage</a>
+</td>
+<td>Saw tooth voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo5e89e4944b6948e4ltageS.png" alt="Modelica.Electrical.Analog.Sources.TrapezoidVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.TrapezoidVoltage"
+>TrapezoidVoltage</a>
+</td>
+<td>Trapezoidal voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo532de7ed6b347504ltageS.png" alt="Modelica.Electrical.Analog.Sources.LightningImpulseVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.LightningImpulseVoltage"
+>LightningImpulseVoltage</a>
+</td>
+<td>Lightning impulse voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo314c154e2c1255b7ltageS.png" alt="Modelica.Electrical.Analog.Sources.TableVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.TableVoltage"
+>TableVoltage</a>
+</td>
+<td>Voltage source by linear interpolation in a table</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo158b1d9dbf94a6b6ltageS.png" alt="Modelica.Electrical.Analog.Sources.SupplyVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SupplyVoltage"
+>SupplyVoltage</a>
+</td>
+<td>Supply voltage (positive and negative)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo1ffbc5b7c4287a2arrentS.png" alt="Modelica.Electrical.Analog.Sources.SignalCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SignalCurrent"
+>SignalCurrent</a>
+</td>
+<td>Generic current source using the input signal as source current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo20af035b78436bacrrentS.png" alt="Modelica.Electrical.Analog.Sources.ConstantCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ConstantCurrent"
+>ConstantCurrent</a>
+</td>
+<td>Source for constant current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo6e5234bf56a170f4rrentS.png" alt="Modelica.Electrical.Analog.Sources.StepCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.StepCurrent"
+>StepCurrent</a>
+</td>
+<td>Step current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo1719d1c556a7d8f4rrentS.png" alt="Modelica.Electrical.Analog.Sources.RampCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.RampCurrent"
+>RampCurrent</a>
+</td>
+<td>Ramp current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo145577ae56a2db5crrentS.png" alt="Modelica.Electrical.Analog.Sources.SineCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SineCurrent"
+>SineCurrent</a>
+</td>
+<td>Sine current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo7f458d66c7789563rrentS.png" alt="Modelica.Electrical.Analog.Sources.CosineCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.CosineCurrent"
+>CosineCurrent</a>
+</td>
+<td>Cosine current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo283ed11e33ff1b88itudeS.png" alt="Modelica.Electrical.Analog.Sources.SineCurrentVariableFrequencyAndAmplitude" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SineCurrentVariableFrequencyAndAmplitude"
+>SineCurrentVariableFrequencyAndAmplitude</a>
+</td>
+<td>Sine current source with variable frequency and amplitude</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo77f54dc69d0038c6itudeS.png" alt="Modelica.Electrical.Analog.Sources.CosineCurrentVariableFrequencyAndAmplitude" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.CosineCurrentVariableFrequencyAndAmplitude"
+>CosineCurrentVariableFrequencyAndAmplitude</a>
+</td>
+<td>Cosine current source with variable frequency and amplitude</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo1f6de2711051e97crrentS.png" alt="Modelica.Electrical.Analog.Sources.ExpSineCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ExpSineCurrent"
+>ExpSineCurrent</a>
+</td>
+<td>Exponentially damped sine current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo90c7cca516ca650brrentS.png" alt="Modelica.Electrical.Analog.Sources.ExponentialsCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.ExponentialsCurrent"
+>ExponentialsCurrent</a>
+</td>
+<td>Rising and falling exponential current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo998793ea5ba09b83rrentS.png" alt="Modelica.Electrical.Analog.Sources.PulseCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.PulseCurrent"
+>PulseCurrent</a>
+</td>
+<td>Pulse current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analocedfa654fbaeb551rrentS.png" alt="Modelica.Electrical.Analog.Sources.SawToothCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SawToothCurrent"
+>SawToothCurrent</a>
+</td>
+<td>Saw tooth current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo4370d2a33e8a59d0rrentS.png" alt="Modelica.Electrical.Analog.Sources.TrapezoidCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.TrapezoidCurrent"
+>TrapezoidCurrent</a>
+</td>
+<td>Trapezoidal current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo3814d5fc1ed76430rrentS.png" alt="Modelica.Electrical.Analog.Sources.LightningImpulseCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.LightningImpulseCurrent"
+>LightningImpulseCurrent</a>
+</td>
+<td>Lightning impulse current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo1633035d59f14483rrentS.png" alt="Modelica.Electrical.Analog.Sources.TableCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.TableCurrent"
+>TableCurrent</a>
+</td>
+<td>Current source by linear interpolation in a table</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analob86b4f1d0679ffb6pulseS.png" alt="Modelica.Electrical.Analog.Sources.LightningImpulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.LightningImpulse"
+>LightningImpulse</a>
+</td>
+<td>Lightning impulse voltage or current trajectory</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo38a31ec3ad851822upplyS.png" alt="Modelica.Electrical.Analog.Sources.DCPowerSupply" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.DCPowerSupply"
+>DCPowerSupply</a>
+</td>
+<td>Simple model of a DC power supply cv - cp - cc</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignalVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo3b14d7a8b1cb6b1eltageI.png" alt="Modelica.Electrical.Analog.Sources.SignalVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.SignalVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.SignalVoltage</h2>
+<p>
+<span class="ModelicaDescription">Generic voltage source using the input signal as source voltage</span>
+</p>
+<h3>Information</h3>
+
+<p>The signal voltage source is a parameterless converter of real valued signals into a the source voltage. No further effects are modeled. The real valued signal has to be provided by components of the blocks library. It can be regarded as the &quot;Opposite&quot; of a voltage sensor.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Icons.html#Modelica.Electrical.Analog.Icons.VoltageSource"
+>Modelica.Electrical.Analog.Icons.VoltageSource</a> (Icon for voltage sources).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>&nbsp;</td></tr>
+<tr><td>n</td><td>&nbsp;</td></tr>
+<tr><td>v</td><td>Voltage between pin p and n (= p.v - n.v) as input signal [V]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConstantVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo3bc8154c0da07a98ltageI.png" alt="Modelica.Electrical.Analog.Sources.ConstantVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.ConstantVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.ConstantVoltage</h2>
+<p>
+<span class="ModelicaDescription">Source for constant voltage</span>
+</p>
+<h3>Information</h3>
+
+<p>The ConstantVoltage source is a simple source for an ideal constant voltage which is provided by a parameter. There is no internal resistance modeled. If it is used instead of a battery model it is not very realistic: This battery will never be unloaded.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Icons.html#Modelica.Electrical.Analog.Icons.VoltageSource"
+>Modelica.Electrical.Analog.Icons.VoltageSource</a> (Icon for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Value of constant voltage [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE StepVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo896b46b0234261c0ltageI.png" alt="Modelica.Electrical.Analog.Sources.StepVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.StepVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.StepVoltage</h2>
+<p>
+<span class="ModelicaDescription">Step voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/StepVoltage.png"
+     alt="StepVoltage.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Height of step [V]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RampVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo3232e3b62344c9c0ltageI.png" alt="Modelica.Electrical.Analog.Sources.RampVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.RampVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.RampVoltage</h2>
+<p>
+<span class="ModelicaDescription">Ramp voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/RampVoltage.png"
+     alt="RampVoltage.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Height of ramp [V]</td></tr>
+<tr><td>duration</td><td>Duration of ramp [s]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SineVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo2f6e899f2341ca68ltageI.png" alt="Modelica.Electrical.Analog.Sources.SineVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.SineVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.SineVoltage</h2>
+<p>
+<span class="ModelicaDescription">Sine voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/SineVoltage.png"
+     alt="SineVoltage.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Amplitude of sine wave [V]</td></tr>
+<tr><td>phase</td><td>Phase of sine wave [rad]</td></tr>
+<tr><td>f</td><td>Frequency of sine wave [Hz]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CosineVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo9a5e9f57b29b8457ltageI.png" alt="Modelica.Electrical.Analog.Sources.CosineVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.CosineVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.CosineVoltage</h2>
+<p>
+<span class="ModelicaDescription">Cosine voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/CosineVoltage.png"
+     alt="CosineVoltage.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Amplitude of cosine wave [V]</td></tr>
+<tr><td>phase</td><td>Phase of cosine wave [rad]</td></tr>
+<tr><td>f</td><td>Frequency of cosine wave [Hz]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SineVoltageVariableFrequencyAndAmplitude<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo90fb2a011197f04eitudeI.png" alt="Modelica.Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.SineVoltageVariableFrequencyAndAmplitude</h2>
+<p>
+<span class="ModelicaDescription">Sine voltage source with variable frequency and amplitude</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This voltage source provides a sinusoidal voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>,
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
+and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>V</code> to zero.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Icons.html#Modelica.Electrical.Analog.Icons.VoltageSource"
+>Modelica.Electrical.Analog.Icons.VoltageSource</a> (Icon for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConstantAmplitude</td><td>Enable constant amplitude</td></tr>
+<tr><td>constantAmplitude</td><td>Constant amplitude [V]</td></tr>
+<tr><td>useConstantFrequency</td><td>Enable constant frequency</td></tr>
+<tr><td>constantFrequency</td><td>Constant frequency [Hz]</td></tr>
+<tr><td>offset</td><td>Offset of the sine wave [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+<tr><td>V</td><td>Amplitude [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CosineVoltageVariableFrequencyAndAmplitude<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analoe0b1a6a9bf68d300itudeI.png" alt="Modelica.Electrical.Analog.Sources.CosineVoltageVariableFrequencyAndAmplitude" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.CosineVoltageVariableFrequencyAndAmplitude"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.CosineVoltageVariableFrequencyAndAmplitude</h2>
+<p>
+<span class="ModelicaDescription">Cosine voltage source with variable frequency and amplitude</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This voltage source provides a cosine voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>,
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
+and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>V</code> to zero.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Icons.html#Modelica.Electrical.Analog.Icons.VoltageSource"
+>Modelica.Electrical.Analog.Icons.VoltageSource</a> (Icon for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConstantAmplitude</td><td>Enable constant amplitude</td></tr>
+<tr><td>constantAmplitude</td><td>Constant amplitude [V]</td></tr>
+<tr><td>useConstantFrequency</td><td>Enable constant frequency</td></tr>
+<tr><td>constantFrequency</td><td>Constant frequency [Hz]</td></tr>
+<tr><td>offset</td><td>Offset of the sine wave [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+<tr><td>V</td><td>Amplitude [V]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ExpSineVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo3a86f46265b2f848ltageI.png" alt="Modelica.Electrical.Analog.Sources.ExpSineVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.ExpSineVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.ExpSineVoltage</h2>
+<p>
+<span class="ModelicaDescription">Exponentially damped sine voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/ExpSineVoltage.png"
+     alt="ExpSineVoltage.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Amplitude of sine wave [V]</td></tr>
+<tr><td>f</td><td>Frequency of sine wave [Hz]</td></tr>
+<tr><td>phase</td><td>Phase of sine wave [rad]</td></tr>
+<tr><td>damping</td><td>Damping coefficient of sine wave [s-1]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ExponentialsVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analoabe0de966329743fltageI.png" alt="Modelica.Electrical.Analog.Sources.ExponentialsVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.ExponentialsVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.ExponentialsVoltage</h2>
+<p>
+<span class="ModelicaDescription">Rising and falling exponential voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/ExponentialsVoltage.png"
+     alt="ExponentialsVoltage.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>vMax</td><td>Upper bound for rising edge</td></tr>
+<tr><td>riseTime</td><td>Rise time [s]</td></tr>
+<tr><td>riseTimeConst</td><td>Rise time constant [s]</td></tr>
+<tr><td>fallTimeConst</td><td>Fall time constant [s]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PulseVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analob4a0a5db2e438ab7ltageI.png" alt="Modelica.Electrical.Analog.Sources.PulseVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.PulseVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.PulseVoltage</h2>
+<p>
+<span class="ModelicaDescription">Pulse voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/PulseVoltage.png"
+     alt="PulseVoltage.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Amplitude of pulse [V]</td></tr>
+<tr><td>width</td><td>Width of pulse in % of period</td></tr>
+<tr><td>period</td><td>Time for one period [s]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SawToothVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analoe9f8b8458e4da465ltageI.png" alt="Modelica.Electrical.Analog.Sources.SawToothVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.SawToothVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.SawToothVoltage</h2>
+<p>
+<span class="ModelicaDescription">Saw tooth voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/SawToothVoltage.png"
+     alt="SawToothVoltage.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Amplitude of saw tooth [V]</td></tr>
+<tr><td>period</td><td>Time for one period [s]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TrapezoidVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo5e89e4944b6948e4ltageI.png" alt="Modelica.Electrical.Analog.Sources.TrapezoidVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.TrapezoidVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.TrapezoidVoltage</h2>
+<p>
+<span class="ModelicaDescription">Trapezoidal voltage source</span>
+</p>
+<h3>Information</h3>
+
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/TrapezoidVoltage.png"
+     alt="TrapezoidVoltage.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Amplitude of trapezoid [V]</td></tr>
+<tr><td>rising</td><td>Rising duration of trapezoid [s]</td></tr>
+<tr><td>width</td><td>Width duration of trapezoid [s]</td></tr>
+<tr><td>falling</td><td>Falling duration of trapezoid [s]</td></tr>
+<tr><td>period</td><td>Time for one period [s]</td></tr>
+<tr><td>nperiod</td><td>Number of periods (&lt; 0 means infinite number of periods)</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LightningImpulseVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo532de7ed6b347504ltageI.png" alt="Modelica.Electrical.Analog.Sources.LightningImpulseVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.LightningImpulseVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.LightningImpulseVoltage</h2>
+<p>
+<span class="ModelicaDescription">Lightning impulse voltage</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Lightning impulse voltage using either a double exponential function or a Heidler function, 
+see block <a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.LightningImpulse"
+>LightningImpulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Modelica.Electrical.Analog.Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>approximation</td><td>Approximation of impulse</td></tr>
+<tr><td>V</td><td>Amplitude [V]</td></tr>
+<tr><td>T1</td><td>Rise time [s]</td></tr>
+<tr><td>T2</td><td>Decay time to half value [s]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m</td><td>Integer exponent of Heidler-function 5..10</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TableVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo314c154e2c1255b7ltageI.png" alt="Modelica.Electrical.Analog.Sources.TableVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.TableVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.TableVoltage</h2>
+<p>
+<span class="ModelicaDescription">Voltage source by linear interpolation in a table</span>
+</p>
+<h3>Information</h3>
+
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package.  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p><br>This block generates a voltage source by <strong>linear interpolation</strong> in a table. The time points and voltage values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
+<ul>
+<li>The time points need to be <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the voltage.</li>
+<li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
+    This generates continuously differentiable values for the integrator.</li>
+</ul>
+<p>Example:</p>
+<blockquote><pre>
+   table = [0  0
+            1  0
+            1  1
+            2  4
+            3  9
+            4 16]
+If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
+    e.g., time = 1.5, the voltage v =  2.5,
+    e.g., time = 2.0, the voltage v =  4.0,
+    e.g., time = 5.0, the voltage v = 23.0 (i.e., extrapolation).
+</pre></blockquote>
+<p><br>  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/TableVoltage.png"
+     alt="TableVoltage.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.VoltageSource"
+>Interfaces.VoltageSource</a> (Interface for voltage sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>table[:, :]</td><td>Table matrix (time = first column, voltage = second column)</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Voltage offset [V]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SupplyVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo158b1d9dbf94a6b6ltageI.png" alt="Modelica.Electrical.Analog.Sources.SupplyVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.SupplyVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.SupplyVoltage</h2>
+<p>
+<span class="ModelicaDescription">Supply voltage (positive and negative)</span>
+</p>
+<h3>Information</h3>
+
+                       <p>This is a simple model of a constant supply voltage with positive and negative supply, the potential between positive and negative supply is accessible.</p>
+                       
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vps</td><td>Positive supply [V]</td></tr>
+<tr><td>Vns</td><td>Negative supply [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_n</td><td>&nbsp;</td></tr>
+<tr><td>ground</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignalCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo1ffbc5b7c4287a2arrentI.png" alt="Modelica.Electrical.Analog.Sources.SignalCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.SignalCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.SignalCurrent</h2>
+<p>
+<span class="ModelicaDescription">Generic current source using the input signal as source current</span>
+</p>
+<h3>Information</h3>
+
+<p>The signal current source is a parameterless converter of real valued signals into a the source current. No further effects are modeled. The real valued signal has to be provided by components of the blocks library. It can be regarded as the &quot;Opposite&quot; of a current sensor.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Icons.html#Modelica.Electrical.Analog.Icons.CurrentSource"
+>Modelica.Electrical.Analog.Icons.CurrentSource</a> (Icon for current sources).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>&nbsp;</td></tr>
+<tr><td>n</td><td>&nbsp;</td></tr>
+<tr><td>i</td><td>Current flowing from pin p to pin n as input signal [A]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConstantCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo20af035b78436bacrrentI.png" alt="Modelica.Electrical.Analog.Sources.ConstantCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.ConstantCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.ConstantCurrent</h2>
+<p>
+<span class="ModelicaDescription">Source for constant current</span>
+</p>
+<h3>Information</h3>
+
+<p>The ConstantCurrent source is a simple source for an ideal constant current which is provided by a parameter. There is no internal resistance modeled. No further effects are modeled. Especially, the current flow will never end.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Icons.html#Modelica.Electrical.Analog.Icons.CurrentSource"
+>Modelica.Electrical.Analog.Icons.CurrentSource</a> (Icon for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I</td><td>Value of constant current [A]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE StepCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo6e5234bf56a170f4rrentI.png" alt="Modelica.Electrical.Analog.Sources.StepCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.StepCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.StepCurrent</h2>
+<p>
+<span class="ModelicaDescription">Step current source</span>
+</p>
+<h3>Information</h3>
+
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/StepCurrent.png"
+     alt="StepCurrent.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I</td><td>Height of step [A]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RampCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo1719d1c556a7d8f4rrentI.png" alt="Modelica.Electrical.Analog.Sources.RampCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.RampCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.RampCurrent</h2>
+<p>
+<span class="ModelicaDescription">Ramp current source</span>
+</p>
+<h3>Information</h3>
+
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/RampCurrent.png"
+     alt="RampCurrent.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I</td><td>Height of ramp [A]</td></tr>
+<tr><td>duration</td><td>Duration of ramp [s]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SineCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo145577ae56a2db5crrentI.png" alt="Modelica.Electrical.Analog.Sources.SineCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.SineCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.SineCurrent</h2>
+<p>
+<span class="ModelicaDescription">Sine current source</span>
+</p>
+<h3>Information</h3>
+
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/SineCurrent.png"
+     alt="SineCurrent.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I</td><td>Amplitude of sine wave [A]</td></tr>
+<tr><td>phase</td><td>Phase of sine wave [rad]</td></tr>
+<tr><td>f</td><td>Frequency of sine wave [Hz]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CosineCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo7f458d66c7789563rrentI.png" alt="Modelica.Electrical.Analog.Sources.CosineCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.CosineCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.CosineCurrent</h2>
+<p>
+<span class="ModelicaDescription">Cosine current source</span>
+</p>
+<h3>Information</h3>
+
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/CosineCurrent.png"
+     alt="CosineCurrent.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I</td><td>Amplitude of cosine wave [A]</td></tr>
+<tr><td>phase</td><td>Phase of cosine wave [rad]</td></tr>
+<tr><td>f</td><td>Frequency of cosine wave [Hz]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SineCurrentVariableFrequencyAndAmplitude<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo283ed11e33ff1b88itudeI.png" alt="Modelica.Electrical.Analog.Sources.SineCurrentVariableFrequencyAndAmplitude" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.SineCurrentVariableFrequencyAndAmplitude"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.SineCurrentVariableFrequencyAndAmplitude</h2>
+<p>
+<span class="ModelicaDescription">Sine current source with variable frequency and amplitude</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This current source provides a sinusoidal current with variable frequency <code>f</code> and variable amplitude <code>I</code>,
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
+and that the parameter <code>startTime</code> is omitted since the current can be kept equal to offset with setting the input <code>I</code> to zero.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Icons.html#Modelica.Electrical.Analog.Icons.CurrentSource"
+>Modelica.Electrical.Analog.Icons.CurrentSource</a> (Icon for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConstantAmplitude</td><td>Enable constant amplitude</td></tr>
+<tr><td>constantAmplitude</td><td>Constant amplitude [A]</td></tr>
+<tr><td>useConstantFrequency</td><td>Enable constant frequency</td></tr>
+<tr><td>constantFrequency</td><td>Constant frequency [Hz]</td></tr>
+<tr><td>offset</td><td>Offset of the sine wave [A]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+<tr><td>I</td><td>Amplitude [A]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CosineCurrentVariableFrequencyAndAmplitude<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo77f54dc69d0038c6itudeI.png" alt="Modelica.Electrical.Analog.Sources.CosineCurrentVariableFrequencyAndAmplitude" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.CosineCurrentVariableFrequencyAndAmplitude"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.CosineCurrentVariableFrequencyAndAmplitude</h2>
+<p>
+<span class="ModelicaDescription">Cosine current source with variable frequency and amplitude</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This current source provides a cosine current with variable frequency <code>f</code> and variable amplitude <code>I</code>,
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
+and that the parameter <code>startTime</code> is omitted since the current can be kept equal to offset with setting the input <code>I</code> to zero.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Icons.html#Modelica.Electrical.Analog.Icons.CurrentSource"
+>Modelica.Electrical.Analog.Icons.CurrentSource</a> (Icon for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConstantAmplitude</td><td>Enable constant amplitude</td></tr>
+<tr><td>constantAmplitude</td><td>Constant amplitude [A]</td></tr>
+<tr><td>useConstantFrequency</td><td>Enable constant frequency</td></tr>
+<tr><td>constantFrequency</td><td>Constant frequency [Hz]</td></tr>
+<tr><td>offset</td><td>Offset of the sine wave [A]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+<tr><td>I</td><td>Amplitude [A]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ExpSineCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo1f6de2711051e97crrentI.png" alt="Modelica.Electrical.Analog.Sources.ExpSineCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.ExpSineCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.ExpSineCurrent</h2>
+<p>
+<span class="ModelicaDescription">Exponentially damped sine current source</span>
+</p>
+<h3>Information</h3>
+
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/ExpSineCurrent.png"
+     alt="ExpSineCurrent.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I</td><td>Amplitude of sine wave</td></tr>
+<tr><td>f</td><td>Frequency of sine wave [Hz]</td></tr>
+<tr><td>phase</td><td>Phase of sine wave [rad]</td></tr>
+<tr><td>damping</td><td>Damping coefficient of sine wave [s-1]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ExponentialsCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo90c7cca516ca650brrentI.png" alt="Modelica.Electrical.Analog.Sources.ExponentialsCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.ExponentialsCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.ExponentialsCurrent</h2>
+<p>
+<span class="ModelicaDescription">Rising and falling exponential current source</span>
+</p>
+<h3>Information</h3>
+
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/ExponentialsCurrent.png"
+     alt="ExponentialsCurrent.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>iMax</td><td>Upper bound for rising edge</td></tr>
+<tr><td>riseTime</td><td>Rise time [s]</td></tr>
+<tr><td>riseTimeConst</td><td>Rise time constant [s]</td></tr>
+<tr><td>fallTimeConst</td><td>Fall time constant [s]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PulseCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo998793ea5ba09b83rrentI.png" alt="Modelica.Electrical.Analog.Sources.PulseCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.PulseCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.PulseCurrent</h2>
+<p>
+<span class="ModelicaDescription">Pulse current source</span>
+</p>
+<h3>Information</h3>
+
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I</td><td>Amplitude of pulse [A]</td></tr>
+<tr><td>width</td><td>Width of pulse in % of period</td></tr>
+<tr><td>period</td><td>Time for one period [s]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SawToothCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analocedfa654fbaeb551rrentI.png" alt="Modelica.Electrical.Analog.Sources.SawToothCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.SawToothCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.SawToothCurrent</h2>
+<p>
+<span class="ModelicaDescription">Saw tooth current source</span>
+</p>
+<h3>Information</h3>
+
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/SawToothCurrent.png"
+     alt="SawToothCurrent.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I</td><td>Amplitude of saw tooth [A]</td></tr>
+<tr><td>period</td><td>Time for one period [s]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TrapezoidCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo4370d2a33e8a59d0rrentI.png" alt="Modelica.Electrical.Analog.Sources.TrapezoidCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.TrapezoidCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.TrapezoidCurrent</h2>
+<p>
+<span class="ModelicaDescription">Trapezoidal current source</span>
+</p>
+<h3>Information</h3>
+
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/TrapezoidCurrent.png"
+     alt="TrapezoidCurrent.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I</td><td>Amplitude of trapezoid [A]</td></tr>
+<tr><td>rising</td><td>Rising duration of trapezoid [s]</td></tr>
+<tr><td>width</td><td>Width duration of trapezoid [s]</td></tr>
+<tr><td>falling</td><td>Falling duration of trapezoid [s]</td></tr>
+<tr><td>period</td><td>Time for one period [s]</td></tr>
+<tr><td>nperiod</td><td>Number of periods (&lt; 0 means infinite number of periods)</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LightningImpulseCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo3814d5fc1ed76430rrentI.png" alt="Modelica.Electrical.Analog.Sources.LightningImpulseCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.LightningImpulseCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.LightningImpulseCurrent</h2>
+<p>
+<span class="ModelicaDescription">Lightning impulse current</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Lightning impulse current using either a double exponential function or a Heidler function, 
+see block <a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.LightningImpulse"
+>LightningImpulse</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Modelica.Electrical.Analog.Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>approximation</td><td>Approximation of impulse</td></tr>
+<tr><td>I</td><td>Amplitude [A]</td></tr>
+<tr><td>T1</td><td>Rise time [s]</td></tr>
+<tr><td>T2</td><td>Decay time to half value [s]</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m</td><td>Integer exponent of Heidler-function 5..10</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TableCurrent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo1633035d59f14483rrentI.png" alt="Modelica.Electrical.Analog.Sources.TableCurrent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.TableCurrent"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.TableCurrent</h2>
+<p>
+<span class="ModelicaDescription">Current source by linear interpolation in a table</span>
+</p>
+<h3>Information</h3>
+
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p><br>This block generates a current source by <strong>linear interpolation</strong> in a table. The time points and current values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
+<ul>
+<li>The time points need to be <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the current.</li>
+<li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
+    This generates continuously differentiable values for the integrator.</li>
+</ul>
+<p>Example:</p>
+<blockquote><pre>
+   table = [0  0
+            1  0
+            1  1
+            2  4
+            3  9
+            4 16]
+If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
+    e.g., time = 1.5, the current i =  2.5,
+    e.g., time = 2.0, the current i =  4.0,
+    e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation).
+</pre></blockquote>
+<p><br> Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<div>
+<img src="../Images/Electrical/Analog/Sources/TableCurrent.png"
+     alt="TableCurrent.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.CurrentSource"
+>Interfaces.CurrentSource</a> (Interface for current sources).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>table[:, :]</td><td>Table matrix (time = first column, current = second column)</td></tr>
+<tr><td>signalSource</td><td>&nbsp;</td></tr>
+<tr><td>offset</td><td>Current offset [A]</td></tr>
+<tr><td>startTime</td><td>Time offset [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin</td></tr>
+<tr><td>n</td><td>Negative electrical pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LightningImpulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analob86b4f1d0679ffb6pulseI.png" alt="Modelica.Electrical.Analog.Sources.LightningImpulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.LightningImpulse"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.LightningImpulse</h2>
+<p>
+<span class="ModelicaDescription">Lightning impulse voltage or current trajectory</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Simplified trajectory of an impulse (like the current of lightnings) as one of two choices:
+</p>
+<ul>
+<li>double-exponential function <code>y = amplitude/eta*(exp(-time/tau1) - exp(-time/tau2))</code></li>
+<li>so-called Heidler function <code>y = amplitude/eta*(time/tau1)<sup>m</sup>/(1 + (time/tau1)<sup>m</sup>)*exp(-time/tau2)</code></li>
+</ul>
+<p>
+The parameters of the trajectory are defined by:
+</p>
+<ul>
+<li>The <code>amplitude</code> of the trajectory</li>
+<li>Rise time <code>T1</code></li>
+<li>Decay time to half value <code>T2</code></li>
+<li>For the Heidler function, integer exponent <code>m = 5..10</code> is recommended.</li>
+</ul>
+<h4>Explanations</h4>
+<p>
+According to Fig. 1, a straight line between 0.1 and 0.9 of the amplitude is drawn. 
+The virtual start of the trajectory is defined by the intersection of this straight line and the abscissa. 
+The rise time <code>T1</code> is defined as the time span between the virtual start of the trajectory and the point in time when the straight line reaches the amplitude.
+The decay time to half value <code>T2</code> is defined as the time span between the virtual start and the point in time when the output falls below 0.5 of the amplitude.
+</p>
+<p>Note: Due to numerical reasons, for the double-exponential function <code>T1 &lt; 0.2*T2</code> is required.</p>
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption><strong>Fig. 1:</strong> Parameters of the lightning current</caption>
+  <tr>
+    <td>
+      <img src="../Images/Electrical/Analog/Sources/Lightning.png">
+    </td>
+  </tr>
+</table>
+<h4>Note</h4>
+<p>
+For a standard trajectory with <code>amplitude = 100 kA, T1 = 10 &micro;s, T2 = 350 &micro;s</code> the integral of the output reaches the required charge <code>Q = 50 C</code> nearly perfect.
+</p>
+<h4>References</h4>
+<ul>
+<li>Fridolin Heidler and Klaus Stimper, Blitz und Blitzschutz. VDE 2009, ISBN 978-3-8007-2974-6.</li>
+<li>Fridolin Heidler, Blitzstromparameter nach IEC 62305 - Hintergrund, Erfahrung und Ausblick. Elektronik &amp; Automation (etz) (1) 2009, pp. 57-64.</li>
+<li>DIN EN 62305-1 (VDE 0185-305-1):2011-10 Blitzschutz - Teil 1: Allgemeine Grunds&auml;tze.</li>
+<li>Michael Rock, Pr&uuml;fgeneratoren zur Simulation von Blitzimpulsstr&ouml;men im Labor und ihre Wechselwirkung mit den Pr&uuml;fobjekten.
+    Habilitation, Universit&auml;t Ilmenau 2012, ISBN 978-3-86360-032-7.</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SignalSource"
+>Modelica.Blocks.Interfaces.SignalSource</a> (Base class for continuous signal source).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>approximation</td><td>Approximation of impulse</td></tr>
+<tr><td>amplitude</td><td>Amplitude</td></tr>
+<tr><td>T1</td><td>Rise time [s]</td></tr>
+<tr><td>T2</td><td>Decay time to half value [s]</td></tr>
+<tr><td>offset</td><td>Offset of output signal y</td></tr>
+<tr><td>startTime</td><td>Output y = offset for time &lt; startTime [s]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m</td><td>Integer exponent of Heidler-function 5..10</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DCPowerSupply<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo38a31ec3ad851822upplyI.png" alt="Modelica.Electrical.Analog.Sources.DCPowerSupply" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.DCPowerSupply"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.DCPowerSupply</h2>
+<p>
+<span class="ModelicaDescription">Simple model of a DC power supply cv - cp - cc</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is a simple model of a DC power supply, as used in laboratories. 
+It can only work in one quadrant, i.e., positive voltage, delivering current. 
+It has three limitations:
+</p>
+<ul>
+<li>ConstantVoltage: <code> v = V0 - Rcv*(-i);</code></li>
+<li>Constant Power:  <code>P0 = v*(-i);</code></li>
+<li>ConstantCurrent: <code>-i = I0 - Gcc*v;</code></li>
+</ul>
+<p>
+Remember that current delivered by the power supply is negative.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V0</td><td>No-load voltage [V]</td></tr>
+<tr><td>I0</td><td>Short-circuit current [A]</td></tr>
+<tr><td>P0</td><td>Maximum power [W]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Advanced</td></tr>
+<tr><td>Rcv</td><td>Inner resistance in constant voltage region [Ohm]</td></tr>
+<tr><td>Gcc</td><td>Inner conductance in constant current region [S]</td></tr>
+<tr><td>iBack</td><td>Allowed back current [A]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>&nbsp;</td></tr>
+<tr><td>n</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:10 2026.
+</address>
+</body>
+</html>

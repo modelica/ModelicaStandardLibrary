@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Thermal.FluidHeatFlow.Sources</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Ideal fluid sources, e.g., ambient, volume flow&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Thermal.FluidHeatFlow.Sources"></a><a href="Modelica_Thermal_FluidHeatFlow.html#Modelica.Thermal.FluidHeatFlow"
+>Modelica.Thermal.FluidHeatFlow</a>.Sources</h2>
+<p>
+<span class="ModelicaDescription">Ideal fluid sources, e.g., ambient, volume flow</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains different types of sources:
+</p>
+<ul>
+<li>Ambient with constant or prescribed pressure and temperature</li>
+<li>AbsolutePressure to define pressure level of a closed cooling cycle.</li>
+<li>Constant and prescribed volume flow</li>
+<li>Constant and prescribed pressure increase</li>
+<li>Simple pump with mechanical flange</li>
+</ul>
+<p>
+Thermodynamic equations are defined in partial models (package BaseClasses).
+All fans / pumps are considered without losses, they do not change enthalpy flow.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</a> (Icon for packages containing sources).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.FluidHea21ce2f35c6ee0644bientS.png" alt="Modelica.Thermal.FluidHeatFlow.Sources.Ambient" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>Ambient</a>
+</td>
+<td>Ambient with constant properties</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.FluidHea302e1243e9e4a686ssureS.png" alt="Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure"
+>AbsolutePressure</a>
+</td>
+<td>Defines absolute pressure level</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.FluidHeaae439f0710683c97eFlowS.png" alt="Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow"
+>VolumeFlow</a>
+</td>
+<td>Enforces constant volume flow</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.FluidHeaf33a4dd62a7fba44reaseS.png" alt="Modelica.Thermal.FluidHeatFlow.Sources.PressureIncrease" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.PressureIncrease"
+>PressureIncrease</a>
+</td>
+<td>Enforces constant pressure increase</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.FluidHea7561cbc268881282lPumpS.png" alt="Modelica.Thermal.FluidHeatFlow.Sources.IdealPump" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.IdealPump"
+>IdealPump</a>
+</td>
+<td>Model of an ideal pump</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Ambient<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.FluidHea21ce2f35c6ee0644bientI.png" alt="Modelica.Thermal.FluidHeatFlow.Sources.Ambient" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.FluidHeatFlow.Sources.Ambient"></a><a href="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources"
+>Modelica.Thermal.FluidHeatFlow.Sources</a>.Ambient</h2>
+<p>
+<span class="ModelicaDescription">Ambient with constant properties</span>
+</p>
+<h3>Information</h3>
+
+<p>(Infinite) ambient with constant pressure and temperature.</p>
+<p>Thermodynamic equations are defined by BaseClasses.SinglePortLeft.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft"
+>FluidHeatFlow.BaseClasses.SinglePortLeft</a> (Partial model of a single port at the left).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>medium</td><td>Medium</td></tr>
+<tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
+<tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td>usePressureInput</td><td>Enable / disable pressure input</td></tr>
+<tr><td>constantAmbientPressure</td><td>Ambient pressure [Pa]</td></tr>
+<tr><td>useTemperatureInput</td><td>Enable / disable temperature input</td></tr>
+<tr><td>constantAmbientTemperature</td><td>Ambient temperature [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flowPort</td><td>&nbsp;</td></tr>
+<tr><td>ambientPressure</td><td>&nbsp;</td></tr>
+<tr><td>ambientTemperature</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AbsolutePressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.FluidHea302e1243e9e4a686ssureI.png" alt="Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure"></a><a href="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources"
+>Modelica.Thermal.FluidHeatFlow.Sources</a>.AbsolutePressure</h2>
+<p>
+<span class="ModelicaDescription">Defines absolute pressure level</span>
+</p>
+<h3>Information</h3>
+
+<p>AbsolutePressure to define pressure level of a closed cooling cycle.</p>
+<p>Coolant's mass flow, temperature and enthalpy flow are not affected.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft"
+>FluidHeatFlow.BaseClasses.SinglePortLeft</a> (Partial model of a single port at the left).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>medium</td><td>Medium</td></tr>
+<tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
+<tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td>p</td><td>Pressure ground [Pa]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flowPort</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VolumeFlow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.FluidHeaae439f0710683c97eFlowI.png" alt="Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow"></a><a href="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources"
+>Modelica.Thermal.FluidHeatFlow.Sources</a>.VolumeFlow</h2>
+<p>
+<span class="ModelicaDescription">Enforces constant volume flow</span>
+</p>
+<h3>Information</h3>
+
+<p>Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system.</p>
+<p>Coolant's temperature and enthalpy flow are not affected.</p>
+<p>
+Setting parameter m (mass of medium within fan/pump) to zero
+leads to neglect of temperature transient cv*m*der(T).
+</p>
+<p>Thermodynamic equations are defined by BaseClasses.TwoPort.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort"
+>FluidHeatFlow.BaseClasses.TwoPort</a> (Partial model of two port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>medium</td><td>Medium in the component</td></tr>
+<tr><td>m</td><td>Mass of medium [kg]</td></tr>
+<tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
+<tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td>tapT</td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+<tr><td>useVolumeFlowInput</td><td>Enable / disable volume flow input</td></tr>
+<tr><td>constantVolumeFlow</td><td>Volume flow rate [m3/s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>V_flow</td><td>Volume flow a-&gt;b [m3/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flowPort_a</td><td>&nbsp;</td></tr>
+<tr><td>flowPort_b</td><td>&nbsp;</td></tr>
+<tr><td>volumeFlow</td><td>[m3/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PressureIncrease<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.FluidHeaf33a4dd62a7fba44reaseI.png" alt="Modelica.Thermal.FluidHeatFlow.Sources.PressureIncrease" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.FluidHeatFlow.Sources.PressureIncrease"></a><a href="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources"
+>Modelica.Thermal.FluidHeatFlow.Sources</a>.PressureIncrease</h2>
+<p>
+<span class="ModelicaDescription">Enforces constant pressure increase</span>
+</p>
+<h3>Information</h3>
+
+<p>Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system.</p>
+<p>Coolant's temperature and enthalpy flow are not affected.</p>
+<p>
+Setting parameter m (mass of medium within fan/pump) to zero
+leads to neglect of temperature transient cv*m*der(T).
+</p>
+<p>Thermodynamic equations are defined by BaseClasses.TwoPort.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort"
+>FluidHeatFlow.BaseClasses.TwoPort</a> (Partial model of two port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>medium</td><td>Medium in the component</td></tr>
+<tr><td>m</td><td>Mass of medium [kg]</td></tr>
+<tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
+<tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td>tapT</td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+<tr><td>usePressureIncreaseInput</td><td>Enable / disable pressure increase input</td></tr>
+<tr><td>constantPressureIncrease</td><td>Pressure increase [Pa]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>V_flow</td><td>Volume flow a-&gt;b [m3/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flowPort_a</td><td>&nbsp;</td></tr>
+<tr><td>flowPort_b</td><td>&nbsp;</td></tr>
+<tr><td>pressureIncrease</td><td>[Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealPump<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.FluidHea7561cbc268881282lPumpI.png" alt="Modelica.Thermal.FluidHeatFlow.Sources.IdealPump" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.FluidHeatFlow.Sources.IdealPump"></a><a href="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources"
+>Modelica.Thermal.FluidHeatFlow.Sources</a>.IdealPump</h2>
+<p>
+<span class="ModelicaDescription">Model of an ideal pump</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Simple fan resp. pump where characteristic is dependent on shaft's speed, <br>
+torque * speed = pressure increase * volume flow (without losses)<br>
+Pressure increase versus volume flow is defined by a linear function,
+from dp0(V_flow=0) to V_flow0(dp=0).<br>
+The axis intersections vary with speed as follows:
+</p>
+<ul>
+<li>dp prop. speed^2</li>
+<li>V_flow prop. speed</li>
+</ul>
+<p>
+Coolant's temperature and enthalpy flow are not affected.<br>
+Setting parameter m (mass of medium within fan/pump) to zero
+leads to negligence of temperature transient cv*m*der(T).<br>
+Thermodynamic equations are defined by BaseClasses.TwoPort.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_BaseClasses.html#Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort"
+>FluidHeatFlow.BaseClasses.TwoPort</a> (Partial model of two port).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>medium</td><td>Medium in the component</td></tr>
+<tr><td>m</td><td>Mass of medium [kg]</td></tr>
+<tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
+<tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td>tapT</td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>V_flow</td><td>Volume flow a-&gt;b [m3/s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Pump characteristic</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>dp0</td><td>Max. pressure increase @ V_flow=0 [Pa]</td></tr>
+<tr><td>V_flow0</td><td>Max. volume flow rate @ dp=0 [m3/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flowPort_a</td><td>&nbsp;</td></tr>
+<tr><td>flowPort_b</td><td>&nbsp;</td></tr>
+<tr><td>flange_a</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:31 2026.
+</address>
+</body>
+</html>

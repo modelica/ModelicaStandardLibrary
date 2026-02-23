@@ -1,0 +1,387 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Batteries.UsersGuide</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;User&#39;s Guide&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Batteries.UsersGuideI.png" alt="Modelica.Electrical.Batteries.UsersGuide" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Batteries.UsersGuide"></a><a href="Modelica_Electrical_Batteries.html#Modelica.Electrical.Batteries"
+>Modelica.Electrical.Batteries</a>.UsersGuide</h2>
+
+<p>
+This library provides battery models, based on the electrical behaviour at the terminals.
+</p>
+<h4>Battery characteristics</h4>
+<p>
+All battery models rely on existing components like voltage source, resistor and capacitor models provided in the
+<a href="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Analog</a> package of the Modelica Standard Library.<br>
+Explore the <a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide.Concept"
+>concept</a> of the battery models as well as
+<a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide.Parameterization"
+>parameterization</a>.
+Both are based on the <a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide.References"
+>references</a>.
+</p>
+<p>
+Each battery is equipped with an optional heat port which can be enabled by the parameter <code>useHeatPort</code>;
+the heat flow of the battery heat port is determined by the sum of all heat flows of all resistive elements.<br>
+This enables coupling with external thermal models to investigate thermal management issues.
+However, thermal models are not included yet.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Battec8cf9f236f7c73d0nceptS.png" alt="Modelica.Electrical.Batteries.UsersGuide.Concept" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide.Concept"
+>Concept</a>
+</td>
+<td>Concept of battery models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Battec8cf9f236f7c73d0nceptS.png" alt="Modelica.Electrical.Batteries.UsersGuide.Parameterization" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide.Parameterization"
+>Parameterization</a>
+</td>
+<td>Parameterization of battery models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Battecb15b3a36f77e1b0ntactS.png" alt="Modelica.Electrical.Batteries.UsersGuide.Contact" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide.Contact"
+>Contact</a>
+</td>
+<td>Contact</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Batte27c41e8b4ea0e814NotesS.png" alt="Modelica.Electrical.Batteries.UsersGuide.ReleaseNotes" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide.ReleaseNotes"
+>ReleaseNotes</a>
+</td>
+<td>Release Notes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Batte4c44236516b69d2dencesS.png" alt="Modelica.Electrical.Batteries.UsersGuide.References" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide.References"
+>References</a>
+</td>
+<td>References</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Concept<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Batteries.UsersGuideI.png" alt="Modelica.Electrical.Batteries.UsersGuide.Concept" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Batteries.UsersGuide.Concept"></a><a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide"
+>Modelica.Electrical.Batteries.UsersGuide</a>.Concept</h2>
+
+<p>
+The core of the cell models is a <a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SignalVoltage"
+>signal voltage</a>
+controlled by a look-up table OCV (open circuit voltage) dependent on SOC (state of charge). <br>
+However, other dependencies (e.g., on temperature) are not implemented yet.
+</p>
+<p>
+Current flowing to or from the battery is measured and integrated, thus calculating the charge contained in the battery.
+The charge contained in the battery with respect to nominal charge <code>Qnom</code> gives SOC.<br>
+The look-up table is parameterized for one cell, therefore input has to be scaled by <code>1/(Np*Qnom)</code>,
+and the output has to be scaled by <code>Ns*OCVmax</code>.
+</p>
+<p>
+To model self-discharge, a conductor in parallel to the signal voltage and the current sensor is implemented.
+If self-discharge is specified as zero, the conductor is omitted.
+</p>
+<p>
+A resistor <code>r0</code> is connected in series to the signal voltage, representing the inner resistance of the battery.
+The resistance can be specified as linearly dependent on temperature.
+</p>
+<p>
+If <a href="Modelica_Electrical_Batteries_BatteryStacks.html#Modelica.Electrical.Batteries.BatteryStacks.CellRCStack"
+>CellRCStack</a> instead of
+<a href="Modelica_Electrical_Batteries_BatteryStacks.html#Modelica.Electrical.Batteries.BatteryStacks.CellStack"
+>CellStack</a> is chosen,
+RC-elements are connected in series to model the transient behaviour of the battery.<br>
+Both models can be used for a single cell <code>Ns = Np = 1</code> as well as a stack built from identical cells.<br>
+Note that the total inner resistance <code>Ri</code> is the sum of the resistance of resistor <code>r0</code> and the sum of the resistances of the resistors of the RC-elements.
+</p>
+<p>
+Additionally to these batteries that model a single cell scaled by the number of series connected cells <code>Ns</code> and the number of parallel connected cells <code>Np</code>,
+single cell models and stacks are provided in <a href="Modelica_Electrical_Batteries_BatteryStacksWithSensors.html#Modelica.Electrical.Batteries.BatteryStacksWithSensors"
+>BatteryStacksWithSensors</a>.
+The cells are equipped with sensors, the measured signals are provided in the <a href="Modelica_Electrical_Batteries_Interfaces.html#Modelica.Electrical.Batteries.Interfaces.CellBus"
+>CellBus</a>.
+The stack models contain a matrix of <code>Ns</code> x <code>Np</code> single cells which can be parameterized differently
+to investigate the influence of a degraded cell on the behaviour of the whole stack, as well as to design battery management systems.
+The stack provides the <a href="Modelica_Electrical_Batteries_Interfaces.html#Modelica.Electrical.Batteries.Interfaces.StackBus"
+>StackBus</a> which contains <code>Ns</code> x <code>Np</code> cell buses of the cells.
+Additionally, the signals of the whole stack - the same signals as of a single cell - are provided in the BatteryBus.
+</p>
+<p>
+There are two options of series and parallel connections of cells in stacks:
+</p>
+<ul>
+<li><code>useAllParallelConnections=true </code>: <code>Np</code> cells are connected in parallel, and these groups are connected in series.</li>
+<li><code>useAllParallelConnections=false</code>: <code>Ns</code> cells are connected in series, and these groups are connected in parallel.</li>
+</ul>
+<p>
+For convenience, a block <a href="Modelica_Electrical_Batteries_Utilities.html#Modelica.Electrical.Batteries.Utilities.BusTranscription"
+>BusTranscription</a> transfers the signals of all cell buses in the stack bus
+to the <a href="Modelica_Electrical_Batteries_Interfaces.html#Modelica.Electrical.Batteries.Interfaces.StackBusArrays"
+>StackBusArrays</a>, arranged as <code>Ns</code> x <code>Np</code> matrix per measurement signal.
+</p>
+<p>
+For details of parameterization, see <a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide.Parameterization"
+>UsersGuide.Parameterization</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Parameterization<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Batteries.UsersGuideI.png" alt="Modelica.Electrical.Batteries.UsersGuide.Parameterization" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Batteries.UsersGuide.Parameterization"></a><a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide"
+>Modelica.Electrical.Batteries.UsersGuide</a>.Parameterization</h2>
+
+<p>
+A <strong>stack</strong> from <a href="Modelica_Electrical_Batteries_BatteryStacks.html#Modelica.Electrical.Batteries.BatteryStacks"
+>BatteryStacks</a> is built from <code>Ns*Np</code> <strong>identical cells</strong>,
+where <code>Np</code> describes the number of parallel connected cells and <code>Ns</code> the number of series connected cells.
+</p>
+<p>
+The parameters of a stack built from <code>Np*Ns</code> identical cells are calculated as follows:
+</p>
+<table>
+<tr><td>Description</td>             <td>Cell</td>         <td>Stack</td></tr>
+<tr><td>Nominal OCV</td>             <td><code>OCVmax</code></td> <td><code>OCVmax*Ns</code></td></tr>
+<tr><td>End of discharge voltage</td><td><code>OCVmmin</code></td><td><code>OCVmin*Ns</code></td></tr>
+<tr><td>Capacity</td>                <td><code>Qnom</code></td>   <td><code>Qnom*Np</code></td></tr>
+<tr><td>Inner resistance</td>        <td><code>Ri</code></td>     <td><code>Ri*Ns/Np</code></td></tr>
+</table>
+<h4>Cell parameters</h4>
+<p>
+The parameters of one cell are summarized in the parameter record <a href="Modelica_Electrical_Batteries_ParameterRecords.html#Modelica.Electrical.Batteries.ParameterRecords.CellData"
+>cellData</a>.
+Dependency of OCV on SOC can be chosen either linear (<code>useLinearSOCDependency=true</code>) or based on a look-up table.<br>
+By default, a linear OCV versus SOC characteristic is defined (like a capacitor), i.e. <code>OCV_SOC[:,2]=[SOCmin,OCVmin/OCVmax; SOCmax,1]</code>.<br>
+The OCV versus SOC table has to be specified with 1st column = SOC values in ascending order, 2nd column = corresponding OCV values with respect to OCVmax.<br>
+Be careful using parameter <code>smoothness</code> for table interpolation, check the resulting characteristic.<br>
+Further dependencies of OVC (e.g. on temperature) are not taken into account, this would require a 2-dimensional table look-up.
+</p>
+<p>
+Self-discharge is specified as discharge current <code>Idis</code> at <code>SOC = SOCmax</code>. From that values, a self-discharge conductance is calculated.<br>
+If self-discharge should be neglected, set <code>Idis=0</code>.
+</p>
+<p>
+Linear temperature dependency of inner resistance can be specified by reference temperature <code>T_ref</code> and temperature coefficient <code>alpha</code>: <br>
+<code>R = R_ref*(1 + alpha*(T - T_ref))</code>.
+</p>
+<h4>Transient parameters</h4>
+<p>
+The parameter record for one cell of a transient battery model <a href="Modelica_Electrical_Batteries_ParameterRecords_TransientData.html#Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData"
+>cellData</a>
+extends from the <a href="Modelica_Electrical_Batteries_ParameterRecords.html#Modelica.Electrical.Batteries.ParameterRecords.CellData"
+>basic cellData</a> record, and adds the parameters of the additional RC-elements.
+These are specified by an array of parameter records <a href="Modelica_Electrical_Batteries_ParameterRecords_TransientData.html#Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData"
+>rcData</a>:
+</p>
+<ul>
+<li><code>R</code> .. Resistance of RC-element</li>
+<li><code>C</code> .. Capacitance of RC-element</li>
+</ul>
+<p>
+The size of the array <a href="Modelica_Electrical_Batteries_ParameterRecords_TransientData.html#Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData"
+>rcData</a> has to be defined as parameter <code>nRC</code>.
+The parameters of these RC-elements are results of sophisticated measurements, e.g. cell impedance spectroscopy.<br>
+Temperature dependency of the resistors is assumed to be the same as inner resistance <code>Ri</code>.
+</p>
+<h4>Typical parameters of a Li-Ion cell</h4>
+<table>
+<tr><td>End of charge voltage</td>   <td>&nbsp;</td>              <td>4.2 V</td></tr>
+<tr><td>Nominal voltage</td>         <td>&nbsp;</td>              <td>3.6 V</td></tr>
+<tr><td>End of discharge voltage</td><td><code>OCVmmin</code></td><td>2.5 V</td></tr>
+</table>
+<p>
+Capacity (i.e. nominal charge) <code>Qnom</code>, inner resistance <code>Ri</code> and short-circuit current <code>Isc</code> depend on the cell size.<br>
+Typical (estimated) values for a certain cell size are, as an example:
+</p>
+<table>
+<tr><td>Capacity</td>             <td><code>Qnom</code></td><td>5 A.h</td></tr>
+<tr><td>Inner resistance</td>     <td><code>Ri</code></td>  <td>3 m&Omega;</td></tr>
+</table>
+<p>
+Self-discharge rate is typically 1%/month.
+</p>
+<h4>Parameters of stacks built from a matrix of <code>Ns</code> x <code>Np</code> cells:</h4>
+<p>
+A <strong>stack</strong> from <a href="Modelica_Electrical_Batteries_BatteryStacksWithSensors.html#Modelica.Electrical.Batteries.BatteryStacksWithSensors"
+>BatteryStacksWithSensors</a> is built from <code>Ns*Np</code> cells
+arranged in a matrix, where <code>Np</code> describes the number of parallel connected cells and <code>Ns</code> the number of series connected cells.
+The parameters of such a stack are summarized in the parameter record <a href="Modelica_Electrical_Batteries_ParameterRecords.html#Modelica.Electrical.Batteries.ParameterRecords.StackData"
+>stackData</a>.
+Here the matrix of <code>Ns</code> x <code>Np</code> cell parameters records is compiled.
+The parameters of <a href="Modelica_Electrical_Batteries_ParameterRecords.html#Modelica.Electrical.Batteries.ParameterRecords.CellData"
+>original cell data</a> are propagated to all cells except those
+whose indices are specified in the array <code>kDegraded[:,2]</code>. For these degraded cells the parameters of
+<a href="Modelica_Electrical_Batteries_ParameterRecords.html#Modelica.Electrical.Batteries.ParameterRecords.CellData"
+>degraded cell data</a> are propagated.<br>
+<strong>Note:</strong> Any members of the parameter array <code>kDegraded[:,2]</code> outside the range <code>1&le;kDegraded[:,1]&le;Ns</code> and <code>1&le;kDegraded[:,2]&le;Np</code> are ignored.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Battecb15b3a36f77e1b0ntactI.png" alt="Modelica.Electrical.Batteries.UsersGuide.Contact" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Batteries.UsersGuide.Contact"></a><a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide"
+>Modelica.Electrical.Batteries.UsersGuide</a>.Contact</h2>
+
+<h4>Main authors</h4>
+
+<p>
+<strong>Anton Haumer</strong><br>
+<a href="https://www.haumer.at">Technical Consulting &amp; Electrical Engineering</a><br>
+D-93049 Regensburg, Germany<br>
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+</p>
+
+<p>
+<strong>Dr. Christian Kral</strong><br>
+<a href="https://christiankral.net/">Electric Machines, Drives and Systems</a><br>
+A-1060 Vienna, Austria<br>
+email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</a> (Icon for contact information).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReleaseNotes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Batte27c41e8b4ea0e814NotesI.png" alt="Modelica.Electrical.Batteries.UsersGuide.ReleaseNotes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Batteries.UsersGuide.ReleaseNotes"></a><a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide"
+>Modelica.Electrical.Batteries.UsersGuide</a>.ReleaseNotes</h2>
+
+
+<h5>Version 2.5.0, 2019-12-24</h5>
+<ul>
+<li>Extension with stack models built from a matrix of different cells</li>
+<li>Cell and stack models with sensors</li>
+</ul>
+
+<h5>Version 1.1.0, 2019-07-17</h5>
+<ul>
+<li>Agreement on consistent naming</li>
+</ul>
+
+<h5>Version 1.0.0, 2019-07-14</h5>
+<ul>
+<li>First tagged version</li>
+</ul>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE References<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Batte4c44236516b69d2dencesI.png" alt="Modelica.Electrical.Batteries.UsersGuide.References" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Batteries.UsersGuide.References"></a><a href="Modelica_Electrical_Batteries_UsersGuide.html#Modelica.Electrical.Batteries.UsersGuide"
+>Modelica.Electrical.Batteries.UsersGuide</a>.References</h2>
+
+<h4>References</h4>
+
+<table border="0" cellspacing="0" cellpadding="2">
+    <tr>
+      <td>[Grimm2019]</td>
+      <td>Alexander Grimm and Anton Haumer,
+        <a href="https://2019.international.conference.modelica.org/proceedings/html/papers/Modelica2019paper2D1.pdf">
+        <em>Parameterization Of A Simplified Physical Battery Model</em></a>,
+        13th International Modelica Conference 2019, Regensburg, Germany</td>
+    </tr>
+
+    <tr>
+      <td>[Keil2012]</td>
+      <td>Peter Keil and Andreas Jossen,
+        <em>Aufbau und Parametrierung von Batteriemodellen</em>,
+        19. Design&amp;Elektronik-Entwicklerforum Batterien &amp; Ladekonzepte 2012, M&uuml;nchen, Germany</td>
+    </tr>
+
+    <tr>
+      <td>[Einhorn11a]</td>
+      <td>M. Einhorn, V. Conte, C. Kral, C. Niklas, H. Popp and J. Fleig,
+        <a href="https://2011.international.conference.modelica.org/proceedings/pages/papers/17_4_ID_105_a_fv.pdf">
+        <em>A Modelica Library for Simulation of Electric Energy Storages</em></a>,
+        8th International Modelica Conference 2011, Dresden, Germany</td>
+    </tr>
+
+    <tr>
+      <td>[Kurzweil2015]</td>
+      <td>Peter Kurzweil and Otto K. Dietlmeier,
+        <em>Elektrochemische Speicher</em>,
+        Springer Vieweg 2015, ISBN 978-3-658-10899-1</td>
+    </tr>
+
+    <tr>
+      <td>[Witzenhausen2017]</td>
+      <td>Heiko Witzenhausen,
+        <em>Elektrische Batteriespeichermodelle: Modellbildung, Parameteridentifikation und Modellreduktion</em>,
+        PhD thesis, Rheinisch-Westf&auml;lische Technische Hochschule Aachen, 2017</td>
+    </tr>
+
+    <tr>
+      <td>[Schmidt2013]</td>
+      <td>Jan Philipp Schmidt,
+        <em>Verfahren zur Charakterisierung und Modellierung von Lithium-Ionen Zellen</em>,
+        PhD thesis, Karlsruher Institut f&uuml;r Technologie, 2013</td>
+    </tr>
+</table>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.References"
+>Modelica.Icons.References</a> (Icon for external references).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:12 2026.
+</address>
+</body>
+</html>

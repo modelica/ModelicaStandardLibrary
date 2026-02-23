@@ -1,0 +1,461 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.Random.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of utility functions for the Random package (usually of no interest for the user)&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.Random.Utilities"></a><a href="Modelica_Math_Random.html#Modelica.Math.Random"
+>Modelica.Math.Random</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Library of utility functions for the Random package (usually of no interest for the user)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains utility functions for the random number generators,
+that are usually of no interest for the user
+(they are, for example, used in package <a href="Modelica_Blocks_Noise.html#Modelica.Blocks.Noise"
+>Blocks.Noise</a>).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Random.Utilities.initialStateWithXorshift64star" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.initialStateWithXorshift64star"
+>initialStateWithXorshift64star</a>
+</td>
+<td>Return an initial state vector for a random number generator (based on xorshift64star algorithm)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Random.Utilities.automaticGlobalSeed" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.automaticGlobalSeed"
+>automaticGlobalSeed</a>
+</td>
+<td>Creates an automatic integer seed (typically from the current time and process id; this is an impure function)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Random.Utilities.automaticLocalSeed" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.automaticLocalSeed"
+>automaticLocalSeed</a>
+</td>
+<td>Creates an automatic local seed from the instance name</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Random.Utilities.initializeImpureRandom" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.initializeImpureRandom"
+>initializeImpureRandom</a>
+</td>
+<td>Initializes the internal state of the impure random number generator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Random.Utilities.impureRandom" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.impureRandom"
+>impureRandom</a>
+</td>
+<td>Impure random number generator (with hidden state vector)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Random.Utilities.impureRandomInteger" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.impureRandomInteger"
+>impureRandomInteger</a>
+</td>
+<td>Impure random number generator for integer values (with hidden state vector)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE initialStateWithXorshift64star<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Random.Utilities.initialStateWithXorshift64star" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Random.Utilities.initialStateWithXorshift64star"></a><a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities"
+>Modelica.Math.Random.Utilities</a>.initialStateWithXorshift64star</h2>
+<p>
+<span class="ModelicaDescription">Return an initial state vector for a random number generator (based on xorshift64star algorithm)</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+state = Utilities.<strong>initialStateWithXorshift6star</strong>(localSeed, globalSeed, nState);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+The <a href="Modelica_Math_Random_Generators_Xorshift64star.html#Modelica.Math.Random.Generators.Xorshift64star"
+>Xorshift64star</a>
+random number generator is used to fill a state vector of length nState (nState &ge; 1) with random numbers and return
+this vector. Arguments localSeed and globalSeed are any Integer numbers (including zero or negative number)
+that characterize the initial state.
+If the same localSeed, globalSeed, nState is given, the same state vector is returned.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  parameter Integer localSeed;
+  parameter Integer globalSeed;
+  Integer state[33];
+<strong>initial equation</strong>
+  state = Utilities.initialStateWithXorshift64star(localSeed, globalSeed, size(state,1));
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>localSeed</td><td>The local seed to be used for generating initial states</td></tr>
+<tr><td>globalSeed</td><td>The global seed to be combined with the local seed</td></tr>
+<tr><td>nState</td><td>The dimension of the state vector (&gt;= 1)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>state[nState]</td><td>The generated initial states</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE automaticGlobalSeed<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Random.Utilities.automaticGlobalSeed" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Random.Utilities.automaticGlobalSeed"></a><a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities"
+>Modelica.Math.Random.Utilities</a>.automaticGlobalSeed</h2>
+<p>
+<span class="ModelicaDescription">Creates an automatic integer seed (typically from the current time and process id; this is an impure function)</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+seed = Utilities.<strong>automaticGlobalSeed</strong>();
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>Returns an automatically computed seed (Integer). Typically, this seed is computed from:</p>
+<ol>
+<li> The current local time by computing the number of milli-seconds up to the current hour</li>
+<li> The process id (added to the first part by multiplying it with the prime number 6007).</li>
+</ol>
+<p>
+If getTime and getPid functions are not available on the target where this Modelica function
+is called, other means to compute a seed may be used.
+</p>
+
+<p>
+Note, this is an impure function that returns always a different value, when it is newly called.
+This function should be only called once during initialization.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+<strong>parameter</strong> Boolean useAutomaticSeed = false;
+<strong>parameter</strong> Integer fixedSeed = 67867967;
+<strong>final parameter</strong> Integer seed = <strong>if</strong> useAutomaticSeed <strong>then</strong>
+                              Random.Utilities.automaticGlobalSeed() <strong>else</strong> fixedSeed;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.automaticLocalSeed"
+>automaticLocalSeed</a>.
+</p>
+<h4>Note</h4>
+<p>This function is impure!</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>seed</td><td>Automatically generated seed</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE automaticLocalSeed<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Random.Utilities.automaticLocalSeed" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Random.Utilities.automaticLocalSeed"></a><a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities"
+>Modelica.Math.Random.Utilities</a>.automaticLocalSeed</h2>
+<p>
+<span class="ModelicaDescription">Creates an automatic local seed from the instance name</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+seed = Utilities.<strong>automaticLocalSeed</strong>(path);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns an automatically computed seed (Integer) from the hash value of
+the full path name of an instance (has to be inquired in the model or block
+where this function is called by the Modelica built-in operator <a href="https://specification.modelica.org/maint/3.6/operators-and-expressions.html#getinstancename">getInstanceName()</a>).
+Contrary to <a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.automaticGlobalSeed"
+>automaticGlobalSeed()</a>,
+this is a pure function, that is, the same seed is returned, if an identical
+path is provided.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+<strong>parameter</strong> Boolean useAutomaticLocalSeed = true;
+<strong>parameter</strong> Integer fixedLocalSeed        = 10;
+<strong>final parameter</strong> Integer localSeed = <strong>if</strong> useAutomaticLocalSeed <strong>then</strong>
+                                   automaticLocalSeed(getInstanceName())
+                                 <strong>else</strong>
+                                   fixedLocalSeed;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.automaticGlobalSeed"
+>automaticGlobalSeed</a>, <a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.hashString"
+>hashString</a> and <a href="https://specification.modelica.org/maint/3.6/operators-and-expressions.html#getinstancename">getInstanceName</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>path</td><td>Full path name of the instance (inquire with getInstanceName())</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>seed</td><td>Automatically generated seed</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE initializeImpureRandom<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Random.Utilities.initializeImpureRandom" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Random.Utilities.initializeImpureRandom"></a><a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities"
+>Modelica.Math.Random.Utilities</a>.initializeImpureRandom</h2>
+<p>
+<span class="ModelicaDescription">Initializes the internal state of the impure random number generator</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+id = <strong>initializeImpureRandom</strong>(seed;
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Generates a hidden initial state vector for the
+<a href="Modelica_Math_Random_Generators_Xorshift1024star.html#Modelica.Math.Random.Generators.Xorshift1024star"
+>Xorshift1024star</a>
+random number generator (= xorshift1024* algorithm), from Integer input argument seed. Argument seed
+can be given any value (including zero or negative number). The function returns the
+dummy Integer number id. This number needs to be passed as input to function
+<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.impureRandom"
+>impureRandom</a>,
+in order that the sorting order is correct (so that impureRandom is always called
+after initializeImpureRandom). The function stores a reasonable initial state vector
+in a C-static memory by using the
+<a href="Modelica_Math_Random_Generators_Xorshift64star.html#Modelica.Math.Random.Generators.Xorshift64star"
+>Xorshift64star</a>
+random number generator to fill the internal state vector with 64 bit random numbers.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  <strong>parameter</strong> Integer seed;
+  Real r;
+  <strong>function</strong> random = impureRandom (<strong>final</strong> id=id);
+<strong>protected </strong>
+  Integer id = initializeImpureRandom(seed);
+<strong>equation</strong>
+  // Use the random number generator
+  <strong>when</strong> sample(0,0.001) <strong>then</strong>
+     r = random();
+  <strong>end when</strong>;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.impureRandom"
+>Utilities.impureRandom</a>,
+<a href="Modelica_Math_Random_Generators.html#Modelica.Math.Random.Generators"
+>Random.Generators</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>seed</td><td>The input seed to initialize the impure random number generator</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>id</td><td>Identification number to be passed as input to function impureRandom, in order that sorting is correct</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE impureRandom<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Random.Utilities.impureRandom" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Random.Utilities.impureRandom"></a><a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities"
+>Modelica.Math.Random.Utilities</a>.impureRandom</h2>
+<p>
+<span class="ModelicaDescription">Impure random number generator (with hidden state vector)</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+r = <strong>impureRandom</strong>(id);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns a uniform random number in the range 0 &lt; random &le; 1 with the xorshift1024* algorithm.
+The dummy input Integer argument id must be the output argument of a call to function
+<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.initializeImpureRandom"
+>initializeImpureRandom</a>,
+in order that the sorting order is correct (so that impureRandom is always called
+after initializeImpureRandom). For every call of impureRandom(id), a different random number
+is returned, so the function is impure.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  <strong>parameter</strong> Integer seed;
+  Real r;
+  <strong>function</strong> random = impureRandom (<strong>final</strong> id=id);
+<strong>protected </strong>
+  Integer id;
+<strong>equation</strong>
+  // Initialize the random number generator
+  <strong>when</strong> initial() <strong>then</strong>
+    id = initializeImpureRandom(seed, time);
+  <strong>end when</strong>;
+
+  // Use the random number generator
+  <strong>when</strong> sample(0,0.001) <strong>then</strong>
+     r = random();
+  <strong>end when</strong>;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.initializeImpureRandom"
+>initializeImpureRandom</a>,
+<a href="Modelica_Math_Random_Generators.html#Modelica.Math.Random.Generators"
+>Random.Generators</a>
+</p>
+<h4>Note</h4>
+<p>This function is impure!</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>id</td><td>Identification number from initializeImpureRandom(..) function (is needed for correct sorting)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>A random number with a uniform distribution on the interval (0,1]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE impureRandomInteger<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Random.Utilities.impureRandomInteger" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Random.Utilities.impureRandomInteger"></a><a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities"
+>Modelica.Math.Random.Utilities</a>.impureRandomInteger</h2>
+<p>
+<span class="ModelicaDescription">Impure random number generator for integer values (with hidden state vector)</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+r = <strong>impureRandomInteger</strong>(id, imin=1, imax=Modelica.Constants.Integer_inf);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns an Integer random number in the range imin &le; random &le; imax with the xorshift1024* algorithm,
+(the random number in the range 0 ... 1 returned by the xorshift1024* algorithm is mapped to
+an Integer number in the range imin ... imax).
+The dummy input Integer argument id must be the output argument of a call to function
+<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.initializeImpureRandom"
+>initializeImpureRandom</a>,
+in order that the sorting order is correct (so that impureRandomInteger is always called
+after initializeImpureRandom). For every call of impureRandomInteger(id), a different random number
+is returned, so the function is impure.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Random_Utilities.html#Modelica.Math.Random.Utilities.initializeImpureRandom"
+>initializeImpureRandom</a>,
+<a href="Modelica_Math_Random_Generators.html#Modelica.Math.Random.Generators"
+>Random.Generators</a>
+</p>
+<h4>Note</h4>
+<p>This function is impure!</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>id</td><td>Identification number from initializeImpureRandom(..) function (is needed for correct sorting)</td></tr>
+<tr><td>imin</td><td>Minimum integer to generate</td></tr>
+<tr><td>imax</td><td>Maximum integer to generate (default = 2^28)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>A random number with a uniform distribution on the interval [imin,imax]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:32 2026.
+</address>
+</body>
+</html>

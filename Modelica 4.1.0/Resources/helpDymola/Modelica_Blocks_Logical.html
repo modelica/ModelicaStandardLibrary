@@ -1,0 +1,1148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.Logical</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of components with Boolean input and output signals&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Logical<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.Logical"></a><a href="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</a>.Logical</h2>
+<p>
+<span class="ModelicaDescription">Library of components with Boolean input and output signals</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package provides blocks with Boolean input and output signals
+to describe logical networks. A typical example for a logical
+network built with package Logical is shown in the next figure:
+</p>
+
+<div>
+<img src="../Images/Blocks/Logical/LogicalNetwork1.png"
+     alt="LogicalNetwork1.png">
+</div>
+
+<p>
+The actual value of Boolean input and/or output signals is displayed
+in the respective block icon as "circle", where "white" color means
+value <strong>false</strong> and "green" color means value <strong>true</strong>. These
+values are visualized in a diagram animation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interface8da54dd1d87ef033SI2SOS.png" alt="Modelica.Blocks.Logical.And" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.And"
+>And</a>
+</td>
+<td>Logical &#39;and&#39;: y = u1 and u2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interface8da54dd1d87ef033SI2SOS.png" alt="Modelica.Blocks.Logical.Or" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Or"
+>Or</a>
+</td>
+<td>Logical &#39;or&#39;: y = u1 or u2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interface8da54dd1d87ef033SI2SOS.png" alt="Modelica.Blocks.Logical.Xor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Xor"
+>Xor</a>
+</td>
+<td>Logical &#39;xor&#39;: y = u1 xor u2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interface8da54dd1d87ef033SI2SOS.png" alt="Modelica.Blocks.Logical.Nor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Nor"
+>Nor</a>
+</td>
+<td>Logical &#39;nor&#39;: y = not (u1 or u2)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interface8da54dd1d87ef033SI2SOS.png" alt="Modelica.Blocks.Logical.Nand" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Nand"
+>Nand</a>
+</td>
+<td>Logical &#39;nand&#39;: y = not (u1 and u2)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interface06f1b1b5e6c3fbb9nSISOS.png" alt="Modelica.Blocks.Logical.Not" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Not"
+>Not</a>
+</td>
+<td>Logical &#39;not&#39;: y = not u</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interface06f1b1b5e6c3fbb9nSISOS.png" alt="Modelica.Blocks.Logical.Pre" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Pre"
+>Pre</a>
+</td>
+<td>Breaks algebraic loops by an infinitesimal small time delay (y = pre(u): event iteration continues until u = pre(u))</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interface06f1b1b5e6c3fbb9nSISOS.png" alt="Modelica.Blocks.Logical.Edge" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Edge"
+>Edge</a>
+</td>
+<td>Output y is true, if the input u has a rising edge (y = edge(u))</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interface06f1b1b5e6c3fbb9nSISOS.png" alt="Modelica.Blocks.Logical.FallingEdge" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.FallingEdge"
+>FallingEdge</a>
+</td>
+<td>Output y is true, if the input u has a falling edge (y = edge(not u))</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interface06f1b1b5e6c3fbb9nSISOS.png" alt="Modelica.Blocks.Logical.Change" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Change"
+>Change</a>
+</td>
+<td>Output y is true, if the input u has a rising or falling edge (y = change(u))</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.GreaterThresholdS.png" alt="Modelica.Blocks.Logical.GreaterThreshold" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.GreaterThreshold"
+>GreaterThreshold</a>
+</td>
+<td>Output y is true, if input u is greater than threshold</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.G2d9ff8241c0c8e62sholdS.png" alt="Modelica.Blocks.Logical.GreaterEqualThreshold" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.GreaterEqualThreshold"
+>GreaterEqualThreshold</a>
+</td>
+<td>Output y is true, if input u is greater or equal than threshold</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.LessThresholdS.png" alt="Modelica.Blocks.Logical.LessThreshold" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.LessThreshold"
+>LessThreshold</a>
+</td>
+<td>Output y is true, if input u is less than threshold</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.Lfaaf896ddec9265asholdS.png" alt="Modelica.Blocks.Logical.LessEqualThreshold" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.LessEqualThreshold"
+>LessEqualThreshold</a>
+</td>
+<td>Output y is true, if input u is less or equal than threshold</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.GreaterS.png" alt="Modelica.Blocks.Logical.Greater" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Greater"
+>Greater</a>
+</td>
+<td>Output y is true, if input u1 is greater than input u2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.GreaterEqualS.png" alt="Modelica.Blocks.Logical.GreaterEqual" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.GreaterEqual"
+>GreaterEqual</a>
+</td>
+<td>Output y is true, if input u1 is greater or equal than input u2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.LessS.png" alt="Modelica.Blocks.Logical.Less" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Less"
+>Less</a>
+</td>
+<td>Output y is true, if input u1 is less than input u2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.LessEqualS.png" alt="Modelica.Blocks.Logical.LessEqual" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.LessEqual"
+>LessEqual</a>
+</td>
+<td>Output y is true, if input u1 is less or equal than input u2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.ZeroCrossingS.png" alt="Modelica.Blocks.Logical.ZeroCrossing" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.ZeroCrossing"
+>ZeroCrossing</a>
+</td>
+<td>Trigger zero crossing of input u</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.LogicalSwitchS.png" alt="Modelica.Blocks.Logical.LogicalSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.LogicalSwitch"
+>LogicalSwitch</a>
+</td>
+<td>Logical Switch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.SwitchS.png" alt="Modelica.Blocks.Logical.Switch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Switch"
+>Switch</a>
+</td>
+<td>Switch between two Real signals</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.HysteresisS.png" alt="Modelica.Blocks.Logical.Hysteresis" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Hysteresis"
+>Hysteresis</a>
+</td>
+<td>Transform Real to Boolean signal with Hysteresis</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.OnOffControllerS.png" alt="Modelica.Blocks.Logical.OnOffController" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.OnOffController"
+>OnOffController</a>
+</td>
+<td>On-off controller</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.Ta374a3b27526f36bezoidS.png" alt="Modelica.Blocks.Logical.TriggeredTrapezoid" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.TriggeredTrapezoid"
+>TriggeredTrapezoid</a>
+</td>
+<td>Triggered trapezoid generator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.TimerS.png" alt="Modelica.Blocks.Logical.Timer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Timer"
+>Timer</a>
+</td>
+<td>Timer measuring the time from the time instant where the Boolean input became true</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.LogicalDelayS.png" alt="Modelica.Blocks.Logical.LogicalDelay" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.LogicalDelay"
+>LogicalDelay</a>
+</td>
+<td>Delay boolean signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.RSFlipFlopS.png" alt="Modelica.Blocks.Logical.RSFlipFlop" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.RSFlipFlop"
+>RSFlipFlop</a>
+</td>
+<td>A basic RS Flip Flop</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.AssertConditionS.png" alt="Modelica.Blocks.Logical.AssertCondition" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.AssertCondition"
+>AssertCondition</a>
+</td>
+<td>Assert that input u is true</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Logical.Tf3ba4c3bcd9c4496ationS.png" alt="Modelica.Blocks.Logical.TerminateSimulation" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.TerminateSimulation"
+>TerminateSimulation</a>
+</td>
+<td>Terminate simulation if condition is fulfilled</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE And<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interface8da54dd1d87ef033SI2SOI.png" alt="Modelica.Blocks.Logical.And" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.And"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.And</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;and&#39;: y = u1 and u2</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if all inputs are <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSI2SO"
+>Blocks.Interfaces.partialBooleanSI2SO</a> (Partial block with 2 input and 1 output Boolean signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Boolean input signal</td></tr>
+<tr><td>u2</td><td>Connector of second Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Or<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interface8da54dd1d87ef033SI2SOI.png" alt="Modelica.Blocks.Logical.Or" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Or"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Or</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;or&#39;: y = u1 or u2</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if at least one input is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSI2SO"
+>Blocks.Interfaces.partialBooleanSI2SO</a> (Partial block with 2 input and 1 output Boolean signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Boolean input signal</td></tr>
+<tr><td>u2</td><td>Connector of second Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Xor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interface8da54dd1d87ef033SI2SOI.png" alt="Modelica.Blocks.Logical.Xor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Xor"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Xor</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;xor&#39;: y = u1 xor u2</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if exactly one input is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSI2SO"
+>Blocks.Interfaces.partialBooleanSI2SO</a> (Partial block with 2 input and 1 output Boolean signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Boolean input signal</td></tr>
+<tr><td>u2</td><td>Connector of second Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Nor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interface8da54dd1d87ef033SI2SOI.png" alt="Modelica.Blocks.Logical.Nor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Nor"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Nor</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;nor&#39;: y = not (u1 or u2)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if none of the inputs is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSI2SO"
+>Blocks.Interfaces.partialBooleanSI2SO</a> (Partial block with 2 input and 1 output Boolean signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Boolean input signal</td></tr>
+<tr><td>u2</td><td>Connector of second Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Nand<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interface8da54dd1d87ef033SI2SOI.png" alt="Modelica.Blocks.Logical.Nand" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Nand"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Nand</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;nand&#39;: y = not (u1 and u2)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if at least one input is <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSI2SO"
+>Blocks.Interfaces.partialBooleanSI2SO</a> (Partial block with 2 input and 1 output Boolean signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Boolean input signal</td></tr>
+<tr><td>u2</td><td>Connector of second Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Not<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interface06f1b1b5e6c3fbb9nSISOI.png" alt="Modelica.Blocks.Logical.Not" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Not"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Not</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;not&#39;: y = not u</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if the input is <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSISO"
+>Blocks.Interfaces.partialBooleanSISO</a> (Partial block with 1 input and 1 output Boolean signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Pre<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interface06f1b1b5e6c3fbb9nSISOI.png" alt="Modelica.Blocks.Logical.Pre" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Pre"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Pre</h2>
+<p>
+<span class="ModelicaDescription">Breaks algebraic loops by an infinitesimal small time delay (y = pre(u): event iteration continues until u = pre(u))</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block delays the Boolean input by an infinitesimal small time delay and
+therefore breaks algebraic loops. In a network of logical blocks, in every
+"closed connection loop" at least one logical block must have a delay,
+since algebraic systems of Boolean equations are not solvable.
+</p>
+
+<p>
+The "Pre" block returns the value of the "input" signal from the
+last "event iteration". The "event iteration" stops, once both
+values are identical (u = pre(u)).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSISO"
+>Blocks.Interfaces.partialBooleanSISO</a> (Partial block with 1 input and 1 output Boolean signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pre_u_start</td><td>Start value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Edge<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interface06f1b1b5e6c3fbb9nSISOI.png" alt="Modelica.Blocks.Logical.Edge" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Edge"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Edge</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if the input u has a rising edge (y = edge(u))</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if the Boolean input has a rising edge
+from <strong>false</strong> to <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSISO"
+>Blocks.Interfaces.partialBooleanSISO</a> (Partial block with 1 input and 1 output Boolean signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pre_u_start</td><td>Start value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FallingEdge<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interface06f1b1b5e6c3fbb9nSISOI.png" alt="Modelica.Blocks.Logical.FallingEdge" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.FallingEdge"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.FallingEdge</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if the input u has a falling edge (y = edge(not u))</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if the Boolean input has a falling edge
+from <strong>true</strong> to <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSISO"
+>Blocks.Interfaces.partialBooleanSISO</a> (Partial block with 1 input and 1 output Boolean signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pre_u_start</td><td>Start value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Change<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interface06f1b1b5e6c3fbb9nSISOI.png" alt="Modelica.Blocks.Logical.Change" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Change"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Change</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if the input u has a rising or falling edge (y = change(u))</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if the Boolean input has either a rising edge
+from <strong>false</strong> to <strong>true</strong> or a falling edge from
+<strong>true</strong> to <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSISO"
+>Blocks.Interfaces.partialBooleanSISO</a> (Partial block with 1 input and 1 output Boolean signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pre_u_start</td><td>Start value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE GreaterThreshold<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.GreaterThresholdI.png" alt="Modelica.Blocks.Logical.GreaterThreshold" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.GreaterThreshold"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.GreaterThreshold</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if input u is greater than threshold</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if the Real input is greater than
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanThresholdComparison"
+>Blocks.Interfaces.partialBooleanThresholdComparison</a> (Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>threshold</td><td>Comparison with respect to threshold</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE GreaterEqualThreshold<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.G2d9ff8241c0c8e62sholdI.png" alt="Modelica.Blocks.Logical.GreaterEqualThreshold" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.GreaterEqualThreshold"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.GreaterEqualThreshold</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if input u is greater or equal than threshold</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if the Real input is greater than or equal to
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanThresholdComparison"
+>Blocks.Interfaces.partialBooleanThresholdComparison</a> (Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>threshold</td><td>Comparison with respect to threshold</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LessThreshold<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.LessThresholdI.png" alt="Modelica.Blocks.Logical.LessThreshold" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.LessThreshold"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.LessThreshold</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if input u is less than threshold</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if the Real input is less than
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanThresholdComparison"
+>Blocks.Interfaces.partialBooleanThresholdComparison</a> (Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>threshold</td><td>Comparison with respect to threshold</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LessEqualThreshold<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.Lfaaf896ddec9265asholdI.png" alt="Modelica.Blocks.Logical.LessEqualThreshold" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.LessEqualThreshold"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.LessEqualThreshold</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if input u is less or equal than threshold</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if the Real input is less than or equal to
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanThresholdComparison"
+>Blocks.Interfaces.partialBooleanThresholdComparison</a> (Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>threshold</td><td>Comparison with respect to threshold</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Greater<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.GreaterI.png" alt="Modelica.Blocks.Logical.Greater" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Greater"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Greater</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if input u1 is greater than input u2</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if Real input u1 is greater than
+Real input u2, otherwise the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanComparison"
+>Blocks.Interfaces.partialBooleanComparison</a> (Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Real input signal</td></tr>
+<tr><td>u2</td><td>Connector of second Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE GreaterEqual<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.GreaterEqualI.png" alt="Modelica.Blocks.Logical.GreaterEqual" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.GreaterEqual"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.GreaterEqual</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if input u1 is greater or equal than input u2</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if Real input u1 is greater than or equal to
+Real input u2, otherwise the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanComparison"
+>Blocks.Interfaces.partialBooleanComparison</a> (Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Real input signal</td></tr>
+<tr><td>u2</td><td>Connector of second Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Less<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.LessI.png" alt="Modelica.Blocks.Logical.Less" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Less"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Less</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if input u1 is less than input u2</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if Real input u1 is less than
+Real input u2, otherwise the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanComparison"
+>Blocks.Interfaces.partialBooleanComparison</a> (Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Real input signal</td></tr>
+<tr><td>u2</td><td>Connector of second Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LessEqual<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.LessEqualI.png" alt="Modelica.Blocks.Logical.LessEqual" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.LessEqual"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.LessEqual</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if input u1 is less or equal than input u2</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output is <strong>true</strong> if Real input u1 is less than or equal to
+Real input u2, otherwise the output is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanComparison"
+>Blocks.Interfaces.partialBooleanComparison</a> (Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Real input signal</td></tr>
+<tr><td>u2</td><td>Connector of second Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ZeroCrossing<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.ZeroCrossingI.png" alt="Modelica.Blocks.Logical.ZeroCrossing" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.ZeroCrossing"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.ZeroCrossing</h2>
+<p>
+<span class="ModelicaDescription">Trigger zero crossing of input u</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output "y" is <strong>true</strong> at the
+time instant when the input "u" becomes
+zero, provided the input "enable" is
+<strong>true</strong>. At all other time instants, the output "y" is <strong>false</strong>.
+If the input "u" is zero at a time instant when the "enable"
+input changes its value, then the output y is <strong>false</strong>.
+</p>
+<p>
+Note, that in the plot window of a Modelica simulator, the output of
+this block is usually identically to <strong>false</strong>, because the output
+may only be <strong>true</strong> at an event instant, but not during
+continuous integration. In order to check that this component is
+actually working as expected, one should connect its output to, e.g.,
+component <em><a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete.TriggeredSampler"
+>Modelica.Blocks.Discrete.TriggeredSampler</a></em>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSO"
+>Blocks.Interfaces.partialBooleanSO</a> (Partial block with 1 output Boolean signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+<tr><td>enable</td><td>Zero input crossing is triggered if the enable input signal is true</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogicalSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.LogicalSwitchI.png" alt="Modelica.Blocks.Logical.LogicalSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.LogicalSwitch"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.LogicalSwitch</h2>
+<p>
+<span class="ModelicaDescription">Logical Switch</span>
+</p>
+<h3>Information</h3>
+
+<p>The LogicalSwitch switches, depending on the
+Boolean u2 connector (the middle connector),
+between the two possible input signals
+u1 (upper connector) and u3 (lower connector).</p>
+<p>If u2 is true, connector y is set equal to
+u1, else it is set equal to u3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSI3SO"
+>Blocks.Interfaces.partialBooleanSI3SO</a> (Partial block with 3 input and 1 output Boolean signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Boolean input signal</td></tr>
+<tr><td>u2</td><td>Connector of second Boolean input signal</td></tr>
+<tr><td>u3</td><td>Connector of third Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Switch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.SwitchI.png" alt="Modelica.Blocks.Logical.Switch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Switch"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Switch</h2>
+<p>
+<span class="ModelicaDescription">Switch between two Real signals</span>
+</p>
+<h3>Information</h3>
+
+<p>The Logical.Switch switches, depending on the
+logical connector u2 (the middle connector)
+between the two possible input signals
+u1 (upper connector) and u3 (lower connector).</p>
+<p>If u2 is <strong>true</strong>, the output signal y is set equal to
+u1, else it is set equal to u3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.PartialBooleanBlock"
+>Modelica.Blocks.Icons.PartialBooleanBlock</a> (Basic graphical layout of logical block).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of first Real input signal</td></tr>
+<tr><td>u2</td><td>Connector of Boolean input signal</td></tr>
+<tr><td>u3</td><td>Connector of second Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Hysteresis<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.HysteresisI.png" alt="Modelica.Blocks.Logical.Hysteresis" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Hysteresis"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Hysteresis</h2>
+<p>
+<span class="ModelicaDescription">Transform Real to Boolean signal with Hysteresis</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block transforms a <strong>Real</strong> input signal <strong>u</strong> into a <strong>Boolean</strong>
+output signal <strong>y</strong>:
+</p>
+
+<div>
+<img src="../Images/Blocks/Logical/Hysteresis.png"
+     alt="Hysteresis.png">
+</div>
+
+<ul>
+<li> When the output was <strong>false</strong> and the input becomes
+     <strong>greater</strong> than parameter <strong>uHigh</strong>, the output
+     switches to <strong>true</strong>.</li>
+<li> When the output was <strong>true</strong> and the input becomes
+     <strong>less</strong> than parameter <strong>uLow</strong>, the output
+     switches to <strong>false</strong>.</li>
+</ul>
+<p>
+The start value of the output is defined via parameter
+<strong>pre_y_start</strong> (= value of pre(y) at initial time).
+The default value of this parameter is <strong>false</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.PartialBooleanBlock"
+>Modelica.Blocks.Icons.PartialBooleanBlock</a> (Basic graphical layout of logical block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>uLow</td><td>If y=true and u&lt;uLow, switch to y=false</td></tr>
+<tr><td>uHigh</td><td>If y=false and u&gt;uHigh, switch to y=true</td></tr>
+<tr><td>pre_y_start</td><td>Value of pre(y) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OnOffController<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.OnOffControllerI.png" alt="Modelica.Blocks.Logical.OnOffController" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.OnOffController"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.OnOffController</h2>
+<p>
+<span class="ModelicaDescription">On-off controller</span>
+</p>
+<h3>Information</h3>
+
+<p>The block OnOffController sets the output signal <strong>y</strong> to <strong>true</strong> when
+the input signal <strong>u</strong> falls below the <strong>reference</strong> signal minus half of
+the bandwidth and sets the output signal <strong>y</strong> to <strong>false</strong> when the input
+signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus half of the bandwidth.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.PartialBooleanBlock"
+>Modelica.Blocks.Icons.PartialBooleanBlock</a> (Basic graphical layout of logical block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>bandwidth</td><td>Bandwidth around reference signal</td></tr>
+<tr><td>pre_y_start</td><td>Value of pre(y) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>reference</td><td>Connector of Real input signal used as reference signal</td></tr>
+<tr><td>u</td><td>Connector of Real input signal used as measurement signal</td></tr>
+<tr><td>y</td><td>Connector of Real output signal used as actuator signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TriggeredTrapezoid<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.Ta374a3b27526f36bezoidI.png" alt="Modelica.Blocks.Logical.TriggeredTrapezoid" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.TriggeredTrapezoid"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.TriggeredTrapezoid</h2>
+<p>
+<span class="ModelicaDescription">Triggered trapezoid generator</span>
+</p>
+<h3>Information</h3>
+
+<p>The block TriggeredTrapezoid has a Boolean input and a real
+output signal and requires the parameters <em>amplitude</em>,
+<em>rising</em>, <em>falling</em> and <em>offset</em>. The
+output signal <strong>y</strong> represents a trapezoidal signal dependent on the
+input signal <strong>u</strong>.
+</p>
+
+<div>
+<img src="../Images/Blocks/Logical/TriggeredTrapezoid.png"
+     alt="TriggeredTrapezoid.png">
+</div>
+
+<p>The behaviour is as follows: Assume the initial input to be false. In this
+case, the output will be <em>offset</em>. After a rising edge (i.e., the input
+changes from false to true), the output is rising during <em>rising</em> to the
+sum of <em>offset</em> and <em>amplitude</em>. In contrast, after a falling
+edge (i.e., the input changes from true to false), the output is falling
+during <em>falling</em> to a value of <em>offset</em>.
+</p>
+<p>Note, that the case of edges before expiration of rising or falling is
+handled properly.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.PartialBooleanBlock"
+>Modelica.Blocks.Icons.PartialBooleanBlock</a> (Basic graphical layout of logical block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>amplitude</td><td>Amplitude of trapezoid</td></tr>
+<tr><td>rising</td><td>Rising duration of trapezoid [s]</td></tr>
+<tr><td>falling</td><td>Falling duration of trapezoid [s]</td></tr>
+<tr><td>offset</td><td>Offset of output signal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Timer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.TimerI.png" alt="Modelica.Blocks.Logical.Timer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.Timer"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.Timer</h2>
+<p>
+<span class="ModelicaDescription">Timer measuring the time from the time instant where the Boolean input became true</span>
+</p>
+<h3>Information</h3>
+
+<p>When the Boolean input <strong>u</strong> becomes <strong>true</strong>, the timer starts
+and the output <strong>y</strong> is the time that has elapsed since <strong>u</strong> became <strong>true</strong>.
+When the input becomes <strong>false</strong>, the timer stops and the output is reset to zero.
+</p>
+
+<div>
+<img src="../Images/Blocks/Logical/Timer.png"
+     alt="Timer.png">
+</div>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.PartialBooleanBlock"
+>Modelica.Blocks.Icons.PartialBooleanBlock</a> (Basic graphical layout of logical block).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Boolean input signal</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogicalDelay<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.LogicalDelayI.png" alt="Modelica.Blocks.Logical.LogicalDelay" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.LogicalDelay"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.LogicalDelay</h2>
+<p>
+<span class="ModelicaDescription">Delay boolean signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+When input <code>u</code> gets true, output <code>y1</code> gets immediately true, whereas output <code>y2</code> gets true after <code>delayTime</code>.
+</p>
+<p>
+When input <code>u</code> gets false, output <code>y1</code> gets false after <code>delayTime</code>, whereas output <code>y2</code> gets immediately false.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.PartialBooleanBlock"
+>Blocks.Icons.PartialBooleanBlock</a> (Basic graphical layout of logical block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>delayTime</td><td>Time delay [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+<tr><td>y1</td><td>&nbsp;</td></tr>
+<tr><td>y2</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RSFlipFlop<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.RSFlipFlopI.png" alt="Modelica.Blocks.Logical.RSFlipFlop" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.RSFlipFlop"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.RSFlipFlop</h2>
+<p>
+<span class="ModelicaDescription">A basic RS Flip Flop</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The output <code>Q</code> is set by the input <code>S</code>, is reset by the input <code>R</code>, and keeps its value in between. <code>QI</code> is the inverse of <code>Q</code>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.PartialBooleanBlock"
+>Modelica.Blocks.Icons.PartialBooleanBlock</a> (Basic graphical layout of logical block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Qini</td><td>Start value of Q at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Q</td><td>&nbsp;</td></tr>
+<tr><td>QI</td><td>&nbsp;</td></tr>
+<tr><td>S</td><td>&nbsp;</td></tr>
+<tr><td>R</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AssertCondition<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.AssertConditionI.png" alt="Modelica.Blocks.Logical.AssertCondition" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.AssertCondition"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.AssertCondition</h2>
+<p>
+<span class="ModelicaDescription">Assert that input u is true</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block asserts that the Boolean input&nbsp;<strong>u</strong> is <strong>true</strong>.
+If&nbsp;<strong>u</strong> is <strong>false</strong>, the simulation will
+either abort with an error (if <strong>assertionLevel</strong> is set to
+<strong>error</strong>), or issue a&nbsp;warning and continue (if
+<strong>assertionLevel</strong> is set to <strong>warning</strong>).
+The <strong>message</strong> will be reported in either case.
+For further information, refer to the documentation of
+<a href="../../../ModelicaReference 4.1.0/Resources/helpDymola/ModelicaReference_Operators.html#ModelicaReference.Operators.'assert()'"
+>ModelicaReference.Operators.'assert()'</a>
+&ndash; an operator which this block is based on.
+</p>
+<p>
+Typically, this block is used by connecting a&nbsp;(possibly) <strong>time
+varying</strong> outside condition and the input&nbsp;<strong>u</strong>
+to abort the simulation if the condition fails.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSI"
+>Modelica.Blocks.Interfaces.partialBooleanSI</a> (Partial block with 1 input Boolean signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>message</td><td>Assertion message to be displayed if the input u is false; please adapt</td></tr>
+<tr><td>assertionLevel</td><td>Assertion level</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Boolean input signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TerminateSimulation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Logical.Tf3ba4c3bcd9c4496ationI.png" alt="Modelica.Blocks.Logical.TerminateSimulation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Logical.TerminateSimulation"></a><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Modelica.Blocks.Logical</a>.TerminateSimulation</h2>
+<p>
+<span class="ModelicaDescription">Terminate simulation if condition is fulfilled</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In the parameter menu, a <strong>time varying</strong> expression can be defined
+via variable <strong>condition</strong>, for example "condition = x &lt; 0",
+where "x" is a variable that is declared in the model in which the
+"TerminateSimulation" block is present.
+If this expression becomes <strong>true</strong>,
+the simulation is (successfully) terminated. A termination message
+explaining the reason for the termination can be given via
+parameter "terminationText".
+</p>
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>condition</td><td>Terminate simulation when condition becomes true</td></tr>
+<tr><td>terminationText</td><td>Text that will be displayed when simulation is terminated</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>condition</td><td>Terminate simulation when condition becomes true</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:58:56 2026.
+</address>
+</body>
+</html>
