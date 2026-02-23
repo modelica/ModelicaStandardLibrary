@@ -72,5 +72,33 @@ equation
 Demonstrates how a RollingWheelSet (two wheels rigidly coupled together) is rolling
 on ground when pulled by an external force.
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Forces and position",
+          identifier = "c9274",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = force.force[1], legend = "Force applied along the x axis in the world coordinate system"),
+                Curve(y = force.force[2], legend = "Force applied along the y axis in the world coordinate system")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = wheelSet.frameMiddle.f[1], legend = "Force applied along the x axis in the middle wheel set coordinate system"),
+                Curve(y = wheelSet.frameMiddle.f[2], legend = "Force applied along the y axis in the middle wheel set coordinate system")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = wheelSet.frameMiddle.r_0[1], legend = "Position of middle frame of wheels along x axis"),
+                Curve(y = wheelSet.frameMiddle.r_0[2], legend = "Position of middle frame of wheels along y axis")
+              }
+            )
+          }
+        )
+      }
+    ));
 end RollingWheelSetPulling;

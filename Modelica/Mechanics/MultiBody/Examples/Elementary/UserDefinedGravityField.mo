@@ -74,5 +74,20 @@ the rotation angle of the pendulum, rev.phi, has the following values:
 <tr><td>= 90</td>
     <td>= -2.42 rad</td></tr>
 </table>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Angle of revolute",
+          identifier = "8b0fa",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = rev.phi, legend = "RevoluteAngle")
+              }
+            )
+          }
+        )
+      }
+    ));
 end UserDefinedGravityField;

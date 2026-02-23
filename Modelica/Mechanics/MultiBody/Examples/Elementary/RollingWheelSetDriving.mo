@@ -85,5 +85,34 @@ equation
 Demonstrates how a RollingWheelSet (two wheels rigidly coupled together) is rolling
 on ground when driven by some external torques.
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Torques and forces",
+          identifier = "80032",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = torque1.tau, legend = "Torque on wheel1"),
+                Curve(y = torque2.tau, legend = "Torque on wheel2"),
+                Curve(y = wheelSet.wheelSetJoint.support.tau, legend = "Total torque on wheels")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = wheelSet.wheelSetJoint.rolling1.f_lat, legend = "Lateral force on wheel1"),
+                Curve(y = wheelSet.wheelSetJoint.rolling1.f_long, legend = "Longitudinal force on wheel1")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = wheelSet.wheelSetJoint.rolling2.f_lat, legend = "Lateral force on wheel2"),
+                Curve(y = wheelSet.wheelSetJoint.rolling2.f_long, legend = "Longitudinal force on wheel2")
+              }
+            )
+          }
+        )
+      }
+    ));
 end RollingWheelSetDriving;

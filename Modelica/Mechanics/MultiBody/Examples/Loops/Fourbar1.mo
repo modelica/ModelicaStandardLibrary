@@ -122,5 +122,31 @@ of revolute joint j1 is set to 300 deg/s in order to drive this loop.
 </p>
 
 <div><img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar1.png\" alt=\"model Examples.Loops.Fourbar1\"></div>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "j1 and j2",
+          identifier = "75e97",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = j1_phi, legend = "Angle of revolute joint j1")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = j2_s, legend = "Distance of prismatic joint j2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = j1_w, legend = "Angular velocity of revolute joint j1"),
+                Curve(y = j2_v, legend = "Velocity of revolute joint j2")
+              }
+            )
+          }
+        )
+      }
+    ));
 end Fourbar1;

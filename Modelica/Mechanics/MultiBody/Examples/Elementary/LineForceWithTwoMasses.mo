@@ -199,5 +199,29 @@ side in the back is the animation with the JointUPS component.
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
 </blockquote>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Difference in cut forces",
+          identifier = "beedd",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = body_f_diff[1], legend = "Difference in cut-forces in bodyBox1 and bodyBox2 along x axis"),
+                Curve(y = body_f_diff[2], legend = "Difference in cut-forces in bodyBox1 and bodyBox2 along y axis"),
+                Curve(y = body_f_diff[3], legend = "Difference in cut-forces in bodyBox1 and bodyBox2 along z axis")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = rod_f_diff[1], legend = "Difference of cut-forces in rod1 and rod3 along x axis"),
+                Curve(y = rod_f_diff[2], legend = "Difference of cut-forces in rod1 and rod3 along y axis"),
+                Curve(y = rod_f_diff[3], legend = "Difference of cut-forces in rod1 and rod3 along z axis")
+              }
+            )
+          }
+        )
+      }
+    ));
 end LineForceWithTwoMasses;
