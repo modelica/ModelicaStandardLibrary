@@ -192,5 +192,34 @@ DC capacitors start at ideal no-load voltage, thus making easier initial transie
        by Anton Haumer<br> realized<br>
        </li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltages and currents",
+          identifier = "bbe9c",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = uDC, legend = "Sum of voltages in Capacitor1 and Capacitor2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = iAC[1], legend = "Current in Inductor1.n"),
+                Curve(y = iAC[2], legend = "Current in Inductor2.n"),
+                Curve(y = iAC[3], legend = "Current in Inductor3.n")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = uAC[1], legend = "Difference in voltage between Inductor1.n and Inductor2.n"),
+                Curve(y = uAC[2], legend = "Difference in voltage between Inductor2.n and Inductor3.n"),
+                Curve(y = uAC[3], legend = "Difference in voltage between Inductor3.n and Inductor1.n")
+              }
+            )
+          }
+        )
+      }
+    ));
 end Rectifier;
