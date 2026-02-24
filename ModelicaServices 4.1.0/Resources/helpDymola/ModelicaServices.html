@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ModelicaServices</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;ModelicaServices (Default implementation) - Models and functions used in the Modelica Standard Library requiring a tool specific implementation&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ModelicaServices<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="ModelicaServices"></a>ModelicaServices</h2>
+<p>
+<span class="ModelicaDescription">ModelicaServices (Default implementation) - Models and functions used in the Modelica Standard Library requiring a tool specific implementation</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains a set of functions and models to be used in the
+Modelica Standard Library that requires a tool specific implementation.
+These are:
+</p>
+
+<ul>
+<li> <a href="ModelicaServices_Animation.html#ModelicaServices.Animation.Shape"
+>Animation.Shape</a>
+     provides a 3-dim. visualization of elementary
+     mechanical objects. It is used in
+<a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
+     via inheritance.</li>
+
+<li> <a href="ModelicaServices_Animation.html#ModelicaServices.Animation.Surface"
+>Animation.Surface</a>
+     provides a 3-dim. visualization of
+     moveable parameterized surface. It is used in
+<a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
+     via inheritance.</li>
+
+<li> <a href="ModelicaServices_Animation.html#ModelicaServices.Animation.Vector"
+>Animation.Vector</a>
+     provides a 3-dim. visualization of vector quantities. It is used in
+<a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow</a>, <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow</a> and <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.FixedArrow"
+>Modelica.Mechanics.MultiBody.Visualizers.FixedArrow</a>
+     via inheritance.</li>
+
+<li> <a href="ModelicaServices_ExternalReferences.html#ModelicaServices.ExternalReferences.loadResource"
+>ExternalReferences.loadResource</a>
+     provides a function to return the absolute path name of an URI or a local file name. It is used in
+<a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Utilities_Files.html#Modelica.Utilities.Files.loadResource"
+>Modelica.Utilities.Files.loadResource</a>
+     via inheritance.</li>
+
+<li> <a href="ModelicaServices_Machine.html#ModelicaServices.Machine"
+>Machine</a>
+     provides a package of machine constants. It is used in
+<a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Constants.html#Modelica.Constants"
+>Modelica.Constants</a>.</li>
+
+<li> <a href="ModelicaServices_System.html#ModelicaServices.System.exit"
+>System.exit</a> provides a function to terminate the execution of the Modelica environment. It is used in <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Utilities_System.html#Modelica.Utilities.System.exit"
+>Modelica.Utilities.System.exit</a> via inheritance.</li>
+
+<li> <a  >Types.SolverMethod</a>
+     provides a string defining the integration method to solve differential equations in
+     a clocked discretized continuous-time partition
+     (see <a href="https://specification.modelica.org/maint/3.6/synchronous-language-elements.html#solver-methods">Section&nbsp;16.8.2 <em>Solver Methods</em> of the Modelica 3.6 specification</a>).</li>
+</ul>
+
+<p>
+This is the default implementation, if no tool-specific implementation is available.
+This ModelicaServices package provides only "dummy" models that do nothing.
+</p>
+
+<p>
+<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
+Copyright &copy; 2009-2025, Modelica Association and contributors
+</p>
+
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>target=&quot;Default&quot;</td>
+<td>Target of this ModelicaServices implementation</td>
+</tr>
+<tr>
+<td><img src="ModelicaServices.UsersGuideS.png" alt="ModelicaServices.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="ModelicaServices_UsersGuide.html#ModelicaServices.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s Guide</td>
+</tr>
+<tr>
+<td><img src="ModelicaServices.AnimationS.png" alt="ModelicaServices.Animation" width="20" height="20" align="top">&nbsp;<a href="ModelicaServices_Animation.html#ModelicaServices.Animation"
+>Animation</a>
+</td>
+<td>Models and functions for 3-dim. animation</td>
+</tr>
+<tr>
+<td><img src="ModelicaServices.AnimationS.png" alt="ModelicaServices.ExternalReferences" width="20" height="20" align="top">&nbsp;<a href="ModelicaServices_ExternalReferences.html#ModelicaServices.ExternalReferences"
+>ExternalReferences</a>
+</td>
+<td>Library of functions to access external resources</td>
+</tr>
+<tr>
+<td><img src="ModelicaServices.AnimationS.png" alt="ModelicaServices.Machine" width="20" height="20" align="top">&nbsp;<a href="ModelicaServices_Machine.html#ModelicaServices.Machine"
+>Machine</a>
+</td>
+<td>Machine dependent constants</td>
+</tr>
+<tr>
+<td><img src="ModelicaServices.AnimationS.png" alt="ModelicaServices.System" width="20" height="20" align="top">&nbsp;<a href="ModelicaServices_System.html#ModelicaServices.System"
+>System</a>
+</td>
+<td>System dependent functions</td>
+</tr>
+<tr>
+<td><img src="ModelicaServices.AnimationS.png" alt="ModelicaServices.Types" width="20" height="20" align="top">&nbsp;<a href="ModelicaServices_Types.html#ModelicaServices.Types"
+>Types</a>
+</td>
+<td>Library of types with vendor specific choices</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:56 2026.
+</address>
+</body>
+</html>

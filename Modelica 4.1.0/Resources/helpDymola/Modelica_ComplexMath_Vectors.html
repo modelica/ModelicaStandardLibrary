@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.ComplexMath.Vectors</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of functions operating on complex vectors&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Vectors<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.ComplexMath.Vectors"></a><a href="Modelica_ComplexMath.html#Modelica.ComplexMath"
+>Modelica.ComplexMath</a>.Vectors</h2>
+<p>
+<span class="ModelicaDescription">Library of functions operating on complex vectors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This library provides functions operating on vectors
+of Complex numbers.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_FunctionsPackage.html#Modelica.Icons.FunctionsPackage"
+>Modelica.Icons.FunctionsPackage</a> (Icon for packages containing functions).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.ComplexMath.Vectors.norm" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexMath_Vectors.html#Modelica.ComplexMath.Vectors.norm"
+>norm</a>
+</td>
+<td>Returns the p-norm of a complex vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.ComplexMath.Vectors.length" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexMath_Vectors.html#Modelica.ComplexMath.Vectors.length"
+>length</a>
+</td>
+<td>Return length of a complex vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.ComplexMath.Vectors.normalize" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexMath_Vectors.html#Modelica.ComplexMath.Vectors.normalize"
+>normalize</a>
+</td>
+<td>Return normalized complex vector such that length = 1 and prevent zero-division for zero vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.ComplexMath.Vectors.reverse" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexMath_Vectors.html#Modelica.ComplexMath.Vectors.reverse"
+>reverse</a>
+</td>
+<td>Reverse vector elements (e.g., v[1] becomes last element)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.ComplexMath.Vectors.sort" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexMath_Vectors.html#Modelica.ComplexMath.Vectors.sort"
+>sort</a>
+</td>
+<td>Sort elements of complex vector</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE norm<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.ComplexMath.Vectors.norm" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexMath.Vectors.norm"></a><a href="Modelica_ComplexMath_Vectors.html#Modelica.ComplexMath.Vectors"
+>Modelica.ComplexMath.Vectors</a>.norm</h2>
+<p>
+<span class="ModelicaDescription">Returns the p-norm of a complex vector</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<strong>norm</strong>(v);
+Vectors.<strong>norm</strong>(v,p=2);   // 1 &le; p &le; &#8734;
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.<strong>norm</strong>(v)</code>" returns the
+<strong>Euclidean norm</strong> "<code>sqrt(v*v)</code>" of vector v.
+With the optional
+second argument "p", any other p-norm can be computed:
+</p>
+<center>
+<img src="../Images/Math/Vectors/vectorNorm.png" alt="function Vectors.norm">
+</center>
+<p>
+Besides the Euclidean norm (p=2), also the 1-norm and the
+infinity-norm are sometimes used:
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td><strong>1-norm</strong></td>
+      <td>= sum(abs(v))</td>
+      <td><strong>norm</strong>(v,1)</td>
+  </tr>
+  <tr><td><strong>2-norm</strong></td>
+      <td>= sqrt(v*v)</td>
+      <td><strong>norm</strong>(v) or <strong>norm</strong>(v,2)</td>
+  </tr>
+  <tr><td><strong>infinity-norm</strong></td>
+      <td>= max(abs(v))</td>
+      <td><strong>norm</strong>(v,Modelica.Constants.<strong>inf</strong>)</td>
+  </tr>
+</table>
+<p>
+Note, for any vector norm the following inequality holds:
+</p>
+<blockquote><pre>
+<strong>norm</strong>(v1+v2,p) &le; <strong>norm</strong>(v1,p) + <strong>norm</strong>(v2,p)
+</pre></blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+v = {2, -4, -2, -1};
+<strong>norm</strong>(v,1);    // = 9
+<strong>norm</strong>(v,2);    // = 5
+<strong>norm</strong>(v);      // = 5
+<strong>norm</strong>(v,10.5); // = 4.00052597412635
+<strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.norm"
+>Matrices.norm</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector</td></tr>
+<tr><td>p</td><td>Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>p-norm of vector v</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE length<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.ComplexMath.Vectors.length" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexMath.Vectors.length"></a><a href="Modelica_ComplexMath_Vectors.html#Modelica.ComplexMath.Vectors"
+>Modelica.ComplexMath.Vectors</a>.length</h2>
+<p>
+<span class="ModelicaDescription">Return length of a complex vector</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<strong>length</strong>(v);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+The function call "<code>Vectors.<strong>length</strong>(v)</code>" returns the
+<strong>Euclidean length</strong> "<code>sqrt(v*v)</code>" of vector v.
+The function call is equivalent to Vectors.norm(v). The advantage of
+length(v) over norm(v)"is that function length(..) is implemented
+in one statement and therefore the function is usually automatically
+inlined. Further symbolic processing is therefore possible, which is
+not the case with function norm(..).
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+v = {2, -4, -2, -1};
+<strong>length</strong>(v);  // = 5
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.norm"
+>Vectors.norm</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>Length of vector v</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE normalize<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.ComplexMath.Vectors.normalize" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexMath.Vectors.normalize"></a><a href="Modelica_ComplexMath_Vectors.html#Modelica.ComplexMath.Vectors"
+>Modelica.ComplexMath.Vectors</a>.normalize</h2>
+<p>
+<span class="ModelicaDescription">Return normalized complex vector such that length = 1 and prevent zero-division for zero vector</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<strong>normalize</strong>(v);
+Vectors.<strong>normalize</strong>(v,eps=100*Modelica.Constants.eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.<strong>normalize</strong>(v)</code>" returns the
+<strong>unit vector</strong> "<code>v/length(v)</code>" of vector v.
+If length(v) is close to zero (more precisely, if length(v) &lt; eps),
+v is returned in order to avoid
+a division by zero. For many applications this is useful, because
+often the unit vector <strong>e</strong> = <strong>v</strong>/length(<strong>v</strong>) is used to compute
+a vector x*<strong>e</strong>, where the scalar x is in the order of length(<strong>v</strong>),
+i.e., x*<strong>e</strong> is small, when length(<strong>v</strong>) is small and then
+it is fine to replace <strong>e</strong> by <strong>v</strong> to avoid a division by zero.
+</p>
+<p>
+Since the function is implemented in one statement,
+it is usually inlined and therefore symbolic processing is
+possible.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+<strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+<strong>normalize</strong>({0,0,0});  // = {0,0,0}
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
+>Vectors.length</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector</td></tr>
+<tr><td>eps</td><td>if |v| &lt; eps then result = v</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result[size(v, 1)]</td><td>Input vector v normalized to length=1</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE reverse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.ComplexMath.Vectors.reverse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexMath.Vectors.reverse"></a><a href="Modelica_ComplexMath_Vectors.html#Modelica.ComplexMath.Vectors"
+>Modelica.ComplexMath.Vectors</a>.reverse</h2>
+<p>
+<span class="ModelicaDescription">Reverse vector elements (e.g., v[1] becomes last element)</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<strong>reverse</strong>(v);
+</pre></blockquote>
+<h4>Description</h4>
+The function call &quot;<code>Vectors.<strong>reverse</strong>(v)</code>&quot; returns the complex vector elements in reverse order.
+
+<h4>Example</h4>
+<blockquote><pre>
+<strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result[size(v, 1)]</td><td>Elements of vector v in reversed order</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.ComplexMath.Vectors.sort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexMath.Vectors.sort"></a><a href="Modelica_ComplexMath_Vectors.html#Modelica.ComplexMath.Vectors"
+>Modelica.ComplexMath.Vectors</a>.sort</h2>
+<p>
+<span class="ModelicaDescription">Sort elements of complex vector</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+           sorted_v = Vectors.<strong>sort</strong>(v);
+(sorted_v, indices) = Vectors.<strong>sort</strong>(v, ascending=true);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>sort</strong>(..) sorts a Real vector v
+in ascending order and returns the result in sorted_v.
+If the optional argument "ascending" is <strong>false</strong>, the vector
+is sorted in descending order. In the optional second
+output argument the indices of the sorted vector with respect
+to the original vector are given, such that sorted_v = v[indices].
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+(v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
+    -> v2 = {-1, 2, 3, 6, 8}
+       i2 = {1, 5, 3, 4, 2}
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector to be sorted</td></tr>
+<tr><td>ascending</td><td>= true if ascending order, otherwise descending order</td></tr>
+<tr><td>sortFrequency</td><td>= true, if sorting is first for imaginary then for real value; = false, if sorting is for absolute value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sorted_v[size(v, 1)]</td><td>Sorted vector</td></tr>
+<tr><td>indices[size(v, 1)]</td><td>sorted_v = v[indices]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:32 2026.
+</address>
+</body>
+</html>

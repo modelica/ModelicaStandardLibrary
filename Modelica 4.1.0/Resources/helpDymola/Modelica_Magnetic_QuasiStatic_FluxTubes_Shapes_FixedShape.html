@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Flux tubes with fixed shape during simulation and linear material characteristics&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedShape<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes</a>.FixedShape</h2>
+<p>
+<span class="ModelicaDescription">Flux tubes with fixed shape during simulation and linear material characteristics</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package provides different reluctance models, based on different geometric data.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube"
+>GenericFluxTube</a>
+</td>
+<td>Flux tube with fixed cross-section, fixed length and linear material characteristics</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt43f1981efc83a19cuboidS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid"
+>Cuboid</a>
+</td>
+<td>Flux tube with rectangular cross-section of fixed shape and linear material characteristics</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt2677bf45fce50b43lFluxS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux"
+>HollowCylinderAxialFlux</a>
+</td>
+<td>(Hollow) cylinder with axial flux of fixed shape and linear material characteristics</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt97d265ad881674cdlFluxS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux"
+>HollowCylinderRadialFlux</a>
+</td>
+<td>Hollow cylinder with radial flux of fixed shape and linear material characteristics</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSte9041c690bf293e0lFluxS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux"
+>HollowCylinderCircumferentialFlux</a>
+</td>
+<td>Hollow cylinder with circumferential flux; fixed shape</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt908d2e8bd32ba19coroidS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Toroid" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Toroid"
+>Toroid</a>
+</td>
+<td>Toroid with circular cross section; fixed shape</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE GenericFluxTube<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt0325285f4b670ef3tanceI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</a>.GenericFluxTube</h2>
+<p>
+<span class="ModelicaDescription">Flux tube with fixed cross-section, fixed length and linear material characteristics</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The generic flux tube models the reluctance with constant
+<code>area</code> of cross section, and length, <code>l</code>
+the magnetic reluctance by:</p>
+<dl><dd>
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/R_m_generic.png">,
+</dd></dl>
+
+<div>
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/GenericFluxTube_qs.png">
+</div>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape"
+>BaseClasses.FixedShape</a> (Base class for flux tubes with fixed shape during simulation), <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Icons.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Reluctance"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Reluctance</a> (Icon for reluctance / permeance components).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mu_rConst</td><td>Constant relative permeability [1]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>l</td><td>Length in direction of flux [m]</td></tr>
+<tr><td colspan=2><img src="../Images/Magnetic/QuasiStatic/FluxTubes/GenericFluxTube_qs.png"></td></tr>
+<tr><td>area</td><td>Area of cross section [m2]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Cuboid<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt43f1981efc83a19cuboidI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</a>.Cuboid</h2>
+<p>
+<span class="ModelicaDescription">Flux tube with rectangular cross-section of fixed shape and linear material characteristics</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The cuboid models the reluctance with rectangular dimensions <code>a</code> and <code>b</code>, and length, <code>l</code>
+the magnetic reluctance by:</p>
+<dl><dd>
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/R_m_cuboid.png">
+</dd></dl>
+
+<p>The area of cross section is determined by:</p>
+<dl><dd>
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/A_cuboid.png">
+</dd></dl>
+
+<div>
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/CuboidParallelFlux_qs.png">
+</div>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape"
+>BaseClasses.FixedShape</a> (Base class for flux tubes with fixed shape during simulation), <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Icons.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Cuboid"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Cuboid</a> (Icon for cuboid).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mu_rConst</td><td>Constant relative permeability [1]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>l</td><td>Length in direction of flux [m]</td></tr>
+<tr><td colspan=2><img src="../Images/Magnetic/QuasiStatic/FluxTubes/CuboidParallelFlux_qs.png"></td></tr>
+<tr><td>a</td><td>Width of rectangular cross-section [m]</td></tr>
+<tr><td>b</td><td>Height of rectangular cross-section [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HollowCylinderAxialFlux<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt2677bf45fce50b43lFluxI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</a>.HollowCylinderAxialFlux</h2>
+<p>
+<span class="ModelicaDescription">(Hollow) cylinder with axial flux of fixed shape and linear material characteristics</span>
+</p>
+<h3>Information</h3>
+
+<p>The axial cylinder models is characterized by the outer diameter, <img src="../Images/Magnetic/QuasiStatic/FluxTubes/r_o.png"/>, the inner diameter, <img src="../Images/Magnetic/QuasiStatic/FluxTubes/r_i.png"/>, length, <img src="../Images/Magnetic/QuasiStatic/FluxTubes/l.png"/>. The magnetic reluctance is determined by:</p>
+<div><img src="../Images/Magnetic/QuasiStatic/FluxTubes/R_m_cuboid.png"/></div>
+<p>The area of cross section yields:</p>
+<div><img src="../Images/Magnetic/QuasiStatic/FluxTubes/A_axial.png"/></div>
+<div><img src="../Images/Magnetic/QuasiStatic/FluxTubes/HollowCylinderAxialFlux_qs.png"/></div>
+<p>A hollow cylinder is depicted in the above figure left for <img src="../Images/Magnetic/QuasiStatic/FluxTubes/alpha2pi.png"/>. A solid cylindric flux tube an be considered by setting the inner radius, <img src="../Images/Magnetic/QuasiStatic/FluxTubes/r_i.png"/>, equal to zero.</p>
+<p>A circular sector of the area of cross section with central angle <img src="../Images/Magnetic/QuasiStatic/FluxTubes/alpha.png"/> is depicted in the above figure right.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape"
+>BaseClasses.FixedShape</a> (Base class for flux tubes with fixed shape during simulation), <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Icons.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.HollowCylinderAxialFlux"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.HollowCylinderAxialFlux</a> (Icon for cylinder with axial flux).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mu_rConst</td><td>Constant relative permeability [1]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>l</td><td>Axial length (in direction of flux) [m]</td></tr>
+<tr><td colspan=2><img src="../Images/Magnetic/QuasiStatic/FluxTubes/HollowCylinderAxialFlux_qs.png"></td></tr>
+<tr><td>r_i</td><td>Inner radius of hollow cylinder (zero for cylinder) [m]</td></tr>
+<tr><td>r_o</td><td>Outer radius of (hollow) cylinder [m]</td></tr>
+<tr><td>alpha</td><td>Central angle [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HollowCylinderRadialFlux<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt97d265ad881674cdlFluxI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</a>.HollowCylinderRadialFlux</h2>
+<p>
+<span class="ModelicaDescription">Hollow cylinder with radial flux of fixed shape and linear material characteristics</span>
+</p>
+<h3>Information</h3>
+
+<p>The radial cylinder model is characterized by the outer diameter, <img src="../Images/Magnetic/QuasiStatic/FluxTubes/r_o.png"/>, the inner diameter, <img src="../Images/Magnetic/QuasiStatic/FluxTubes/r_i.png"/>, length, <img src="../Images/Magnetic/QuasiStatic/FluxTubes/l.png"/>, and the angle <img src="../Images/Magnetic/QuasiStatic/FluxTubes/alpha.png"/>. The magnetic reluctance is determined by:</p>
+<div><img src="../Images/Magnetic/QuasiStatic/FluxTubes/R_m_radial.png"/></div>
+<p>In this model the magnetic flux and the magnetic potential difference, respectively, are radially oriented.</p>
+<div><img src="../Images/Magnetic/QuasiStatic/FluxTubes/HollowCylinderRadialFlux_qs.png"/></div>
+<p>The above figure left shows a radial flux cylinder with <img src="../Images/Magnetic/QuasiStatic/FluxTubes/alpha2pi.png"/>. The figure on the right indicates the central angle <img src="../Images/Magnetic/QuasiStatic/FluxTubes/alpha.png"/> in case a cylinder section shall be considered.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape"
+>BaseClasses.FixedShape</a> (Base class for flux tubes with fixed shape during simulation), <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Icons.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.HollowCylinderRadialFlux"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.HollowCylinderRadialFlux</a> (Icon for cylinder with radial flux).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mu_rConst</td><td>Constant relative permeability [1]</td></tr>
+<tr><td>alpha</td><td>Central angle [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>l</td><td>Width (orthogonal to flux direction) [m]</td></tr>
+<tr><td colspan=2><img src="../Images/Magnetic/QuasiStatic/FluxTubes/HollowCylinderRadialFlux_qs.png"></td></tr>
+<tr><td>r_i</td><td>Inner radius of hollow cylinder [m]</td></tr>
+<tr><td>r_o</td><td>Outer radius of hollow cylinder [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HollowCylinderCircumferentialFlux<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSte9041c690bf293e0lFluxI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</a>.HollowCylinderCircumferentialFlux</h2>
+<p>
+<span class="ModelicaDescription">Hollow cylinder with circumferential flux; fixed shape</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Please refer to the enclosing sub-package <a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape"
+>FixedShape</a> for a description of all elements of this package and to <a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a> for derivation and/or coefficients of the equation for permeance <code>G_m</code>.
+</p>
+
+<p>
+For hollow cylindrical flux tubes with a circumferential magnetic flux, the flux density is a function of the radius.
+For that reason, the characteristic <code>mu_r(B)</code> is evaluated for the flux density at the flux tube's mean radius.
+</p>
+
+<p>
+For those flux tube sections of a magnetic device that have a nonlinear material characteristic <code>mu_r(B)</code> and a large aspect ratio of outer to inner radius <code>r_o/r_i</code>, the section can be split up in a series connection of several hollow cylindrical flux tubes with radial flux. This allows for more realistic modelling of the dependence of flux density on the radius compared to modelling with just one flux tube element.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape</a> (Base class for flux tubes with fixed shape during simulation), <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Icons.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.HollowCylinderCircumferentialFlux"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.HollowCylinderCircumferentialFlux</a> (Icon for cylinder with circumferential flux).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mu_rConst</td><td>Constant relative permeability [1]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>l</td><td>Width (orthogonal to flux direction) [m]</td></tr>
+<tr><td colspan=2><img src="../Images/Magnetic/FluxTubes/Shapes/Circumferential.png"></td></tr>
+<tr><td>r_i</td><td>Inner radius of hollow cylinder [m]</td></tr>
+<tr><td>r_o</td><td>Outer radius of hollow cylinder [m]</td></tr>
+<tr><td>alpha</td><td>Angle of cylinder section [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Toroid<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt908d2e8bd32ba19coroidI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Toroid" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Toroid"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</a>.Toroid</h2>
+<p>
+<span class="ModelicaDescription">Toroid with circular cross section; fixed shape</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Please refer to the enclosing sub-package <a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape"
+>FixedShape</a> for a description of all elements of this package and to <a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
+
+<p>
+For toroidal flux tubes with a circumferential magnetic flux, the flux density is a function of the radius.
+For that reason, the characteristic <code>mu_r(B)</code> is evaluated for the flux density at the flux tube's mean radius.
+</p>
+
+<p>
+For those flux tube sections of a magnetic device that have a nonlinear material characteristic <code>mu_r(B)</code> and a large aspect ratio of outer to inner radius <code>r_o/r_i</code>, the section can be split up in a series connection of several hollow cylindrical flux tubes with radial flux. This allows for more realistic modelling of the dependence of flux density on the radius compared to modelling with just one flux tube element.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_BaseClasses.html#Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape</a> (Base class for flux tubes with fixed shape during simulation), <a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Icons.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Toroid"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Toroid</a> (Icon for toroid).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mu_rConst</td><td>Constant relative permeability [1]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>r</td><td>Radius of toroid (middle) [m]</td></tr>
+<tr><td colspan=2><img src="../Images/Magnetic/FluxTubes/Shapes/Toroid.png"></td></tr>
+<tr><td>d</td><td>Diameter of cylindrical core [m]</td></tr>
+<tr><td>alpha</td><td>Angle of toroid section [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:23 2026.
+</address>
+</body>
+</html>

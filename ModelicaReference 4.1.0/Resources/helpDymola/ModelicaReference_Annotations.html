@@ -1,0 +1,1621 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ModelicaReference.Annotations</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Annotations&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Annotations<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations"></a><a href="ModelicaReference.html#ModelicaReference"
+>ModelicaReference</a>.Annotations</h2>
+
+<p>
+In this package annotations are described.
+Annotations are intended for storing extra information about a model, such as graphics, documentation or versioning. A Modelica tool is free to define and use other annotations, in addition to those defined here. The only requirement is that any tool shall save files with all annotations from this chapter and all vendor-specific annotations intact. To ensure this, annotations must be represented with constructs according to the Modelica grammar. The Modelica language specification defines the semantic meaning if a tool implements any of these annotations.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.absoluteValue" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.absoluteValue"
+>absoluteValue</a>
+</td>
+<td>absoluteValue</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.choices" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.choices"
+>choices</a>
+</td>
+<td>choices</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.choicesAllMatching" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.choicesAllMatching"
+>choicesAllMatching</a>
+</td>
+<td>choicesAllMatching</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.dateModified" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.dateModified"
+>dateModified</a>
+</td>
+<td>dateModified</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.defaultComponentName" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.defaultComponentName"
+>defaultComponentName</a>
+</td>
+<td>defaultComponentName</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.defaultComponentPrefixes" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.defaultComponentPrefixes"
+>defaultComponentPrefixes</a>
+</td>
+<td>defaultComponentPrefixes</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.defaultConnectionStructurallyInconsistent" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.defaultConnectionStructurallyInconsistent"
+>defaultConnectionStructurallyInconsistent</a>
+</td>
+<td>defaultConnectionStructurallyInconsistent</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.derivative" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.derivative"
+>derivative</a>
+</td>
+<td>derivative</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.Dialog" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.Dialog"
+>Dialog</a>
+</td>
+<td>Dialog</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.Documentation" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.Documentation"
+>Documentation</a>
+</td>
+<td>Documentation</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.DocumentationClass" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.DocumentationClass"
+>DocumentationClass</a>
+</td>
+<td>DocumentationClass</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.DynamicSelect" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.DynamicSelect"
+>DynamicSelect</a>
+</td>
+<td>DynamicSelect</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.Evaluate" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.Evaluate"
+>Evaluate</a>
+</td>
+<td>Evaluate</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.experiment" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.experiment"
+>experiment</a>
+</td>
+<td>experiment</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.HideResult" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.HideResult"
+>HideResult</a>
+</td>
+<td>HideResult</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.Inline" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.Inline"
+>Inline</a>
+</td>
+<td>Inline</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.InlineAfterIndexReduction" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.InlineAfterIndexReduction"
+>InlineAfterIndexReduction</a>
+</td>
+<td>InlineAfterIndexReduction</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.inverse" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.inverse"
+>inverse</a>
+</td>
+<td>inverse</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.LateInline" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.LateInline"
+>LateInline</a>
+</td>
+<td>LateInline</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.missingInnerMessage" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.missingInnerMessage"
+>missingInnerMessage</a>
+</td>
+<td>missingInnerMessage</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.obsolete" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.obsolete"
+>obsolete</a>
+</td>
+<td>obsolete</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.preferredView" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.preferredView"
+>preferredView</a>
+</td>
+<td>preferredView</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.revisionId" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.revisionId"
+>revisionId</a>
+</td>
+<td>revisionId</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.smoothOrder" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.smoothOrder"
+>smoothOrder</a>
+</td>
+<td>smoothOrder</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.unassignedMessage" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.unassignedMessage"
+>unassignedMessage</a>
+</td>
+<td>unassignedMessage</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.uses" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.uses"
+>uses</a>
+</td>
+<td>uses</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.version" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.version"
+>version</a>
+</td>
+<td>version</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.versionBuild" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.versionBuild"
+>versionBuild</a>
+</td>
+<td>versionBuild</td>
+</tr>
+<tr>
+<td><img src="ModelicaReference.ModelicaGrammarS.png" alt="ModelicaReference.Annotations.versionDate" width="20" height="20" align="top">&nbsp;<a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.versionDate"
+>versionDate</a>
+</td>
+<td>versionDate</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE absoluteValue<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.absoluteValue" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.absoluteValue"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.absoluteValue</h2>
+
+<p>
+A simple type or component of a simple type may have the annotation <code>absoluteValue</code>.
+Note that this is only relevant for components of a few specific types.
+</p>
+<p>
+If <code>false</code>, then the variable defines a relative quantity, and if <code>true</code> an absolute quantity.
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+   <strong>annotation</strong>"(" absoluteValue "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+When converting between units (in the user-interface for plotting and entering parameters), the offset must be ignored, for a variable defined with annotation <code>absoluteValue = false</code>.
+</p>
+
+<h4>Example usage</h4>
+<p>
+This annotation is used in the Modelica Standard Library for example in <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Units_SI.html#Modelica.Units.SI"
+>Modelica.Units.SI</a> for the type definition TemperatureDifference.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE choices<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.choices" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.choices"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.choices</h2>
+
+<p>
+Define graphical layout of choices in a parameter menu
+</p>
+
+<h4>Description</h4>
+<p>
+A declaration can have an annotation <code>choices</code> containing modifiers on choice, where each of them indicates a suitable redeclaration or modifications of the element.
+This is a hint for users of the model, and can also be used by the user interface to suggest reasonable redeclaration, where the string comments on the choice declaration can be used as textual explanations of the choices.  The annotation is not restricted to replaceable elements but can also be applied to non-replaceable elements, enumeration types, and simple variables.
+</p>
+<p>
+For a Boolean variable, a <code>choices</code> annotation may contain the definition <code>checkBox = true</code>, meaning to display a checkbox to input the values <code>false</code> or <code>true</code> in the graphical user interface.
+</p>
+
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>replaceable model</strong> MyResistor=Resistor
+  <strong>annotation</strong>(choices(
+              choice(redeclare MyResistor=lib2.Resistor(a={2}) "..."),
+              choice(redeclare MyResistor=lib2.Resistor2 "...")));
+
+<strong>replaceable</strong> Resistor Load(R=2) constrainedby TwoPin
+  <strong>annotation</strong>(choices(
+              choice(redeclare lib2.Resistor Load(a={2}) "..."),
+              choice(redeclare Capacitor Load(L=3) "...")));
+
+<strong>replaceable</strong> FrictionFunction a(func=exp) constrainedby Friction
+  <strong>annotation</strong>(choices(
+             choice(redeclare ConstantFriction a(c=1) "..."),
+             choice(redeclare TableFriction a(table="...") "..."),
+             choice(redeclare FunctionFriction a(func=exp) "..."))));
+
+<strong>type</strong> KindOfController=Integer(min=1,max=3)
+   <strong>annotation</strong>(choices(
+                choice=1 "P",
+                choice=2 "PI",
+                choice=3 "PID"));
+
+<strong>model</strong> A
+  KindOfController x;
+<strong>end</strong> A;
+A a(x=3 "PID");
+</pre></blockquote>
+<p>
+It can also be applied to Boolean variables to define a check box:
+</p>
+<blockquote><pre>
+  <strong>parameter</strong> Boolean useHeatPort=false <strong>annotation</strong>(choices(checkBox=true));
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE choicesAllMatching<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.choicesAllMatching" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.choicesAllMatching"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.choicesAllMatching</h2>
+
+<p>
+Automatically display a list of matching choices in a graphical parameter menu.
+</p>
+
+<h4>Description</h4>
+<p>
+Choices menus of replaceable elements can be automatically constructed showing the names of all classes that are either directly or indirectly derived by inheritance from the constraining class of the declaration.
+</p>
+<p>
+This can be recommended by having <code><strong>annotation</strong> choicesAllMatching = true;</code> and disabled by having <code><strong>annotation</strong> choicesAllMatching = false;</code>.
+</p>
+
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>replaceable package</strong> Medium = Modelica.Media.Water.ConstantPropertyLiquidWater
+                             <strong>constrainedby</strong> Modelica.Media.Interfaces.PartialMedium
+                             <strong>annotation</strong> (choicesAllMatching=true);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dateModified<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.dateModified" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.dateModified"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.dateModified</h2>
+
+<p>UTC date and time of the latest change to the package in the following format (with one space between date and time):<br>
+&nbsp;&nbsp;<code>YYYY-MM-DD hh:mm:ssZ</code></p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>annotation</strong>&quot;(&quot; dateModified &quot;=&quot; STRING &quot;)&quot;
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+&ldquo;<code>dateModified</code>&rdquo; is the UTC date and time (according to <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>) of the last modification of the package.
+<em>The intention is that a Modelica tool updates this annotation whenever the package or part of it was modified and is saved on persistent storage (like file or database system).</em>
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>package</strong> Modelica
+  <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
+             versionDate  = &quot;2008-04-10&quot;,
+             <em>dateModified = &quot;2009-02-15 16:33:14Z&quot;</em>,
+             revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;);
+  ...
+  <strong>end</strong> Modelica;
+</pre></blockquote>
+<h5>Related annotations</h5>
+<ul>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.revisionId"
+>revisionId</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.uses"
+>uses</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.version"
+>version</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.versionDate"
+>versionDate</a></li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE defaultComponentName<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.defaultComponentName" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.defaultComponentName"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.defaultComponentName</h2>
+
+<p>
+Default name when dragging component
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>   <strong>annotation</strong>"(" defaultComponentName "=" STRING ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+When creating a component of the given class, the recommended component name is the
+given string.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE defaultComponentPrefixes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.defaultComponentPrefixes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.defaultComponentPrefixes"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.defaultComponentPrefixes</h2>
+
+<p>
+Default prefixes when dragging component
+</p>
+
+<h4>Examples</h4>
+
+<blockquote><pre><strong>annotation</strong>(defaultComponentPrefixes="inner",
+           defaultComponentName="world")
+</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>   <strong>annotation</strong>"(" defaultComponentPrefixes "=" STRING ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+The following prefixes may be included in the string prefixes: inner, outer, replaceable, constant, parameter, discrete. In combination with defaultComponentName it can be used to make it easy for users to create inner components matching the outer declarations.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE defaultConnectionStructurallyInconsistent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.defaultConnectionStructurallyInconsistent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.defaultConnectionStructurallyInconsistent"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.defaultConnectionStructurallyInconsistent</h2>
+
+<p>
+A model or block definition may contain the annotation <code>defaultConnectionStructurallyInconsistent</code>.
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+   <strong>annotation</strong>"(" defaultConnectionStructurallyInconsistent "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+If <code>true</code>, it is stated that a default connection will result in a structurally inconsistent <code>model</code> or <code>block</code>.
+A "default connection" is constructed by instantiating the respective <code>model</code> or <code>block</code> and for every input <code>u</code> providing an equation <code>0=f(u)</code>, and for every (potential,flow) pair of the form <code>(v,i)</code>, providing an equation of the form <code>0=f(v,i)</code>.
+</p>
+
+<h4>Example usage</h4>
+<p>
+It is useful to check all models/blocks of a Modelica package in a simple way. One check is to default connect every model/block and to check whether the resulting class is structurally consistent (= a stronger requirement as "balanced").
+</p>
+<p>
+It is rarely needed; but can be used for InverseBlockConstraints, in order to prevent a wrong error message.
+Additionally, when a user defined model is structurally inconsistent, a tool should try to pinpoint in which class the error is present.
+This annotation avoids then to show a wrong error message.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE derivative<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.derivative" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.derivative"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.derivative</h2>
+
+<p>
+Define derivative of function
+</p>
+
+<h4>Examples</h4>
+
+<blockquote><pre><strong>function</strong> foo0 <strong>annotation</strong>(derivative=foo1); <strong>end</strong> foo0;
+<strong>function</strong> foo1 <strong>annotation</strong>(derivative(order=2)=foo2); <strong>end</strong> foo1;
+<strong>function</strong> foo2 <strong>end</strong> foo2;
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Derivatives of functions can be declared explicitly using the derivative annotation, whereas a function can be defined as a partial derivative of another function using the der-operator in a short function definition.
+</p>
+
+<p>
+A function declaration can have an annotation derivative specifying the derivative function. This can influence simulation time and accuracy and can be applied to both functions written in Modelica and to external functions. A derivative annotation can state that it is only valid under certain restrictions on the input arguments. These restrictions are defined using the following optional attributes: order (only a restriction if order &gt; 1, the default for order is 1), noDerivative, and zeroDerivative. The given derivative-function can only be used to compute the derivative of a function call if these restrictions are satisfied. There may be multiple restrictions on the derivative, in which case they must all be satisfied. The restrictions also imply that some derivatives of some inputs are excluded from the call of the derivative (since they are not necessary). A function may supply multiple derivative functions subject to different restrictions.
+</p>
+
+<p>
+The inputs to the derivative function of order 1 are constructed as follows:
+</p>
+
+<ul>
+<li> First are all inputs to the original function, and after all them we will
+     in order append one derivative for each input containing reals.<br>&nbsp;</li>
+<li> The outputs are constructed by starting with an empty list and then in
+     order appending one derivative for each output containing reals.<br>&nbsp;</li>
+<li> If the Modelica function call is a nth derivative (n>=1), i.e., this
+     function call has been derived from an (n-1)th derivative, an
+     annotation(order=n+1)=?,  specifies the (n+1)th derivative, and the
+     (n+1)th derivative call is constructed as follows:<br>&nbsp;</li>
+<li> The input arguments are appended with the (n+1)th derivative,
+     which are constructed in order from the nth order derivatives.<br>&nbsp;</li>
+<li> The output arguments are similar to the output argument for the
+     nth derivative, but each output is one higher in derivative order.</li>
+</ul>
+
+<p>
+Example: Given the declarations
+</p>
+
+<blockquote><pre> function foo0
+   ...
+   input Real x;
+   input Boolean linear;
+   input ...;
+   output Real y;
+   ...
+   annotation(derivative=foo1);
+ end foo0;
+
+ function foo1
+   ...
+   input Real x;
+   input Boolean linear;
+   input ...;
+   input Real der_x;
+   ...
+   output Real der_y;
+   ...
+   annotation(derivative(order=2)=foo2);
+ end foo1;
+
+ function foo2
+   ...
+   input Real x;
+   input Boolean linear;
+   input ...;
+   input Real der_x;
+   ...;
+   input Real der_2_x;
+   ...
+   output Real der_2_y;
+   ...
+</pre></blockquote>
+
+<p>
+the equation
+</p>
+
+<blockquote><pre>(...,y(t),...)=foo0(...,x(t),b,...);
+</pre></blockquote>
+
+<p>
+implies that:
+</p>
+
+<blockquote><pre>(...,d y(t)/dt,...)=foo1(...,x(t),b,..., ...,d x(t)/dt,...);
+(...,d^2 y(t)/dt^2,...)=foo2(...,x(t),b,...,d x(t)/dt,..., ...,d^2 x(t)/dt^2,...);
+</pre></blockquote>
+
+<p>
+An input or output to the function may be any simple type (Real, Boolean, Integer, String and enumeration types) or a record, provided the record does not contain both reals and non-reals predefined types. The function must have at least one input containing reals. The output list of the derivative function may not be empty.
+</p>
+
+<ul>
+<li> zeroDerivative=input_var1<br>
+    The derivative function is only valid if input_var1 is independent
+    of the variables the function call is  differentiated with respect to
+    (i.e., that the derivative of input_var1 is "zero").
+    The derivative of input_var1 is excluded from the argument list of the derivative-function.
+    Assume that function f takes a matrix and a scalar. Since the matrix argument is
+    usually a parameter expression it is then useful to define the function
+    as follows (the additional derivative = f_general_der is optional and
+    can be used when the derivative of the matrix is non-zero).
+<blockquote><pre>function f "Simple table lookup"
+  input Real x;
+  input Real y[:, 2];
+  output Real z;
+  annotation(derivative(zeroDerivative=y) = f_der,
+             derivative=f_general_der);
+algorithm
+  ...
+end f;
+
+function f_der "Derivative of simple table lookup"
+  input Real x;
+  input Real y[:, 2];
+  input Real x_der;
+  output Real z_der;
+algorithm
+  ...
+end f_der;
+
+function f_general_der "Derivative of table lookup taking into account varying tables"
+  input Real x;
+  input Real y[:, 2];
+  input Real x_der;
+  input Real y_der[:, 2];
+  output Real z_der;
+algorithm
+  ...
+end f_general_der;
+
+</pre></blockquote></li>
+
+<li> noDerivative(input_var2 = f(input_var1, ...) )<br>
+    The derivative function is only valid if the input argument input_var2
+    is computed as f(input_var1, ...). The derivative of input_var2
+    is excluded from the argument list of the derivative-function.
+    Assume that function fg is defined as a composition f(x, g(x)).
+    When differentiating f it is useful to give the derivative under the
+    assumption that the second argument is defined in this way:
+<blockquote><pre>function fg
+  input Real x;
+  output Real z;
+algorithm
+   z := f(x, g(x));
+end fg;
+
+function f
+  input Real x;
+  input Real y;
+  output Real z;
+  annotation(derivative(noDerivative=y) = f_der);
+algorithm
+  ...
+end f;
+
+function f_der
+  input Real x;
+  input Real x_der;
+  input Real y;
+  output Real z_der;
+algorithm
+  ...
+end f_der;
+</pre></blockquote>
+This is useful if g represents the major computational effort of fg).</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Dialog<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.Dialog" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.Dialog"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.Dialog</h2>
+
+<p>
+Define graphical layout of the parameter menu.
+</p>
+
+<h4>Syntax</h4>
+<blockquote><pre><strong>annotation</strong>(<strong>Dialog</strong>(<strong>enable</strong> = true,
+                     <strong>tab</strong> = "General",
+                   <strong>group</strong> = "Parameters",
+      <strong>showStartAttribute</strong> = false,
+           <strong>colorSelector</strong> = false,
+              <strong>groupImage</strong> = "modelica://MyPackage/Resources/Images/image.png",
+         <strong>connectorSizing</strong> = false));
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The annotations <strong><code>tab</code></strong> and <strong><code>group</code></strong> define the placement of the component or of variables in a dialog with optional tab and group specification. If <code><strong>enable</strong> = false</code>, the input field may be disabled [and no input can be given]. If <code><strong>showStartAttribute</strong> = true</code> the dialog should allow the user to set the start-value and the fixed attribute for the variable instead of the value-attribute [this is primarily intended for non-parameter values and avoids introducing a separate parameter for the start-value of the variable].
+</p>
+<p>
+If <code>colorSelector=true</code>, it indicates that an rgb-value selector can be presented for a vector of  three elements and generate values <code>0..255</code> (the annotation should be usable both for vectors of Integers and Reals).
+</p>
+<p>
+The annotation <strong><code>groupImage</code></strong> references an image using an Modelica URI, and the image is intended to be shown together with the parameter-group (only one image per group is supported). Disabling the input field will not disable the image.
+</p>
+<p>
+The value of the <strong><code>connectorSizing</code></strong> annotation must be a literal false or true value [since if the value is an expression, the <code>connectorSizing</code> functionality is conditional and this will then lead easily to wrong models]. If <code>connectorSizing = false</code>, this annotation has no effect. If <code>connectorSizing = true</code>, the corresponding variable must be declared with the parameter prefix, must be a subtype of a scalar Integer and must have a literal default value of zero [since this annotation is designed for a parameter that is used as vector dimension and the dimension of the vector should be zero when the component is dragged or redeclared; furthermore, when a tool does not support the connectorSizing annotation, dragging will still result in a correct model].
+If <code>connectorSizing = true</code>, a tool may set the parameter value in a modifier automatically, if used as dimension size of a vector of connectors. [The <code>connectorSizing</code> annotation is used in cases where connections to a vector of connectors shall be made and a new connection requires to resize the vector and to  connect  to the new index (unary connections). The annotation allows a tool to perform these two actions in many cases automatically. This is, e.g., very useful for state machines and for certain components of fluid libraries.]
+</p>
+<p>
+Annotation "Dialog" is defined as:
+</p>
+<blockquote><pre><strong>record</strong> Dialog
+  <strong>parameter</strong> String  tab                = "General";
+  <strong>parameter</strong> String  group              = "Parameters";
+  <strong>parameter</strong> String  groupImage         = "";
+  <strong>parameter</strong> Boolean enable             = <strong>true</strong>;
+  <strong>parameter</strong> Boolean showStartAttribute = <strong>false</strong>;
+  <strong>parameter</strong> Boolean connectorSizing    = <strong>false</strong>;
+  <strong>parameter</strong> Boolean colorSelector      = <strong>false</strong>;
+  <strong>parameter</strong> Selector loadSelector;
+  <strong>parameter</strong> Selector saveSelector;
+<strong>end</strong> Dialog;
+
+<strong>record</strong> Selector
+  <strong>parameter</strong> String filter="";
+  <strong>parameter</strong> String caption="";
+<strong>end</strong> Selector;
+</pre></blockquote>
+
+<h4>Examples</h4>
+<p>
+A parameter dialog is a sequence of tabs with a sequence of groups inside them.
+</p>
+<p>
+A <code>Selector</code> displays a file dialog to select a file: Parameter <code>filter</code> only shows files that fulfill the given pattern defined by "<code>text1 (*.ext1);;text2 (*.ext2);</code>" to show only files with file extension <code>*.ext1</code> or <code>*.ext2</code> and displaying a description text "<code>text1</code>" and "<code>text2</code>", respectively. Parameter caption is the text displayed in the dialog menu. Parameter <code>loadSelector</code> is used to select an existing file for reading, whereas parameter <code>saveSelector</code> is used to define a file for writing.
+</p>
+
+<blockquote><pre><strong>model</strong> DialogDemo
+  <strong>parameter</strong> Boolean b = true "Boolean parameter";
+  <strong>parameter</strong> Modelica.Units.SI.Length length "Real parameter with unit";
+  <strong>parameter</strong> Integer nInports=0 annotation(Dialog(connectorSizing=true));
+  <strong>parameter</strong> Real r1 "Real parameter in Group 1" annotation(Dialog(group="Group 1"));
+  <strong>parameter</strong> Real r2 "Disabled Real parameter in group 1"
+                     <strong>annotation</strong>(<strong>Dialog</strong>(<strong>group</strong>="Group 1", <strong>enable</strong> = <strong>not</strong> b));
+  <strong>parameter</strong> Real r3 "Real parameter in Tab 1" <strong>annotation</strong>(<strong>Dialog</strong>(<strong>tab</strong>="Tab 1"));
+  <strong>parameter</strong> Real r4 "Real parameter in Tab 1 and Group 2"
+                     <strong>annotation</strong>(<strong>Dialog</strong>(<strong>tab</strong>="Tab 1", <strong>group</strong>="Group 2"));
+  StepIn stepIn[nInports];
+  ...
+<strong>end</strong> DialogDemo;
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Documentation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.Documentation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.Documentation"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.Documentation</h2>
+
+<p>
+Annotations for documentation
+</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+documentation_annotation:
+   <strong>annotation</strong>"(" Documentation "(" "info" "=" STRING
+                            ["," "revisions" "=" STRING ] ")" ")"
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The "Documentation" annotation can contain the "info" annotation giving a textual description, the "revisions" annotation giving a list of revisions and other annotations defined by a tool [The "revisions" documentation may be omitted in printed documentation]. How the tool interprets the information in "Documentation" is unspecified. Within a string of the "Documentation" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define the start and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme "Modelica", e.g.,
+</p>
+<blockquote><pre>
+    &lt;a href="modelica://ExamplePackage.Tutorial"&gt;ExamplePackage.Tutorial&lt;/a&gt;
+</pre></blockquote>
+<p>
+Together with scheme "Modelica" the (URI)  fragment specifiers #diagram, #info, #text, #icon may be used to reference different layers. Example:
+</p>
+<blockquote><pre>
+   &lt;a href="modelica://ExamplePackage.SimpleModel#info"&gt;SimpleModel&lt;/a&gt;
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DocumentationClass<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.DocumentationClass" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.DocumentationClass"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.DocumentationClass</h2>
+
+<p>
+Annotation for defining documentation classes
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>documentation class_annotation:
+   <strong>annotation</strong>"(" DocumentationClass "=" <strong>true</strong> ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Only allowed as class annotation on any kind of class and implies that this class and all
+classes within it are treated as having the annotation preferredView="info".
+If the annotation preferredView is explicitly set for a class, it has precedence over
+a DocumentationClass annotation.
+</p>
+
+<p><em>
+[A tool may display such classes in special ways. For example, the
+description texts of the classes might be  displayed instead of the class
+names, and if no icon is defined, a special information default icon may be
+displayed in the package browser.]
+</em></p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DynamicSelect<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.DynamicSelect" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.DynamicSelect"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.DynamicSelect</h2>
+
+<p>
+Define schematic animation of diagram layer
+</p>
+
+<h4>Examples</h4>
+
+<p>
+The level of a tank is animated by a rectangle expanding in vertical direction and its color depending on a variable overflow:
+</p>
+
+<blockquote><pre><strong>annotation</strong>(
+  Icon(graphics={Rectangle(
+    extent=<strong>DynamicSelect</strong>({{0,0},{20,20}},{{0,0},{20,level}}),
+    fillColor=<strong>DynamicSelect</strong>({0,0,255},
+                            <strong>if</strong> overflow <strong>then</strong> {255,0,0} <strong>else</strong> {0,0,255}))}
+);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Any value (coordinates, color, text, etc.) in graphical annotations can be dependent on class variables using the DynamicSelect expression. DynamicSelect has the syntax of a function call with two arguments, where the first argument specifies the value of the editing state and the second argument the value of the non-editing state. The first argument must be a literal expression
+and this value is used for the annotation when editing and/or browsing the diagram layer.
+The second argument may contain references to variables to enable a dynamic behavior
+and the actual value is used for the annotation for schematic animation
+of the diagram layer, e.g., after a simulation.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Evaluate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.Evaluate" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.Evaluate"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.Evaluate</h2>
+
+<p>
+Annotation for code generation (evaluate parameter value)
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>   <strong>annotation</strong>"(" Evaluate "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The annotation Evaluate can occur in the component declaration, its type declaration, or a base-class of the type-declaration.
+In the case of multiple conflicting annotations it is handled similarly to modifiers (e.g., an Evaluate-annotation on the component declaration takes precedence).
+The annotation Evaluate only has effect for a component declared with the prefix <code>parameter</code>.
+</p>
+
+<p>
+If Evaluate = true, the model developer proposes to utilize the value for the symbolic processing. In that case, it is not possible to change the parameter value after symbolic pre-processing.
+</p>
+
+<p>
+If Evaluate = false, the model developer proposes to not utilize the value of the corresponding parameter for the symbolic processing.
+</p>
+
+<p>
+Evaluate is for example used for axis of rotation parameters in the Modelica.Mechanics.MultiBody library in order to improve the efficiency of the generated code
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE experiment<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.experiment" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.experiment"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.experiment</h2>
+
+<p>
+Define default experiment parameters
+</p>
+
+<h4>Examples</h4>
+
+<blockquote><pre><strong>annotation</strong>(experiment(StartTime=0, StopTime=5, Tolerance=1e-6))
+</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>experiment_annotation:
+   <strong>annotation</strong>"(" "experiment" "(" [experimentOption] {, experimentOption}] ")"
+
+experimentOption:
+   StartTime  "=" ["+" | "-"] UNSIGNED_NUMBER |
+   StopTime   "=" ["+" | "-"] UNSIGNED_NUMBER |
+   Interval   "=" UNSIGNED_NUMBER
+   Tolerance  "=" UNSIGNED_NUMBER
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The experiment annotation defines the default start time (<code>StartTime</code>) in [s], the default stop time (<code>StopTime</code>) in [s], the suitable time resolution for the result grid (<code>Interval</code>) in [s], and the default relative integration tolerance (<code>Tolerance</code>) for simulation experiments to be carried out with the model or block at hand.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HideResult<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.HideResult" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.HideResult"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.HideResult</h2>
+
+<p>
+Annotation for code generation (hide result)
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>   <strong>annotation</strong>"(" HideResult "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+HideResult = true defines that the model developer proposes to not show the simulator results of the corresponding component [e.g., it will not be possible to plot this variable].
+</p>
+
+<p>
+HideResult = false defines that the developer proposes to show the corresponding component [if a variable is declared in a protected section, a tool might not include it in a simulation result. By setting HideResult = false, the modeler would like to have the variable in the simulation result, even if in the protected section].
+</p>
+
+<p>
+HideResult is for example used in the connectors of the Modelica.StateGraph library to not show variables to the modeler that are of no interest to him and would confuse him.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Inline<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.Inline" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.Inline"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.Inline</h2>
+
+<p>
+Annotation for code generation (inline function body)
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+   <strong>annotation</strong>"(" Inline "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Has only an effect within a function declaration.
+</p>
+
+<p>
+If "Inline = true", the model developer proposes to inline the function.
+This means, that the body of the function is included at all places where the function is called.
+</p>
+
+<p>
+If "Inline = false", the model developer proposes to not inline the function.
+</p>
+
+<h4>Example usage</h4>
+
+<p>
+Inline = true is for example used in  <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames"
+>Modelica.Mechanics.MultiBody.Frames</a> and in functions of <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Media.html#Modelica.Media"
+>Modelica.Media</a> to have no overhead for function calls such as resolving a vector in a different coordinate system and at the same time the function can be analytically differentiated, e.g., for index reduction needed for mechanical systems.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InlineAfterIndexReduction<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.InlineAfterIndexReduction" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.InlineAfterIndexReduction"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.InlineAfterIndexReduction</h2>
+
+<p>
+Annotation for code generation
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+   <strong>annotation</strong>"(" InlineAfterIndexReduction "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Has only an effect within a function declaration.
+If true, the model developer proposes to inline the function after the function is differentiated for index reduction, and before any other symbolic transformations are performed.
+</p>
+<p>
+<em>This annotation cannot be combined with annotations <a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.Inline"
+>Inline</a> and <a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.LateInline"
+>LateInline</a>!</em>
+</p>
+
+<h4>Example usage</h4>
+<p>
+<code>InlineAfterIndexReduction = true</code> is for example used in <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor"
+>Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor</a> to define that an input signal is the derivative of another input signal.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE inverse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.inverse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.inverse"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.inverse</h2>
+
+<p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function.</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>function</strong> f1
+  <strong>input</strong> A1 u1;
+  ...
+  <strong>input</strong> T1 uk;
+  ...
+  <strong>input</strong> Am um = am;
+  ...
+  <strong>input</strong> An un;
+  <strong>output</strong> T2 y;
+  <strong>annotation</strong>(<strong>inverse</strong>(uk = f2(..., y, ....), ui = f3(..., y, ...), ...));
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> f1;</pre></blockquote>
+<h4>Description</h4>
+<p>The meaning is that function &quot;<code>f2</code>&quot; is one inverse to function &quot;<code>f1</code>&quot; where the previous output &quot;<code>y</code>&quot; is now an input and the previous input &quot;<code>uk</code>&quot; is now an output. More than one inverse can be defined within the same inverse annotation. Several inverses are separated by commas. <em>(The inverse requires that for all valid values of the input arguments of <code>f2(...,y, ...)</code> and <code>uk</code> being calculated as <code>uk := f2(..., y, ...)</code> implies the equality <code>y = f1(..., uk, ...,) </code>up to a certain precision.)</em></p>
+<p>Function &quot;<code>f1</code>&quot; can have any number and types of arguments with and without default value. The restriction is that the number of unknown variables in the output argument of both &quot;<code>f1</code>&quot; and &quot;<code>f2</code>&quot; must be the same and that &quot;<code>f2</code>&quot; must have exactly the same arguments as &quot;<code>f1</code>&quot; (with the same defaults, if an argument um has a default), but the order of the arguments may be permuted.</p>
+<h4>Examples</h4>
+<blockquote><pre><strong>function</strong> h_pTX
+  <strong>input</strong> Real p    &quot;pressure&quot;;
+  <strong>input</strong> Real T    &quot;temperature&quot;;
+  <strong>input</strong> Real X[:] &quot;mass fractions&quot;;
+  <strong>output</strong> Real h   &quot;specific enthalpy&quot;;
+  <strong>annotation</strong>(<strong>inverse</strong>(T = T_phX(p,h,X)));
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> h_pTX;
+
+<strong>function</strong> T_phX
+  <strong>input</strong> Real  p    &quot;pressure&quot;;
+  <strong>input</strong> Real  h    &quot;specific enthalpy&quot;;
+  <strong>input</strong> Real  X[:] &quot;mass fractions&quot;;
+  <strong>output</strong> Real T    &quot;temperature&quot;;
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> T_phX;</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LateInline<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.LateInline" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.LateInline"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.LateInline</h2>
+
+<p>
+Annotation for code generation (inline function body after symbolic processing)
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>   <strong>annotation</strong>"(" LateInline "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Has only an effect within a function declaration.
+</p>
+
+<p>
+If "LateInline = true", the model developer proposes to inline the function after all symbolic transformations have been performed, but before common subexpression elimination takes place.
+</p>
+
+<p>
+If "LateInline = false", the model developer proposes to not inline the function after symbolic transformations have been performed.
+</p>
+
+<h4>Example usage</h4>
+<p>
+This annotation is for example used in  <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Media_Water_IF97_Utilities.html#Modelica.Media.Water.IF97_Utilities.T_props_ph"
+>Modelica.Media.Water.IF97_Utilities.T_props_ph</a> to provide in combination with common subexpression elimination the automatic caching of function calls. Furthermore, it is used in order that a tool is able to propagate specific enthalpy over connectors in the <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</a> library.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE missingInnerMessage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.missingInnerMessage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.missingInnerMessage"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.missingInnerMessage</h2>
+
+<p>
+Diagnostic message, if inner declaration is missing
+</p>
+
+<h4>Examples</h4>
+
+<blockquote><pre><strong>model</strong> World
+  <strong>annotation</strong>(defaultComponentName     = "world",
+             defaultComponentPrefixes = "inner replaceable",
+             missingInnerMessage      = "The World object is missing");
+  ...
+<strong>end</strong> World;
+</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>   <strong>annotation</strong>"(" missingInnerMessage "=" STRING ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+When an outer component of the class does not have a corresponding inner component, the string message may be used as a diagnostic message.
+However, the inner component is automatically added - if unique - regardless of this annotation.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE obsolete<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.obsolete" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.obsolete"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.obsolete</h2>
+
+<p>
+A class may have the following annotation:
+</p>
+<blockquote><pre>
+    annotation(obsolete = "message");
+</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+   <strong>annotation</strong>"(" obsolete "=" STRING ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+It indicates that the class ideally should not be used anymore and gives a message indicating the recommended action.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE preferredView<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.preferredView" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.preferredView"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.preferredView</h2>
+
+<p>
+Define default view when selecting class
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>preferred view_annotation:
+   <strong>annotation</strong>"(" preferredView "=" ("info" | "diagram" | "text") ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+The preferredView annotation defines the default view when selecting the class. info means info layer, i.e., the documentation of the class, diagram means diagram layer and text means the Modelica text layer.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE revisionId<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.revisionId" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.revisionId"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.revisionId</h2>
+
+<p>Revision identifier of the <a href="https://en.wikipedia.org/wiki/Version_control">version management system</a> used to manage this library. It marks the latest submitted change to any file belonging to the package.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>annotation</strong>&quot;(&quot; revisionId &quot;=&quot; STRING &quot;)&quot;
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+&ldquo;<code>revisionId</code>&rdquo; is a tool specific revision identifier possibly generated by a source code management system (e.g., <a href="http://subversion.apache.org">Subversion</a> or <a href="http://en.wikipedia.org/wiki/Git">Git</a>). This information allows to exactly identify the library source code in the source code management system.
+</p>
+<h4>Examples</h4>
+<blockquote><pre><strong>package</strong> Modelica
+  <strong>annotation</strong>(version      = &quot;3.2.3&quot;,
+             versionDate  = &quot;2018-08-01&quot;,
+             dateModified = &quot;2018-12-12 07:40:19Z&quot;,
+             <em>revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;</em>);
+  ...
+  <strong>end</strong> Modelica;</pre></blockquote>
+<h5>Related annotations</h5>
+<ul>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.version"
+>version</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.versionDate"
+>versionDate</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.dateModified"
+>dateModified</a></li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE smoothOrder<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.smoothOrder" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.smoothOrder"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.smoothOrder</h2>
+
+<p>
+Define differentiability of function body
+</p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+   <strong>annotation</strong>"(" smoothOrder "=" UNSIGNED_INTEGER ")"
+   <strong>annotation</strong>"(" smoothOrder "(" normallyConstant=NAME ["," normallyConstant=NAME] ")"
+                             "=" UNSIGNED_NUMBER ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This annotation has only an effect within a function declaration.
+</p>
+
+<p>
+smoothOrder defines the number of differentiations of the function, in order that all of the differentiated outputs are continuous provided all input arguments and their derivatives up to order smoothOrder are continuous.
+</p>
+
+<p>
+This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 1 means that the function can be differentiated at least once in order that all output arguments are still continuous, provided the input arguments are continuous. If a tool needs the derivative of a function, e.g., for index reduction or to compute an analytic Jacobian, the function can be differentiated analytically at most smoothOrder times.
+</p>
+<p>
+The optional argument <code>normallyConstant</code> of <code>smoothOrder</code> defines that the function argument <code>NAME</code> is usually constant.
+</p>
+
+<h4>Examples</h4>
+<p>
+This annotation is used by many functions of the <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</a> library, such as <a href="../../../Modelica 4.1.0/Resources/helpDymola/Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP</a>, since geometric arguments to these functions are usually constant.
+</p>
+<blockquote><pre>
+<strong>function</strong> SpecialPolynomial
+  <strong>input</strong>  Real u;
+  <strong>output</strong> Real y;
+<strong>algorithm</strong>
+   y = <strong>if</strong> u > 0 <strong>then</strong> u^2 <strong>else</strong> 0;
+  <strong>annotation</strong>(smoothOrder = 1);
+<strong>end</strong> SpecialPolynomial;
+
+<strong>model</strong> TestSpecialPolynomial
+   Real y;
+   Real yd;
+   Real ydd;
+<strong>equation</strong>
+   y   = SpecialPolynomial(sin(time));
+   yd  = <strong>der</strong>(y);     // fine, SpecialPolynomial is analytically differentiated once
+   ydd = <strong>der</strong>(yd);    // error, SpecialPolynomial cannot be differentiated twice
+<strong>end</strong> TestSpecialPolynomial;
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE unassignedMessage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.unassignedMessage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.unassignedMessage"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.unassignedMessage</h2>
+
+<p>
+Error message, if variable is not assigned
+</p>
+
+<h4>Examples</h4>
+
+<blockquote><pre><strong>connector</strong> Frame "Frame of a mechanical system"
+    ...
+  <strong>flow</strong> Modelica.Units.SI.Force f[3] <strong>annotation</strong>(unassignedMessage =
+"All Forces cannot be uniquely calculated. The reason could be that the
+mechanism contains a planar loop or that joints constrain the same motion.
+For planar loops, use in one revolute joint per loop the option
+PlanarCutJoint=true in the Advanced menu.
+");
+<strong>end</strong> Frame;
+</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+   <strong>annotation</strong>"(" unassignedMessage "=" STRING ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+When the variable to which this annotation is attached in the declaration cannot be computed due to the structure of the equations, the string message can be used as a diagnostic message. When using BLT partitioning, this means if a variable "a" or one of its aliases "b = a", "b = -a", cannot be assigned, the message is displayed. This annotation is used to provide library specific error messages.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE uses<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.uses" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.uses"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.uses</h2>
+
+<p>
+Defines that classes within this top-level class uses a specific version of another top-level class
+</p>
+
+<h4>Examples</h4>
+
+<blockquote><pre>
+<strong>model</strong> A
+  <strong>annotation</strong>(version="1.0",
+     uses(Modelica(version="1.5")));
+  ...
+<strong>end</strong> A;
+
+<strong>model</strong> B
+  <strong>annotation</strong>(uses(Modelica(version="2.1 Beta 1")));
+  ...
+<strong>end</strong> B;
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<ul>
+<li> <code>uses(IDENT (version = VERSION-NUMBER) )</code><br>
+     Defines that classes within this top-level class uses version
+     VERSION-NUMBER of classes within the top-level class IDENT.
+     The annotations uses and conversion may contain several different sub-entries.</li>
+</ul>
+
+<h5>Related annotations</h5>
+<ul>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.dateModified"
+>dateModified</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.revisionId"
+>revisionId</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.version"
+>version</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.versionDate"
+>versionDate</a></li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE version<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.version" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.version"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.version</h2>
+
+<p>
+Define version information of package
+</p>
+
+<h4>Examples</h4>
+
+<blockquote><pre><strong>package</strong> Modelica
+  <strong>annotation</strong>(version="2.1",
+             conversion(noneFromVersion="2.1 Beta 1",
+                        from(version="1.5",
+                             script="convertFromModelica1_5.mos")));
+  ...
+<strong>end</strong> Modelica;
+
+<strong>model</strong> A
+  <strong>annotation</strong>(version="1.0",
+     uses(Modelica(version="1.5")));
+  ...
+<strong>end</strong> A;
+
+<strong>model</strong> B
+  <strong>annotation</strong>(uses(Modelica(version="2.1 Beta 1")));
+  ...
+<strong>end</strong> B;
+</pre></blockquote>
+
+<p>
+In this example the model A uses an older version of the Modelica library and can be upgraded using the given script, and model B uses an older version of the Modelica library but no changes are required when upgrading.
+</p>
+
+<h4>Description</h4>
+
+<p>
+Version numbers are of the forms:
+</p>
+
+<ul>
+<li> Main release versions:
+     <blockquote><pre>""" UNSIGNED_INTEGER { "." UNSIGNED_INTEGER } """</pre></blockquote>
+     Example: <code>"2.1"</code><br>&nbsp;</li>
+
+<li> Pre-release versions:
+     <blockquote><pre>""" UNSIGNED_INTEGER { "." UNSIGNED_INTEGER } " " {S-CHAR} """</pre></blockquote>
+     Example: <code>"2.1 Beta 1"</code><br>&nbsp;</li>
+
+<li> Un-ordered versions:
+     <blockquote><pre> """ NON-DIGIT {S-CHAR} """ </pre></blockquote>
+     Example: <code>"Test 1"</code></li>
+</ul>
+
+<p>
+The main release versions are ordered using the hierarchical numerical names, and follow the corresponding pre-release versions. The pre-release versions of the same main release version are internally ordered alphabetically.
+</p>
+
+<p>
+In a top-level class, the version number and the dependency to earlier versions of this class are defined using one or more of the following annotations:
+</p>
+
+<ul>
+<li> <code>version = CURRENT-VERSION-NUMBER</code><br>
+     Defines the version number of the model or package.
+     All classes within this top-level class have this version number.<br>&nbsp;</li>
+
+<li> <code>conversion ( noneFromVersion = VERSION-NUMBER)</code><br>
+     Defines that user models using the VERSION-NUMBER can be upgraded to
+     the CURRENT-VERSION-NUMBER of the current class without any changes.<br>&nbsp;</li>
+
+<li> <code>conversion ( from (version = VERSION-NUMBER, [to = VERSION_NUMBER ","] script = "?" ) ) </code><br>
+     Defines that user models using the VERSION-NUMBER or any of the given VERSION-NUMBER can be upgraded to the given VERSION-NUMBER
+     (if the to-tag is missing this is the CURRENT-VERSION-NUMBER) of the current class by applying the given conversion rules.
+     <em>The to-tag is added for clarity and optionally allows a tool to convert in multiple steps.</em>
+     <br>&nbsp;</li>
+
+<li> <code>uses(IDENT (version = VERSION-NUMBER) )</code><br>
+     Defines that classes within this top-level class uses version
+     VERSION-NUMBER of classes within the top-level class IDENT.
+     The annotations uses and conversion may contain several different sub-entries.</li>
+</ul>
+
+<p>
+A top-level class, IDENT, with version VERSION-NUMBER can be stored in one
+of the following ways in a directory given in the MODELICAPATH:
+</p>
+
+<ul>
+<li> The file IDENT ".mo"<br>
+     Example: Modelica.mo</li>
+<li> The file IDENT " " VERSION-NUMBER ".mo"<br>
+     Example: Modelica 2.1.mo</li>
+<li> The directory IDENT<br>
+     Example: Modelica</li>
+<li> The directory IDENT " " VERSION-NUMBER<br>
+     Example: Modelica 2.1</li>
+</ul>
+<p>
+This allows a tool to access multiple versions of the same package.
+</p>
+<h5>Related annotations</h5>
+<ul>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.dateModified"
+>dateModified</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.revisionId"
+>revisionId</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.uses"
+>uses</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.version"
+>version</a></li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE versionBuild<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.versionBuild" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.versionBuild"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.versionBuild</h2>
+
+<p>Defines the optional build number of the library.</p>
+
+<blockquote>
+<em>This is a <strong>deprecated</strong> annotation. It should no longer be used, since it will be removed in one of the next Modelica releases. Use instead <a href="https://semver.org/">Semantic Versioning</a> which provides a better mechanism for maintaining releases and bug-fixes in a well defined way.</em>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>annotation</strong>&quot;(&quot; versionBuild &quot;=&quot; INTEGER &quot;)&quot;
+</pre></blockquote>
+<h4>Description</h4>
+<p>&ldquo;<code>versionBuild</code>&rdquo; is the optional build number of the library.
+When a new version is released &ldquo;<code>versionBuild</code>&rdquo; should be omitted or &ldquo;<code>versionBuild = 1</code>&rdquo;.
+There might be bug fixes to the library that do not justify a new library version.
+Such maintenance changes are called a &ldquo;build&rdquo; release of the library.
+For every new maintenance change, the &ldquo;<code>versionBuild</code>&rdquo; number is increased.
+A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<code>versionBuild</code>&rdquo; number B, is a newer release of the library. There are no conversions between the same versions with different build numbers.
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>package</strong> Modelica
+  <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
+             versionDate  = &quot;2008-04-10&quot;,
+             <em>versionBuild = 4</em>,
+             dateModified = &quot;2009-02-15 16:33:14Z&quot;,
+             revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;);
+  ...
+  <strong>end</strong> Modelica;
+</pre></blockquote>
+<h5>Related annotations</h5>
+<ul>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.dateModified"
+>dateModified</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.revisionId"
+>revisionId</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.uses"
+>uses</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.version"
+>version</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.versionDate"
+>versionDate</a></li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE versionDate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="ModelicaReferenceI.png" alt="ModelicaReference.Annotations.versionDate" align="right" style="border: 1px solid" width="80" height="80">
+<a name="ModelicaReference.Annotations.versionDate"></a><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations"
+>ModelicaReference.Annotations</a>.versionDate</h2>
+
+<p>UTC date of first version build (in format: <code>YYYY-MM-DD</code>).</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>annotation</strong>&quot;(&quot; versionDate &quot;=&quot; STRING &quot;)&quot;
+</pre></blockquote>
+<h4>Description</h4>
+<p>&ldquo;<code>versionDate</code>&rdquo; is the date in UTC format (according to <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>) when the library was released.</p>
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>package</strong> Modelica
+  <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
+             <em>versionDate  = &quot;2008-04-10&quot;</em>,
+             dateModified = &quot;2009-02-15 16:33:14Z&quot;,
+             revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;);
+  ...
+  <strong>end</strong> Modelica;</pre></blockquote>
+<h5>Related annotations</h5>
+<ul>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.uses"
+>uses</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.version"
+>version</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.dateModified"
+>dateModified</a></li>
+  <li><a href="ModelicaReference_Annotations.html#ModelicaReference.Annotations.revisionId"
+>revisionId</a></li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="ModelicaReference_Icons.html#ModelicaReference.Icons.Information"
+>ModelicaReference.Icons.Information</a> (Icon for general information packages).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 17:00:06 2026.
+</address>
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody.Sensors.Internal</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Internal package, should not be used by user&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Internal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.MultiBody.Sensors.Internal"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.Internal</h2>
+<p>
+<span class="ModelicaDescription">Internal package, should not be used by user</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Package with classes that are used within package Sensors.
+The classes in this package should not be directly used by a user.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBf1bb6a18a2e3e8aaensorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor"
+>PartialAbsoluteSensor</a>
+</td>
+<td>Base class for absolute sensor models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB66d53a0d73eecb61ensorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor"
+>PartialAbsoluteBaseSensor</a>
+</td>
+<td>Base class for absolute sensor models defined by equations (frame_resolve must be connected exactly once)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB74317d75dd58f49censorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor"
+>PartialRelativeSensor</a>
+</td>
+<td>Base class for relative sensor models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB772e787ab08930d0ensorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor"
+>PartialRelativeBaseSensor</a>
+</td>
+<td>Base class for relative sensor models defined by equations (frame_resolve must be connected exactly once)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB68545bdcba6e9350itionS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsolutePosition" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsolutePosition"
+>BasicAbsolutePosition</a>
+</td>
+<td>Basic sensor to measure absolute position vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB131546b403f1a8e6ocityS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsoluteAngularVelocity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsoluteAngularVelocity"
+>BasicAbsoluteAngularVelocity</a>
+</td>
+<td>Basic sensor to measure absolute angular velocity</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB5ed4aaccb3c40eb1itionS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativePosition" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativePosition"
+>BasicRelativePosition</a>
+</td>
+<td>Basic sensor to measure relative position vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBa2aa25a40daf8df4ocityS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativeAngularVelocity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativeAngularVelocity"
+>BasicRelativeAngularVelocity</a>
+</td>
+<td>Basic sensor to measure relative angular velocity</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB006caba2da22abe3ectorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformAbsoluteVector" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformAbsoluteVector"
+>BasicTransformAbsoluteVector</a>
+</td>
+<td>Transform absolute vector into another frame</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB7db529588b6f072aectorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformRelativeVector" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformRelativeVector"
+>BasicTransformRelativeVector</a>
+</td>
+<td>Transform relative vector into another frame</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB4f949796d1c78f17ensorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor"
+>PartialCutForceSensor</a>
+</td>
+<td>Base class to measure cut force and/or torque between two frames, defined by components</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB4f949796d1c78f17ensorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor"
+>PartialCutForceBaseSensor</a>
+</td>
+<td>Base class to measure cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBb43771e496ee81b9ForceS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutForce" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutForce"
+>BasicCutForce</a>
+</td>
+<td>Basic sensor to measure cut force vector (frame_resolve must be connected)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBf99f1b09f9d07d97orqueS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutTorque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutTorque"
+>BasicCutTorque</a>
+</td>
+<td>Basic sensor to measure cut torque vector (frame_resolve must be connected)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialAbsoluteSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBf1bb6a18a2e3e8aaensorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.PartialAbsoluteSensor</h2>
+<p>
+<span class="ModelicaDescription">Base class for absolute sensor models</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is a base class of a 3-dim. mechanical component with one frame
+<strong>frame_a</strong> in order to measure an absolute quantity of this
+connector.
+This partial class can be used for sensors defined either by components or by equations.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RoundSensor"
+>Modelica.Icons.RoundSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a of which the absolute kinematic quantities are measured</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialAbsoluteBaseSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB66d53a0d73eecb61ensorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.PartialAbsoluteBaseSensor</h2>
+<p>
+<span class="ModelicaDescription">Base class for absolute sensor models defined by equations (frame_resolve must be connected exactly once)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Partial base class for absolute sensor models defined by equations.
+The connector frame_resolve is always enabled and must be connected exactly once.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RoundSensor"
+>Modelica.Icons.RoundSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system from which kinematic quantities are measured</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which output vector(s) is optionally resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialRelativeSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB74317d75dd58f49censorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.PartialRelativeSensor</h2>
+<p>
+<span class="ModelicaDescription">Base class for relative sensor models</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is a base class of a 3-dim. mechanical component with two frames
+<strong>frame_a</strong> and <strong>frame_b</strong>
+in order to measure a relative quantity between these two connectors.
+This partial class can be used for sensors defined either by components or by equations.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RoundSensor"
+>Modelica.Icons.RoundSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialRelativeBaseSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB772e787ab08930d0ensorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.PartialRelativeBaseSensor</h2>
+<p>
+<span class="ModelicaDescription">Base class for relative sensor models defined by equations (frame_resolve must be connected exactly once)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Partial base class for relative sensor models defined by equations.
+The connector frame_resolve is always enabled and must be connected exactly once.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RoundSensor"
+>Modelica.Icons.RoundSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a (measurement is between frame_a and frame_b)</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b (measurement is between frame_a and frame_b)</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which vector is optionally resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BasicAbsolutePosition<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB68545bdcba6e9350itionI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsolutePosition" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsolutePosition"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.BasicAbsolutePosition</h2>
+<p>
+<span class="ModelicaDescription">Basic sensor to measure absolute position vector</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the absolute position vector of the origin of frame_a should be determined.
+This vector is provided at the output signal connector&nbsp;<strong>r</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined in which frame
+the position vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the vector&nbsp;r is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor</a> (Base class for absolute sensor models defined by equations (frame_resolve must be connected exactly once)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector r is resolved (world, frame_a, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system from which kinematic quantities are measured</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which output vector(s) is optionally resolved</td></tr>
+<tr><td>r[3]</td><td>Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame [m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BasicAbsoluteAngularVelocity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB131546b403f1a8e6ocityI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsoluteAngularVelocity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsoluteAngularVelocity"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.BasicAbsoluteAngularVelocity</h2>
+<p>
+<span class="ModelicaDescription">Basic sensor to measure absolute angular velocity</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the absolute angular velocity of frame_a should be determined.
+This vector is provided at the output signal connector&nbsp;<strong>w</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the angular velocity is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the vector&nbsp;w is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+w = MultiBody.Frames.angularVelocity2(frame_a.R);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor</a> (Base class for absolute sensor models defined by equations (frame_resolve must be connected exactly once)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector w is resolved (world, frame_a, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system from which kinematic quantities are measured</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which output vector(s) is optionally resolved</td></tr>
+<tr><td>w[3]</td><td>Absolute angular velocity vector [rad/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BasicRelativePosition<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB5ed4aaccb3c40eb1itionI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativePosition" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativePosition"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.BasicRelativePosition</h2>
+<p>
+<span class="ModelicaDescription">Basic sensor to measure relative position vector</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the relative position vector between the origins of frame_a and frame_b should be determined.
+This vector is provided at the output signal connector&nbsp;<strong>r_rel</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined in which frame
+the position vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the vector&nbsp;r_rel is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor</a> (Base class for relative sensor models defined by equations (frame_resolve must be connected exactly once)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector r_rel is resolved (world, frame_a, frame_b, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a (measurement is between frame_a and frame_b)</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b (measurement is between frame_a and frame_b)</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which vector is optionally resolved</td></tr>
+<tr><td>r_rel[3]</td><td>Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame [m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BasicRelativeAngularVelocity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBa2aa25a40daf8df4ocityI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativeAngularVelocity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativeAngularVelocity"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.BasicRelativeAngularVelocity</h2>
+<p>
+<span class="ModelicaDescription">Basic sensor to measure relative angular velocity</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the relative angular velocity between frame_a and frame_b should be determined.
+This vector is provided at the output signal connector&nbsp;<strong>w_rel</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the angular velocity is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the vector&nbsp;w_rel is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+// Relative orientation object from frame_a to frame_b
+R_rel = MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
+
+// Angular velocity resolved in frame_a
+w_rel = MultiBody.Frames.angularVelocity1(R_rel);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor</a> (Base class for relative sensor models defined by equations (frame_resolve must be connected exactly once)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector w_rel is resolved (world, frame_a, frame_b, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a (measurement is between frame_a and frame_b)</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b (measurement is between frame_a and frame_b)</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which vector is optionally resolved</td></tr>
+<tr><td>w_rel[3]</td><td>Relative angular velocity vector [rad/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BasicTransformAbsoluteVector<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBfb3f15fbf4d41b1cectorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformAbsoluteVector" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformAbsoluteVector"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.BasicTransformAbsoluteVector</h2>
+<p>
+<span class="ModelicaDescription">Transform absolute vector into another frame</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This basic sensor transforms an absolute vector <strong>r_in</strong>,
+resolved in frame defined by frame_r_in,
+into another frame specified by frame_r_out.
+This output vector is provided at the output signal connector <strong>r_out</strong>.
+</p>
+
+<p>
+Via parameters <strong>frame_r_in</strong> and <strong>frame_r_out</strong> it is
+defined in which frame the position vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RoundSensor"
+>Modelica.Icons.RoundSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_r_in</td><td>Frame in which vector r_in is resolved (world, frame_a, or frame_resolve)</td></tr>
+<tr><td>frame_r_out</td><td>Frame in which vector r_out (= r_in in other frame) is resolved (world, frame_a, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system from which absolute kinematic quantities are measured</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which vector is optionally resolved</td></tr>
+<tr><td>r_in[3]</td><td>Input vector resolved in frame defined by frame_r_in</td></tr>
+<tr><td>r_out[3]</td><td>Input vector r_in resolved in frame defined by frame_r_out</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BasicTransformRelativeVector<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB7db529588b6f072aectorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformRelativeVector" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformRelativeVector"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.BasicTransformRelativeVector</h2>
+<p>
+<span class="ModelicaDescription">Transform relative vector into another frame</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This basic sensor transforms a relative vector <strong>r_in</strong>,
+resolved in frame defined by frame_r_in,
+into another frame specified by frame_r_out.
+This output vector is provided at the output signal connector <strong>r_out</strong>.
+</p>
+
+<p>
+Via parameters <strong>frame_r_in</strong> and <strong>frame_r_out</strong> it is
+defined in which frame the position vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor</a> (Base class for relative sensor models defined by equations (frame_resolve must be connected exactly once)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_r_in</td><td>Frame in which vector r_in is resolved (world, frame_a, frame_b, or frame_resolve)</td></tr>
+<tr><td>frame_r_out</td><td>Frame in which vector r_out (= r_in in other frame) is resolved (world, frame_a, frame_b, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a (measurement is between frame_a and frame_b)</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b (measurement is between frame_a and frame_b)</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which vector is optionally resolved</td></tr>
+<tr><td>r_in[3]</td><td>Input vector resolved in frame defined by frame_r_in</td></tr>
+<tr><td>r_out[3]</td><td>Input vector r_in resolved in frame defined by frame_r_out</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialCutForceSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB4f949796d1c78f17ensorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.PartialCutForceSensor</h2>
+<p>
+<span class="ModelicaDescription">Base class to measure cut force and/or torque between two frames, defined by components</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is a base class for 3-dim. mechanical components with two frames
+and one output port in order to measure the cut-force and/or
+cut-torque acting between the two frames and
+to provide the measured signals as output for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RoundSensor"
+>Modelica.Icons.RoundSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector(s) is/are resolved (world, frame_a, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>frame_resolve</td><td>Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialCutForceBaseSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB4f949796d1c78f17ensorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.PartialCutForceBaseSensor</h2>
+<p>
+<span class="ModelicaDescription">Base class to measure cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is a base class for 3-dim. mechanical components with two frames
+and one output port in order to measure the cut-force and/or
+cut-torque acting between the two frames and
+to provide the measured signals as output for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RoundSensor"
+>Modelica.Icons.RoundSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector is resolved (world, frame_a, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>frame_resolve</td><td>The output vector is optionally resolved in this frame (cut-force/-torque are set to zero)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BasicCutForce<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBb43771e496ee81b9ForceI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutForce" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutForce"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.BasicCutForce</h2>
+<p>
+<span class="ModelicaDescription">Basic sensor to measure cut force vector (frame_resolve must be connected)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the cut-force acting between the two frames is determined to which this
+model is connected.
+This cut-force is provided at the output signal connector
+<strong>force</strong> (= frame_a.f). If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-force is provided (= frame_b.f).
+</p>
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined in which frame
+the force vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the vector force is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<p>
+In the following figure the animation of a CutForce
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrow is the cut force acting at frame_b and
+with negative sign at frame_a.
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Sensors/CutForce.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor</a> (Base class to measure cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector is resolved (world, frame_a, or frame_resolve)</td></tr>
+<tr><td>positiveSign</td><td>= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>frame_resolve</td><td>The output vector is optionally resolved in this frame (cut-force/-torque are set to zero)</td></tr>
+<tr><td>force[3]</td><td>Cut force resolved in frame defined by resolveInFrame [N]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BasicCutTorque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBf99f1b09f9d07d97orqueI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutTorque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutTorque"></a><a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Modelica.Mechanics.MultiBody.Sensors.Internal</a>.BasicCutTorque</h2>
+<p>
+<span class="ModelicaDescription">Basic sensor to measure cut torque vector (frame_resolve must be connected)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This basic sensor is aimed to be used within advanced sensors where
+the cut-torque acting between the two frames is determined to which this
+model is connected.
+This cut-torque is provided at the output signal connector
+<strong>torque</strong> (= frame_a.f). If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-torque is provided (= frame_b.f).
+</p>
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined in which frame
+the torque vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the vector torque is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<p>
+In the following figure the animation of a CutTorque
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrow is the cut torque acting at frame_b and
+with negative sign at frame_a.
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Sensors/CutTorque.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor</a> (Base class to measure cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector is resolved (world, frame_a, or frame_resolve)</td></tr>
+<tr><td>positiveSign</td><td>= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>frame_resolve</td><td>The output vector is optionally resolved in this frame (cut-force/-torque are set to zero)</td></tr>
+<tr><td>torque[3]</td><td>Cut torque resolved in frame defined by resolveInFrame [N.m]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:24 2026.
+</address>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.PowerConverters.DCAC.Control</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Control components for DC to AC converters&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Control<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.PowerConverters.DCAC.Control"></a><a href="Modelica_Electrical_PowerConverters_DCAC.html#Modelica.Electrical.PowerConverters.DCAC"
+>Modelica.Electrical.PowerConverters.DCAC</a>.Control</h2>
+<p>
+<span class="ModelicaDescription">Control components for DC to AC converters</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Currently there are only three-phase PWM implemented (not polyphase).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power16d9858cfa45aa6bl.PWMS.png" alt="Modelica.Electrical.PowerConverters.DCAC.Control.PWM" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_DCAC_Control.html#Modelica.Electrical.PowerConverters.DCAC.Control.PWM"
+>PWM</a>
+</td>
+<td>Pulse width modulation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powerf02121311699d144SVPWMS.png" alt="Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_DCAC_Control.html#Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM"
+>SVPWM</a>
+</td>
+<td>Space vector pulse width modulation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power8507394fc9b1904bvePWMS.png" alt="Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_DCAC_Control.html#Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM"
+>IntersectivePWM</a>
+</td>
+<td>Intersective PWM</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PWM<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power16d9858cfa45aa6bl.PWMI.png" alt="Modelica.Electrical.PowerConverters.DCAC.Control.PWM" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.DCAC.Control.PWM"></a><a href="Modelica_Electrical_PowerConverters_DCAC_Control.html#Modelica.Electrical.PowerConverters.DCAC.Control"
+>Modelica.Electrical.PowerConverters.DCAC.Control</a>.PWM</h2>
+<p>
+<span class="ModelicaDescription">Pulse width modulation</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Let the user choose the PWM type from:
+</p>
+<ul>
+<li><a href="Modelica_Electrical_PowerConverters_DCAC_Control.html#Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM"
+>Space vector pulse width modulation</a></li>
+<li><a href="Modelica_Electrical_PowerConverters_DCAC_Control.html#Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM"
+>Intersective pulse width modulation</a></li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pwmType</td><td>PWM Type</td></tr>
+<tr><td>f</td><td>Switching frequency [Hz]</td></tr>
+<tr><td>startTime</td><td>Start time of PWM [s]</td></tr>
+<tr><td>uMax</td><td>Maximum amplitude of signal</td></tr>
+<tr><td>refType</td><td>Type of reference signal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[2]</td><td>Reference space phasor</td></tr>
+<tr><td>fire_p[m]</td><td>Positive fire signal</td></tr>
+<tr><td>fire_n[m]</td><td>Negative fire signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SVPWM<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powerf02121311699d144SVPWMI.png" alt="Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM"></a><a href="Modelica_Electrical_PowerConverters_DCAC_Control.html#Modelica.Electrical.PowerConverters.DCAC.Control"
+>Modelica.Electrical.PowerConverters.DCAC.Control</a>.SVPWM</h2>
+<p>
+<span class="ModelicaDescription">Space vector pulse width modulation</span>
+</p>
+<h3>Information</h3>
+
+<p>
+For a three-phase system, 8 space vectors are available according to the following switching patterns:
+</p>
+<ul>
+<li>0 [0,0,0] length 0</li>
+<li>1 [1,0,0] 000&deg;</li>
+<li>2 [1,1,0] 060&deg;</li>
+<li>3 [0,1,0] 120&deg;</li>
+<li>4 [0,1,1] 180&deg;</li>
+<li>5 [0,0,1] 240&deg;</li>
+<li>6 [1,0,1] 300&deg;</li>
+<li>7 [1,1,1] length 0</li>
+</ul>
+<p>
+Vector 1..6 form a hexagon, vector 0 and 7 are of length 0.
+</p>
+<p>
+First, the space vector is limited,
+and the sector of the hexagon is determined where the input space vector <u>u</u> is located;
+then the angle of the space vector within this sector 0&le;&phi;&lt;60&deg; is calculated.
+</p>
+<p>
+The input space vector is averaged by <u>u</u> = t<sub>a</sub>*<u>u</u><sub>a</sub> + t<sub>b</sub>*<u>u</u><sub>b</sub> + t<sub>0</sub>*0,
+where <u>u</u><sub>a</sub> is the space vector at the left border of the sector
+and <u>u</u><sub>b</sub> is the space vector at the right border of the sector.
+If necessary, a zero length vector is applied additionally.
+</p>
+<p>
+The relative time spans for averaging over one switching period are determined by the following equations:
+</p>
+<ul>
+<li>Real part: <u>u</u>*cos(&phi;) = <u>u</u><sub>b</sub>*t<sub>b</sub>*cos(60&deg;) + <u>u</u><sub>a</sub>*t<sub>a</sub>*1</li>
+<li>Imag.part: <u>u</u>*sin(&phi;) = <u>u</u><sub>b</sub>*t<sub>b</sub>*sin(60&deg;)</li>
+<li>t<sub>a</sub> + t<sub>b</sub> + t<sub>0</sub> = 1</li>
+</ul>
+<p>
+To obtain the positive fire signal, the switching time spans are distributed symmetrically:
+t<sub>0</sub>/4 + t<sub>a</sub>/2 + t<sub>b</sub>/2 +t<sub>0</sub>/2 + t<sub>b</sub>/2 + t<sub>a</sub>/2 + t<sub>0</sub>/4
+</p>
+<p>
+The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.DiscreteBlock"
+>Modelica.Blocks.Interfaces.DiscreteBlock</a> (Base class of discrete control blocks).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Switching frequency [Hz]</td></tr>
+<tr><td>samplePeriod</td><td>Sample period of component [s]</td></tr>
+<tr><td>startTime</td><td>First sample time instant [s]</td></tr>
+<tr><td>uMax</td><td>Maximum length of space vector = half diagonal of hexagon</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[2]</td><td>Reference space phasor</td></tr>
+<tr><td>fire_p[m]</td><td>Positive fire signal</td></tr>
+<tr><td>fire_n[m]</td><td>Negative fire signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IntersectivePWM<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power8507394fc9b1904bvePWMI.png" alt="Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM"></a><a href="Modelica_Electrical_PowerConverters_DCAC_Control.html#Modelica.Electrical.PowerConverters.DCAC.Control"
+>Modelica.Electrical.PowerConverters.DCAC.Control</a>.IntersectivePWM</h2>
+<p>
+<span class="ModelicaDescription">Intersective PWM</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The intersective PWM transforms the input space phasor <u>u</u> to the three-phase voltages,
+and compares them with the reference signals.
+As long as the phase voltage is greater than the corresponding reference signal, the corresponding fire signal is true.
+The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
+</p>
+<p>
+The user can choose from 4 different reference signals:
+</p>
+<ul>
+<li>Sawtooth1: sawtooth signal, same phase in all three phases</li>
+<li>Sawtooth3: sawtooth signal, phase shift between the three phases = period/3</li>
+<li>Triangle1: triangle signal, same phase in all three phases</li>
+<li>Triangle3: triangle signal, phase shift between the three phases = period/3</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Switching frequency [Hz]</td></tr>
+<tr><td>startTime</td><td>Start time of PWM [s]</td></tr>
+<tr><td>uMax</td><td>Maximum amplitude of signal</td></tr>
+<tr><td>refType</td><td>Type of reference signal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[2]</td><td>Reference space phasor</td></tr>
+<tr><td>fire_p[m]</td><td>Positive fire signal</td></tr>
+<tr><td>fire_n[m]</td><td>Negative fire signal</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:21 2026.
+</address>
+</body>
+</html>

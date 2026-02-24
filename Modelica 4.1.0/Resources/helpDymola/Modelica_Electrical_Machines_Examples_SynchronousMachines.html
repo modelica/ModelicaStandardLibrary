@@ -1,0 +1,584 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Machines.Examples.SynchronousMachines</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Test examples of synchronous machines&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SynchronousMachines<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Machines.Examples.SynchronousMachines"></a><a href="Modelica_Electrical_Machines_Examples.html#Modelica.Electrical.Machines.Examples"
+>Modelica.Electrical.Machines.Examples</a>.SynchronousMachines</h2>
+<p>
+<span class="ModelicaDescription">Test examples of synchronous machines</span>
+</p>
+<h3>Information</h3>
+
+This package contains test examples of synchronous machines.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_DOL" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_DOL"
+>SMR_DOL</a>
+</td>
+<td>Test example: SynchronousMachineReluctanceRotor direct-on-line</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_Inverter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_Inverter"
+>SMR_Inverter</a>
+</td>
+<td>Test example: SynchronousMachineReluctanceRotor with inverter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_NoLoad" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_NoLoad"
+>SMPM_NoLoad</a>
+</td>
+<td>SMPM at no-load</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Inverter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Inverter"
+>SMPM_Inverter</a>
+</td>
+<td>Test example: PermanentMagnetSynchronousMachine with inverter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_CurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_CurrentSource"
+>SMPM_CurrentSource</a>
+</td>
+<td>Test example: PermanentMagnetSynchronousMachine fed by current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_VoltageSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_VoltageSource"
+>SMPM_VoltageSource</a>
+</td>
+<td>Test example: PermanentMagnetSynchronousMachine fed by FOC</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking"
+>SMPM_Braking</a>
+</td>
+<td>Test example: PermanentMagnetSynchronousMachine acting as brake</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_ResistiveBraking" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_ResistiveBraking"
+>SMPM_ResistiveBraking</a>
+</td>
+<td>PermanentMagnetSynchronousMachine braking with a resistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL"
+>SMEE_DOL</a>
+</td>
+<td>Test example: ElectricalExcitedSynchronousMachine starting direct on line</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator"
+>SMEE_Generator</a>
+</td>
+<td>Test example: ElectricalExcitedSynchronousMachine as Generator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump"
+>SMEE_LoadDump</a>
+</td>
+<td>Test example: ElectricalExcitedSynchronousMachine with voltage controller</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Rectifier" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Rectifier"
+>SMEE_Rectifier</a>
+</td>
+<td>Test example: ElectricalExcitedSynchronousMachine with rectifier</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMR_DOL<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_DOL" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_DOL"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMR_DOL</h2>
+<p>
+<span class="ModelicaDescription">Test example: SynchronousMachineReluctanceRotor direct-on-line</span>
+</p>
+<h3>Information</h3>
+
+<strong>Test example: Synchronous machine with reluctance rotor direct on line</strong><br>
+A synchronous machine with reluctance rotor starts direct on line, utilizing the damper cage.<br>
+After reaching synchronous speed, at time tStep a load step is applied.<br>
+Simulate for 2.5 seconds and plot (versus time):
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>smr.wMechanical: motor's speed</li>
+<li>smr.tauElectrical: motor's torque</li>
+<li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
+</ul>
+Default machine parameters of model <em>SM_ReluctanceRotor</em> are used.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>f</td><td>Actual frequency [Hz]</td></tr>
+<tr><td>tStart1</td><td>Switch-on time [s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>smrData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMR_Inverter<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_Inverter" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_Inverter"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMR_Inverter</h2>
+<p>
+<span class="ModelicaDescription">Test example: SynchronousMachineReluctanceRotor with inverter</span>
+</p>
+<h3>Information</h3>
+
+<p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
+Frequency is raised by a ramp, causing the reluctance machine to start,
+and accelerating inertias. At time tStep a load step is applied.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
+
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>smr.wMechanical: motor's speed</li>
+<li>smr.tauElectrical: motor's torque</li>
+<li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>f</td><td>Actual frequency [Hz]</td></tr>
+<tr><td>tRamp</td><td>Frequency ramp [s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>smrData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_NoLoad<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_NoLoad" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_NoLoad"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMPM_NoLoad</h2>
+<p>
+<span class="ModelicaDescription">SMPM at no-load</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Synchronous machine with permanent magnets at no-load, driven with linear time dependent speed.
+</p>
+<p>
+You may check the terminal voltage (shown by the length of the space phasor) and the frequency.
+</p>
+<p>
+Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle:
+</p>
+<ul>
+<li>If the shaft angle starts at (pi + 0*pi/3)/p, the flux linkage through phase 1 is at the maximum and therefore this phase voltage starts at 0.</li>
+<li>If the shaft angle starts at (pi + 2*pi/3)/p, the flux linkage through phase 2 is at the maximum and therefore this phase voltage starts at 0.</li>
+<li>If the shaft angle starts at (pi + 4*pi/3)/p, the flux linkage through phase 3 is at the maximum and therefore this phase voltage starts at 0.</li>
+</ul>
+<p>Note that the angle of the voltage space phasor is pi/2 behind the angle of the hall sensor,
+i.e. after a rotation of the shaft by pi/2/p the flux linkage of phase 1 is zero and the induced voltage a maximum.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>smpmData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_Inverter<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Inverter" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Inverter"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMPM_Inverter</h2>
+<p>
+<span class="ModelicaDescription">Test example: PermanentMagnetSynchronousMachine with inverter</span>
+</p>
+<h3>Information</h3>
+
+<p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
+Frequency is raised by a ramp, causing the permanent magnet synchronous machine to start,
+and accelerating inertias. At time tStep a load step is applied.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
+
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>smpm.wMechanical: motor's speed</li>
+<li>smpm.tauElectrical: motor's torque</li>
+<li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<p>
+In practice it is nearly impossible to drive a PMSMD without current controller.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>f</td><td>Actual frequency [Hz]</td></tr>
+<tr><td>tRamp</td><td>Frequency ramp [s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>smpmData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_CurrentSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_CurrentSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_CurrentSource"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMPM_CurrentSource</h2>
+<p>
+<span class="ModelicaDescription">Test example: PermanentMagnetSynchronousMachine fed by current source</span>
+</p>
+<h3>Information</h3>
+
+<p>A synchronous machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
+The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
+and fed to the machine. The result shows that the torque is influenced by the q-current,
+whereas the stator voltage is influenced by the d-current.</p>
+
+<p>Default machine parameters are used.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Idq[2]</td><td>Desired d- and q-current [A]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>smpmData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_VoltageSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_VoltageSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_VoltageSource"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMPM_VoltageSource</h2>
+<p>
+<span class="ModelicaDescription">Test example: PermanentMagnetSynchronousMachine fed by FOC</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A synchronous machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
+The rms values of d- and q-current in rotor fixed coordinate system are controlled by the dqCurrentController,
+and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
+whereas the stator voltage is influenced by the d-current.</p>
+
+<p>Default machine parameters are used.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Idq[2]</td><td>Desired d- and q-current [A]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>smpmData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_Braking<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMPM_Braking</h2>
+<p>
+<span class="ModelicaDescription">Test example: PermanentMagnetSynchronousMachine acting as brake</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A synchronous machine with permanent magnets starts braking from nominal speed by feeding a diode bridge,
+which in turn feeds a braking resistor.
+Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional to speed to
+achieve constant current and torque.</p>
+
+<p>Default machine parameters are used.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>R</td><td>Nominal braking resistance [Ohm]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>smpmData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_ResistiveBraking<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_ResistiveBraking" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_ResistiveBraking"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMPM_ResistiveBraking</h2>
+<p>
+<span class="ModelicaDescription">PermanentMagnetSynchronousMachine braking with a resistor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The voltages induced by the permanent magnets of the synchronous machine is shortened over the inductance and resistance of the stator winding
+and the (optional) external braking resistors. The currents driven by these voltages cause a braking torque.
+</p>
+<p>
+The external braking resistor is implemented with three stages which get shortened at different points during braking.
+Note that the first (smallest) stage is not shortened, which ensures a minimum damping to avoid oscillations of angular velocity around zero.
+The total braking resistance (sum of all stages) has to be adapted to the angular velocity at which braking starts.
+</p>
+<p>
+Plot tauElectrical and tauShaft versus wMechanical.
+</p>
+<p>Default machine parameters are used.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>w0</td><td>Initial speed [rad/s]</td></tr>
+<tr><td>k[3]</td><td>Braking resistance stages w.r.t. Rs</td></tr>
+<tr><td>idq_sr[2]</td><td>Initial stator current space phasor [A]</td></tr>
+<tr><td>smpmData</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMEE_DOL<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMEE_DOL</h2>
+<p>
+<span class="ModelicaDescription">Test example: ElectricalExcitedSynchronousMachine starting direct on line</span>
+</p>
+<h3>Information</h3>
+
+<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage
+(and the shorted excitation winding) at 0 seconds.</p>
+<p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current.
+Note, that reactive power of the stator goes to zero.</p>
+<p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated).
+Note, that active and reactive power of the stator changes.
+To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
+</p>
+
+<p>Simulate for 3 seconds and plot:</p>
+
+<ul>
+<li><code>smee.tauElectrical</code></li>
+<li><code>smee.wMechanical</code></li>
+<li><code>smee.ie</code></li>
+<li><code>rotorDisplacementAngle.rotorDisplacementAngle</code></li>
+<li><code>currentQuasiRMSSensor.I</code></li>
+<li><code>electricalPowerSensor.P</code></li>
+<li><code>electricalPowerSensor.Q</code></li>
+<li><code>mechanicalMultiSensor.power</code></li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<h5>Note</h5>
+<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>.
+This noise is caused by the interaction of the high resistance of the switch and the machine, see
+<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2388">#2388</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>Ve</td><td>Excitation current [V]</td></tr>
+<tr><td>gamma0</td><td>Initial rotor displacement angle [rad]</td></tr>
+<tr><td>smeeData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMEE_Generator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMEE_Generator</h2>
+<p>
+<span class="ModelicaDescription">Test example: ElectricalExcitedSynchronousMachine as Generator</span>
+</p>
+<h3>Information</h3>
+
+<p>An electrically excited synchronous generator is connected to the grid and driven with constant speed.
+Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
+rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.</p>
+
+<p>Simulate for 30 seconds and plot (versus rotorDisplacementAngle.rotorDisplacementAngle):</p>
+
+<ul>
+<li>smee.tauElectrical</li>
+<li>currentQuasiRMSSensor.I</li>
+<li>electricalPowerSensor.P</li>
+<li>electricalPowerSensor.Q</li>
+<li>mechanicalPowerSensor.P</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>wActual</td><td>Actual speed [rad/s]</td></tr>
+<tr><td>Ie</td><td>Excitation current [A]</td></tr>
+<tr><td>Ie0</td><td>Initial excitation current [A]</td></tr>
+<tr><td>gamma0</td><td>Initial rotor displacement angle [rad]</td></tr>
+<tr><td>smeeData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMEE_LoadDump<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMEE_LoadDump</h2>
+<p>
+<span class="ModelicaDescription">Test example: ElectricalExcitedSynchronousMachine with voltage controller</span>
+</p>
+<h3>Information</h3>
+
+<p>
+An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
+Voltage is controlled, the set point depends on speed. After start-up the generator is loaded, the load is rejected.</p>
+
+<p>Simulate for 10 seconds and plot:</p>
+
+<ul>
+<li>voltageQuasiRMSSensor.V</li>
+<li>smee.tauElectrical</li>
+<li>smee.ie</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<p>One could try to optimize the controller parameters.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>ZNominal</td><td>Nominal load impedance [Ohm]</td></tr>
+<tr><td>powerFactor</td><td>Load power factor</td></tr>
+<tr><td>RLoad</td><td>Load resistance [Ohm]</td></tr>
+<tr><td>LLoad</td><td>Load inductance [H]</td></tr>
+<tr><td>Ve0</td><td>No load excitation voltage [V]</td></tr>
+<tr><td>k</td><td>Voltage controller: gain</td></tr>
+<tr><td>Ti</td><td>Voltage controller: integral time constant [s]</td></tr>
+<tr><td>smeeData</td><td>Synchronous machine data</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMEE_Rectifier<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machicbdf82d7be527b46C_DOLI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Rectifier" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Rectifier"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousMachines.html#Modelica.Electrical.Machines.Examples.SynchronousMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousMachines</a>.SMEE_Rectifier</h2>
+<p>
+<span class="ModelicaDescription">Test example: ElectricalExcitedSynchronousMachine with rectifier</span>
+</p>
+<h3>Information</h3>
+
+<p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled,
+the set point depends on speed. The generator is loaded with a rectifier.</p>
+
+<p>Default machine parameters are used.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>VDC0</td><td>No-load DC voltage [V]</td></tr>
+<tr><td>RLoad</td><td>Load resistance [Ohm]</td></tr>
+<tr><td>Ve0</td><td>No load excitation voltage [V]</td></tr>
+<tr><td>k</td><td>Voltage controller: gain</td></tr>
+<tr><td>Ti</td><td>Voltage controller: integral time constant [s]</td></tr>
+<tr><td>smeeData</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:14 2026.
+</address>
+</body>
+</html>

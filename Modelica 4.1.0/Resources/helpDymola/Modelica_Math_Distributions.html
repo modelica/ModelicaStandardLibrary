@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.Distributions</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of distribution functions&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Distributions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.Distributions"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.Distributions</h2>
+<p>
+<span class="ModelicaDescription">Library of distribution functions</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package provides
+</p>
+<ul>
+<li> <a href="http://en.wikipedia.org/wiki/Probability_density_function">probability density functions</a>
+     (= derivative of cumulative distribution function),</li>
+<li> <a href="http://en.wikipedia.org/wiki/Cumulative_distribution_function">cumulative distribution functions</a>,
+     and</li>
+<li> <a href="http://en.wikipedia.org/wiki/Quantile_function">quantiles</a>
+     (= inverse cumulative distribution functions).</li>
+</ul>
+<p>
+of different distributions.
+</p>
+
+<p>
+In particular also <strong>truncated distributions</strong> are provided (see below).
+The main reason to introduce
+truncated distributions is to make the modeling of measurement noise easier, in order to
+limit the band in which the noise can occur. For example, if a sensor is used and the
+sensor signal has a noise of &plusmn; 0.1 Volt (e.g. this can be determined by using a reference
+value of 0 V and inspecting the measured signal), then the sensor signal will be often the input
+to an Analog-Digital converter and this converter limits the signal, say to &plusmn; 5 Volt.
+Typically, the user would like to model noise within the noise band (say &plusmn; 0.1 Volt),
+and often uses a normal distribution. But a normal distribution is not limited and
+for a small sample time and a long simulation there might be some sample time instants
+where the noise values of the normal signal is outside the &plusmn; 0.1 Volt range.
+For some sensor types this is completely unrealistic (e.g. an angle sensor might
+measure &plusmn; 0.1 rad, but the sensor will never add, say one revolution (6.28 rad) to it.
+However, the noise model with a pure normal distribution could give such a value.
+If a modeler would like to guarantee (and not to hope), that the modeled noise is
+always between &plusmn; 0.1 Volt, then there are two main possibilities: (a) The noise is computed
+and the result is then limited to &plusmn; 0.1 Volt, or (b) the normal distribution is slightly modified,
+so that it is within the band of &plusmn; 0.1 Volt. Approach (a) is a brute force method that
+changes the statistical properties of the signal in an unknown way. Approach (b)
+is a "clean" mathematical description. The blocks in package
+<a href="Modelica_Blocks_Noise.html#Modelica.Blocks.Noise"
+>Blocks.Noise</a>
+give the user the freedom to choose: Either compute a normal (unlimited) noise, or
+a truncated normal noise (truncated distribution).
+</p>
+
+<h4>
+Details of truncated distributions
+</h4>
+
+<p>
+Truncated distributions are distributions that are transformed in such a way that
+either the input is within a band u_min .. u_max, or the output is within
+a band y_min .. y_max.
+A truncated distribution is derived from a base
+distribution (e.g. from the normal distribution), by truncating its
+probability density function to the desired band and adding a constant
+value over this band, in order that the integral over the truncated distribution
+remains one. All other properties (such as cumulative distribution function) can then be determined
+in a straightforward way, provided the properties of the underlying base distribution
+are available.
+More details can be found, for example, in
+<a href="http://en.wikipedia.org/wiki/Truncated_distribution">Wikipedia</a>
+(the equations from the "Truncated Distribution" box in the right part
+of this Wikipedia article are used for this package).
+</p>
+
+<p>
+When using random numbers according to a given truncated distribution,
+the output of the inverse cumulative distribution function (= quantile) is restricted
+to the defined band.
+</p>
+
+<p>
+The truncated distribution functions are derived from the underlying distribution
+functions in the following way:
+</p>
+
+<blockquote><pre>
+// Original distributions
+    pdf = Distributions.XXX.density(u,..);
+    cdf = Distributions.XXX.cumulative(u,...);
+cdf_min = Distributions.XXX.cumulative(u_min,...);
+cdf_max = Distributions.XXX.cumulative(u_max,...);
+
+// Truncated distributions
+</pre></blockquote>
+<blockquote>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><th><strong><em>Function</em></strong></th><th><strong><em>Transformation</em></strong></th></tr>
+  <tr><td>density(u,u_min,u_max,...)</td>
+      <td>= <strong>if</strong> u &ge; u_min <strong>and</strong> u&le;u_max <strong>then</strong> pdf / (cdf_max - cdf_min) <strong>else</strong> 0</td>
+  </tr>
+  <tr><td>cumulative(u,u_min,u_max,...)</td>
+      <td>= <strong>if</strong> u &le; u_min <strong>then</strong> 0
+            <strong>else if</strong> u &lt; u_max <strong>then</strong>
+              (cdf - cdf_min))/(cdf_max - cdf_min)
+            <strong>else</strong> 1</td>
+  </tr>
+  <tr><td>quantile(u,u_min,u_max,...)</td>
+      <td>= Distributions.XXX.quantile( cdf_min + u*(cdf_max - cdf_min), ... )</td>
+  </tr>
+</table>
+</blockquote>
+<p>
+For an example of a truncated distribution, see the following
+plot of the probability density function of a normal distribution
+compared with its truncated distribution:
+</p>
+
+<blockquote>
+<img src="../Images/Math/Distributions/TruncatedNormal.density.png">
+</blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Distributions.UniformS.png" alt="Modelica.Math.Distributions.Uniform" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Distributions_Uniform.html#Modelica.Math.Distributions.Uniform"
+>Uniform</a>
+</td>
+<td>Library of uniform distribution functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Distributions.NormalS.png" alt="Modelica.Math.Distributions.Normal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Distributions_Normal.html#Modelica.Math.Distributions.Normal"
+>Normal</a>
+</td>
+<td>Library of normal distribution functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Distributiofad866d8464b2458ormalS.png" alt="Modelica.Math.Distributions.TruncatedNormal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Distributions_TruncatedNormal.html#Modelica.Math.Distributions.TruncatedNormal"
+>TruncatedNormal</a>
+</td>
+<td>Library of truncated normal distribution functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Distributions.WeibullS.png" alt="Modelica.Math.Distributions.Weibull" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Distributions_Weibull.html#Modelica.Math.Distributions.Weibull"
+>Weibull</a>
+</td>
+<td>Library of Weibull distribution functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Distributio4469a749ecd35b62ibullS.png" alt="Modelica.Math.Distributions.TruncatedWeibull" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Distributions_TruncatedWeibull.html#Modelica.Math.Distributions.TruncatedWeibull"
+>TruncatedWeibull</a>
+</td>
+<td>Library of truncated Weibull distribution functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Nonlinear.InterfacesS.png" alt="Modelica.Math.Distributions.Interfaces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Distributions_Interfaces.html#Modelica.Math.Distributions.Interfaces"
+>Interfaces</a>
+</td>
+<td>Library of interfaces for distribution functions</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:32 2026.
+</address>
+</body>
+</html>

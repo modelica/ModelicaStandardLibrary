@@ -1,0 +1,1468 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStatic.Polyphase.Basic</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Basic components for AC polyphase models&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase.html#Modelica.Electrical.QuasiStatic.Polyphase"
+>Modelica.Electrical.QuasiStatic.Polyphase</a>.Basic</h2>
+<p>
+<span class="ModelicaDescription">Basic components for AC polyphase models</span>
+</p>
+<h3>Information</h3>
+
+<p>This package hosts basic models for quasi-static polyphase circuits.
+Quasi-static theory can be found in the
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide.html#Modelica.Electrical.QuasiStatic.UsersGuide.References"
+>references</a>.
+</p>
+<h4>See also</h4>
+
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic"
+>SinglePhase.Basic</a>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi40b513149462f350.StarS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star"
+>Star</a>
+</td>
+<td>Star connection</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi135b6b328d26dcb3DeltaS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta"
+>Delta</a>
+</td>
+<td>Delta (polygon) connection</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi6a4f581d4b9087beiStarS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar"
+>MultiStar</a>
+</td>
+<td>Star connection of polyphase systems consisting of multiple base systems</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi5d4cbecd73684364DeltaS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta"
+>MultiDelta</a>
+</td>
+<td>Delta (polygon) connection of polyphase systems consisting of multiple base systems</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi5ef65156bfbf3cc5tanceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStarResistance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStarResistance"
+>MultiStarResistance</a>
+</td>
+<td>Resistance connection of star points</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi4d31dcc3782dba29Pin_pS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_p"
+>PlugToPin_p</a>
+</td>
+<td>Connect one (positive) pin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi4d31dcc3782dba29Pin_pS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n"
+>PlugToPin_n</a>
+</td>
+<td>Connect one (negative) pin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi80892c3a05b780bfins_pS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p"
+>PlugToPins_p</a>
+</td>
+<td>Connect all (positive) pins</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi80892c3a05b780bfins_pS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n"
+>PlugToPins_n</a>
+</td>
+<td>Connect all (negative) pins</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi1ddbbac35c811bb1istorS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>
+</td>
+<td>Polyphase linear resistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi1ddbbac35c811bb1istorS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>
+</td>
+<td>Polyphase linear conductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasidd48e168612d88d9citorS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>
+</td>
+<td>Polyphase linear capacitor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi594ebb60b3491b6buctorS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>
+</td>
+<td>Polyphase linear inductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi80628e549a324276uctorS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MutualInductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.MutualInductor"
+>MutualInductor</a>
+</td>
+<td>Linear mutual inductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi0b0062906959eb2edanceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>
+</td>
+<td>Polyphase linear impedance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi0b0062906959eb2edanceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>
+</td>
+<td>Polyphase linear admittance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi12f5333328ebb83distorS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"
+>VariableResistor</a>
+</td>
+<td>Polyphase variable resistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi12f5333328ebb83distorS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>VariableConductor</a>
+</td>
+<td>Polyphase variable conductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi495182b8cc79f977citorS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>VariableCapacitor</a>
+</td>
+<td>Polyphase variable capacitor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi4e6833d0c723b8e7uctorS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>VariableInductor</a>
+</td>
+<td>Polyphase variable inductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi770903e0c40d9a80danceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>VariableImpedance</a>
+</td>
+<td>Polyphase variable impedance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi770903e0c40d9a80danceS.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>VariableAdmittance</a>
+</td>
+<td>Polyphase variable admittance</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Star<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi40b513149462f350.StarI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.Star</h2>
+<p>
+<span class="ModelicaDescription">Star connection</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Star (wye) connection of a polyphase circuit. The potentials at the star points are the same.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta"
+>Delta</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar"
+>MultiStar</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta"
+>MultiDelta</a>
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Delta<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi135b6b328d26dcb3DeltaI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.Delta</h2>
+<p>
+<span class="ModelicaDescription">Delta (polygon) connection</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Delta (polygon) connection of a polyphase circuit.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star"
+>Star</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar"
+>MultiStar</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta"
+>MultiDelta</a>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiStar<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi6a4f581d4b9087beiStarI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.MultiStar</h2>
+<p>
+<span class="ModelicaDescription">Star connection of polyphase systems consisting of multiple base systems</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Star (wye) connection of a polyphase circuit consisting of multiple base systems (see
+<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase"
+>polyphase guidelines</a>). The potentials at the star points are all equal.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star"
+>Star</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta"
+>Delta</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta"
+>MultiDelta</a>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>starpoints</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiDelta<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi5d4cbecd73684364DeltaI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.MultiDelta</h2>
+<p>
+<span class="ModelicaDescription">Delta (polygon) connection of polyphase systems consisting of multiple base systems</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Delta (polygon) connection of a polyphase circuit consisting of multiple base systems (see
+<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase"
+>polyphase guidelines</a>).
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star"
+>Star</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta"
+>Delta</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar"
+>MultiStar</a>
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>kPolygon</td><td>Alternative of polygon</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiStarResistance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi5ef65156bfbf3cc5tanceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStarResistance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStarResistance"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.MultiStarResistance</h2>
+<p>
+<span class="ModelicaDescription">Resistance connection of star points</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Multi star points are connected by resistors. This model is required to operate polyphase systems with even phase numbers to avoid ideal connections of start points of base systems; see
+<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase"
+>polyphase guidelines</a>.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>R</td><td>Insulation resistance between base systems [Ohm]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug</td><td>&nbsp;</td></tr>
+<tr><td>pin</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPin_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi4d31dcc3782dba29Pin_pI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_p"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.PlugToPin_p</h2>
+<p>
+<span class="ModelicaDescription">Connect one (positive) pin</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connects the single-phase (positive) pin <code>k</code> of the polyphase (positive) plug to a single-phase (positive) pin.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n"
+>PlugToPin_n</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p"
+>PlutToPins_p</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n"
+>PlugToPins_n</a>
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>k</td><td>Phase index</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_p</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPin_n<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi4d31dcc1782dba37Pin_nI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.PlugToPin_n</h2>
+<p>
+<span class="ModelicaDescription">Connect one (negative) pin</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connects the single-phase (negative) pin <code>k</code> of the polyphase (negative) plug to a single-phase (negative) pin.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_p"
+>PlugToPin_p</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p"
+>PlutToPins_p</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n"
+>PlugToPins_n</a>
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>k</td><td>Phase index</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+<tr><td>pin_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPins_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi80892c3a05b780bfins_pI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.PlugToPins_p</h2>
+<p>
+<span class="ModelicaDescription">Connect all (positive) pins</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connects all <code>m</code> single-phase (positive) pins of the polyphase (positive) plug to an array of <code>m</code> single-phase (positive) pins.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_p"
+>PlugToPin_p</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n"
+>PlugToPin_n</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n"
+>PlugToPins_n</a>
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_p[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPins_n<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi80892c3805b780a1ins_nI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.PlugToPins_n</h2>
+<p>
+<span class="ModelicaDescription">Connect all (negative) pins</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Connects all <code>m</code> single-phase (negative) pins of the polyphase (negative) plug to an array of <code>m</code> single-phase (negative) pins.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_p"
+>PlugToPin_p</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n"
+>PlugToPin_n</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p"
+>PlugToPins_p</a>
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+<tr><td>pin_n[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Resistor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi1ddbbac35c811bb1istorI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.Resistor</h2>
+<p>
+<span class="ModelicaDescription">Polyphase linear resistor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The linear resistor connects the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>,
+using <code>m</code> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>single-phase Resistors</a>.
+</p>
+
+<p>
+The resistor model also has <code>m</code> optional
+<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>conditional heat ports</a>.
+A linear temperature dependency of the resistances for enabled heat ports is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>R_ref[m]</td><td>Reference resistances at T_ref [Ohm]</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Conductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi1ddbbac35c811bb1istorI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.Conductor</h2>
+<p>
+<span class="ModelicaDescription">Polyphase linear conductor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The linear resistor connects the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
+using <code>m</code> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>single-phase Conductors</a>.
+</p>
+
+<p>
+The conductor model also has <code>m</code> optional
+<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>conditional heat ports</a>.
+A linear temperature dependency of the conductances for enabled heat ports is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>G_ref[m]</td><td>Reference conductances at T_ref [S]</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Capacitor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasidd48e168612d88d9citorI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.Capacitor</h2>
+<p>
+<span class="ModelicaDescription">Polyphase linear capacitor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The linear capacitor connects the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
+using <code>m</code> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>single-phase Capacitors</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>C[m]</td><td>Capacitances [F]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Inductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi594ebb60b3491b6buctorI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.Inductor</h2>
+<p>
+<span class="ModelicaDescription">Polyphase linear inductor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The linear inductor connects the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
+using <code>m</code> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>single-phase Inductors</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>L[m]</td><td>Inductances [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MutualInductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi80628e549a324276uctorI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MutualInductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MutualInductor"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.MutualInductor</h2>
+<p>
+<span class="ModelicaDescription">Linear mutual inductor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of a polyphase inductor providing a mutual inductance matrix model.
+</p>
+<h4>Implementation</h4>
+<blockquote><pre>
+v[1] = j*omega*L[1,1]*i[1] + j*omega*L[1,2]*i[2] + ... + j*omega*L[1,m]*i[m]
+v[2] = j*omega*L[2,1]*i[1] + j*omega*L[2,2]*i[2] + ... + j*omega*L[2,m]*i[m]
+   :              :                     :                           :
+v[m] = j*omega*L[m,1]*i[1] + j*omega*L[m,2]*i[2] + ... + j*omega*L[m,m]*i[m]
+</pre></blockquote>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.OnePort"
+>QuasiStatic.Polyphase.Interfaces.OnePort</a> (Two plugs, reference connection and declaration of voltage and current).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>epsilon</td><td>Relative accuracy tolerance of matrix symmetry</td></tr>
+<tr><td>L[m, m]</td><td>Mutual inductance matrix [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Impedance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi0b0062906959eb2edanceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.Impedance</h2>
+<p>
+<span class="ModelicaDescription">Polyphase linear impedance</span>
+</p>
+<h3>Information</h3>
+
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor
+in each phase.<br>
+<img src="../Images/Electrical/QuasiStatic/SinglePhase/Basic/RX_impedance.png"></p>
+
+<p>
+The linear impedance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code> in each phase, using <code>m</code>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>single-phase impedances</a>.
+The resistive
+components are modeled temperature dependent, so the real parts <code>R_actual = real(<u>Z</u>)</code> are determined from
+the actual operating temperatures and the reference input resistances <code>real(Z_ref)</code>.
+<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Conditional heat ports</a> are considered.
+The reactive components <code>X_actual = imag(<u>Z</u>)</code>
+are equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Z_ref[m]</td><td>Complex impedances R_ref + j*X_ref</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+<tr><td>frequencyDependent</td><td>Consider frequency dependency, if true</td></tr>
+<tr><td>f_ref</td><td>Reference frequency, if frequency dependency is considered [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Admittance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi0b0062906959eb2edanceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.Admittance</h2>
+<p>
+<span class="ModelicaDescription">Polyphase linear admittance</span>
+</p>
+<h3>Information</h3>
+
+
+<p>The admittance model represents a <strong>parallel</strong> connection of a resistor and either a capacitor or inductor
+in each phase.<br>
+<img src="../Images/Electrical/QuasiStatic/SinglePhase/Basic/GB_admittance.png"></p>
+
+<p>
+The linear admittance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>i</u> = <u>Y</u>*<u>v</u></code> in each phase, using <code>m</code>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>single-phase admittances</a>.
+The resistive
+components are modeled temperature dependent, so the real parts <code>G_actual = real(<u>Y</u>)</code> are determined from
+the actual operating temperatures and the reference input conductances <code>real(Y_ref)</code>.
+<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Conditional heat ports</a> are considered.
+The reactive components
+<code>B_actual = imag(<u>Y</u>)</code>
+are equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>Y_ref[m]</td><td>Complex admittances G_ref + j*B_ref</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+<tr><td>frequencyDependent</td><td>Consider frequency dependency, if true</td></tr>
+<tr><td>f_ref</td><td>Reference frequency, if frequency dependency is considered [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableResistor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi12f5333328ebb83distorI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.VariableResistor</h2>
+<p>
+<span class="ModelicaDescription">Polyphase variable resistor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The linear resistors connect the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>,
+using <code>m</code> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>single-phase variable Resistors</a>.
+The resistances <code>R</code> are given as <code>m</code> input signals.
+</p>
+
+<p>
+The resistor model also has <code>m</code> optional
+<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>conditional heat ports</a>.
+A linear temperature dependency of the resistances is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>VariableResistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+<tr><td>R_ref[m]</td><td>Variable resistance [Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableConductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi12f5333328ebb83distorI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.VariableConductor</h2>
+<p>
+<span class="ModelicaDescription">Polyphase variable conductor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The linear resistors connect the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
+using <code>m</code> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>single-phase variable Conductors</a>.
+The conductances <code>G</code> are given as <code>m</code> input signals.
+</p>
+
+<p>
+The conductor model also has <code>m</code> optional
+<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>conditional heat ports</a>.
+A linear temperature dependency of the conductances is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor"
+>VariableConductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+<tr><td>G_ref[m]</td><td>Variable conductance [S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableCapacitor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi495182b8cc79f977citorI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.VariableCapacitor</h2>
+<p>
+<span class="ModelicaDescription">Polyphase variable capacitor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The linear capacitors connect the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
+using <code>m</code> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>single-phase variable Capacitors</a>.
+The capacitances <code>C</code> are given as <code>m</code> input signals.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor"
+>VariableCapacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>C[m]</td><td>Variable capacitance [F]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableInductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi4e6833d0c723b8e7uctorI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.VariableInductor</h2>
+<p>
+<span class="ModelicaDescription">Polyphase variable inductor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The linear inductors connect the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
+using <code>m</code> <a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor"
+>single-phase variable Inductors</a>.
+The inductances <code>L</code> are given as <code>m</code> input signals.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor"
+>Variable resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>L[m]</td><td>Variable inductance [H]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableImpedance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi770903e0c40d9a80danceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.VariableImpedance</h2>
+<p>
+<span class="ModelicaDescription">Polyphase variable impedance</span>
+</p>
+<h3>Information</h3>
+
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor
+in each phase.<br>
+<img src="../Images/Electrical/QuasiStatic/SinglePhase/Basic/RX_impedance.png"></p>
+
+<p>
+The linear impedance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>i</u>*<u>Z</u> = <u>v</u></code> in each phase,
+using <code>m</code>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance"
+>
+variable single-phase impedances</a>.
+The impedances <code>Z_ref = R_ref + j*X_ref</code> are given as complex input signals, representing the
+resistive and reactive components of the input impedances. The resistive
+components are modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> are determined from
+the actual operating temperatures and the reference input resistances <code>real(Z_ref)</code>.
+<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Conditional heat ports</a> are considered.
+The reactive components <code>X_actual = imag(<u>Z</u>)</code>
+are equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>Note</h4>
+<p>
+Zero crossings of the real or imaginary parts of the impedance signals <code>Z_ref</code> could cause
+singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>VariableResistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"
+>Variable admittance</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+<tr><td>frequencyDependent</td><td>Consider frequency dependency, if true</td></tr>
+<tr><td>f_ref</td><td>Reference frequency, if frequency dependency is considered [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+<tr><td>Z_ref[m]</td><td>Variable complex impedances</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableAdmittance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi770903e0c40d9a80danceI.png" alt="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance"></a><a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic"
+>Modelica.Electrical.QuasiStatic.Polyphase.Basic</a>.VariableAdmittance</h2>
+<p>
+<span class="ModelicaDescription">Polyphase variable admittance</span>
+</p>
+<h3>Information</h3>
+
+<p>The admittance model represents a <strong>parallel</strong> connection of a resistor and either a capacitor or inductor
+in each phase.<br>
+<img src="../Images/Electrical/QuasiStatic/SinglePhase/Basic/GB_admittance.png"></p>
+
+<p>
+The linear admittance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>v</u>*<u>Y</u> = <u>i</u></code> in each phase,
+using <code>m</code>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance"
+>
+variable single-phase admittances</a>.
+The admittances <code>Y_ref = G_ref + j*B_ref</code> are given as complex input signals, representing the
+resistive and reactive components of the input admittances. The resistive
+components are modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> are determined from
+the actual operating temperatures and the reference input conductances <code>real(Y_ref)</code>.
+<a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Conditional heat ports</a> are considered.
+The reactive components <code>B_actual = imag(<u>Y</u>)</code>
+are equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>Note</h4>
+<p>
+Zero crossings of the real or imaginary parts of the admittance signals <code>Y_ref</code> could cause
+singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_QuasiStatic_SinglePhase_Basic.html#Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor"
+>VariableResistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor"
+>Resistor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor"
+>Conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor"
+>Capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor"
+>Inductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance"
+>Impedance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance"
+>Admittance</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor"
+>Variable conductor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor"
+>Variable capacitor</a>,
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor"
+>Variable inductor</a>
+<a href="Modelica_Electrical_QuasiStatic_Polyphase_Basic.html#Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance"
+>Variable impedance</a>,
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStatic_Polyphase_Interfaces.html#Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter, reference connection and declaration of voltage and current), <a href="Modelica_Electrical_Polyphase_Interfaces.html#Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>= true, if all heat ports are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+<tr><td>frequencyDependent</td><td>Consider frequency dependency, if true</td></tr>
+<tr><td>f_ref</td><td>Reference frequency, if frequency dependency is considered [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
+<tr><td>Y_ref[m]</td><td>Variable complex admittances</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:22 2026.
+</address>
+</body>
+</html>

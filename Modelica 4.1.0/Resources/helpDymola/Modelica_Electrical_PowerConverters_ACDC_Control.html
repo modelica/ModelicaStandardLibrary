@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.PowerConverters.ACDC.Control</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Control components for rectifiers&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Control<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.PowerConverters.ACDC.Control"></a><a href="Modelica_Electrical_PowerConverters_ACDC.html#Modelica.Electrical.PowerConverters.ACDC"
+>Modelica.Electrical.PowerConverters.ACDC</a>.Control</h2>
+<p>
+<span class="ModelicaDescription">Control components for rectifiers</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A generic controller with signal input and <code>2*m</code> firing signals is provided in
+<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse"
+>Signal2mPulse</a>,
+where <code>m</code> is the arbitrary number of phases.
+Additional topology specific controllers with electrical connectors are also included.
+</p>
+
+<h4>Filters</h4>
+
+<p>
+Each controller is equipped with an optional
+<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control.Filter"
+>filter</a>
+to filter the input voltages. By default the filter is enabled.
+</p>
+
+<p>
+Such filter is needed if the electrical grid includes a significant voltage drop across the grid impedance
+distorting the input voltage wave form of the rectifier. The filter included in the PowerConverters library is first order filter with additional compensation of the filter specific phase lag.
+However, it important to note that the transients of the filters may cause some initial effects which deteriorate after
+certain periods.
+</p>
+
+<h4>Enable</h4>
+
+<p>
+The topology specific controllers allow enabling and disabling of the firing signals. The internal enabling signal of the controllers is either derived from the parameter <code>constantEnable</code>,
+if <code>useConstantEnable = true</code>. For if <code>useConstantEnable = false</code> the internal
+enabling signal is taken from the optional signal input <code>enable</code>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power0034fac07b99757fPulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse"
+>Signal2mPulse</a>
+</td>
+<td>Generic control of 2*m pulse rectifiers</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power51d2d998cbbd3be9PulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2Pulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2Pulse"
+>VoltageBridge2Pulse</a>
+</td>
+<td>Control of 2 pulse bridge rectifier</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powerd49977dd0dfb839cPulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2mPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2mPulse"
+>VoltageBridge2mPulse</a>
+</td>
+<td>Control of 2*m pulse bridge rectifier</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powerd49977dd0dfb839cPulseS.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageCenterTap2mPulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control.VoltageCenterTap2mPulse"
+>VoltageCenterTap2mPulse</a>
+</td>
+<td>Control of 2*m pulse center tap rectifier</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power7dba59daeed9a1f0ilterS.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control.Filter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control.Filter"
+>Filter</a>
+</td>
+<td>PT1 + all-pass filter</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Signal2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power0034fac07b99757fPulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>Modelica.Electrical.PowerConverters.ACDC.Control</a>.Signal2mPulse</h2>
+<p>
+<span class="ModelicaDescription">Generic control of 2*m pulse rectifiers</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+General information about controllers is summarized in
+<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>Control</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Control"
+>PowerConverters.Icons.Control</a> (Control icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>useConstantFiringAngle</td><td>Use constant firing angle instead of signal input</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>firingAngleMax</td><td>Maximum firing angle [rad]</td></tr>
+<tr><td>firingAngleMin</td><td>Minimum firing angle [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Filter</td></tr>
+<tr><td>useFilter</td><td>Enable use of filter</td></tr>
+<tr><td>fCut</td><td>Cut off frequency of filter [Hz]</td></tr>
+<tr><td>vStart[m]</td><td>Start voltage of filter output [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>firingAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>fire_p[m]</td><td>&nbsp;</td></tr>
+<tr><td>fire_n[m]</td><td>&nbsp;</td></tr>
+<tr><td>v[m]</td><td>Voltages [V]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VoltageBridge2Pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power51d2d998cbbd3be9PulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2Pulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2Pulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>Modelica.Electrical.PowerConverters.ACDC.Control</a>.VoltageBridge2Pulse</h2>
+<p>
+<span class="ModelicaDescription">Control of 2 pulse bridge rectifier</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+General information about controllers is summarized in
+<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>Control</a>.
+</p>
+
+<p>
+This model provides two firing signal for Graetz bridge thyristor and half bridge rectifiers. The boolean
+signal <code>fire_p</code> is assigned to the thyristors connected with the positive DC output pin.
+The boolean
+signal <code>fire_n</code> is assigned to the thyristors connected with the negative DC output pin.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Control"
+>Icons.Control</a> (Control icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>useConstantFiringAngle</td><td>Use constant firing angle instead of signal input</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>firingAngleMax</td><td>Maximum firing angle [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Filter</td></tr>
+<tr><td>useFilter</td><td>Enable use of filter</td></tr>
+<tr><td>fCut</td><td>Cut off frequency of filter [Hz]</td></tr>
+<tr><td>vStart</td><td>Start voltage of filter output [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>firingAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>ac_p</td><td>&nbsp;</td></tr>
+<tr><td>ac_n</td><td>&nbsp;</td></tr>
+<tr><td>fire_p</td><td>&nbsp;</td></tr>
+<tr><td>fire_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VoltageBridge2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powerd49977dd0dfb839cPulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2mPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2mPulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>Modelica.Electrical.PowerConverters.ACDC.Control</a>.VoltageBridge2mPulse</h2>
+<p>
+<span class="ModelicaDescription">Control of 2*m pulse bridge rectifier</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+General information about controllers is summarized in
+<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>Control</a>.
+</p>
+
+<p>
+Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are connected with the positive DC output pin (firing signal <code>fire_p</code>). The other half of the semiconductors is connected with the negative DC output pin (firing signal <code>fire_n</code>). Parameter <code>m</code> indicates the number of phases.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Control"
+>Icons.Control</a> (Control icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>useConstantFiringAngle</td><td>Use constant firing angle instead of signal input</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>firingAngleMax</td><td>Maximum firing angle [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Filter</td></tr>
+<tr><td>useFilter</td><td>Enable use of filter</td></tr>
+<tr><td>fCut</td><td>Cut off frequency of filter [Hz]</td></tr>
+<tr><td>vStart[m]</td><td>Start voltage of filter output [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>firingAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>ac</td><td>&nbsp;</td></tr>
+<tr><td>fire_p[m]</td><td>&nbsp;</td></tr>
+<tr><td>fire_n[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VoltageCenterTap2mPulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powerd49977dd0dfb839cPulseI.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageCenterTap2mPulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageCenterTap2mPulse"></a><a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>Modelica.Electrical.PowerConverters.ACDC.Control</a>.VoltageCenterTap2mPulse</h2>
+<p>
+<span class="ModelicaDescription">Control of 2*m pulse center tap rectifier</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+General information about controllers is summarized in
+<a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>Control</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Control"
+>Icons.Control</a> (Control icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>f</td><td>Frequency [Hz]</td></tr>
+<tr><td>useConstantFiringAngle</td><td>Use constant firing angle instead of signal input</td></tr>
+<tr><td>constantFiringAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>firingAngleMax</td><td>Maximum firing angle [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Filter</td></tr>
+<tr><td>useFilter</td><td>Enable use of filter</td></tr>
+<tr><td>fCut</td><td>Cut off frequency of filter [Hz]</td></tr>
+<tr><td>vStart[m]</td><td>Start voltage of filter output [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>firingAngle</td><td>Firing angle [rad]</td></tr>
+<tr><td>ac</td><td>&nbsp;</td></tr>
+<tr><td>fire_p[m]</td><td>&nbsp;</td></tr>
+<tr><td>fire_n[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Filter<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power7dba59daeed9a1f0ilterI.png" alt="Modelica.Electrical.PowerConverters.ACDC.Control.Filter" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.ACDC.Control.Filter"></a><a href="Modelica_Electrical_PowerConverters_ACDC_Control.html#Modelica.Electrical.PowerConverters.ACDC.Control"
+>Modelica.Electrical.PowerConverters.ACDC.Control</a>.Filter</h2>
+<p>
+<span class="ModelicaDescription">PT1 + all-pass filter</span>
+</p>
+<h3>Information</h3>
+
+<p>First order filter with cut-off frequency <code>fCut</code>. The phase shift of the filter is compensated by a series of two first order all-pass filters tuned on supply frequency <code>f</code>.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Modelica.Blocks.Interfaces.SISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Mains Frequency [Hz]</td></tr>
+<tr><td>fCut</td><td>Cut off frequency [Hz]</td></tr>
+<tr><td>yStart</td><td>Start value of output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:21 2026.
+</address>
+</body>
+</html>

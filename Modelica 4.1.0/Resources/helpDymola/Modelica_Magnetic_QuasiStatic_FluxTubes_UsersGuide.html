@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;User&#39;s Guide&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiStd73be2f3b93adb90GuideI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes.html#Modelica.Magnetic.QuasiStatic.FluxTubes"
+>Modelica.Magnetic.QuasiStatic.FluxTubes</a>.UsersGuide</h2>
+
+<p>The quasi-static flux tubes library is based on the transient library
+<a href="Modelica_Magnetic_FluxTubes.html#Modelica.Magnetic.FluxTubes"
+>Magnetic.FluxTubes</a>. The main principles of confined flux and flux tubes apply, too. The quasi-static flux tubes library contains components for modelling of electromagnetic devices with lumped magnetic networks based on quasi-static theory. Models based on this library are suited for quasi-static simulation of transformers at component and system level.</p>
+<p>The quasi-static components of this library do not consider saturation since <strong>linearity</strong> is strictly assumed. In case that the permeability of a saturated circuit needs to be considered, a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Sensors_Transient.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor"
+>transient permeability estimation sensor</a> is provided do determine the effective permeability from a transient simulation.
+</p>
+
+<p>
+A general introduction into <strong>quasi-static</strong> phasor can be found in
+<a href="Modelica_Electrical_QuasiStatic_UsersGuide_Overview.html#Modelica.Electrical.QuasiStatic.UsersGuide.Overview"
+>Modelica.Electrical.QuasiStatic</a>.
+</p>
+
+<p>
+This user's guide gives a short introduction to the underlying
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_UsersGuide.html#Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.FluxTubeConcept"
+>concept</a> of quasi-static magnetic flux tubes, summarizes basic relationships and equations.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt6af52a38ae1ec329nceptS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.FluxTubeConcept" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_UsersGuide.html#Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.FluxTubeConcept"
+>FluxTubeConcept</a>
+</td>
+<td>Flux tube concept</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiSt4e8e0e206ad8adf1atureS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Literature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_UsersGuide.html#Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Literature"
+>Literature</a>
+</td>
+<td>Literature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiStcc703991dc3a0de4NotesS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.ReleaseNotes" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_UsersGuide.html#Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.ReleaseNotes"
+>ReleaseNotes</a>
+</td>
+<td>Release Notes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.QuasiStb5e55705220019edntactS.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Contact" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_UsersGuide.html#Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Contact"
+>Contact</a>
+</td>
+<td>Contact</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FluxTubeConcept<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiStd73be2f3b93adb90GuideI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.FluxTubeConcept" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.FluxTubeConcept"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_UsersGuide.html#Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide</a>.FluxTubeConcept</h2>
+
+<h4>Overview of the concept of quasi-static magnetic flux tubes</h4>
+<p>
+Following below, the concept of magnetic flux tubes is outlined in short. For a detailed description of flux tube elements, please have a look at the listed literature. Magnetic flux tubes enable the modeling of magnetic fields with lumped equivalent circuit networks.</p>
+
+<p>Since quasi-static conditions are assumed, each field quantity can be represented by a complex phasor -- which is indicated by underlining the respective variable:
+</p>
+
+<ul>
+<li>Normal component of magnetic flux density,
+    <img src="../Images/Magnetic/QuasiStatic/FluxTubes/B_n.png"> </li>
+<li>Normal component of magnetic field strength,
+    <img src="../Images/Magnetic/QuasiStatic/FluxTubes/H_n.png"> </li>
+<li>Magnetic flux,
+    <img src="../Images/Magnetic/QuasiStatic/FluxTubes/Phi.png"> </li>
+<li>Magnetic potential difference,
+    <img src="../Images/Magnetic/QuasiStatic/FluxTubes/V_m.png"> </li>
+</ul>
+
+<p>The figure below and the following equations illustrate the relationships between</p>
+
+<ul>
+<li>the normal component of flux density and magnetic flux, and</li>
+<li>the normal component of field strength and magnetic potential difference.</li>
+</ul>
+
+<div>
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/magnetic_flux_tube_schematic_qs.png" alt="Magnetic flux tube">
+</div>
+
+<p>A <strong>flux tube</strong> confines the magnetic flux. Flied lines, and flux tubes, respectively are always closed. So there is no flux entering or leaving a flux tube. The total flux of a configuration can be represented by parallel flux tubes, representing different flux paths. This is considered by connecting the elements of a lumped circuit model, such that the sum of all fluxes of a connection is equivalent to zero.</p>
+
+<p>
+For a section of a flux tube with length
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/l.png">
+the magnetic potential difference is determined by the length integral over the magnetic field strength:</p>
+
+<dl>
+<dd>
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/V_m-H_n.png">
+</dd>
+</dl>
+
+<p>
+The magnetic flux entering, and leaving a flux tube, respectively, is determined by the surface integral of the normal component
+of the magnetic field strength:</p>
+<dl><dd>
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/Phi-B_n.png">
+</dd></dl>
+<p>The magnetic potential difference and the magnetic flux have the same angle, so the reluctance a real (non complex) quantity:</p>
+
+<dl><dd>
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/R_m-V_m-Phi.png">
+</dd></dl>
+
+<p>
+For a
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube"
+>generic flux tube</a> reluctance with constant
+area of cross section,
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/A.png">,
+and length,
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/l.png">,
+the magnetic reluctance is:</p>
+<dl><dd>
+<img src="../Images/Magnetic/QuasiStatic/FluxTubes/R_m_cuboid.png">
+</dd></dl>
+
+<h4>Assumptions</h4>
+
+<ul>
+<li><strong>Force</strong> interaction is not considered</li>
+<li>Reluctance models are <strong>linear</strong>; so non-linearities can only be taken into account by adapting the constant relative permeability;
+see example
+<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_Examples.html#Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor"
+>NonLinearInductor</a></li>
+</ul>
+
+<h4>Notes</h4>
+
+<p>The parameter and variable names are chosen as close as possible to the transient
+<a href="Modelica_Magnetic_FluxTubes.html#Modelica.Magnetic.FluxTubes"
+>FluxTubes</a> library, to avoid additional effort when converting transient into quasi-static flux tubes models.</p>
+
+<h4>Reference Note</h4>
+
+<p>A similar approach on quasi-static flux tube models is published in
+[<a href="Modelica_Magnetic_QuasiStatic_FluxTubes_UsersGuide.html#Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Literature"
+>Raabe2012</a>].</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Literature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiSt4e8e0e206ad8adf1atureI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Literature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Literature"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_UsersGuide.html#Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide</a>.Literature</h2>
+
+<h4>References</h4>
+
+<table border="0" cellspacing="0" cellpadding="2">
+    <tr>
+      <td valign="top">[Raabe2012]</td>
+      <td valign="top">N. Raabe,
+        &quot;<a href="http://www.ep.liu.se/ecp/076/016/ecp12076016.pdf">
+        An approach for modelling quasi-static magnetic circuits</a>,&quot;
+        <em>Modelica Conference</em>,
+        pp. 167-172, 2012.</td>
+    </tr>
+</table>
+
+<h4>Additional References</h4>
+<p>
+Additional reference on magnetic flux tubes are listed in
+<a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>Modelica.Magnetic.FluxTubes</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.References"
+>Modelica.Icons.References</a> (Icon for external references).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReleaseNotes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiStcc703991dc3a0de4NotesI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.ReleaseNotes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.ReleaseNotes"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_UsersGuide.html#Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide</a>.ReleaseNotes</h2>
+
+<h5>Version 3.2.3, 2019-01-23</h5>
+<ul>
+<li>Included in the MSL 3.2.3</li>
+<li>Added some more examples according to
+    <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1515">#1515</a></li>
+<li>Added magnitudes and angles of complex quantities for better result interpretation</li>
+</ul>
+
+<h5>Version 1.0.0, 2013-12-18</h5>
+<ul>
+<li>Initial version before inclusion in MSL</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.QuasiStb5e55705220019edntactI.png" alt="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Contact" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Contact"></a><a href="Modelica_Magnetic_QuasiStatic_FluxTubes_UsersGuide.html#Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide"
+>Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide</a>.Contact</h2>
+
+<h4>Contact</h4>
+
+<p>
+  <strong>Dr. Christian Kral</strong><br>
+  <a href="http://christiankral.net/">Electric Machines, Drives and Systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a>
+</p>
+
+<p>
+<strong>Anton Haumer</strong><br>
+<a href="https://www.haumer.at">Technical Consulting &amp; Electrical Engineering</a><br>
+D-93049 Regensburg, Germany<br>
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a><br>
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</a> (Icon for contact information).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:23 2026.
+</address>
+</body>
+</html>

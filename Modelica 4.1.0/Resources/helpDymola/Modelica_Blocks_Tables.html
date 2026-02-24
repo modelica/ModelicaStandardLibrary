@@ -1,0 +1,913 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.Tables</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of blocks to interpolate in one and two-dimensional tables&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Tables<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.Tables"></a><a href="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</a>.Tables</h2>
+<p>
+<span class="ModelicaDescription">Library of blocks to interpolate in one and two-dimensional tables</span>
+</p>
+<h3>Information</h3>
+
+<p>This package contains blocks for one- and two-dimensional interpolation in tables.</p>
+<h4>Special interest topic: Statically stored tables for real-time simulation targets</h4>
+<p>Especially for use on real-time platform targets (e.g., HIL-simulators) with <strong>no file system</strong>, it is possible to statically
+store tables using a function &quot;usertab&quot; in a file conventionally named &quot;usertab.c&quot;. This can be more efficient than providing the tables as Modelica parameter arrays.</p>
+<p>This is achieved by providing the tables in a specific structure as C-code and compiling that C-code together with the rest of the simulation model into a binary
+that can be executed on the target platform. The &quot;Resources/Data/Tables/&quot; subdirectory of the MSL installation directory contains the files
+<a href="../Data/Tables/usertab.c">&quot;usertab.c&quot;</a> and <a href="../Data/Tables/usertab.h">&quot;usertab.h&quot;</a>
+that can be used as a template for own developments. While &quot;usertab.c&quot; would be typically used unmodified, the
+&quot;usertab.h&quot; needs to adapted for the own needs.</p>
+<p>In order to work it is necessary that the compiler pulls in the &quot;usertab.c&quot; file. Different Modelica tools might provide different mechanisms to do so.
+Please consult the respective documentation/support for your Modelica tool.</p>
+<p>A possible (though slightly makeshift) approach is to pull in the required files by utilizing a &quot;dummy&quot;-function that uses the Modelica external function
+interface to include the required &quot;usertab.c&quot;. An example how this can be done is given below.</p>
+<blockquote><pre>
+model ExampleCTable "Example utilizing the usertab.c interface"
+  extends Modelica.Icons.Example;
+  parameter Real dummy(fixed=false) "Dummy parameter" annotation(HideResult=true);
+  Modelica.Blocks.Tables.CombiTable1Dv table(tableOnFile=true, tableName="TestTable_1D_a")
+    annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+  Modelica.Blocks.Sources.ContinuousClock clock
+    annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+protected
+  encapsulated impure function getUsertab "External dummy function to include \"usertab.c\""
+    input Real dummy_u[:];
+    output Real dummy_y;
+    external "C" dummy_y = mydummyfunc(dummy_u);
+    annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
+           Include = "#include "usertab.c"
+double mydummyfunc(const double* dummy_in) {
+   return 0;
+}
+");
+  end getUsertab;
+initial equation
+  dummy = getUsertab(table.y);
+equation
+  connect(clock.y, table.u[1]) annotation (Line(points={{-59,10},{-42,10}}, color={0,0,127}));
+  annotation (experiment(StartTime=0, StopTime=5));
+end ExampleCTable;
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.CombiTable1DsS.png" alt="Modelica.Blocks.Tables.CombiTable1Ds" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables.CombiTable1Ds"
+>CombiTable1Ds</a>
+</td>
+<td>Table look-up in one dimension (matrix/file) with one input and n outputs</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.CombiTable1DsS.png" alt="Modelica.Blocks.Tables.CombiTable1Dv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables.CombiTable1Dv"
+>CombiTable1Dv</a>
+</td>
+<td>Table look-up in one dimension (matrix/file) with n inputs and n outputs</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.CombiTable2DsS.png" alt="Modelica.Blocks.Tables.CombiTable2Ds" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables.CombiTable2Ds"
+>CombiTable2Ds</a>
+</td>
+<td>Table look-up in two dimensions (matrix/file)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.CombiTable2DsS.png" alt="Modelica.Blocks.Tables.CombiTable2Dv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables.CombiTable2Dv"
+>CombiTable2Dv</a>
+</td>
+<td>Table look-up in two dimensions (matrix/file) with vector inputs and vector output of size n</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Tables.InternalS.png" alt="Modelica.Blocks.Tables.Internal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal"
+>Internal</a>
+</td>
+<td>Internal external object definitions for table functions that should not be directly utilized by the user</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CombiTable1Ds<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.CombiTable1DsI.png" alt="Modelica.Blocks.Tables.CombiTable1Ds" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.CombiTable1Ds"></a><a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+>Modelica.Blocks.Tables</a>.CombiTable1Ds</h2>
+<p>
+<span class="ModelicaDescription">Table look-up in one dimension (matrix/file) with one input and n outputs</span>
+</p>
+<h3>Information</h3>
+
+<p>
+<strong>Univariate constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
+spline interpolation</strong> in <strong>one</strong> dimension of a
+<strong>table</strong>.
+Via parameter <strong>columns</strong> it can be defined how many columns of the
+table are interpolated. If, e.g., columns={2,4}, it is assumed that
+2 output signals are present and that the first output interpolates
+via column 2 and the second output interpolates via column 4 of the
+table matrix.
+</p>
+<p>
+The grid points and function values are stored in a matrix "table[i,j]",
+where the first column "table[:,1]" contains the grid points and the
+other columns contain the data to be interpolated. Example:
+</p>
+<blockquote><pre>
+table = [0,  0;
+         1,  1;
+         2,  4;
+         4, 16]
+If, e.g., the input u = 1.0, the output y =  1.0,
+    e.g., the input u = 1.5, the output y =  2.5,
+    e.g., the input u = 2.0, the output y =  4.0,
+    e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
+</pre></blockquote>
+<ul>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<blockquote><pre>
+smoothness = 1: Linear interpolation
+           = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                splines such that der(y) is continuous, also if extrapolated.
+           = 3: Constant segments
+           = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                Hermite splines such that y preserves the monotonicity and
+                der(y) is continuous, also if extrapolated.
+           = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                splines such that y preserves the monotonicity and der(y)
+                is continuous, also if extrapolated.
+           = 6: Modified Akima interpolation: Smooth interpolation by cubic
+                Hermite splines such that der(y) is continuous, also if
+                extrapolated. Additionally, overshoots and edge cases of the
+                original Akima interpolation method are avoided.
+</pre></blockquote></li>
+<li>First and second <strong>derivatives</strong> are provided, with exception of the following two smoothness options.
+<ol>
+<li>No derivatives are provided for interpolation by constant segments.</li>
+<li>No second derivative is provided for linear interpolation.</li>
+</ol></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<blockquote><pre>
+extrapolation = 1: Hold the first or last value of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (If smoothness is LinearSegments or ConstantSegments
+                   this means to extrapolate linearly through the first/last
+                   two table points.).
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></blockquote></li>
+<li>If the table has only <strong>one row</strong>, the table value is returned,
+    independent of the value of the input signal.</li>
+<li>The grid values (first column) have to be strictly increasing.</li>
+</ul>
+<p>
+The table matrix can be defined in the following ways:
+</p>
+<ol>
+<li>Explicitly supplied as <strong>parameter matrix</strong> "table",
+    and the other parameters have the following values:
+<blockquote><pre>
+tableName is "NoName" or has only blanks,
+fileName  is "NoName" or has only blanks.
+</pre></blockquote></li>
+<li><strong>Read</strong> from a <strong>file</strong> "fileName" where the matrix is stored as
+    "tableName". CSV, text and MATLAB MAT-file format is possible.
+    (Both the limitations on the CSV format and the text format are described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
+<blockquote><pre>
+save tables.mat tab1 tab2 tab3
+</pre></blockquote>
+    or Scilab by command
+<blockquote><pre>
+savematfile tables.mat tab1 tab2 tab3
+</pre></blockquote>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.loadResource"
+>loadResource</a>.</li>
+<li>Statically stored in function "usertab" in file "usertab.c".
+    The matrix is identified by "tableName". Parameter
+    fileName = "NoName" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.
+    See the <a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+>Tables</a> package
+    documentation for more details.</li>
+</ol>
+<p>
+When the constant "NO_FILE_SYSTEM" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
+</p>
+<p>
+If the table is read from a CSV file, the following limitations apply
+</p>
+<ol>
+<li>Non-numeric data is not supported (in the lines following the header lines), even if such columns are excluded.</li>
+<li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
+</ol>
+<p>
+If tables are read from a text file, the file needs to have the
+following structure ("-----" is not part of the file content):
+</p>
+<blockquote><pre>
+-----------------------------------------------------
+#1
+double tab1(5,2)   # comment line
+  0   0
+  1   1
+  2   4
+  3   9
+  4  16
+double tab2(5,2)   # another comment line
+  0   0
+  2   2
+  4   8
+  6  18
+  8  32
+-----------------------------------------------------
+</pre></blockquote>
+<p>
+Note, that the first two characters in the file need to be
+"#1" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
+with type (= "double" or "float"), name and actual dimensions.
+A valid matrix name (e.g., "tab1") must be ASCII encoded and not contain blanks, line breaks, tab (\t), comma (,) or parentheses.
+Finally, in successive rows of the file, the elements of the matrix
+have to be given. The elements have to be provided as a sequence of
+numbers in row-wise order (therefore a matrix row can span several
+lines in the file and need not start at the beginning of a line).
+Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab (\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+Other characters, like trailing non comments, are not allowed in the file.
+</p>
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SIMO"
+>Modelica.Blocks.Interfaces.SIMO</a> (Single Input Multiple Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nout</td><td>Number of outputs</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Table data definition</td></tr>
+<tr><td>tableOnFile</td><td>= true, if table is defined on file or in function usertab</td></tr>
+<tr><td>table[:, :]</td><td>Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])</td></tr>
+<tr><td>tableName</td><td>Table name on file or in function usertab (see docu)</td></tr>
+<tr><td>fileName</td><td>File where matrix is stored</td></tr>
+<tr><td>delimiter</td><td>Column delimiter character for CSV file</td></tr>
+<tr><td>nHeaderLines</td><td>Number of header lines to ignore for CSV file</td></tr>
+<tr><td>verboseRead</td><td>= true, if info message that file is loading is to be printed</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Table data interpretation</td></tr>
+<tr><td>columns[:]</td><td>Columns of table to be interpolated</td></tr>
+<tr><td>smoothness</td><td>Smoothness of table interpolation</td></tr>
+<tr><td>extrapolation</td><td>Extrapolation of data outside the definition range</td></tr>
+<tr><td>verboseExtrapolation</td><td>= true, if warning messages are to be printed if table input is outside the definition range</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y[nout]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CombiTable1Dv<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.CombiTable1DsI.png" alt="Modelica.Blocks.Tables.CombiTable1Dv" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.CombiTable1Dv"></a><a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+>Modelica.Blocks.Tables</a>.CombiTable1Dv</h2>
+<p>
+<span class="ModelicaDescription">Table look-up in one dimension (matrix/file) with n inputs and n outputs</span>
+</p>
+<h3>Information</h3>
+
+<p>
+<strong>Univariate constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
+spline interpolation</strong> in <strong>one</strong> dimension of a
+<strong>table</strong>.
+Via parameter <strong>columns</strong> it can be defined how many columns of the
+table are interpolated. If, e.g., columns={2,4}, it is assumed that 2 input
+and 2 output signals are present and that the first output interpolates
+the first input via column 2 and the second output interpolates the
+second input via column 4 of the table matrix.
+</p>
+<p>
+The grid points and function values are stored in a matrix "table[i,j]",
+where the first column "table[:,1]" contains the grid points and the
+other columns contain the data to be interpolated. Example:
+</p>
+<blockquote><pre>
+table = [0,  0;
+         1,  1;
+         2,  4;
+         4, 16]
+If, e.g., the input u = 1.0, the output y =  1.0,
+    e.g., the input u = 1.5, the output y =  2.5,
+    e.g., the input u = 2.0, the output y =  4.0,
+    e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
+</pre></blockquote>
+<ul>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<blockquote><pre>
+smoothness = 1: Linear interpolation
+           = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                splines such that der(y) is continuous, also if extrapolated.
+           = 3: Constant segments
+           = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                Hermite splines such that y preserves the monotonicity and
+                der(y) is continuous, also if extrapolated.
+           = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                splines such that y preserves the monotonicity and der(y)
+                is continuous, also if extrapolated.
+           = 6: Modified Akima interpolation: Smooth interpolation by cubic
+                Hermite splines such that der(y) is continuous, also if
+                extrapolated. Additionally, overshoots and edge cases of the
+                original Akima interpolation method are avoided.
+</pre></blockquote></li>
+<li>First and second <strong>derivatives</strong> are provided, with exception of the following two smoothness options.
+<ol>
+<li>No derivatives are provided for interpolation by constant segments.</li>
+<li>No second derivative is provided for linear interpolation.</li>
+</ol></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<blockquote><pre>
+extrapolation = 1: Hold the first or last value of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (If smoothness is LinearSegments or ConstantSegments
+                   this means to extrapolate linearly through the first/last
+                   two table points.).
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></blockquote></li>
+<li>If the table has only <strong>one row</strong>, the table value is returned,
+    independent of the value of the input signal.</li>
+<li>The grid values (first column) have to be strictly increasing.</li>
+</ul>
+<p>
+The table matrix can be defined in the following ways:
+</p>
+<ol>
+<li>Explicitly supplied as <strong>parameter matrix</strong> "table",
+    and the other parameters have the following values:
+<blockquote><pre>
+tableName is "NoName" or has only blanks,
+fileName  is "NoName" or has only blanks.
+</pre></blockquote></li>
+<li><strong>Read</strong> from a <strong>file</strong> "fileName" where the matrix is stored as
+    "tableName". CSV, text and MATLAB MAT-file format is possible.
+    (Both the limitations on the CSV format and the text format are described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
+<blockquote><pre>
+save tables.mat tab1 tab2 tab3
+</pre></blockquote>
+    or Scilab by command
+<blockquote><pre>
+savematfile tables.mat tab1 tab2 tab3
+</pre></blockquote>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.loadResource"
+>loadResource</a>.</li>
+<li>Statically stored in function "usertab" in file "usertab.c".
+    The matrix is identified by "tableName". Parameter
+    fileName = "NoName" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.
+    See the <a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+>Tables</a> package
+    documentation for more details.</li>
+</ol>
+<p>
+When the constant "NO_FILE_SYSTEM" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
+</p>
+<p>
+If the table is read from a CSV file, the following limitations apply
+</p>
+<ol>
+<li>Non-numeric data is not supported (in the lines following the header lines), even if such columns are excluded.</li>
+<li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
+</ol>
+<p>
+If tables are read from a text file, the file needs to have the
+following structure ("-----" is not part of the file content):
+</p>
+<blockquote><pre>
+-----------------------------------------------------
+#1
+double tab1(5,2)   # comment line
+  0   0
+  1   1
+  2   4
+  3   9
+  4  16
+double tab2(5,2)   # another comment line
+  0   0
+  2   2
+  4   8
+  6  18
+  8  32
+-----------------------------------------------------
+</pre></blockquote>
+<p>
+Note, that the first two characters in the file need to be
+"#1" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
+with type (= "double" or "float"), name and actual dimensions.
+A valid matrix name (e.g., "tab1") must be ASCII encoded and not contain blanks, line breaks, tab (\t), comma (,) or parentheses.
+Finally, in successive rows of the file, the elements of the matrix
+have to be given. The elements have to be provided as a sequence of
+numbers in row-wise order (therefore a matrix row can span several
+lines in the file and need not start at the beginning of a line).
+Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab (\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+Other characters, like trailing non comments, are not allowed in the file.
+</p>
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Modelica.Blocks.Interfaces.MIMOs</a> (Multiple Input Multiple Output continuous control block with same number of inputs and outputs).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of inputs (= number of outputs)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Table data definition</td></tr>
+<tr><td>tableOnFile</td><td>= true, if table is defined on file or in function usertab</td></tr>
+<tr><td>table[:, :]</td><td>Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])</td></tr>
+<tr><td>tableName</td><td>Table name on file or in function usertab (see docu)</td></tr>
+<tr><td>fileName</td><td>File where matrix is stored</td></tr>
+<tr><td>delimiter</td><td>Column delimiter character for CSV file</td></tr>
+<tr><td>nHeaderLines</td><td>Number of header lines to ignore for CSV file</td></tr>
+<tr><td>verboseRead</td><td>= true, if info message that file is loading is to be printed</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Table data interpretation</td></tr>
+<tr><td>columns[:]</td><td>Columns of table to be interpolated</td></tr>
+<tr><td>smoothness</td><td>Smoothness of table interpolation</td></tr>
+<tr><td>extrapolation</td><td>Extrapolation of data outside the definition range</td></tr>
+<tr><td>verboseExtrapolation</td><td>= true, if warning messages are to be printed if table input is outside the definition range</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[n]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y[n]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CombiTable2Ds<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.CombiTable2DsI.png" alt="Modelica.Blocks.Tables.CombiTable2Ds" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.CombiTable2Ds"></a><a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+>Modelica.Blocks.Tables</a>.CombiTable2Ds</h2>
+<p>
+<span class="ModelicaDescription">Table look-up in two dimensions (matrix/file)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+<strong>Bivariate constant</strong>, <strong>bilinear</strong> or <strong>bivariate
+Akima interpolation</strong> of a <strong>two-dimensional table</strong>.
+The grid points and function values are stored in a matrix "table[i,j]",
+where:
+</p>
+<ul>
+<li>the first column "table[2:,1]" contains the u1 grid points,</li>
+<li>the first row "table[1,2:]" contains the u2 grid points,</li>
+<li>the other rows and columns contain the data to be interpolated.</li>
+</ul>
+<p>
+Example:
+</p>
+<blockquote><pre>
+        |       |       |       |
+        |  1.0  |  2.0  |  3.0  |  // u2
+    ----*-------*-------*-------*
+    1.0 |  1.0  |  3.0  |  5.0  |
+    ----*-------*-------*-------*
+    2.0 |  2.0  |  4.0  |  6.0  |
+    ----*-------*-------*-------*
+  // u1
+is defined as
+   table = [0.0,   1.0,   2.0,   3.0;
+            1.0,   1.0,   3.0,   5.0;
+            2.0,   2.0,   4.0,   6.0]
+If, e.g., the input u1 is 1.0, input u2 is 1.0 and smoothness is LinearSegments, the output y is 1.0,
+    e.g., the input u1 is 2.0, input u2 is 1.5 and smoothness is LinearSegments, the output y is 3.0.
+</pre></blockquote>
+<ul>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<blockquote><pre>
+smoothness = 1: Bilinear interpolation
+           = 2: Bivariate Akima interpolation: Smooth interpolation by bicubic Hermite
+                splines such that der(y) is continuous, also if extrapolated.
+           = 3: Constant segments
+           = 4: Fritsch-Butland interpolation: Not supported
+           = 5: Steffen interpolation: Not supported
+           = 6: Modified Akima interpolation: Not supported
+</pre></blockquote></li>
+<li>First and second <strong>derivatives</strong> are provided, with exception of the following two smoothness options.
+<ol>
+<li>No derivatives are provided for interpolation by constant segments.</li>
+<li>No second derivative is provided for linear interpolation.</li>
+</ol></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<blockquote><pre>
+extrapolation = 1: Hold the first or last values of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (If smoothness is LinearSegments or ConstantSegments
+                   this means to extrapolate linearly through the first/last
+                   two table points.).
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></blockquote></li>
+<li>If the table has only <strong>one element</strong>, the table value is returned,
+    independent of the value of the input signal.</li>
+<li>The grid values (first column and first row) have to be strictly
+    increasing.</li>
+</ul>
+<p>
+The table matrix can be defined in the following ways:
+</p>
+<ol>
+<li>Explicitly supplied as <strong>parameter matrix</strong> "table",
+    and the other parameters have the following values:
+<blockquote><pre>
+tableName is "NoName" or has only blanks,
+fileName  is "NoName" or has only blanks.
+</pre></blockquote></li>
+<li><strong>Read</strong> from a <strong>file</strong> "fileName" where the matrix is stored as
+    "tableName". CSV, text and MATLAB MAT-file format is possible.
+    (Both the limitations on the CSV format and the text format are described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
+<blockquote><pre>
+save tables.mat tab1 tab2 tab3
+</pre></blockquote>
+    or Scilab by command
+<blockquote><pre>
+savematfile tables.mat tab1 tab2 tab3
+</pre></blockquote>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.loadResource"
+>loadResource</a>.</li>
+<li>Statically stored in function "usertab" in file "usertab.c".
+    The matrix is identified by "tableName". Parameter
+    fileName = "NoName" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.
+    See the <a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+>Tables</a> package
+    documentation for more details.</li>
+</ol>
+<p>
+When the constant "NO_FILE_SYSTEM" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
+</p>
+<p>
+If the table is read from a CSV file, the following limitations apply
+</p>
+<ol>
+<li>Non-numeric data is not supported (in the lines following the header lines).</li>
+<li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
+</ol>
+<p>
+If tables are read from a text file, the file needs to have the
+following structure ("-----" is not part of the file content):
+</p>
+<blockquote><pre>
+-----------------------------------------------------
+#1
+double table2D_1(3,4)   # comment line
+0.0  1.0  2.0  3.0  # u[2] grid points
+1.0  1.0  3.0  5.0
+2.0  2.0  4.0  6.0
+
+double table2D_2(4,4)   # comment line
+0.0  1.0  2.0  3.0  # u[2] grid points
+1.0  1.0  3.0  5.0
+2.0  2.0  4.0  6.0
+3.0  3.0  5.0  7.0
+-----------------------------------------------------
+</pre></blockquote>
+<p>
+Note, that the first two characters in the file need to be
+"#1" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
+with type (= "double" or "float"), name and actual dimensions.
+A valid matrix name (e.g., "tab1") must be ASCII encoded and not contain blanks, line breaks, tab (\t), comma (,) or parentheses.
+Finally, in successive rows of the file, the elements of the matrix
+have to be given. The elements have to be provided as a sequence of
+numbers in row-wise order (therefore a matrix row can span several
+lines in the file and need not start at the beginning of a line).
+Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab (\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+Other characters, like trailing non comments, are not allowed in the file.
+The matrix elements are interpreted in exactly the same way
+as if the matrix is given as a parameter. For example, the first
+column "table2D_1[2:,1]" contains the u[1] grid points,
+and the first row "table2D_1[1,2:]" contains the u[2] grid points.
+</p>
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2SO"
+>Modelica.Blocks.Interfaces.SI2SO</a> (2 Single Input / 1 Single Output continuous control block), <a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.CombiTable2DBase"
+>Internal.CombiTable2DBase</a> (Base class for variants of table look-up in two dimensions).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Table data definition</td></tr>
+<tr><td>tableOnFile</td><td>= true, if table is defined on file or in function usertab</td></tr>
+<tr><td>table[:, :]</td><td>Table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0, 0; 0, 1])</td></tr>
+<tr><td>tableName</td><td>Table name on file or in function usertab (see docu)</td></tr>
+<tr><td>fileName</td><td>File where matrix is stored</td></tr>
+<tr><td>delimiter</td><td>Column delimiter character for CSV file</td></tr>
+<tr><td>nHeaderLines</td><td>Number of header lines to ignore for CSV file</td></tr>
+<tr><td>verboseRead</td><td>= true, if info message that file is loading is to be printed</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Table data interpretation</td></tr>
+<tr><td>smoothness</td><td>Smoothness of table interpolation</td></tr>
+<tr><td>extrapolation</td><td>Extrapolation of data outside the definition range</td></tr>
+<tr><td>verboseExtrapolation</td><td>= true, if warning messages are to be printed if table input is outside the definition range</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>Connector of Real input signal 1</td></tr>
+<tr><td>u2</td><td>Connector of Real input signal 2</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CombiTable2Dv<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Tables.CombiTable2DsI.png" alt="Modelica.Blocks.Tables.CombiTable2Dv" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Tables.CombiTable2Dv"></a><a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+>Modelica.Blocks.Tables</a>.CombiTable2Dv</h2>
+<p>
+<span class="ModelicaDescription">Table look-up in two dimensions (matrix/file) with vector inputs and vector output of size n</span>
+</p>
+<h3>Information</h3>
+
+<p>
+<strong>Bivariate constant</strong>, <strong>bilinear</strong> or <strong>bivariate
+Akima interpolation</strong> of a <strong>two-dimensional table</strong>.
+The grid points and function values are stored in a matrix "table[i,j]",
+where:
+</p>
+<ul>
+<li>the first column "table[2:,1]" contains the u1 grid points,</li>
+<li>the first row "table[1,2:]" contains the u2 grid points,</li>
+<li>the other rows and columns contain the data to be interpolated.</li>
+</ul>
+<p>
+Example:
+</p>
+<blockquote><pre>
+        |       |       |       |
+        |  1.0  |  2.0  |  3.0  |  // u2
+    ----*-------*-------*-------*
+    1.0 |  1.0  |  3.0  |  5.0  |
+    ----*-------*-------*-------*
+    2.0 |  2.0  |  4.0  |  6.0  |
+    ----*-------*-------*-------*
+  // u1
+is defined as
+   table = [0.0,   1.0,   2.0,   3.0;
+            1.0,   1.0,   3.0,   5.0;
+            2.0,   2.0,   4.0,   6.0]
+If, e.g., the input u1 is {1.0}, input u2 is {1.0} and smoothness is LinearSegments, the output y is {1.0},
+    e.g., the input u1 is {2.0}, input u2 is {1.5} and smoothness is LinearSegments, the output y is {3.0}.
+</pre></blockquote>
+<ul>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<blockquote><pre>
+smoothness = 1: Bilinear interpolation
+           = 2: Bivariate Akima interpolation: Smooth interpolation by bicubic Hermite
+                splines such that der(y) is continuous, also if extrapolated.
+           = 3: Constant segments
+           = 4: Fritsch-Butland interpolation: Not supported
+           = 5: Steffen interpolation: Not supported
+           = 6: Modified Akima interpolation: Not supported
+</pre></blockquote></li>
+<li>First and second <strong>derivatives</strong> are provided, with exception of the following two smoothness options.
+<ol>
+<li>No derivatives are provided for interpolation by constant segments.</li>
+<li>No second derivative is provided for linear interpolation.</li>
+</ol></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<blockquote><pre>
+extrapolation = 1: Hold the first or last values of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (If smoothness is LinearSegments or ConstantSegments
+                   this means to extrapolate linearly through the first/last
+                   two table points.).
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></blockquote></li>
+<li>If the table has only <strong>one element</strong>, the table value is returned,
+    independent of the value of the input signal.</li>
+<li>The grid values (first column and first row) have to be strictly
+    increasing.</li>
+</ul>
+<p>
+The table matrix can be defined in the following ways:
+</p>
+<ol>
+<li>Explicitly supplied as <strong>parameter matrix</strong> "table",
+    and the other parameters have the following values:
+<blockquote><pre>
+tableName is "NoName" or has only blanks,
+fileName  is "NoName" or has only blanks.
+</pre></blockquote></li>
+<li><strong>Read</strong> from a <strong>file</strong> "fileName" where the matrix is stored as
+    "tableName". CSV, text and MATLAB MAT-file format is possible.
+    (Both the limitations on the CSV format and the text format are described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
+<blockquote><pre>
+save tables.mat tab1 tab2 tab3
+</pre></blockquote>
+    or Scilab by command
+<blockquote><pre>
+savematfile tables.mat tab1 tab2 tab3
+</pre></blockquote>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.loadResource"
+>loadResource</a>.</li>
+<li>Statically stored in function "usertab" in file "usertab.c".
+    The matrix is identified by "tableName". Parameter
+    fileName = "NoName" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.
+    See the <a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+>Tables</a> package
+    documentation for more details.</li>
+</ol>
+<p>
+When the constant "NO_FILE_SYSTEM" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
+</p>
+<p>
+If the table is read from a CSV file, the following limitations apply
+</p>
+<ol>
+<li>Non-numeric data is not supported (in the lines following the header lines).</li>
+<li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
+</ol>
+<p>
+If tables are read from a text file, the file needs to have the
+following structure ("-----" is not part of the file content):
+</p>
+<blockquote><pre>
+-----------------------------------------------------
+#1
+double table2D_1(3,4)   # comment line
+0.0  1.0  2.0  3.0  # u[2] grid points
+1.0  1.0  3.0  5.0
+2.0  2.0  4.0  6.0
+
+double table2D_2(4,4)   # comment line
+0.0  1.0  2.0  3.0  # u[2] grid points
+1.0  1.0  3.0  5.0
+2.0  2.0  4.0  6.0
+3.0  3.0  5.0  7.0
+-----------------------------------------------------
+</pre></blockquote>
+<p>
+Note, that the first two characters in the file need to be
+"#1" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
+with type (= "double" or "float"), name and actual dimensions.
+A valid matrix name (e.g., "tab1") must be ASCII encoded and not contain blanks, line breaks, tab (\t), comma (,) or parentheses.
+Finally, in successive rows of the file, the elements of the matrix
+have to be given. The elements have to be provided as a sequence of
+numbers in row-wise order (therefore a matrix row can span several
+lines in the file and need not start at the beginning of a line).
+Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab (\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+Other characters, like trailing non comments, are not allowed in the file.
+The matrix elements are interpreted in exactly the same way
+as if the matrix is given as a parameter. For example, the first
+column "table2D_1[2:,1]" contains the u[1] grid points,
+and the first row "table2D_1[1,2:]" contains the u[2] grid points.
+</p>
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MI2MO"
+>Modelica.Blocks.Interfaces.MI2MO</a> (2 Multiple Input / Multiple Output continuous control block), <a href="Modelica_Blocks_Tables_Internal.html#Modelica.Blocks.Tables.Internal.CombiTable2DBase"
+>Internal.CombiTable2DBase</a> (Base class for variants of table look-up in two dimensions).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Dimension of input and output vectors.</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Table data definition</td></tr>
+<tr><td>tableOnFile</td><td>= true, if table is defined on file or in function usertab</td></tr>
+<tr><td>table[:, :]</td><td>Table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0, 0; 0, 1])</td></tr>
+<tr><td>tableName</td><td>Table name on file or in function usertab (see docu)</td></tr>
+<tr><td>fileName</td><td>File where matrix is stored</td></tr>
+<tr><td>delimiter</td><td>Column delimiter character for CSV file</td></tr>
+<tr><td>nHeaderLines</td><td>Number of header lines to ignore for CSV file</td></tr>
+<tr><td>verboseRead</td><td>= true, if info message that file is loading is to be printed</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Table data interpretation</td></tr>
+<tr><td>smoothness</td><td>Smoothness of table interpolation</td></tr>
+<tr><td>extrapolation</td><td>Extrapolation of data outside the definition range</td></tr>
+<tr><td>verboseExtrapolation</td><td>= true, if warning messages are to be printed if table input is outside the definition range</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1[n]</td><td>Connector 1 of Real input signals</td></tr>
+<tr><td>u2[n]</td><td>Connector 2 of Real input signals</td></tr>
+<tr><td>y[n]</td><td>Connector of Real output signals</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:58:59 2026.
+</address>
+</body>
+</html>

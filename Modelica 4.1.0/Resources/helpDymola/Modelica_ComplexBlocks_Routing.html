@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.ComplexBlocks.Routing</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of blocks to combine and extract signals&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Routing<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.ComplexBlocks.Routing"></a><a href="Modelica_ComplexBlocks.html#Modelica.ComplexBlocks"
+>Modelica.ComplexBlocks</a>.Routing</h2>
+<p>
+<span class="ModelicaDescription">Library of blocks to combine and extract signals</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains blocks to combine and extract signals.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.ComplexBlocks.Ro6f95485fbb8997a2catorS.png" alt="Modelica.ComplexBlocks.Routing.Replicator" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_Routing.html#Modelica.ComplexBlocks.Routing.Replicator"
+>Replicator</a>
+</td>
+<td>Signal replicator</td>
+</tr>
+<tr>
+<td><img src="Modelica.ComplexBlocks.Roefa344fdeb29a18cignalS.png" alt="Modelica.ComplexBlocks.Routing.ExtractSignal" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_Routing.html#Modelica.ComplexBlocks.Routing.ExtractSignal"
+>ExtractSignal</a>
+</td>
+<td>Extract signals from an input signal vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.ComplexBlocks.Routing.ExtractorS.png" alt="Modelica.ComplexBlocks.Routing.Extractor" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_Routing.html#Modelica.ComplexBlocks.Routing.Extractor"
+>Extractor</a>
+</td>
+<td>Extract scalar signal out of signal vector dependent on IntegerRealInput index</td>
+</tr>
+<tr>
+<td><img src="Modelica.ComplexBlocks.Ro8e06ee3833bad7b4roughS.png" alt="Modelica.ComplexBlocks.Routing.ComplexPassThrough" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_Routing.html#Modelica.ComplexBlocks.Routing.ComplexPassThrough"
+>ComplexPassThrough</a>
+</td>
+<td>Pass a Complex signal through without modification</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Replicator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.ComplexBlocks.Ro6f95485fbb8997a2catorI.png" alt="Modelica.ComplexBlocks.Routing.Replicator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexBlocks.Routing.Replicator"></a><a href="Modelica_ComplexBlocks_Routing.html#Modelica.ComplexBlocks.Routing"
+>Modelica.ComplexBlocks.Routing</a>.Replicator</h2>
+<p>
+<span class="ModelicaDescription">Signal replicator</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block replicates the input signal to an array of <code>nout</code> identical output signals.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSIMO"
+>Modelica.ComplexBlocks.Interfaces.ComplexSIMO</a> (Single Input Multiple Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nout</td><td>Number of outputs</td></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Complex input signal</td></tr>
+<tr><td>y[nout]</td><td>Connector of Complex output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ExtractSignal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.ComplexBlocks.Roefa344fdeb29a18cignalI.png" alt="Modelica.ComplexBlocks.Routing.ExtractSignal" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexBlocks.Routing.ExtractSignal"></a><a href="Modelica_ComplexBlocks_Routing.html#Modelica.ComplexBlocks.Routing"
+>Modelica.ComplexBlocks.Routing</a>.ExtractSignal</h2>
+<p>
+<span class="ModelicaDescription">Extract signals from an input signal vector</span>
+</p>
+<h3>Information</h3>
+
+<p>Extract signals from the input connector and transfer them
+to the output connector.</p>
+<p>The extracting scheme is given by the integer vector 'extract'.
+This vector specifies, which input signals are taken and in which
+order they are transferred to the output vector. Note, that the
+dimension of 'extract' has to match the number of outputs.
+Additionally, the dimensions of the input connector signals and
+the output connector signals have to be explicitly defined via the
+parameters 'nin' and 'nout'.</p>
+<p>Example:</p>
+<blockquote><pre>
+nin  = 7 "Number of inputs";
+nout = 4 "Number of outputs";
+extract[nout] = {6,3,3,2} "Extracting vector";
+</pre></blockquote>
+<p>extracts four output signals (nout=4) from the seven elements of the
+input vector (nin=7):</p>
+<blockquote><pre>
+output no. 1 is set equal to input no. 6
+output no. 2 is set equal to input no. 3
+output no. 3 is set equal to input no. 3
+output no. 4 is set equal to input no. 2
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexMIMO"
+>Modelica.ComplexBlocks.Interfaces.ComplexMIMO</a> (Multiple Input Multiple Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nin</td><td>Number of inputs</td></tr>
+<tr><td>nout</td><td>Number of outputs</td></tr>
+<tr><td>useConjugateInput[nin]</td><td>If true, inputs are processed conjugate complex</td></tr>
+<tr><td>extract[nout]</td><td>Extracting vector</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nin]</td><td>Connector of Complex input signals</td></tr>
+<tr><td>y[nout]</td><td>Connector of Complex output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Extractor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.ComplexBlocks.Routing.ExtractorI.png" alt="Modelica.ComplexBlocks.Routing.Extractor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexBlocks.Routing.Extractor"></a><a href="Modelica_ComplexBlocks_Routing.html#Modelica.ComplexBlocks.Routing"
+>Modelica.ComplexBlocks.Routing</a>.Extractor</h2>
+<p>
+<span class="ModelicaDescription">Extract scalar signal out of signal vector dependent on IntegerRealInput index</span>
+</p>
+<h3>Information</h3>
+
+<p>This block extracts a scalar output signal out the
+vector of input signals dependent on the Integer
+value of the additional u index:</p>
+<blockquote><pre>
+y = u [ index ] ;
+</pre></blockquote>
+<p>where index is an additional Integer input signal.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexMISO"
+>Modelica.ComplexBlocks.Interfaces.ComplexMISO</a> (Multiple Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nin</td><td>Number of inputs</td></tr>
+<tr><td>useConjugateInput[nin]</td><td>If true, inputs are processed conjugate complex</td></tr>
+<tr><td>allowOutOfRange</td><td>Index may be out of range</td></tr>
+<tr><td>outOfRangeValue</td><td>Output signal if index is out of range</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nin]</td><td>Connector of Complex input signals</td></tr>
+<tr><td>y</td><td>Connector of Complex output signal</td></tr>
+<tr><td>index</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ComplexPassThrough<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.ComplexBlocks.Ro8e06ee3833bad7b4roughI.png" alt="Modelica.ComplexBlocks.Routing.ComplexPassThrough" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexBlocks.Routing.ComplexPassThrough"></a><a href="Modelica_ComplexBlocks_Routing.html#Modelica.ComplexBlocks.Routing"
+>Modelica.ComplexBlocks.Routing</a>.ComplexPassThrough</h2>
+<p>
+<span class="ModelicaDescription">Pass a Complex signal through without modification</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Passes a Complex signal through without modification. Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
+>Modelica.ComplexBlocks.Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Complex input signal</td></tr>
+<tr><td>y</td><td>Connector of Complex output signal</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:01 2026.
+</address>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.PowerConverters.DCDC.Control</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Control components for DC to DC converters&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Control<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.PowerConverters.DCDC.Control"></a><a href="Modelica_Electrical_PowerConverters_DCDC.html#Modelica.Electrical.PowerConverters.DCDC"
+>Modelica.Electrical.PowerConverters.DCDC</a>.Control</h2>
+<p>
+<span class="ModelicaDescription">Control components for DC to DC converters</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Currently there is only one PWM method provided in this library.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Powerc5fef69124b622f7alPWMS.png" alt="Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_DCDC_Control.html#Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM"
+>SignalPWM</a>
+</td>
+<td>Generates a pulse width modulated (PWM) boolean fire signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Power0952839345738e80CycleS.png" alt="Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_PowerConverters_DCDC_Control.html#Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle"
+>Voltage2DutyCycle</a>
+</td>
+<td>Linearly transforms voltage to duty cycle</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignalPWM<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Powerc5fef69124b622f7alPWMI.png" alt="Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM"></a><a href="Modelica_Electrical_PowerConverters_DCDC_Control.html#Modelica.Electrical.PowerConverters.DCDC.Control"
+>Modelica.Electrical.PowerConverters.DCDC.Control</a>.SignalPWM</h2>
+<p>
+<span class="ModelicaDescription">Generates a pulse width modulated (PWM) boolean fire signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This controller can be used both for DC/DC and AC/DC converters.
+The signal input of the PWM controller is the duty cycle; the duty cycle is the ratio of the on time to the switching period. 
+The output firing signal is strictly determined by the actual duty cycle, indicated as <code>d</code> in Fig.&nbsp;1.
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption><strong>Fig. 1:</strong> Firing (<code>fire</code>) and inverse firing (<code>notFire</code>) signal of PWM control; <code>d</code> = duty cycle; <code>f</code> = switching frequency </caption>
+  <tr>
+    <td>
+      <img src="../Images/Electrical/PowerConverters/dutyCycle.png">
+    </td>
+  </tr>
+</table>
+
+<p>
+The firing signal is generated by comparing the sampled duty cycle input with a periodic saw tooth 
+[<a href="Modelica_Electrical_PowerConverters_UsersGuide.html#Modelica.Electrical.PowerConverters.UsersGuide.References"
+>Williams2006</a>] or triangular signal (carrier).
+</p>
+
+<h4>Note</h4>
+<p>
+The user has the choice between two comparison modes:
+</p>
+<p>commonComparison = true : 
+The result of the comparison dutyCyle &gt; carrier is fed to fire_p, the inverse signal to fire_n. 
+</p>
+<p>commonComparison = false: 
+The result of the comparison dutyCyle &gt; carrier is fed to fire_p, 
+the result of the comparison (1 - dutyCyle) &gt; carrier is fed to fire_n. 
+(The result is the same for the comparison dutyCycle &gt; (1 - carrier), i.e. a signal shifted by 180&deg;.)
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_PowerConverters_Icons.html#Modelica.Electrical.PowerConverters.Icons.Control"
+>Icons.Control</a> (Control icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConstantDutyCycle</td><td>Enables constant duty cycle</td></tr>
+<tr><td>constantDutyCycle</td><td>Constant duty cycle</td></tr>
+<tr><td>f</td><td>Switching frequency [Hz]</td></tr>
+<tr><td>refType</td><td>Type of reference signal</td></tr>
+<tr><td>commonComparison</td><td>Common or separated comparison for fire_p and fire_n</td></tr>
+<tr><td>startTime</td><td>Start time [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dutyCycle</td><td>Duty cycle</td></tr>
+<tr><td>fire</td><td>Firing PWM signal</td></tr>
+<tr><td>notFire</td><td>Firing PWM signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Voltage2DutyCycle<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Power0952839345738e80CycleI.png" alt="Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle"></a><a href="Modelica_Electrical_PowerConverters_DCDC_Control.html#Modelica.Electrical.PowerConverters.DCDC.Control"
+>Modelica.Electrical.PowerConverters.DCDC.Control</a>.Voltage2DutyCycle</h2>
+<p>
+<span class="ModelicaDescription">Linearly transforms voltage to duty cycle</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Transforms the input voltage signal into a duty cycle:</p>
+<ul>
+<li><code>reciprocal = false and useBipolarVoltage = false: v/VLim = dutyCycle</code></li>
+<li><code>reciprocal = false and useBipolarVoltage = true : v/VLim = 2*dutyCycle - 1</code></li>
+<li><code>reciprocal = true:                                v/VLim = 1/(1 - dutyCycle)</code></li>
+</ul>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>reciprocal</td><td>Enables reciprocal formula between voltage and duty cycle</td></tr>
+<tr><td>useBipolarVoltage</td><td>Enables bipolar input voltage range</td></tr>
+<tr><td>useConstantVoltageLimit</td><td>Enables constant voltage limit</td></tr>
+<tr><td>VLim</td><td>Voltage range limit mapped to dutyCycle = 1 resp. 0 [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v</td><td>Voltage [V]</td></tr>
+<tr><td>dutyCycle</td><td>Duty cycle</td></tr>
+<tr><td>vLim</td><td>Voltage limit [V]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:21 2026.
+</address>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Utilities.Internal.FileSystem</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Internal package with external functions as interface to the file system&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FileSystem<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Utilities.Internal.FileSystem"></a><a href="Modelica_Utilities_Internal.html#Modelica.Utilities.Internal"
+>Modelica.Utilities.Internal</a>.FileSystem</h2>
+<p>
+<span class="ModelicaDescription">Internal package with external functions as interface to the file system</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Package <strong>Internal.FileSystem</strong> is an internal package that contains
+low level functions as interface to the file system.
+These functions should not be called directly in a scripting
+environment since more convenient functions are provided
+in packages Files and Systems.
+</p>
+<p>
+Note, the functions in this package are direct interfaces to
+functions of POSIX and of the standard C library. Errors
+occurring in these functions are treated by triggering
+a Modelica assert. Therefore, the functions in this package
+return only for a successful operation. Furthermore, the
+representation of a string is hidden by this interface,
+especially if the operating system supports Unicode characters.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Utilities.Internal.FileSystem.mkdir" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem.mkdir"
+>mkdir</a>
+</td>
+<td>Make directory (POSIX: &#39;mkdir&#39;)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Utilities.Internal.FileSystem.rmdir" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem.rmdir"
+>rmdir</a>
+</td>
+<td>Remove empty directory (POSIX function &#39;rmdir&#39;)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Utilities.Internal.FileSystem.stat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem.stat"
+>stat</a>
+</td>
+<td>Inquire file information (POSIX function &#39;stat&#39;)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Utilities.Internal.FileSystem.rename" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem.rename"
+>rename</a>
+</td>
+<td>Rename existing file or directory (C function &#39;rename&#39;)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Utilities.Internal.FileSystem.removeFile" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem.removeFile"
+>removeFile</a>
+</td>
+<td>Remove existing file (C function &#39;remove&#39;)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Utilities.Internal.FileSystem.copyFile" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem.copyFile"
+>copyFile</a>
+</td>
+<td>Copy existing file (C functions &#39;fopen&#39;, &#39;fread&#39;, &#39;fwrite&#39;, &#39;fclose&#39;)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Utilities.Internal.FileSystem.readDirectory" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem.readDirectory"
+>readDirectory</a>
+</td>
+<td>Read names of a directory (POSIX functions opendir, readdir, closedir)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Utilities.Internal.FileSystem.getNumberOfFiles" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem.getNumberOfFiles"
+>getNumberOfFiles</a>
+</td>
+<td>Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mkdir<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Utilities.Internal.FileSystem.mkdir" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Internal.FileSystem.mkdir"></a><a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem"
+>Modelica.Utilities.Internal.FileSystem</a>.mkdir</h2>
+<p>
+<span class="ModelicaDescription">Make directory (POSIX: &#39;mkdir&#39;)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>directoryName</td><td>Make a new directory</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rmdir<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Utilities.Internal.FileSystem.rmdir" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Internal.FileSystem.rmdir"></a><a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem"
+>Modelica.Utilities.Internal.FileSystem</a>.rmdir</h2>
+<p>
+<span class="ModelicaDescription">Remove empty directory (POSIX function &#39;rmdir&#39;)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>directoryName</td><td>Empty directory to be removed</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE stat<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Utilities.Internal.FileSystem.stat" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Internal.FileSystem.stat"></a><a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem"
+>Modelica.Utilities.Internal.FileSystem</a>.stat</h2>
+<p>
+<span class="ModelicaDescription">Inquire file information (POSIX function &#39;stat&#39;)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>name</td><td>Name of file, directory, pipe etc.</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fileType</td><td>Type of file</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rename<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Utilities.Internal.FileSystem.rename" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Internal.FileSystem.rename"></a><a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem"
+>Modelica.Utilities.Internal.FileSystem</a>.rename</h2>
+<p>
+<span class="ModelicaDescription">Rename existing file or directory (C function &#39;rename&#39;)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>oldName</td><td>Current name</td></tr>
+<tr><td>newName</td><td>New name</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE removeFile<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Utilities.Internal.FileSystem.removeFile" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Internal.FileSystem.removeFile"></a><a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem"
+>Modelica.Utilities.Internal.FileSystem</a>.removeFile</h2>
+<p>
+<span class="ModelicaDescription">Remove existing file (C function &#39;remove&#39;)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fileName</td><td>File to be removed</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE copyFile<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Utilities.Internal.FileSystem.copyFile" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Internal.FileSystem.copyFile"></a><a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem"
+>Modelica.Utilities.Internal.FileSystem</a>.copyFile</h2>
+<p>
+<span class="ModelicaDescription">Copy existing file (C functions &#39;fopen&#39;, &#39;fread&#39;, &#39;fwrite&#39;, &#39;fclose&#39;)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fromName</td><td>Name of file to be copied</td></tr>
+<tr><td>toName</td><td>Name of copy of file</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE readDirectory<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Utilities.Internal.FileSystem.readDirectory" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Internal.FileSystem.readDirectory"></a><a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem"
+>Modelica.Utilities.Internal.FileSystem</a>.readDirectory</h2>
+<p>
+<span class="ModelicaDescription">Read names of a directory (POSIX functions opendir, readdir, closedir)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>directory</td><td>Name of the directory from which information is desired</td></tr>
+<tr><td>nNames</td><td>Number of names that are returned (inquire with getNumberOfFiles)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>names[nNames]</td><td>All file and directory names in any order from the desired directory</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getNumberOfFiles<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Utilities.Internal.FileSystem.getNumberOfFiles" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Internal.FileSystem.getNumberOfFiles"></a><a href="Modelica_Utilities_Internal_FileSystem.html#Modelica.Utilities.Internal.FileSystem"
+>Modelica.Utilities.Internal.FileSystem</a>.getNumberOfFiles</h2>
+<p>
+<span class="ModelicaDescription">Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>directory</td><td>Directory name</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>Number of files and directories present in &#39;directory&#39;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:32 2026.
+</address>
+</body>
+</html>

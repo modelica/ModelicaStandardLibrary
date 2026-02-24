@@ -1,0 +1,687 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.Rotational.Sources</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Sources to drive 1D rotational mechanical components&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.Rotational.Sources"></a><a href="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</a>.Sources</h2>
+<p>
+<span class="ModelicaDescription">Sources to drive 1D rotational mechanical components</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains ideal sources to drive 1D mechanical rotational drive trains.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</a> (Icon for packages containing sources).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati085d37a99ff374c5itionS.png" alt="Modelica.Mechanics.Rotational.Sources.Position" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Position"
+>Position</a>
+</td>
+<td>Forced movement of a flange according to a reference angle signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati085d37a99ff374c5itionS.png" alt="Modelica.Mechanics.Rotational.Sources.Speed" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Speed"
+>Speed</a>
+</td>
+<td>Forced movement of a flange according to a reference angular velocity signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati085d37a99ff374c5itionS.png" alt="Modelica.Mechanics.Rotational.Sources.Accelerate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Accelerate"
+>Accelerate</a>
+</td>
+<td>Forced movement of a flange according to an acceleration signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati085d37a99ff374c5itionS.png" alt="Modelica.Mechanics.Rotational.Sources.Move" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Move"
+>Move</a>
+</td>
+<td>Forced movement of a flange according to an angle, speed and angular acceleration signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati974cf9767ae71cf2orqueS.png" alt="Modelica.Mechanics.Rotational.Sources.Torque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Torque"
+>Torque</a>
+</td>
+<td>Input signal acting as external torque on a flange</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati6c63a7945ce39e7frque2S.png" alt="Modelica.Mechanics.Rotational.Sources.Torque2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Torque2"
+>Torque2</a>
+</td>
+<td>Input signal acting as torque on two flanges</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatid2e6e8363ba21e3corqueS.png" alt="Modelica.Mechanics.Rotational.Sources.InverseSpeedDependentTorque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.InverseSpeedDependentTorque"
+>InverseSpeedDependentTorque</a>
+</td>
+<td>Torque reciprocal dependent on speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati8e7b84a779aefb75orqueS.png" alt="Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque"
+>LinearSpeedDependentTorque</a>
+</td>
+<td>Linear dependency of torque versus speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati660433ca91a3c30borqueS.png" alt="Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque"
+>QuadraticSpeedDependentTorque</a>
+</td>
+<td>Quadratic dependency of torque versus speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati22d98b5e47dc1e7corqueS.png" alt="Modelica.Mechanics.Rotational.Sources.ConstantTorque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.ConstantTorque"
+>ConstantTorque</a>
+</td>
+<td>Constant torque, not dependent on speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati7ddd42c34da3821borqueS.png" alt="Modelica.Mechanics.Rotational.Sources.SignTorque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.SignTorque"
+>SignTorque</a>
+</td>
+<td>Constant torque changing sign with speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatia87b5f734a413e62SpeedS.png" alt="Modelica.Mechanics.Rotational.Sources.ConstantSpeed" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.ConstantSpeed"
+>ConstantSpeed</a>
+</td>
+<td>Constant speed, not dependent on torque</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatidff08fcacf13f2a1eStepS.png" alt="Modelica.Mechanics.Rotational.Sources.TorqueStep" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.TorqueStep"
+>TorqueStep</a>
+</td>
+<td>Constant torque, not dependent on speed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatic192366bbefac2b5orqueS.png" alt="Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque"
+>EddyCurrentTorque</a>
+</td>
+<td>Simple model of a rotational eddy current brake</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Position<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati085d37a99ff374c5itionI.png" alt="Modelica.Mechanics.Rotational.Sources.Position" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.Position"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.Position</h2>
+<p>
+<span class="ModelicaDescription">Forced movement of a flange according to a reference angle signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input signal <strong>phi_ref</strong> defines the <strong>reference
+angle</strong> in [rad]. Flange <strong>flange</strong> is <strong>forced</strong>
+to move according to this reference motion relative to flange support. According to parameter
+<strong>exact</strong> (default = <strong>false</strong>), this is done in the following way:
+</p>
+<ol>
+<li><strong>exact=true</strong><br>
+    The reference angle is treated <strong>exactly</strong>. This is only possible, if
+    the input signal is defined by an analytical function which can be
+    differentiated at least twice. If this prerequisite is fulfilled,
+    the Modelica translator will differentiate the input signal twice
+    in order to compute the reference acceleration of the flange.</li>
+<li><strong>exact=false</strong><br>
+    The reference angle is <strong>filtered</strong> and the second derivative
+    of the filtered curve is used to compute the reference acceleration
+    of the flange. This second derivative is <strong>not</strong> computed by
+    numerical differentiation but by an appropriate realization of the
+    filter. For filtering, a second order Bessel filter is used.
+    The critical frequency (also called cut-off frequency) of the
+    filter is defined via parameter <strong>f_crit</strong> in [Hz]. This value
+    should be selected in such a way that it is higher as the essential
+    low frequencies in the signal.</li>
+</ol>
+<p>
+The input signal can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one rotational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>exact</td><td>Is true/false for exact treatment/filtering of the input signal, respectively</td></tr>
+<tr><td>f_crit</td><td>If exact=false, critical frequency of filter to filter input signal [Hz]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>w</td><td>If exact=false, Angular velocity of flange with respect to support else dummy [rad/s]</td></tr>
+<tr><td>a</td><td>If exact=false, Angular acceleration of flange with respect to support else dummy [rad/s2]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>phi_ref</td><td>Reference angle of flange with respect to support as input signal [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Speed<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati085d37a99ff374c5itionI.png" alt="Modelica.Mechanics.Rotational.Sources.Speed" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.Speed"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.Speed</h2>
+<p>
+<span class="ModelicaDescription">Forced movement of a flange according to a reference angular velocity signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input signal <strong>w_ref</strong> defines the <strong>reference
+speed</strong> in [rad/s]. Flange <strong>flange</strong> is <strong>forced</strong>
+to move relative to flange support according to this reference motion. According to parameter
+<strong>exact</strong> (default = <strong>false</strong>), this is done in the following way:
+</p>
+<ol>
+<li><strong>exact=true</strong><br>
+    The reference speed is treated <strong>exactly</strong>. This is only possible, if
+    the input signal is defined by an analytical function which can be
+    differentiated at least once. If this prerequisite is fulfilled,
+    the Modelica translator will differentiate the input signal once
+    in order to compute the reference acceleration of the flange.</li>
+<li><strong>exact=false</strong><br>
+    The reference angle is <strong>filtered</strong> and the second derivative
+    of the filtered curve is used to compute the reference acceleration
+    of the flange. This second derivative is <strong>not</strong> computed by
+    numerical differentiation but by an appropriate realization of the
+    filter. For filtering, a first order filter is used.
+    The critical frequency (also called cut-off frequency) of the
+    filter is defined via parameter <strong>f_crit</strong> in [Hz]. This value
+    should be selected in such a way that it is higher as the essential
+    low frequencies in the signal.</li>
+</ol>
+<p>
+The input signal can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one rotational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>exact</td><td>Is true/false for exact treatment/filtering of the input signal, respectively</td></tr>
+<tr><td>f_crit</td><td>If exact=false, critical frequency of filter to filter input signal [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>w_ref</td><td>Reference angular velocity of flange with respect to support as input signal [rad/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Accelerate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati085d37a99ff374c5itionI.png" alt="Modelica.Mechanics.Rotational.Sources.Accelerate" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.Accelerate"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.Accelerate</h2>
+<p>
+<span class="ModelicaDescription">Forced movement of a flange according to an acceleration signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input signal <strong>a_ref</strong> defines an <strong>angular acceleration</strong>
+in [rad/s2]. Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with
+this acceleration. The angular velocity <strong>w</strong> and the rotation angle
+<strong>phi</strong> of the flange are automatically determined by integration of
+the acceleration.
+</p>
+<p>
+The input signal can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one rotational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>a_ref</td><td>Absolute angular acceleration of flange with respect to support as input signal [rad/s2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Move<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati085d37a99ff374c5itionI.png" alt="Modelica.Mechanics.Rotational.Sources.Move" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.Move"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.Move</h2>
+<p>
+<span class="ModelicaDescription">Forced movement of a flange according to an angle, speed and angular acceleration signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with a predefined motion
+according to the input signals:
+</p>
+<blockquote><pre>
+u[1]: angle of flange
+u[2]: angular velocity of flange
+u[3]: angular acceleration of flange
+</pre></blockquote>
+<p>
+The user has to guarantee that the input signals are consistent to each other,
+i.e., that u[2] is the derivative of u[1] and that
+u[3] is the derivative of u[2]. There are, however,
+also applications where by purpose these conditions do not hold. For example,
+if only the position dependent terms of a mechanical system shall be
+calculated, one may provide angle = angle(t) and set the angular velocity
+and the angular acceleration to zero.
+</p>
+<p>
+The input signals can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one rotational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>u[3]</td><td>Angle, angular velocity and angular acceleration of flange with respect to support as input signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Torque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati974cf9767ae71cf2orqueI.png" alt="Modelica.Mechanics.Rotational.Sources.Torque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.Torque"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.Torque</h2>
+<p>
+<span class="ModelicaDescription">Input signal acting as external torque on a flange</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input signal <strong>tau</strong> defines an external
+torque in [Nm] which acts (with negative sign) at
+a flange connector, i.e., the component connected to this
+flange is driven by torque <strong>tau</strong>.</p>
+<p>
+The input signal can be provided from one of the signal generator
+blocks of Modelica.Blocks.Sources.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2</a> (Partial model for a component with one rotational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>tau</td><td>Accelerating torque acting at flange (= -flange.tau) [N.m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Torque2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati6c63a7945ce39e7frque2I.png" alt="Modelica.Mechanics.Rotational.Sources.Torque2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.Torque2"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.Torque2</h2>
+<p>
+<span class="ModelicaDescription">Input signal acting as torque on two flanges</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input signal <strong>tau</strong> defines an external
+torque in [Nm] which acts at both flange connectors,
+i.e., the components connected to these flanges are driven by torque <strong>tau</strong>.</p>
+<p>The input signal can be provided from one of the signal generator
+blocks of Modelica.Blocks.Sources.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
+>Rotational.Interfaces.PartialTwoFlanges</a> (Partial model for a component with two rotational 1-dim. shaft flanges).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Flange of left shaft</td></tr>
+<tr><td>flange_b</td><td>Flange of right shaft</td></tr>
+<tr><td>tau</td><td>Torque driving the two flanges (a positive value accelerates the flange) [N.m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InverseSpeedDependentTorque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatid2e6e8363ba21e3corqueI.png" alt="Modelica.Mechanics.Rotational.Sources.InverseSpeedDependentTorque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.InverseSpeedDependentTorque"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.InverseSpeedDependentTorque</h2>
+<p>
+<span class="ModelicaDescription">Torque reciprocal dependent on speed</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of inverse speed dependent torque.
+</p>
+<p>
+Parameter TorqueDirection chooses whether direction of torque is
+the same in both directions of rotation or not.
+If TorqueDirection =&nbsp;false, regularization near zero speed
+avoids numerical problems.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
+>Rotational.Interfaces.PartialTorque</a> (Partial model of a torque acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>tau_nominal</td><td>Nominal torque (if negative, torque is acting as load in positive direction of rotation) [N.m]</td></tr>
+<tr><td>TorqueDirection</td><td>Same direction of torque in both directions of rotation</td></tr>
+<tr><td>w_nominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>w0</td><td>Regularization below w0 [rad/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LinearSpeedDependentTorque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati8e7b84a779aefb75orqueI.png" alt="Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.LinearSpeedDependentTorque</h2>
+<p>
+<span class="ModelicaDescription">Linear dependency of torque versus speed</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of torque, linearly dependent on angular velocity of flange.<br>
+Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTorque</a> (Partial model of a torque acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>tau_nominal</td><td>Nominal torque (if negative, torque is acting as load in positive direction of rotation) [N.m]</td></tr>
+<tr><td>TorqueDirection</td><td>Same direction of torque in both directions of rotation</td></tr>
+<tr><td>w_nominal</td><td>Nominal speed [rad/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE QuadraticSpeedDependentTorque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati660433ca91a3c30borqueI.png" alt="Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.QuadraticSpeedDependentTorque</h2>
+<p>
+<span class="ModelicaDescription">Quadratic dependency of torque versus speed</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of torque, quadratic dependent on angular velocity of flange.<br>
+Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTorque</a> (Partial model of a torque acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>tau_nominal</td><td>Nominal torque (if negative, torque is acting as load in positive direction of rotation) [N.m]</td></tr>
+<tr><td>TorqueDirection</td><td>Same direction of torque in both directions of rotation</td></tr>
+<tr><td>w_nominal</td><td>Nominal speed [rad/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConstantTorque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati22d98b5e47dc1e7corqueI.png" alt="Modelica.Mechanics.Rotational.Sources.ConstantTorque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.ConstantTorque"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.ConstantTorque</h2>
+<p>
+<span class="ModelicaDescription">Constant torque, not dependent on speed</span>
+</p>
+<h3>Information</h3>
+
+<p>Model of constant torque, not dependent on angular velocity of flange.</p>
+<p>Please note:<br>
+Positive torque accelerates in positive direction of rotation, but brakes in reverse direction of rotation.<br>
+Negative torque brakes in positive direction of rotation, but accelerates in reverse direction of rotation.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
+>Rotational.Interfaces.PartialTorque</a> (Partial model of a torque acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>tau_constant</td><td>Constant torque (if negative, torque is acting as load in positive direction of rotation) [N.m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignTorque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati7ddd42c34da3821borqueI.png" alt="Modelica.Mechanics.Rotational.Sources.SignTorque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.SignTorque"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.SignTorque</h2>
+<p>
+<span class="ModelicaDescription">Constant torque changing sign with speed</span>
+</p>
+<h3>Information</h3>
+
+<p>Model of constant torque which changes sign with direction of rotation.</p>
+<p>Please note:<br>
+Positive torque accelerates in both directions of rotation.<br>
+Negative torque brakes in both directions of rotation.</p>
+<p>Around zero speed regularization avoids numerical problems.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
+>Rotational.Interfaces.PartialTorque</a> (Partial model of a torque acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>tau_nominal</td><td>Nominal torque (if negative, torque is acting as load) [N.m]</td></tr>
+<tr><td>reg</td><td>Type of regularization</td></tr>
+<tr><td>w0</td><td>Regularization below w0 [rad/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConstantSpeed<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatia87b5f734a413e62SpeedI.png" alt="Modelica.Mechanics.Rotational.Sources.ConstantSpeed" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.ConstantSpeed"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.ConstantSpeed</h2>
+<p>
+<span class="ModelicaDescription">Constant speed, not dependent on torque</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of <strong>fixed</strong> angular velocity of flange, not dependent on torque.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTorque</a> (Partial model of a torque acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>w_fixed</td><td>Fixed speed [rad/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TorqueStep<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatidff08fcacf13f2a1eStepI.png" alt="Modelica.Mechanics.Rotational.Sources.TorqueStep" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.TorqueStep"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.TorqueStep</h2>
+<p>
+<span class="ModelicaDescription">Constant torque, not dependent on speed</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of a torque step at time startTime.
+Positive torque accelerates in positive direction of <code>flange</code> rotation.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTorque</a> (Partial model of a torque acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>stepTorque</td><td>Height of torque step (if negative, torque is acting as load) [N.m]</td></tr>
+<tr><td>offsetTorque</td><td>Offset of torque [N.m]</td></tr>
+<tr><td>startTime</td><td>Torque = offset for time &lt; startTime [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE EddyCurrentTorque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatic192366bbefac2b5orqueI.png" alt="Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.EddyCurrentTorque</h2>
+<p>
+<span class="ModelicaDescription">Simple model of a rotational eddy current brake</span>
+</p>
+<h3>Information</h3>
+
+<p>This is a simple model of a rotational <strong>eddy current brake</strong>. The torque versus speed characteristic is defined by Kloss' equation.</p>
+<p>The influence of excitation is either constant (<code>useExcitationInput=false</code>) or given by the optional input <code>excitation</code> (<code>useExcitationInput=true</code>). 
+Note that maximum torque depends on square of excitation (magnetic field).</p>
+<p><strong>Thermal behaviour:</strong><br>
+The resistance of the braking disc is influenced by the actual temperature Theatport, which in turn shifts the speed w_nominal at which the (unchanged) maximum torque occurs.<br>
+If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>
+However, the speed w_nominal at which the maximum torque occurs is adapted from reference temperature TRef to the operational temperature.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTorque</a> (Partial model of a torque acting at the flange (accelerates the flange)), <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useExcitationInput</td><td>Enable signal input for excitation</td></tr>
+<tr><td>constantExcitation</td><td>Excitation=1 to reach maximum torque</td></tr>
+<tr><td>tau_nominal</td><td>Maximum torque (always braking) [N.m]</td></tr>
+<tr><td>w_nominal</td><td>Nominal speed (leads to maximum torque) at reference temperature [rad/s]</td></tr>
+<tr><td>TRef</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha20</td><td>Temperature coefficient of material [1/K]</td></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>useHeatPort</td><td>= true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+<tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+<tr><td>excitation</td><td>Excitation</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:25 2026.
+</address>
+</body>
+</html>

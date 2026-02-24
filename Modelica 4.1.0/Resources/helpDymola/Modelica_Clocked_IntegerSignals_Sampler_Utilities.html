@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Clocked.IntegerSignals.Sampler.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Utility components that are usually not directly used&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Clocked.IntegerSignals.Sampler.Utilities"></a><a href="Modelica_Clocked_IntegerSignals_Sampler.html#Modelica.Clocked.IntegerSignals.Sampler"
+>Modelica.Clocked.IntegerSignals.Sampler</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Utility components that are usually not directly used</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains utility blocks that are usually not directly utilized
+but are used as building blocks for "higher level" blocks.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.IntegerS45f75c4fc43558f9ampleS.png" alt="Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_IntegerSignals_Sampler_Utilities.html#Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample"
+>UpSample</a>
+</td>
+<td>Upsample the clocked Integer input signal and provide it as clocked output signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.IntegerSa0329a6f5fa8bf66rHoldS.png" alt="Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToTriggerHold" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_IntegerSignals_Sampler_Utilities.html#Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToTriggerHold"
+>AssignClockToTriggerHold</a>
+</td>
+<td>Generate a Boolean continuous-time trigger signal from a clocked Integer input</td>
+</tr>
+<tr>
+<td><img src="Modelica.Clocked.IntegerSf7793991132e3f12eHoldS.png" alt="Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToSquareWaveHold" width="20" height="20" align="top">&nbsp;<a href="Modelica_Clocked_IntegerSignals_Sampler_Utilities.html#Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToSquareWaveHold"
+>AssignClockToSquareWaveHold</a>
+</td>
+<td>Generate a Boolean continuous-time square signal from a clocked Integer input</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UpSample<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.IntegerS45f75c4fc43558f9ampleI.png" alt="Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample"></a><a href="Modelica_Clocked_IntegerSignals_Sampler_Utilities.html#Modelica.Clocked.IntegerSignals.Sampler.Utilities"
+>Modelica.Clocked.IntegerSignals.Sampler.Utilities</a>.UpSample</h2>
+<p>
+<span class="ModelicaDescription">Upsample the clocked Integer input signal and provide it as clocked output signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block for Integer signals works similarly as the corresponding block for Real signals (see
+<a href="Modelica_Clocked_RealSignals_Sampler_Utilities.html#Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample"
+>RealSignals.Sampler.Utilities.UpSample</a>).
+</p>
+<p>
+Analog to the corresponding Real signal block example there exists an elementary <a href="Modelica_Clocked_Examples_Elementary_IntegerSignals.html#Modelica.Clocked.Examples.Elementary.IntegerSignals.UpSample"
+>example</a> for this Integer block.
+</p>
+
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inferFactor</td><td>= true, if upsampling factor is inferred</td></tr>
+<tr><td>factor</td><td>Upsampling factor &gt;= 1 (if inferFactor=false)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of clocked, Integer input signal</td></tr>
+<tr><td>y</td><td>Connector of clocked, Integer output signal (clock of y is faster as clock of u)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AssignClockToTriggerHold<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.IntegerSa0329a6f5fa8bf66rHoldI.png" alt="Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToTriggerHold" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToTriggerHold"></a><a href="Modelica_Clocked_IntegerSignals_Sampler_Utilities.html#Modelica.Clocked.IntegerSignals.Sampler.Utilities"
+>Modelica.Clocked.IntegerSignals.Sampler.Utilities</a>.AssignClockToTriggerHold</h2>
+<p>
+<span class="ModelicaDescription">Generate a Boolean continuous-time trigger signal from a clocked Integer input</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block for Integer signals works similar as the corresponding block for Real signals (see
+<a href="Modelica_Clocked_RealSignals_Sampler_Utilities.html#Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold"
+>RealSignals.Sampler.Utilities.AssignClockToTriggerHold</a>).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_ClockSignals_Interfaces.html#Modelica.Clocked.ClockSignals.Interfaces.ClockedBlockIcon"
+>Clocked.ClockSignals.Interfaces.ClockedBlockIcon</a> (Basic graphical layout of block where at least one input or output is a clocked variable).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y_start</td><td>Initial value of output signal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AssignClockToSquareWaveHold<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Clocked.IntegerSf7793991132e3f12eHoldI.png" alt="Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToSquareWaveHold" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToSquareWaveHold"></a><a href="Modelica_Clocked_IntegerSignals_Sampler_Utilities.html#Modelica.Clocked.IntegerSignals.Sampler.Utilities"
+>Modelica.Clocked.IntegerSignals.Sampler.Utilities</a>.AssignClockToSquareWaveHold</h2>
+<p>
+<span class="ModelicaDescription">Generate a Boolean continuous-time square signal from a clocked Integer input</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block for Integer signals works similar as the corresponding block for Real signals (see
+<a href="Modelica_Clocked_RealSignals_Sampler_Utilities.html#Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold"
+>RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold</a>).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Clocked_ClockSignals_Interfaces.html#Modelica.Clocked.ClockSignals.Interfaces.ClockedBlockIcon"
+>Clocked.ClockSignals.Interfaces.ClockedBlockIcon</a> (Basic graphical layout of block where at least one input or output is a clocked variable).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y_start</td><td>Initial value of output signal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+<tr><td>y</td><td>Connector of Boolean output signal</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:05 2026.
+</address>
+</body>
+</html>

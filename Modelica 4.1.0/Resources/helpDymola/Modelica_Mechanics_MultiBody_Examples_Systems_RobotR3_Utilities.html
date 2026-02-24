@@ -1,0 +1,652 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Utility classes for robot examples&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Utility classes for robot examples</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This library contains the different utility components
+of the r3 robot. Usually, there is no need to
+use this library directly.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBcdff9b24c45c34d0olBusS.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus"
+>AxisControlBus</a>
+</td>
+<td>Data bus for one robot axis</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB388ae93b1131b383olBusS.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.ControlBus" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.ControlBus"
+>ControlBus</a>
+</td>
+<td>Data bus for all axes of robot</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB52dfe3fbf7169e5dning1S.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning1"
+>PathPlanning1</a>
+</td>
+<td>Generate reference angles for fastest kinematic movement</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB52dfe3fbf7169e5dning1S.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning6" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning6"
+>PathPlanning6</a>
+</td>
+<td>Generate reference angles for fastest kinematic movement</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB8e9e6dd4399e7fc8olBusS.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathToAxisControlBus" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathToAxisControlBus"
+>PathToAxisControlBus</a>
+</td>
+<td>Map path planning to one axis control bus</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBdb6fe71c4ee29d68Type1S.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.GearType1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.GearType1"
+>GearType1</a>
+</td>
+<td>Motor inertia and gearbox model for r3 joints 1,2,3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBdb6fe71d4ee29d6bType2S.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.GearType2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.GearType2"
+>GearType2</a>
+</td>
+<td>Motor inertia and gearbox model for r3 joints 4,5,6</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBe9ef8f6de5bac36bMotorS.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Motor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Motor"
+>Motor</a>
+</td>
+<td>Motor model including current controller of r3 motors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB3895e08411310982ollerS.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Controller" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Controller"
+>Controller</a>
+</td>
+<td>P-PI cascade controller for one axis</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBc2aeb0624ce29b82Type1S.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisType1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisType1"
+>AxisType1</a>
+</td>
+<td>Axis model of the r3 joints 1,2,3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBc2aeb0634ce29b81Type2S.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisType2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisType2"
+>AxisType2</a>
+</td>
+<td>Axis model of the r3 joints 4,5,6</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB983303c8a3e5ec71ctureS.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.MechanicalStructure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.MechanicalStructure"
+>MechanicalStructure</a>
+</td>
+<td>Model of the mechanical part of the r3 robot (without animation)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AxisControlBus<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBcdff9b24c45c34d0olBusI.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.AxisControlBus</h2>
+<p>
+<span class="ModelicaDescription">Data bus for one robot axis</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Signal bus that is used to communicate all signals for <strong>one</strong> axis.
+This is an expandable connector which has a "default" set of
+signals. Note, the input/output causalities of the signals are
+determined from the connections to this bus.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.SignalSubBus"
+>Modelica.Icons.SignalSubBus</a> (Icon for signal sub-bus).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>motion_ref</td><td>= true, if reference motion is not in rest</td></tr>
+<tr><td>angle_ref</td><td>Reference angle of axis flange [rad]</td></tr>
+<tr><td>angle</td><td>Angle of axis flange [rad]</td></tr>
+<tr><td>speed_ref</td><td>Reference speed of axis flange [rad/s]</td></tr>
+<tr><td>speed</td><td>Speed of axis flange [rad/s]</td></tr>
+<tr><td>acceleration_ref</td><td>Reference acceleration of axis flange [rad/s2]</td></tr>
+<tr><td>acceleration</td><td>Acceleration of axis flange [rad/s2]</td></tr>
+<tr><td>current_ref</td><td>Reference current of motor [A]</td></tr>
+<tr><td>current</td><td>Current of motor [A]</td></tr>
+<tr><td>motorAngle</td><td>Angle of motor flange [rad]</td></tr>
+<tr><td>motorSpeed</td><td>Speed of motor flange [rad/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlBus<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB388ae93b1131b383olBusI.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.ControlBus" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.ControlBus"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.ControlBus</h2>
+<p>
+<span class="ModelicaDescription">Data bus for all axes of robot</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Signal bus that is used to communicate <strong>all signals</strong> of the robot.
+This is an expandable connector which has a "default" set of
+signals. Note, the input/output causalities of the signals are
+determined from the connections to this bus.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.SignalBus"
+>Modelica.Icons.SignalBus</a> (Icon for signal bus).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>axisControlBus1</td><td>Bus of axis 1</td></tr>
+<tr><td>axisControlBus2</td><td>Bus of axis 2</td></tr>
+<tr><td>axisControlBus3</td><td>Bus of axis 3</td></tr>
+<tr><td>axisControlBus4</td><td>Bus of axis 4</td></tr>
+<tr><td>axisControlBus5</td><td>Bus of axis 5</td></tr>
+<tr><td>axisControlBus6</td><td>Bus of axis 6</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PathPlanning1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB52dfe3fbf7169e5dning1I.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning1"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.PathPlanning1</h2>
+<p>
+<span class="ModelicaDescription">Generate reference angles for fastest kinematic movement</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Given
+</p>
+<ul>
+<li> start and end angle of an axis</li>
+<li> maximum speed of the axis</li>
+<li> maximum acceleration of the axis</li>
+</ul>
+
+<p>
+this component computes the fastest movement under the
+given constraints. This means, that:
+</p>
+
+<ol>
+<li> The axis accelerates with the maximum acceleration
+     until the maximum speed is reached.</li>
+<li> Drives with the maximum speed as long as possible.</li>
+<li> Decelerates with the negative of the maximum acceleration
+     until rest.</li>
+</ol>
+
+<p>
+The acceleration, constant velocity and deceleration
+phase are determined in such a way that the movement
+starts form the start angles and ends at the end angles.
+The output of this block are the computed angles, angular velocities
+and angular acceleration and this information is stored as reference
+motion on the controlBus of the r3 robot.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>angleBegDeg</td><td>Start angle [deg]</td></tr>
+<tr><td>angleEndDeg</td><td>End angle [deg]</td></tr>
+<tr><td>speedMax</td><td>Maximum axis speed [rad/s]</td></tr>
+<tr><td>accMax</td><td>Maximum axis acceleration [rad/s2]</td></tr>
+<tr><td>startTime</td><td>Start time of movement [s]</td></tr>
+<tr><td>swingTime</td><td>Additional time after reference motion is in rest before simulation is stopped [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>controlBus</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PathPlanning6<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB52dfe3fbf7169e5dning1I.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning6" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning6"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.PathPlanning6</h2>
+<p>
+<span class="ModelicaDescription">Generate reference angles for fastest kinematic movement</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Given
+</p>
+<ul>
+<li> start and end angles of every axis</li>
+<li> maximum speed of every axis</li>
+<li> maximum acceleration of every axis</li>
+</ul>
+
+<p>
+this component computes the fastest movement under the
+given constraints. This means, that:
+</p>
+
+<ol>
+<li> Every axis accelerates with the maximum acceleration
+     until the maximum speed is reached.</li>
+<li> Drives with the maximum speed as long as possible.</li>
+<li> Decelerates with the negative of the maximum acceleration
+     until rest.</li>
+</ol>
+
+<p>
+The acceleration, constant velocity and deceleration
+phase are determined in such a way that the movement
+starts form the start angles and ends at the end angles.
+The output of this block are the computed angles, angular velocities
+and angular acceleration and this information is stored as reference
+motion on the controlBus of the r3 robot.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>naxis</td><td>Number of driven axis</td></tr>
+<tr><td>angleBegDeg[naxis]</td><td>Start angles [deg]</td></tr>
+<tr><td>angleEndDeg[naxis]</td><td>End angles [deg]</td></tr>
+<tr><td>speedMax[naxis]</td><td>Maximum axis speed [rad/s]</td></tr>
+<tr><td>accMax[naxis]</td><td>Maximum axis acceleration [rad/s2]</td></tr>
+<tr><td>startTime</td><td>Start time of movement [s]</td></tr>
+<tr><td>swingTime</td><td>Additional time after reference motion is in rest before simulation is stopped [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>controlBus</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PathToAxisControlBus<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB8e9e6dd4399e7fc8olBusI.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathToAxisControlBus" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathToAxisControlBus"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.PathToAxisControlBus</h2>
+<p>
+<span class="ModelicaDescription">Map path planning to one axis control bus</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model stores the 4 reference variables q, qd, qdd, moving from the path planning on the axis control bus.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nAxis</td><td>Number of driven axis</td></tr>
+<tr><td>axisUsed</td><td>Map path planning of axisUsed to axisControlBus</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>q[nAxis]</td><td>&nbsp;</td></tr>
+<tr><td>qd[nAxis]</td><td>&nbsp;</td></tr>
+<tr><td>qdd[nAxis]</td><td>&nbsp;</td></tr>
+<tr><td>axisControlBus</td><td>&nbsp;</td></tr>
+<tr><td>moving[nAxis]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE GearType1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBdb6fe71c4ee29d68Type1I.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.GearType1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.GearType1"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.GearType1</h2>
+<p>
+<span class="ModelicaDescription">Motor inertia and gearbox model for r3 joints 1,2,3</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Models the gearbox used in the first three joints with all its effects,
+like elasticity and friction.
+Coulomb friction is approximated by a friction element acting
+at the "motor"-side. In reality, bearing friction should be
+also incorporated at the driven side of the gearbox. However,
+this would require considerable more effort for the measurement
+of the friction parameters.
+Default values for all parameters are given for joint 1.
+Model relativeStates is used to define the relative angle
+and relative angular velocity across the spring (=gear elasticity)
+as state variables. The reason is, that a default initial
+value of zero of these states makes always sense.
+If the absolute angle and the absolute angular velocity of model
+Jmotor would be used as states, and the load angle (= joint angle of
+robot) is NOT zero, one has always to ensure that the initial values
+of the motor angle and of the joint angle are modified correspondingly.
+Otherwise, the spring has an unrealistic deflection at initial time.
+Since relative quantities are used as state variables, this simplifies
+the definition of initial values considerably.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Icons.html#Modelica.Mechanics.Rotational.Icons.Gearbox"
+>Modelica.Mechanics.Rotational.Icons.Gearbox</a> (Icon of a gear box), <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges</a> (Partial model for a component with two rotational 1-dim. shaft flanges).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>i</td><td>Gear ratio</td></tr>
+<tr><td>c</td><td>Spring constant [N.m/rad]</td></tr>
+<tr><td>d</td><td>Damper constant [N.m.s/rad]</td></tr>
+<tr><td>Rv0</td><td>Viscous friction torque at zero velocity [N.m]</td></tr>
+<tr><td>Rv1</td><td>Viscous friction coefficient (R=Rv0+Rv1*abs(qd)) [N.m.s/rad]</td></tr>
+<tr><td>peak</td><td>Maximum static friction torque is peak*Rv0 (peak &gt;= 1)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Flange of left shaft</td></tr>
+<tr><td>flange_b</td><td>Flange of right shaft</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE GearType2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBdb6fe71d4ee29d6bType2I.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.GearType2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.GearType2"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.GearType2</h2>
+<p>
+<span class="ModelicaDescription">Motor inertia and gearbox model for r3 joints 4,5,6</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The elasticity and damping in the gearboxes of the outermost
+three joints of the robot is neglected.
+Default values for all parameters are given for joint 4.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Icons.html#Modelica.Mechanics.Rotational.Icons.Gearbox"
+>Modelica.Mechanics.Rotational.Icons.Gearbox</a> (Icon of a gear box), <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges</a> (Partial model for a component with two rotational 1-dim. shaft flanges).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>i</td><td>Gear ratio</td></tr>
+<tr><td>Rv0</td><td>Viscous friction torque at zero velocity [N.m]</td></tr>
+<tr><td>Rv1</td><td>Viscous friction coefficient (R=Rv0+Rv1*abs(qd)) [N.m.s/rad]</td></tr>
+<tr><td>peak</td><td>Maximum static friction torque is peak*Rv0 (peak &gt;= 1)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Flange of left shaft</td></tr>
+<tr><td>flange_b</td><td>Flange of right shaft</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Motor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBe9ef8f6de5bac36bMotorI.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Motor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Motor"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.Motor</h2>
+<p>
+<span class="ModelicaDescription">Motor model including current controller of r3 motors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Default values are given for the motor of joint 1.
+The input of the motor is the desired current
+(the actual current is proportional to the torque
+produced by the motor).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.Machine"
+>Electrical.Machines.Icons.Machine</a> (Generic icon of an electric machine).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>J</td><td>Moment of inertia of motor [kg.m2]</td></tr>
+<tr><td>k</td><td>Gain of motor</td></tr>
+<tr><td>w</td><td>Time constant of motor</td></tr>
+<tr><td>D</td><td>Damping constant of motor</td></tr>
+<tr><td>w_max</td><td>Maximum speed of motor [rad/s]</td></tr>
+<tr><td>i_max</td><td>Maximum current of motor [A]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_motor</td><td>&nbsp;</td></tr>
+<tr><td>axisControlBus</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Controller<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB3895e08411310982ollerI.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Controller" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Controller"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.Controller</h2>
+<p>
+<span class="ModelicaDescription">P-PI cascade controller for one axis</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This controller has an inner PI controller to control the motor speed,
+and an outer P controller to control the motor position of one axis.
+The reference signals are with respect to the gear-output, and the
+gear ratio is used in the controller to determine the motor
+reference signals. All signals are communicated via the
+"axisControlBus".
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kp</td><td>Gain of position controller</td></tr>
+<tr><td>ks</td><td>Gain of speed controller</td></tr>
+<tr><td>Ts</td><td>Time constant of integrator of speed controller [s]</td></tr>
+<tr><td>ratio</td><td>Gear ratio of gearbox</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>axisControlBus</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AxisType1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBc2aeb0624ce29b82Type1I.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisType1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisType1"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.AxisType1</h2>
+<p>
+<span class="ModelicaDescription">Axis model of the r3 joints 1,2,3</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Model of axis 1, 2, 3 of the robot r3. An axis consists of a gearbox with modelled gear elasticity and bearing friction,
+a model of the electrical motor and a continuous-time cascade controller.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisType2"
+>AxisType2</a> (Axis model of the r3 joints 4,5,6).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gear</td><td>&nbsp;</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Controller</td></tr>
+<tr><td>kp</td><td>Gain of position controller</td></tr>
+<tr><td>ks</td><td>Gain of speed controller</td></tr>
+<tr><td>Ts</td><td>Time constant of integrator of speed controller [s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Motor</td></tr>
+<tr><td>k</td><td>Gain of motor</td></tr>
+<tr><td>w</td><td>Time constant of motor</td></tr>
+<tr><td>D</td><td>Damping constant of motor</td></tr>
+<tr><td>J</td><td>Moment of inertia of motor [kg.m2]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Gear</td></tr>
+<tr><td>ratio</td><td>Gear ratio</td></tr>
+<tr><td>Rv0</td><td>Viscous friction torque at zero velocity [N.m]</td></tr>
+<tr><td>Rv1</td><td>Viscous friction coefficient [N.m.s/rad]</td></tr>
+<tr><td>peak</td><td>Maximum static friction torque is peak*Rv0 (peak &gt;= 1)</td></tr>
+<tr><td>c</td><td>Spring constant [N.m/rad]</td></tr>
+<tr><td>cd</td><td>Damper constant [N.m.s/rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>&nbsp;</td></tr>
+<tr><td>axisControlBus</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AxisType2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBc2aeb0634ce29b81Type2I.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisType2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisType2"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.AxisType2</h2>
+<p>
+<span class="ModelicaDescription">Axis model of the r3 joints 4,5,6</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The axis model consists of the <strong>controller</strong>, the <strong>motor</strong> including current
+controller and the <strong>gearbox</strong> including gear elasticity and bearing friction.
+The only difference to the axis model of joints 4,5,6 (= model axisType2) is
+that elasticity and damping in the gear boxes are not neglected.
+</p>
+<p>
+The input signals of this component are the desired angle and desired angular
+velocity of the joint. The reference signals have to be "smooth" (position
+has to be differentiable at least 2 times). Otherwise, the gear elasticity
+leads to significant oscillations.
+</p>
+<p>
+Default values of the parameters are given for the axis of joint 1.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>gear</td><td>&nbsp;</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Controller</td></tr>
+<tr><td>kp</td><td>Gain of position controller</td></tr>
+<tr><td>ks</td><td>Gain of speed controller</td></tr>
+<tr><td>Ts</td><td>Time constant of integrator of speed controller [s]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Motor</td></tr>
+<tr><td>k</td><td>Gain of motor</td></tr>
+<tr><td>w</td><td>Time constant of motor</td></tr>
+<tr><td>D</td><td>Damping constant of motor</td></tr>
+<tr><td>J</td><td>Moment of inertia of motor [kg.m2]</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">Gear</td></tr>
+<tr><td>ratio</td><td>Gear ratio</td></tr>
+<tr><td>Rv0</td><td>Viscous friction torque at zero velocity [N.m]</td></tr>
+<tr><td>Rv1</td><td>Viscous friction coefficient [N.m.s/rad]</td></tr>
+<tr><td>peak</td><td>Maximum static friction torque is peak*Rv0 (peak &gt;= 1)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>&nbsp;</td></tr>
+<tr><td>axisControlBus</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MechanicalStructure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB983303c8a3e5ec71ctureI.png" alt="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.MechanicalStructure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.MechanicalStructure"></a><a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</a>.MechanicalStructure</h2>
+<p>
+<span class="ModelicaDescription">Model of the mechanical part of the r3 robot (without animation)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model contains the mechanical components of the r3 robot
+(multibody system).
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>mLoad</td><td>Mass of load [kg]</td></tr>
+<tr><td>rLoad[3]</td><td>Distance from last flange to load mass [m]</td></tr>
+<tr><td>g</td><td>Gravity acceleration [m/s2]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>axis1</td><td>&nbsp;</td></tr>
+<tr><td>axis2</td><td>&nbsp;</td></tr>
+<tr><td>axis3</td><td>&nbsp;</td></tr>
+<tr><td>axis4</td><td>&nbsp;</td></tr>
+<tr><td>axis5</td><td>&nbsp;</td></tr>
+<tr><td>axis6</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:24 2026.
+</address>
+</body>
+</html>

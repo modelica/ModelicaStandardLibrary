@@ -1,0 +1,480 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Spice3.Internal.Bjt</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Records and functions for bjt model&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Bjt<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Spice3.Internal.Bjt"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.Bjt</h2>
+<p>
+<span class="ModelicaDescription">Records and functions for bjt model</span>
+</p>
+<h3>Information</h3>
+
+<p>This package Bjt contains functions and records with data of the Bjt bipolar transistor models.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.Bjt" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt.Bjt"
+>Bjt</a>
+</td>
+<td>Record for bjt device parameters</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineParams" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineParams"
+>BjtModelLineParams</a>
+</td>
+<td>Record for bjt model line parameters</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.BjtCalc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt.BjtCalc"
+>BjtCalc</a>
+</td>
+<td>Bjt variables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi28180b2fce51de90renceS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.CurrentsCapacitances" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt.CurrentsCapacitances"
+>CurrentsCapacitances</a>
+</td>
+<td>Bjt variables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtModelLineInitEquations" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt.bjtModelLineInitEquations"
+>bjtModelLineInitEquations</a>
+</td>
+<td>Initial calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtInitEquations" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt.bjtInitEquations"
+>bjtInitEquations</a>
+</td>
+<td>Initial calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtCalcTempDependencies" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt.bjtCalcTempDependencies"
+>bjtCalcTempDependencies</a>
+</td>
+<td>Temperature dependency calculation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtNoBypassCode" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt.bjtNoBypassCode"
+>bjtNoBypassCode</a>
+</td>
+<td>Calculation of currents</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtRenameParameters" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt.bjtRenameParameters"
+>bjtRenameParameters</a>
+</td>
+<td>Technology parameter renaming</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyS.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtRenameParametersDev" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt.bjtRenameParametersDev"
+>bjtRenameParametersDev</a>
+</td>
+<td>Temperature calculation</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Bjt<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.Bjt" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Bjt.Bjt"></a><a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Modelica.Electrical.Spice3.Internal.Bjt</a>.Bjt</h2>
+<p>
+<span class="ModelicaDescription">Record for bjt device parameters</span>
+</p>
+<h3>Information</h3>
+
+<p>This record contains the device parameters that are used for the bipolar transistor bjt model in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Spice3_Internal_Model.html#Modelica.Electrical.Spice3.Internal.Model.Model"
+>Spice3.Internal.Model.Model</a> (Device Temperature).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_dTemp</td><td>TEMP, Device Temperature [K]</td></tr>
+<tr><td>m_area</td><td>AREA</td></tr>
+<tr><td>m_bOff</td><td>OFF</td></tr>
+<tr><td>m_dICvbe</td><td>IC_VBE [V]</td></tr>
+<tr><td>m_bICvbeIsGiven</td><td>&nbsp;</td></tr>
+<tr><td>m_dICvce</td><td>IC_VCE [V]</td></tr>
+<tr><td>m_bICvceIsGiven</td><td>&nbsp;</td></tr>
+<tr><td>m_uic</td><td>Use initial conditions, UIC</td></tr>
+<tr><td>m_bSensArea</td><td>SENS_AREA</td></tr>
+<tr><td>m_transitTimeHighCurrentF</td><td>[A]</td></tr>
+<tr><td>m_invRollOffF</td><td>[1/A]</td></tr>
+<tr><td>m_invRollOffR</td><td>[1/A]</td></tr>
+<tr><td>m_CScap</td><td>[F]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BjtModelLineParams<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineParams" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineParams"></a><a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Modelica.Electrical.Spice3.Internal.Bjt</a>.BjtModelLineParams</h2>
+<p>
+<span class="ModelicaDescription">Record for bjt model line parameters</span>
+</p>
+<h3>Information</h3>
+
+<p>This record contains the model line (also called model card) parameters that are used for the bipolar transistor model in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_type</td><td>Device type : 1 = n,  -1 = p</td></tr>
+<tr><td>m_tnom</td><td>TNOM, Parameter measurement temperature [K]</td></tr>
+<tr><td>m_satCur</td><td>IS, Saturation Current [A]</td></tr>
+<tr><td>m_betaF</td><td>BF, Ideal forward beta</td></tr>
+<tr><td>m_emissionCoeffF</td><td>NF, Forward emission coefficient</td></tr>
+<tr><td>m_leakBEemissionCoeff</td><td>NE, B-E leakage emission coefficient</td></tr>
+<tr><td>m_leakBEcurrent</td><td>ISE, B-E leakage saturation current [A]</td></tr>
+<tr><td>m_c2</td><td>C2, Obsolete parameter name</td></tr>
+<tr><td>m_leakBCcurrent</td><td>ISC, B-C leakage saturation current [A]</td></tr>
+<tr><td>m_c4</td><td>C4, Obsolete parameter name</td></tr>
+<tr><td>m_leakBEcurrentIsGiven</td><td>&nbsp;</td></tr>
+<tr><td>m_c2IsGiven</td><td>&nbsp;</td></tr>
+<tr><td>m_leakBCcurrentIsGiven</td><td>&nbsp;</td></tr>
+<tr><td>m_c4IsGiven</td><td>&nbsp;</td></tr>
+<tr><td>m_betaR</td><td>BR, Ideal reverse beta</td></tr>
+<tr><td>m_emissionCoeffR</td><td>NR, Reverse emission coefficient</td></tr>
+<tr><td>m_leakBCemissionCoeff</td><td>NC, B-C leakage emission coefficient</td></tr>
+<tr><td>m_earlyVoltF</td><td>VAF, Forward Early voltage [V]</td></tr>
+<tr><td>m_rollOffF</td><td>IKF, Forward beta roll-off corner current [A]</td></tr>
+<tr><td>m_earlyVoltR</td><td>VAR, Reverse Early voltage [V]</td></tr>
+<tr><td>m_rollOffR</td><td>IKR, reverse beta roll-off corner current [A]</td></tr>
+<tr><td>m_emitterResist</td><td>RE, Emitter resistance [Ohm]</td></tr>
+<tr><td>m_collectorResist</td><td>RC, Collector resistance [Ohm]</td></tr>
+<tr><td>m_baseCurrentHalfResist</td><td>IRB, Current for base resistance=(rb+rbm)/2 [A]</td></tr>
+<tr><td>m_baseResist</td><td>RB, Zero bias base resistance [Ohm]</td></tr>
+<tr><td>m_minBaseResist</td><td>RBM, Minimum base resistance [Ohm]</td></tr>
+<tr><td>m_minBaseResistIsGiven</td><td>&nbsp;</td></tr>
+<tr><td>m_depletionCapBE</td><td>CJE, Zero bias B-E depletion capacitance [F]</td></tr>
+<tr><td>m_potentialBE</td><td>VJE, B-E built in potential [V]</td></tr>
+<tr><td>m_junctionExpBE</td><td>MJE, B-E built in potential</td></tr>
+<tr><td>m_transitTimeF</td><td>TF, Ideal forward transit time [s]</td></tr>
+<tr><td>m_transitTimeBiasCoeffF</td><td>XTF, Coefficient for bias dependence of TF</td></tr>
+<tr><td>m_transitTimeHighCurrentF</td><td>ITF, High current dependence of TF [A]</td></tr>
+<tr><td>m_transitTimeFVBC</td><td>VTF, Voltage giving VBC dependence of TF [V]</td></tr>
+<tr><td>m_excessPhase</td><td>PTF, Excess phase [Hz]</td></tr>
+<tr><td>m_depletionCapBC</td><td>CJC, Zero bias B-C depletion capacitance [F]</td></tr>
+<tr><td>m_potentialBC</td><td>VJC, B-C built in potential [V]</td></tr>
+<tr><td>m_junctionExpBC</td><td>MJC, B-C junction grading coefficient</td></tr>
+<tr><td>m_baseFractionBCcap</td><td>XCJC, Fraction of B-C cap to internal base</td></tr>
+<tr><td>m_transitTimeR</td><td>TR, Ideal reverse transit time [s]</td></tr>
+<tr><td>m_capCS</td><td>CJS, Zero bias C-S capacitance [F]</td></tr>
+<tr><td>m_potentialSubstrate</td><td>VJS, Zero bias C-S capacitance [V]</td></tr>
+<tr><td>m_exponentialSubstrate</td><td>MJS, Substrate junction grading coefficient</td></tr>
+<tr><td>m_betaExp</td><td>XTB, Forward and reverse beta temp. exp.</td></tr>
+<tr><td>m_energyGap</td><td>EG, Energy gap for IS temp. dependency [eV]</td></tr>
+<tr><td>m_tempExpIS</td><td>XTI,Temp. exponent for IS</td></tr>
+<tr><td>m_fNcoef</td><td>KF, Flicker Noise Coefficient</td></tr>
+<tr><td>m_fNexp</td><td>AF, Flicker Noise Exponent</td></tr>
+<tr><td>m_depletionCapCoeff</td><td>FC, Forward bias junction fit parameter</td></tr>
+<tr><td>m_collectorConduct</td><td>[S]</td></tr>
+<tr><td>m_emitterConduct</td><td>[S]</td></tr>
+<tr><td>m_transitTimeVBCFactor</td><td>[1/V]</td></tr>
+<tr><td>m_excessPhaseFactor</td><td>&nbsp;</td></tr>
+<tr><td>m_invEarlyVoltF</td><td>[1/V]</td></tr>
+<tr><td>m_invRollOffF</td><td>[1/A]</td></tr>
+<tr><td>m_invEarlyVoltR</td><td>[1/V]</td></tr>
+<tr><td>m_invRollOffR</td><td>[1/A]</td></tr>
+<tr><td>m_bNPN</td><td>&nbsp;</td></tr>
+<tr><td>m_bPNP</td><td>&nbsp;</td></tr>
+<tr><td>m_area</td><td>&nbsp;</td></tr>
+<tr><td>m_bOff</td><td>&nbsp;</td></tr>
+<tr><td>m_dICvbe</td><td>[V]</td></tr>
+<tr><td>m_bICvbeIsGiven</td><td>&nbsp;</td></tr>
+<tr><td>m_dICvce</td><td>[V]</td></tr>
+<tr><td>m_bICvceIsGiven</td><td>&nbsp;</td></tr>
+<tr><td>m_bSensArea</td><td>&nbsp;</td></tr>
+<tr><td>m_dTemp</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BjtCalc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.BjtCalc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Bjt.BjtCalc"></a><a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Modelica.Electrical.Spice3.Internal.Bjt</a>.BjtCalc</h2>
+<p>
+<span class="ModelicaDescription">Bjt variables</span>
+</p>
+<h3>Information</h3>
+
+<p>This record contains the model variables that are used for the bipolar transistor model in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_tSatCur</td><td>[A]</td></tr>
+<tr><td>m_tBetaF</td><td>&nbsp;</td></tr>
+<tr><td>m_tBetaR</td><td>&nbsp;</td></tr>
+<tr><td>m_tBEleakCur</td><td>[A]</td></tr>
+<tr><td>m_tBCleakCur</td><td>[A]</td></tr>
+<tr><td>m_tBEcap</td><td>[F]</td></tr>
+<tr><td>m_tBEpot</td><td>[V]</td></tr>
+<tr><td>m_tBCcap</td><td>[F]</td></tr>
+<tr><td>m_tBCpot</td><td>[V]</td></tr>
+<tr><td>m_tDepCapBE</td><td>[V]</td></tr>
+<tr><td>m_tDepCapBC</td><td>[V]</td></tr>
+<tr><td>m_tVcrit</td><td>[V]</td></tr>
+<tr><td>m_dVt</td><td>[V]</td></tr>
+<tr><td>m_tF1c</td><td>[V]</td></tr>
+<tr><td>m_f2c</td><td>&nbsp;</td></tr>
+<tr><td>m_f3c</td><td>&nbsp;</td></tr>
+<tr><td>m_tF1e</td><td>[V]</td></tr>
+<tr><td>m_f2e</td><td>&nbsp;</td></tr>
+<tr><td>m_f3e</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CurrentsCapacitances<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice10d14ab9fa34387erdMOSI.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.CurrentsCapacitances" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Bjt.CurrentsCapacitances"></a><a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Modelica.Electrical.Spice3.Internal.Bjt</a>.CurrentsCapacitances</h2>
+<p>
+<span class="ModelicaDescription">Bjt variables</span>
+</p>
+<h3>Information</h3>
+
+<p>This record contains the model variables that are used for the bipolar transistor model in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>iBE</td><td>[A]</td></tr>
+<tr><td>iBEN</td><td>[A]</td></tr>
+<tr><td>iBC</td><td>[A]</td></tr>
+<tr><td>iBCN</td><td>[A]</td></tr>
+<tr><td>iCC</td><td>[A]</td></tr>
+<tr><td>capbc</td><td>[F]</td></tr>
+<tr><td>capbe</td><td>[F]</td></tr>
+<tr><td>capbx</td><td>[F]</td></tr>
+<tr><td>captt</td><td>[F]</td></tr>
+<tr><td>capcs</td><td>[F]</td></tr>
+<tr><td>rx</td><td>[Ohm]</td></tr>
+<tr><td>iXX</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bjtModelLineInitEquations<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtModelLineInitEquations" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Bjt.bjtModelLineInitEquations"></a><a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Modelica.Electrical.Spice3.Internal.Bjt</a>.bjtModelLineInitEquations</h2>
+<p>
+<span class="ModelicaDescription">Initial calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Input record with Bjt model line parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_p</td><td>Output record with Bjt model line variables</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bjtInitEquations<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtInitEquations" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Bjt.bjtInitEquations"></a><a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Modelica.Electrical.Spice3.Internal.Bjt</a>.bjtInitEquations</h2>
+<p>
+<span class="ModelicaDescription">Initial calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Input record Bjt</td></tr>
+<tr><td>in_pml</td><td>Input record with Bjt model line parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_v</td><td>Output record with Bjt</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bjtCalcTempDependencies<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtCalcTempDependencies" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Bjt.bjtCalcTempDependencies"></a><a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Modelica.Electrical.Spice3.Internal.Bjt</a>.bjtCalcTempDependencies</h2>
+<p>
+<span class="ModelicaDescription">Temperature dependency calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>In this function for the bipolar transistor model temperature dependencies are calculated using temperature treating functions from the equation package.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p3</td><td>Input record Bjt</td></tr>
+<tr><td>in_p</td><td>Input record with Bjt model line parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_c</td><td>Output record BjtCalc</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bjtNoBypassCode<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtNoBypassCode" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Bjt.bjtNoBypassCode"></a><a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Modelica.Electrical.Spice3.Internal.Bjt</a>.bjtNoBypassCode</h2>
+<p>
+<span class="ModelicaDescription">Calculation of currents</span>
+</p>
+<h3>Information</h3>
+
+<p>This function bjtNoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p3</td><td>Input record Bjt</td></tr>
+<tr><td>in_p</td><td>Input record with Bjt model line parameters</td></tr>
+<tr><td>in_c</td><td>Input record BjtCalc</td></tr>
+<tr><td>in_m_pVoltageValues[6]</td><td>[V]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_cc</td><td>Output record with calculated currents and capacitances</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bjtRenameParameters<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtRenameParameters" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Bjt.bjtRenameParameters"></a><a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Modelica.Electrical.Spice3.Internal.Bjt</a>.bjtRenameParameters</h2>
+<p>
+<span class="ModelicaDescription">Technology parameter renaming</span>
+</p>
+<h3>Information</h3>
+
+<p>This function assigns the external (given by the user, e.g. IS) technology parameters</p>
+<p>to the internal parameters (e.g. m_satCur). It also does the analysis of the IsGiven values.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ex</td><td>Modelcard with technology parameters</td></tr>
+<tr><td>TBJT</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>intern</td><td>Output record with Bjt model line parameters</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE bjtRenameParametersDev<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicebdc5e5a9e0cea978.polyI.png" alt="Modelica.Electrical.Spice3.Internal.Bjt.bjtRenameParametersDev" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Bjt.bjtRenameParametersDev"></a><a href="Modelica_Electrical_Spice3_Internal_Bjt.html#Modelica.Electrical.Spice3.Internal.Bjt"
+>Modelica.Electrical.Spice3.Internal.Bjt</a>.bjtRenameParametersDev</h2>
+<p>
+<span class="ModelicaDescription">Temperature calculation</span>
+</p>
+<h3>Information</h3>
+
+<p>This function assigns the external (given by the user, e.g. AREA) device parameters</p>
+<p>to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>AREA</td><td>Area factor</td></tr>
+<tr><td>OFF</td><td>Optional initial condition: false - IC not used, true - IC used, not implemented yet</td></tr>
+<tr><td>IC_VBE</td><td>Initial condition value, not yet implemented [V]</td></tr>
+<tr><td>IC_VCE</td><td>Initial condition value, not yet implemented [V]</td></tr>
+<tr><td>UIC</td><td>Use initial conditions, UIC</td></tr>
+<tr><td>SENS_AREA</td><td>Flag for sensitivity analysis, not yet implemented</td></tr>
+<tr><td>TEMP</td><td>Temperature [degC]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dev</td><td>Output record Bjt</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:22 2026.
+</address>
+</body>
+</html>

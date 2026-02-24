@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.Nonlinear</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Library of functions operating on nonlinear equations&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Nonlinear<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.Nonlinear"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.Nonlinear</h2>
+<p>
+<span class="ModelicaDescription">Library of functions operating on nonlinear equations</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This package contains functions to perform tasks such as numerically integrating
+a function, or solving a nonlinear algebraic equation system.
+The common feature of the functions in this package is
+that the nonlinear characteristics are passed as user definable
+functions.
+</p>
+
+<p>
+For details about how to define and to use functions as input arguments
+to functions, see
+<a href="../../../ModelicaReference 4.1.0/Resources/helpDymola/ModelicaReference_Classes.html#ModelicaReference.Classes.'function'"
+>ModelicaReference.Classes.'function'</a>
+or <a href="https://specification.modelica.org/maint/3.6/functions.html#functional-input-arguments-to-functions">Section&nbsp;12.4.2
+<em>Functional Input Arguments</em> of the Modelica&nbsp;3.6 specification</a>.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.ExamplesS.png" alt="Modelica.Math.Nonlinear.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Examples</a>
+</td>
+<td>Examples demonstrating the usage of the functions in package Nonlinear</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Nonlinear.InterfacesS.png" alt="Modelica.Math.Nonlinear.Interfaces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Nonlinear_Interfaces.html#Modelica.Math.Nonlinear.Interfaces"
+>Interfaces</a>
+</td>
+<td>Interfaces for functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Nonlinear.quadratureLobatto" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear.quadratureLobatto"
+>quadratureLobatto</a>
+</td>
+<td>Return the integral of an integrand function using an adaptive Lobatto rule</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.Nonlinear.solveOneNonlinearEquation" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear.solveOneNonlinearEquation"
+>solveOneNonlinearEquation</a>
+</td>
+<td>Solve f(u) = 0 in a very reliable and efficient way (f(u_min) and f(u_max) must have different signs)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE quadratureLobatto<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Nonlinear.quadratureLobatto" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Nonlinear.quadratureLobatto"></a><a href="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
+>Modelica.Math.Nonlinear</a>.quadratureLobatto</h2>
+<p>
+<span class="ModelicaDescription">Return the integral of an integrand function using an adaptive Lobatto rule</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>quadratureLobatto</strong>(function f(), a, b);
+<strong>quadratureLobatto</strong>(function f(), a, b, tolerance=100*Modelica.Constants.eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Compute definite integral over function f(u,...) from u=a up to u=b
+using the adaptive Lobatto rule according to:
+</p>
+
+<blockquote>
+<dl>
+<dt>Walter Gander:</dt>
+<dd> <strong>Adaptive Quadrature - Revisited</strong>. 1998.
+     <a href="ftp://ftp.inf.ethz.ch/pub/publications/tech-reports/3xx/306.ps">ftp://ftp.inf.ethz.ch/pub/publications/tech-reports/3xx/306.ps</a>
+     </dd>
+</dl>
+</blockquote>
+
+<h4>Example</h4>
+
+<p>
+See the examples in <a href="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Modelica.Math.Nonlinear.Examples</a>.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Integrand function</td></tr>
+<tr><td>a</td><td>Lower limit of integration interval</td></tr>
+<tr><td>b</td><td>Upper limit of integration interval</td></tr>
+<tr><td>tolerance</td><td>Relative tolerance for integral value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>integral</td><td>Integral value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE solveOneNonlinearEquation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.Nonlinear.solveOneNonlinearEquation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Nonlinear.solveOneNonlinearEquation"></a><a href="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
+>Modelica.Math.Nonlinear</a>.solveOneNonlinearEquation</h2>
+<p>
+<span class="ModelicaDescription">Solve f(u) = 0 in a very reliable and efficient way (f(u_min) and f(u_max) must have different signs)</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>solveOneNonlinearEquation</strong>(function f(), u_min, u_max);
+<strong>solveOneNonlinearEquation</strong>(function f(), u_min, u_max, tolerance=100*Modelica.Constants.eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+This function determines the solution of <strong>one non-linear algebraic equation</strong> "y=f(u)"
+in <strong>one unknown</strong> "u" in a reliable way. It is one of the best numerical
+algorithms for this purpose. As input, the nonlinear function f(u)
+has to be given, as well as an interval u_min, u_max that
+contains the solution, i.e., "f(u_min)" and "f(u_max)" must
+have a different sign. The function computes a smaller interval
+in which a sign change is present using the relative tolerance
+"tolerance" that can be given as 4th input argument.
+</p>
+
+<p>
+The interval reduction is performed using
+inverse quadratic interpolation (interpolating with a quadratic polynomial
+through the last 3 points and computing the zero). If this fails,
+bisection is used, which always reduces the interval by a factor of 2.
+The inverse quadratic interpolation method has superlinear convergence.
+This is roughly the same convergence rate as a globally convergent Newton
+method, but without the need to compute derivatives of the non-linear
+function. The solver function is a direct mapping of the Algol 60 procedure
+"zero" to Modelica, from:
+</p>
+
+<blockquote>
+<dl>
+<dt> Brent R.P.:</dt>
+<dd> <strong>Algorithms for Minimization without derivatives</strong>.
+     Prentice Hall, 1973, pp. 58-59.<br>
+     Download: <a href="https://maths-people.anu.edu.au/~brent/pd/rpb011i.pdf">https://maths-people.anu.edu.au/~brent/pd/rpb011i.pdf</a><br>
+     Errata and new print: <a href="https://maths-people.anu.edu.au/~brent/pub/pub011.html">https://maths-people.anu.edu.au/~brent/pub/pub011.html</a>
+</dd>
+</dl>
+</blockquote>
+
+<h4>Example</h4>
+
+<p>
+See the examples in <a href="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Modelica.Math.Nonlinear.Examples</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Function y = f(u); u is computed so that y=0</td></tr>
+<tr><td>u_min</td><td>Lower bound of search interval</td></tr>
+<tr><td>u_max</td><td>Upper bound of search interval</td></tr>
+<tr><td>tolerance</td><td>Relative tolerance of solution u</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Value of independent variable u so that f(u) = 0</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:32 2026.
+</address>
+</body>
+</html>

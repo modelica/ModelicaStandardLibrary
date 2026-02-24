@@ -1,0 +1,1427 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody.Sensors</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Sensors to measure variables&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+li.unchecked::marker { content: "\2610  "; font-size: 1.5em; }
+li.checked::marker { content: "\2611  "; font-size: 1.5em; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.MultiBody.Sensors"></a><a href="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</a>.Sensors</h2>
+<p>
+<span class="ModelicaDescription">Sensors to measure variables</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Package <strong>Sensors</strong> contains <strong>ideal measurement</strong>
+components to determine absolute and relative kinematic
+quantities, as well as cut-forces, cut-torques and power. All
+measured quantities can be provided in every desired
+coordinate system.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SensorsPackage.html#Modelica.Icons.SensorsPackage"
+>Modelica.Icons.SensorsPackage</a> (Icon for packages containing sensors).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBff4c7be8b6f9064eensorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor"
+>AbsoluteSensor</a>
+</td>
+<td>Measure absolute kinematic quantities of frame connector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB81c28f45c9421a78ensorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.RelativeSensor"
+>RelativeSensor</a>
+</td>
+<td>Measure relative kinematic quantities between two frame connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBe19ca5875fb4d74fitionS.png" alt="Modelica.Mechanics.MultiBody.Sensors.AbsolutePosition" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.AbsolutePosition"
+>AbsolutePosition</a>
+</td>
+<td>Measure absolute position vector of the origin of a frame connector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB2572205fe1df540aocityS.png" alt="Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity"
+>AbsoluteVelocity</a>
+</td>
+<td>Measure absolute velocity vector of origin of frame connector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBed089d12924dfb0fnglesS.png" alt="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngles" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngles"
+>AbsoluteAngles</a>
+</td>
+<td>Measure absolute angles between frame connector and the world frame</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB2572205fe1df540aocityS.png" alt="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity"
+>AbsoluteAngularVelocity</a>
+</td>
+<td>Measure absolute angular velocity of frame connector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB5ed4aaccb3c40eb1itionS.png" alt="Modelica.Mechanics.MultiBody.Sensors.RelativePosition" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.RelativePosition"
+>RelativePosition</a>
+</td>
+<td>Measure relative position vector between the origins of two frame connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBa2aa25a40daf8df4ocityS.png" alt="Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity"
+>RelativeVelocity</a>
+</td>
+<td>Measure relative velocity vector between the origins of two frame connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB6f7eb06fedf6e739nglesS.png" alt="Modelica.Mechanics.MultiBody.Sensors.RelativeAngles" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.RelativeAngles"
+>RelativeAngles</a>
+</td>
+<td>Measure relative angles between two frame connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBa2aa25a40daf8df4ocityS.png" alt="Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity"
+>RelativeAngularVelocity</a>
+</td>
+<td>Measure relative angular velocity between two frame connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBdd4f10409bc9f186tanceS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Distance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.Distance"
+>Distance</a>
+</td>
+<td>Measure the distance between the origins of two frame connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBb43771e496ee81b9ForceS.png" alt="Modelica.Mechanics.MultiBody.Sensors.CutForce" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.CutForce"
+>CutForce</a>
+</td>
+<td>Measure cut force vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBf99f1b09f9d07d97orqueS.png" alt="Modelica.Mechanics.MultiBody.Sensors.CutTorque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.CutTorque"
+>CutTorque</a>
+</td>
+<td>Measure cut torque vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB24c8b3a97ef97a71orqueS.png" alt="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque"
+>CutForceAndTorque</a>
+</td>
+<td>Measure cut force and cut torque vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB58086f328a5825a3PowerS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Power" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.Power"
+>Power</a>
+</td>
+<td>Measure power flowing from frame_a to frame_b</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBfb3f15fbf4d41b1cectorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector"
+>TransformAbsoluteVector</a>
+</td>
+<td>Transform absolute vector in to another frame</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB7db529588b6f072aectorS.png" alt="Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector"
+>TransformRelativeVector</a>
+</td>
+<td>Transform relative vector in to another frame</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBb0469eb454d071a6ernalS.png" alt="Modelica.Mechanics.MultiBody.Sensors.Internal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal"
+>Internal</a>
+</td>
+<td>Internal package, should not be used by user</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AbsoluteSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBff4c7be8b6f9064eensorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.AbsoluteSensor</h2>
+<p>
+<span class="ModelicaDescription">Measure absolute kinematic quantities of frame connector</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Absolute kinematic quantities of frame_a are
+determined and provided at the conditional output signal connectors.
+For example, if parameter "get_r = <strong>true</strong>", the connector
+"r" is enabled and contains the absolute vector from the world frame
+to the origin of frame_a. The following quantities can be provided
+as output signals:
+</p>
+
+<ol>
+<li> Absolute position vector (= r)</li>
+<li> Absolute velocity vector (= v)</li>
+<li> Absolute acceleration vector (= a)</li>
+<li> Three angles to rotate world frame into frame_a (= angles)</li>
+<li> Absolute angular velocity vector (= w)</li>
+<li> Absolute angular acceleration vector (= z)</li>
+</ol>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+a vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vectors in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vectors in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vectors in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
+"frame_resolve" is enabled and the vectors are resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<p>
+In the following figure the animation of an AbsoluteSensor
+component is shown. The light blue coordinate system is
+frame_a and the yellow arrow is the animated sensor.
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png">
+</div>
+
+<p>
+Velocity, acceleration, angular velocity and angular acceleration are
+determined by differentiating them in the world frame and then transforming
+them in to the frame defined by <strong>resolveInFrame</strong>.
+</p>
+<p>
+For example, if resolveInFrame = <strong>Types.ResolveInFrameA.frame_a</strong>, then
+</p>
+<blockquote><pre>
+v0 = <strong>der</strong>(frame_a.r0);
+v  = resolve2(frame_a.R, v0);
+</pre></blockquote>
+<p>
+is returned, i.e., the derivative of the absolute distance from the
+world frame to the origin of frame_a, resolved in frame_a.
+</p>
+
+<p>
+The cut-force and the cut-torque in frame_resolve are
+always zero, whether frame_resolve is connected or not.
+</p>
+
+<p>
+If <strong>get_angles</strong> = <strong>true</strong>, the 3 angles to rotate the world
+frame into frame_a along the axes defined by parameter <strong>sequence</strong>
+are returned. For example, if sequence = {3,1,2} then the world frame is
+rotated around angles[1] along the z-axis, afterwards it is rotated
+around angles[2] along the x-axis, and finally it is rotated around
+angles[3] along the y-axis and is then identical to frame_a.
+The 3 angles are returned in the range
+</p>
+<blockquote><pre>
+-&pi; &lt;= angles[i] &lt;= &pi;
+</pre></blockquote>
+<p>
+There are <strong>two solutions</strong> for "angles[1]" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1| is
+minimal. The absolute transformation matrix of frame_a
+may be in a singular configuration with respect to "sequence", i.e.,
+there is an infinite number of angle values leading to the same absolute
+transformation matrix. In this case, the returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2]
+and angles[3] can be uniquely determined in the above range.
+</p>
+<p>
+The parameter <strong>sequence</strong> has the restriction that
+only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
+and sequence[2] &ne; sequence[3]. Often used values are:
+</p>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor</a> (Base class for absolute sensor models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show arrow)</td></tr>
+<tr><td>resolveInFrame</td><td>Frame in which vectors are resolved (world, frame_a, or frame_resolve)</td></tr>
+<tr><td>get_r</td><td>= true, to measure the absolute position vector of the origin of frame_a</td></tr>
+<tr><td>get_v</td><td>= true, to measure the absolute velocity of the origin of frame_a</td></tr>
+<tr><td>get_a</td><td>= true, to measure the absolute acceleration of the origin of frame_a</td></tr>
+<tr><td>get_w</td><td>= true, to measure the absolute angular velocity of frame_a</td></tr>
+<tr><td>get_z</td><td>= true, to measure the absolute angular acceleration of frame_a</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">3 angles to rotate the world frame into frame_a along the axes defined in &quot;sequence&quot;</td></tr>
+<tr><td>get_angles</td><td>= true, to measure the 3 rotation angles</td></tr>
+<tr><td>sequence</td><td>If get_angles=true: Angles are returned to rotate world frame around axes sequence[1], sequence[2] and finally sequence[3] into frame_a</td></tr>
+<tr><td>guessAngle1</td><td>If get_angles=true: Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>arrowColor</td><td>Color of absolute arrow from world frame to frame_b</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>r[3]</td><td>Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame [m]</td></tr>
+<tr><td>v[3]</td><td>Absolute velocity vector [m/s]</td></tr>
+<tr><td>a[3]</td><td>Absolute acceleration vector [m/s2]</td></tr>
+<tr><td>angles[3]</td><td>Angles to rotate world frame into frame_a via &#39;sequence&#39; [rad]</td></tr>
+<tr><td>w[3]</td><td>Absolute angular velocity vector [rad/s]</td></tr>
+<tr><td>z[3]</td><td>Absolute angular acceleration vector [rad/s2]</td></tr>
+<tr><td>frame_a</td><td>Coordinate system a of which the absolute kinematic quantities are measured</td></tr>
+<tr><td>frame_resolve</td><td>If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the output signals are resolved in this frame</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelativeSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB81c28f45c9421a78ensorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.RelativeSensor</h2>
+<p>
+<span class="ModelicaDescription">Measure relative kinematic quantities between two frame connectors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Relative kinematic quantities between frame_a and frame_b are
+determined and provided at the conditional output signal connectors.
+For example, if parameter "get_r_rel = <strong>true</strong>", the connector
+"r_rel" is enabled and contains the relative vector from
+frame_a to frame_b. The following quantities can be provided
+as output signals:
+</p>
+
+<ol>
+<li> Relative position vector (= r_rel)</li>
+<li> Relative velocity vector (= v_rel)</li>
+<li> Relative acceleration vector (= a_rel)</li>
+<li> Three angles to rotate frame_a into frame_b (= angles)</li>
+<li> Relative angular velocity vector (= w_rel)</li>
+<li> Relative angular acceleration vector (= z_rel)</li>
+</ol>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+a vector is resolved (before differentiation):
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vectors in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vectors in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vectors in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vectors in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
+"frame_resolve" is enabled and the vectors are resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<p>
+In the following figure the animation of a RelativeSensor
+component is shown. The light blue coordinate system is
+frame_a, the dark blue coordinate system is frame_b, and
+the yellow arrow is the animated sensor.
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Sensors/RelativeSensor.png">
+</div>
+
+<p>
+Note, derivatives
+of relative kinematic quantities are always performed with
+respect to the frame, in which the vector to be differentiated
+is resolved. After differentiation, it is possible via parameter
+<strong>resolveInFrameAfterDifferentiation</strong> (in the "Advanced" menu)
+to resolve the differentiated
+vector in another frame.
+</p>
+<p>
+For example, if resolveInFrame = <strong>Types.ResolveInFrameAB.frame_b</strong>, then
+</p>
+
+<blockquote><pre>
+r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
+v_rel = <strong>der</strong>(r_rel);
+</pre></blockquote>
+
+<p>
+is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
+the derivative of the relative distance from frame_a to frame_b,
+resolved in frame_b. If
+<strong>resolveInFrameAfterDifferentiation</strong> = Types.ResolveInFrameAB.world, then
+v_rel is additionally transformed to:
+</p>
+
+<blockquote><pre>
+v_rel = resolve1(frame_b.R, <strong>der</strong>(r_rel))
+</pre></blockquote>
+
+<p>
+The cut-force and the cut-torque in frame_resolve are
+always zero, whether frame_resolve is connected or not.
+</p>
+
+<p>
+If <strong>get_angles</strong> = <strong>true</strong>, the 3 angles to rotate frame_a
+into frame_b along the axes defined by parameter <strong>sequence</strong>
+are returned. For example, if sequence = {3,1,2} then frame_a is
+rotated around angles[1] along the z-axis, afterwards it is rotated
+around angles[2] along the x-axis, and finally it is rotated around
+angles[3] along the y-axis and is then identical to frame_b.
+The 3 angles are returned in the range
+</p>
+<blockquote><pre>
+-&pi; &lt;= angles[i] &lt;= &pi;
+</pre></blockquote>
+<p>
+There are <strong>two solutions</strong> for "angles[1]" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1| is
+minimal. The relative transformation matrix between frame_a and
+frame_b may be in a singular configuration with respect to "sequence", i.e.,
+there is an infinite number of angle values leading to the same relative
+transformation matrix. In this case, the returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2]
+and angles[3] can be uniquely determined in the above range.
+</p>
+<p>
+The parameter <strong>sequence</strong> has the restriction that
+only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
+and sequence[2] &ne; sequence[3]. Often used values are:
+</p>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor</a> (Base class for relative sensor models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show arrow)</td></tr>
+<tr><td>resolveInFrame</td><td>Frame in which vectors are resolved before differentiation (world, frame_a, frame_b, or frame_resolve)</td></tr>
+<tr><td>get_r_rel</td><td>= true, to measure the relative position vector from the origin of frame_a to frame_b</td></tr>
+<tr><td>get_v_rel</td><td>= true, to measure the relative velocity of the origin of frame_b with respect to frame_a</td></tr>
+<tr><td>get_a_rel</td><td>= true, to measure the relative acceleration of the origin of frame_b with respect to frame_a</td></tr>
+<tr><td>get_w_rel</td><td>= true, to measure the relative angular velocity of frame_b with respect to frame_a</td></tr>
+<tr><td>get_z_rel</td><td>= true, to measure the relative angular acceleration of frame_b with respect to frame_a</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">3 angles to rotate frame_a into frame_b along the axes defined in &quot;sequence&quot;</td></tr>
+<tr><td>get_angles</td><td>= true, to measure the 3 rotation angles</td></tr>
+<tr><td>sequence</td><td>If get_angles=true: Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b</td></tr>
+<tr><td>guessAngle1</td><td>If get_angles=true: Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum [rad]</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>arrowColor</td><td>Color of relative arrow from frame_a to frame_b</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if get_v_rel or get_a_rel or get_z_rel</td></tr>
+<tr><td>resolveInFrameAfterDifferentiation</td><td>Frame in which vectors are resolved after differentiation (world, frame_a, frame_b, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>frame_resolve</td><td>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output signals are resolved in this frame</td></tr>
+<tr><td>r_rel[3]</td><td>Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame [m]</td></tr>
+<tr><td>v_rel[3]</td><td>Relative velocity vector [m/s]</td></tr>
+<tr><td>a_rel[3]</td><td>Relative acceleration vector [m/s2]</td></tr>
+<tr><td>angles[3]</td><td>Angles to rotate frame_a into frame_b via &#39;sequence&#39; [rad]</td></tr>
+<tr><td>w_rel[3]</td><td>Relative angular velocity vector [rad/s]</td></tr>
+<tr><td>z_rel[3]</td><td>Relative angular acceleration vector [rad/s2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AbsolutePosition<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBe19ca5875fb4d74fitionI.png" alt="Modelica.Mechanics.MultiBody.Sensors.AbsolutePosition" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.AbsolutePosition"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.AbsolutePosition</h2>
+<p>
+<span class="ModelicaDescription">Measure absolute position vector of the origin of a frame connector</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The absolute position vector of the origin of frame_a is
+determined and provided at the output signal connector <strong>r</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the position vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
+"frame_resolve" is enabled and r is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor"
+>Internal.PartialAbsoluteSensor</a> (Base class for absolute sensor models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector r shall be resolved (world, frame_a, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a of which the absolute kinematic quantities are measured</td></tr>
+<tr><td>r[3]</td><td>Absolute position vector resolved in frame defined by resolveInFrame [m]</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which output vector r is optionally resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AbsoluteVelocity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB2572205fe1df540aocityI.png" alt="Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.AbsoluteVelocity</h2>
+<p>
+<span class="ModelicaDescription">Measure absolute velocity vector of origin of frame connector</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The absolute velocity vector of the origin of frame_a is
+determined and provided at the output signal connector <strong>v</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the velocity vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
+"frame_resolve" is enabled and v is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+v0 = der(frame_a.r_0);
+v  = MultiBody.Frames.resolve2(frame_a.R, v0);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor"
+>Internal.PartialAbsoluteSensor</a> (Base class for absolute sensor models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector v shall be resolved (world, frame_a, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a of which the absolute kinematic quantities are measured</td></tr>
+<tr><td>v[3]</td><td>Absolute velocity vector resolved in frame defined by resolveInFrame [m/s]</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which output vector v is optionally resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AbsoluteAngles<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBed089d12924dfb0fnglesI.png" alt="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngles" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngles"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.AbsoluteAngles</h2>
+<p>
+<span class="ModelicaDescription">Measure absolute angles between frame connector and the world frame</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model determines the 3 angles to rotate the world frame
+into frame_a along the axes defined by parameter <strong>sequence</strong>.
+For example, if sequence = {3,1,2} then the world frame is
+rotated around angles[1] along the z-axis, afterwards it is rotated
+around angles[2] along the x-axis, and finally it is rotated around
+angles[3] along the y-axis and is then identical to frame_a.
+The 3 angles are returned in the range
+</p>
+<blockquote><pre>
+-&pi; &lt;= angles[i] &lt;= &pi;
+</pre></blockquote>
+<p>
+There are <strong>two solutions</strong> for "angles[1]" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1| is
+minimal. The transformation matrix between the world frame and
+frame_a may be in a singular configuration with respect to "sequence", i.e.,
+there is an infinite number of angle values leading to the same relative
+transformation matrix. In this case, the returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2]
+and angles[3] can be uniquely determined in the above range.
+</p>
+<p>
+The parameter <strong>sequence</strong> has the restriction that
+only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
+and sequence[2] &ne; sequence[3]. Often used values are:
+</p>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor"
+>Internal.PartialAbsoluteSensor</a> (Base class for absolute sensor models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sequence</td><td>Angles are returned to rotate world frame around axes sequence[1], sequence[2] and finally sequence[3] into frame_a</td></tr>
+<tr><td>guessAngle1</td><td>Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a of which the absolute kinematic quantities are measured</td></tr>
+<tr><td>angles[3]</td><td>Angles to rotate world frame into frame_a via &#39;sequence&#39; [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AbsoluteAngularVelocity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB2572205fe1df540aocityI.png" alt="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.AbsoluteAngularVelocity</h2>
+<p>
+<span class="ModelicaDescription">Measure absolute angular velocity of frame connector</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The absolute angular velocity of frame_a with respect to the
+world frame is
+determined and provided at the output signal connector <strong>w</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the angular velocity is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
+"frame_resolve" is enabled and w is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+w = MultiBody.Frames.angularVelocity2(frame_a.R);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor"
+>Internal.PartialAbsoluteSensor</a> (Base class for absolute sensor models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector w shall be resolved (world, frame_a, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a of which the absolute kinematic quantities are measured</td></tr>
+<tr><td>w[3]</td><td>Absolute angular velocity vector of frame_a with respect to world frame, resolved in frame defined by resolveInFrame [rad/s]</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which w is optionally resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelativePosition<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB5ed4aaccb3c40eb1itionI.png" alt="Modelica.Mechanics.MultiBody.Sensors.RelativePosition" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.RelativePosition"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.RelativePosition</h2>
+<p>
+<span class="ModelicaDescription">Measure relative position vector between the origins of two frame connectors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The relative position vector between the origins of frame_a and frame_b are
+determined and provided at the output signal connector <strong>r_rel</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the position vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
+"frame_resolve" is enabled and r_rel is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor"
+>Internal.PartialRelativeSensor</a> (Base class for relative sensor models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector r_rel shall be resolved (world, frame_a, frame_b, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>r_rel[3]</td><td>Relative position vector resolved in frame defined by resolveInFrame [m]</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which r_rel is optionally resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelativeVelocity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBa2aa25a40daf8df4ocityI.png" alt="Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.RelativeVelocity</h2>
+<p>
+<span class="ModelicaDescription">Measure relative velocity vector between the origins of two frame connectors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The relative velocity vector between the origins of frame_a and of frame_b are
+determined and provided at the output signal connector <strong>v_rel</strong>.
+This vector is defined as:
+</p>
+
+<blockquote><pre>
+r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+v_rel = <strong>der</strong>(r_rel);
+</pre></blockquote>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the velocity vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
+"frame_resolve" is enabled and v_rel is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_b, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+r_rel   = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+v_rel_a = <strong>der</strong>(r_rel);
+v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor"
+>Internal.PartialRelativeSensor</a> (Base class for relative sensor models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector v_rel shall be resolved (world, frame_a, frame_b, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>v_rel[3]</td><td>Relative velocity vector resolved in frame defined by resolveInFrame [m/s]</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which v_rel is optionally resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelativeAngles<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB6f7eb06fedf6e739nglesI.png" alt="Modelica.Mechanics.MultiBody.Sensors.RelativeAngles" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.RelativeAngles"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.RelativeAngles</h2>
+<p>
+<span class="ModelicaDescription">Measure relative angles between two frame connectors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model determines the 3 angles to rotate frame_a
+into frame_b along the axes defined by parameter <strong>sequence</strong>.
+For example, if sequence = {3,1,2} then frame_a is
+rotated around angles[1] along the z-axis, afterwards it is rotated
+around angles[2] along the x-axis, and finally it is rotated around
+angles[3] along the y-axis and is then identical to frame_b.
+The 3 angles are returned in the range
+</p>
+<blockquote><pre>
+-&pi; &lt;= angles[i] &lt;= &pi;
+</pre></blockquote>
+<p>
+There are <strong>two solutions</strong> for "angles[1]" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1| is
+minimal. The relative transformation matrix between frame_a and
+frame_b may be in a singular configuration with respect to "sequence", i.e.,
+there is an infinite number of angle values leading to the same relative
+transformation matrix. In this case, the returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2]
+and angles[3] can be uniquely determined in the above range.
+</p>
+<p>
+The parameter <strong>sequence</strong> has the restriction that
+only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
+and sequence[2] &ne; sequence[3]. Often used values are:
+</p>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor"
+>Internal.PartialRelativeSensor</a> (Base class for relative sensor models), <a href="Modelica_Icons.html#Modelica.Icons.RoundSensor"
+>Modelica.Icons.RoundSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sequence</td><td>Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b</td></tr>
+<tr><td>guessAngle1</td><td>Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>angles[3]</td><td>Angles to rotate frame_a into frame_b via &#39;sequence&#39; [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelativeAngularVelocity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBa2aa25a40daf8df4ocityI.png" alt="Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.RelativeAngularVelocity</h2>
+<p>
+<span class="ModelicaDescription">Measure relative angular velocity between two frame connectors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The relative angular velocity between frame_a and frame_b is
+determined and provided at the output signal connector <strong>w_rel</strong>.
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the angular velocity is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+In this basic sensor model, <strong>the connector frame_resolve
+is always enabled</strong>.
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the vector&nbsp;w_rel is
+resolved in the frame to which frame_resolve is connected.
+</p>
+
+<h4>Example</h4>
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
+computed as:
+</p>
+
+<blockquote><pre>
+// Relative orientation object from frame_a to frame_b
+R_rel = MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
+
+// Angular velocity resolved in frame_a
+w_rel = MultiBody.Frames.angularVelocity1(R_rel);
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor"
+>Internal.PartialRelativeSensor</a> (Base class for relative sensor models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector w_rel shall be resolved (world, frame_a, frame_b, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>w_rel[3]</td><td>Relative angular velocity vector between frame_a and frame_b resolved in frame defined by resolveInFrame [rad/s]</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which w_rel is optionally resolved</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Distance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBdd4f10409bc9f186tanceI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Distance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Distance"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.Distance</h2>
+<p>
+<span class="ModelicaDescription">Measure the distance between the origins of two frame connectors</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The <strong>distance</strong> between the origins of frame_a
+and of frame_b are determined and provided at the
+output signal connector <strong>distance</strong>. This
+distance is always positive. <strong>Derivatives</strong> of this
+signal can be easily obtained by connecting the
+block
+<a href="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Der"
+>Modelica.Blocks.Continuous.Der</a>
+to "distance" (this block performs analytic differentiation
+of the input signal using the der(&hellip;) operator).
+</p>
+<p>
+In the following figure the animation of a Distance
+sensor is shown. The light blue coordinate system is
+frame_a, the dark blue coordinate system is frame_b, and
+the yellow arrow is the animated sensor.
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Sensors/Distance.png">
+</div>
+
+<p>
+If the distance is smaller as parameter <strong>s_small</strong> (in the "advanced" menu),
+it is approximated such that its derivative is
+finite for zero distance. Without such an approximation, the derivative would
+be infinite and a division by zero would occur. The approximation is performed
+in the following way: If distance > s_small, it is computed as sqrt(r*r) where
+r is the position vector from the origin of frame_a to the origin of frame_b.
+If the distance becomes smaller as s_small, the "sqrt()" function is approximated
+by a second order polynomial, such that the function value and its first derivative
+are identical for sqrt() and the polynomial at s_small. Furthermore, the polynomial
+passes through zero. The effect is, that the distance function is continuous and
+differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected), <a href="Modelica_Icons.html#Modelica.Icons.RectangularSensor"
+>Modelica.Icons.RectangularSensor</a> (Icon representing a linear measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show arrow)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>arrowColor</td><td>Color of relative arrow from frame_a to frame_b</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaVariability::ParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>s_small</td><td>Prevent zero-division if distance between frame_a and frame_b is zero [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>distance</td><td>Distance between the origin of frame_a and the origin of frame_b</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CutForce<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBb43771e496ee81b9ForceI.png" alt="Modelica.Mechanics.MultiBody.Sensors.CutForce" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.CutForce"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.CutForce</h2>
+<p>
+<span class="ModelicaDescription">Measure cut force vector</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The cut-force acting between the two frames to which this
+model is connected, is determined and provided at the output signal connector
+<strong>force</strong> (= frame_a.f). If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-force is provided (= frame_b.f).
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the force vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
+"frame_resolve" is enabled and output force is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<p>
+In the following figure the animation of a CutForce
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrow is the cut force acting at frame_b and
+with negative sign at frame_a.
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Sensors/CutForce.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor</a> (Base class to measure cut force and/or torque between two frames, defined by components).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show arrow)</td></tr>
+<tr><td>positiveSign</td><td>= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)</td></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector(s) is/are resolved (world, frame_a, or frame_resolve)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>forceColor</td><td>Color of force arrow</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>force[3]</td><td>Cut force resolved in frame defined by resolveInFrame [N]</td></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>frame_resolve</td><td>Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CutTorque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBf99f1b09f9d07d97orqueI.png" alt="Modelica.Mechanics.MultiBody.Sensors.CutTorque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.CutTorque"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.CutTorque</h2>
+<p>
+<span class="ModelicaDescription">Measure cut torque vector</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The cut-torque acting between the two frames to which this
+model is connected, is determined and provided at the output signal connector
+<strong>torque</strong> (= frame_a.t). If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-torque is provided (= frame_b.t).
+</p>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the torque vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
+"frame_resolve" is enabled and output torque is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<p>
+In the following figure the animation of a CutTorque
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrow is the cut torque acting at frame_b and
+with negative sign at frame_a.
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Sensors/CutTorque.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor</a> (Base class to measure cut force and/or torque between two frames, defined by components).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show arrow)</td></tr>
+<tr><td>positiveSign</td><td>= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)</td></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector(s) is/are resolved (world, frame_a, or frame_resolve)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>torqueColor</td><td>Color of torque arrow</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>torque[3]</td><td>Cut torque resolved in frame defined by resolveInFrame [N.m]</td></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>frame_resolve</td><td>Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CutForceAndTorque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB24c8b3a97ef97a71orqueI.png" alt="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.CutForceAndTorque</h2>
+<p>
+<span class="ModelicaDescription">Measure cut force and cut torque vector</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The cut-force and cut-torque acting between the two frames to which this
+model is connected, are determined and provided at the output signal connectors
+<strong>force</strong> (= frame_a.f) and <strong>torque</strong> (= frame_a.t).
+If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-force and cut-torque is provided
+(= frame_b.f, frame_b.t).
+</p>
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+the two vectors are resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
+"frame_resolve" is enabled and the output vectors force and torque are resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<p>
+In the following figure the animation of a CutForceAndTorque
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrows are the cut force and the cut torque,
+respectively, acting at frame_b and
+with negative sign at frame_a.
+</p>
+
+<div>
+<img src="../Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png">
+</div>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor"
+>Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor</a> (Base class to measure cut force and/or torque between two frames, defined by components).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled (show force and torque arrow)</td></tr>
+<tr><td>positiveSign</td><td>= true, if force and torque with positive sign is returned (= frame_a.f/.t), otherwise with negative sign (= frame_b.f/.t)</td></tr>
+<tr><td>resolveInFrame</td><td>Frame in which output vector(s) is/are resolved (world, frame_a, or frame_resolve)</td></tr>
+<tr class="ModelicaVariability::ParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>forceColor</td><td>Color of force arrow</td></tr>
+<tr><td>torqueColor</td><td>Color of torque arrow</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>force[3]</td><td>Cut force resolved in frame defined by resolveInFrame [N]</td></tr>
+<tr><td>torque[3]</td><td>Cut torque resolved in frame defined by resolveInFrame [N.m]</td></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>frame_resolve</td><td>Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Power<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB58086f328a5825a3PowerI.png" alt="Modelica.Mechanics.MultiBody.Sensors.Power" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.Power"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.Power</h2>
+<p>
+<span class="ModelicaDescription">Measure power flowing from frame_a to frame_b</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This component provides the power flowing from frame_a to frame_b
+as output signal <strong>power</strong>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RoundSensor"
+>Modelica.Icons.RoundSensor</a> (Icon representing a round measurement device), <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>power</td><td>Power at frame_a as output signal [W]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TransformAbsoluteVector<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBfb3f15fbf4d41b1cectorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.TransformAbsoluteVector</h2>
+<p>
+<span class="ModelicaDescription">Transform absolute vector in to another frame</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input vector "Real r_in[3]" is assumed to be an absolute kinematic quantity
+of frame_a that is defined to be resolved in the frame defined
+with parameter "frame_r_in". This model resolves vector r_in in the
+coordinate system defined with parameter "frame_r_out" and returns the
+transformed output vector as "Real r_out[3]";
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RoundSensor"
+>Modelica.Icons.RoundSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_r_in</td><td>Frame in which vector r_in is resolved (world, frame_a, or frame_resolve)</td></tr>
+<tr><td>frame_r_out</td><td>Frame in which vector r_in shall be resolved and provided as r_out (world, frame_a, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system from which absolute kinematic quantities are measured</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which r_in or r_out is optionally resolved</td></tr>
+<tr><td>r_in[3]</td><td>Input vector resolved in frame defined by frame_r_in</td></tr>
+<tr><td>r_out[3]</td><td>Input vector r_in resolved in frame defined by frame_r_out</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TransformRelativeVector<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB7db529588b6f072aectorI.png" alt="Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector"></a><a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Modelica.Mechanics.MultiBody.Sensors</a>.TransformRelativeVector</h2>
+<p>
+<span class="ModelicaDescription">Transform relative vector in to another frame</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The input vector "Real r_in[3]" is assumed to be a relative kinematic quantity
+between frame_a and frame_b
+that is defined to be resolved in the frame defined
+with parameter "frame_r_in". This model resolves vector r_in in the
+coordinate system defined with parameter "frame_r_out" and returns the
+transformed output vector as "Real r_out[3]";
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Sensors_Internal.html#Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor"
+>Internal.PartialRelativeSensor</a> (Base class for relative sensor models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_r_in</td><td>Frame in which vector r_in is resolved (world, frame_a, frame_b, or frame_resolve)</td></tr>
+<tr><td>frame_r_out</td><td>Frame in which vector r_in shall be resolved and provided as r_out (world, frame_a, frame_b, or frame_resolve)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system a</td></tr>
+<tr><td>frame_b</td><td>Coordinate system b</td></tr>
+<tr><td>frame_resolve</td><td>Coordinate system in which r_in or r_out is optionally resolved</td></tr>
+<tr><td>r_in[3]</td><td>Input vector resolved in frame defined by frame_r_in</td></tr>
+<tr><td>r_out[3]</td><td>Input vector r_in resolved in frame defined by frame_r_out</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:24 2026.
+</address>
+</body>
+</html>
