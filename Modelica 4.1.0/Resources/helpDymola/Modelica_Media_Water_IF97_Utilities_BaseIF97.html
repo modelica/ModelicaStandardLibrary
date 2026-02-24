@@ -95,11 +95,11 @@ for this implementation. A mostly identical version has been published by the In
 Association for the Properties
 of Water and Steam (<a href="http://www.iapws.org">IAPWS</a>) with permission granted to re-publish the
 information if credit is given to IAPWS. This document is distributed with this library as
-<a href="Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a>.
+<a href="../Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a>.
 In addition, the equations published by <a href="http://www.iapws.org">IAPWS</a> for
-the transport properties dynamic viscosity (standards document: <a href="Resources/Documentation/Media/Water/IF97documentation/visc.pdf">visc.pdf</a>)
-and thermal conductivity (standards document: <a href="Resources/Documentation/Media/Water/IF97documentation/thcond.pdf">thcond.pdf</a>)
-and equations for the surface tension (standards document: <a href="Resources/Documentation/Media/Water/IF97documentation/surf.pdf">surf.pdf</a>)
+the transport properties dynamic viscosity (standards document: <a href="../Documentation/Media/Water/IF97documentation/visc.pdf">visc.pdf</a>)
+and thermal conductivity (standards document: <a href="../Documentation/Media/Water/IF97documentation/thcond.pdf">thcond.pdf</a>)
+and equations for the surface tension (standards document: <a href="../Documentation/Media/Water/IF97documentation/surf.pdf">surf.pdf</a>)
 are also implemented in this library and included for reference.
 </p>
 <p>
@@ -113,7 +113,7 @@ the most common thermophysical properties (thermodynamic and transport
 properties). The implementation requires part of the common medium
 property infrastructure of the Modelica.Thermal.Properties library in the file
 Common.mo. There are a few extensions from the version of IF97 as
-documented in <a href="Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a> in order to improve performance for
+documented in <a href="../Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a> in order to improve performance for
 dynamic simulations. Input variables for calculating the properties are
 only implemented for a limited number of variable pairs which make sense as dynamic states: (p,h), (p,T), (p,s) and (d,T).
 </p>
@@ -155,7 +155,7 @@ equations</em>.
   <caption>Figure 1: Regions and equations of IAPWS-IF97</caption>
   <tr>
     <td>
-      <img src="Resources/Images/Media/Water/if97.png" alt="Regions and equations of IAPWS-IF97">
+      <img src="../Images/Media/Water/if97.png" alt="Regions and equations of IAPWS-IF97">
     </td>
   </tr>
 </table>
@@ -176,10 +176,10 @@ with regard to short computing times.
 </p>
 <p>
 The complete description of the individual equations of the new industrial
-formulation IAPWS-IF97 is given in <a href="Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a>. Comprehensive information on
+formulation IAPWS-IF97 is given in <a href="../Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a>. Comprehensive information on
 IAPWS-IF97 (requirements, concept, accuracy, consistency along region boundaries,
 and the increase of computing speed in comparison with IFC-67, etc.) can
-be taken from <a href="Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a> or [2].
+be taken from <a href="../Documentation/Media/Water/IF97documentation/IF97.pdf">IF97.pdf</a> or [2].
 </p>
 <p>
 <a name="steamprop">[1]<em>Wagner, W., Kruse, A.</em> Properties of Water
@@ -494,49 +494,49 @@ needed the low level functions in BaseIF97 provide more choice.</p>
 <td>Triple point data</td>
 </tr>
 <tr>
-<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+<td><img src="Modelica.Media.Air.Refere72f5ddc0ba4b9d09ecialS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
 >Regions</a>
 </td>
 <td>Functions to find the current region for given pairs of input variables</td>
 </tr>
 <tr>
-<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+<td><img src="Modelica.Media.Air.Refere72f5ddc0ba4b9d09ecialS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
 >Basic</a>
 </td>
 <td>Base functions as described in IAWPS/IF97</td>
 </tr>
 <tr>
-<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries"
+<td><img src="Modelica.Media.Air.Refere72f5ddc0ba4b9d09ecialS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_IceBoundaries.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries"
 >IceBoundaries</a>
 </td>
 <td>The melting line and sublimation line curves from IAPWS</td>
 </tr>
 <tr>
-<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Transport.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport"
+<td><img src="Modelica.Media.Air.Refere72f5ddc0ba4b9d09ecialS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Transport.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport"
 >Transport</a>
 </td>
 <td>Transport properties for water according to IAPWS/IF97</td>
 </tr>
 <tr>
-<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+<td><img src="Modelica.Media.Air.Refere72f5ddc0ba4b9d09ecialS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
 >Isentropic</a>
 </td>
 <td>Functions for calculating the isentropic enthalpy from pressure p and specific entropy s</td>
 </tr>
 <tr>
-<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+<td><img src="Modelica.Media.Air.Refere72f5ddc0ba4b9d09ecialS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
 >Inverses</a>
 </td>
 <td>Efficient inverses for selected pairs of variables</td>
 </tr>
 <tr>
-<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.ByRegion" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_ByRegion.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.ByRegion"
+<td><img src="Modelica.Media.Air.Refere72f5ddc0ba4b9d09ecialS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.ByRegion" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_ByRegion.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.ByRegion"
 >ByRegion</a>
 </td>
 <td>Simple explicit functions for one region only</td>
 </tr>
 <tr>
-<td><img src="Modelica.Media.IdealGasesddabaedaf4c2f4abtionsS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase"
+<td><img src="Modelica.Media.Air.Refere72f5ddc0ba4b9d09ecialS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_TwoPhase.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase"
 >TwoPhase</a>
 </td>
 <td>Steam properties in the two-phase region and on the phase boundaries</td>
@@ -763,7 +763,7 @@ SE-22370 Lund, Sweden<br>
 <tr><td>dpro</td><td>Thermodynamic property collection</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:51 2026.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:31 2026.
 </address>
 </body>
 </html>

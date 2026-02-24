@@ -153,17 +153,17 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
 
 <p>
 The salient reluctance models the relationship between the complex magnetic potential difference
-<img src="Resources/Images/Magnetic/FundamentalWave/V_m.png"> and the complex magnetic flux <img src="Resources/Images/Magnetic/FundamentalWave/Phi.png">,
+<img src="../Images/Magnetic/FundamentalWave/V_m.png"> and the complex magnetic flux <img src="../Images/Magnetic/FundamentalWave/Phi.png">,
 </p>
 
 <p>
-&nbsp;&nbsp;<img src="Resources/Images/Magnetic/FundamentalWave/Components/reluctance.png">
+&nbsp;&nbsp;<img src="../Images/Magnetic/FundamentalWave/Components/reluctance.png">
 </p>
 
 <p>which can also be expressed in terms complex phasors:</p>
 
 <p>
-&nbsp;&nbsp;<img src="Resources/Images/Magnetic/FundamentalWave/Components/reluctance_alt.png">
+&nbsp;&nbsp;<img src="../Images/Magnetic/FundamentalWave/Components/reluctance_alt.png">
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_QuasiStatic_FundamentalWave_Interfaces.html#Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPort"
@@ -192,11 +192,11 @@ The salient reluctance models the relationship between the complex magnetic pote
 
 <p>
 The salient permeance models the relationship between the complex magnetic potential difference
-<img src="Resources/Images/Magnetic/FundamentalWave/V_m.png" alt="V_m.png"> and the complex magnetic flux <img src="Resources/Images/Magnetic/FundamentalWave/Phi.png">:
+<img src="../Images/Magnetic/FundamentalWave/V_m.png" alt="V_m.png"> and the complex magnetic flux <img src="../Images/Magnetic/FundamentalWave/Phi.png">:
 </p>
 
 <blockquote>
-<img src="Resources/Images/Magnetic/FundamentalWave/Components/permeance.png"
+<img src="../Images/Magnetic/FundamentalWave/Components/permeance.png"
       alt="reluctance.png">
 </blockquote>
 
@@ -234,46 +234,46 @@ The eddy current loss model with respect to fundamental wave effects is designed
 </p>
 
 <p>
-&nbsp;&nbsp;<img src="Resources/Images/Magnetic/FundamentalWave/Components/eddycurrent.png">.
+&nbsp;&nbsp;<img src="../Images/Magnetic/FundamentalWave/Components/eddycurrent.png">.
 </p>
 
 <table border="0" cellspacing="0" cellpadding="2">
   <caption>Fig. 1: equivalent models of eddy current losses</caption>
   <tr>
     <td>
-      <img src="Resources/Images/Magnetic/FundamentalWave/Components/eddycurrent_electric.png">
+      <img src="../Images/Magnetic/FundamentalWave/Components/eddycurrent_electric.png">
     </td>
   </tr>
 </table>
 
 <p>Due to the nature of eddy current losses, which can be represented by symmetric
 conductors in an equivalent electric circuit (Fig. 1), the respective
-number of phases <img src="Resources/Images/Magnetic/FundamentalWave/m.png"> has to be taken into account.
-Assume that the <img src="Resources/Images/Magnetic/FundamentalWave/m.png"> conductances
-of the equivalent circuit are <img src="Resources/Images/Magnetic/FundamentalWave/Components/Gc.png">,
+number of phases <img src="../Images/Magnetic/FundamentalWave/m.png"> has to be taken into account.
+Assume that the <img src="../Images/Magnetic/FundamentalWave/m.png"> conductances
+of the equivalent circuit are <img src="../Images/Magnetic/FundamentalWave/Components/Gc.png">,
 the conductance for the eddy current loss model is determined by</p>
 
 <p>
-&nbsp;&nbsp;<img src="Resources/Images/Magnetic/FundamentalWave/Components/GGc.png">
+&nbsp;&nbsp;<img src="../Images/Magnetic/FundamentalWave/Components/GGc.png">
 </p>
 
 <p>
-where <img src="Resources/Images/Magnetic/FundamentalWave/N.png"> is the number of turns of the symmetric electromagnetic coupling.
+where <img src="../Images/Magnetic/FundamentalWave/N.png"> is the number of turns of the symmetric electromagnetic coupling.
 </p>
 
-<p>For such an <img src="Resources/Images/Magnetic/FundamentalWave/m.png"> phase system
+<p>For such an <img src="../Images/Magnetic/FundamentalWave/m.png"> phase system
 the relationship between the voltage and current <a href="https://www.haumer.at/refimg/SpacePhasors.pdf">space phasors</a>
 and the magnetic flux and magnetic potential difference phasor is
 </p>
 
 <p>
-&nbsp;&nbsp;<img src="Resources/Images/Magnetic/FundamentalWave/Components/vPhi.png">,<br>
-&nbsp;&nbsp;<img src="Resources/Images/Magnetic/FundamentalWave/Components/iV_m.png">,
+&nbsp;&nbsp;<img src="../Images/Magnetic/FundamentalWave/Components/vPhi.png">,<br>
+&nbsp;&nbsp;<img src="../Images/Magnetic/FundamentalWave/Components/iV_m.png">,
 </p>
 
 <p>
-where <img src="Resources/Images/Magnetic/FundamentalWave/v_k.png">
-and <img src="Resources/Images/Magnetic/FundamentalWave/i_k.png">
+where <img src="../Images/Magnetic/FundamentalWave/v_k.png">
+and <img src="../Images/Magnetic/FundamentalWave/i_k.png">
 are the phase voltages and currents, respectively.
 </p>
 
@@ -281,7 +281,7 @@ are the phase voltages and currents, respectively.
 The dissipated loss power
 </p>
 <p>
-&nbsp;&nbsp;<img src="Resources/Images/Magnetic/FundamentalWave/Components/lossPower.png">
+&nbsp;&nbsp;<img src="../Images/Magnetic/FundamentalWave/Components/lossPower.png">
 </p>
 <p>
 can be determined for the <a href="https://www.haumer.at/refimg/SpacePhasors.pdf">space phasor</a>
@@ -322,7 +322,7 @@ relationship of the voltage and current space phasor.
 
 
 <p>
-Each phase <img src="Resources/Images/Magnetic/FundamentalWave/k.png"> of an <img src="Resources/Images/Magnetic/FundamentalWave/m.png"> phase winding has an effective number of turns, <img src="Resources/Images/Magnetic/FundamentalWave/effectiveTurns_k.png"> and an respective winging angle <img src="Resources/Images/Magnetic/FundamentalWave/orientation_k.png"> and a phase current <img src="Resources/Images/Magnetic/FundamentalWave/i_k.png">.
+Each phase <img src="../Images/Magnetic/FundamentalWave/k.png"> of an <img src="../Images/Magnetic/FundamentalWave/m.png"> phase winding has an effective number of turns, <img src="../Images/Magnetic/FundamentalWave/effectiveTurns_k.png"> and an respective winging angle <img src="../Images/Magnetic/FundamentalWave/orientation_k.png"> and a phase current <img src="../Images/Magnetic/FundamentalWave/i_k.png">.
 </p>
 
 <p>
@@ -330,22 +330,22 @@ The total complex magnetic potential difference of the polyphase winding is dete
 </p>
 
 <p>
-&nbsp;&nbsp;<img src="Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Components/polyphaseconverter_vm.png">
+&nbsp;&nbsp;<img src="../Images/Magnetic/QuasiStatic/FundamentalWave/Components/polyphaseconverter_vm.png">
 </p>
 
 <p>
 In this equation
-<img src="Resources/Images/Magnetic/QuasiStatic/FundamentalWave/i_sc1.png">
+<img src="../Images/Magnetic/QuasiStatic/FundamentalWave/i_sc1.png">
 is the positive symmetrical component of the currents.
 </p>
 
 <p>
 The positive sequence of the voltages
-<img src="Resources/Images/Magnetic/QuasiStatic/FundamentalWave/v_sc1.png">
+<img src="../Images/Magnetic/QuasiStatic/FundamentalWave/v_sc1.png">
 induced in each winding is directly proportional to the complex magnetic flux and the number of turns. This relationship can be modeled by means of</p>
 
 <p>
-&nbsp;&nbsp;<img src="Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Components/polyphaseconverter_phi.png">.
+&nbsp;&nbsp;<img src="../Images/Magnetic/QuasiStatic/FundamentalWave/Components/polyphaseconverter_phi.png">.
 </p>
 
 <h4>See also</h4>
@@ -387,7 +387,7 @@ QuasiStaticAnalogElectroMagneticConverter</a>
 <h3>Information</h3>
 
 <p>
-The analog single-phase winding has an effective number of turns, <img src="Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png"> and a respective orientation of the winding, <img src="Resources/Images/Magnetic/FundamentalWave/orientation.png">. The current in the winding is <img src="Resources/Images/Magnetic/FundamentalWave/i.png">.
+The analog single-phase winding has an effective number of turns, <img src="../Images/Magnetic/FundamentalWave/effectiveTurns.png"> and a respective orientation of the winding, <img src="../Images/Magnetic/FundamentalWave/orientation.png">. The current in the winding is <img src="../Images/Magnetic/FundamentalWave/i.png">.
 </p>
 
 <p>
@@ -395,13 +395,13 @@ The total complex magnetic potential difference of the single-phase winding is d
 </p>
 
 <p>
-&nbsp;&nbsp;<img src="Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Components/singlephaseconverter_vm.png">
+&nbsp;&nbsp;<img src="../Images/Magnetic/QuasiStatic/FundamentalWave/Components/singlephaseconverter_vm.png">
 </p>
 
 <p>
 where
-<img src="Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png">
-is the reference angle of the electrical and magnetic system, respectively. The induced voltage <img src="Resources/Images/Magnetic/FundamentalWave/v.png"> is identical to zero.
+<img src="../Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png">
+is the reference angle of the electrical and magnetic system, respectively. The induced voltage <img src="../Images/Magnetic/FundamentalWave/v.png"> is identical to zero.
 </p>
 
 <h4>See also</h4>
@@ -546,7 +546,7 @@ This is a simple short cut branch.
 <tr><td>port_n2</td><td>Connected with port_n1</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:42 2026.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:23 2026.
 </address>
 </body>
 </html>

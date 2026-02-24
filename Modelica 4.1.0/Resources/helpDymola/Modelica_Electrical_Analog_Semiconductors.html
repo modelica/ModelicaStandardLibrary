@@ -112,6 +112,30 @@ li.checked::marker { content: "\2611  "; font-size: 1.5em; }
 <td>Simple PNP BJT according to Ebers-Moll with heating port</td>
 </tr>
 <tr>
+<td><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powS.png" alt="Modelica.Electrical.Analog.Semiconductors.pow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.pow"
+>pow</a>
+</td>
+<td>Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powS.png" alt="Modelica.Electrical.Analog.Semiconductors.powlin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.powlin"
+>powlin</a>
+</td>
+<td>Power function (1 - x)^(-y) linearly continued for x &gt; 0 (provided y = const.)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powS.png" alt="Modelica.Electrical.Analog.Semiconductors.exlin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.exlin"
+>exlin</a>
+</td>
+<td>Exponential function linearly continued for x &gt; Maxexp</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powS.png" alt="Modelica.Electrical.Analog.Semiconductors.exlin2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.exlin2"
+>exlin2</a>
+</td>
+<td>Exponential function linearly continued for x &lt; MinExp and x &gt; Maxexp</td>
+</tr>
+<tr>
 <td><img src="Modelica.Electrical.Analobf547550617f3d43istorS.png" alt="Modelica.Electrical.Analog.Semiconductors.Thyristor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.Thyristor"
 >Thyristor</a>
 </td>
@@ -542,6 +566,99 @@ Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc    
 <tr><td>S</td><td>Substrate</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE pow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powI.png" alt="Modelica.Electrical.Analog.Semiconductors.pow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.pow"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.pow</h2>
+<p>
+<span class="ModelicaDescription">Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>z</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE powlin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powI.png" alt="Modelica.Electrical.Analog.Semiconductors.powlin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.powlin"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.powlin</h2>
+<p>
+<span class="ModelicaDescription">Power function (1 - x)^(-y) linearly continued for x &gt; 0 (provided y = const.)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>z</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE exlin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powI.png" alt="Modelica.Electrical.Analog.Semiconductors.exlin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.exlin"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.exlin</h2>
+<p>
+<span class="ModelicaDescription">Exponential function linearly continued for x &gt; Maxexp</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>Maxexp</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>z</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE exlin2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobd19abc40f5d1394s.powI.png" alt="Modelica.Electrical.Analog.Semiconductors.exlin2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.exlin2"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.exlin2</h2>
+<p>
+<span class="ModelicaDescription">Exponential function linearly continued for x &lt; MinExp and x &gt; Maxexp</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>Minexp</td><td>&nbsp;</td></tr>
+<tr><td>Maxexp</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>z</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE Thyristor<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
 <h2><img src="Modelica.Electrical.Analobf547550617f3d43istorI.png" alt="Modelica.Electrical.Analog.Semiconductors.Thyristor" align="right" style="border: 1px solid" width="80" height="80">
@@ -555,7 +672,7 @@ Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc    
 <p>This is a simple thyristor model with three pins: Anode, Cathode and Gate. There are three operating modes:conducting, blocking and reverse breakthrough.
 <br>As long as the thyristor is in blocking mode it behaves like a linear resistance Roff=VDRM^2/(VTM*IH). But if the voltage between anode and cathode exceeds VDRM or a positive gate current flows for a sufficient time the mode changes to conducting mode. The model stays in conducting mode until the anode current falls below the holding current IH. There is no way to switch off the thyristor via the gate. If the voltage between anode and cathode is negative, the model represents a diode (parameters Vt, Nbv) with reverse breakthrough voltage VRRM.</p>
 <div>
-<img src="Resources/Images/Electrical/Analog/Semiconductors/Thyristor.png"
+<img src="../Images/Electrical/Analog/Semiconductors/Thyristor.png"
      alt="Thyristor.png">
 </div>
 <p>The dV/dt switch on is not taken into account in this model. The gate circuit is not influenced by the main circuit.</p>
@@ -635,7 +752,7 @@ Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc    
 <tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Mon Feb 23 14:10:38 2026.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Feb 24 16:59:09 2026.
 </address>
 </body>
 </html>
