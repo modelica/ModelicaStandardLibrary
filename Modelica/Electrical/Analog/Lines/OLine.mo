@@ -31,9 +31,9 @@ model OLine "Lossy Transmission Line"
       start=1) "Length of line";
   parameter Integer N(final min=1, start=1) "Number of lumped segments";
   parameter SI.LinearTemperatureCoefficient alpha_R=0
-    "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
+    "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref)))";
   parameter SI.LinearTemperatureCoefficient alpha_G=0
-    "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+    "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref)))";
   parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
     annotation (
     Evaluate=true,

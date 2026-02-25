@@ -7,7 +7,7 @@ model Resistor "Polyphase linear resistor"
     "Reference temperatures";
   parameter SI.LinearTemperatureCoefficient alpha_ref[m]=
       zeros(m)
-    "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+    "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)))";
   extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
       final mh=m, T=T_ref);
   QuasiStatic.SinglePhase.Basic.Resistor resistor[m](
