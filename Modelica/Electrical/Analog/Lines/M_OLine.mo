@@ -29,9 +29,9 @@ public
   parameter Boolean useInternalGround=true "= true if internal ground is used, otherwise use reference pin"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter SI.LinearTemperatureCoefficient alpha_R=0
-    "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
+    "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref)))";
   parameter SI.LinearTemperatureCoefficient alpha_G=0
-    "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+    "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref)))";
   parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
     annotation (
     Evaluate=true,
@@ -66,9 +66,9 @@ public
     parameter Real Gl[dim_vector_lgc]=fill(1, dim_vector_lgc)
       "Conductance matrix";
     parameter SI.LinearTemperatureCoefficient alpha_R
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref)))";
     parameter SI.LinearTemperatureCoefficient alpha_G
-      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref)))";
     parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
       annotation (
       Evaluate=true,
@@ -172,7 +172,7 @@ public
     parameter Real Ll[dim_vector_lgc]=fill(1, dim_vector_lgc)
       "Inductance matrix";
     parameter SI.LinearTemperatureCoefficient alpha_R
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref)))";
     parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
       annotation (
       Evaluate=true,

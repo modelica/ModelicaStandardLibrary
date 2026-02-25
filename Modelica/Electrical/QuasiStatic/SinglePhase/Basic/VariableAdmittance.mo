@@ -5,7 +5,7 @@ model VariableAdmittance "Single-phase variable admittance"
   import Modelica.ComplexMath.imag;
   import Modelica.ComplexMath.conj;
   parameter SI.Temperature T_ref=293.15 "Reference temperature";
-  parameter SI.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+  parameter SI.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)))";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
   Modelica.ComplexBlocks.Interfaces.ComplexInput Y_ref "Variable complex admittance"
     annotation (Placement(transformation(
