@@ -18,7 +18,7 @@ model ElectroMagneticConverter "Ideal electromagnetic energy conversion"
 
   // For information only:
   SI.MagneticFlux Psi "Flux linkage";
-  SI.Inductance L_stat "Static inductance abs(Psi/i)";
+  SI.Inductance L_stat "Static inductance (valid if this coil is the only source)";
 
 protected
   Real eps=100*Modelica.Constants.eps;
@@ -38,7 +38,7 @@ equation
   // For information only
   Psi = N*Phi;
   // Use of abs() for positive results; due to Modelica sign conventions for flow into connectors
-  L_stat = noEvent(if abs(i) > eps then abs(Psi/i) else abs(Psi/eps));
+  L_stat = if noEvent(abs(i) > eps) then abs(Psi/i) else abs(Psi/eps);
 
   annotation (
     defaultComponentName="converter",
@@ -164,9 +164,12 @@ v is the induced voltage in the coil due to the derivative of magnetic flux &Phi
 If a coil wound clockwise has to be modeled instead, the parameter N (Number of turns) can be set to a negative value.
 </p>
 
+
+<h4>Note</h4>
 <p>
-The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculated for information only. Note that L_stat is set to |&Psi;/eps| if |i| &lt; eps
-(= 100*Modelica.Constants.eps).
+The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculated for information only. 
+Note that L_stat is set to |&Psi;/eps| if |i| &lt; eps (= 100*Modelica.Constants.eps).<br>
+<strong>Note</strong> that this local calculation of L_stat is only valid if this coil is the only source in the magnetic circuit.
 </p>
 </html>"));
 end ElectroMagneticConverter;

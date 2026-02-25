@@ -33,6 +33,7 @@ model SMEE_DOL
     statorCoreParameters(VRef=100),
     strayLoadParameters(IRef=100),
     brushParameters(ILinear=0.01),
+    ie(fixed=true),
     ir(each fixed=true),
     wMechanical(fixed=true),
     m=m,
@@ -125,7 +126,6 @@ model SMEE_DOL
 initial equation
   // sum(smee.is) = 0;
   smee.is[1:2] = zeros(2);
-  smee.ie = 0;
   //conditional damper cage currents are defined as fixed start values
 equation
   connect(irRMS, smee.irRMS);

@@ -49,7 +49,8 @@ model SMEE_Rectifier
     TrOperational=293.15,
     alpha20r=smeeData.alpha20r,
     alpha20e=smeeData.alpha20e,
-    TeOperational=293.15)
+    TeOperational=293.15,
+    ie(fixed=true))
     annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
   parameter Machines.Utilities.SynchronousMachineData smeeData(
     SNominal=30e3,
@@ -176,7 +177,6 @@ protected
 initial equation
   smee.is[1:2] = zeros(2);
   //conditional damper cage currents are defined as fixed start values
-  smee.ie = 0;
 equation
   connect(terminalBox.plug_sn, smee.plug_sn) annotation (Line(
       points={{4,-20},{4,-20}},

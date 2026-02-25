@@ -109,7 +109,7 @@ model SM_ElectricalExcited
     annotation (Dialog(tab="Losses"));
   output SI.Voltage ve=pin_ep.v - pin_en.v
     "Excitation voltage";
-  output SI.Current ie=pin_ep.i "Excitation current";
+  output SI.Current ie(start=0)=pin_ep.i "Excitation current";
   // Rotor cage components
   Modelica.Blocks.Interfaces.RealOutput ir[2](
     start=zeros(2),
