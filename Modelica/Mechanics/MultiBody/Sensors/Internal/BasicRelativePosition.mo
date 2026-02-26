@@ -33,10 +33,6 @@ equation
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
         Text(
-          extent={{-127,95},{134,143}},
-          textString="%name",
-          textColor={0,0,255}),
-        Text(
           extent={{-50,-14},{50,-54}},
           textColor={64,64,64},
           textString="m")}),

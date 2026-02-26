@@ -1,16 +1,12 @@
 within Modelica.Mechanics.MultiBody.Forces;
 model WorldTorque
   "External torque acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve"
+  extends Interfaces.PartialTwoFramesResolve(
+    break frame_a,
+    break frame_resolve);
+  extends Interfaces.PartialFrameResolveConditional(
+    final enableFrameResolve = resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve);
 
-  extends Interfaces.PartialOneFrame_b;
-
-  Interfaces.Frame_resolve frame_resolve if
-       resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
-    "The input signals are optionally resolved in this frame"
-    annotation (Placement(transformation(
-        origin={0,100},
-        extent={{16,-16},{-16,16}},
-        rotation=270)));
   Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit="N.m")
     "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -50,7 +46,7 @@ equation
   connect(basicWorldTorque.torque, torque) annotation (Line(
       points={{-12,0},{-120,0}}, color={0,0,127}));
   connect(frame_resolve, basicWorldTorque.frame_resolve) annotation (Line(
-      points={{0,100},{0,10}},
+      points={{0,-100},{0,10}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
@@ -136,15 +132,15 @@ This leads to the following animation
           endAngle=160,
           closure=EllipseClosure.None),
         Text(
-          extent={{-100,90},{100,60}},
+          extent={{-100,-40},{100,-70}},
           textColor={192,192,192},
           textString="resolve"),
         Text(
-          extent={{-150,-40},{150,-80}},
+          extent={{-150,100},{150,60}},
           textString="%name",
           textColor={0,0,255}),
         Line(
-          points={{0,95},{0,50}},
+          points={{0,-100},{0,50}},
           color={95,95,95},
           pattern=LinePattern.Dot),
         Polygon(
