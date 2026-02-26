@@ -72,7 +72,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>The transformer is a two port. The left port voltage <em>v1</em>, left port current <em>i1</em>, right port voltage <em>v2</em> and right port current <em>i2</em> are connected by the following relation:</p>
-<blockquote><pre> 
+<blockquote><pre>
 | v1 |     | L1   M  |   | i1 |
 |    |  =  |         | . |    |
 | v2 |     | M    L2 |   | i2 |

@@ -151,9 +151,9 @@ equation
     annotation (Line(points={{40,20},{62,20}}, color={255,128,0}));
   annotation (experiment(StopTime=100, Interval=0.01), Documentation(info="<html>
 <p>
-This example compares an electric polyphase inductor with equivalent fundamental wave reluctance circuits, 
+This example compares an electric polyphase inductor with equivalent fundamental wave reluctance circuits,
 one with reluctances individual for each phase (s) and the other with a common reluctance for all phases (m).
-The phase inductance <code>L</code> and the magnetic fundamental wave reluctance <code>R_m</code> 
+The phase inductance <code>L</code> and the magnetic fundamental wave reluctance <code>R_m</code>
 for reluctances individual to the phases (s) and for a reluctance common to all phases (m) are related by:
 </p>
 
@@ -173,7 +173,7 @@ The currents
 </ul>
 
 <p>
-show the same waveforms and thus prove the equivalence of the different modelling approaches. 
+show the same waveforms and thus prove the equivalence of the different modelling approaches.
 Note that the number of initial equations (which depends on the number of phases <code>m</code>, too) depends on either individual or common implementation of the reluctance.
 </p>
 </html>"));

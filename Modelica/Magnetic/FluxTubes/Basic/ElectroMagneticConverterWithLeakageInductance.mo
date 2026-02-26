@@ -158,14 +158,14 @@ equation
         Line(points={{-30,-100},{-30,-60}}, color={28,108,200})}),
     Documentation(info="<html>
 <p>
-Same as <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> 
-with an additional leakage path on the magnetic side (leakage inductance, leakage flux). 
+Same as <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a>
+with an additional leakage path on the magnetic side (leakage inductance, leakage flux).
 This model may improve stability especially when the magnetic circuit contains more than one electromagnetic converter.
 </p>
 
 <h4>Note</h4>
 <p>
-The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculated for information only. 
+The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculated for information only.
 Note that L_stat is set to |&Psi;/eps| if |i| &lt; eps (= 100*Modelica.Constants.eps).<br>
 <strong>Note</strong> that this local calculation of L_stat is only valid if this coil is the only source in the magnetic circuit.
 </p>
