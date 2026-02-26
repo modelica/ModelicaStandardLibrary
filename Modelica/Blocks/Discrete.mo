@@ -112,13 +112,17 @@ values of the last two sampled input signals.
     parameter Real y_start=0 "Initial value of output signal";
     extends Interfaces.DiscreteSISO;
 
+  protected
+    Real u_internal;
   equation
     when sampleTrigger then
-      y = pre(u);
+      y = pre(u_internal);
+      u_internal = u;
     end when;
 
   initial equation
-      y = y_start;
+    y = y_start;
+    u_internal = y_start;
     annotation (
       Documentation(info="<html>
 <p>
@@ -135,6 +139,8 @@ previous sample instant. Before the second sample instant,
 the output y is identical to parameter yStart.
 </p>
 
+</html>", revisions="<html>
+<p>May 23, 2025 - updated to work without requiring a sampled input, but work the same if the input was sampled.</p>
 </html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}}),
