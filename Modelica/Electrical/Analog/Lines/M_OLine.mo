@@ -8,24 +8,22 @@ model M_OLine "Multiple OLine"
 protected
   parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2);
 public
-  parameter Real r[lines](
-    each final min=Modelica.Constants.small,
-    each unit="Ohm/m") = {4.76e5,1.72e5,1.72e5,1.72e5} "Resistance per meter";
+  parameter SI.ResistancePerUnitLength r[lines](
+    each final min=Modelica.Constants.small) = {4.76e5,1.72e5,1.72e5,1.72e5}
+    "Resistance per unit length of line";
+  parameter SI.InductancePerUnitLength l[dim_vector_lgc](
+    each final min=Modelica.Constants.small) = {5.98e-7,4.44e-7,4.39e-7,3.99e-7,5.81e-7,4.09e-7,
+    4.23e-7,5.96e-7,4.71e-7,6.06e-7}
+    "Inductance per unit length of line";
+  parameter SI.ConductancePerUnitLength g[dim_vector_lgc](
+    each final min=Modelica.Constants.small) = {8.05e-6,3.42e-5,2.91e-5,1.76e-6,9.16e-6,7.12e-6,
+    2.43e-5,5.93e-6,4.19e-5,6.64e-6}
+    "Conductance per unit length of line";
+  parameter SI.CapacitancePerUnitLength c[dim_vector_lgc](
+    each final min=Modelica.Constants.small) = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
+    7.16e-11,1.83e-11,1.23e-10,2.07e-11}
+    "Capacitance per unit length of line";
 
-  parameter Real l[dim_vector_lgc](
-    each final min=Modelica.Constants.small,
-    each unit="H/m") = {5.98e-7,4.44e-7,4.39e-7,3.99e-7,5.81e-7,4.09e-7,
-    4.23e-7,5.96e-7,4.71e-7,6.06e-7} "Inductance per meter";
-
-  parameter Real g[dim_vector_lgc](
-    each final min=Modelica.Constants.small,
-    each unit="S/m") = {8.05e-6,3.42e-5,2.91e-5,1.76e-6,9.16e-6,7.12e-6,
-    2.43e-5,5.93e-6,4.19e-5,6.64e-6} "Conductance per meter";
-
-  parameter Real c[dim_vector_lgc](
-    each final min=Modelica.Constants.small,
-    each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
-    7.16e-11,1.83e-11,1.23e-10,2.07e-11} "Capacitance per meter";
   parameter Boolean useInternalGround=true "= true if internal ground is used, otherwise use reference pin"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter SI.LinearTemperatureCoefficient alpha_R=0
@@ -82,7 +80,7 @@ public
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
                       iconTransformation(extent={{-110,-110},{-90,-90}})));
-    Modelica.Electrical.Analog.Basic.Capacitor C[dim_vector_lgc](C=Cl);
+    Modelica.Electrical.Analog.Basic.Capacitor C[dim_vector_lgc](C=Cl, each v(fixed=true));
     Modelica.Electrical.Analog.Basic.Resistor R[lines](
       R=Rl,
       T_ref=fill(T_ref, lines),
@@ -316,10 +314,10 @@ between the lines and to the ground. The inductors are coupled to each other lik
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.M_Transformer\">M_Transformer</a> model. 
 The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 
-<blockquote>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/segment.png\"
-     alt=\"segment.png\">
-</blockquote>
+     alt=\"Diagram of a segment with four single lines\">
+</div>
 
 <p>Note that the user can choose whether the optional &quot;refPin&quot; 
 is active (so that it can be connected to any other pin), 
@@ -341,10 +339,10 @@ The remaining resistors and inductors are at the other end of the line within
 the auxiliary <code>segment_last</code>. For the example with 4 lines the schematic of 
 <code>segment_last</code> is like this:</p>
 
-<blockquote>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/segment_last.png\"
-     alt=\"segment_last.png\">
-</blockquote>
+     alt=\"Diagram of the last segment\">
+</div>
 
 <p>The number of the capacitors and conductors depends on the number of single lines that are used,
 because each line is coupled to every other line by both a capacitor and a conductor. 
@@ -355,7 +353,8 @@ For modelling the inductances and their mutual couplings the model
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.M_Transformer\">M_Transformer</a> is used. 
 To fill the resistance vector, resistance values as many as lines are needed, e.g., 
 if there are four lines, four resistances are needed. For example for a microelectronic line 
-of 0.1m length, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
+of 0.1&nbsp;m length, a sensible resistance vector would be
+R&nbsp;= [4.76e5, 1.72e5, 1.72e5, 1.72e5]&nbsp;&ohm;/m.</p>
 
 <p>Filling the matrices of the inductances, capacitances and conductances is a bit more complicated,
 because those components occur also between two lines and not only (like the resistor) in one line.
@@ -377,9 +376,9 @@ will be shown in the the example below.</p>
 values from the main diagonal and from the positions that are below the main diagonal. 
 To get the following matrix</p>
 
-<blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\"/>
-</blockquote>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\">
+</div>
 
 <p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: 
 vector = [<strong>1</strong>, 0.1, 0.2, 0.4, <strong>2</strong>, 0.3 0.5, <strong>3</strong>, 0.6, <strong>4</strong>]</p>
@@ -388,23 +387,23 @@ vector = [<strong>1</strong>, 0.1, 0.2, 0.4, <strong>2</strong>, 0.3 0.5, <stron
 which is used as default example for the <code>M_OLine</code> model, 
 a sensible inductance-matrix would be:</p>
 
-<blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png\" alt=\"L\"/>
-</blockquote>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png\" alt=\"Matrix L\">
+</div>
 
 <p>For the example of a microelectronic line of 0.1m length, which is used as default example 
 for the <code>M_OLine</code> model, a sensible capacitance-matrix would be:</p>
 
-<blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png\" alt=\"C\"/>
-</blockquote>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png\" alt=\"Matrix C\">
+</div>
 
 <p>For the example of a microelectronic line of 0.1m length, which is used as default example 
 for the <code>M_OLine</code> model, a sensible conductance-matrix would be:</p>
 
-<blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/>
-</blockquote>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"Matrix G\">
+</div>
 
 <p>The user has the possibility to enable a conditional heatport. If so, the <code>M_OLine</code> 
 can be connected to a thermal network. If the parameter <code>alpha</code> is set to a value different than zero,
@@ -423,34 +422,41 @@ are calculated by</p>
 </html>",
         revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-    <tr>
-      <th>Version</th>
-      <th>Revision</th>
-      <th>Date</th>
-      <th>Author</th>
-      <th>Comment</th>
-    </tr>
-   <tr>
-      <td></td>
-      <td>4163</td>
-      <td>2010-09-11</td>
-      <td>Dietmar Winkler</td>
-      <td>Documentation corrected according to documentation guidelines.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td>2008-11-24</td>
-      <td>Kristin Majetta</td>
-      <td>Documentation added.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td>2007-02-26</td>
-      <td>Kristin Majetta</td>
-      <td>Initially implemented</td>
-    </tr>
+  <tr>
+    <th>Version</th>
+    <th>Revision</th>
+    <th>Date</th>
+    <th>Author</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>2023-07-07</td>
+    <td>Massimo Ceraolo</td>
+    <td>Added fixed=true or capacitor voltage start value</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>4163</td>
+    <td>2010-09-11</td>
+    <td>Dietmar Winkler</td>
+    <td>Documentation corrected according to documentation guidelines.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>2008-11-24</td>
+    <td>Kristin Majetta</td>
+    <td>Documentation added.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>2007-02-26</td>
+    <td>Kristin Majetta</td>
+    <td>Initially implemented</td>
+  </tr>
 </table>
 </html>"));
 end M_OLine;
