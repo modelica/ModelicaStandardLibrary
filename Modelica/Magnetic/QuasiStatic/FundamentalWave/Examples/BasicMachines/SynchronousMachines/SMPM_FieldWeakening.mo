@@ -157,7 +157,7 @@ This example demonstrates idealized field weakening of a quasistatic permanent m
 
 <p>
 At standstill, the q-axis current is prescribed by a short ramp up to the nominal current.
-The d-axis current is controlled to keep voltage &le; nominal voltage, while speed is varied up to four times nominal speed like in an automotive application. 
+The d-axis current is controlled to keep voltage &le; nominal voltage, while speed is varied up to four times nominal speed like in an automotive application.
 Total stator current is kept &le; nominal total current. Simulate and plot versus <code>smpm.wMechanical</code>:
 </p>
 
@@ -169,7 +169,7 @@ Total stator current is kept &le; nominal total current. Simulate and plot versu
 </ul>
 
 <p>
-It can be seen that when field weakening begins negative d-axis current is increased from zero while the q-axis current current has to be reduced (current limit) 
+It can be seen that when field weakening begins negative d-axis current is increased from zero while the q-axis current current has to be reduced (current limit)
 to enable increase of the d-axis current (voltage limit).
 </p>
 

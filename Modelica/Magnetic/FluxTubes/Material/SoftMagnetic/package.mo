@@ -5,9 +5,9 @@ package SoftMagnetic "Characteristics mu_r(B) of common soft magnetic materials;
   annotation (preferredView="info",
     Documentation(info="<html>
 <p>
-The magnetisation characteristics mu_r(B) of all soft magnetic materials currently included in this library are approximated 
-with a <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox\">function</a>. Each material is characterised by the five parameters of this function. 
-The approximated characteristics mu_r(B) for most of the ferromagnetic materials currently included are shown in the plots below (solid lines) 
+The magnetisation characteristics mu_r(B) of all soft magnetic materials currently included in this library are approximated
+with a <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox\">function</a>. Each material is characterised by the five parameters of this function.
+The approximated characteristics mu_r(B) for most of the ferromagnetic materials currently included are shown in the plots below (solid lines)
 together with the original data points compiled from measurements and literature.
 </p>
 
@@ -20,19 +20,19 @@ together with the original data points compiled from measurements and literature
 
 <h4>Note</h4>
 <p>
-The material <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M330_50A\">M330-50A</a> has been measured 
+The material <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M330_50A\">M330-50A</a> has been measured
 under different conditions (complete core / machined and packeted) as the other electric sheets (sheet strip / Epstein frame).
 Therefore, a direct comparison with other materials is not possible.
 </p>
 
 <p>
-For the nonlinear curve fit, data points for high flux densities (approximately B>1T) have been weighted higher than the ones for low flux densities. 
+For the nonlinear curve fit, data points for high flux densities (approximately B>1T) have been weighted higher than the ones for low flux densities.
 This is due to the large impact of saturated ferromagnetic sections in a magnetic circuit compared to that of non-saturated sections with relative permeabilities mu_r>>1.
 </p>
 
 <p>
-Note that the magnetisation characteristics largely depend on possible previous machining and on measurement conditions. 
-A virgin material normally has a considerably higher permeability than the same material after machining (and packet assembling in case of electric sheets). 
+Note that the magnetisation characteristics largely depend on possible previous machining and on measurement conditions.
+A virgin material normally has a considerably higher permeability than the same material after machining (and packet assembling in case of electric sheets).
 This is indicated in the above plots by different magnetisation curves for similar materials. In most cases, the original data points represent commutating curves obtained with measurements at 50Hz.
 </p>
 
@@ -41,7 +41,7 @@ Additional user-specific materials can be defined as needed. This requires deter
 </p>
 
 <p>
-The magnetisation characteristics of the included soft magnetic materials were compiled and measured respectively by Thomas Roschke. 
+The magnetisation characteristics of the included soft magnetic materials were compiled and measured respectively by Thomas Roschke.
 Provision of this data is highly appreciated. He also formulated the approximation function used for description of the magnetisation characteristics of these materials.
 </p>
 </html>"));

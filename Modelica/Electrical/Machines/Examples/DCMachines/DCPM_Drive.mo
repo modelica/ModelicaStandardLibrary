@@ -139,23 +139,23 @@ equation
   annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
         info="<html>
 <p>
-This example demonstrates how to use a <a href=\"modelica://Modelica.Electrical.Machines.Utilities.Coupling\">coupling</a> 
-to implement a drive consisting if two permanent magnet DC machines. 
-Note that <code>dcpm1</code> is turning in the positive direction, whereas <code>dcpm2</code> is turning in the opposite direction. 
-This is evident by comparing <code>speedSensor1.w</code> and <code>speedSensor2.w</code>. 
+This example demonstrates how to use a <a href=\"modelica://Modelica.Electrical.Machines.Utilities.Coupling\">coupling</a>
+to implement a drive consisting if two permanent magnet DC machines.
+Note that <code>dcpm1</code> is turning in the positive direction, whereas <code>dcpm2</code> is turning in the opposite direction.
+This is evident by comparing <code>speedSensor1.w</code> and <code>speedSensor2.w</code>.
 Therefore, the armature of <code>dcpm2</code> is connected reversed to the source.
 </p>
 <p>
-Machine <code>dcpm1</code> starts the drive with a voltage ramp up to half of no-load speed, the armature of <code>dcpm2</code> is not connected. 
-Since the induced voltage of <code>dcpm2</code> is the same as that of <code>dcdcInverter2</code>, the <code>switch</code> is closed without any transient. 
-After that, the armature voltage of <code>dcpm2</code> is slightly increased, causing <code>dcpm2</code> to drive as motor and <code>dcpm1</code> to brake as generator. 
-Therefore, the speed <code>coupling.w</code> increases. 
+Machine <code>dcpm1</code> starts the drive with a voltage ramp up to half of no-load speed, the armature of <code>dcpm2</code> is not connected.
+Since the induced voltage of <code>dcpm2</code> is the same as that of <code>dcdcInverter2</code>, the <code>switch</code> is closed without any transient.
+After that, the armature voltage of <code>dcpm2</code> is slightly increased, causing <code>dcpm2</code> to drive as motor and <code>dcpm1</code> to brake as generator.
+Therefore, the speed <code>coupling.w</code> increases.
 </p>
 <p>
-Note that in stationary operation the <code>battery</code> only delivers the losses of both machines, since power is exchanged directly between both machines. 
-Only during short time spans with transient operation power is delivered back to the <code>battery</code>, 
-which is the case after accelerating the whole drive when angular velocity settles. 
-An additional energy storage between the battery and the inverters (like a large capacitor or a super capacitor) would help to avoid such situations 
+Note that in stationary operation the <code>battery</code> only delivers the losses of both machines, since power is exchanged directly between both machines.
+Only during short time spans with transient operation power is delivered back to the <code>battery</code>,
+which is the case after accelerating the whole drive when angular velocity settles.
+An additional energy storage between the battery and the inverters (like a large capacitor or a super capacitor) would help to avoid such situations
 and to smooth possible current spikes.
 </p>
 </html>"));
