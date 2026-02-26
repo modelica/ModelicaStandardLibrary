@@ -31,7 +31,7 @@ block IntersectivePWM "Intersective PWM"
          then 0 else k)/m for k in 0:m - 1}/f)
          if (refType==ReferenceType.Sawtooth1 or refType==ReferenceType.Sawtooth3)
       annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
-  Modelica.Blocks.Sources.Trapezoid trapezoid[3](
+  Modelica.Blocks.Sources.Trapezoid trapezoid[m](
     each final amplitude=uMax,
     each final width=0,
     each final nperiod=-1,
