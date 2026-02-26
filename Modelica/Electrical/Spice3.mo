@@ -3134,8 +3134,8 @@ Christoph Clau&szlig;
       parameter SI.Time TD = 0.0 "Delay time";
       parameter SI.Time TR(start=1) "Rise time";
       parameter SI.Time TF = TR "Fall time";
-      parameter SI.Time PW = Modelica.Constants.inf "Pulse width";
-      parameter SI.Time PER= Modelica.Constants.inf "Period";
+      parameter SI.Time PW = Spice3.Constants.infiniteTime "Pulse width";
+      parameter SI.Time PER= Spice3.Constants.infiniteTime "Period";
 
     protected
       parameter SI.Time Trising=TR "End time of rising phase within one period";
@@ -3512,8 +3512,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       parameter SI.Time TD = 0.0 "Delay time";
       parameter SI.Time TR(start=1) "Rise time";
       parameter SI.Time TF = TR "Fall time";
-      parameter SI.Time PW = Modelica.Constants.inf "Pulse width";
-      parameter SI.Time PER= Modelica.Constants.inf "Period";
+      parameter SI.Time PW = Spice3.Constants.infiniteTime "Pulse width";
+      parameter SI.Time PER= Spice3.Constants.infiniteTime "Period";
 
     protected
       parameter SI.Time Trising=TR "End time of rising phase within one period";
@@ -4434,6 +4434,12 @@ on the model behaviour.
 <p>This package Types contains units that are needed in the models of the Spice3 package.</p>
 </html>"));
   end Types;
+
+  package Constants "Spice3-specific constants"
+    extends Modelica.Icons.Package;
+
+    constant Modelica.Units.SI.Time infiniteTime= 1e20 "Very large time horizon (3e12 years) avoiding overflow in time computations";
+  end Constants;
 
   package Internal
     "Collection of functions and records derived from the C++ Spice library"
