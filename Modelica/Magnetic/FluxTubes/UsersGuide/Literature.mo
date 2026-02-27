@@ -60,6 +60,25 @@ class Literature "Literature"
 </table><br>
 </li>
 
+<li><strong>Approximation formulae of magnetization characteristics (besides [Ro00] are described in:</strong>
+
+<br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td>[Fischer1956] </td>
+      <td>J. Fischer and H. Moser:
+        <em>Die Nachbildung von Magnetisierungskurven durch einfache algebraische und transzendente Funktionen</em>,
+        etz Archiv 42 (1956), pp. 286-299 (in German).</td>
+    </tr>
+
+    <tr>
+      <td>[Macfadyen1973] </td>
+      <td>W. Macfadyen, W. Woods, R. Simpson and R. Slater:
+        <em>Representation of magnetization curves by exponential series</em>,
+        Proceedings of the Institution of Electrical Engineers Vol. 120 (1973), pp. 902-904.</td>
+    </tr>
+</table><br>
+</li>
+
 <li><strong>Information related to the implemented hysteresis models can be found in:</strong>
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">

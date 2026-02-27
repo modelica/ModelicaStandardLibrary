@@ -1,3 +1,5 @@
+MaterialSettings
+RawData
 BaseData
 Steel
 ElectricSheet
@@ -5,3 +7,4 @@ PureIron
 CobaltIron
 NickelIron
 mu_rApprox
+Macfadyen
