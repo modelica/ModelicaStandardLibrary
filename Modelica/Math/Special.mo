@@ -55,7 +55,8 @@ package Special "Library of special mathematical functions"
         y :=-y;
      end if;
 
-    annotation (Documentation(info="<html>
+     annotation (derivative=erfDer,
+       Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Special.<strong>erf</strong>(u);
@@ -137,7 +138,8 @@ erf(0.5)  // = 0.520499877813047
     else
        y := 0;
     end if;
-    annotation (Documentation(info="<html>
+    annotation (derivative=erfcDer,
+      Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Special.<strong>erfc</strong>(u);
@@ -214,7 +216,8 @@ erfc(0.5)  // = 0.4795001221869534
        y :=Internal.erfInvUtil(u, 1 - u);
     end if;
 
-    annotation (smoothOrder=1, Documentation(info="<html>
+    annotation (smoothOrder=1,
+      Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Special.<strong>erfInv</strong>(u);
@@ -304,7 +307,8 @@ erfInv(0.9999999999) // = 4.572824958544925
        y :=Internal.erfInvUtil(1-u, u);
     end if;
 
-    annotation (Documentation(info="<html>
+    annotation (
+      Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Special.<strong>erfInv</strong>(u);
@@ -371,6 +375,20 @@ erfInv(1.999999)   // = -3.4589107372909473
 </table>
 </html>"));
   end erfcInv;
+
+  function erfDer "Derivative of erf-function"
+    extends Modelica.Icons.Function;
+    input Real u "Input argument";
+    input Real der_u "Derivative of input";
+    output Real y= 2/sqrt(Modelica.Constants.pi)*exp(-u^2)*der_u "Derivative of erf(u)";
+  end erfDer;
+
+  function erfcDer "Derivative of erfc-function"
+    extends Modelica.Icons.Function;
+    input Real u "Input argument";
+    input Real der_u "Derivative of input";
+    output Real y=-2/sqrt(Modelica.Constants.pi)*exp(-u^2)*der_u "Derivative of erfc(u)";
+  end erfcDer;
 
   function sinc "Unnormalized sinc function: sinc(u) = sin(u)/u"
     extends Modelica.Icons.Function;
