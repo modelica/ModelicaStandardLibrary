@@ -838,6 +838,29 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (experiment(StopTime=5));
   end TestInterpolateTimeVarying;
 
+  model TestErf "Test error function"
+    extends Modelica.Icons.Example;
+    import Modelica.Math.Special;
+    Real x=time;
+    Real y1=Special.erf(x);
+    Real dy1=der(y1) "der(erf)";
+    Real y1i "integral(dy1) == erf ?";
+    Real y2=Special.erfc(x) "erfc == 1 - erf ?";
+    Real dy2=der(y2) "der(erfc)";
+    Real y2i "integral(dy2) == erfc ?";
+  initial equation
+    y1i=Special.erf(x);
+    y2i=Special.erfc(x);
+  equation
+    der(y1i)=dy1;
+    der(y2i)=dy2;
+    annotation (experiment(
+        StartTime=-10,
+        StopTime=10,
+        Interval=0.0001,
+        Tolerance=1e-06));
+  end TestErf;
+
   package Random
     function randomNumbers
       "Demonstrate the generation of uniform random numbers in the range 0..1"
