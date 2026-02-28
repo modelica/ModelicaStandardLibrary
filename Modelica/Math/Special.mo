@@ -31,9 +31,7 @@ package Special "Library of special mathematical functions"
      end if;
 
      if z < 0.5 then
-        if z <= 0 then
-           y := 0;
-        elseif z < 1.0e-10 then
+        if z < 1.0e-10 then
            y := z*1.125 + z*0.003379167095512573896158903121545171688;
         else
            // Maximum Deviation Found:                     1.561e-17
