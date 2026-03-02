@@ -7,50 +7,50 @@ package Special "Library of special mathematical functions"
     input Real u "Input argument";
     output Real y "= 2/sqrt(pi)*Integral_0_u exp(-t^2)*dt";
   protected
-     Boolean inv;
-     Real z;
-     Real zz;
-     constant Real y1 = 1.044948577880859375;
-     constant Real P[5] = {0.0834305892146531832907,
-                           -0.338165134459360935041,
-                           -0.0509990735146777432841,
-                           -0.00772758345802133288487,
-                           -0.000322780120964605683831};
-     constant Real Q[5] = {1,
-                           0.455004033050794024546,
-                           0.0875222600142252549554,
-                           0.00858571925074406212772,
-                           0.000370900071787748000569};
+    Boolean inv;
+    Real z;
+    Real zz;
+    constant Real y1 = 1.044948577880859375;
+    constant Real P[5] = {0.0834305892146531832907,
+                          -0.338165134459360935041,
+                          -0.0509990735146777432841,
+                          -0.00772758345802133288487,
+                          -0.000322780120964605683831};
+    constant Real Q[5] = {1,
+                          0.455004033050794024546,
+                          0.0875222600142252549554,
+                          0.00858571925074406212772,
+                          0.000370900071787748000569};
   algorithm
-     if u >= 0 then
-        z :=u;
-        inv :=false;
-     else
-        z :=-u;
-        inv :=true;
-     end if;
+    if u >= 0 then
+      z :=u;
+      inv :=false;
+    else
+      z :=-u;
+      inv :=true;
+    end if;
 
-     if z < sqrt(3*2^(-53)) then
-       // Maclaurin series to first order
-       // alternating series estimated relative error < 2^(-53)
-       y := z*2/sqrt(Modelica.Constants.pi);
-     elseif z < 0.5 then
-       // Maximum Deviation Found:                     1.561e-17
-       // Expected Error Term:                         1.561e-17
-       // Maximum Relative Change in Control Points:   1.155e-04
-       // Max Error found at double precision =        2.961182e-17
-       zz := z*z;
-       y := z*(y1 + Internal.polyEval(P, zz)/Internal.polyEval(Q, zz));
-     elseif z < 5.8 then
-        y :=1 - Internal.erfcUtil(z);
+    if z < sqrt(3*2^(-53)) then
+      // Maclaurin series to first order
+      // alternating series estimated relative error < 2^(-53)
+      y := z*2/sqrt(Modelica.Constants.pi);
+    elseif z < 0.5 then
+      // Maximum Deviation Found:                     1.561e-17
+      // Expected Error Term:                         1.561e-17
+      // Maximum Relative Change in Control Points:   1.155e-04
+      // Max Error found at double precision =        2.961182e-17
+      zz := z*z;
+      y := z*(y1 + Internal.polyEval(P, zz)/Internal.polyEval(Q, zz));
+    elseif z < 5.8 then
+      y :=1 - Internal.erfcUtil(z);
 
-     else
-        y :=1;
-     end if;
+    else
+      y :=1;
+    end if;
 
-     if inv then
-        y :=-y;
-     end if;
+    if inv then
+      y :=-y;
+    end if;
 
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
