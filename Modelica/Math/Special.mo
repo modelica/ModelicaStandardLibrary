@@ -30,18 +30,17 @@ package Special "Library of special mathematical functions"
         inv :=true;
      end if;
 
-     if z < 0.5 then
-        if z < 1.0e-10 then
-           y := z*1.125 + z*0.003379167095512573896158903121545171688;
-        else
-           // Maximum Deviation Found:                     1.561e-17
-           // Expected Error Term:                         1.561e-17
-           // Maximum Relative Change in Control Points:   1.155e-04
-           // Max Error found at double precision =        2.961182e-17
-           zz := z*z;
-           y := z*(y1 + Internal.polyEval(P, zz)/Internal.polyEval(Q, zz));
-        end if;
-
+     if z < sqrt(3*2^(-53)) then
+       // Maclaurin series to first order
+       // alternating series estimated relative error < 2^(-53)
+       y := z*2/sqrt(Modelica.Constants.pi);
+     elseif z < 0.5 then
+       // Maximum Deviation Found:                     1.561e-17
+       // Expected Error Term:                         1.561e-17
+       // Maximum Relative Change in Control Points:   1.155e-04
+       // Max Error found at double precision =        2.961182e-17
+       zz := z*z;
+       y := z*(y1 + Internal.polyEval(P, zz)/Internal.polyEval(Q, zz));
      elseif z < 5.8 then
         y :=1 - Internal.erfcUtil(z);
 
