@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2019-2020, Christopher C. Hulbert
+ * Copyright (c) 2015-2026, The matio contributors
+ * Copyright (c) 2019-2014, Christopher C. Hulbert
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -39,13 +40,18 @@
 #define READ_TYPE_UINT64_DATA CAT(READ_TYPED_FUNC1, UInt64)
 #endif /* HAVE_MATIO_UINT64_T */
 
-static size_t
+static int
 READ_TYPE_DOUBLE_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 {
-    size_t readcount;
+    size_t readCount;
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_DOUBLE
-    readcount = fread(data, sizeof(double), len, (FILE*)mat->fp);
-    if ( readcount == len && mat->byteswap ) {
+    readCount = fread(data, sizeof(double), len, (FILE *)mat->fp);
+    if ( readCount != len ) {
+        return MATIO_E_GENERIC_READ_ERROR;
+    }
+    err = MATIO_E_NO_ERROR;
+    if ( mat->byteswap ) {
         size_t i;
         for ( i = 0; i < len; i++ ) {
             (void)Mat_doubleSwap(data + i);
@@ -54,19 +60,24 @@ READ_TYPE_DOUBLE_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 #else
     size_t i;
     const size_t data_size = sizeof(double);
-    double v[READ_BLOCK_SIZE/sizeof(double)];
+    double v[READ_BLOCK_SIZE / sizeof(double)];
     READ_DATA(READ_TYPE, Mat_doubleSwap);
 #endif
-    return readcount;
+    return err;
 }
 
-static size_t
+static int
 READ_TYPE_SINGLE_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 {
-    size_t readcount;
+    size_t readCount;
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_SINGLE
-    readcount = fread(data, sizeof(float), len, (FILE*)mat->fp);
-    if ( readcount == len && mat->byteswap ) {
+    readCount = fread(data, sizeof(float), len, (FILE *)mat->fp);
+    if ( readCount != len ) {
+        return MATIO_E_GENERIC_READ_ERROR;
+    }
+    err = MATIO_E_NO_ERROR;
+    if ( mat->byteswap ) {
         size_t i;
         for ( i = 0; i < len; i++ ) {
             (void)Mat_floatSwap(data + i);
@@ -75,19 +86,24 @@ READ_TYPE_SINGLE_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 #else
     size_t i;
     const size_t data_size = sizeof(float);
-    float v[READ_BLOCK_SIZE/sizeof(float)];
+    float v[READ_BLOCK_SIZE / sizeof(float)];
     READ_DATA(READ_TYPE, Mat_floatSwap);
 #endif
-    return readcount;
+    return err;
 }
 
-static size_t
+static int
 READ_TYPE_INT32_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 {
-    size_t readcount;
+    size_t readCount;
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_INT32
-    readcount = fread(data, sizeof(mat_int32_t), len, (FILE*)mat->fp);
-    if ( readcount == len && mat->byteswap ) {
+    readCount = fread(data, sizeof(mat_int32_t), len, (FILE *)mat->fp);
+    if ( readCount != len ) {
+        return MATIO_E_GENERIC_READ_ERROR;
+    }
+    err = MATIO_E_NO_ERROR;
+    if ( mat->byteswap ) {
         size_t i;
         for ( i = 0; i < len; i++ ) {
             (void)Mat_int32Swap(data + i);
@@ -96,19 +112,24 @@ READ_TYPE_INT32_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 #else
     size_t i;
     const size_t data_size = sizeof(mat_int32_t);
-    mat_int32_t v[READ_BLOCK_SIZE/sizeof(mat_int32_t)];
+    mat_int32_t v[READ_BLOCK_SIZE / sizeof(mat_int32_t)];
     READ_DATA(READ_TYPE, Mat_int32Swap);
 #endif
-    return readcount;
+    return err;
 }
 
-static size_t
+static int
 READ_TYPE_UINT32_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 {
-    size_t readcount;
+    size_t readCount;
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_UINT32
-    readcount = fread(data, sizeof(mat_uint32_t), len, (FILE*)mat->fp);
-    if ( readcount == len && mat->byteswap ) {
+    readCount = fread(data, sizeof(mat_uint32_t), len, (FILE *)mat->fp);
+    if ( readCount != len ) {
+        return MATIO_E_GENERIC_READ_ERROR;
+    }
+    err = MATIO_E_NO_ERROR;
+    if ( mat->byteswap ) {
         size_t i;
         for ( i = 0; i < len; i++ ) {
             (void)Mat_uint32Swap(data + i);
@@ -117,19 +138,24 @@ READ_TYPE_UINT32_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 #else
     size_t i;
     const size_t data_size = sizeof(mat_uint32_t);
-    mat_uint32_t v[READ_BLOCK_SIZE/sizeof(mat_uint32_t)];
+    mat_uint32_t v[READ_BLOCK_SIZE / sizeof(mat_uint32_t)];
     READ_DATA(READ_TYPE, Mat_uint32Swap);
 #endif
-    return readcount;
+    return err;
 }
 
-static size_t
+static int
 READ_TYPE_INT16_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 {
-    size_t readcount;
+    size_t readCount;
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_INT16
-    readcount = fread(data, sizeof(mat_int16_t), len, (FILE*)mat->fp);
-    if ( readcount == len && mat->byteswap ) {
+    readCount = fread(data, sizeof(mat_int16_t), len, (FILE *)mat->fp);
+    if ( readCount != len ) {
+        return MATIO_E_GENERIC_READ_ERROR;
+    }
+    err = MATIO_E_NO_ERROR;
+    if ( mat->byteswap ) {
         size_t i;
         for ( i = 0; i < len; i++ ) {
             (void)Mat_int16Swap(data + i);
@@ -138,19 +164,24 @@ READ_TYPE_INT16_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 #else
     size_t i;
     const size_t data_size = sizeof(mat_int16_t);
-    mat_int16_t v[READ_BLOCK_SIZE/sizeof(mat_int16_t)];
+    mat_int16_t v[READ_BLOCK_SIZE / sizeof(mat_int16_t)];
     READ_DATA(READ_TYPE, Mat_int16Swap);
 #endif
-    return readcount;
+    return err;
 }
 
-static size_t
+static int
 READ_TYPE_UINT16_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 {
-    size_t readcount;
+    size_t readCount;
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_UINT16
-    readcount = fread(data, sizeof(mat_uint16_t), len, (FILE*)mat->fp);
-    if ( readcount == len && mat->byteswap ) {
+    readCount = fread(data, sizeof(mat_uint16_t), len, (FILE *)mat->fp);
+    if ( readCount != len ) {
+        return MATIO_E_GENERIC_READ_ERROR;
+    }
+    err = MATIO_E_NO_ERROR;
+    if ( mat->byteswap ) {
         size_t i;
         for ( i = 0; i < len; i++ ) {
             (void)Mat_uint16Swap(data + i);
@@ -159,50 +190,65 @@ READ_TYPE_UINT16_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 #else
     size_t i;
     const size_t data_size = sizeof(mat_uint16_t);
-    mat_uint16_t v[READ_BLOCK_SIZE/sizeof(mat_uint16_t)];
+    mat_uint16_t v[READ_BLOCK_SIZE / sizeof(mat_uint16_t)];
     READ_DATA(READ_TYPE, Mat_uint16Swap);
 #endif
-    return readcount;
+    return err;
 }
 
-static size_t
+static int
 READ_TYPE_INT8_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 {
-    size_t readcount;
+    size_t readCount;
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_INT8
-    readcount = fread(data, sizeof(mat_int8_t), len, (FILE*)mat->fp);
+    readCount = fread(data, sizeof(mat_int8_t), len, (FILE *)mat->fp);
+    if ( readCount != len ) {
+        return MATIO_E_GENERIC_READ_ERROR;
+    }
+    err = MATIO_E_NO_ERROR;
 #else
     size_t i;
     const size_t data_size = sizeof(mat_int8_t);
-    mat_int8_t v[READ_BLOCK_SIZE/sizeof(mat_int8_t)];
+    mat_int8_t v[READ_BLOCK_SIZE / sizeof(mat_int8_t)];
     READ_DATA_NOSWAP(READ_TYPE);
 #endif
-    return readcount;
+    return err;
 }
 
-static size_t
+static int
 READ_TYPE_UINT8_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 {
-    size_t readcount;
+    size_t readCount;
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_UINT8
-    readcount = fread(data, sizeof(mat_uint8_t), len, (FILE*)mat->fp);
+    readCount = fread(data, sizeof(mat_uint8_t), len, (FILE *)mat->fp);
+    if ( readCount != len ) {
+        return MATIO_E_GENERIC_READ_ERROR;
+    }
+    err = MATIO_E_NO_ERROR;
 #else
     size_t i;
     const size_t data_size = sizeof(mat_uint8_t);
-    mat_uint8_t v[READ_BLOCK_SIZE/sizeof(mat_uint8_t)];
+    mat_uint8_t v[READ_BLOCK_SIZE / sizeof(mat_uint8_t)];
     READ_DATA_NOSWAP(READ_TYPE);
 #endif
-    return readcount;
+    return err;
 }
 
 #ifdef HAVE_MATIO_INT64_T
-static size_t
+static int
 READ_TYPE_INT64_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 {
-    size_t readcount;
+    size_t readCount;
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_INT64
-    readcount = fread(data, sizeof(mat_int64_t), len, (FILE*)mat->fp);
-    if ( readcount == len && mat->byteswap ) {
+    readCount = fread(data, sizeof(mat_int64_t), len, (FILE *)mat->fp);
+    if ( readCount != len ) {
+        return MATIO_E_GENERIC_READ_ERROR;
+    }
+    err = MATIO_E_NO_ERROR;
+    if ( mat->byteswap ) {
         size_t i;
         for ( i = 0; i < len; i++ ) {
             (void)Mat_int64Swap(data + i);
@@ -211,21 +257,26 @@ READ_TYPE_INT64_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 #else
     size_t i;
     const size_t data_size = sizeof(mat_int64_t);
-    mat_int64_t v[READ_BLOCK_SIZE/sizeof(mat_int64_t)];
+    mat_int64_t v[READ_BLOCK_SIZE / sizeof(mat_int64_t)];
     READ_DATA(READ_TYPE, Mat_int64Swap);
 #endif
-    return readcount;
+    return err;
 }
 #endif /* HAVE_MATIO_INT64_T */
 
 #ifdef HAVE_MATIO_UINT64_T
-static size_t
+static int
 READ_TYPE_UINT64_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 {
-    size_t readcount;
+    size_t readCount;
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_UINT64
-    readcount = fread(data, sizeof(mat_uint64_t), len, (FILE*)mat->fp);
-    if ( readcount == len && mat->byteswap ) {
+    readCount = fread(data, sizeof(mat_uint64_t), len, (FILE *)mat->fp);
+    if ( readCount != len ) {
+        return MATIO_E_GENERIC_READ_ERROR;
+    }
+    err = MATIO_E_NO_ERROR;
+    if ( mat->byteswap ) {
         size_t i;
         for ( i = 0; i < len; i++ ) {
             (void)Mat_uint64Swap(data + i);
@@ -234,13 +285,12 @@ READ_TYPE_UINT64_DATA(mat_t *mat, READ_TYPE *data, size_t len)
 #else
     size_t i;
     const size_t data_size = sizeof(mat_uint64_t);
-    mat_uint64_t v[READ_BLOCK_SIZE/sizeof(mat_uint64_t)];
+    mat_uint64_t v[READ_BLOCK_SIZE / sizeof(mat_uint64_t)];
     READ_DATA(READ_TYPE, Mat_uint64Swap);
 #endif
-    return readcount;
+    return err;
 }
 #endif /* HAVE_MATIO_UINT64_T */
-
 
 /** @brief Reads data of type @c data_type into a READ_TYPE type
  *
@@ -252,56 +302,43 @@ READ_TYPE_UINT64_DATA(mat_t *mat, READ_TYPE *data, size_t len)
  * @param data_type one of the @c matio_types enumerations which is the source
  *                  data type in the file
  * @param len Number of elements of type @c data_type to read from the file
- * @retval Number of elements read from the file
+ * @retval 0 on success
  */
-static size_t
+static int
 READ_TYPED_FUNC1(mat_t *mat, READ_TYPE *data, enum matio_types data_type, size_t len)
 {
-    size_t readcount;
-
     if ( mat == NULL || data == NULL || mat->fp == NULL )
-        return 0;
+        return MATIO_E_BAD_ARGUMENT;
 
     switch ( data_type ) {
         case MAT_T_DOUBLE:
-            readcount = READ_TYPE_DOUBLE_DATA(mat, data, len);
-            break;
+            return READ_TYPE_DOUBLE_DATA(mat, data, len);
         case MAT_T_SINGLE:
-            readcount = READ_TYPE_SINGLE_DATA(mat, data, len);
-            break;
+            return READ_TYPE_SINGLE_DATA(mat, data, len);
 #ifdef HAVE_MATIO_INT64_T
         case MAT_T_INT64:
-            readcount = READ_TYPE_INT64_DATA(mat, data, len);
-            break;
+            return READ_TYPE_INT64_DATA(mat, data, len);
 #endif /* HAVE_MATIO_UINT64_T */
 #ifdef HAVE_MATIO_UINT64_T
         case MAT_T_UINT64:
-            readcount = READ_TYPE_UINT64_DATA(mat, data, len);
-            break;
+            return READ_TYPE_UINT64_DATA(mat, data, len);
 #endif /* HAVE_MATIO_UINT64_T */
         case MAT_T_INT32:
-            readcount = READ_TYPE_INT32_DATA(mat, data, len);
-            break;
+            return READ_TYPE_INT32_DATA(mat, data, len);
         case MAT_T_UINT32:
-            readcount = READ_TYPE_UINT32_DATA(mat, data, len);
-            break;
+            return READ_TYPE_UINT32_DATA(mat, data, len);
         case MAT_T_INT16:
-            readcount = READ_TYPE_INT16_DATA(mat, data, len);
-            break;
+            return READ_TYPE_INT16_DATA(mat, data, len);
         case MAT_T_UINT16:
-            readcount = READ_TYPE_UINT16_DATA(mat, data, len);
-            break;
+            return READ_TYPE_UINT16_DATA(mat, data, len);
         case MAT_T_INT8:
-            readcount = READ_TYPE_INT8_DATA(mat, data, len);
-            break;
+            return READ_TYPE_INT8_DATA(mat, data, len);
         case MAT_T_UINT8:
-            readcount = READ_TYPE_UINT8_DATA(mat, data, len);
-            break;
+            return READ_TYPE_UINT8_DATA(mat, data, len);
         default:
-            readcount = 0;
             break;
     }
-    return readcount;
+    return MATIO_E_GENERIC_READ_ERROR;
 }
 
 #undef READ_TYPE_DOUBLE_DATA
@@ -336,11 +373,15 @@ READ_TYPED_FUNC1(mat_t *mat, READ_TYPE *data, enum matio_types data_type, size_t
 #define READ_TYPE_UINT64_DATA CAT(READ_TYPED_FUNC2, UInt64)
 #endif /* HAVE_MATIO_UINT64_T */
 
-static void
+static int
 READ_TYPE_DOUBLE_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 {
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_DOUBLE
-    InflateData(mat, z, data, len*sizeof(double));
+    err = InflateData(mat, z, data, len * sizeof(double));
+    if ( err ) {
+        return err;
+    }
     if ( mat->byteswap ) {
         mat_uint32_t i;
         for ( i = 0; i < len; i++ ) {
@@ -350,16 +391,21 @@ READ_TYPE_DOUBLE_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len
 #else
     mat_uint32_t i;
     const size_t data_size = sizeof(double);
-    double v[READ_BLOCK_SIZE/sizeof(double)];
+    double v[READ_BLOCK_SIZE / sizeof(double)];
     READ_COMPRESSED_DATA(READ_TYPE, Mat_doubleSwap);
 #endif
+    return err;
 }
 
-static void
+static int
 READ_TYPE_SINGLE_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 {
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_SINGLE
-    InflateData(mat, z, data, len*sizeof(float));
+    err = InflateData(mat, z, data, len * sizeof(float));
+    if ( err ) {
+        return err;
+    }
     if ( mat->byteswap ) {
         mat_uint32_t i;
         for ( i = 0; i < len; i++ ) {
@@ -369,17 +415,22 @@ READ_TYPE_SINGLE_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len
 #else
     mat_uint32_t i;
     const size_t data_size = sizeof(float);
-    float v[READ_BLOCK_SIZE/sizeof(float)];
+    float v[READ_BLOCK_SIZE / sizeof(float)];
     READ_COMPRESSED_DATA(READ_TYPE, Mat_floatSwap);
 #endif
+    return err;
 }
 
 #ifdef HAVE_MATIO_INT64_T
-static void
+static int
 READ_TYPE_INT64_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 {
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_INT64
-    InflateData(mat, z, data, len*sizeof(mat_int64_t));
+    err = InflateData(mat, z, data, len * sizeof(mat_int64_t));
+    if ( err ) {
+        return err;
+    }
     if ( mat->byteswap ) {
         mat_uint32_t i;
         for ( i = 0; i < len; i++ ) {
@@ -389,18 +440,23 @@ READ_TYPE_INT64_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 #else
     mat_uint32_t i;
     const size_t data_size = sizeof(mat_int64_t);
-    mat_int64_t v[READ_BLOCK_SIZE/sizeof(mat_int64_t)];
+    mat_int64_t v[READ_BLOCK_SIZE / sizeof(mat_int64_t)];
     READ_COMPRESSED_DATA(READ_TYPE, Mat_int64Swap);
 #endif
+    return err;
 }
 #endif /* HAVE_MATIO_INT64_T */
 
 #ifdef HAVE_MATIO_UINT64_T
-static void
+static int
 READ_TYPE_UINT64_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 {
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_UINT64
-    InflateData(mat, z, data, len*sizeof(mat_uint64_t));
+    err = InflateData(mat, z, data, len * sizeof(mat_uint64_t));
+    if ( err ) {
+        return err;
+    }
     if ( mat->byteswap ) {
         mat_uint32_t i;
         for ( i = 0; i < len; i++ ) {
@@ -410,17 +466,19 @@ READ_TYPE_UINT64_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len
 #else
     mat_uint32_t i;
     const size_t data_size = sizeof(mat_uint64_t);
-    mat_uint64_t v[READ_BLOCK_SIZE/sizeof(mat_uint64_t)];
+    mat_uint64_t v[READ_BLOCK_SIZE / sizeof(mat_uint64_t)];
     READ_COMPRESSED_DATA(READ_TYPE, Mat_uint64Swap);
 #endif
+    return err;
 }
 #endif /* HAVE_MATIO_UINT64_T */
 
-static void
+static int
 READ_TYPE_INT32_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 {
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_INT32
-    InflateData(mat, z, data, len*sizeof(mat_int32_t));
+    err = InflateData(mat, z, data, len * sizeof(mat_int32_t));
     if ( mat->byteswap ) {
         mat_uint32_t i;
         for ( i = 0; i < len; i++ ) {
@@ -430,16 +488,21 @@ READ_TYPE_INT32_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 #else
     mat_uint32_t i;
     const size_t data_size = sizeof(mat_int32_t);
-    mat_int32_t v[READ_BLOCK_SIZE/sizeof(mat_int32_t)];
+    mat_int32_t v[READ_BLOCK_SIZE / sizeof(mat_int32_t)];
     READ_COMPRESSED_DATA(READ_TYPE, Mat_int32Swap);
 #endif
+    return err;
 }
 
-static void
+static int
 READ_TYPE_UINT32_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 {
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_UINT32
-    InflateData(mat, z, data, len*sizeof(mat_uint32_t));
+    err = InflateData(mat, z, data, len * sizeof(mat_uint32_t));
+    if ( err ) {
+        return err;
+    }
     if ( mat->byteswap ) {
         mat_uint32_t i;
         for ( i = 0; i < len; i++ ) {
@@ -449,16 +512,21 @@ READ_TYPE_UINT32_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len
 #else
     mat_uint32_t i;
     const size_t data_size = sizeof(mat_uint32_t);
-    mat_uint32_t v[READ_BLOCK_SIZE/sizeof(mat_uint32_t)];
+    mat_uint32_t v[READ_BLOCK_SIZE / sizeof(mat_uint32_t)];
     READ_COMPRESSED_DATA(READ_TYPE, Mat_uint32Swap);
 #endif
+    return err;
 }
 
-static void
+static int
 READ_TYPE_INT16_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 {
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_INT16
-    InflateData(mat, z, data, len*sizeof(mat_int16_t));
+    err = InflateData(mat, z, data, len * sizeof(mat_int16_t));
+    if ( err ) {
+        return err;
+    }
     if ( mat->byteswap ) {
         mat_uint32_t i;
         for ( i = 0; i < len; i++ ) {
@@ -468,16 +536,21 @@ READ_TYPE_INT16_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 #else
     mat_uint32_t i;
     const size_t data_size = sizeof(mat_int16_t);
-    mat_int16_t v[READ_BLOCK_SIZE/sizeof(mat_int16_t)];
+    mat_int16_t v[READ_BLOCK_SIZE / sizeof(mat_int16_t)];
     READ_COMPRESSED_DATA(READ_TYPE, Mat_int16Swap);
 #endif
+    return err;
 }
 
-static void
+static int
 READ_TYPE_UINT16_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 {
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_UINT16
-    InflateData(mat, z, data, len*sizeof(mat_uint16_t));
+    err = InflateData(mat, z, data, len * sizeof(mat_uint16_t));
+    if ( err ) {
+        return err;
+    }
     if ( mat->byteswap ) {
         mat_uint32_t i;
         for ( i = 0; i < len; i++ ) {
@@ -487,35 +560,40 @@ READ_TYPE_UINT16_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len
 #else
     mat_uint32_t i;
     const size_t data_size = sizeof(mat_uint16_t);
-    mat_uint16_t v[READ_BLOCK_SIZE/sizeof(mat_uint16_t)];
+    mat_uint16_t v[READ_BLOCK_SIZE / sizeof(mat_uint16_t)];
     READ_COMPRESSED_DATA(READ_TYPE, Mat_uint16Swap);
 #endif
+    return err;
 }
 
-static void
+static int
 READ_TYPE_INT8_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 {
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_INT8
-    InflateData(mat, z, data, len*sizeof(mat_int8_t));
+    err = InflateData(mat, z, data, len * sizeof(mat_int8_t));
 #else
     mat_uint32_t i;
     const size_t data_size = sizeof(mat_int8_t);
-    mat_int8_t v[READ_BLOCK_SIZE/sizeof(mat_int8_t)];
+    mat_int8_t v[READ_BLOCK_SIZE / sizeof(mat_int8_t)];
     READ_COMPRESSED_DATA_NOSWAP(READ_TYPE);
 #endif
+    return err;
 }
 
-static void
+static int
 READ_TYPE_UINT8_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
 {
+    int err;
 #if READ_TYPE_TYPE == READ_TYPE_UINT8
-    InflateData(mat, z, data, len*sizeof(mat_uint8_t));
+    err = InflateData(mat, z, data, len * sizeof(mat_uint8_t));
 #else
     mat_uint32_t i;
     const size_t data_size = sizeof(mat_uint8_t);
-    mat_uint8_t v[READ_BLOCK_SIZE/sizeof(mat_uint8_t)];
+    mat_uint8_t v[READ_BLOCK_SIZE / sizeof(mat_uint8_t)];
     READ_COMPRESSED_DATA_NOSWAP(READ_TYPE);
 #endif
+    return err;
 }
 
 /** @brief Reads data of type @c data_type into a READ_TYPE type
@@ -529,53 +607,43 @@ READ_TYPE_UINT8_DATA(mat_t *mat, z_streamp z, READ_TYPE *data, mat_uint32_t len)
  * @param data_type one of the @c matio_types enumerations which is the source
  *                  data type in the file
  * @param len Number of elements of type @c data_type to read from the file
- * @retval Number of bytes read from the file
+ * @retval 0 on success
  */
-static int
+int
 READ_TYPED_FUNC2(mat_t *mat, z_streamp z, READ_TYPE *data, enum matio_types data_type, int len)
 {
     if ( mat == NULL || data == NULL || mat->fp == NULL )
-        return 0;
+        return MATIO_E_BAD_ARGUMENT;
 
     switch ( data_type ) {
         case MAT_T_DOUBLE:
-            READ_TYPE_DOUBLE_DATA(mat, z, data, len);
-            break;
+            return READ_TYPE_DOUBLE_DATA(mat, z, data, len);
         case MAT_T_SINGLE:
-            READ_TYPE_SINGLE_DATA(mat, z, data, len);
-            break;
+            return READ_TYPE_SINGLE_DATA(mat, z, data, len);
 #ifdef HAVE_MATIO_INT64_T
         case MAT_T_INT64:
-            READ_TYPE_INT64_DATA(mat, z, data, len);
-            break;
+            return READ_TYPE_INT64_DATA(mat, z, data, len);
 #endif /* HAVE_MATIO_UINT64_T */
 #ifdef HAVE_MATIO_UINT64_T
         case MAT_T_UINT64:
-            READ_TYPE_UINT64_DATA(mat, z, data, len);
-            break;
+            return READ_TYPE_UINT64_DATA(mat, z, data, len);
 #endif /* HAVE_MATIO_UINT64_T */
         case MAT_T_INT32:
-            READ_TYPE_INT32_DATA(mat, z, data, len);
-            break;
+            return READ_TYPE_INT32_DATA(mat, z, data, len);
         case MAT_T_UINT32:
-            READ_TYPE_UINT32_DATA(mat, z, data, len);
-            break;
+            return READ_TYPE_UINT32_DATA(mat, z, data, len);
         case MAT_T_INT16:
-            READ_TYPE_INT16_DATA(mat, z, data, len);
-            break;
+            return READ_TYPE_INT16_DATA(mat, z, data, len);
         case MAT_T_UINT16:
-            READ_TYPE_UINT16_DATA(mat, z, data, len);
-            break;
+            return READ_TYPE_UINT16_DATA(mat, z, data, len);
         case MAT_T_INT8:
-            READ_TYPE_INT8_DATA(mat, z, data, len);
-            break;
+            return READ_TYPE_INT8_DATA(mat, z, data, len);
         case MAT_T_UINT8:
-            READ_TYPE_UINT8_DATA(mat, z, data, len);
-            break;
+            return READ_TYPE_UINT8_DATA(mat, z, data, len);
         default:
             break;
     }
-    return len*Mat_SizeOf(data_type);
+    return MATIO_E_GENERIC_READ_ERROR;
 }
 
 #undef READ_TYPE_DOUBLE_DATA
