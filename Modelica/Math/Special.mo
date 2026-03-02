@@ -23,11 +23,11 @@ package Special "Library of special mathematical functions"
                           0.000370900071787748000569};
   algorithm
     if u >= 0 then
-      z :=u;
-      inv :=false;
+      z := u;
+      inv := false;
     else
-      z :=-u;
-      inv :=true;
+      z := -u;
+      inv := true;
     end if;
 
     if z < sqrt(3*2^(-53)) then
@@ -42,14 +42,14 @@ package Special "Library of special mathematical functions"
       zz := z*z;
       y := z*(y1 + Internal.polyEval(P, zz)/Internal.polyEval(Q, zz));
     elseif z < 5.8 then
-      y :=1 - Internal.erfcUtil(z);
+      y := 1 - Internal.erfcUtil(z);
 
     else
-      y :=1;
+      y := 1;
     end if;
 
     if inv then
-      y :=-y;
+      y := -y;
     end if;
 
     annotation (Documentation(info="<html>
