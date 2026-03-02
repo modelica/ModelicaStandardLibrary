@@ -30,10 +30,10 @@ package Special "Library of special mathematical functions"
       inv := true;
     end if;
 
-    if z < sqrt(3*2^(-53)) then
+    if z < sqrt(3.0*Modelica.Constants.eps) then
       // Maclaurin series to first order
-      // alternating series estimated relative error < 2^(-53)
-      y := z*2/sqrt(Modelica.Constants.pi);
+      // alternating series estimated relative error < eps
+      y := z*2.0/sqrt(Modelica.Constants.pi);
     elseif z < 0.5 then
       // Maximum Deviation Found:                     1.561e-17
       // Expected Error Term:                         1.561e-17
