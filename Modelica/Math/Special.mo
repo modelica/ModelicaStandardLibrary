@@ -30,7 +30,7 @@ package Special "Library of special mathematical functions"
       inv := true;
     end if;
 
-    if z < sqrt(3.0*Modelica.Constants.eps) then
+    if z < sqrt(3.0*Modelica.Constants.eps/2.0) then
       // Maclaurin series to first order
       // alternating series estimated relative error < eps
       y := z*2.0/sqrt(Modelica.Constants.pi);
