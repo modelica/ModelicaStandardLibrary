@@ -1595,16 +1595,16 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])"
       annotation (Dialog(group="Table data definition",enable=not tableOnFile));
-    parameter String tableName="NoName"
+    parameter String tableName = "NoName"
       "Table name on file or in function usertab (see docu)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
-    parameter String fileName="NoName" "File where matrix is stored"
+    parameter String fileName = "NoName" "File where matrix is stored"
       annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat);;Comma-separated values files (*.csv)",
             caption="Open file in which table is present")));
-    parameter String delimiter="," "Column delimiter character for CSV file"
+    parameter String delimiter = "," "Column delimiter character for CSV file"
       annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile and isCsvExt),
@@ -1618,10 +1618,10 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
       "Columns of table to be interpolated"
       annotation (Dialog(group="Table data interpretation",
       groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/CombiTimeTable.png"));
-    parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
+    parameter Modelica.Blocks.Types.Smoothness smoothness = Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
       annotation (Dialog(group="Table data interpretation"));
-    parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
+    parameter Modelica.Blocks.Types.Extrapolation extrapolation = Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
       annotation (Dialog(group="Table data interpretation"));
     parameter SI.Time timeScale(
