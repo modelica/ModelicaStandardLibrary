@@ -19,7 +19,7 @@ jobs:
     runs-on: self-hosted
     environment: 
         name: test
-        url: https://serv.ltx.de/prs/${{ github.event.number }}/report/Modelica/PR_comparison_report.html
+        url: https://serv.ltx.de/prs/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
     steps:         
       - name: run modelica      
         run: /home/resimuser/regression_testing/docker/work/run_scripts/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica
