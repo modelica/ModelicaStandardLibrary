@@ -12,24 +12,24 @@ jobs:
     runs-on: self-hosted   
     steps: 
       - name: checkout_pr_repo
-        run: /shared_data/run_scripts/prepare_pr.sh ${{ github.event.number }}
+        run: /home/resimuser/regression_testing/docker/work/run_scripts/prepare_pr.sh ${{ github.event.number }}
   
   testrun_modelica:
     needs: prepare
     runs-on: self-hosted
     environment: 
         name: test
-        url: https://serv.ltx.de/prs/${{ github.event.number }}/Modelica/PR_comparison_report.html
+        url: https://serv.ltx.de/prs/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
     steps:         
       - name: run modelica      
-        run: /shared_data/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica
+        run: /home/resimuser/regression_testing/docker/work/run_scripts/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica
         
   testrun_modelicatest:
     needs: prepare
     runs-on: self-hosted
     environment: 
         name: test
-        url: https://serv.ltx.de/prs/${{ github.event.number }}/ModelicaTest/PR_comparison_report.html
+        url: https://serv.ltx.de/prs/${{ github.event.number }}/ModelicaTest/report/PR_comparison_report.html
     steps:    
       - name: run modelicatest      
-        run:  /shared_data/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest
+        run:  /home/resimuser/regression_testing/docker/work/run_scripts/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest
