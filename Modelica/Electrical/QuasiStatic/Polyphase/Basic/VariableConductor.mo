@@ -5,7 +5,7 @@ model VariableConductor "Polyphase variable conductor"
     "Reference temperatures";
   parameter SI.LinearTemperatureCoefficient alpha_ref[m]=
       zeros(m)
-    "Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+    "Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref)))";
   extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
       final mh=m, T=T_ref);
   Modelica.Blocks.Interfaces.RealInput G_ref[m](each unit="S")
