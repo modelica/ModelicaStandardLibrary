@@ -14,7 +14,7 @@ protected
 algorithm
   /*
    This is an optimized version of the quaternion conversion based on
-   this paper: https://d3cw3dd2w32x2b.cloudfront.net/wp-content/uploads/2015/01/matrix-to-quat.pdf
+   this paper: https://github.com/ScottFielder/MathLibraryOriginal/blob/master/Literature/matrix-to-quat.pdf
 */
   if T[3, 3] < 0 then
     if T[1, 1] > T[2, 2] then
@@ -74,7 +74,7 @@ package.
 <ul>
   <li>January 2021 by Jakub Tobolar<br>
        reimplemented for more efficient and numerically stable algorithm according to
-       <a href=\"https://d3cw3dd2w32x2b.cloudfront.net/wp-content/uploads/2015/01/matrix-to-quat.pdf\">https://d3cw3dd2w32x2b.cloudfront.net/wp-content/uploads/2015/01/matrix-to-quat.pdf</a>.
+       <a href=\"https://github.com/ScottFielder/MathLibraryOriginal/blob/master/Literature/matrix-to-quat.pdf\">https://github.com/ScottFielder/MathLibraryOriginal/blob/master/Literature/matrix-to-quat.pdf</a>.
        It compares only one particular diagonal element with another to
        select one of the four code parts. Then, the selected code delivers
        four components which are close to the desired quaternion,
