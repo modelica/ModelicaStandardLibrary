@@ -1215,7 +1215,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
       f=2,
       amplitude=10,
       offset=10)
-      annotation (Placement(transformation(extent={{-80,100},{-60,120}})));
+      annotation (Placement(transformation(extent={{-100,100},{-80,120}})));
     Modelica.Blocks.Math.UnitConversions.To_degC to_degC
       annotation (Placement(transformation(extent={{-40,100},{-20,120}})));
     Modelica.Blocks.Math.UnitConversions.From_degC from_degC
@@ -1253,21 +1253,21 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
     Modelica.Blocks.Math.UnitConversions.From_minute from_minute
       annotation (Placement(transformation(extent={{-10,-140},{10,-120}})));
     Modelica.Blocks.Math.UnitConversions.To_litre to_litre
-      annotation (Placement(transformation(extent={{40,100},{60,120}})));
+      annotation (Placement(transformation(extent={{50,100},{70,120}})));
     Modelica.Blocks.Math.UnitConversions.From_litre from_litre
-      annotation (Placement(transformation(extent={{70,100},{90,120}})));
+      annotation (Placement(transformation(extent={{80,100},{100,120}})));
     Modelica.Blocks.Math.UnitConversions.To_kWh to_kWh
-      annotation (Placement(transformation(extent={{40,70},{60,90}})));
+      annotation (Placement(transformation(extent={{50,60},{70,80}})));
     Modelica.Blocks.Math.UnitConversions.From_kWh from_kWh
-      annotation (Placement(transformation(extent={{72,70},{92,90}})));
+      annotation (Placement(transformation(extent={{80,60},{100,80}})));
     Modelica.Blocks.Math.UnitConversions.To_bar to_bar
-      annotation (Placement(transformation(extent={{40,40},{60,60}})));
+      annotation (Placement(transformation(extent={{50,20},{70,40}})));
     Modelica.Blocks.Math.UnitConversions.From_bar from_bar
-      annotation (Placement(transformation(extent={{72,40},{92,60}})));
+      annotation (Placement(transformation(extent={{80,20},{100,40}})));
     Modelica.Blocks.Math.UnitConversions.To_gps to_gps
-      annotation (Placement(transformation(extent={{40,10},{60,30}})));
+      annotation (Placement(transformation(extent={{50,-20},{70,0}})));
     Modelica.Blocks.Math.UnitConversions.From_gps from_gps
-      annotation (Placement(transformation(extent={{72,10},{92,30}})));
+      annotation (Placement(transformation(extent={{80,-20},{100,0}})));
     output Real ydegC=from_degC.y;
     output Real ydegF=from_degF.y;
     output Real ydegRk=from_degRk.y;
@@ -1281,17 +1281,69 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
     output Real ykWh=from_kWh.y;
     output Real ybar=from_bar.y;
     output Real ygps=from_gps.y;
+    Modelica.Blocks.Sources.Cosine cosine1(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
+    Modelica.Blocks.Sources.Cosine cosine2(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
+    Modelica.Blocks.Sources.Cosine cosine3(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
+    Modelica.Blocks.Sources.Cosine cosine4(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
+    Modelica.Blocks.Sources.Cosine cosine5(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
+    Modelica.Blocks.Sources.Cosine cosine6(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
+    Modelica.Blocks.Sources.Cosine cosine7(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{-80,-110},{-60,-90}})));
+    Modelica.Blocks.Sources.Cosine cosine8(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{-100,-140},{-80,-120}})));
+    Modelica.Blocks.Sources.Cosine cosine9(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{20,100},{40,120}})));
+    Modelica.Blocks.Sources.Cosine cosine10(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{20,60},{40,80}})));
+    Modelica.Blocks.Sources.Cosine cosine11(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{20,20},{40,40}})));
+    Modelica.Blocks.Sources.Cosine cosine12(
+      f=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{20,-20},{40,0}})));
   equation
     connect(cosine.y, to_degC.u) annotation (Line(
-        points={{-59,110},{-42,110}}, color={0,0,127}));
-    connect(cosine.y, to_degF.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,80},{-42,80}}, color={0,0,127}));
-    connect(cosine.y, to_degRk.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,50},{-42,50}}, color={0,0,127}));
-    connect(cosine.y, to_deg.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,20},{-46,20},{-46,20},{-42,20}}, color={0,0,127}));
-    connect(cosine.y, to_rpm.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,-10},{-42,-10}}, color={0,0,127}));
+        points={{-79,110},{-42,110}}, color={0,0,127}));
     connect(to_degC.y, from_degC.u) annotation (Line(
         points={{-19,110},{-16,110},{-16,110},{-12,110}}, color={0,0,127}));
     connect(to_degF.y, from_degF.u) annotation (Line(
@@ -1310,32 +1362,40 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
         points={{-19,-100},{-12,-100}}, color={0,0,127}));
     connect(to_minute.y, from_minute.u) annotation (Line(
         points={{-19,-130},{-12,-130}}, color={0,0,127}));
-    connect(cosine.y, to_kmh.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,-40},{-42,-40}}, color={0,0,127}));
-    connect(cosine.y, to_day.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,-70},{-42,-70}}, color={0,0,127}));
-    connect(cosine.y, to_hour.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,-100},{-42,-100}}, color={0,0,127}));
-    connect(cosine.y, to_minute.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,-130},{-42,-130}}, color={0,0,127}));
-    connect(cosine.y, to_litre.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,128},{28,128},{28,110},{38,110}}, color={0,0,127}));
-    connect(cosine.y, to_kWh.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,128},{28,128},{28,80},{38,80}}, color={0,0,127}));
     connect(to_litre.y, from_litre.u) annotation (Line(
-        points={{61,110},{68,110}}, color={0,0,127}));
+        points={{71,110},{78,110}}, color={0,0,127}));
     connect(to_kWh.y, from_kWh.u) annotation (Line(
-        points={{61,80},{70,80}}, color={0,0,127}));
-    connect(cosine.y, to_bar.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,128},{28,128},{28,50},{38,50}}, color={0,0,127}));
-    connect(cosine.y, to_gps.u) annotation (Line(
-        points={{-59,110},{-50,110},{-50,128},{28,128},{28,20},{38,20}}, color={0,0,127}));
+        points={{71,70},{78,70}}, color={0,0,127}));
     connect(to_bar.y, from_bar.u) annotation (Line(
-        points={{61,50},{70,50}}, color={0,0,127}));
+        points={{71,30},{78,30}}, color={0,0,127}));
     connect(to_gps.y, from_gps.u) annotation (Line(
-        points={{61,20},{70,20}}, color={0,0,127}));
+        points={{71,-10},{78,-10}}, color={0,0,127}));
+    connect(cosine1.y, to_degF.u)
+      annotation (Line(points={{-59,80},{-42,80}}, color={0,0,127}));
+    connect(cosine2.y, to_degRk.u)
+      annotation (Line(points={{-79,50},{-42,50}}, color={0,0,127}));
+    connect(cosine3.y, to_deg.u)
+      annotation (Line(points={{-59,20},{-42,20}}, color={0,0,127}));
+    connect(cosine4.y, to_rpm.u)
+      annotation (Line(points={{-79,-10},{-42,-10}}, color={0,0,127}));
+    connect(cosine5.y, to_kmh.u)
+      annotation (Line(points={{-59,-40},{-42,-40}}, color={0,0,127}));
+    connect(cosine6.y, to_day.u)
+      annotation (Line(points={{-79,-70},{-42,-70}}, color={0,0,127}));
+    connect(cosine7.y, to_hour.u)
+      annotation (Line(points={{-59,-100},{-42,-100}}, color={0,0,127}));
+    connect(cosine8.y, to_minute.u)
+      annotation (Line(points={{-79,-130},{-42,-130}}, color={0,0,127}));
+    connect(to_litre.u, cosine9.y)
+      annotation (Line(points={{48,110},{41,110}}, color={0,0,127}));
+    connect(cosine12.y, to_gps.u)
+      annotation (Line(points={{41,-10},{48,-10}}, color={0,0,127}));
+    connect(cosine11.y, to_bar.u)
+      annotation (Line(points={{41,30},{48,30}}, color={0,0,127}));
+    connect(cosine10.y, to_kWh.u)
+      annotation (Line(points={{41,70},{48,70}}, color={0,0,127}));
     annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-140},{100,140}}), graphics));
+            preserveAspectRatio=false, extent={{-100,-140},{100,140}})));
   end ConversionBlocks;
 
   model PadeDelay1
