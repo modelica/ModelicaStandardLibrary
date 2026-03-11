@@ -1,10 +1,9 @@
 within Modelica.Magnetic.FluxTubes.Shapes.FixedShape;
 model HollowCylinderRadialFlux
   "Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics"
-
-  extends BaseClasses.FixedShape;
   extends Modelica.Magnetic.FluxTubes.Icons.HollowCylinderRadialFlux;
-
+  extends BaseClasses.FixedShape(final A = l*alpha*(r_o + r_i)/2);
+  // area at arithmetic mean radius for calculation of average flux density
   parameter SI.Length l=0.01 "Width (orthogonal to flux direction)"
                                            annotation (Dialog(group=
           "Fixed geometry", groupImage=
@@ -16,10 +15,7 @@ model HollowCylinderRadialFlux
   parameter SI.Angle alpha=2*pi "Central angle"
     annotation (Dialog(group="Fixed geometry"));
 equation
-  A = l*alpha*(r_o + r_i)/2;
-  // Area at arithmetic mean radius for calculation of average flux density
   G_m = mu_0*mu_r*alpha*l/Modelica.Math.log(r_o/r_i);
-
   annotation (defaultComponentName="cylinder", Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.

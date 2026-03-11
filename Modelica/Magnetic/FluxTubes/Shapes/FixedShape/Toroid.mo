@@ -1,9 +1,9 @@
 within Modelica.Magnetic.FluxTubes.Shapes.FixedShape;
 model Toroid
   "Toroid with circular cross section; fixed shape; linear or non-linear material characteristics"
-
-  extends BaseClasses.FixedShape;
   extends Modelica.Magnetic.FluxTubes.Icons.Toroid;
+  extends BaseClasses.FixedShape(final A = d^2*pi/4);
+
   import Modelica.Constants.pi;
   parameter SI.Radius r=0.1 "Radius of toroid (middle)"
     annotation (Dialog(group="Fixed geometry", groupImage=
@@ -13,9 +13,7 @@ model Toroid
   parameter SI.Angle alpha=pi/2 "Angle of toroid section"
     annotation (Dialog(group="Fixed geometry"));
 equation
-  A = d^2*pi/4 "Area at arithmetic mean radius for calculation of average flux density";
   G_m = mu_0*mu_r*A/(r*alpha);
-
   annotation (defaultComponentName="cylinder", Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
