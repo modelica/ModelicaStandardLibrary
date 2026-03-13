@@ -6,7 +6,7 @@ model Admittance "Polyphase linear admittance"
   parameter SI.Temperature T_ref[m]=fill(293.15, m)
     "Reference temperatures";
   parameter SI.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
-    "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+    "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)))";
   extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
   parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
