@@ -91,7 +91,8 @@ equation
       Rectangle(
         extent={{-90,10},{90,-10}},
         fillPattern=FillPattern.HorizontalCylinder,
-        fillColor={255,127,0}),
+        fillColor={255,127,0},
+          pattern=LinePattern.None),
       Text(
         extent={{-120,140},{120,100}},
         textColor={0,0,255},
@@ -99,7 +100,8 @@ equation
       Rectangle(
         extent={{-50,60},{50,-60}},
         fillPattern=FillPattern.HorizontalCylinder,
-        fillColor={255,127,0}),
+        fillColor={255,127,0},
+          pattern=LinePattern.None),
       Rectangle(
         extent={{-80,-20},{-88,-80}},
         lineColor={255,128,0},

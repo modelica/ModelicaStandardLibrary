@@ -250,13 +250,15 @@ position a degree of freedom is lost.
           lineColor={64,64,64},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={255,255,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(
           extent={{30,-60},{100,60}},
           lineColor={64,64,64},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={255,255,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Text(
           extent={{-139,-168},{137,-111}},
           textString="%name",
@@ -285,7 +287,8 @@ position a degree of freedom is lost.
           extent={{-10,90},{10,50}},
           lineColor={64,64,64},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={192,192,192})}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None)}),
     Documentation(info="<html>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.

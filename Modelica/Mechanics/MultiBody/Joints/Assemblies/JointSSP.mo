@@ -255,7 +255,8 @@ component).
         Rectangle(
           extent={{10,6},{61,-6}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-100,-24},{-52,24}},
           startAngle=70,
@@ -301,7 +302,8 @@ component).
         Rectangle(
           extent={{-76,5},{-10,-5}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{50,20},{80,-20}},
           fillColor={192,192,192},

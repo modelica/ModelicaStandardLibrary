@@ -56,7 +56,8 @@ equation
           lineColor={95,95,95},
           fillColor={255,255,255},
           fillPattern=FillPattern.HorizontalCylinder,
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-20,100},{20,-100}},
           lineColor={95,95,95},
