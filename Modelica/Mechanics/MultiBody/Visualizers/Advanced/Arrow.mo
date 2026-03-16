@@ -5,6 +5,7 @@ model Arrow
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Mechanics.MultiBody.Frames;
   import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
+  import Modelica.Units.Conversions.to_unit1;
 
   input Frames.Orientation R=Frames.nullRotation()
     "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
@@ -12,25 +13,49 @@ model Arrow
     "Position vector from origin of world frame to origin of arrow frame, resolved in world frame" annotation(Dialog);
   input SI.Position r_tail[3]={0,0,0}
     "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame" annotation(Dialog);
-  input Real r_head[3]={0,0,0}
-    "Vector from arrow tail to the head of the arrow, resolved in arrow frame" annotation(Dialog);
-  input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
-    "Color of arrow" annotation(Dialog(colorSelector=true));
+  input SI.Position r_head[3]={0,0,0}
+    "Position vector from arrow tail to the head of the arrow, resolved in arrow frame" annotation(Dialog);
+  input SI.Diameter diameter=world.defaultArrowDiameter
+    "Diameter of arrow line" annotation(Dialog);
+  input SI.Diameter headDiameter=3*diameter "Diameter of arrow head" annotation(Dialog);
+  input SI.Length headLength=5*diameter "Length of arrow head" annotation(Dialog);
+  input Types.Color color=Types.Defaults.ArrowColor "Color of arrow" annotation(Dialog(colorSelector=true));
   input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-    "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)" annotation(Dialog);
-  parameter Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
-    "Kind of physical quantity represented by the vector" annotation(Dialog);
-  input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame" annotation(Dialog);
+    "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
+     annotation(Dialog);
+
 protected
   outer Modelica.Mechanics.MultiBody.World world;
-  SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail);
-  Visualizers.Advanced.Vector arrowLine(
-    coordinates=r_head,
+
+  SI.Length length = Modelica.Math.Vectors.length(r_head) "Length of arrow";
+  SI.Length headLengthMax = noEvent(min(length, headLength));
+  SI.Length lineLength = length - headLengthMax;
+  SI.Position r_shape_cone[3] = r_tail + r_head*noEvent(if length < 1.e-7 then 0 else lineLength/length)
+    "Position vector from origin of arrow frame to origin of head's cone shape, resolved in arrow frame";
+
+  Visualizers.Advanced.Shape arrowLine(
+    length=lineLength,
+    width=diameter,
+    height=diameter,
+    lengthDirection=to_unit1(r_head),
+    widthDirection={0,1,0},
+    shapeType="cylinder",
     color=color,
     specularCoefficient=specularCoefficient,
-    r=rvisobj,
-    quantity=quantity,
-    headAtOrigin=headAtOrigin,
+    r_shape=r_tail,
+    r=r,
+    R=R) if world.enableAnimation;
+  Visualizers.Advanced.Shape arrowHead(
+    length=headLengthMax,
+    width=headDiameter,
+    height=headDiameter,
+    lengthDirection=to_unit1(r_head),
+    widthDirection={0,1,0},
+    shapeType="cone",
+    color=color,
+    specularCoefficient=specularCoefficient,
+    r_shape=r_shape_cone,
+    r=r,
     R=R) if world.enableAnimation;
 
   annotation (
@@ -38,7 +63,7 @@ protected
 <p>
 Model <strong>Arrow</strong> defines an arrow that is dynamically
 visualized at the defined location (see variables below).
-If you want an arrow representing something that is not a&nbsp;relative position, use
+If you want an arrow representing a&nbsp;<em>physical quantity</em>, consider using
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a> instead.
 </p>
 
@@ -47,9 +72,10 @@ If you want an arrow representing something that is not a&nbsp;relative position
 </div>
 
 <p>
-The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>, <code>r_head</code>, <code>color</code>,
-<code>specularCoefficient</code>, and <code>headAtOrigin</code>
-are declared as (time varying) <strong>input</strong> variables.
+The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>, <code>r_head</code>, 
+<code>diameter</code>, <code>headDiameter</code>, <code>headLength</code>, <code>color</code>
+and <code>specularCoefficient</code> are declared as (time varying) <strong>input</strong>
+variables.
 If the default equation is not appropriate, a&nbsp;corresponding
 modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
