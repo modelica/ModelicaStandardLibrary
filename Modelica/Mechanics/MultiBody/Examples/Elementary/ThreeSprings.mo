@@ -110,5 +110,29 @@ alt=\"model Examples.Elementary.ThreeSprings\">
 For a more thorough explanation, see
 <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces\">MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces</a>.
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Spring elongations and forces",
+          identifier = "e80de",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = spring1.spring.f, legend = "Force in spring1"),
+                Curve(y = spring2.spring.f, legend = "Force in spring2"),
+                Curve(y = spring3.spring.f, legend = "Force in spring3")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = spring1.spring.s_rel, legend = "Elongation of spring1"),
+                Curve(y = spring2.spring.s_rel, legend = "Elongation of spring2"),
+                Curve(y = spring3.spring.s_rel, legend = "Elongation of spring3")
+              }
+            )
+          }
+        )
+      }
+    ));
 end ThreeSprings;
