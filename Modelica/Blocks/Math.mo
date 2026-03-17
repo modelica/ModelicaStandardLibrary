@@ -1931,7 +1931,7 @@ Otherwise the input angle <code>u</code> is wrapped to the <a href=\"https://en.
 </html>"));
   end WrapAngle;
 
-  block RealToInteger "Convert Real to Integer signal"
+  block RealToInteger "Convert Real to Integer signal (by rounding away from zero)"
     extends Modelica.Blocks.Icons.IntegerBlock;
   public
     Interfaces.RealInput u "Connector of Real input signal" annotation (
@@ -1959,7 +1959,7 @@ Otherwise the input angle <code>u</code> is wrapped to the <a href=\"https://en.
                 30.0,-10.0},{30.0,-20.0},{50.0,0.0}})}), Documentation(info="<html>
 <p>
 This block computes the output <strong>y</strong>
-as <em>nearest integer value</em> of the input <strong>u</strong>:
+as <em>nearest integer value</em> of the input <strong>u</strong> (by rounding away from zero):
 </p>
 <blockquote><pre>
 y = <strong>integer</strong>( <strong>floor</strong>( u + 0.5 ) )  for  u &gt; 0;
