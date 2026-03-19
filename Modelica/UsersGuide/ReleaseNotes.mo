@@ -179,7 +179,7 @@ The following libraries, that were previously using version Modelica 4.0.0, were
 </tr>
 </table>
 
-<p><br><br>The following <strong><font color=\"blue\">critical errors</font></strong> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
+<p><br><br>The following <strong><font color=\"red\">critical errors</font></strong> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
 <tr>
 <td colspan=\"2\"><h4>Library</h4></td>
@@ -522,7 +522,7 @@ The following libraries, that were previously using version Modelica 4.0.0, were
 <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a <code>protected final</code> parameter.</td>
 </tr>
 </table>
-<p><br><br>The following <strong><font color=\"blue\">critical errors</font></strong> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
+<p><br><br>The following <strong><font color=\"red\">critical errors</font></strong> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Tables</h4></td>
 </tr>
