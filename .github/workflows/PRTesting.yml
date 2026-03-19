@@ -1,0 +1,35 @@
+name: PR_testing
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  pull_request:
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  prepare:
+    runs-on: self-hosted   
+    steps: 
+      - name: checkout_pr_repo
+        run: /home/resimuser/regression_testing/docker/work/run_scripts/prepare_pr.sh ${{ github.event.number }}
+  
+  testrun_modelica:
+    needs: prepare
+    runs-on: self-hosted
+    environment: 
+        name: link_modelica
+        url: https://serv.ltx.de/prs/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
+    steps:         
+      - name: run modelica      
+        run: /home/resimuser/regression_testing/docker/work/run_scripts/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica
+        
+  testrun_modelicatest:
+    needs: prepare
+    runs-on: self-hosted
+    environment: 
+        name: link_modelicatest
+        url: https://serv.ltx.de/prs/${{ github.event.number }}/ModelicaTest/report/PR_comparison_report.html
+    steps:    
+      - name: run modelicatest      
+        run:  /home/resimuser/regression_testing/docker/work/run_scripts/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest
