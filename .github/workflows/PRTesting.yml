@@ -12,7 +12,9 @@ jobs:
             sparse_checkout: ./.Ci/ReSim
       
       - name: Checkout code in docker
-        run: ./ModelicaStandardLibrary/ModelicaStandardLibrary/.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
+        run: |
+            echo cd
+            ../ModelicaStandardLibrary/ModelicaStandardLibrary/.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
   
   testrun_modelica:
     needs: prepare
