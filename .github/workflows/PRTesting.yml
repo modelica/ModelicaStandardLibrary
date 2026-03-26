@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code in docker
         run: |
             pwd
-            ./ModelicaStandardLibrary/.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
+            ./.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
   
   testrun_modelica:
     needs: prepare
