@@ -1589,7 +1589,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     "Table look-up with respect to time and various interpolation and extrapolation methods (data from matrix/file)"
     import Modelica.Blocks.Tables.Internal;
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
-    parameter Boolean tableOnFile=false
+    parameter Boolean tableOnFile = false
       "= true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
     parameter Real table[:, :] = fill(0.0, 0, 2)
