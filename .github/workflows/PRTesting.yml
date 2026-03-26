@@ -7,12 +7,11 @@ jobs:
   prepare:
     runs-on: [ self-hosted, Linux, regression_testing ]  
     steps: 
-      - name: Checkout code
-        run: | 
-            git clone --depth=1 --filter=blob:none --sparse https://github.com/modelica/ModelicaStandardLibrary -b MatthiasBSchaefer_PRTesting
-            cd ./ModelicaStandardLibrary
-            git sparse-checkout set .CI/ReSim
-            ./.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
+      - uses: actions/checkout@v6
+        with: sparse_checkout './.Ci/ReSim'
+      
+      - name: Checkout code in docker
+        run: ./.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
   
   testrun_modelica:
     needs: prepare
