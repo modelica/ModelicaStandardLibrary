@@ -1652,7 +1652,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
   protected
     final parameter Real p_offset[nout] = (if size(offset, 1) == 1 then ones(nout)*offset[1] else offset)
       "Offsets of output signals";
-    parameter Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTimeTable tableID =
         Modelica.Blocks.Types.ExternalCombiTimeTable(
           if tableOnFile then if isCsvExt then "Values" else tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
