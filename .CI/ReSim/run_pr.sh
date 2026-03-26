@@ -5,7 +5,7 @@ pkg_name=$3
 # Run Modelica in all tools
 tools=$4
 
-for tool in tools
+for tool in $tools
 do 
   uppertool=$tool | tr 'a-z' 'A-Z'
   docker run --rm --name $tool\_pr_compare_$event_number\_$pkg_name --volume shared_data:/shared_data  $tool\_image python /shared_data/run_scripts/$uppertool\_PR_compare.py $master_hash $event_number $pkg_name            
