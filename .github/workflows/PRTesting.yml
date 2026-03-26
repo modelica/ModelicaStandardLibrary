@@ -8,7 +8,8 @@ jobs:
     runs-on: [ self-hosted, Linux, regression_testing ]  
     steps: 
       - uses: actions/checkout@v6
-        with: sparse_checkout './.Ci/ReSim'
+        with: 
+            sparse_checkout: './.Ci/ReSim'
       
       - name: Checkout code in docker
         run: ./.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
