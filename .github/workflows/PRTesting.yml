@@ -8,7 +8,10 @@ jobs:
     runs-on: [ self-hosted, Linux, regression_testing ]  
     steps: 
       - name: Checkout code
-        run: ./.CI/prepare_pr.sh ${{ github.event.number }}
+        run: | 
+            git clone --depth=1 --filter=blob:none --sparse https://github.com/modelica/ModelicaStandardLibrary -b MatthiasBSchaefer_PRTesting
+            git sparse-checkout set .CI/ReSim
+            ./.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
   
   testrun_modelica:
     needs: prepare
@@ -18,7 +21,7 @@ jobs:
         url: ${{ vars.LTX_PR_SERVER }}/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
     steps:         
       - name: Run tests modelica      
-        run: ./.CI/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica {{ vars.LTX_TESTING_TOOLS }}
+        run: ./.CI/ReSim/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica {{ vars.LTX_TESTING_TOOLS }}
         
   testrun_modelicatest:
     needs: prepare
@@ -28,4 +31,4 @@ jobs:
         url: ${{ vars.LTX_PR_SERVER }}/${{ github.event.number }}/ModelicaTest/report/PR_comparison_report.html
     steps:    
       - name: Run tests modelicatest      
-        run:  ./.CI/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest {{ vars.LTX_TESTING_TOOLS }}
+        run:  ./.CI/ReSim/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest {{ vars.LTX_TESTING_TOOLS }}
