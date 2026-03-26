@@ -1641,7 +1641,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     parameter Boolean verboseExtrapolation = false
       "= true, if warning messages are to be printed if time is outside the table definition range"
       annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
-    final parameter SI.Time t_min=t_minScaled*timeScale
+    final parameter SI.Time t_min = t_minScaled*timeScale
       "Minimum abscissa value defined in table";
     final parameter SI.Time t_max=t_maxScaled*timeScale
       "Maximum abscissa value defined in table";
