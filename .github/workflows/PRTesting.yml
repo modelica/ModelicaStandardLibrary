@@ -19,8 +19,8 @@ jobs:
     needs: prepare
     runs-on: [ self-hosted, Linux, regression_testing ]
     env:
-      PR_SERVER: ${{ vars.LTX_PR_SERVER }}
-      TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
+      PR_SERVER: ${{ secrets.LTX_PR_SERVER }}
+      TESTING_TOOLS: ${{ secrets.LTX_TESTING_TOOLS }}
     environment: 
         name: Report modelica
         url: $PR_SERVER/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
@@ -34,8 +34,8 @@ jobs:
     needs: prepare
     runs-on: [ self-hosted, Linux, regression_testing ]
     env:
-      PR_SERVER: ${{ vars.LTX_PR_SERVER }}
-      TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
+      PR_SERVER: ${{ secrets.LTX_PR_SERVER }}
+      TESTING_TOOLS: ${{ secrets.LTX_TESTING_TOOLS }}
     environment: 
         name: Report modelicatest
         url: $PR_SERVER/${{ github.event.number }}/ModelicaTest/report/PR_comparison_report.html
