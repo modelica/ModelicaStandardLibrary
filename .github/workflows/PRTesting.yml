@@ -19,11 +19,11 @@ jobs:
     needs: prepare
     runs-on: [ self-hosted, Linux, regression_testing ]
     env:
-      PR_SERVER: ${{ secrets.LTX_PR_SERVER }}
-      TESTING_TOOLS: ${{ secrets.LTX_TESTING_TOOLS }}
-    environment: 
-        name: Report modelica
-        url: $PR_SERVER/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
+      PR_SERVER: ${{ vars.LTX_PR_SERVER }}
+      TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
+    #environment: 
+    #    name: Report modelica
+    #    url: $PR_SERVER/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
     steps:         
       - name: print envs
         run: echo "TESTING_TOOLS=$TESTING_TOOLS"
@@ -34,11 +34,11 @@ jobs:
     needs: prepare
     runs-on: [ self-hosted, Linux, regression_testing ]
     env:
-      PR_SERVER: ${{ secrets.LTX_PR_SERVER }}
-      TESTING_TOOLS: ${{ secrets.LTX_TESTING_TOOLS }}
-    environment: 
-        name: Report modelicatest
-        url: $PR_SERVER/${{ github.event.number }}/ModelicaTest/report/PR_comparison_report.html
+      PR_SERVER: ${{ vars.LTX_PR_SERVER }}
+      TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
+    #environment: 
+    #    name: Report modelicatest
+    #    url: $PR_SERVER/${{ github.event.number }}/ModelicaTest/report/PR_comparison_report.html
     steps:    
       - name: Run tests modelicatest      
         run:  ./.CI/ReSim/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest $TESTING_TOOLS
