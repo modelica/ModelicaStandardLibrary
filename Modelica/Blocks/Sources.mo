@@ -1668,7 +1668,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
           nHeaderLines) "External table object";
     discrete SI.Time nextTimeEvent(start = 0, fixed=true)
       "Next time event instant";
-    discrete Real nextTimeEventScaled(start=0, fixed=true)
+    discrete Real nextTimeEventScaled(start = 0, fixed=true)
       "Next scaled time event instant";
     Real timeScaled "Scaled time";
     final parameter Boolean isCsvExt = if tableOnFile then Modelica.Utilities.Strings.findLast(fileName, ".csv", caseSensitive=false) + 3 == Modelica.Utilities.Strings.length(fileName) else false;
