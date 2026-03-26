@@ -9,10 +9,10 @@ jobs:
     steps: 
       - uses: actions/checkout@v6
         with: 
-            sparse_checkout: './.Ci/ReSim'
+            sparse_checkout: ./.Ci/ReSim
       
       - name: Checkout code in docker
-        run: ./.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
+        run: ./ModelicaStandardLibrary/ModelicaStandardLibrary/.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
   
   testrun_modelica:
     needs: prepare
