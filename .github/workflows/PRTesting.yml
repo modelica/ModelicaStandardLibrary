@@ -9,7 +9,7 @@ jobs:
     steps: 
       - uses: actions/checkout@v6
         with: 
-            sparse-checkout: '\./\.Ci/ReSim'
+            sparse-checkout: './.CI/ReSim'
       
       - name: Checkout code in docker
         run: |
