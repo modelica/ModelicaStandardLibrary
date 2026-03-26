@@ -23,10 +23,12 @@ jobs:
       TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
     environment: 
         name: Report modelica
-        url: ${{ env.PR_SERVER }}/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
+        url: $PR_SERVER/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
     steps:         
+      - name: print envs
+        run: echo "TESTING_TOOLS=$TESTING_TOOLS"
       - name: Run tests modelica      
-        run: ./.CI/ReSim/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica ${{ env.TESTING_TOOLS }}
+        run: ./.CI/ReSim/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica $TESTING_TOOLS
         
   testrun_modelicatest:
     needs: prepare
@@ -36,7 +38,7 @@ jobs:
       TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
     environment: 
         name: Report modelicatest
-        url: ${{ env.PR_SERVER }}/${{ github.event.number }}/ModelicaTest/report/PR_comparison_report.html
+        url: $PR_SERVER/${{ github.event.number }}/ModelicaTest/report/PR_comparison_report.html
     steps:    
       - name: Run tests modelicatest      
-        run:  ./.CI/ReSim/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest ${{ env.TESTING_TOOLS }}
+        run:  ./.CI/ReSim/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest $TESTING_TOOLS
