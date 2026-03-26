@@ -1629,7 +1629,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
       annotation (Dialog(group="Table data interpretation"), Evaluate=true);
     parameter Real offset[:]={0} "Offsets of output signals"
       annotation (Dialog(group="Table data interpretation"));
-    parameter SI.Time startTime = 0
+    parameter  SI.Time  startTime = 0
       "Output = offset for time < startTime"
       annotation (Dialog(group="Table data interpretation"));
     parameter SI.Time shiftTime = startTime
