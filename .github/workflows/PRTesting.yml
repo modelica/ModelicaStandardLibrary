@@ -1,35 +1,31 @@
-name: PR_testing
+name: CI ReSim
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   pull_request:
-  
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   prepare:
-    runs-on: self-hosted   
+    runs-on: [ self-hosted, Linux, regression_testing ]  
     steps: 
-      - name: checkout_pr_repo
-        run: /home/resimuser/regression_testing/docker/work/run_scripts/prepare_pr.sh ${{ github.event.number }}
+      - name: Checkout code
+        run: ./.CI/prepare_pr.sh ${{ github.event.number }}
   
   testrun_modelica:
     needs: prepare
-    runs-on: self-hosted
+    runs-on: [ self-hosted, Linux, regression_testing ]
     environment: 
-        name: test
-        url: https://serv.ltx.de/prs/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
+        name: Report modelica
+        url: ${{ vars.LTX_PR_SERVER }}/${{ github.event.number }}/Modelica/report/PR_comparison_report.html
     steps:         
-      - name: run modelica      
-        run: /home/resimuser/regression_testing/docker/work/run_scripts/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica
+      - name: Run tests modelica      
+        run: ./.CI/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica {{ vars.LTX_TESTING_TOOLS }}
         
   testrun_modelicatest:
     needs: prepare
-    runs-on: self-hosted
+    runs-on: [ self-hosted, Linux, regression_testing ]
     environment: 
-        name: test
-        url: https://serv.ltx.de/prs/${{ github.event.number }}/ModelicaTest/report/PR_comparison_report.html
+        name: Report modelicatest
+        url: ${{ vars.LTX_PR_SERVER }}/${{ github.event.number }}/ModelicaTest/report/PR_comparison_report.html
     steps:    
-      - name: run modelicatest      
-        run:  /home/resimuser/regression_testing/docker/work/run_scripts/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest
+      - name: Run tests modelicatest      
+        run:  ./.CI/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest {{ vars.LTX_TESTING_TOOLS }}
