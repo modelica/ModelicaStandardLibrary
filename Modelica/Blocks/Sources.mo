@@ -1666,7 +1666,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
           if tableOnFile then verboseRead else false,
           delimiter,
           nHeaderLines) "External table object";
-    discrete SI.Time nextTimeEvent(start=0, fixed=true)
+    discrete SI.Time nextTimeEvent(start = 0, fixed=true)
       "Next time event instant";
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
