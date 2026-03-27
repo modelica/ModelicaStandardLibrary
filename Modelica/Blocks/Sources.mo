@@ -1589,22 +1589,22 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     "Table look-up with respect to time and various interpolation and extrapolation methods (data from matrix/file)"
     import Modelica.Blocks.Tables.Internal;
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
-    parameter Boolean tableOnFile=false
+    parameter Boolean tableOnFile = false
       "= true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])"
-      annotation (Dialog(group="Table data definition",enable=not tableOnFile));
-    parameter String tableName="NoName"
+      annotation (Dialog(group = "Table data definition",enable=not tableOnFile));
+    parameter String tableName = "NoName"
       "Table name on file or in function usertab (see docu)"
-      annotation (Dialog(group="Table data definition",enable=tableOnFile));
-    parameter String fileName="NoName" "File where matrix is stored"
+      annotation (Dialog(group = "Table data definition",enable=tableOnFile));
+    parameter String fileName = "NoName" "File where matrix is stored"
       annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile,
-        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat);;Comma-separated values files (*.csv)",
+        loadSelector(filter = "Text files (*.txt);;MATLAB MAT-files (*.mat);;Comma-separated values files (*.csv)",
             caption="Open file in which table is present")));
-    parameter String delimiter="," "Column delimiter character for CSV file"
+    parameter String delimiter =  "," "Column delimiter character for CSV file"
       annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile and isCsvExt),
@@ -1616,43 +1616,43 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated"
-      annotation (Dialog(group="Table data interpretation",
+      annotation (Dialog(group = "Table data interpretation",
       groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/CombiTimeTable.png"));
-    parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
+    parameter Modelica.Blocks.Types.Smoothness smoothness = Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
-      annotation (Dialog(group="Table data interpretation"));
-    parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
+      annotation (Dialog(group = "Table data interpretation"));
+    parameter Modelica.Blocks.Types.Extrapolation extrapolation = Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
       annotation (Dialog(group="Table data interpretation"));
     parameter SI.Time timeScale(
-      min=Modelica.Constants.eps)=1 "Time scale of first table column"
+      min = Modelica.Constants.eps) = 1 "Time scale of first table column"
       annotation (Dialog(group="Table data interpretation"), Evaluate=true);
-    parameter Real offset[:]={0} "Offsets of output signals"
+    parameter Real offset[:] = {0} "Offsets of output signals"
       annotation (Dialog(group="Table data interpretation"));
-    parameter SI.Time startTime=0
+    parameter  SI.Time  startTime = 0
       "Output = offset for time < startTime"
       annotation (Dialog(group="Table data interpretation"));
-    parameter SI.Time shiftTime=startTime
+    parameter SI.Time shiftTime = startTime
       "Shift time of first table column"
       annotation (Dialog(group="Table data interpretation"));
-    parameter Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always
+    parameter Modelica.Blocks.Types.TimeEvents timeEvents = Modelica.Blocks.Types.TimeEvents.Always
       "Time event handling of table interpolation"
       annotation (Dialog(group="Table data interpretation", enable=smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments));
-    parameter Boolean verboseExtrapolation=false
+    parameter Boolean verboseExtrapolation = false
       "= true, if warning messages are to be printed if time is outside the table definition range"
       annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
-    final parameter SI.Time t_min=t_minScaled*timeScale
+    final parameter SI.Time t_min = t_minScaled*timeScale
       "Minimum abscissa value defined in table";
-    final parameter SI.Time t_max=t_maxScaled*timeScale
+    final parameter SI.Time t_max = t_maxScaled*timeScale
       "Maximum abscissa value defined in table";
-    final parameter Real t_minScaled=Internal.getTimeTableTmin(tableID)
+    final parameter Real t_minScaled = Internal.getTimeTableTmin(tableID)
       "Minimum (scaled) abscissa value defined in table";
-    final parameter Real t_maxScaled=Internal.getTimeTableTmax(tableID)
+    final parameter Real t_maxScaled = Internal.getTimeTableTmax(tableID)
       "Maximum (scaled) abscissa value defined in table";
   protected
-    final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*offset[1] else offset)
+    final parameter Real p_offset[nout] = (if size(offset, 1) == 1 then ones(nout)*offset[1] else offset)
       "Offsets of output signals";
-    parameter Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTimeTable tableID =
         Modelica.Blocks.Types.ExternalCombiTimeTable(
           if tableOnFile then if isCsvExt then "Values" else tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
@@ -1666,9 +1666,9 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
           if tableOnFile then verboseRead else false,
           delimiter,
           nHeaderLines) "External table object";
-    discrete SI.Time nextTimeEvent(start=0, fixed=true)
+    discrete SI.Time nextTimeEvent(start = 0, fixed=true)
       "Next time event instant";
-    discrete Real nextTimeEventScaled(start=0, fixed=true)
+    discrete Real nextTimeEventScaled(start = 0, fixed=true)
       "Next scaled time event instant";
     Real timeScaled "Scaled time";
     final parameter Boolean isCsvExt = if tableOnFile then Modelica.Utilities.Strings.findLast(fileName, ".csv", caseSensitive=false) + 3 == Modelica.Utilities.Strings.length(fileName) else false;
