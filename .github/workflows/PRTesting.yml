@@ -2,11 +2,13 @@ name: CI ReSim
 on:
   pull_request:
   workflow_dispatch:
-
+env:
+    PR_SERVER: ${{ vars.LTX_PR_SERVER }}
+    TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
+    SECRET: ${{ secrets.DOCRAPTOR_API_KEY }}
 jobs:
   prepare:
     runs-on: [ self-hosted, Linux, regression_testing ]      
-    
     steps: 
       - uses: actions/checkout@v6
         with: 
@@ -14,7 +16,7 @@ jobs:
 
       - name: Checkout code in docker
         run: ./.CI/ReSim/prepare_pr.sh ${{ github.event.number }}
-  
+    
   testrun_modelica:
     needs: prepare
     runs-on: [ self-hosted, Linux, regression_testing ]
@@ -28,9 +30,7 @@ jobs:
             TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
       - name: Run tests modelica      
         run: ./.CI/ReSim/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} Modelica $TESTING_TOOLS
-        env:
-            PR_SERVER: ${{ vars.LTX_PR_SERVER }}
-            TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
+
             
   testrun_modelicatest:
     needs: prepare
@@ -41,6 +41,3 @@ jobs:
     steps:    
       - name: Run tests modelicatest      
         run:  ./.CI/ReSim/run_pr.sh ${{ github.event.number }} ${{ github.event.pull_request.base.sha }} ModelicaTest $TESTING_TOOLS
-        env:
-            PR_SERVER: ${{ vars.LTX_PR_SERVER }}
-            TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
