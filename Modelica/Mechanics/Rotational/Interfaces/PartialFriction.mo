@@ -86,7 +86,7 @@ The method is described in [Otter1999]
 </p>
 <p>
 The parameter <code>w_small</code> is introduced for particular
-cases where a&nbsp;reinit is triggered at zero velocity. 
+cases where a&nbsp;reinit is triggered at zero velocity.
 For such &ndash; rather rare &ndash; cases the friction handling
 logic is no longer correct. On the other hand, introducing
 <code>w_small</code> in general leads to problems when more
@@ -109,6 +109,6 @@ a&nbsp;small value only when</strong> the special case with
         Aug. 22.-26, Hawaii 1999.
     </td>
   </tr>
-</table> 
+</table>
 </html>"));
 end PartialFriction;

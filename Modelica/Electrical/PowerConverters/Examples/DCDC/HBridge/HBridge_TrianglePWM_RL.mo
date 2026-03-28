@@ -28,10 +28,10 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-This is the same example as <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_RL\">HBridge_RL</a> 
-but using a triangle (instead of a sawtooth) as pwm reference signal. 
-This enables an easy sampling of the current in the middle of the pwm period, which delivers with good approximation the mean current: 
-Compare <code>meanCurrent.y</code> and <code>zeroOrderHold.y</code>. 
+This is the same example as <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_RL\">HBridge_RL</a>
+but using a triangle (instead of a sawtooth) as pwm reference signal.
+This enables an easy sampling of the current in the middle of the pwm period, which delivers with good approximation the mean current:
+Compare <code>meanCurrent.y</code> and <code>zeroOrderHold.y</code>.
 For discrete or quasi-continuous control it is essential to sample the correct mean current with low effort once during the pwm period.
 </p>
 </html>"),

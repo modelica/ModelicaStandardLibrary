@@ -262,9 +262,9 @@ equation
 <p>
 At start time tStart voltages are supplied to the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">polyphase induction machines with squirrel cage</a>.
-The machines starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed. 
-Three equivalent machines with different parameter <code>ratioCommonLeakage</code> are compared. 
-Note that due to the mode of operation, the behaviour of all three machines is identical. 
+The machines starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.
+Three equivalent machines with different parameter <code>ratioCommonLeakage</code> are compared.
+Note that due to the mode of operation, the behaviour of all three machines is identical.
 Only when fed by switching power electronics, parameter <code>ratioCommonLeakage</code> is essential.
 </p>
 </html>"),
