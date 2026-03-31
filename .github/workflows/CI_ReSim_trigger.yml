@@ -1,0 +1,18 @@
+name: CI ReSim Trigger
+
+on:
+  pull_request:
+  workflow_dispatch:
+  
+env:
+  EVENT_NUMBER:  ${{ github.event.number }}
+  PR_SHA: ${{ github.event.pull_request.base.sha }}
+  
+jobs:
+  get PR data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print vars
+        run: 
+            echo "Event Number: ${{ github.env.EVENT_NUMBER  }}"
+            echo "PR Base Hash: ${{ github.env.PR_SHA  }}"             
