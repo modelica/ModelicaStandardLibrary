@@ -27,11 +27,7 @@ jobs:
     environment: 
         name: Report modelica
         url: ${{ env.PR_SERVER }}/${{ env.EVENT_NUMBER }}/Modelica/report/PR_comparison_report.html
-    steps:         
-      - name: print envs
-        run: echo "TESTING_TOOLS=$TESTING_TOOLS"
-        env:
-            TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
+    steps:
       - name: Run tests modelica      
         run: ./.CI/ReSim/run_pr.sh ${{ env.EVENT_NUMBER }} ${{ env.PR_SHA }} Modelica ${{ env.TESTING_TOOLS }}
 
