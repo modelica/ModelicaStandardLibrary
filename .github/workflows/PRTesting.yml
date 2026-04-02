@@ -1,15 +1,15 @@
 name: CI ReSim
+
 on:
-  workflow_run:
-    workflows: ["Trigger CI ReSim"]
-    types:
-      - completed
+  pull_request_target:
+  workflow_dispatch:
 
 env:
     PR_SERVER: ${{ vars.LTX_PR_SERVER }}
     TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
-    EVENT_NUMBER: ${{ github.event.workflow_run.env.EVENT_NUMBER }}
-    PR_SHA: ${{ github.event.workflow_run.env.PR_SHA }}
+    EVENT_NUMBER:  ${{ github.event.number }}
+    PR_SHA: ${{ github.event.pull_request.base.sha }}
+
 jobs:
   prepare:
     runs-on: [ self-hosted, Linux, regression_testing ]      
@@ -19,29 +19,29 @@ jobs:
             sparse-checkout: './.CI/ReSim'
 
       - name: Checkout code in docker
-        run: ./.CI/ReSim/prepare_pr.sh ${{ github.env.EVENT_NUMBER }}
+        run: ./.CI/ReSim/prepare_pr.sh ${{ env.EVENT_NUMBER }}
     
   testrun_modelica:
     needs: prepare
     runs-on: [ self-hosted, Linux, regression_testing ]
-    #environment: 
-    #    name: Report modelica
-    #    url: $PR_SERVER/${{ github.env.EVENT_NUMBER }}/Modelica/report/PR_comparison_report.html
+    environment: 
+        name: Report modelica
+        url: ${{ env.PR_SERVER }}/${{ env.EVENT_NUMBER }}/Modelica/report/PR_comparison_report.html
     steps:         
       - name: print envs
         run: echo "TESTING_TOOLS=$TESTING_TOOLS"
         env:
             TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
       - name: Run tests modelica      
-        run: ./.CI/ReSim/run_pr.sh ${{ github.env.EVENT_NUMBER }} ${{ github.env.PR_SHA }} Modelica ${{ github.env.TESTING_TOOLS }}
+        run: ./.CI/ReSim/run_pr.sh ${{ env.EVENT_NUMBER }} ${{ env.PR_SHA }} Modelica ${{ env.TESTING_TOOLS }}
 
             
   testrun_modelicatest:
     needs: prepare
     runs-on: [ self-hosted, Linux, regression_testing ]
-    #environment: 
-    #    name: Report modelicatest
-    #    url: $PR_SERVER/${{ github.env.EVENT_NUMBER }}/ModelicaTest/report/PR_comparison_report.html
+    environment: 
+        name: Report modelicatest
+        url: ${{ env.PR_SERVER }}/${{ env.EVENT_NUMBER }}/ModelicaTest/report/PR_comparison_report.html
     steps:    
       - name: Run tests modelicatest      
-        run:  ./.CI/ReSim/run_pr.sh ${{ github.env.EVENT_NUMBER }} ${{ github.env.PR_SHA }} ModelicaTest ${{ github.env.TESTING_TOOLS }}
+        run:  ./.CI/ReSim/run_pr.sh ${{ env.EVENT_NUMBER }} ${{ env.PR_SHA }} ModelicaTest ${{ env.TESTING_TOOLS }}
