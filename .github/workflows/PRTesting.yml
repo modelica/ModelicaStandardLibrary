@@ -1,7 +1,8 @@
 name: CI ReSim
 
 on:
-  pull_request:
+  pull_request_target:
+    types: [labeled]
   workflow_dispatch:
 
 env:
