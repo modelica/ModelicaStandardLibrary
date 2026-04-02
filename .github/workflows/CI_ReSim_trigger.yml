@@ -13,6 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print vars
-        run: 
+        run: |
             echo "Event Number: ${{ github.env.EVENT_NUMBER  }}"
             echo "PR Base Hash: ${{ github.env.PR_SHA  }}"             
