@@ -1670,7 +1670,7 @@ y = <strong>tanh</strong>( u );
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,-80},{0,68}}, color={192,192,192}),
+          Line(points={{0,-80.3976},{0,68}}, color={192,192,192}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
@@ -1682,7 +1682,8 @@ y = <strong>tanh</strong>( u );
             textString="exp"),
           Line(points={{-80,-80},{-31,-77.9},{-6.03,-74},{10.9,-68.4},{23.7,-61},
                 {34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{
-                67.1,18.6},{72,38.2},{76,57.6},{80,80}}),
+                67.1,18.6},{72,38.2},{76,57.6},{80,80}},
+              smooth=Smooth.Bezier),
           Line(
             points={{-90,-80.3976},{68,-80.3976}},
             color={192,192,192},
@@ -1718,7 +1719,7 @@ y = <strong>exp</strong>( u );
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,-80},{0,68}}, color={192,192,192}),
+          Line(points={{0,-80.3976},{0,68}}, color={192,192,192}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
@@ -1730,7 +1731,8 @@ y = <strong>exp</strong>( u );
             textString="^"),
           Line(points={{-80,-80},{-31,-77.9},{-6.03,-74},{10.9,-68.4},{23.7,-61},
                 {34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{
-                67.1,18.6},{72,38.2},{76,57.6},{80,80}}),
+                67.1,18.6},{72,38.2},{76,57.6},{80,80}},
+              smooth=Smooth.Bezier),
           Line(
             points={{-90,-80.3976},{68,-80.3976}},
             color={192,192,192},
@@ -1766,7 +1768,7 @@ y = base <strong>^</strong> u;
     y = u^exponent;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-          Line(points={{0,-80},{0,68}}, color={192,192,192}),
+          Line(points={{0,-80.3976},{0,68}}, color={192,192,192}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
