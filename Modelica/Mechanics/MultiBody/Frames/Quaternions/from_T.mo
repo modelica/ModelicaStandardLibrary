@@ -14,7 +14,7 @@ protected
 algorithm
   /*
    This is an optimized version of the quaternion conversion based on
-   this paper: modelica://Modelica/Resources/Documentation/Mechanics/matrix-to-quat.pdf
+   this paper: https://web.archive.org/web/20170718214714/https://d3cw3dd2w32x2b.cloudfront.net/wp-content/uploads/2015/01/matrix-to-quat.pdf
 */
   if T[3, 3] < 0 then
     if T[1, 1] > T[2, 2] then
