@@ -74,7 +74,7 @@ package.
 <ul>
   <li>January 2021 by Jakub Tobolar<br>
        reimplemented for more efficient and numerically stable algorithm according to
-       <a href=\"modelica://Modelica/Resources/Documentation/Mechanics/matrix-to-quat.pdf\">matrix-to-quat.pdf</a>.
+       <a href=\"https://web.archive.org/web/20170718214714/https://d3cw3dd2w32x2b.cloudfront.net/wp-content/uploads/2015/01/matrix-to-quat.pdf\">matrix-to-quat.pdf</a>.
        It compares only one particular diagonal element with another to
        select one of the four code parts. Then, the selected code delivers
        four components which are close to the desired quaternion,
