@@ -1670,7 +1670,10 @@ y = <strong>tanh</strong>( u );
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,-80.3976},{0,68}}, color={192,192,192}),
+          Line(
+            points={{-90,-80},{68,-80}},
+            color={192,192,192}),
+          Line(points={{0,-80},{0,68}}, color={192,192,192}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
@@ -1684,12 +1687,8 @@ y = <strong>tanh</strong>( u );
                 {34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{
                 67.1,18.6},{72,38.2},{76,57.6},{80,80}},
               smooth=Smooth.Bezier),
-          Line(
-            points={{-90,-80.3976},{68,-80.3976}},
-            color={192,192,192},
-            smooth=Smooth.Bezier),
           Polygon(
-            points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
+            points={{90,-80},{68,-72.3976},{68,-88.3976},{90,-80}},
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
@@ -1719,7 +1718,10 @@ y = <strong>exp</strong>( u );
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,-80.3976},{0,68}}, color={192,192,192}),
+          Line(
+            points={{-90,-80},{68,-80}},
+            color={192,192,192}),
+          Line(points={{0,-80},{0,68}}, color={192,192,192}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
@@ -1733,12 +1735,8 @@ y = <strong>exp</strong>( u );
                 {34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{
                 67.1,18.6},{72,38.2},{76,57.6},{80,80}},
               smooth=Smooth.Bezier),
-          Line(
-            points={{-90,-80.3976},{68,-80.3976}},
-            color={192,192,192},
-            smooth=Smooth.Bezier),
           Polygon(
-            points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
+            points={{90,-80},{68,-72.3976},{68,-88.3976},{90,-80}},
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
@@ -1768,7 +1766,10 @@ y = base <strong>^</strong> u;
     y = u^exponent;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-          Line(points={{0,-80.3976},{0,68}}, color={192,192,192}),
+          Line(
+            points={{-90,-80},{68,-80}},
+            color={192,192,192}),
+          Line(points={{0,-80},{0,68}}, color={192,192,192}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
@@ -1781,12 +1782,8 @@ y = base <strong>^</strong> u;
           Line(points={{-80,60},{-70,27.2},{-60,-1.3},{-50,-25.3},{-40,-45},{-30,-60.3},
                 {-20,-71.3},{-10,-77.8},{0,-80},{10,-77.8},{20,-71.3},{30,-60.3},{
                 40,-45},{50,-25.3},{60,-1.3},{70,27.2},{80,60}}, smooth=Smooth.Bezier),
-          Line(
-            points={{-90,-80.3976},{68,-80.3976}},
-            color={192,192,192},
-            smooth=Smooth.Bezier),
           Polygon(
-            points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
+            points={{90,-80},{68,-72.3976},{68,-88.3976},{90,-80}},
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
