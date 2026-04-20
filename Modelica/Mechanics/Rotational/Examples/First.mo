@@ -67,6 +67,22 @@ in the housing on one side via component Fixed.</p>
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
 
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Angular velocities",
+          identifier = "b0723",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = inertia2.w, legend = "Angular velocity of inertia2"),
+                Curve(y = inertia3.w, legend = "Angular velocity of inertia3")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(StopTime=1.0, Interval=0.001));
 end First;
