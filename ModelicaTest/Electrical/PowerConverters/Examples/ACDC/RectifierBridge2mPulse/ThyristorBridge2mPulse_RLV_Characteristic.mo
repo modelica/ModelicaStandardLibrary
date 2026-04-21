@@ -6,7 +6,9 @@ model ThyristorBridge2mPulse_RLV_Characteristic
     experiment(
       StopTime=10,
       Interval=0.0002,
-      Tolerance=1e-06,
+      Tolerance=1e-06),
+    TestCase(
+      shouldPass = true,
       __MAPLib_ComparisonWindow={4.95, 5.05}),
     Documentation(info="<html>
 <p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>

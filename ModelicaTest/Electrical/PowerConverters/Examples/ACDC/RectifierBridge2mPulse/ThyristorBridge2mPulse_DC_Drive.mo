@@ -6,12 +6,10 @@ model ThyristorBridge2mPulse_DC_Drive
     experiment(
       StopTime=15,
       Interval=0.0002,
-      Tolerance=1e-006
-    ),
+      Tolerance=1e-006),
     TestCase(
       shouldPass = true,
-      __MAPLib_ComparisonWindow={2.45, 2.55}
-    ),
+      __MAPLib_ComparisonWindow={2.45, 2.55}),
     Documentation(info="<html>
 <p>
 In this example a PM excited DC machine is started with nominal torque at nominal speed. After 5 seconds, load torque is reduced to zero over a period of additional 10 seconds. At 15 seconds, the machine is operating at no load.
