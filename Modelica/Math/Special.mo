@@ -381,6 +381,7 @@ erfInv(1.999999)   // = -3.4589107372909473
     input Real u "Input argument";
     input Real der_u "Derivative of input";
     output Real y= 2/sqrt(Modelica.Constants.pi)*exp(-u^2)*der_u "Derivative of erf(u)";
+    annotation(smoothOrder=100);
   end erfDer;
 
   function erfcDer "Derivative of erfc-function"
@@ -388,6 +389,7 @@ erfInv(1.999999)   // = -3.4589107372909473
     input Real u "Input argument";
     input Real der_u "Derivative of input";
     output Real y=-2/sqrt(Modelica.Constants.pi)*exp(-u^2)*der_u "Derivative of erfc(u)";
+    annotation(smoothOrder=100);
   end erfcDer;
 
   function sinc "Unnormalized sinc function: sinc(u) = sin(u)/u"

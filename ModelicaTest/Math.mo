@@ -843,22 +843,22 @@ extends Modelica.Icons.ExamplesPackage;
     import Modelica.Math.Special;
     Real x=time;
     Real y1=Special.erf(x);
-    Real dy1=der(y1) "der(erf)";
-    Real y1i "integral(dy1) == erf ?";
-    Real y2=Special.erfc(x) "erfc == 1 - erf ?";
-    Real dy2=der(y2) "der(erfc)";
-    Real y2i "integral(dy2) == erfc ?";
+    Real y1i "integral(der(y1)) == y1 ?";
+    Real y2=Special.erfc(x);
+    Real y2i "integral(der(y1)) == y1 ?";
   initial equation
-    y1i=Special.erf(x);
-    y2i=Special.erfc(x);
+    y1i=y1;
+    y2i=y2;
   equation
-    der(y1i)=dy1;
-    der(y2i)=dy2;
+    der(y1i)=der(y1);
+    der(y2i)=der(y2);
+    assert(abs(y1 - y1i)<1e-7, "The derivative function for erf is not correct");
+    assert(abs(y2 - y2i)<1e-7, "The derivative function for erfc is not correct");
     annotation (experiment(
         StartTime=-10,
         StopTime=10,
         Interval=0.0001,
-        Tolerance=1e-06));
+        Tolerance=1e-09));
   end TestErf;
 
   package Random
