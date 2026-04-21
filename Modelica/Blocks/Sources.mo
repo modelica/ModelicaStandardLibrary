@@ -1595,16 +1595,16 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])"
       annotation (Dialog(group="Table data definition",enable=not tableOnFile));
-    parameter String tableName="NoName"
+    parameter String tableName = "NoName"
       "Table name on file or in function usertab (see docu)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
-    parameter String fileName="NoName" "File where matrix is stored"
+    parameter String fileName = "NoName" "File where matrix is stored"
       annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat);;Comma-separated values files (*.csv)",
             caption="Open file in which table is present")));
-    parameter String delimiter="," "Column delimiter character for CSV file"
+    parameter String delimiter = "," "Column delimiter character for CSV file"
       annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile and isCsvExt),
@@ -1618,10 +1618,10 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
       "Columns of table to be interpolated"
       annotation (Dialog(group="Table data interpretation",
       groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/CombiTimeTable.png"));
-    parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
+    parameter Modelica.Blocks.Types.Smoothness smoothness = Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
       annotation (Dialog(group="Table data interpretation"));
-    parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
+    parameter Modelica.Blocks.Types.Extrapolation extrapolation = Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
       annotation (Dialog(group="Table data interpretation"));
     parameter SI.Time timeScale(
@@ -1635,7 +1635,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     parameter SI.Time shiftTime=startTime
       "Shift time of first table column"
       annotation (Dialog(group="Table data interpretation"));
-    parameter Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always
+    parameter Modelica.Blocks.Types.TimeEvents timeEvents = Modelica.Blocks.Types.TimeEvents.Always
       "Time event handling of table interpolation"
       annotation (Dialog(group="Table data interpretation", enable=smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments));
     parameter Boolean verboseExtrapolation=false
@@ -1650,7 +1650,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     final parameter Real t_maxScaled=Internal.getTimeTableTmax(tableID)
       "Maximum (scaled) abscissa value defined in table";
   protected
-    final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*offset[1] else offset)
+    final parameter Real p_offset[nout] = (if size(offset, 1) == 1 then ones(nout)*offset[1] else offset)
       "Offsets of output signals";
     parameter Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
         Modelica.Blocks.Types.ExternalCombiTimeTable(
