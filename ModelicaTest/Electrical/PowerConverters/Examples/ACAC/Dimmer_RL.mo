@@ -1,29 +1,13 @@
-within Modelica.Electrical.PowerConverters.Examples.ACAC;
+within ModelicaTest.Electrical.PowerConverters.Examples.ACAC;
 model Dimmer_RL "Dimmer with resistive-inductive load"
-  extends PowerConverters.Examples.ACAC.ExampleTemplates.Dimmer(powerFactor=
-        0.87);
-  extends Modelica.Icons.Example;
-  Modelica.Electrical.Analog.Basic.Resistor loadResistor(R=RLoad) annotation (
-      Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={50,30})));
-  Modelica.Electrical.Analog.Basic.Inductor loadInductor(i(start=0, fixed=true),
-      L=LLoad) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={50,-10})));
-equation
-  connect(loadResistor.p, multiSensor.nc)
-    annotation (Line(points={{50,40},{30,40}},         color={0,0,255}));
-  connect(ground.p, loadInductor.n)
-    annotation (Line(points={{-80,-20},{50,-20}}, color={0,0,255}));
-  connect(loadInductor.p, loadResistor.n)
-    annotation (Line(points={{50,0},{50,20}}, color={0,0,255}));
+  extends Modelica.Electrical.PowerConverters.Examples.ACAC.Dimmer_RL;
   annotation (experiment(
       StopTime=8,
       Interval=0.0002,
       Tolerance=1e-06),
+    TestCase(
+      shouldPass = true,
+      __MAPLib_ComparisonWindow={2.90, 3.00}),
     Documentation(info="<html>
 <p>
 This model demonstrates the behaviour of a dimmer with phase-angle control with resistive-inductive load.

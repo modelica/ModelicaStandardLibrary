@@ -1,0 +1,29 @@
+time
+currentQuasiRMSSensor.i[1]
+currentQuasiRMSSensor.i[2]
+currentQuasiRMSSensor.i[3]
+voltageSensor.v[1]
+voltageSensor.v[2]
+voltageSensor.v[3]
+multiSensor.i[1]
+multiSensor.i[2]
+multiSensor.i[3]
+multiSensor.v[1]
+multiSensor.v[2]
+multiSensor.v[3]
+multiSensor.power[1]
+multiSensor.power[2]
+multiSensor.power[3]
+multiSensor.powerTotal
+rootMeanSquare.y
+rootMeanSquare.mean.x
+harmonic.mean1.x
+harmonic.mean2.x
+// imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+// imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+// imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+// imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+// imc.stator.zeroInductor.i0
+loadInertia.phi
+loadInertia.w
+softStartControl.vRef
