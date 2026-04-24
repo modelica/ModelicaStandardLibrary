@@ -1386,14 +1386,14 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
       annotation (Line(points={{-59,-100},{-42,-100}}, color={0,0,127}));
     connect(cosine8.y, to_minute.u)
       annotation (Line(points={{-79,-130},{-42,-130}}, color={0,0,127}));
-    connect(to_litre.u, cosine9.y)
-      annotation (Line(points={{48,110},{41,110}}, color={0,0,127}));
-    connect(cosine12.y, to_gps.u)
-      annotation (Line(points={{41,-10},{48,-10}}, color={0,0,127}));
-    connect(cosine11.y, to_bar.u)
-      annotation (Line(points={{41,30},{48,30}}, color={0,0,127}));
+    connect(cosine9.y, to_litre.u)
+      annotation (Line(points={{41,110},{48,110}}, color={0,0,127}));
     connect(cosine10.y, to_kWh.u)
       annotation (Line(points={{41,70},{48,70}}, color={0,0,127}));
+    connect(cosine11.y, to_bar.u)
+      annotation (Line(points={{41,30},{48,30}}, color={0,0,127}));
+    connect(cosine12.y, to_gps.u)
+      annotation (Line(points={{41,-10},{48,-10}}, color={0,0,127}));
     annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-140},{100,140}})));
   end ConversionBlocks;
