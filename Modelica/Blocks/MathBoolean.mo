@@ -411,7 +411,7 @@ The usage is demonstrated, e.g., in example
         annotation (Icon(graphics={
             Text(
               extent={{-250,-120},{250,-150}},
-              textString="%delayTime s"),
+              textString="%{delayTime}"),
             Line(points={{-80,-66},{-60,-66},{-60,-22},{38,-22},{38,-66},{66,-66}}),
             Line(points={{-80,32},{-4,32},{-4,76},{38,76},{38,32},{66,32}},
                 color={255,0,255})}),
