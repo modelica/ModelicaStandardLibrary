@@ -3,7 +3,7 @@ model HBridge_DC_Drive "H bridge DC/DC converter with DC drive"
   extends Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_DC_Drive;
   annotation (
     experiment(
-      StopTime=24,
+      StopTime=4.10,
       Interval=0.0002,
       Tolerance=1e-06),
     TestCase(

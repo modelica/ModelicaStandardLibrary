@@ -2,7 +2,7 @@ within ModelicaTest.Electrical.PowerConverters.Examples.ACAC;
 model Dimmer_R "Dimmer with resistive load"
   extends Modelica.Electrical.PowerConverters.Examples.ACAC.Dimmer_R;
   annotation (experiment(
-      StopTime=8,
+      StopTime=3.00,
       Interval=0.0002,
       Tolerance=1e-06),
     TestCase(

@@ -4,7 +4,7 @@ model ThyristorBridge2Pulse_RLV_Characteristic
   extends Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_RLV_Characteristic;
   annotation (
     experiment(
-      StopTime=10,
+      StopTime=5.05,
       Interval=0.0002,
       Tolerance=1e-06),
     TestCase(

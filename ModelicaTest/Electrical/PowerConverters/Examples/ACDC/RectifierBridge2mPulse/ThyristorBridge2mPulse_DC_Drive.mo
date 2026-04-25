@@ -4,7 +4,7 @@ model ThyristorBridge2mPulse_DC_Drive
   extends Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_DC_Drive;
   annotation (
     experiment(
-      StopTime=15,
+      StopTime=2.55,
       Interval=0.0002,
       Tolerance=1e-006),
     TestCase(

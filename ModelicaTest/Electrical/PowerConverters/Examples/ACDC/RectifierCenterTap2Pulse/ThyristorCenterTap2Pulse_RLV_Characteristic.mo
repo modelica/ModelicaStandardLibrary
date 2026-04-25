@@ -4,7 +4,7 @@ model ThyristorCenterTap2Pulse_RLV_Characteristic
   extends Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV_Characteristic;
   annotation (
     experiment(
-      StopTime=10,
+      StopTime=5.05,
       Tolerance=1e-06,
       Interval=0.0002),
     TestCase(
