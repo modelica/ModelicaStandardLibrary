@@ -1,15 +1,12 @@
 within Modelica.Mechanics.MultiBody.Forces;
 model WorldForce
   "External force acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve"
+  extends Interfaces.PartialTwoFramesResolve(
+    break frame_a,
+    break frame_resolve);
+  extends Interfaces.PartialFrameResolveConditional(
+    final enableFrameResolve = resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve);
 
-  extends Interfaces.PartialOneFrame_b;
-  Interfaces.Frame_resolve frame_resolve if
-       resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
-    "The input signals are optionally resolved in this frame"
-    annotation (Placement(transformation(
-        origin={0,-100},
-        extent={{-16,-16},{16,16}},
-        rotation=270)));
   Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit="N")
     "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
