@@ -194,7 +194,7 @@ equation
     annotation (Line(points={{-11,-60},{-18,-60}}, color={255,0,255}));
   annotation (experiment(
       StopTime=10,
-      Interval=0.0001,
+      Interval=0.0002,
       Tolerance=1e-06), Documentation(info="<html>
 <p>This model demonstrates a soft start of an induction machine:
 Voltage ramp is started at 0.1 s and should ramp up to nominal voltage within 4s,
