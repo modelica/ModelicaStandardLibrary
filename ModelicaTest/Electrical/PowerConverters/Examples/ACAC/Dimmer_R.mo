@@ -5,9 +5,8 @@ model Dimmer_R "Dimmer with resistive load"
       StopTime=3.00,
       Interval=0.0002,
       Tolerance=1e-06),
-    TestCase(
-      shouldPass = true,
-      __MAPLib_ComparisonWindow={2.90, 3.00}),
+    TestCase(shouldPass = true,
+      __ModelicaAssociation(Comparison(TimeWindows={TimeSlot(2.90, 3.00)}))),
     Documentation(info="<html>
 <p>
 This model demonstrates the behaviour of a dimmer with phase-angle control with resistive load.

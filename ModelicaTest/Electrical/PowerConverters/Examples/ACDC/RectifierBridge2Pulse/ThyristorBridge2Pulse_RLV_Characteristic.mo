@@ -7,9 +7,8 @@ model ThyristorBridge2Pulse_RLV_Characteristic
       StopTime=5.05,
       Interval=0.0002,
       Tolerance=1e-06),
-    TestCase(
-      shouldPass = true,
-      __MAPLib_ComparisonWindow={4.95, 5.05}),
+    TestCase(shouldPass = true,
+      __ModelicaAssociation(Comparison(TimeWindows={TimeSlot(4.95, 5.05)}))),
     Documentation(info="<html>
 
 <p>This examples shows a two pulse full controlled bridge example with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>

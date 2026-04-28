@@ -6,9 +6,8 @@ model HBridge_DC_Drive "H bridge DC/DC converter with DC drive"
       StopTime=4.10,
       Interval=0.0002,
       Tolerance=1e-06),
-    TestCase(
-      shouldPass = true,
-      __MAPLib_ComparisonWindow={4.00, 4.10}),
+     TestCase(shouldPass = true,
+      __ModelicaAssociation(Comparison(TimeWindows={TimeSlot(4.00, 4.10)}))),
     Documentation(info="<html>
 <p>This example of an H bridge with DC drive demonstrates the operation of the DC machine in four quadrants.
 The DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the input voltage.</p>

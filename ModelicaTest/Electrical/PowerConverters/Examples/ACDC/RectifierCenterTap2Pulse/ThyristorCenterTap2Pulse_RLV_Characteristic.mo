@@ -7,9 +7,8 @@ model ThyristorCenterTap2Pulse_RLV_Characteristic
       StopTime=5.05,
       Tolerance=1e-06,
       Interval=0.0002),
-    TestCase(
-    shouldPass = true,
-    __MAPLib_ComparisonWindow={4.95, 5.05}),
+    TestCase(shouldPass = true,
+      __ModelicaAssociation(Comparison(TimeWindows={TimeSlot(4.95, 5.05)}))),
     Documentation(info="<html>
 <p>This example shows a controlled center tap two pulse rectifier with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>
 

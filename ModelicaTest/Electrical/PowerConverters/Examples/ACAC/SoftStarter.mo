@@ -5,9 +5,8 @@ model SoftStarter "Soft start of an induction machine"
       StopTime=2.60,
       Interval=0.0002,
       Tolerance=1e-06),
-    TestCase(
-      shouldPass = true,
-      __MAPLib_ComparisonWindow={2.50, 2.60}),
+    TestCase(shouldPass = true,
+      __ModelicaAssociation(Comparison(TimeWindows={TimeSlot(2.50, 2.60)}))),
     Documentation(info="<html>
 <p>This model demonstrates a soft start of an induction machine:
 Voltage ramp is started at 0.1 s and should ramp up to nominal voltage within 4s,
