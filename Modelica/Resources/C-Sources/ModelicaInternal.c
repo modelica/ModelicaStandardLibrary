@@ -30,6 +30,9 @@
 */
 
 /* Changelog:
+      Apr. 29, 2026: by Dag Brueck, Dassault Systemes AB
+                     Initialize pointer variables to NULL
+                     (ticket #4783)
       Oct. 20, 2024: by Thomas Beutlich
                      Removed legacy behaviour in ModelicaInternal_stat for
                      MSVC Visual Studio >= 2015 (ticket #4473)
