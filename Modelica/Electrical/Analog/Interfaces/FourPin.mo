@@ -29,17 +29,6 @@ equation
           fillPattern=FillPattern.Solid),
         Line(points={{-140,100},{-115,100}},
                                            color={160,160,164}),
-        Polygon(
-          points={{130,-97},{140,-100},{130,-103},{130,-97}},
-          lineColor={160,160,164},
-          fillColor={160,160,164},
-          fillPattern=FillPattern.Solid),
-        Line(points={{114,-100},{139,-100}},
-                                           color={160,160,164}),
-        Text(
-          extent={{113,-96},{129,-81}},
-          textColor={160,160,164},
-          textString="i2"),
         Text(
           extent={{122,102},{139,117}},
           textColor={160,160,164},
@@ -50,17 +39,6 @@ equation
           fillColor={160,160,164},
           fillPattern=FillPattern.Solid),
         Line(points={{115,100},{140,100}}, color={160,160,164}),
-        Line(points={{-140,-100},{-115,-100}},
-                                             color={160,160,164}),
-        Polygon(
-          points={{-130,-97},{-140,-100},{-130,-103},{-130,-97}},
-          lineColor={160,160,164},
-          fillColor={160,160,164},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-131,-97},{-114,-82}},
-          textColor={160,160,164},
-          textString="i1"),
         Text(
           extent={{-140,103},{-123,118}},
           textColor={160,160,164},
