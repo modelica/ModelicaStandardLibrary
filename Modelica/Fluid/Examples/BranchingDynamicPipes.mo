@@ -81,17 +81,16 @@ replaceable package Medium=Modelica.Media.Air.MoistAir constrainedby
     p=100000) annotation (Placement(
         transformation(extent={{10,-10},{-10,10}}, rotation=90,
         origin={0,60})));
-  Modelica.Blocks.Sources.Ramp ramp1(
+  Modelica.Blocks.Sources.Step step1(
     offset=1e5,
     startTime=2,
-    height=1e5,
-    duration=0) annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+    height=1e5) annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.nNodes] heat2(Q_flow=200*
         pipe2.dxs, alpha=-1e-2*ones(pipe2.n))
     annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
 equation
-  connect(ramp1.y, boundary4.p_in) annotation (Line(
+  connect(step1.y, boundary4.p_in) annotation (Line(
       points={{-19,80},{-8,80},{-8,72}},
       color={0,0,127},
       thickness=0.5));
