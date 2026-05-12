@@ -39,7 +39,35 @@ equation
   annotation (
     Documentation(info="<html>
 <p>This is an inverting amplifier.</p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Voltages",
+          identifier = "1339b",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = vIn.v, legend = "Voltage from source vIn")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = gain.opAmp.v_out, legend = "Amplified voltage out from opAmp"),
+                Curve(y = gain.opAmp.Vns, legend = "Negative supply voltage in opAmp (negative limit voltage)"),
+                Curve(y = gain.opAmp.Vps, legend = "Positive supply voltage in opAmp (positive limit voltage)")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = gain.r1.R, legend = "Resistance in r1"),
+                Curve(y = gain.r2.R, legend = "Resistance in r2")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(
       StartTime=0,
       StopTime=1,

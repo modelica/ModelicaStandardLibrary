@@ -87,5 +87,21 @@ equation
        by Anton Haumer<br> initially realized<br>
        </li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Switch currents",
+          identifier = "b383e",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = switch1.i, legend = "Current in the switch without arc, switch1"),
+                Curve(y = switch2.i, legend = "Current in the switch with arc, switch2")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SwitchWithArc;

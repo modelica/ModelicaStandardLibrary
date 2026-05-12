@@ -194,5 +194,47 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"), experiment(StopTime=200));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltages",
+          identifier = "1fae7",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = V1.v, legend = "Voltage from source V1"),
+                Curve(y = V2.v, legend = "Voltage from source V2"),
+                Curve(y = C2.v, legend = "Voltage from capacitor C2")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Temperatures",
+          identifier = "ec9be",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = HeatCapacitor1.port.T, legend = "Temperature in HeatCapacitor1"),
+                Curve(y = T1.heatPort.T, legend = "Temperature in T1"),
+                Curve(y = T2.heatPort.T, legend = "Temperature in T2")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Heat flows",
+          identifier = "1d52f",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = T1.heatPort.Q_flow, legend = "Heat flow from T1"),
+                Curve(y = T2.heatPort.Q_flow, legend = "Heat flow from T2")
+              }
+            )
+          }
+        )
+      }
+    ), experiment(StopTime=200));
 end HeatingNPN_NORGate;

@@ -63,5 +63,27 @@ equation
         by Matthias Franke<br>initially implemented
        </li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltages and currents",
+          identifier = "9cea9",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = sineVoltage.p.v, legend = "Voltage from source sineVoltage"),
+                Curve(y = RL.p.v, legend = "Voltage at resistor RL"),
+                Curve(y = zDiode1.n.v, legend = "Voltage at diode zDiode1")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = zDiode.n.i, legend = "Current in diode zDiode")
+              }
+            )
+          }
+        )
+      }
+    ));
 end OvervoltageProtection;
