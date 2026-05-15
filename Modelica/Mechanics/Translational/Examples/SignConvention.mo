@@ -75,7 +75,24 @@ In the third system the two arrows are opposed which means that the
 force acts in the opposite direction (in the same direction as in
 the two other examples).
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Mass variables",
+          identifier = "67a2d",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = mass1.a, legend = "Acceleration of mass1"),
+                Curve(y = mass1.s, legend = "Position of mass1"),
+                Curve(y = mass1.v, legend = "Velocity of mass1")
+              }
+            )
+          }
+        )
+      }
+    ),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}),graphics={Text(
               extent={{-100,80},{-82,60}},

@@ -134,6 +134,21 @@ the start value <code>spool.s.start</code> influences the offset.
 <div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad2.png\" alt=\"Preload 2\">
 </div>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Force vs. position",
+          identifier = "008d0",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = spool.s, y = force.f, legend = "Position of spool vs. force")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(StopTime=100, Interval=0.1));
 end PreLoad;

@@ -89,6 +89,21 @@ equation
      <strong>reinit</strong>(&hellip;), convergence problems). In this case use the ElastoGap
      to model a stop (see example Preload).</li>
 </ol>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Stribeck curve",
+          identifier = "c0a76",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = stop1.f, y = stop1.v, legend = "Force from stop1 as a function of velocity from stop1")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(StopTime=5.0, Interval=0.001));
 end Friction;
