@@ -35,5 +35,25 @@ assembled system.
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Pendulum.png\"
 alt=\"model Examples.Elementary.Pendulum\">
 </blockquote>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Pendulum angle",
+          identifier = "88bdb",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = rev.phi, legend = "Angle of pendulum")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = damper.tau, legend = "Torque applied to revolute joint from damper")
+              }
+            )
+          }
+        )
+      }
+    ));
 end Pendulum;

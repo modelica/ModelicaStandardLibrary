@@ -94,5 +94,31 @@ form without solving a system of equations. For more details, see
 <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
 MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Joints j1 and j2",
+          identifier = "bb174",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = j1_phi, legend = "Angle of revolute joint j1")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = j2_s, legend = "Distance of prismatic joint j2 (jointSSP.prismatic)")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = j1_w, legend = "Angular velocity of revolute joint j1"),
+                Curve(y = j2_v, legend = "Velocity of prismatic joint j2 (jointSSP.prismatic)")
+              }
+            )
+          }
+        )
+      }
+    ));
 end Fourbar_analytic;
