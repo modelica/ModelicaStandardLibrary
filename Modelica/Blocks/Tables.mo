@@ -174,8 +174,11 @@ tableName is \"NoName\" or has only blanks,
 fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". CSV, text and MATLAB MAT-file format is possible.
-    (Both the limitations on the CSV format and the text format are described below).
+    \"tableName\". CSV, DLR matrix text and MATLAB MAT-file formats are possible.
+    (Both the limitations on the CSV format and the DLR matrix text format are described below).
+    Files with extension .csv are read as CSV format.
+    Files with extension .mat are read as MAT-file format.
+    Files with any other extension are read as DLR matrix text format.
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -209,11 +212,10 @@ If the table is read from a CSV file, the following limitations apply
 <li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
 </ol>
 <p>
-If tables are read from a text file, the file needs to have the
-following structure (\"-----\" is not part of the file content):
+If tables are read from a DLR matrix text file, the file needs to have the
+following structure:
 </p>
 <blockquote><pre>
------------------------------------------------------
 #1
 double tab1(5,2)   # comment line
   0   0
@@ -227,7 +229,6 @@ double tab2(5,2)   # another comment line
   4   8
   6  18
   8  32
------------------------------------------------------
 </pre></blockquote>
 <p>
 Note, that the first two characters in the file need to be
@@ -243,7 +244,7 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
-Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+DLR matrix text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 </p>
 <p>
@@ -445,8 +446,11 @@ tableName is \"NoName\" or has only blanks,
 fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". CSV, text and MATLAB MAT-file format is possible.
-    (Both the limitations on the CSV format and the text format are described below).
+    \"tableName\". CSV, DLR matrix text and MATLAB MAT-file formats are possible.
+    (Both the limitations on the CSV format and the DLR matrix text format are described below).
+    Files with extension .csv are read as CSV format.
+    Files with extension .mat are read as MAT-file format.
+    Files with any other extension are read as DLR matrix text format.
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -480,11 +484,10 @@ If the table is read from a CSV file, the following limitations apply
 <li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
 </ol>
 <p>
-If tables are read from a text file, the file needs to have the
-following structure (\"-----\" is not part of the file content):
+If tables are read from a DLR matrix text file, the file needs to have the
+following structure:
 </p>
 <blockquote><pre>
------------------------------------------------------
 #1
 double tab1(5,2)   # comment line
   0   0
@@ -498,7 +501,6 @@ double tab2(5,2)   # another comment line
   4   8
   6  18
   8  32
------------------------------------------------------
 </pre></blockquote>
 <p>
 Note, that the first two characters in the file need to be
@@ -514,7 +516,7 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
-Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+DLR matrix text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 </p>
 <p>
@@ -653,8 +655,11 @@ tableName is \"NoName\" or has only blanks,
 fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". CSV, text and MATLAB MAT-file format is possible.
-    (Both the limitations on the CSV format and the text format are described below).
+    \"tableName\". CSV, DLR matrix text and MATLAB MAT-file formats are possible.
+    (Both the limitations on the CSV format and the DLR matrix text format are described below).
+    Files with extension .csv are read as CSV format.
+    Files with extension .mat are read as MAT-file format.
+    Files with any other extension are read as DLR matrix text format.
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -688,11 +693,10 @@ If the table is read from a CSV file, the following limitations apply
 <li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
 </ol>
 <p>
-If tables are read from a text file, the file needs to have the
-following structure (\"-----\" is not part of the file content):
+If tables are read from a DLR matrix text file, the file needs to have the
+following structure:
 </p>
 <blockquote><pre>
------------------------------------------------------
 #1
 double table2D_1(3,4)   # comment line
 0.0  1.0  2.0  3.0  # u[2] grid points
@@ -704,7 +708,6 @@ double table2D_2(4,4)   # comment line
 1.0  1.0  3.0  5.0
 2.0  2.0  4.0  6.0
 3.0  3.0  5.0  7.0
------------------------------------------------------
 </pre></blockquote>
 <p>
 Note, that the first two characters in the file need to be
@@ -720,7 +723,7 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
-Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+DLR matrix text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 The matrix elements are interpreted in exactly the same way
 as if the matrix is given as a parameter. For example, the first
@@ -851,8 +854,11 @@ tableName is \"NoName\" or has only blanks,
 fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". CSV, text and MATLAB MAT-file format is possible.
-    (Both the limitations on the CSV format and the text format are described below).
+    \"tableName\". CSV, DLR matrix text and MATLAB MAT-file formats are possible.
+    (Both the limitations on the CSV format and the DLR matrix text format are described below).
+    Files with extension .csv are read as CSV format.
+    Files with extension .mat are read as MAT-file format.
+    Files with any other extension are read as DLR matrix text format.
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -886,11 +892,10 @@ If the table is read from a CSV file, the following limitations apply
 <li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
 </ol>
 <p>
-If tables are read from a text file, the file needs to have the
-following structure (\"-----\" is not part of the file content):
+If tables are read from a DLR matrix text file, the file needs to have the
+following structure:
 </p>
 <blockquote><pre>
------------------------------------------------------
 #1
 double table2D_1(3,4)   # comment line
 0.0  1.0  2.0  3.0  # u[2] grid points
@@ -902,7 +907,6 @@ double table2D_2(4,4)   # comment line
 1.0  1.0  3.0  5.0
 2.0  2.0  4.0  6.0
 3.0  3.0  5.0  7.0
------------------------------------------------------
 </pre></blockquote>
 <p>
 Note, that the first two characters in the file need to be
@@ -918,7 +922,7 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
-Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+DLR matrix text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 The matrix elements are interpreted in exactly the same way
 as if the matrix is given as a parameter. For example, the first
