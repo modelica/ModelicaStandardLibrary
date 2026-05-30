@@ -13,14 +13,26 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
   partial model TestDer
     extends Test;
     Modelica.Blocks.Continuous.Der d_t_new annotation(Placement(transformation(extent={{0,0},{20,20}})));
+    Real integrated "Integral that should equal d_t_new.u";
+    parameter Real factor1=1 "To prevent symbolic simplification" annotation(Evaluate=false);
+  initial equation
+    integrated=d_t_new.u;
   equation
+    der(integrated)=factor1*d_t_new.y;
     connect(t_new.y[1], d_t_new.u) annotation(Line(points={{-19,10},{-2,10}}, color={0,0,127}));
   end TestDer;
 
   partial model TestDer2
     extends TestDer;
     Modelica.Blocks.Continuous.Der d2_t_new annotation(Placement(transformation(extent={{40,0},{60,20}})));
+    Real integrated2 "Integral that should equal d_t_new.u";
+    Real der_integrated2;
+  initial equation
+    integrated2=d_t_new.u;
+    der_integrated2=d2_t_new.u;
   equation
+    der(integrated2)=factor1*der_integrated2;
+    der(der_integrated2)=factor1*d2_t_new.y;
     connect(d_t_new.y, d2_t_new.u) annotation(Line(points={{21,10},{26,10},{33,10},{38,10}}, color={0,0,127}));
   end TestDer2;
 
