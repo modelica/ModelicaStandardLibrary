@@ -7,7 +7,7 @@ package Continuous "Library of continuous control blocks with internal states"
 
   block Integrator "Output the integral of the input signal with optional reset"
     import Modelica.Blocks.Types.Init;
-    parameter Real k=1 "Integrator gain";
+    parameter Real k = Modelica.Constants.one "Integrator gain";
     parameter Boolean use_reset = false "= true, if reset port enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_set = false "= true, if set port enabled and used as reinitialization value when reset"
@@ -126,7 +126,7 @@ port has a rising edge.
 
   block LimIntegrator "Integrator with limited value of the output and optional reset"
     import Modelica.Blocks.Types.Init;
-    parameter Real k=1 "Integrator gain";
+    parameter Real k = Modelica.Constants.one "Integrator gain";
     parameter Real outMax(start=1) "Upper limit of output";
     parameter Real outMin=-outMax "Lower limit of output";
     parameter Boolean use_reset = false "= true, if reset port enabled"
@@ -265,7 +265,7 @@ port has a rising edge.
 
   block Derivative "Approximated derivative block"
     import Modelica.Blocks.Types.Init;
-    parameter Real k=1 "Gains";
+    parameter Real k = Modelica.Constants.one "Gain";
     parameter SI.Time T(min=Modelica.Constants.small) = 0.01
       "Time constants (T>0 required; T=0 is ideal derivative block)";
     parameter Init initType=Init.NoInit
@@ -350,7 +350,7 @@ If k=0, the block reduces to y=0.
 
   block FirstOrder "First order transfer function block (= 1 pole)"
     import Modelica.Blocks.Types.Init;
-    parameter Real k=1 "Gain";
+    parameter Real k = Modelica.Constants.one "Gain";
     parameter SI.Time T(start=1) "Time Constant";
     parameter Init initType=Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)" annotation(Evaluate=true,
@@ -424,7 +424,7 @@ Example:
 
   block SecondOrder "Second order transfer function block (= 2 poles)"
     import Modelica.Blocks.Types.Init;
-    parameter Real k=1 "Gain";
+    parameter Real k = Modelica.Constants.one "Gain";
     parameter Real w(start=1) "Angular frequency";
     parameter Real D(start=1) "Damping";
     parameter Init initType=Init.NoInit
@@ -507,7 +507,7 @@ Example:
 
   block PI "Proportional-Integral controller"
     import Modelica.Blocks.Types.Init;
-    parameter Real k=1 "Gain";
+    parameter Real k = Modelica.Constants.one "Gain";
     parameter SI.Time T(start=1,min=Modelica.Constants.small)
       "Time Constant (T>0 required)";
     parameter Init initType=Init.NoInit
@@ -602,7 +602,7 @@ This is discussed in the description of package
     import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
 
-    parameter Real k=1 "Gain";
+    parameter Real k = Modelica.Constants.one "Gain";
     parameter SI.Time Ti(min=Modelica.Constants.small, start=0.5)
       "Time Constant of Integrator";
     parameter SI.Time Td(min=0, start=0.1)
@@ -622,18 +622,17 @@ This is discussed in the description of package
     parameter Real y_start=0 "Initial value of output"
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
-    constant SI.Time unitTime=1 annotation(HideResult=true);
 
-    Blocks.Math.Gain P(k=1) "Proportional part of PID controller"
+    Blocks.Math.Gain P(k = Modelica.Constants.one) "Proportional part of PID controller"
       annotation (Placement(transformation(extent={{-60,60},{-20,100}})));
-    Blocks.Continuous.Integrator I(k=unitTime/Ti, y_start=xi_start,
+    Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
       initType=if initType==Init.SteadyState then
                   Init.SteadyState else
                if initType==Init.InitialState then
                   Init.InitialState else Init.NoInit)
       "Integral part of PID controller"
       annotation (Placement(transformation(extent={{-60,-20},{-20,20}})));
-    Blocks.Continuous.Derivative D(k=Td/unitTime, T=max([Td/Nd, 100*Modelica.
+    Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 100*Modelica.
           Constants.eps]), x_start=xd_start,
       initType=if initType==Init.SteadyState or
                   initType==Init.InitialOutput then Init.SteadyState else
@@ -765,7 +764,7 @@ to compute u by an algebraic equation.
       "Control error (set point - measurement)";
     parameter .Modelica.Blocks.Types.SimpleController controllerType=
            .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
-    parameter Real k = 1 "Gain of controller, must be non-zero";
+    parameter Real k = Modelica.Constants.one "Gain of controller, must be non-zero";
     parameter SI.Time Ti(min=Modelica.Constants.small)=0.5
       "Time constant of Integrator block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PI or
@@ -814,7 +813,6 @@ to compute u by an algebraic equation.
       annotation (Evaluate=true, Dialog(group="Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-    constant SI.Time unitTime=1 annotation (HideResult=true);
     Modelica.Blocks.Interfaces.RealInput u_ff if withFeedForward
       "Optional connector of feed-forward input signal"
      annotation (Placement(
@@ -826,17 +824,17 @@ to compute u by an algebraic equation.
       annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
     Modelica.Blocks.Math.Add addD(k1=wd, k2=-1) if with_D
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Modelica.Blocks.Math.Gain P(k=1)
+    Modelica.Blocks.Math.Gain P(k = Modelica.Constants.one)
       annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
     Modelica.Blocks.Continuous.Integrator I(
-      k=unitTime/Ti,
+      k=1/Ti,
       y_start=xi_start,
       initType=if initType == Init.SteadyState then Init.SteadyState else if
           initType == Init.InitialState
            then Init.InitialState else Init.NoInit) if with_I
       annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
     Modelica.Blocks.Continuous.Derivative D(
-      k=Td/unitTime,
+      k=Td,
       T=max([Td/Nd,1.e-14]),
       x_start=xd_start,
       initType=if initType == Init.SteadyState or initType == Init.InitialOutput
