@@ -256,7 +256,26 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
 
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Filter1.png\"
      alt=\"Filter1.png\">
-</html>"));
+</html>",
+        figures = {
+          Figure(
+            title = "Filters",
+            identifier = "534cd",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = step.y, legend = "Input"),
+                  Curve(y = CriticalDamping.y, legend = "CriticalDamping output"),
+                  Curve(y = Bessel.y, legend = "Bessel output"),
+                  Curve(y = Butterworth.y, legend = "Butterworth output"),
+                  Curve(y = ChebyshevI.y, legend = "ChebyshevI output")
+                }
+              )
+            }
+          )
+        }
+      ));
   end Filter;
 
   model FilterWithDifferentiation
@@ -300,7 +319,47 @@ used in order to make an inverse model realizable or to \"smooth\" a potential
 discontinuous control signal.
 </p>
 
-</html>"));
+</html>",
+        figures = {
+          Figure(
+            title = "Bessel filter",
+            identifier = "6fb5b",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = step.y, legend = "Input"),
+                  Curve(y = Bessel.y, legend = "Output from Bessel filter")
+                }
+              )
+            }
+          ),
+          Figure(
+            title = "Derivative blocks",
+            identifier = "ea946",
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = der1.u, legend = "Input to first derivative block (same as output from bessel filter)"),
+                  Curve(y = der1.y, legend = "Output from first derivative block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = der2.u, legend = "Input to second derivative block"),
+                  Curve(y = der2.y, legend = "Output from second derivative block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = der3.u, legend = "Input to third derivative block"),
+                  Curve(y = der3.y, legend = "Output from third derivative block")
+                }
+              )
+            }
+          )
+        }
+      ));
   end FilterWithDifferentiation;
 
   model FilterWithRiseTime
@@ -391,7 +450,25 @@ reached with different precisions. This is summarized in the following table:
 </tr>
 </table></blockquote>
 
-</html>"));
+</html>",
+        figures = {
+          Figure(
+            title = "Filters",
+            identifier = "3f257",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = step.y, legend = "Input"),
+                  Curve(y = filter_fac3.y, legend = "Output from filter with riseTime = 2s, fac = 3"),
+                  Curve(y = filter_fac4.y, legend = "Output from filter with riseTime = 2s, fac = 4"),
+                  Curve(y = filter_fac5.y, legend = "Output from filter with riseTime = 2s, fac = 5")
+                }
+              )
+            }
+          )
+        }
+      ));
   end FilterWithRiseTime;
 
   model SlewRateLimiter
@@ -564,7 +641,23 @@ agreement. A typical simulation result is shown in the next figure:
 
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/InverseModel.png\"
      alt=\"InverseModel.png\">
-</html>"), experiment(StopTime=1.0));
+</html>",
+        figures = {
+          Figure(
+            title = "Input output",
+            identifier = "bee12",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = sine.y, legend = "Sine signal, used as input"),
+                  Curve(y = firstOrder2.y, legend = "Output of firstOrder2 block (should be equal to sine input)")
+                }
+              )
+            }
+          )
+        }
+      ), experiment(StopTime=1.0));
   end InverseModel;
 
   model ShowLogicalSources
@@ -593,7 +686,47 @@ in its parameter menu referring to variables available on this level of the
 model.
 </p>
 
-</html>"));
+</html>",
+        figures = {
+          Figure(
+            title = "Boolean outputs",
+            identifier = "b85bc",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = const.y, legend = "Output of const block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = step.y, legend = "Output of step block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = pulse.y, legend = "Output of pulse block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = sample.y, legend = "Output of sample block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = table.y, legend = "Output of table block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = booleanExpression.y, legend = "Output of booleanExpression block")
+                }
+              )
+            }
+          )
+        }
+      ));
   end ShowLogicalSources;
 
   model LogicalNetwork1 "Demonstrates the usage of logical blocks"
@@ -633,7 +766,90 @@ in the diagram animation, by the small \"circles\" close to the connectors.
 If a \"circle\" is \"white\", the signal is <strong>false</strong>. It a
 \"circle\" is \"green\", the signal is <strong>true</strong>.
 </p>
-</html>"));
+</html>",
+        figures = {
+          Figure(
+            title = "Table outputs",
+            identifier = "edc48",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = table1.y, legend = "Output from the table1 block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = table2.y, legend = "Output from the table2 block")
+                }
+              )
+            }
+          ),
+          Figure(
+            title = "Not1",
+            identifier = "cdf41",
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = Not1.u, legend = "Input to the Not1 block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = Not1.y, legend = "Output from the Not1 block")
+                }
+              )
+            }
+          ),
+          Figure(
+            title = "Or1",
+            identifier = "65fb0",
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = Or1.u1, legend = "Input from table1"),
+                  Curve(y = Or1.u2, legend = "Input from And1")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = Or1.y, legend = "Output from the Or1 block")
+                }
+              )
+            }
+          ),
+          Figure(
+            title = "And1",
+            identifier = "9b874",
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = And1.u1, legend = "Input from Not1"),
+                  Curve(y = And1.u2, legend = "Input from Pre1")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = And1.y, legend = "Output from the And1 block")
+                }
+              )
+            }
+          ),
+          Figure(
+            title = "Pre1",
+            identifier = "51c9c",
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = Pre1.u, legend = "Input from Or1"),
+                  Curve(y = Pre1.y, legend = "Output from the Pre1 block"),
+                  Curve(y = Pre1.pre_u_start, legend = "Start value of the Pre1 block")
+                }
+              )
+            }
+          )
+        }
+      ));
   end LogicalNetwork1;
 
 model RealNetwork1 "Demonstrates the usage of blocks from Modelica.Blocks.Math"
@@ -719,7 +935,103 @@ Note, that
      \"circle\" is \"green\", the signal is <strong>true</strong>.</li>
 </ul>
 
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "add",
+          identifier = "5fa79",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = sine.y, legend = "Sine signal"),
+                Curve(y = integerStep.y, legend = "Integer step signal"),
+                Curve(y = add.y, legend = "Sum of sine and integer step")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "product",
+          identifier = "6c27e",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = integerStep.y, legend = "Integer step signal"),
+                Curve(y = integerConstant.y, legend = "Integer constant signal"),
+                Curve(y = product.y, legend = "Product of the integer step and integer constant")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "linearDependency1",
+          identifier = "e4106",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = linearDependency1.u1, legend = "Input from the add block, u1"),
+                Curve(y = linearDependency1.u2, legend = "Input from the product block, u2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = linearDependency1.y0, legend = "Initial value"),
+                Curve(y = linearDependency1.k1, legend = "Dependency on input 1, u1"),
+                Curve(y = linearDependency1.k2, legend = "Dependency on input 2, u2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = linearDependency1.y, legend = "Output from the linearDependency1 block")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "minMax",
+          identifier = "d2843",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = minMax.u[1], legend = "Input from the add block, u1"),
+                Curve(y = minMax.u[2], legend = "Input from the product block, u2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = minMax.yMax, legend = "Maximum output from the minMax block"),
+                Curve(y = minMax.yMin, legend = "Minimum output from the minMax block")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "multiSwitch",
+          identifier = "84671",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = booleanPulse1.y, legend = "booleanPulse1")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = booleanPulse2.y, legend = "booleanPulse2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = multiSwitch.y, legend = "multiSwitch output"),
+                Curve(y = multiSwitch.y_default, legend = "multiSwitch default value"),
+                Curve(y = multiSwitch.expr[1], legend = "multiSwitch expr 1"),
+                Curve(y = multiSwitch.expr[2], legend = "multiSwitch expr 2")
+              }
+            )
+          }
+        )
+      }
+    ));
 end RealNetwork1;
 
   model IntegerNetwork1
@@ -806,7 +1118,92 @@ Note, that
 
 </ul>
 
-</html>"));
+</html>",
+        figures = {
+          Figure(
+            title = "sum",
+            identifier = "8f963",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = realToInteger.y, legend = "Discretized sine input"),
+                  Curve(y = integerStep.y, legend = "integerStep input"),
+                  Curve(y = integerConstant.y, legend = "integerConstant input")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = sum.y, legend = "Sum of all inputs")
+                }
+              )
+            }
+          ),
+          Figure(
+            title = "product",
+            identifier = "97100",
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = sum.y, legend = "Input from the summed integer signals"),
+                  Curve(y = integerStep.y, legend = "Integer step input")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = product.y, legend = "Product of all inputs")
+                }
+              )
+            }
+          ),
+          Figure(
+            title = "triggeredAdd",
+            identifier = "273bd",
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = triggeredAdd.u, legend = "Integer constant input"),
+                  Curve(y = triggeredAdd.y_start, legend = "Start value for triggeredAdd block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = triggeredAdd.trigger, legend = "Input from booleanPulse1 block")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = triggeredAdd.y, legend = "Output from triggeredAdd")
+                }
+              )
+            }
+          ),
+          Figure(
+            title = "multiSwitch1",
+            identifier = "a8bef",
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = multiSwitch1.u[1], legend = "Input from booleanPulse1"),
+                  Curve(y = multiSwitch1.u[2], legend = "Input from booleanPulse2")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = multiSwitch1.expr[1], legend = "Expression 1 in multiSwitch1"),
+                  Curve(y = multiSwitch1.expr[2], legend = "Expression 2 in multiSwitch1"),
+                  Curve(y = multiSwitch1.y_default, legend = "Default value in multiSwitch1")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = multiSwitch1.y, legend = "Output from multiSwitch1")
+                }
+              )
+            }
+          )
+        }
+      ));
   end IntegerNetwork1;
 
   model BooleanNetwork1
@@ -946,7 +1343,63 @@ Note, that
 
 </ul>
 
-</html>"));
+</html>",
+        figures = {
+          Figure(
+            title = "First 4 outputs",
+            identifier = "8acdf",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = showValue.showActive, legend = "Output from and1 to showValue")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = showValue2.showActive, legend = "Output from or1 to showValue2")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = showValue3.showActive, legend = "Output from xor1 to showValue3")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = showValue4.showActive, legend = "Output from nor1 to showValue4")
+                }
+              )
+            }
+          ),
+          Figure(
+            title = "Last 4 outputs",
+            identifier = "34df8",
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = showValue5.showActive, legend = "Output from set1 to showValue5")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = showValue6.showActive, legend = "Output from onDelay to showValue6")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = triggeredAdd.y, legend = "Output from triggeredAdd component")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = rSFlipFlop.Q, legend = "Output Q from rSFlipFlop component")
+                }
+              )
+            }
+          )
+        }
+      ));
   end BooleanNetwork1;
 
   model Interaction1
@@ -985,7 +1438,48 @@ from package <a href=\"modelica://Modelica.Blocks.Interaction\">Modelica.Blocks.
 to show how diagram animations can be constructed.
 </p>
 
-</html>"));
+</html>",
+        figures = {
+          Figure(
+            title = "Table outputs",
+            identifier = "51b8c",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = timeTable.y, legend = "timeTable output")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = integerTable.y, legend = "integerTable output")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = booleanTable.y, legend = "booleanTable output")
+                }
+              )
+            }
+          ),
+          Figure(
+            title = "Button outputs",
+            identifier = "499f5",
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = start.on, legend = "Time instants when start button is pressed")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = stop.on, legend = "Time instants when stop button is pressed")
+                }
+              )
+            }
+          )
+        }
+      ));
   end Interaction1;
 
   model BusUsage "Demonstrates the usage of a signal bus"
@@ -1135,7 +1629,31 @@ Note, even if the signals from \"Internal.StandardControlBus\" are listed, these
 just potential signals. The user might still add different signal names.
 </p>
 
-</html>"), experiment(StopTime=2));
+</html>",
+        figures = {
+          Figure(
+            title = "ControlBus inputs and outputs",
+            identifier = "537b0",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = gain.u, legend = "Input to gain (same as input from sine)"),
+                  Curve(y = sine.y, legend = "Input to bus from sine"),
+                  Curve(y = booleanStep.y, legend = "Input to bus from booleanStep"),
+                  Curve(y = integerStep.y, legend = "Input to bus from integerStep")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = part.booleanExpression.y, legend = "Input to bus from part.booleanExpression"),
+                  Curve(y = part.realExpression.y, legend = "Input to bus from part.realExpression")
+                }
+              )
+            }
+          )
+        }
+      ), experiment(StopTime=2));
   end BusUsage;
 
   model Rectifier6pulseFFT "Example of FFT block"
@@ -1740,7 +2258,29 @@ The result of a simulation is shown in the next diagram:
 </td></tr>
 
 </table>
-</html>"));
+</html>",
+          figures = {
+            Figure(
+              title = "Outputs from noise components",
+              identifier = "a93af",
+              preferred = true,
+              plots = {
+                Plot(
+                  curves = {
+                    Curve(y = uniformNoise1.y, legend = "Output from uniformNoise1")
+                  },
+                  x = Axis(min = 0, max = 1.2)
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = uniformNoise2.y, legend = "Output from uniformNoise2")
+                  },
+                  x = Axis(min = 0, max = 1.2)
+                )
+              }
+            )
+          }
+        ));
     end UniformNoise;
 
     model AutomaticSeed
@@ -1846,7 +2386,59 @@ manualSeed2 will produce exactly the same noise.
 </td></tr>
 
 </table>
-</html>"));
+</html>",
+          figures = {
+            Figure(
+              title = "Outputs from automatic seed components",
+              identifier = "5b462",
+              preferred = true,
+              plots = {
+                Plot(
+                  curves = {
+                    Curve(y = automaticSeed1.y, legend = "Output from automaticSeed1")
+                  },
+                  x = Axis(min = 0, max = 1.2)
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = automaticSeed2.y, legend = "Output from automaticSeed2")
+                  },
+                  x = Axis(min = 0, max = 1.2)
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = automaticSeed3.y, legend = "Output from automaticSeed3")
+                  },
+                  x = Axis(min = 0, max = 1.2)
+                )
+              }
+            ),
+            Figure(
+              title = "Output from manual seed components",
+              identifier = "1c71b",
+              plots = {
+                Plot(
+                  curves = {
+                    Curve(y = manualSeed1.y, legend = "Output from manualSeed1")
+                  },
+                  x = Axis(min = 0, max = 1.2)
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = manualSeed2.y, legend = "Output from manualSeed2")
+                  },
+                  x = Axis(min = 0, max = 1.2)
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = manualSeed3.y, legend = "Output from manualSeed3")
+                  },
+                  x = Axis(min = 0, max = 1.2)
+                )
+              }
+            )
+          }
+        ));
     end AutomaticSeed;
 
     model Distributions
@@ -1914,7 +2506,25 @@ truncated normal distribution has more values centered around the mean value 1.
 </td></tr>
 
 </table>
-</html>"));
+</html>",
+          figures = {
+            Figure(
+              title = "Noise outputs with max and min band",
+              identifier = "3f904",
+              preferred = true,
+              plots = {
+                Plot(
+                  curves = {
+                    Curve(y = uniformNoise.y, legend = "Output from uniformNoise"),
+                    Curve(y = truncatedNormalNoise.y, legend = "Output from truncatedNornalNoise"),
+                    Curve(y = y_min, legend = "Minimum value of band for random values"),
+                    Curve(y = y_max, legend = "Maximum value of band for random values")
+                  }
+                )
+              }
+            )
+          }
+        ));
     end Distributions;
 
     model UniformNoiseProperties
@@ -2019,7 +2629,34 @@ distribution have good statistical properties.
 </td></tr>
 
 </table>
-</html>"));
+</html>",
+          figures = {
+            Figure(
+              title = "Noise signal with mean and variance",
+              identifier = "2929a",
+              preferred = true,
+              plots = {
+                Plot(
+                  curves = {
+                    Curve(y = noise.y, legend = "Output from the noise component")
+                  }
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = mean.y, legend = "Calculated mean from noise signal"),
+                    Curve(y = theoreticalMean.y, legend = "Theoretical mean of uniform distribution")
+                  }
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = variance.y, legend = "Calculated variance from noise signal"),
+                    Curve(y = theoreticalVariance.y, legend = "Theoretical variance of uniform distribution")
+                  }
+                )
+              }
+            )
+          }
+        ));
     end UniformNoiseProperties;
 
     model NormalNoiseProperties
@@ -2123,7 +2760,34 @@ distribution have good statistical properties.
 </td></tr>
 
 </table>
-</html>"));
+</html>",
+          figures = {
+            Figure(
+              title = "Noise signal with mean and variance",
+              identifier = "15a4a",
+              preferred = true,
+              plots = {
+                Plot(
+                  curves = {
+                    Curve(y = noise.y, legend = "Output from the noise component")
+                  }
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = mean.y, legend = "Calculated mean from noise signal"),
+                    Curve(y = theoreticalMean.y, legend = "Theoretical mean value of normal distribution")
+                  }
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = variance.y, legend = "Calculated variance from noise signal"),
+                    Curve(y = theoreticalVariance.y, legend = "Theoretical mean value of normal distribution")
+                  }
+                )
+              }
+            )
+          }
+        ));
     end NormalNoiseProperties;
 
     model Densities
@@ -2190,7 +2854,25 @@ inputs:
 </td></tr>
 
 </table>
-</html>"));
+</html>",
+          figures = {
+            Figure(
+              title = "Probability density functions",
+              identifier = "d5ad3",
+              preferred = true,
+              plots = {
+                Plot(
+                  curves = {
+                    Curve(x = add.y, y = uniformDensity_y, legend = "Uniform"),
+                    Curve(x = add.y, y = normalDensity_y, legend = "Normal"),
+                    Curve(x = add.y, y = weibullDensity_y, legend = "Weibull")
+                  },
+                  x = Axis(label = "Input to density blocks")
+                )
+              }
+            )
+          }
+        ));
     end Densities;
 
     model ImpureGenerator
@@ -2233,7 +2915,22 @@ generator. Simulation results are shown in the next figure:
 </td></tr>
 
 </table>
-</html>"));
+</html>",
+          figures = {
+            Figure(
+              title = "Random output",
+              identifier = "f8777",
+              preferred = true,
+              plots = {
+                Plot(
+                  curves = {
+                    Curve(y = impureRandom.y, legend = "Output from impureRandom component")
+                  }
+                )
+              }
+            )
+          }
+        ));
     end ImpureGenerator;
 
     model ActuatorWithNoise
@@ -2348,7 +3045,27 @@ enableNoise = false in the globalSeed component.
 </td></tr>
 
 </table>
-</html>"));
+</html>",
+          figures = {
+            Figure(
+              title = "Actuator position and engine torque",
+              identifier = "0440c",
+              preferred = true,
+              plots = {
+                Plot(
+                  curves = {
+                    Curve(y = mass.s, legend = "Position of actuator")
+                  }
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = motor.torqueSensor.tau, legend = "Measured torque from engine")
+                  }
+                )
+              }
+            )
+          }
+        ));
     end ActuatorWithNoise;
 
     model DrydenContinuousTurbulence
@@ -2449,7 +3166,27 @@ This is done automatically in the
 <li>Dryden Wind Turbulence model in US military standard
     <a href=\"http://everyspec.com/MIL-SPECS/MIL-SPECS-MIL-F/MIL-F-8785C_5295/\">MIL-F-8785</a>.</li>
 </ol>
-</html>"));
+</html>",
+          figures = {
+            Figure(
+              title = "Output from Hw block",
+              identifier = "7a37d",
+              preferred = true,
+              plots = {
+                Plot(
+                  curves = {
+                    Curve(y = Hw.y, legend = "Output from Hw block")
+                  }
+                ),
+                Plot(
+                  curves = {
+                    Curve(y = compareToSpeed.y, legend = "Output from compareToSpeed block")
+                  }
+                )
+              }
+            )
+          }
+        ));
     end DrydenContinuousTurbulence;
 
     package Utilities "Library of utility models used in the examples"
