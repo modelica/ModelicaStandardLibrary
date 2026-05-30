@@ -67,5 +67,34 @@ actuator.g_mb.G_m           // permeance G_mb
 actuator.L                  // inductance of permeance model
 comparisonWithFEA.y[3]      // inductance of FEA model for comparison (mu_rFe=const.=1000).
 </pre></blockquote>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Variables vs. armature position",
+          identifier = "ba806",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = feedX.flange.s, y = feedX.flange.f, legend = "Force of permeance model vs. armature position"),
+                Curve(x = feedX.flange.s, y = comparisonWithFEA.y[1], legend = "Force of FEA model with non-linear stator iron 1.0718 vs. armature position"),
+                Curve(x = feedX.flange.s, y = comparisonWithFEA.y[2], legend = "Force of FEA model with mu_rFe=const=1000 vs. armature position")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(x = feedX.flange.s, y = actuator.g_ma.G_m, legend = "Permeance G_ma vs. armature position"),
+                Curve(x = feedX.flange.s, y = actuator.g_mb.G_m, legend = "Permeance G_mb vs. armature position")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(x = feedX.flange.s, y = actuator.L, legend = "Inductance of permeance model vs. armature position"),
+                Curve(x = feedX.flange.s, y = comparisonWithFEA.y[3], legend = "Inductance of FEA model vs. armature position")
+              }
+            )
+          }
+        )
+      }
+    ));
 end ForceStrokeBehaviour;

@@ -48,5 +48,20 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
   </tr>
 </table>
 
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Flux density vs. field strength",
+          identifier = "1c0de",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = transformer.H, y = transformer.B, legend = "Magnetic flux density vs. magnetic field strength of core, B(H)")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SinglePhaseTransformerWithHysteresis2;
