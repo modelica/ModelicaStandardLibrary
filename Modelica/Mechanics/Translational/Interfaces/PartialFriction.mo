@@ -2,6 +2,9 @@ within Modelica.Mechanics.Translational.Interfaces;
 partial model PartialFriction "Base model of Coulomb friction elements"
 
   //extends Translational.Interfaces.PartialRigid;
+  parameter Real m_inv_fixed(unit="kg-1")=0
+    "Virtual inverse mass in locked state to handle fix point iteration problems if the velocity is not selected as state"
+    annotation (Dialog(tab="Advanced"));
   parameter SI.Velocity v_small=1e-3
     "Relative velocity near to zero (see model info text)"
     annotation (Dialog(tab="Advanced"));
@@ -51,7 +54,7 @@ equation
   locked = not free and not (pre(mode) == Forward or startForward or pre(
     mode) == Backward or startBackward);
 
-  a_relfric/unitAcceleration = if locked then 0 else if free then sa
+  a_relfric/unitAcceleration = if locked then m_inv_fixed*sa*unitForce else if free then sa
     else if startForward then sa - f0_max/unitForce
     else if startBackward then sa + f0_max/unitForce
     else if pre(mode) == Forward then sa - f0_max/unitForce
