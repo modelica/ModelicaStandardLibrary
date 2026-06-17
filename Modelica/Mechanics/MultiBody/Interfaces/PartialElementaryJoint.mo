@@ -1,18 +1,11 @@
 within Modelica.Mechanics.MultiBody.Interfaces;
 partial model PartialElementaryJoint
   "Base model for elementary joints (has two frames + outer world + assert to guarantee that the joint is connected)"
+  extends PartialTwoFrames;
 
-  Interfaces.Frame_a frame_a "Coordinate system fixed to the joint with one cut-force and cut-torque" annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b "Coordinate system fixed to the joint with one cut-force and cut-torque" annotation (Placement(transformation(extent={{84,-16},{116,16}})));
-
-protected
-  outer Modelica.Mechanics.MultiBody.World world;
 equation
   Connections.branch(frame_a.R, frame_b.R);
-  assert(cardinality(frame_a) > 0,
-    "Connector frame_a of joint object is not connected");
-  assert(cardinality(frame_b) > 0,
-    "Connector frame_b of joint object is not connected");
+
   annotation (Documentation(info="<html>
 <p>
 All <strong>elementary joints</strong> should inherit from this base model, i.e.,
@@ -30,5 +23,6 @@ This partial model provides two frame connectors, a \"Connections.branch\"
 between frame_a and frame_b, access to the world
 object and an assert to check that both frame connectors are connected.
 </p>
-</html>"));
+</html>
+"));
 end PartialElementaryJoint;

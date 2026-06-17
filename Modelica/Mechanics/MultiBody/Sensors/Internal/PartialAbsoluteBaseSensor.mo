@@ -1,11 +1,7 @@
 within Modelica.Mechanics.MultiBody.Sensors.Internal;
 model PartialAbsoluteBaseSensor
   "Base class for absolute sensor models defined by equations (frame_resolve must be connected exactly once)"
-  extends Modelica.Icons.RoundSensor;
-
-  Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-    "Coordinate system from which kinematic quantities are measured" annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
+  extends PartialAbsoluteSensor;
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
     "Coordinate system in which output vector(s) is optionally resolved"
@@ -14,7 +10,6 @@ model PartialAbsoluteBaseSensor
         origin={0,-100})));
 
 equation
-  assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
   assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
   frame_a.f = zeros(3);
   frame_a.t = zeros(3);
