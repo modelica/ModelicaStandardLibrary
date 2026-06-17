@@ -8,10 +8,11 @@ model TransformAbsoluteVector "Transform absolute vector in to another frame"
         transformation(extent={{-116,-16},{-84,16}})));
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if
-   (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) or
-   (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+    (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) or
+    (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     "Coordinate system in which r_in or r_out is optionally resolved"
-    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
+    annotation (Placement(transformation(extent={{84,-16},{116,16}})),
+      mustBeConnected="An enabled frame_resolve connector should be connected");
 
   Blocks.Interfaces.RealInput r_in[3]
     "Input vector resolved in frame defined by frame_r_in"

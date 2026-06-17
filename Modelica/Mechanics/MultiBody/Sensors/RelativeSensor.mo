@@ -8,8 +8,9 @@ model RelativeSensor
         resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve or
         resolveInFrameAfterDifferentiation == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
     "If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output signals are resolved in this frame"
-     annotation (Placement(transformation(
-          extent={{84,64},{116,96}})));
+    annotation (
+      Placement(transformation(extent={{84,64},{116,96}})),
+      mustBeConnected="An enabled frame_resolve connector should be connected");
 
   parameter Boolean animation=true
     "= true, if animation shall be enabled (show arrow)";
