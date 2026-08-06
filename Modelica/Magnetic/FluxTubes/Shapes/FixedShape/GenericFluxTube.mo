@@ -1,19 +1,16 @@
 within Modelica.Magnetic.FluxTubes.Shapes.FixedShape;
 model GenericFluxTube
   "Flux tube with fixed cross-section and length; linear or non-linear material characteristics"
+  extends FluxTubes.Icons.Reluctance;
+  extends BaseClasses.FixedShape(final A=area);
 
-  extends BaseClasses.FixedShape;
-  extends Modelica.Magnetic.FluxTubes.Icons.Reluctance;
-
-  parameter SI.Length l=0.01 "Length in direction of flux"
-    annotation(Dialog(group="Fixed geometry", groupImage=
-      "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/GenericFluxTube.png"));
-  parameter SI.CrossSection area=0.0001 "Area of cross section"
+  parameter Modelica.Units.SI.Length l=0.01 "Length in direction of flux"
+    annotation (Dialog(group="Fixed geometry", groupImage=
+          "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/GenericFluxTube.png"));
+  parameter Modelica.Units.SI.CrossSection area=0.0001 "Area of cross section"
     annotation (Dialog(group="Fixed geometry"));
 equation
-  A = area;
   G_m = mu_0*mu_r*A/l;
-
   annotation (defaultComponentName="generic", Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
