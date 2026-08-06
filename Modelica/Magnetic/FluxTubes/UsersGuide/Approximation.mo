@@ -34,7 +34,7 @@ J(H) = sign(H)&sdot;(JD<sub>k</sub> + c<sub>1k</sub>&dot;(|H| - HD<sub>k</sub>) 
 </code></pre>
 <p>
 Exponential Extrapolation is defined by the following formula:
-</P>
+</p>
 <pre><code>
 J(H) = sign(H)&sdot;JD<sub>k0</sub> + (J<sub>sat</sub> - JD<sub>k0</sub>)&sdot;(1 - exp(-(|H| - HD<sub>k0</sub>)/HD<sub>par</sub>))
 </code></pre>
