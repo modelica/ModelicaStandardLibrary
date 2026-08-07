@@ -1,5 +1,5 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE;
-record M470_50A
+record M470_50A "M470-50A @ 50Hz"
   extends BaseData(
     Type="M470-50A",
     vRef =      4.70,

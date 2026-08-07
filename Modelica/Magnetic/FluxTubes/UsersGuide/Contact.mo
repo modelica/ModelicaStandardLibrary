@@ -41,6 +41,9 @@ class Contact "Contact"
    <a href=\"https://cordis.europa.eu/project/id/296369\">JTI-CS-2011-1-SGO-02-026</a>;
    MOMOLIB - Modelica Model Library Development for Media, Magnetic Systems and Wavelets.
    The partial financial support by the European Union for this development is highly appreciated.</li>
+<li> The magnetisation characteristics of the soft magnetic materials included in the 
+   <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE\">sublibrary with material approximated with Smoothing Splines and Exponential Extrapolation</a>
+   were provided by <a href=\"https://www.voestalpine.com/isovac/Downloads/Datenblaetter\">VoestAlpine</a>. The support is highly appreciated!</li>
 </ul>
 </html>"));
 end Contact;
