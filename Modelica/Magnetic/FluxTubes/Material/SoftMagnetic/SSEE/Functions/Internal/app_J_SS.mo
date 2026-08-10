@@ -18,9 +18,9 @@ algorithm
     J:=sign(H)*(c0[1] + c1[1]*(abs(H) - HD[1]));
   elseif k>=N then
     dH:=HD[N] - HD[N - 1];
-    J:=sign(H)*(c0[N-1] + (c1[N - 1] + c2[N - 1]*2*dH + c3[N - 1]*3*dH^2)*(abs(H) - HD[N]));
+    J:=sign(H)*(((3*c3[N - 1]*dH + 2*c2[N - 1])*dH + c1[N - 1])*(abs(H) - HD[N]) + c0[N - 1]);
   else
-    J:=sign(H)*(c0[k] + c1[k]*(abs(H) - HD[k]) + c2[k]*(abs(H) - HD[k])^2 + c3[k]*(abs(H) - HD[k])^3);
+    J:=sign(H)*(((c3[k]*(abs(H) - HD[k]) + c2[k])*(abs(H) - HD[k]) + c1[k])*(abs(H) - HD[k]) + c0[k]);
   end if;
   annotation (Documentation(info="<html>
 <p>

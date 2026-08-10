@@ -4,7 +4,7 @@ function app_chi_d_EE
   extends Modelica.Icons.Function;
   input SI.MagneticFieldStrength H;
   input BaseData material;
-  output SI.MagneticSusceptibility mu_rd;
+  output SI.MagneticSusceptibility chi_d;
 protected
   SI.MagneticFieldStrength HD[:]=material.HD;
   SI.MagneticPolarization  JD[:]=material.JD;
@@ -12,7 +12,7 @@ protected
   SI.MagneticFieldStrength Hpar=material.Hpar;
   SI.MagneticPolarization  Jsat=material.Jsat;
 algorithm
-  mu_rd:=(Jsat - JD[k0])/(mu_0*Hpar)*exp(-(abs(H) - HD[k0])/Hpar);
+  chi_d:=(Jsat - JD[k0])/(mu_0*Hpar)*exp(-(abs(H) - HD[k0])/Hpar);
   annotation (Documentation(info="<html>
 <p>
 Returns differential susceptibility <code>chi_d</code> calculated from exponential extrapolation for magnetic field strength <code>H</code>.

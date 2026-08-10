@@ -4,8 +4,8 @@ function der_J "Derivative of J(H)"
   input SI.MagneticFieldStrength H;
   input BaseData material;
   input Modelica.Magnetic.FluxTubes.Types.MagneticFieldStrengthSlope derH;
-  output Modelica.Magnetic.FluxTubes.Types.MagneticFluxDensitySlope derJ=mu_0*(
-      app_mu_rd(H, material) - 1)*derH;
+  output Modelica.Magnetic.FluxTubes.Types.MagneticFluxDensitySlope derJ=
+    mu_0*(app_mu_rd(H, material) - 1)*derH;
   annotation (Documentation(info="<html>
 <p>
 Returns slope of magnetic polarization <code>J</code> calculated from susceptibility.
