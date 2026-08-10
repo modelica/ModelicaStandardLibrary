@@ -1,81 +1,71 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE;
-record BaseData "M270-50A"
+record BaseData "CastIron"
   extends Modelica.Icons.Record;
-  parameter String Type="M270-50A";
-  parameter Modelica.Magnetic.FluxTubes.Types.SpecificPower vRef=2.7
+  parameter String Type="CastIron";
+  parameter FluxTubes.Types.SpecificPower vRef=25.
     "Specific losses at BRef and fRef";
   parameter SI.MagneticFluxDensity BRef=1.5 "Ref. flux density for spec. losses";
   parameter SI.Frequency fRef=50 "Ref. frequency for spec. losses";
-  parameter SI.Density dens = 7600 "Density of material";
-  parameter SI.RelativePermeability mu_ri= 1902.23 "Initial relative permeability";
+  parameter SI.Density dens = 7500 "Density of material";
+  parameter SI.RelativePermeability mu_ri= 155.80 "Initial relative permeability";
   // Exponential Extrapolation
-  parameter Integer k0                    =     23    "Start of EE"
+  parameter Integer k0                    =     12    "Start of EE"
     annotation(Dialog(group="Exponential Extrapolation"));
-  parameter SI.MagneticFieldStrength Hpar = 10284.44 "Parameter of EE"
+  parameter SI.MagneticFieldStrength Hpar =  9901.06 "Parameter of EE"
     annotation(Dialog(group="Exponential Extrapolation"));
-  parameter SI.MagneticFieldStrength Hsat = 129186.5 "Saturation field strength"
+  parameter SI.MagneticFieldStrength Hsat = 132113.5 "Saturation field strength"
     annotation(Dialog(group="Exponential Extrapolation"));
-  parameter SI.MagneticPolarization  Jsat =  1.96017 "Saturation polarization"
+  parameter SI.MagneticPolarization  Jsat =  1.27765 "Saturation polarization"
     annotation(Dialog(group="Exponential Extrapolation"));
   // Homotopy
   parameter SI.MagneticFieldStrength hH1  =   5000.00 "Start of homotopy"
     annotation(Dialog(group="Homotopy"));
-  parameter SI.MagneticFieldStrength hH2  =  20000.00 "End   of homotopy"
+  parameter SI.MagneticFieldStrength hH2  =  15000.00 "End   of homotopy"
     annotation(Dialog(group="Homotopy"));
   // Length of Raw Data
-  parameter Integer N    = 33 "Count of nodes"
+  parameter Integer N    = 22 "Count of nodes"
     annotation(Dialog(tab="Smoothing Splines"));
   // Smoothing Spline coefficients
   parameter Real c3[:](each unit="V.s.m/A2")={
-     2.27864e-06, 2.32901e-06, 1.40801e-06,-6.86202e-07,-3.20815e-06,
-    -5.32239e-06,-4.53197e-07, 1.96980e-07, 9.85862e-07, 6.20767e-07,
-     2.48655e-07, 1.72769e-07, 1.06935e-07, 6.59337e-08, 3.23798e-08,
-     8.34756e-09, 1.51137e-09, 2.61362e-10, 5.69454e-11, 2.38477e-11,
-     9.55963e-12, 5.40335e-12, 2.43257e-12, 4.58038e-13, 4.98279e-14,
-     4.90381e-14, 1.11934e-14, 9.99504e-15, 4.62001e-15, 1.65527e-14,
-     6.74648e-15, 2.89091e-14}
+     1.05287e-10, 3.46651e-10,-1.34759e-10,-4.61913e-10,-1.76527e-10,
+    -6.93774e-11, 7.12008e-12, 2.24874e-11, 3.31106e-11, 5.09619e-11,
+     2.08923e-11, 2.78107e-12, 6.36022e-13, 8.74410e-14, 7.61594e-14,
+     5.22203e-14, 4.77447e-14, 3.63249e-14, 4.27105e-14,-1.86138e-15,
+     8.60434e-14}
     annotation(Dialog(tab="Smoothing Splines"));
   parameter Real c2[:](each unit="V.s/A2")={
-     0.00000e+00, 6.84949e-05, 1.38361e-04, 1.80685e-04, 1.60156e-04,
-     6.47927e-05,-9.58308e-05,-1.09426e-04,-1.03534e-04,-7.38923e-05,
-    -5.15038e-05,-3.42036e-05,-2.12643e-05,-1.31499e-05,-8.30411e-06,
-    -3.43640e-06,-9.64732e-07,-2.78886e-07,-8.49613e-08,-4.17113e-08,
-    -2.38917e-08,-1.67094e-08,-8.62512e-09,-4.92342e-09,-1.49179e-09,
-    -1.11839e-09,-7.50541e-10,-5.83338e-10,-4.49504e-10,-3.90539e-10,
-    -1.92032e-10,-1.33433e-10}
+     0.00000e+00, 6.31721e-08, 2.71163e-07, 1.49880e-07, 1.13056e-08,
+    -9.46106e-08,-1.46644e-07,-1.43440e-07,-1.33320e-07,-1.13454e-07,
+    -7.52325e-08,-1.25556e-08,-4.21242e-09,-2.30435e-09,-2.04203e-09,
+    -1.81355e-09,-1.57856e-09,-1.36371e-09,-1.14576e-09,-8.89495e-10,
+    -9.03455e-10}
     annotation(Dialog(tab="Smoothing Splines"));
   parameter Real c1[:](each unit="V.s/(m.A)")={
-     2.38915e-03, 3.07546e-03, 5.14389e-03, 8.34067e-03, 1.17396e-02,
-     1.39685e-02, 1.36562e-02, 1.16038e-02, 9.48040e-03, 7.70222e-03,
-     6.19471e-03, 4.20700e-03, 2.82228e-03, 1.95181e-03, 1.42622e-03,
-     8.37897e-04, 4.03512e-04, 2.15398e-04, 1.25410e-04, 9.33406e-05,
-     7.70005e-05, 6.68324e-05, 5.41976e-05, 4.73252e-05, 3.13042e-05,
-     2.47842e-05, 2.01111e-05, 1.34694e-05, 8.85949e-06, 5.28571e-06,
-     2.95690e-06, 2.01459e-06}
+     1.94531e-04, 2.07166e-04, 2.74033e-04, 4.00345e-04, 4.16464e-04,
+     3.99803e-04, 3.39489e-04, 2.95977e-04, 2.54463e-04, 2.05108e-04,
+     1.57936e-04, 7.01484e-05, 5.33803e-05, 4.68636e-05, 4.25172e-05,
+     3.86616e-05, 3.35735e-05, 2.91601e-05, 2.41411e-05, 2.00706e-05,
+     1.55882e-05}
     annotation(Dialog(tab="Smoothing Splines"));
   parameter Real c0[:](each unit="V.s/m2")={
-     0.00000e+00, 2.62311e-02, 6.61610e-02, 1.33009e-01, 2.33471e-01,
-     3.62395e-01, 5.04051e-01, 6.30570e-01, 7.35587e-01, 8.21194e-01,
-     9.04189e-01, 1.02325e+00, 1.10965e+00, 1.16916e+00, 1.21006e+00,
-     1.26475e+00, 1.32200e+00, 1.36619e+00, 1.40636e+00, 1.43359e+00,
-     1.45462e+00, 1.47255e+00, 1.50240e+00, 1.52799e+00, 1.62260e+00,
-     1.69227e+00, 1.74801e+00, 1.83092e+00, 1.88031e+00, 1.91022e+00,
-     1.92617e+00, 1.93328e+00}
+     0.00000e+00, 3.97486e-02, 8.64819e-02, 1.89458e-01, 2.30529e-01,
+     3.12862e-01, 4.05816e-01, 4.53464e-01, 4.94709e-01, 5.40533e-01,
+     5.85516e-01, 6.89112e-01, 7.49486e-01, 7.99290e-01, 8.43936e-01,
+     8.84488e-01, 9.38576e-01, 9.85545e-01, 1.03870e+00, 1.08274e+00,
+     1.12733e+00}
     annotation(Dialog(tab="Smoothing Splines"));
   // Raw Data: Magnetic field strength H and Magnetic polarization J
   parameter SI.MagneticFieldStrength HD[:]={
-         0.00,    10.02,    20.02,    30.04,    40.01,    49.92,    59.98,
-        69.98,    79.95,    89.97,   101.99,   125.19,   150.15,   175.44,
-       199.94,   250.05,   348.75,   500.01,   747.34,  1000.51,  1249.58,
-      1500.02,  1998.74,  2505.98,  5003.32,  7501.24, 10001.65, 14980.88,
-     19444.24, 23698.52, 27696.00, 30591.27, 32129.82}
+         0.00,   200.00,   400.00,   700.00,   800.00,  1000.00,  1250.00,
+      1400.00,  1550.00,  1750.00,  2000.00,  3000.00,  4000.00,  5000.00,
+      6000.00,  7000.00,  8500.00, 10000.00, 12000.00, 14000.00, 16500.00,
+     20000.00}
     annotation(Dialog(tab="Raw Data"));
   parameter SI.MagneticPolarization  JD[:]={
-      0.00000,  0.02357,  0.06234,  0.12779,  0.22774,  0.35715,  0.50714,
-      0.62863,  0.73381,  0.81804,  0.90102,  1.02044,  1.10685,  1.16639,
-      1.20730,  1.26200,  1.31927,  1.36347,  1.40364,  1.43087,  1.45190,
-      1.46983,  1.49968,  1.52527,  1.61988,  1.68955,  1.74529,  1.82820,
-      1.87759,  1.90750,  1.92345,  1.93056,  1.93345}
+      0.00000,  0.03975,  0.08648,  0.18946,  0.23053,  0.31286,  0.40582,
+      0.45346,  0.49471,  0.54053,  0.58552,  0.68911,  0.74949,  0.79929,
+      0.84394,  0.88449,  0.93858,  0.98555,  1.03870,  1.08274,  1.12733,
+      1.17451}
     annotation(Dialog(tab="Raw Data"));
   annotation(defaultComponentPrefixes="parameter",
     defaultComponentName="material",
