@@ -222,7 +222,7 @@ and the returned state is the one from the last iteration.
         output Integer stateOut[nState]
           "The new internal states of the random number generator";
         external "C" ModelicaRandom_xorshift64star(stateIn, stateOut, result)
-          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaKissFFT.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt"});
         annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -395,7 +395,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
         output Integer stateOut[nState]
           "The new internal states of the random number generator";
         external "C" ModelicaRandom_xorshift128plus(stateIn, stateOut, result)
-          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaKissFFT.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt"});
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -572,7 +572,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
         output Integer stateOut[nState]
           "The new internal states of the random number generator";
         external "C" ModelicaRandom_xorshift1024star(stateIn, stateOut, result)
-          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaKissFFT.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt"});
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -935,7 +935,7 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
       extends Modelica.Icons.Function;
       output Integer seed "Automatically generated seed";
 
-      external "C" seed = ModelicaRandom_automaticGlobalSeed(0.0) annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+      external "C" seed = ModelicaRandom_automaticGlobalSeed(0.0) annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaKissFFT.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt"});
      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1073,7 +1073,7 @@ path is provided.
         input Integer[33] rngState "The initial state";
         input Integer id;
         external "C" ModelicaRandom_setInternalState_xorshift1024star(rngState, size(rngState,1), id)
-          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaKissFFT.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt"});
       end setInternalState;
 
     algorithm
@@ -1153,7 +1153,7 @@ random number generator to fill the internal state vector with 64 bit random num
       output Real y
         "A random number with a uniform distribution on the interval (0,1]";
       external "C" y = ModelicaRandom_impureRandom_xorshift1024star(id)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaKissFFT.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt"});
       annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>

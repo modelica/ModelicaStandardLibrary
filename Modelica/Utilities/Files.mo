@@ -569,7 +569,7 @@ impure function fullPathName "Get full path name of file or directory name"
   extends Modelica.Icons.Function;
   input String name "Absolute or relative file or directory name";
   output String fullName "Full path of 'name'";
-external "C" fullName = ModelicaInternal_fullPathName(name) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+external "C" fullName = ModelicaInternal_fullPathName(name) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -658,7 +658,7 @@ impure function temporaryFileName
     "Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)"
   extends Modelica.Icons.Function;
   output String fileName "Full path name of temporary file";
-  external "C" fileName=ModelicaInternal_temporaryFileName() annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" fileName=ModelicaInternal_temporaryFileName() annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
