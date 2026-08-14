@@ -29,5 +29,10 @@ can be determined by minimizing the following objective function:
 &sum;(JD<sub>k</sub> - ee(HD<sub>k</sub>)<sup>2</sup>
 k&ge;k0
 </code></pre>
+<p>
+Functions which can be called from Octave or Matlab are provided in <a href=\"https://github.com/AHaumer/SSEE\">the SSEE-repository</a> 
+together with the used raw data RD.ods in OpenDocument format as well as the 
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE\">BaseData Modelica record</a>.
+</p>
 </html>"));
 end ParameterFit;
