@@ -1,4 +1,4 @@
-within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.Functions.Internal;
+within Modelica.Magnetic.FluxTubes.Utilities;
 function getInterval
   extends Modelica.Icons.Function;
   input Real x "Scalar";

@@ -11,7 +11,7 @@ protected
   Real c1[:]=material.c1;
   Real c2[:]=material.c2;
   Real c3[:]=material.c3;
-  Integer k=getInterval(abs(H), HD);
+  Integer k=Utilities.getInterval(abs(H), HD);
   SI.MagneticFieldStrength dH;
 algorithm
   if k<=0 then
