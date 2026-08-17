@@ -4,16 +4,14 @@ model EIcore "An iron core with shape E and I"
   parameter Modelica.Units.SI.Length delta=0.5e-3 "Air gap";
   parameter Modelica.Units.SI.Current I=5 "Excitation current";
   parameter FluxTubes.Material.SoftMagnetic.MaterialSettings materialSettings(
-    magnetization=Modelica.Magnetic.FluxTubes.Types.Magnetization.SSEE,
-    material=
-        Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M350_50A(),
-    materialSSEE=
-        Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.M350_50A())
+    magType=Modelica.Magnetic.FluxTubes.Types.MagType.SSEE,
+    material=Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M350_50A(),
+    materialSSEE=Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.M350_50A())
     annotation (Placement(transformation(extent={{20,50},{40,70}})));
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid yokeUL(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
     mu_rConst=materialSettings.mu_rConst,
-    magnetization=materialSettings.magnetization,
+    magType=materialSettings.magType,
     material=materialSettings.material,
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.075,
@@ -23,7 +21,7 @@ model EIcore "An iron core with shape E and I"
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid yokeUR(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
     mu_rConst=materialSettings.mu_rConst,
-    magnetization=materialSettings.magnetization,
+    magType=materialSettings.magType,
     material=materialSettings.material,
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.075,
@@ -33,7 +31,7 @@ model EIcore "An iron core with shape E and I"
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid yokeLL(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
     mu_rConst=materialSettings.mu_rConst,
-    magnetization=materialSettings.magnetization,
+    magType=materialSettings.magType,
     material=materialSettings.material,
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.075,
@@ -43,7 +41,7 @@ model EIcore "An iron core with shape E and I"
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid yokeLR(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
     mu_rConst=materialSettings.mu_rConst,
-    magnetization=materialSettings.magnetization,
+    magType=materialSettings.magType,
     material=materialSettings.material,
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.075,
@@ -53,7 +51,7 @@ model EIcore "An iron core with shape E and I"
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid legL(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
     mu_rConst=materialSettings.mu_rConst,
-    magnetization=materialSettings.magnetization,
+    magType=materialSettings.magType,
     material=materialSettings.material,
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.1,
@@ -65,7 +63,7 @@ model EIcore "An iron core with shape E and I"
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid legR(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
     mu_rConst=materialSettings.mu_rConst,
-    magnetization=materialSettings.magnetization,
+    magType=materialSettings.magType,
     material=materialSettings.material,
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.1,
@@ -78,7 +76,7 @@ model EIcore "An iron core with shape E and I"
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid legM(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
     mu_rConst=materialSettings.mu_rConst,
-    magnetization=materialSettings.magnetization,
+    magType=materialSettings.magType,
     material=materialSettings.material,
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.1 - delta,

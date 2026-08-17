@@ -1,6 +1,6 @@
 within Modelica.Magnetic.FluxTubes.BaseClasses;
 partial model FixedShape "Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics"
-  import Modelica.Magnetic.FluxTubes.Types.Magnetization;
+  import Modelica.Magnetic.FluxTubes.Types.MagType;
   import Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.Functions.app_J;
   import Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.Functions.app_mu_r;
 
@@ -12,20 +12,19 @@ partial model FixedShape "Base class for flux tubes with fixed shape during simu
   parameter Modelica.Units.SI.RelativePermeability mu_rConst=1
     "Constant relative permeability; used if nonLinearPermeability=false"
     annotation (Dialog(tab="Material", enable=not nonLinearPermeability));
-  parameter Magnetization magnetization=Magnetization.Roschke
+  parameter MagType magType=MagType.Roschke
     "Choose the approximation of the magnetization characteristic"
     annotation (Evaluate=true, Dialog(tab="Material", enable=nonLinearPermeability));
   parameter Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData material=
       Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData()
     "Ferromagnetic material characteristics, approximation according to Roschke"
     annotation (choicesAllMatching=true, Dialog(tab="Material", enable=
-          nonLinearPermeability and magnetization == Magnetization.Roschke));
+          nonLinearPermeability and magType ==MagType.Roschke));
   parameter Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.BaseData
-    materialSSEE=
-      Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.BaseData()
-    "Ferromagnetic material characteristics, approximation SSEE" annotation (
-      choicesAllMatching=true, Dialog(tab="Material", enable=
-          nonLinearPermeability and magnetization == Magnetization.SSEE));
+    materialSSEE=Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.BaseData()
+    "Ferromagnetic material characteristics, approximation SSEE"
+    annotation (choicesAllMatching=true, Dialog(tab="Material", enable=
+          nonLinearPermeability and magType ==MagType.SSEE));
 
   extends FluxTubes.Interfaces.TwoPort;
   input Modelica.Units.SI.CrossSection A "Cross-sectional area";
@@ -43,14 +42,14 @@ equation
   R_m = 1/G_m;
   V_m = Phi*R_m;
   if nonLinearPermeability then
-    if magnetization == Magnetization.Roschke then
+    if magType==MagType.Roschke  then
       mu_r = 1 + (material.mu_i - 1 + material.c_a*B_N)/(1 + material.c_b*B_N + B_N^material.n);
       J = mu_0*(mu_r - 1)*H;
-    else //if magnetization == Magnetization.SSEE then
+    else //if magType == MagType.SSEE then
       mu_r = app_mu_r(H, materialSSEE);
       J = app_J(H, materialSSEE);
     end if;
-  else // not nonLinearPermeability i.e. magnetization == Magnetization.Linear
+  else // not nonLinearPermeability i.e. magType == MagType.Linear
     mu_r = mu_rConst;
     J = mu_0*(mu_r - 1)*H;
   end if;

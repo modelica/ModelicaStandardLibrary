@@ -40,7 +40,7 @@ model CompareModels
         rotation=0,
         origin={20,-50})));
   FluxTubes.Shapes.FixedShape.GenericFluxTube coreNon_Hys(
-    magnetization=Modelica.Magnetic.FluxTubes.Types.Magnetization.SSEE,
+    magType=Modelica.Magnetic.FluxTubes.Types.MagType.SSEE,
     mu_rConst=1000,
     material=
         Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M330_50A(),

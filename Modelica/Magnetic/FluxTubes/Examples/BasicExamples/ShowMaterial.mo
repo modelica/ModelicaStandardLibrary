@@ -21,7 +21,7 @@ model ShowMaterial "Show material characteristic"
   Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter excitingCoil(N=700) annotation (
       Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube coreNon_Hys(
-    magnetization=Modelica.Magnetic.FluxTubes.Types.Magnetization.SSEE,
+    magType=Modelica.Magnetic.FluxTubes.Types.MagType.SSEE,
     material=
         Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M330_50A(),
     materialSSEE=
