@@ -1,5 +1,5 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.Functions.Internal;
-function getInterval
+function findInterval
   extends Modelica.Icons.Function;
   input Real x "Scalar";
   input Real xD[:] "Array";
@@ -25,4 +25,4 @@ Determines the interval <code>k</code> that includes the value <code>x</code>: <
 <code>x&gt;xD[N]</code> returns <code>k=N</code> where <code>N=size(xD, 1)</code>.
 </p>
 </html>"));
-end getInterval;
+end findInterval;

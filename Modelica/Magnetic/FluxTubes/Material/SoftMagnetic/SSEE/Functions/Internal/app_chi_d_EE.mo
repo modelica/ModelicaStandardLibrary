@@ -2,9 +2,9 @@ within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.Functions.Internal
 function app_chi_d_EE
   "Approximation chi_d(H) Exponential Extrapolation"
   extends Modelica.Icons.Function;
-  input SI.MagneticFieldStrength H;
-  input BaseData material;
-  output SI.MagneticSusceptibility chi_d;
+  input SI.MagneticFieldStrength H "Magnetic field strength";
+  input BaseData material "Material data";
+  output SI.MagneticSusceptibility chi_d "Differential magnetic susceptibility";
 protected
   SI.MagneticFieldStrength HD[:]=material.HD;
   SI.MagneticPolarization  JD[:]=material.JD;

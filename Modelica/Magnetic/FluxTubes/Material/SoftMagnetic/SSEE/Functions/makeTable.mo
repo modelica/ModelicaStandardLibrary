@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.Functions;
 function makeTable "Make a table from raw data"
   extends Modelica.Icons.Function;
   import Modelica.Math.Vectors.reverse;
-  input BaseData material;
+  input BaseData material "Material data";
   output Real table[2*(material.N - 1) + 3, 2]=[
     cat(1, -{material.Hsat}, -reverse(material.HD[2:material.N]), {0}, material.HD[2:material.N], {material.Hsat}),
     cat(1, -{material.Jsat}, -reverse(material.JD[2:material.N]), {0}, material.JD[2:material.N], {material.Jsat})]

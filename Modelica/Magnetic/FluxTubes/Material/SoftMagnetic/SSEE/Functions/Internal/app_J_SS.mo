@@ -1,9 +1,9 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.Functions.Internal;
 function app_J_SS "Approximation J(H) Smoothing Splines"
   extends Modelica.Icons.Function;
-  input SI.MagneticFieldStrength H;
-  input BaseData material;
-  output SI.MagneticPolarization J;
+  input SI.MagneticFieldStrength H "Magnetic field strength";
+  input BaseData material "Material data";
+  output SI.MagneticPolarization J "Magnetic polarization";
 protected
   SI.MagneticFieldStrength HD[:]=material.HD;
   Integer N=size(HD, 1);
@@ -11,7 +11,7 @@ protected
   Real c1[:]=material.c1;
   Real c2[:]=material.c2;
   Real c3[:]=material.c3;
-  Integer k=getInterval(abs(H), HD);
+  Integer k=findInterval(abs(H), HD);
   SI.MagneticFieldStrength dH;
 algorithm
   if k<=0 then

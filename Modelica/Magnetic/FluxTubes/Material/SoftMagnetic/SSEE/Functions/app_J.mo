@@ -1,15 +1,22 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.Functions;
 function app_J "Approximation J(H)"
   extends Modelica.Icons.Function;
-  input SI.MagneticFieldStrength H;
-  input BaseData material;
-  output SI.MagneticPolarization J;
+  input SI.MagneticFieldStrength H "Magnetic field strength";
+  input BaseData material "Material data";
+  output SI.MagneticPolarization J "Magnetic polarization";
 protected
-  Real h=if abs(H)<material.hH1 then 0 elseif abs(H)>material.hH2 then 1 else (abs(H) - material.hH1)/(material.hH2 - material.hH1);
+  Real h "Helper function";
 algorithm
-  J:=if abs(H) < material.hH1 then Internal.app_J_SS(H, material)
-    elseif abs(H) > material.hH2 then Internal.app_J_EE(H, material)
-    else (1 - h)*Internal.app_J_SS(H, material) + h*Internal.app_J_EE(H, material);
+  if abs(H) < material.hH1 then
+    h:=0;
+    J:=Internal.app_J_SS(H, material);
+  elseif abs(H) > material.hH2 then
+    h:=1;
+    J:=Internal.app_J_EE(H, material);
+  else
+    h:=(abs(H) - material.hH1)/(material.hH2 - material.hH1);
+    J:=(1 - h)*Internal.app_J_SS(H, material) + h*Internal.app_J_EE(H, material);
+  end if;
   annotation (derivative(noDerivative=material)=der_J,
     Documentation(info="<html>
 <p>

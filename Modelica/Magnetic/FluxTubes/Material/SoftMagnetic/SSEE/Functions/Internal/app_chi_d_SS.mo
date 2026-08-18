@@ -1,16 +1,16 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.Functions.Internal;
 function app_chi_d_SS "Approximation chi_d(H) Smoothing Splines"
   extends Modelica.Icons.Function;
-  input SI.MagneticFieldStrength H;
-  input BaseData material;
-  output SI.MagneticSusceptibility chi_d;
+  input SI.MagneticFieldStrength H "Magnetic field strength";
+  input BaseData material "Material data";
+  output SI.MagneticSusceptibility chi_d "Differential magnetic susceptibility";
 protected
   SI.MagneticFieldStrength HD[:]=material.HD;
   Integer N=size(HD, 1);
   Real c1[:]=material.c1;
   Real c2[:]=material.c2;
   Real c3[:]=material.c3;
-  Integer k=getInterval(abs(H), HD);
+  Integer k=findInterval(abs(H), HD);
   SI.MagneticFieldStrength dH;
 algorithm
   if k<=0 then
