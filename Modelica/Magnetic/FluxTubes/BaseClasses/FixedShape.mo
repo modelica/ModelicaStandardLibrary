@@ -37,7 +37,6 @@ partial model FixedShape "Base class for flux tubes with fixed shape during simu
     "Relative magnetic permeability";
 protected
   Real B_N=abs(B/material.B_myMax) "Absolute value of normalized B";
-  constant Real epsilon=1e3*Modelica.Constants.eps;
 equation
   R_m = 1/G_m;
   V_m = Phi*R_m;
