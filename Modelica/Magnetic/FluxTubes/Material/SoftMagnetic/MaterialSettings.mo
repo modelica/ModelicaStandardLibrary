@@ -3,6 +3,8 @@ record MaterialSettings
   "Gathers all settings for a softmagnetic material"
   extends Modelica.Icons.Record;
   import Modelica.Magnetic.FluxTubes.Types.MagType;
+  // The parameter nonLinearPermeability is kept for backwards compatibility reasons,
+  // and will be replaced by a member "Linear" in the enumeration MagType in next major release
   parameter Boolean nonLinearPermeability=true
     "= true, if non-linear rel. permeability is used, otherwise constant rel. permeability"
     annotation (Evaluate=true);
