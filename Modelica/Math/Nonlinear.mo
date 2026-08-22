@@ -347,6 +347,72 @@ The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> i
         experiment(StopTime=5));
     end QuadratureLobatto3;
 
+    model MovingIntegral
+      extends Modelica.Icons.Example;
+      import Modelica.Units.SI;
+      import Modelica.Constants.pi;
+      import funB=Modelica.Math.Nonlinear.Examples.UtilityFunctions.funB;
+      import Modelica.Math.Nonlinear.quadratureLobatto;
+      import Modelica.Math.Nonlinear.quadratureTrapezoidal;
+      import Modelica.Math.Nonlinear.quadratureSimpson;
+      parameter SI.MagneticFluxDensity Bpeak=1 "Amplitude";
+      parameter SI.Angle alfa(final min=0, final max=pi)=2*pi/3 "Pole coverage";
+      parameter Boolean useRectangle=false "Use rectangle or trapezoid";
+      parameter SI.Angle beta(final min=0, final max=pi)=pi "Coil width";
+      parameter Integer N=720 "Number of intervals";
+      SI.Angle pos=2*pi*time/Tend "Position";
+      SI.MagneticFluxDensity B=Bpeak*funB(pos, alfa, useRectangle) "Flux density";
+      parameter SI.MagneticFlux psi0=Bpeak*wlD*quadratureLobatto(
+        function funB(alfa=alfa, useRectangle=useRectangle),
+        pi/2 - beta/2, pi/2 + beta/2)
+        "Max. flux linkage useing Lobatto";
+      SI.MagneticFlux psi1=Bpeak*wlD*quadratureTrapezoidal(
+        function funB(alfa=alfa, useRectangle=useRectangle),
+        pos + pi/2 - beta/2, pos + pi/2  + beta/2, N=N)
+        "Flux linkage using trapezoidal rule";
+      SI.MagneticFlux psi2=Bpeak*wlD*quadratureSimpson(
+        function funB(alfa=alfa, useRectangle=useRectangle),
+        pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N)
+        "Flux linkage using Simpson's rule";
+      SI.Voltage v=-(psi1 - xi)/Td "Induced voltage";
+    protected
+      constant SI.Time Tend=1 "Stop time of simulation";
+      constant SI.Area wlD=100*0.05*0.05 "Number of turns x length x diameter";
+      parameter SI.Time Td(min=Modelica.Constants.small) = 0.001
+        "Derivative time constant";
+      SI.MagneticFlux xi(start=psi0, fixed=true) "Internal DT1-variable";
+    equation
+      der(xi) = -v;
+      annotation (experiment(
+          StopTime=1,
+          Interval=0.001,
+          Tolerance=1e-06), Documentation(info="<html>
+<p>
+This example tests quadrature functions:
+</p>
+<p>
+The function <code>funB</code> defines the spatial distribution of the flux density with respect to the rotor surface, dependent on pole coverage &alpha;.
+</p>
+<p>
+As the rotor position increases, the flux linkage of a coil of width <code>&beta;</code> is caculated 
+by integration over the interval <code>[pos + pi/2 - beta/2, pos + pi/2 + &beta;/2]</code>.
+</p>
+<p>
+The maximum of the flux linkage <code>psi0</code> is calculated using <strong>quadratureLobatto</strong>. 
+<code>psi1</code> is the result of the moving integral usng <strong>quadratureTrapezoidal</strong>, 
+<code>psi2</code> is the result of the moving integral usng <strong>quadratureSimson</strong>. 
+</p>
+<p>
+At <code>time = 0</code>, the positive maximum of flux density distribution is at <code>pos = &pi;/2</code>, 
+the coil spans the angle <code>[&pi/2; - &beta;/2, &pi/2; + &beta;/2]</code>. 
+Therefore the flux linkage has a maximum.
+</p>
+<p>
+Since flux linkage is not differentiable, a derivative with first-order lag is used to calculate induce voltage.
+</p>
+</html>"));
+    end MovingIntegral;
+
     package UtilityFunctions
       "Utility functions that are used as function arguments to the examples"
       extends Modelica.Icons.UtilitiesPackage;
@@ -399,6 +465,44 @@ The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> i
       algorithm
         y := A*sin(w*u);
       end fun7;
+
+      function funB "Spatial distribution of flux density"
+        extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+        import Modelica.Math.wrapAngle;
+        import Modelica.Units.SI;
+        import Modelica.Constants.pi;
+        input SI.Angle alfa "Pole coverage";
+        input Boolean useRectangle=true "Use rectangle or trapezoid";
+      protected
+        SI.Angle x=wrapAngle(u, positiveRange=true);
+        SI.Angle gap=pi - alfa;
+        SI.Angle b[4]={gap/2, pi - gap/2, pi + gap/2, 2*pi - gap/2};
+      algorithm
+        if x<b[1] then
+          y:=if useRectangle then 0 else  0 + (x - 0)   *2/gap;
+        elseif x<b[2] then
+          y:=+1;
+        elseif x<b[3] then
+          y:=if useRectangle then 0 else +1 - (x - b[2])*2/gap;
+        elseif x<b[4] then
+          y:=-1;
+        else
+          y:=if useRectangle then 0 else -1 + (x - b[4])*2/gap;
+        end if;
+        annotation (Documentation(info="<html>
+<p>
+This function defines a piecewise linear function on the interval [0, 2*&pi;], &alpha; indicates the angle of pole coverage. 
+</p>
+<ul>
+<li><pre>  &pi;/2 - &alpha;/2 &lt; x &lt;   &pi;/2 + &alpha;/2: y = +1</pre></li>
+<li><pre>3*&pi;/2 - &alpha;/2 &lt; x &lt; 3*&pi;/2 + &alpha;/2: y = -1</pre></li>
+</ul>
+<p>
+In the remaining intervals the function is zero for useRectangle=true, 
+otherwise there is a linear transition between positive and negative roof (trapezoidal shape).
+</p>
+</html>"));
+      end funB;
       annotation (Documentation(info="<html>
 <p>
 This package provides utility functions that are used as input
@@ -439,6 +543,59 @@ to a function, see, .e.g.,
 </p>
 </html>"));
   end Interfaces;
+
+  function quadratureTrapezoidal "Quadrature using the trapezoidal rule"
+    extends Modelica.Icons.Function;
+    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f "Integrand function";
+    input Real a "Lower limit of integration interval";
+    input Real b "Upper limit of integration interval";
+    input Integer N = 2880 "Number of strips (default 8*360 deg)";
+    output Real integral "Integral value";
+  protected
+    Real h=(b - a)/N "Width of stripes";
+  algorithm
+    integral:=sum({(f(a + h*(k - 1)) + f(a + h*k))/2*h for k in 1:N});
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>quadratureTrapezoidal</strong>(function f(), a, b);
+<strong>quadratureTrapezoidal</strong>(function f(), a, b, N=1440);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Compute definite integral over function f(u,...) from u=a up to u=b
+using the <a href=\"https://en.wikipedia.org/wiki/Trapezoidal_rule\">Trapezoidal rule</a>.
+</p>
+</html>"));
+  end quadratureTrapezoidal;
+
+  function quadratureSimpson "Quadrature using Simpon's rule"
+    extends Modelica.Icons.Function;
+    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f "Integrand function";
+    input Real a "Lower limit of integration interval";
+    input Real b "Upper limit of integration interval";
+    input Integer N = 2880 "Number of strips (default 8*360 deg)";
+    output Real integral "Integral value";
+  protected
+    Integer n=N+mod(N, 2) "Ensure an even count of intervals";
+    Real h=(b - a)/n "Width of stripes";
+  algorithm
+    integral:=sum({(f(a + h*(k - 1)) + 4*f(a + h*k) + f(a + h*(k + 1)))/3*h for k in 1:2:n-1});
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>quadratureSimpson</strong>(function f(), a, b);
+<strong>quadratureSimpson</strong>(function f(), a, b, N=1440);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Compute definite integral over function f(u,...) from u=a up to u=b
+using <a href=\"https://en.wikipedia.org/wiki/Simpson%27s_rule\">Simpson's rule</a>.
+</p>
+</html>"));
+  end quadratureSimpson;
 
   function quadratureLobatto
     "Return the integral of an integrand function using an adaptive Lobatto rule"
