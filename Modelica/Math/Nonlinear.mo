@@ -395,7 +395,7 @@ The function <code>funB</code> defines the spatial distribution of the flux dens
 </p>
 <p>
 As the rotor position increases, the flux linkage of a coil of width <code>&beta;</code> is caculated 
-by integration over the interval <code>[pos + pi/2 - beta/2, pos + pi/2 + &beta;/2]</code>.
+by integration over the interval <code>[pos + &pi;/2 - beta/2, pos + &pi;/2 + &beta;/2]</code>.
 </p>
 <p>
 The maximum of the flux linkage <code>psi0</code> is calculated using <strong>quadratureLobatto</strong>. 
@@ -404,7 +404,7 @@ The maximum of the flux linkage <code>psi0</code> is calculated using <strong>qu
 </p>
 <p>
 At <code>time = 0</code>, the positive maximum of flux density distribution is at <code>pos = &pi;/2</code>, 
-the coil spans the angle <code>[&pi/2; - &beta;/2, &pi/2; + &beta;/2]</code>. 
+the coil spans the angle <code>[&pi;/2; - &beta;/2, &pi;/2; + &beta;/2]</code>. 
 Therefore the flux linkage has a maximum.
 </p>
 <p>
