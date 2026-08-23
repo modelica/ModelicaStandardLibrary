@@ -839,7 +839,7 @@ Compute definite integral over function f(u,...) from u=a up to u=b using the
 <li><code>d=2</code> Simpson's rule</li>
 <li><code>d=3</code> 3/8-rule</li>
 <li><code>d=4</code> Boole's rule</li>
-<ul>
+</ul>
 </html>"));
   end quadratureNewtonCotes;
 
