@@ -555,59 +555,6 @@ to a function, see, .e.g.,
 </html>"));
   end Interfaces;
 
-  function quadratureTrapezoidal "Quadrature using the trapezoidal rule"
-    extends Modelica.Icons.Function;
-    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f "Integrand function";
-    input Real a "Lower limit of integration interval";
-    input Real b "Upper limit of integration interval";
-    input Integer N = 2880 "Number of strips (default 8*360 deg)";
-    output Real integral "Integral value";
-  protected
-    Real h=(b - a)/N "Width of stripes";
-  algorithm
-    integral:=sum({(f(a + h*(k - 1)) + f(a + h*k))/2*h for k in 1:N});
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-<strong>quadratureTrapezoidal</strong>(function f(), a, b);
-<strong>quadratureTrapezoidal</strong>(function f(), a, b, N=1440);
-</pre></blockquote>
-
-<h4>Description</h4>
-<p>
-Compute definite integral over function f(u,...) from u=a up to u=b
-using the <a href=\"https://en.wikipedia.org/wiki/Trapezoidal_rule\">Trapezoidal rule</a>.
-</p>
-</html>"));
-  end quadratureTrapezoidal;
-
-  function quadratureSimpson "Quadrature using Simpon's rule"
-    extends Modelica.Icons.Function;
-    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f "Integrand function";
-    input Real a "Lower limit of integration interval";
-    input Real b "Upper limit of integration interval";
-    input Integer N = 2880 "Number of strips (default 8*360 deg)";
-    output Real integral "Integral value";
-  protected
-    Integer n=N+mod(N, 2) "Ensure an even count of intervals";
-    Real h=(b - a)/n "Width of stripes";
-  algorithm
-    integral:=sum({(f(a + h*(k - 1)) + 4*f(a + h*k) + f(a + h*(k + 1)))/3*h for k in 1:2:n-1});
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-<strong>quadratureSimpson</strong>(function f(), a, b);
-<strong>quadratureSimpson</strong>(function f(), a, b, N=1440);
-</pre></blockquote>
-
-<h4>Description</h4>
-<p>
-Compute definite integral over function f(u,...) from u=a up to u=b
-using <a href=\"https://en.wikipedia.org/wiki/Simpson%27s_rule\">Simpson's rule</a>.
-</p>
-</html>"));
-  end quadratureSimpson;
-
   function quadratureLobatto
     "Return the integral of an integrand function using an adaptive Lobatto rule"
     extends Modelica.Icons.Function;
