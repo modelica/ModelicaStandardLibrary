@@ -356,29 +356,23 @@ The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> i
       import Modelica.Math.Nonlinear.quadratureNewtonCotes;
       parameter SI.MagneticFluxDensity Bpeak=1 "Amplitude";
       parameter SI.Angle alfa(final min=0, final max=pi)=2*pi/3 "Pole coverage";
-      parameter Boolean useRectangle=false "Use rectangle or trapezoid";
       parameter SI.Angle beta(final min=0, final max=pi)=pi "Coil width";
       parameter Integer N=180 "Number of intervals";
       SI.Angle pos=2*pi*time/Tend "Position";
-      SI.MagneticFluxDensity B=Bpeak*funB(pos, alfa, useRectangle) "Flux density";
-      parameter SI.MagneticFlux psi0=Bpeak*wlD*quadratureLobatto(
-        function funB(alfa=alfa, useRectangle=useRectangle),
-        pi/2 - beta/2, pi/2 + beta/2)
-        "Max. flux linkage useing Lobatto";
-      SI.MagneticFlux psi1=Bpeak*wlD*quadratureNewtonCotes(
-        function funB(alfa=alfa, useRectangle=useRectangle),
+      SI.MagneticFluxDensity B=Bpeak*funB(pos, alfa) "Flux density";
+      parameter SI.MagneticFlux psi0=Bpeak*wlD*(min(alfa, beta) +
+        (if alfa<beta then (1 + (pi/2 - beta/2)/(pi/2 - alfa/2))/2*(beta - alfa) else 0))
+        "Max. flux linkage (analytical)";
+      SI.MagneticFlux psi1=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
         pos + pi/2 - beta/2, pos + pi/2  + beta/2, N=N, d=1)
         "Flux linkage using trapezoidal rule";
-      SI.MagneticFlux psi2=Bpeak*wlD*quadratureNewtonCotes(
-        function funB(alfa=alfa, useRectangle=useRectangle),
+      SI.MagneticFlux psi2=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
         pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=2)
         "Flux linkage using Simpson's rule";
-      SI.MagneticFlux psi3=Bpeak*wlD*quadratureNewtonCotes(
-        function funB(alfa=alfa, useRectangle=useRectangle),
+      SI.MagneticFlux psi3=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
         pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=3)
         "Flux linkage using 3/8-rule";
-      SI.MagneticFlux psi4=Bpeak*wlD*quadratureNewtonCotes(
-        function funB(alfa=alfa, useRectangle=useRectangle),
+      SI.MagneticFlux psi4=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
         pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=4)
         "Flux linkage using Boole's rule";
       SI.Voltage v=-(psi1 - xi)/Td "Induced voltage";
@@ -398,14 +392,15 @@ The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> i
 This example tests quadrature functions:
 </p>
 <p>
-The function <code>funB</code> defines the spatial distribution of the flux density with respect to the rotor surface, dependent on pole coverage &alpha;.
+The function <a hRef=\"modelica://Modelica.Math.Nonlinear.UtilityFunctions.funB\"><code>funB</code></a> 
+defines the spatial distribution of the flux density with respect to the rotor surface, dependent on pole coverage &alpha;.
 </p>
 <p>
 As the rotor position increases, the flux linkage of a coil of width <code>&beta;</code> is caculated 
 by integration over the interval <code>[pos + &pi;/2 - beta/2, pos + &pi;/2 + &beta;/2]</code>.
 </p>
 <p>
-The maximum of the flux linkage <code>psi0</code> is calculated using <strong>quadratureLobatto</strong>. 
+The maximum of the flux linkage <code>psi0</code> is calculated using analytically. 
 </p>
 <ul>
 <li><code>psi1</code> is the result of the moving integral using <strong>d=1 trapezoidal rule</strong></li>
@@ -483,22 +478,24 @@ Since flux linkage is not differentiable, a derivative with first-order lag is u
         import Modelica.Units.SI;
         import Modelica.Constants.pi;
         input SI.Angle alfa "Pole coverage";
-        input Boolean useRectangle=true "Use rectangle or trapezoid";
       protected
-        SI.Angle x=wrapAngle(u, positiveRange=true);
-        SI.Angle gap=pi - alfa;
-        SI.Angle b[4]={gap/2, pi - gap/2, pi + gap/2, 2*pi - gap/2};
+        SI.Angle gap "Pole gap";
+        SI.Angle b[4] "Borders between linear and constant";
+        SI.Angle x "Angle wrapped to [0, 2*pi)";
       algorithm
+        gap:=pi - alfa;
+        b:={gap/2, pi - gap/2, pi + gap/2, 2*pi - gap/2};
+        x:=wrapAngle(u, positiveRange=true);
         if x<b[1] then
-          y:=if useRectangle then 0 else  0 + (x - 0)   *2/gap;
+          y:= 0 + (x - 0)   *2/gap;
         elseif x<b[2] then
           y:=+1;
         elseif x<b[3] then
-          y:=if useRectangle then 0 else +1 - (x - b[2])*2/gap;
+          y:=+1 - (x - b[2])*2/gap;
         elseif x<b[4] then
           y:=-1;
         else
-          y:=if useRectangle then 0 else -1 + (x - b[4])*2/gap;
+          y:=-1 + (x - b[4])*2/gap;
         end if;
         annotation (Documentation(info="<html>
 <p>
@@ -509,8 +506,7 @@ This function defines a piecewise linear function on the interval [0, 2*&pi;], &
 <li><pre>3*&pi;/2 - &alpha;/2 &lt; x &lt; 3*&pi;/2 + &alpha;/2: y = -1</pre></li>
 </ul>
 <p>
-In the remaining intervals the function is zero for useRectangle=true, 
-otherwise there is a linear transition between positive and negative roof (trapezoidal shape).
+In the remaining intervals the function is a linear transition between positive and negative roof (trapezoidal shape).
 </p>
 </html>"));
       end funB;
@@ -764,7 +760,7 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
   algorithm
     integral:=sum({sum({c[d, k + 1]*f(a + h*(kp - k)) for k in 0:d})
       for kp in d:d:n})*h*d/sum(c[d,:]);
-    annotation (Documentation(info="<html>
+    annotation (Inline=false, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 <strong>quadratureNewtonCotes</strong>(function f(), a, b);
