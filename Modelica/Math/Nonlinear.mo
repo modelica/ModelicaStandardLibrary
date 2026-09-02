@@ -379,8 +379,7 @@ The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> i
     protected
       constant SI.Time Tend=1 "Stop time of simulation";
       constant SI.Area wlD=100*0.05*0.05 "Number of turns x length x diameter";
-      parameter SI.Time Td(min=Modelica.Constants.small) = 0.001
-        "Derivative time constant";
+      parameter SI.Time Td(min=Modelica.Constants.small)=0.001 "Derivative time constant";
       SI.MagneticFlux xi(start=psi0, fixed=true) "Internal DT1-variable";
     equation
       der(xi) = -v;
@@ -410,7 +409,7 @@ The maximum of the flux linkage <code>psi0</code> is calculated using analytical
 </ul>
 <p>
 At <code>time = 0</code>, the positive maximum of flux density distribution is at <code>pos = &pi;/2</code>, 
-the coil spans the angle <code>[&pi;/2; - &beta;/2, &pi;/2; + &beta;/2]</code>. 
+the coil spans the angle <code>[&pi;/2 - &beta;/2, &pi;/2 + &beta;/2]</code>. 
 Therefore the flux linkage has a maximum.
 </p>
 <p>
@@ -747,20 +746,23 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
     input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f "Integrand function";
     input Real a "Lower limit of integration interval";
     input Real b "Upper limit of integration interval";
-    input Integer N = 2880 "Number of stripes (default 8*360 deg)";
+    input Integer N = 360 "Number of intervals";
     input Integer d(final min=1, final max=4) = 1 "Degree of interpolation polynominal";
     output Real integral "Integral value";
   protected
-    Integer n=N+mod(N, d) "Ensure number of intervals is a multiple of o";
-    Real c[4,5]={{1,  1,  0,  0, 0},
-                 {1,  4,  1,  0, 0},
-                 {1,  3,  3,  1, 0},
-                 {7, 32, 12, 32, 7}} "Coefficients";
+    constant Real c[4,5]={
+      {1,  1,  0,  0, 0},
+      {1,  4,  1,  0, 0},
+      {1,  3,  3,  1, 0},
+      {7, 32, 12, 32, 7}} "Coefficients";
+    Integer n=N + mod(N, d) "Ensure number of intervals is a multiple of d";
     Real h=(b - a)/n "Width of intervals";
+    Real y[n + 1] "Function evaluations at interval borders";
   algorithm
-    integral:=sum({sum({c[d, k + 1]*f(a + h*(kp - k)) for k in 0:d})
+    y:={f(a + h*k) for k in 0:n};
+    integral:=sum({sum({c[d, k + 1]*y[kp + k - d + 1] for k in 0:d})
       for kp in d:d:n})*h*d/sum(c[d,:]);
-    annotation (Inline=false, Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 <strong>quadratureNewtonCotes</strong>(function f(), a, b);
