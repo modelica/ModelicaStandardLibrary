@@ -755,7 +755,7 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
       {1,  4,  1,  0, 0},
       {1,  3,  3,  1, 0},
       {7, 32, 12, 32, 7}} "Coefficients";
-    Integer n=N + d - mod(N, d) "Ensure number of intervals is a multiple of d";
+    Integer n=N + mod(-N, d) "Ensure number of intervals is a multiple of d";
     Real h=(b - a)/n "Width of intervals";
     Real y[n + 1] "Function evaluations at interval borders";
   algorithm
