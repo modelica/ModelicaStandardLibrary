@@ -755,13 +755,14 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
       {1,  4,  1,  0, 0},
       {1,  3,  3,  1, 0},
       {7, 32, 12, 32, 7}} "Coefficients";
+    Real cRow[:]=c[d,1:d + 1] "Used row";
     Integer n=N + mod(-N, d) "Ensure number of intervals is a multiple of d";
     Real h=(b - a)/n "Width of intervals";
-    Real y[n + 1] "Function evaluations at interval borders";
+    Real x[n + 1]=linspace(a, b, n+1) "Knots";
+    Real y[n + 1] "Function evaluations at knots";
   algorithm
-    y:={f(a + h*k) for k in 0:n};
-    integral:=sum({sum({c[d, k + 1]*y[kp + k - d + 1] for k in 0:d})
-      for kp in d:d:n})*h*d/sum(c[d,:]);
+    y:={f(x[k]) for k in 0:n};
+    integral:=sum({sum(cRow.*y[kp + 1 - d:kp + 1]) for kp in d:d:n})*h*d/sum(cRow);
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
