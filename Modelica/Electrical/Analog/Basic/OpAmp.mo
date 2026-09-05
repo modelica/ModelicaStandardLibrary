@@ -28,7 +28,7 @@ equation
   vin = in_p.v - in_n.v;
   f = 2/(VMax.v - VMin.v);
   absSlope = if (Slope < 0) then -Slope else Slope;
-  out.v = (VMax.v + VMin.v)/2 + absSlope*vin/(1 + absSlope*smooth(0, (if (f*
+  out.v = (VMax.v + VMin.v)/2 + absSlope*vin/(1 + absSlope*smooth(0, (if noEvent(f*
     vin < 0) then -f*vin else f*vin)));
   annotation (
     Documentation(info="<html>
