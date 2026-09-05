@@ -7,4 +7,5 @@ SM_ReluctanceRotorData
 DcPermanentMagnetData
 DcElectricalExcitedData
 DcSeriesExcitedData
+DcCompoundExcitedData
 TransformerData
