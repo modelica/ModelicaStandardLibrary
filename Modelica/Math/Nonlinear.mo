@@ -375,6 +375,12 @@ The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> i
       SI.MagneticFlux psi4=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
         pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=4)
         "Flux linkage using Boole's rule";
+      SI.MagneticFlux psi5=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+        pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=5)
+        "Flux linkage using d=5";
+      SI.MagneticFlux psi6=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+        pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=6)
+        "Flux linkage using d=6";
       SI.Voltage v=-(psi1 - xi)/Td "Induced voltage";
     protected
       constant SI.Time Tend=1 "Stop time of simulation";
@@ -405,15 +411,20 @@ The maximum of the flux linkage <code>psi0</code> is calculated using analytical
 <li><code>psi1</code> is the result of the moving integral using <strong>d=1 trapezoidal rule</strong></li>
 <li><code>psi2</code> is the result of the moving integral using <strong>d=2 Simpson's rule</strong></li>
 <li><code>psi3</code> is the result of the moving integral using <strong>d=3 3/8-rule</strong></li>
-<li><code>psi3</code> is the result of the moving integral using <strong>d=4 Boole's rule</strong></li>
+<li><code>psi4</code> is the result of the moving integral using <strong>d=4 Boole's rule</strong></li>
+<li><code>psi5</code> is the result of the moving integral using <strong>d=5</strong></li>
+<li><code>psi6</code> is the result of the moving integral using <strong>d=6</strong></li>
 </ul>
 <p>
 At <code>time = 0</code>, the positive maximum of flux density distribution is at <code>pos = &pi;/2</code>, 
 the coil spans the angle <code>[&pi;/2 - &beta;/2, &pi;/2 + &beta;/2]</code>. 
 Therefore the flux linkage has a maximum.
 </p>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Math/Nonlinear/Examples/MovingIntegral.png\" alt=\"Moving Integral\">
+</div>
 <p>
-Since flux linkage is not differentiable, a derivative with first-order lag is used to calculate induce voltage.
+Since flux linkage is not differentiable, a derivative with first-order lag is used to calculate induced voltage.
 </p>
 </html>"));
     end MovingIntegral;
@@ -747,22 +758,28 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
     input Real a "Lower limit of integration interval";
     input Real b "Upper limit of integration interval";
     input Integer N = 360 "Number of intervals";
-    input Integer d(final min=1, final max=4) = 1 "Degree of interpolation polynominal";
+    input Integer d(final min=1, final max=6) = 1 "Degree of interpolation polynominal";
     output Real integral "Integral value";
   protected
-    constant Real c[4,5]={
-      {1,  1,  0,  0, 0},
-      {1,  4,  1,  0, 0},
-      {1,  3,  3,  1, 0},
-      {7, 32, 12, 32, 7}} "Coefficients";
-    Real cRow[:]=c[d,1:d + 1] "Used row";
+    constant Real c[6,7]={
+      { 1,  1,  0,  0,  0,  0, 0},
+      { 1,  4,  1,  0,  0,  0, 0},
+      { 1,  3,  3,  1,  0,  0, 0},
+      { 7, 32, 12, 32,  7,  0, 0},
+      {19, 75, 50, 50, 75, 19, 0},
+      {41,216, 27,272, 27,216,41}} "Coefficients";
+    Real cRow[d + 1]=c[d, 1:d + 1] "Used row";
     Integer n=N + mod(-N, d) "Ensure number of intervals is a multiple of d";
     Real h=(b - a)/n "Width of intervals";
     Real x[n + 1]=linspace(a, b, n + 1) "Knots";
     Real y[n + 1] "Function evaluations at knots";
   algorithm
     y:={f(x[k]) for k in 1:n + 1};
-    integral:=sum({sum(cRow.*y[kp + 1 - d:kp + 1]) for kp in d:d:n})*h*d/sum(cRow);
+    integral:=0;
+    for kp in d:d:n loop
+      integral:=integral + sum(cRow[k]*y[kp -d + k] for k in 1:d + 1);
+    end for;
+    integral:=integral*h*d/sum(cRow);
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -778,14 +795,21 @@ Compute definite integral over function f(u,...) from u=a up to u=b using the
 </p>
 <p>
 <code>N</code> refers to the number of intervals to be used.<br>
-<code>1 &le; d &le; 4</code> refers to the degree of the used interpolation polynomial:
+<code>1 &le; d &le; 6</code> refers to the degree of the used interpolation polynomial:
 </p>
 <ul>
 <li><code>d=1</code> trapezoidal rule</li>
 <li><code>d=2</code> Simpson's rule</li>
 <li><code>d=3</code> 3/8-rule</li>
 <li><code>d=4</code> Boole's rule</li>
+<li><code>d=5</code> - </li>
+<li><code>d=6</code> - </li>
 </ul>
+<h4>Note</h4>
+<p>
+Higher degree of interpolation polynomial increases the chance of high error (Runge's phenomenon). <br>
+Even degrees of interpolation polynomial should be preferred, since they integrate the same polynomial as the next higer odd degree exactly.
+</p>
 </html>"));
   end quadratureNewtonCotes;
 
