@@ -60,13 +60,15 @@ The position of the flange (as well as of the support, if useSupport=true) is in
           extent={{-24,58},{-14,-58}},
           lineThickness=0.5,
           fillColor={192,192,192},
-          fillPattern=FillPattern.HorizontalCylinder),
+          fillPattern=FillPattern.HorizontalCylinder,
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-14,10},{90,-10}},
           lineThickness=0.5,
           lineColor={0,127,0},
           fillColor={160,215,160},
-          fillPattern=FillPattern.HorizontalCylinder),
+          fillPattern=FillPattern.HorizontalCylinder,
+          pattern=LinePattern.None),
         Line(points={{-10,-72},{70,-72}}),
         Polygon(
           points={{-40,-72},{-10,-62},{-10,-82},{-40,-72}},

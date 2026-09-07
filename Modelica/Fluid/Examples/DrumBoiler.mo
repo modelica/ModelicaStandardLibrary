@@ -304,12 +304,14 @@ package DrumBoiler
             Rectangle(
               extent={{-100,-44},{100,44}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={255,255,255}),
+              fillColor={255,255,255},
+              pattern=LinePattern.None),
             Rectangle(
               extent=DynamicSelect({{-100,-44},{100,44}},
                                    {{-100,-44},{(-100 + 200*V_l/V_t),44}}),
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,127,255}),
+              fillColor={0,127,255},
+              pattern=LinePattern.None),
             Ellipse(
               extent={{18,0},{48,-29}},
               lineColor={0,0,255},

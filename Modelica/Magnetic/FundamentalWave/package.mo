@@ -13,22 +13,28 @@ Copyright &copy; 2009-2025, Modelica Association and contributors
 </html>"),
     Icon(graphics={
         Rectangle(
-          extent={{-40,60},{-60,-60}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={128,128,128}),
-        Rectangle(
           extent={{-40,70},{40,50}},
           lineColor={95,95,95},
           fillColor={95,95,95},
           fillPattern=FillPattern.Solid),
         Rectangle(
+          extent={{-40,60},{-60,-60}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={128,128,128},
+          pattern=LinePattern.None),
+        Rectangle(
           extent={{-40,60},{80,-60}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={255,128,0}),
+          fillColor={255,128,0},
+          pattern=LinePattern.None),
+        Rectangle(
+          extent={{-60,60},{80,-60}},
+          fillPattern=FillPattern.None),
         Rectangle(
           extent={{80,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={95,95,95}),
+          fillColor={95,95,95},
+          pattern=LinePattern.None),
         Polygon(
           points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
               {80,-100},{-50,-100},{-50,-90}},

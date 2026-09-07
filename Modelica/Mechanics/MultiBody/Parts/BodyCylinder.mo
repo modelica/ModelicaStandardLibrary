@@ -208,7 +208,8 @@ states and of the \"Advanced\" menu parameters, see model
           lineColor={0,24,48},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={0,127,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Text(
           extent={{-87,13},{-51,-12}},
           textString="a"),

@@ -102,7 +102,8 @@ equation
         Polygon(
           points={{120,53},{110,50},{120,47},{120,53}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={160,160,164}),
+          fillColor={160,160,164},
+          pattern=LinePattern.None),
         Line(points={{111,50},{136,50}})}),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={

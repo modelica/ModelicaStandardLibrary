@@ -444,7 +444,8 @@ model SharpEdgedOrifice
           Rectangle(
             extent={{-100,44},{100,-44}},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={0,127,255}),
+            fillColor={0,127,255},
+            pattern=LinePattern.None),
           Polygon(
             points={{-25,44},{-25,7},{35,37},{35,44},{-25,44}},
             fillPattern=FillPattern.Backward,
@@ -549,7 +550,9 @@ model AbruptAdaptor
                 diameter_a/max(diameter_a, diameter_b)))*60},{0,-max(0.1, min(1,
                 diameter_a/max(diameter_a, diameter_b)))*60}}),
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={0,127,255}), Rectangle(
+            fillColor={0,127,255},
+            pattern=LinePattern.None),
+                                    Rectangle(
             extent=DynamicSelect({{0,60},{100,-60}}, {{0,max(0.1, min(1,
                 diameter_b/max(diameter_a, diameter_b)))*60},{100,-max(0.1, min(
                 1, diameter_b/max(diameter_a, diameter_b)))*60}}),
@@ -2073,7 +2076,8 @@ where
             Rectangle(
               extent={{-100,44},{100,-44}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,127,255}),
+              fillColor={0,127,255},
+              pattern=LinePattern.None),
             Text(
               extent={{-150,-89},{150,-129}},
               textColor={0,0,255},
@@ -2081,7 +2085,8 @@ where
             Rectangle(
               extent={{-44,100},{44,44}},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,127,255}),
+              fillColor={0,127,255},
+              pattern=LinePattern.None),
             Rectangle(
               extent={{-22,82},{21,-4}},
               fillPattern=FillPattern.Solid,

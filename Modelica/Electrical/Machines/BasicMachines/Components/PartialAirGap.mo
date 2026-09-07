@@ -86,7 +86,8 @@ equation
         Rectangle(
           extent={{-10,90},{10,-80}},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={128,128,128}),
+          fillColor={128,128,128},
+          pattern=LinePattern.None),
         Text(
           extent={{-150,-110},{150,-150}},
           textColor={0,0,255},

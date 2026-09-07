@@ -267,7 +267,8 @@ equation
           lineColor={0,24,48},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={0,127,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Text(
           extent={{150,-100},{-150,-70}},
           textString="m=%m"),
