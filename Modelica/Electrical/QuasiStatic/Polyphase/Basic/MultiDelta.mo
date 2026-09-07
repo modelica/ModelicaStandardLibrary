@@ -16,12 +16,10 @@ model MultiDelta
   QuasiStatic.Polyphase.Basic.PlugToPins_n plugToPins_n(final m=m)
     annotation (Placement(transformation(extent={{80,-10},{60,10}})));
 protected
-  parameter Integer kP=if (mBasic<=2 or kPolygon<1 or kPolygon>integer(mBasic - 1)/2) then 1 else kPolygon;
+  final parameter Integer kP=if (mBasic<=2 or kPolygon<1 or kPolygon>integer(mBasic - 1)/2) then 1 else kPolygon;
 equation
   when initial() then
-    if (mBasic<=2 or kPolygon<1 or kPolygon>integer(mBasic - 1)/2) then
-      print("MultiDelta: replaced erroneous kPolygon = "+String(kPolygon)+" by kPolygon = 1");
-    end if;
+    assert(kP==kPolygon, "MultiDelta: replaced erroneous kPolygon = "+String(kPolygon)+" by kPolygon = 1", AssertionLevel.warning);
   end when;
   for k in 1:mSystems loop
     for j in 1:(mBasic - kP) loop
