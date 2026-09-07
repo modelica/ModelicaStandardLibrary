@@ -12,7 +12,9 @@ model ParallelResonance "Parallel resonance circuit"
         transformation(
         origin={-40,-50},
         extent={{-10,-10},{10,10}},
-        rotation=90)));
+      rotation=90)));
+  parameter Modelica.Units.SI.Frequency f0=1 "Resonance frequency";
+  parameter Modelica.Units.SI.Resistance R=1 "Scaling";
   Modelica.Blocks.Sources.Ramp f(
     height=2,
     duration=1,
@@ -32,12 +34,12 @@ model ParallelResonance "Parallel resonance circuit"
         origin={-10,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  QuasiStatic.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
+  QuasiStatic.SinglePhase.Basic.Inductor inductor(L=R/(2*Modelica.Constants.pi*f0))
     annotation (Placement(transformation(
         origin={10,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  QuasiStatic.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
+  QuasiStatic.SinglePhase.Basic.Capacitor capacitor(C=1/(R*2*Modelica.Constants.pi*f0))
     annotation (Placement(transformation(
         origin={30,20},
         extent={{-10,-10},{10,10}},
