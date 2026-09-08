@@ -540,7 +540,7 @@ to a function, see, .e.g.,
                         ftp.inf.ethz.ch in pub/publications/tech-reports/3xx/306.ps
 
         However, significantly updated.
-		See https://github.com/modelica/ModelicaStandardLibrary/pull/4800
+		See https://github.com/modelica/ModelicaStandardLibrary/pull/4808
 
         x[:] are the nodes
         y[:] = f(x[:]) are function values at the nodes
