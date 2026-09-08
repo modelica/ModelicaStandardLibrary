@@ -102,7 +102,39 @@ frictional mode of clutches (clutchX.mode) where
 mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
 
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Torques and velocities",
+          identifier = "bbf21",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = J1.w, legend = "Angular velocity of J1"),
+                Curve(y = J2.w, legend = "Angular velocity of J2"),
+                Curve(y = J3.w, legend = "Angular velocity of J3"),
+                Curve(y = J4.w, legend = "Angular velocity of J4")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = clutch1.tau, legend = "Torque of clutch1"),
+                Curve(y = clutch2.tau, legend = "Torque of clutch2"),
+                Curve(y = clutch3.tau, legend = "Torque of clutch3")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = clutch1.mode, legend = "Mode of clutch1 (-1/0/+1 = backward sliding/locked/forward sliding)"),
+                Curve(y = clutch2.mode, legend = "Mode of clutch2 (-1/0/+1 = backward sliding/locked/forward sliding)"),
+                Curve(y = clutch3.mode, legend = "Mode of clutch3 (-1/0/+1 = backward sliding/locked/forward sliding)")
+              }
+            )
+          }
+        )
+      }
+    ),
     __Dymola_Commands(file=
           "modelica://Modelica/Resources/Scripts/Dymola/Mechanics/Rotational/CoupledClutches.mos"
         "Simulate and Plot"),
