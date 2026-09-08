@@ -1,0 +1,51 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.MultiSensorTest">ModelicaTest.Electrical.MultiSensorTest</a>
+The DAE has 1308 scalar unknowns and 1308 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 516
+  Variables: 1521
+  Constants: 1 (1 scalars)
+  Parameters: 310 (344 scalars)
+  Unknowns: 1210 (1308 scalars)
+  Differentiated variables: 28 scalars
+  Equations: 565
+  Nontrivial: 485
+Translated Model
+  Constants: 415 scalars
+  Free parameters: 62 scalars
+  Parameter depending: 180 scalars
+  Continuous time states: 18 scalars
+  Time-varying variables: 289 scalars
+  Alias variables: 707 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {6, 5, 6, 6}
+  Sizes after manipulation of the linear systems: {2, 2, 2, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$inductorA:i">inductorA.i</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$inductorM.inductor:i">inductorM.inductor[1].i</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$inductorM.inductor:i">inductorM.inductor[2].i</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$inductorM.inductor:i">inductorM.inductor[3].i</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$meanpowerA:x">meanpowerA.x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$meanpowerM:x">meanpowerM[1].x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$meanpowerM:x">meanpowerM[2].x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$meanpowerM:x">meanpowerM[3].x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$resistorQM.plug_p.reference:gamma">resistorQM.plug_p.reference.gamma</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$resistorQS.pin_p.reference:gamma">resistorQS.pin_p.reference.gamma</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$rmsiA.mean:x">rmsiA.mean.x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$rmsiM.mean:x">rmsiM[1].mean.x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$rmsiM.mean:x">rmsiM[2].mean.x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$rmsiM.mean:x">rmsiM[3].mean.x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$rmsvA.mean:x">rmsvA.mean.x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$rmsvM.mean:x">rmsvM[1].mean.x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$rmsvM.mean:x">rmsvM[2].mean.x</a>
+<a href="Modelica://ModelicaTest.Electrical.MultiSensorTest#text$rmsvM.mean:x">rmsvM[3].mean.x</a>
+Finished

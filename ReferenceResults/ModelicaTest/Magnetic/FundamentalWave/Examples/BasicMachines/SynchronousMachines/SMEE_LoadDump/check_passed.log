@@ -1,0 +1,5 @@
+Check of <a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_LoadDump">ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_LoadDump</a>
+The model has the same number of unknowns and equations: 1079
+The model has the same number of unknowns and equations:
+  1076+booleanReplicator.nout
+Check of <a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_LoadDump">ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_LoadDump</a> successful.

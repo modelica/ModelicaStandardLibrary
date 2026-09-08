@@ -1,0 +1,52 @@
+Translation of <a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator">ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator</a>
+The DAE has 1496 scalar unknowns and 1496 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 286
+  Variables: 1998
+  Constants: 10 (10 scalars)
+  Parameters: 607 (681 scalars)
+  Unknowns: 1381 (1496 scalars)
+  Differentiated variables: 45 scalars
+  Equations: 877
+  Nontrivial: 699
+Translated Model
+  Constants: 690 scalars
+  Free parameters: 68 scalars
+  Parameter depending: 275 scalars
+  Continuous time states: 10 scalars
+  Time-varying variables: 291 scalars
+  Alias variables: 863 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {21, 8, 4, 15, 3, 15}
+  Sizes after manipulation of the linear systems: {7, 0, 2, 2, 2, 4}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2}
+    Sizes after manipulation of the linear systems: {2, 2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$constantSpeedE:phi">constantSpeedE.phi</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$constantSpeedM:phi">constantSpeedM.phi</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#diagram$:smeeE.idq_dr[1]">smeeE.idq_dr[1]</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeE:idq_rr">smeeE.idq_rr[2]</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeE:idq_sr">smeeE.idq_sr[1]</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeE:idq_sr">smeeE.idq_sr[2]</a>
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There are 4 states to be selected from:
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeM.excitation.electroMagneticConverter.Phi:re">smeeM.excitation.electroMagneticConverter.Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smeeM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smeeM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeM.stator.stray.port_p.Phi:im">smeeM.stator.stray.port_p.Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeM.stator.stray.port_p.Phi:re">smeeM.stator.stray.port_p.Phi.re</a>
+Finished

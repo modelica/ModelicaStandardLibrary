@@ -1,0 +1,9 @@
+time
+gearConstraint.actuatedRevolute_b.phi
+gearConstraint.actuatedRevolute_b.w
+revolute1.phi
+revolute1.w
+revolute2.phi
+revolute2.w
+revolute3.phi
+revolute3.w

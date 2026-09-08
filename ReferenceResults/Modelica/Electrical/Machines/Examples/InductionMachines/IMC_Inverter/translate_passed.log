@@ -1,0 +1,42 @@
+﻿ = true
+Translation of Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Inverter:
+The DAE has 468 scalar unknowns and 468 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 58
+  Variables: 624
+  Constants: 6 (6 scalars)
+  Parameters: 211 (247 scalars)
+  Unknowns: 407 (468 scalars)
+  Differentiated variables: 24 scalars
+  Equations: 254
+  Nontrivial: 195
+Translated Model
+  Constants: 204 scalars
+  Free parameters: 28 scalars
+  Parameter depending: 114 scalars
+  Continuous time states: 7 scalars
+  Time-varying variables: 76 scalars
+  Alias variables: 299 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 14, 2, 2}
+  Sizes after manipulation of the linear systems: {2, 4, 0, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  aimc.idq_rr[]
+  aimc.idq_sr[]
+  loadInertia.phi
+  loadInertia.w
+  vfController.x
+ 

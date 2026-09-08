@@ -1,0 +1,5 @@
+Check of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACAC.Dimmer_RL">Modelica.Electrical.PowerConverters.Examples.ACAC.Dimmer_RL</a>
+The model has the same number of unknowns and equations: 203
+The model has the same number of unknowns and equations:
+  198+size(adaptor.filter[1].transferFunction[1].a, 1)+size(adaptor.filter[1].transferFunction[2].a,   1)+size(voltageToAngle.combiTable1Ds.columns, 1)
+Check of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACAC.Dimmer_RL">Modelica.Electrical.PowerConverters.Examples.ACAC.Dimmer_RL</a> successful.

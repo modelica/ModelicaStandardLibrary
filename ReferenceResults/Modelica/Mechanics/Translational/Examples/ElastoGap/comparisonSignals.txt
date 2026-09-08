@@ -1,0 +1,5 @@
+time
+elastoGap1.v_rel
+elastoGap2.s_rel
+springDamper1.v_rel
+springDamper2.s_rel

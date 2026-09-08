@@ -1,0 +1,7 @@
+time
+position.s
+hollowCylinderAxialFlux.F_m
+cuboidParallelFlux.F_m
+cuboidOrthogonalFlux.F_m
+hollowCylinderRadialFlux.F_m
+leakageAroundPoles.F_m
