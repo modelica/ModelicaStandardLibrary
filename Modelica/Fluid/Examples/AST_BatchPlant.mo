@@ -894,14 +894,14 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
               textString="%name"),
             Polygon(
               points={{0,100},{200,70},{200,50},{200,50},{0,80},{0,100}},
-              fillPattern=FillPattern.HorizontalCylinder,
+              fillPattern=FillPattern.Solid,
               fillColor={0,0,255}),
             Polygon(
               points={{20,98},{30,74},{52,84},{66,72},{86,78},{98,66},{118,74},
                   {130,60},{144,70},{152,60},{168,66},{180,54},{196,74},{190,76},
                   {180,64},{170,70},{156,66},{148,76},{132,68},{120,80},{100,74},
                   {88,88},{70,78},{50,92},{32,82},{28,100},{20,98},{20,98}},
-              fillPattern=FillPattern.HorizontalCylinder,
+              fillPattern=FillPattern.Solid,
               fillColor={170,255,255}),
             Text(
               extent={{-193,30},{-3,10}},
