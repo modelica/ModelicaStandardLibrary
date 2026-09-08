@@ -455,7 +455,6 @@ to a function, see, .e.g.,
     constant Real x1=0.942882415695480;
     constant Real x2=0.641853342345781;
     constant Real x3=0.236383199662150;
-    constant Real eps=10*Modelica.Constants.eps;
     Real m;
     Real h;
     Real alpha;
@@ -466,12 +465,11 @@ to a function, see, .e.g.,
     Real fb;
     Real i1;
     Real i2;
-    Real is;
+    Real is, isabs;
     Real erri1;
     Real erri2;
     Real R;
     Real tol;
-    Integer s;
 
     function quadStep "Recursive function used by quadrature"
       input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f;
@@ -521,7 +519,7 @@ to a function, see, .e.g.,
       i1 := (h/1470)*(77*(fa + fb) + 432*(fmll + fmrr) + 625*(fml + fmr) +
         672*fm);
 
-      if (is + (i1 - i2) == is) or (mll <= a) or (b <= mrr) then
+      if abs(i1 - i2) <= is or (mll <= a) or (b <= mrr) then
         I := i1;
 
       else
@@ -540,6 +538,9 @@ to a function, see, .e.g.,
         Lobatto rule.
         see Walter Gander: Adaptive Quadrature - Revisited, 1998
                         ftp.inf.ethz.ch in pub/publications/tech-reports/3xx/306.ps
+
+        However, significantly updated.
+		See https://github.com/modelica/ModelicaStandardLibrary/pull/4800
 
         x[:] are the nodes
         y[:] = f(x[:]) are function values at the nodes
@@ -574,10 +575,10 @@ to a function, see, .e.g.,
       12]) +0.155071987336585 *(y[3] + y[11]) +0.188821573960182 *(y[4] + y[10])
        +0.199773405226859 *(y[5] + y[9]) +0.224926465333340 *(y[6] + y[8]) +0.242611071901408
                       *y[7]);
-    s := sign(is);
-    if (s == 0) then
-      s := 1;
-    end if;
+	isabs := abs(h)*(0.0158271919734802*(abs(y[1]) + abs(y[13])) +0.0942738402188500 *(abs(y[2]) + abs(y[
+      12])) +0.155071987336585 *(abs(y[3]) + abs(y[11])) +0.188821573960182 *(abs(y[4]) + abs(y[10]))
+       +0.199773405226859 *(abs(y[5]) + abs(y[9])) +0.224926465333340 *(abs(y[6]) + abs(y[8])) +0.242611071901408
+                      *abs(y[7]));
     erri1 := abs(i1 - is);
     erri2 := abs(i2 - is);
     R := 1;
@@ -587,7 +588,7 @@ to a function, see, .e.g.,
     if (R > 0 and R < 1) then
       tol := tol/R;
     end if;
-    is := s*abs(is)*tol/eps;
+    is := max(abs(is),isabs/10)*tol/10;
     if (is == 0) then
       is := b - a;
     end if;
