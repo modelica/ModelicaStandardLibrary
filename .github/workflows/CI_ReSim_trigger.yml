@@ -1,0 +1,38 @@
+name: Sync_CI_Repo
+
+on: pull_request_target
+
+permissions:
+  contents: read
+  
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.LTX_SIMULATION_TOKEN }}
+          script: |
+            const prNumber = context.payload.pull_request?.number ?? context.payload.number;
+
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+            });
+
+            const labels = (pr.labels || []).map(l => typeof l === 'string' ? l : l.name);
+            const hasLabel = labels.includes('c-code-checked');
+
+            await github.rest.repos.createDispatchEvent({
+              owner: '${{ secrets.PRIVATE_CI_OWNER }}',
+              repo: '${{ secrets.PRIVATE_CI_REPO }}',
+              event_type: 'CI_trigger_type',
+              client_payload: {
+                number: prNumber,
+                head_sha: pr.head.sha,
+                base_sha: pr.base.sha,
+                has_label: hasLabel,
+                github_repo: context.repo.full_name
+              }
+            });
