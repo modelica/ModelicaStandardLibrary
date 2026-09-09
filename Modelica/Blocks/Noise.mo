@@ -588,7 +588,7 @@ the desired situation. For this purpose the following parameters can be defined:
          of the instances are the same).<br>
          If <strong>useAutomaticLocalSeed = true</strong>, the
          local seed is determined automatically using a hash value of the instance name of the model that is
-         inquired with the Modelica built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName()</a>.
+         inquired with the Modelica built-in operator <a href=\"https://specification.modelica.org/maint/3.6/operators-and-expressions.html#getinstancename\">getInstanceName()</a>.
          Note, this means that the noise changes if the component is renamed.<br>
          If <strong>useAutomaticLocalSeed = false</strong>, the local seed is defined
          explicitly by parameter fixedLocalSeed. It is then guaranteed that the generated noise

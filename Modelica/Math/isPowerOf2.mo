@@ -3,7 +3,7 @@ function isPowerOf2 "Determine if the integer input is a power of 2"
   extends Modelica.Icons.Function;
   input Integer i(min=1) "Integer scalar";
   output Boolean result "= true, if integer scalar is a power of 2";
-protected 
+protected
   Integer target;
   Integer powOf2;
 algorithm

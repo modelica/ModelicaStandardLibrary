@@ -13,7 +13,8 @@ partial model PartialElementaryOneFlangeAndSupport2
         transformation(extent={{90,-10},{110,10}})));
   Support support(s=s_support, f=-flange.f) if useSupport
     "Support/housing of component"
-    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})),
+      mustBeConnected="An enabled support connector should be connected");
 protected
   SI.Length s_support "Absolute position of support flange";
 equation

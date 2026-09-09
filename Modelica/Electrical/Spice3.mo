@@ -245,7 +245,10 @@ Zeunerstra&szlig;e 38<br />
 <h4>Acknowledgements</h4>
 
 <ul>
-<li>The development of this library was done within the European ITEA2 projects EUROSYSLIB and MODELISAR.</li>
+<li>The development of this library was done within the ITEA research projects
+<a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> and
+<a href=\"https://itea4.org/project/modelisar.html\">MODELISAR</a>.
+</li>
 <li>For his contribution we thank Mr. Jonathan Gerbet.</li>
 </ul>
 </html>"));
@@ -4351,7 +4354,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       SI.CurrentSlope di "di/dt";
       flow SI.Voltage v;
       annotation (Icon(graphics={Polygon(
-              points={{0,0},{0,100},{100,0},{0,-100},{0,-100},{0,0}},
+              points={{0,100},{100,0},{0,-100},{0,100}},
               lineColor={170,85,255},
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid)}));
@@ -4363,7 +4366,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       SI.CurrentSlope di "di/dt";
       flow SI.Voltage v;
       annotation (Icon(graphics={Polygon(
-              points={{-100,0},{0,100},{0,0},{0,-100},{-2,-98},{-100,0}},
+              points={{-100,0},{0,100},{0,-100},{-100,0}},
               lineColor={170,85,255},
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid)}));
@@ -5482,12 +5485,10 @@ on the model behaviour.
 
     record ModelcardC "Record with technology parameters (.model)"
     extends Modelica.Icons.Record;
-      parameter SI.CapacitancePerArea CJ = 0.0
-        "Junction bottom capacitance     F/meters2";
-      parameter SI.Permittivity CJSW = 0.0
-        "Junction sidewall capacitance   F/meters";
-      parameter SI.Length  DEFW=1e-5 "Default device width";
-      parameter SI.Length  NARROW=0 "Narrowing due to side etching";
+      parameter SI.CapacitancePerArea CJ = 0.0 "Junction bottom capacitance";
+      parameter SI.Permittivity CJSW = 0.0 "Junction sidewall capacitance";
+      parameter SI.Length DEFW = 1e-5 "Default device width";
+      parameter SI.Length NARROW = 0 "Narrowing due to side etching";
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for semiconductor capacitance model</p>
 </html>"));
@@ -5495,31 +5496,31 @@ on the model behaviour.
 
      record SpiceConstants "General constants of SPICE simulator"
        extends Modelica.Icons.Record;
-       constant Real EPSSIL =     (11.7 * 8.854214871e-12);
-       constant Real EPSOX =      3.453133e-11;
-       constant SI.Charge CHARGE =     (1.6021918e-19);
-       constant SI.Temperature CONSTCtoK =  (273.15);
-       constant SI.HeatCapacity CONSTboltz = (1.3806226e-23); // J/K
-       constant SI.Temperature REFTEMP =    300.15;  /* 27 deg C */
+       constant Real EPSSIL = 11.7 * 8.854214871e-12 "Absolute permittivity of silicon"; // F/m
+       constant Real EPSOX = 3.453133e-11 "Absolute permittivity of silicon dioxide"; // F/m
+       constant SI.Charge CHARGE = 1.6021918e-19;
+       constant SI.Temperature CONSTCtoK = 273.15;
+       constant SI.HeatCapacity CONSTboltz = 1.3806226e-23; // J/K
+       constant SI.Temperature REFTEMP = 300.15; /* 27 deg C */
 
-       constant Real CONSTroot2 =  sqrt(2.0);
-       constant Real CONSTvt0(   final unit= "(J)/(A.s)") = Modelica.Constants.k * Modelica.Units.Conversions.from_degC(27)  / CHARGE; // deg C
-       constant Real CONSTKoverQ(  final unit= "(J/K)/(A.s)")= Modelica.Constants.k / CHARGE;
-       constant Real CONSTe =      exp(1.0);
+       constant Real CONSTroot2 = sqrt(2.0);
+       constant Real CONSTvt0(final unit="(J)/(A.s)") = Modelica.Constants.k * Modelica.Units.Conversions.from_degC(27)  / CHARGE; // deg C
+       constant Real CONSTKoverQ(final unit="(J/K)/(A.s)") = Modelica.Constants.k / CHARGE;
+       constant Real CONSTe = exp(1.0);
 
        // options
 
-       constant SI.Conductance CKTgmin =         1e-12;
-       constant SI.Temperature CKTnomTemp =      300.15;
-       constant SI.Temperature CKTtemp =         300.15;
+       constant SI.Conductance CKTgmin = 1e-12;
+       constant SI.Temperature CKTnomTemp = 300.15;
+       constant SI.Temperature CKTtemp = 300.15;
        constant SI.Area CKTdefaultMosAD = 0.0;
        constant SI.Area CKTdefaultMosAS = 0.0;
-       constant SI.Length CKTdefaultMosL =  100e-6;
-       constant SI.Length CKTdefaultMosW =  100e-6;
-       constant Real CKTreltol =       1e-10;
-       constant Real CKTabstol =       1e-15;
-       constant Real CKTvolttol =      1e-10;
-       constant Real CKTtemptol =      1e-3;
+       constant SI.Length CKTdefaultMosL = 100e-6;
+       constant SI.Length CKTdefaultMosW = 100e-6;
+       constant Real CKTreltol = 1e-10;
+       constant Real CKTabstol = 1e-15;
+       constant Real CKTvolttol = 1e-10;
+       constant Real CKTtemptol = 1e-3;
       annotation (Documentation(info="<html>
 <p>General constants used by SPICE</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
@@ -7578,7 +7579,7 @@ This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).
                 end if;
                 wkfngs := wkfng - (3.25 +0.5  * egfet1 + fermis);
                 if (not (in_p.m_gammaIsGiven > 0.5)) then
-                  out_v.m_gamma := sqrt(2 * 11.70 * 8.854214871e-12 * SpiceConstants.CHARGE *
+                  out_v.m_gamma := sqrt(2 * SpiceConstants.EPSSIL * SpiceConstants.CHARGE *
                                    in_p.m_substrateDoping * 1e6 / out_v.m_oxideCapFactor);         // (cm**3/m**3)
                 end if;
                 if (not (in_p.m_vtOIsGiven > 0.5)) then

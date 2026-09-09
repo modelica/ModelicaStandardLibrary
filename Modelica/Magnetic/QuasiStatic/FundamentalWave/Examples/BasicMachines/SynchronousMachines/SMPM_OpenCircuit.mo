@@ -162,8 +162,6 @@ Simulate for 0.1 second and plot (versus time):
                   textStyle={TextStyle.Bold},
           textString="%m phase quasi-static"),               Text(
                   extent={{-100,-92},{-20,-100}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textStyle={TextStyle.Bold},
                   textString="%m phase transient")}));
 end SMPM_OpenCircuit;

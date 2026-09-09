@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.BasicMachines.SynchronousMachines;
 model SM_PermanentMagnet "Permanent magnet synchronous machine"
   extends Machines.Interfaces.PartialBasicInductionMachine(
-    Lssigma(start=0.1/(2*pi*fsNominal)),
+    Lssigma(start=0.1*ZsRef/(2*pi*fsNominal)),
     final idq_ss=airGap.i_ss,
     final idq_sr=airGap.i_sr,
     final idq_rs=airGap.i_rs,
@@ -47,16 +47,16 @@ model SM_PermanentMagnet "Permanent magnet synchronous machine"
            and useDamperCage));
   parameter SI.Voltage VsOpenCircuit(start=112.3)
     "Open circuit RMS voltage per phase @ fsNominal";
-  parameter SI.Inductance Lmd(start=0.3/(2*pi*fsNominal))
+  parameter SI.Inductance Lmd(start=0.3*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance per phase in d-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Inductance Lmq(start=0.3/(2*pi*fsNominal))
+  parameter SI.Inductance Lmq(start=0.3*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance per phase in q-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Boolean useDamperCage(start=true)
     "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
           "Nominal resistances and inductances", group="Damper cage"));
-  parameter SI.Inductance Lrsigmad(start=0.05/(2*pi*
+  parameter SI.Inductance Lrsigmad(start=0.05*ZsRef/(2*pi*
         fsNominal)) "Damper stray inductance in d-axis" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
@@ -67,7 +67,7 @@ model SM_PermanentMagnet "Permanent magnet synchronous machine"
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter SI.Resistance Rrd(start=0.04)
+  parameter SI.Resistance Rrd(start=0.04*ZsRef)
     "Damper resistance in d-axis at TRef" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",

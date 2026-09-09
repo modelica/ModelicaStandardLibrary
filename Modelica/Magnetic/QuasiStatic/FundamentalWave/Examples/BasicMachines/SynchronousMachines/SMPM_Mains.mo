@@ -245,8 +245,6 @@ equation
                   textStyle={TextStyle.Bold},
           textString="%m phase quasi-static"),               Text(
                   extent={{20,-92},{100,-100}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textStyle={TextStyle.Bold},
                   textString="%m phase transient")}),
     Documentation(info="<html>

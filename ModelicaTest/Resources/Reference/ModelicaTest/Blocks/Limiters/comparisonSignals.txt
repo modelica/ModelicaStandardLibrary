@@ -6,5 +6,4 @@ deadZone.y
 sine.y
 constPos.y
 constNeg.y
-slewRateLimiter.y
 idealDerivative.y

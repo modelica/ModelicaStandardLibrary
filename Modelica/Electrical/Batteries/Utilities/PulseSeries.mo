@@ -8,16 +8,18 @@ block PulseSeries "Series of pulses"
   parameter Real amplitude2=-amplitude1 "Amplitude of 2nd pulse series";
   parameter Integer n2(min=0)=1 "Number of pulses of 2nd series";
   parameter SI.Time T2=T1 "Length of pulses of 2nd series";
-  parameter SI.Time Tp2=Tp1 "Pause between pulses of 1st series";
-  parameter SI.Time Tp "Pause between the two series";
+  parameter SI.Time Tp2=Tp1 "Pause between pulses of 2nd series";
+  parameter SI.Time Tp "Pause (in addition to TP1) between the two series"
+    annotation(Dialog(groupImage=
+      "modelica://Modelica/Resources/Images/Electrical/Batteries/Utilities/PulseSeries.png"));
   extends Modelica.Blocks.Interfaces.SignalSource;
 protected
   parameter SI.Time Tstart1[n1]={startTime + (k-1)*(T1 + Tp1) for k in 1:n1};
-  parameter SI.Time Tstart2[n1]={startTime + n1*(T1 + Tp1) + Tp + (k-1)*(T2 + Tp2) for k in 1:n2};
+  parameter SI.Time Tstart2[n2]={startTime + n1*(T1 + Tp1) + Tp + (k-1)*(T2 + Tp2) for k in 1:n2};
   Boolean on1, on2;
 equation
   on1 = oneTrue({time >= Tstart1[k] and time < Tstart1[k] + T1 for k in 1:n1});
-  on2 = oneTrue({time >= Tstart2[k] and time < Tstart2[k] + T2 for k in 1:n1});
+  on2 = oneTrue({time >= Tstart2[k] and time < Tstart2[k] + T2 for k in 1:n2});
   y= offset + (if on1 then amplitude1 elseif on2 then amplitude2 else 0);
   annotation (Icon(graphics={
         Line(
@@ -36,10 +38,15 @@ equation
         Line(
           points={{80,0},{100,0}},
           color={0,0,0},
-          pattern=LinePattern.Dash)}), Documentation(info="<html>
+          pattern=LinePattern.Dash)}), Documentation(info= "<html>
 <p>
-Starting at <code>time = startTime</code>, first a series of <code>n1</code> pulses of <code>amplitude1</code> with length <code>T1</code> and pause after each pulse <code>Tp1</code> is issued.<br>
-Then, after a pause <code>Tp</code>, a series of <code>n2</code> pulses of <code>amplitude2</code> with length <code>T2</code> and pause after each pulse <code>Tp2</code> is issued.
+Starting at <code>time = startTime</code>, first a series of <code>n1</code> pulses of <code>amplitude1</code> with length <code>T1</code> and pause after each pulse <code>Tp1</code> is issued.</p>
+<p>
+Then, after the pause duration&nbsp;<code>Tp1 + Tp</code>, a series of <code>n2</code> pulses of <code>amplitude2</code> with length <code>T2</code> and pause after each pulse <code>Tp2</code> is issued.
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Batteries/Utilities/PulseSeries.png\" alt=\"PulseSeries.png\">
 </p>
 </html>"));
 end PulseSeries;

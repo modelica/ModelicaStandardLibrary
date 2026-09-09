@@ -2,16 +2,17 @@ within Modelica.Electrical.Batteries.Examples;
 model CCCV_Stack
   "Charge a stack with constant current - constant voltage characteristic"
   extends Modelica.Icons.Example;
+  parameter Modelica.Units.SI.Current Isc = 1200 "Short-circuit current of cell at OCVmax";
   parameter Modelica.Electrical.Batteries.ParameterRecords.ExampleData cellDataOriginal(
     Qnom=18000,
     useLinearSOCDependency=false,
-    Ri=4.2/1200,
+    Ri=cellDataOriginal.OCVmax/Isc,
     Idis=0.001) "Original cell data"
     annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
   parameter Modelica.Electrical.Batteries.ParameterRecords.ExampleData cellDataDegraded(
     Qnom=18000,
     useLinearSOCDependency=false,
-    Ri=2*4.2/1200,
+    Ri=2*cellDataDegraded.OCVmax/Isc,
     Idis=0.001) "Degraded cell data"
     annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
   parameter Modelica.Electrical.Batteries.ParameterRecords.StackData

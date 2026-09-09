@@ -22,12 +22,12 @@ equation
     annotation (Line(points={{50,0},{50,20}}, color={0,0,255}));
   annotation (experiment(
       StopTime=8,
-      Interval=0.0001,
+      Interval=0.0002,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>
 This model demonstrates the behaviour of a dimmer with phase-angle control with resistive-inductive load.
-Note that due to the inductance the current is not zero at the points in time wehre zero-crossing of the voltage occurs,
+Note that due to the inductance the current is not zero at the points in time where zero-crossing of the voltage occurs,
 and the triac stays conducting until the current becomes zero.
 </p>
 <p>

@@ -13,11 +13,12 @@ model HollowCylinderRadialFlux
     annotation (Dialog(group="Fixed geometry"));
   parameter SI.Radius r_o=0.02 "Outer radius of hollow cylinder"
     annotation (Dialog(group="Fixed geometry"));
-
+  parameter SI.Angle alpha=2*pi "Central angle"
+    annotation (Dialog(group="Fixed geometry"));
 equation
-  A = l*pi*(r_o + r_i);
+  A = l*alpha*(r_o + r_i)/2;
   // Area at arithmetic mean radius for calculation of average flux density
-  G_m = 2*pi*mu_0*mu_r*l/Modelica.Math.log(r_o/r_i);
+  G_m = mu_0*mu_r*alpha*l/Modelica.Math.log(r_o/r_i);
 
   annotation (defaultComponentName="cylinder", Documentation(info="<html>
 <p>

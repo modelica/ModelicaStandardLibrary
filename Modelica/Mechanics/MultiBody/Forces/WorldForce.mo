@@ -25,14 +25,14 @@ model WorldForce
     annotation (Dialog(group="if animation = true", enable=animation));
 
 protected
-  Visualizers.Advanced.Arrow arrow(
+  Visualizers.Advanced.Vector arrow(
     color=color,
     specularCoefficient=specularCoefficient,
     R=frame_b.R,
     r=frame_b.r_0,
     headAtOrigin=true,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
-    r_head=-frame_b.f) if world.enableAnimation and animation;
+    coordinates=-frame_b.f) if world.enableAnimation and animation;
 
 public
   Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)

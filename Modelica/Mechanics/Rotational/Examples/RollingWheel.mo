@@ -37,7 +37,7 @@ equation
 <p>
 This model demonstrates the coupling between rotational and translational components:<br>
 A torque (step) accelerates both the inertia (of the wheel) and the mass (of the vehicle).<br>
-Du to a speed dependent force (like driving resistance), we find an equilibrium at 5 m/s after approx. 5 s.
+Due to a speed dependent force (like a driving resistance), we find an equilibrium at 5 m/s after approx. 5 s.
 </p>
 </html>"),
        experiment(StopTime=5.0, Interval=0.001));

@@ -15,9 +15,6 @@ partial model RelativeSensor "Partial magnetic voltage or flux sensor"
         Text(
           extent={{-150,120},{150,80}},
           textColor={0,0,255},
-          pattern=LinePattern.None,
-          fillColor={170,85,255},
-          fillPattern=FillPattern.Solid,
           textString="%name"),
         Line(
           points={{0,-70},{0,-100}}, color={85,170,255})}),

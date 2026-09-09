@@ -3,7 +3,6 @@ model FrequencySweepVoltageSource "Voltage source with integrated frequency swee
   extends Interfaces.TwoPlug;
   import Modelica.Constants.eps;
   SI.Angle gamma(start=0) = plug_p.reference.gamma;
-  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Frequency fStart(final min=eps, start=1) "Start sweep frequency";
   parameter SI.Frequency fStop(final min=eps, start=1) "Stop sweep frequency";
   parameter SI.Time startTime=0 "Start time of frequency sweep";

@@ -21,7 +21,7 @@ R = Frames.<strong>planarRotation</strong>(e, angle, der_angle);
 <h4>Description</h4>
 <p>
 The function call <code>Frames.<strong>planarRotation</strong>(e, angle, der_angle)</code> returns
-orientation object R that describes the orientation to rotate in the plane along unit
+orientation object R that describes the orientation of a planar rotation about unit
 axis <strong>e</strong> from frame&nbsp;1 into frame&nbsp;2 with angle <strong>angle</strong> and derivative of angle <strong>der_angle</strong>.
 Note, \"e\" must be a unit vector. However, this is not checked in this function and the function will
 return a wrong result, if length(e) is not one.

@@ -6,7 +6,7 @@ model FixedRotationalClock
   parameter SI.Angle trigger_interval = 2*Modelica.Constants.pi
     "Rotational-interval the input angle must be changed to trigger the next clock tick";
 
-  RotationalClock rotationalClock
+  RotationalClock rotationalClock(useSolver=useSolver, solverMethod=solverMethod)
     annotation (Placement(transformation(extent = {{-10,-10},{10,10}})));
   Modelica.Blocks.Sources.Constant threshold(k = trigger_interval)
     annotation (Placement(transformation(extent = {{-80,20},{-60,40}})));

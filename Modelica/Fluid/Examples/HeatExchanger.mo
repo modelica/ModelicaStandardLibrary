@@ -38,7 +38,7 @@ package HeatExchanger "Demo of a heat exchanger model"
           Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
           (alpha0=2000),
       Twall_start=300,
-      dT=10,
+      dT=1,
       T_start_1=304,
       T_start_2=300) annotation (Placement(transformation(extent={{
               -26,-14},{34,46}})));
@@ -419,7 +419,7 @@ The design flow direction with positive m_flow variables is counterflow.</p>
         "Formulation of energy balance"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
       parameter SI.Temperature T_start "Wall temperature start value";
-      parameter SI.Temperature dT "Start value for port_b.T - port_a.T";
+      parameter SI.TemperatureDifference dT "Start value for port_b.T - port_a.T";
     //Temperatures
       SI.Temperature[n] Tb(each start=T_start+0.5*dT);
       SI.Temperature[n] Ta(each start=T_start-0.5*dT);

@@ -2,12 +2,13 @@ within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachi
 model SMPM_Inverter_Polyphase
   "Starting of polyphase permanent magnet synchronous machine with inverter"
 
+  import Modelica.Constants.pi;
   extends Modelica.Icons.Example;
   constant Integer m3=3 "Number of stator phases of three-phase system";
   parameter Integer m=5 "Number of stator phases" annotation(Evaluate=true);
   parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter SI.Frequency fsNominal=smpmData.fsNominal "Nominal frequency";
+  parameter SI.Frequency fsNominal=smpmData3.fsNominal "Nominal frequency";
   parameter SI.Frequency fKnee=50
     "Knee frequency of V/f curve";
   parameter SI.Time tRamp=1 "Frequency ramp";
@@ -54,71 +55,71 @@ model SMPM_Inverter_Polyphase
           extent={{-10,-74},{10,-54}})));
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
     smpmM(
-    Jr=smpmData.Jr,
-    Js=smpmData.Js,
-    p=smpmData.p,
-    fsNominal=smpmData.fsNominal,
-    TsRef=smpmData.TsRef,
-    alpha20s(displayUnit="1/K") = smpmData.alpha20s,
-    ratioCommonStatorLeakage=smpmData.ratioCommonStatorLeakage,
+    Jr=smpmDataM.Jr,
+    Js=smpmData3.Js,
+    p=smpmDataM.p,
+    fsNominal=smpmDataM.fsNominal,
+    TsRef=smpmDataM.TsRef,
+    alpha20s(displayUnit="1/K") = smpmDataM.alpha20s,
+    ratioCommonStatorLeakage=smpmDataM.ratioCommonStatorLeakage,
     phiMechanical(fixed=true),
     wMechanical(fixed=true),
-    useDamperCage=smpmData.useDamperCage,
-    Lrsigmad=smpmData.Lrsigmad,
-    Lrsigmaq=smpmData.Lrsigmaq,
-    Rrd=smpmData.Rrd,
-    Rrq=smpmData.Rrq,
-    TrRef=smpmData.TrRef,
-    alpha20r(displayUnit="1/K") = smpmData.alpha20r,
-    VsOpenCircuit=smpmData.VsOpenCircuit,
-    frictionParameters=smpmData.frictionParameters,
-    statorCoreParameters=smpmData.statorCoreParameters,
-    strayLoadParameters=smpmData.strayLoadParameters,
-    permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+    useDamperCage=smpmData3.useDamperCage,
+    Lrsigmad=smpmData3.Lrsigmad,
+    Lrsigmaq=smpmData3.Lrsigmaq,
+    Rrd=smpmData3.Rrd,
+    Rrq=smpmData3.Rrq,
+    TrRef=smpmData3.TrRef,
+    alpha20r(displayUnit="1/K") = smpmData3.alpha20r,
+    VsOpenCircuit=smpmDataM.VsOpenCircuit,
+    frictionParameters=smpmDataM.frictionParameters,
+    statorCoreParameters=smpmDataM.statorCoreParameters,
+    strayLoadParameters=smpmDataM.strayLoadParameters,
+    permanentMagnetLossParameters=smpmDataM.permanentMagnetLossParameters,
     m=m,
-    Rs=smpmData.Rs*m/3,
-    Lssigma=smpmData.Lssigma*m/3,
-    Lszero=smpmData.Lszero*m/3,
-    Lmd=smpmData.Lmd*m/3,
-    Lmq=smpmData.Lmq*m/3,
+    Rs=smpmDataM.Rs,
+    Lssigma=smpmDataM.Lssigma,
+    Lszero=smpmDataM.Lszero,
+    Lmd=smpmDataM.Lmd,
+    Lmq=smpmDataM.Lmq,
     ir(each fixed=true),
     TsOperational=293.15,
-    effectiveStatorTurns=smpmData.effectiveStatorTurns,
+    effectiveStatorTurns=smpmDataM.effectiveStatorTurns,
     TrOperational=293.15)
     annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
 
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
     smpm3(
-    p=smpmData.p,
-    fsNominal=smpmData.fsNominal,
-    Rs=smpmData.Rs,
-    TsRef=smpmData.TsRef,
-    alpha20s(displayUnit="1/K") = smpmData.alpha20s,
-    ratioCommonStatorLeakage=smpmData.ratioCommonStatorLeakage,
-    Lszero=smpmData.Lszero,
-    Lssigma=smpmData.Lssigma,
-    Jr=smpmData.Jr,
-    Js=smpmData.Js,
-    frictionParameters=smpmData.frictionParameters,
+    p=smpmData3.p,
+    fsNominal=smpmData3.fsNominal,
+    Rs=smpmData3.Rs,
+    TsRef=smpmData3.TsRef,
+    alpha20s(displayUnit="1/K") = smpmData3.alpha20s,
+    ratioCommonStatorLeakage=smpmData3.ratioCommonStatorLeakage,
+    Lszero=smpmData3.Lszero,
+    Lssigma=smpmData3.Lssigma,
+    Jr=smpmData3.Jr,
+    Js=smpmData3.Js,
+    frictionParameters=smpmData3.frictionParameters,
     phiMechanical(fixed=true),
     wMechanical(fixed=true),
-    statorCoreParameters=smpmData.statorCoreParameters,
-    strayLoadParameters=smpmData.strayLoadParameters,
-    VsOpenCircuit=smpmData.VsOpenCircuit,
-    Lmd=smpmData.Lmd,
-    Lmq=smpmData.Lmq,
-    useDamperCage=smpmData.useDamperCage,
-    Lrsigmad=smpmData.Lrsigmad,
-    Lrsigmaq=smpmData.Lrsigmaq,
-    Rrd=smpmData.Rrd,
-    Rrq=smpmData.Rrq,
-    TrRef=smpmData.TrRef,
-    alpha20r(displayUnit="1/K") = smpmData.alpha20r,
-    permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+    statorCoreParameters=smpmData3.statorCoreParameters,
+    strayLoadParameters=smpmData3.strayLoadParameters,
+    VsOpenCircuit=smpmData3.VsOpenCircuit,
+    Lmd=smpmData3.Lmd,
+    Lmq=smpmData3.Lmq,
+    useDamperCage=smpmData3.useDamperCage,
+    Lrsigmad=smpmData3.Lrsigmad,
+    Lrsigmaq=smpmData3.Lrsigmaq,
+    Rrd=smpmData3.Rrd,
+    Rrq=smpmData3.Rrq,
+    TrRef=smpmData3.TrRef,
+    alpha20r(displayUnit="1/K") = smpmData3.alpha20r,
+    permanentMagnetLossParameters=smpmData3.permanentMagnetLossParameters,
     m=m3,
     ir(each fixed=true),
     TsOperational=293.15,
-    effectiveStatorTurns=smpmData.effectiveStatorTurns,
+    effectiveStatorTurns=smpmData3.effectiveStatorTurns,
     TrOperational=293.15)
     annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
 
@@ -145,8 +146,9 @@ model SMPM_Inverter_Polyphase
             {80,-70}})));
   parameter
     Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
-    smpmData "Synchronous machine data"
-    annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
+    smpmData3(m=m3)
+              "Synchronous machine data of three phase machine"
+    annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
   Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltageM(
       final m=m) annotation (Placement(transformation(
         origin={30,50},
@@ -179,6 +181,20 @@ model SMPM_Inverter_Polyphase
         origin={-50,0})));
   Modelica.Blocks.Math.Gain gain(k=(m/m3))
     annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
+  parameter
+    Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData smpmDataM(
+    m=m,
+    Rs=0.03*m/3,
+    Lszero=0.1/(2*pi*fsNominal)*m/3,
+    Lssigma=0.1/(2*pi*fsNominal)*m/3,
+    statorCoreParameters(m=m),
+    Lmd=0.3/(2*pi*fsNominal)*m/3,
+    Lmq=0.3/(2*pi*fsNominal)*m/3,
+    Lrsigmad=0.05/(2*pi*fsNominal)*m/3,
+    Lrsigmaq=0.05/(2*pi*fsNominal)*m/3,
+    Rrd=0.04*m/3,
+    Rrq=0.04*m/3) "Synchronous machine data of an m-phase machine"
+    annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
 initial equation
   smpm3.is[1:2] = zeros(2);
   smpmM.is[1:2] = zeros(2);
@@ -284,15 +300,9 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                 fillPattern=FillPattern.Solid,
                 pattern=LinePattern.Dash),Text(
                 extent={{40,-54},{100,-62}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
-                textString="Three-phase machine
-"),     Text(
+                textString="Three-phase machine"),     Text(
           extent={{40,-44},{100,-52}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
-                textString="%m-phase machine
-")}));
+                textString="%m-phase machine")}));
 end SMPM_Inverter_Polyphase;

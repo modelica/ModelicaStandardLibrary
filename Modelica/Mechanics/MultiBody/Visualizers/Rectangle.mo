@@ -19,7 +19,7 @@ model Rectangle "Visualizing a planar rectangular surface"
     "= true: 3D model will be displayed without faces"
     annotation (Dialog(enable=animation, group="Material properties"),choices(checkBox=true));
   input Modelica.Mechanics.MultiBody.Types.RealColor color={0,128,255}
-    "Color of surface" annotation(Dialog(enable=animation and not multiColoredSurface,colorSelector=true,group="Material properties"));
+    "Color of surface" annotation(Dialog(enable=animation,colorSelector=true,group="Material properties"));
   input Types.SpecularCoefficient specularCoefficient = 0.7
     "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
   input Real transparency=0
@@ -67,9 +67,6 @@ equation
         Line(points={{-100,0},{0,0},{0,-20}}, color={95,95,95}),
         Text(
           extent={{-140,-60},{140,-90}},
-          lineThickness=0.5,
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="%length_u x %length_v")}),
     Documentation(info="<html>
 <p>

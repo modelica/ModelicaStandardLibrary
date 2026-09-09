@@ -267,8 +267,6 @@ Simulate for 2.5 seconds and plot (versus time):</p>
           textString="%m phase quasi-static"),
                                             Text(
                   extent={{80,-92},{160,-100}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textStyle={TextStyle.Bold},
           textString="%m phase transient")}));
 end IMC_Transformer;

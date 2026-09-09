@@ -1,15 +1,17 @@
 within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model Integrator "Integrating operational amplifier circuit"
-  extends PartialOpAmp(v2(start=0));
+  extends PartialOpAmp;
   import Modelica.Constants.pi;
   parameter Real k(final min=0)=1 "Desired amplification at frequency f";
   parameter SI.Frequency f "Frequency";
-  parameter SI.Resistance R=1000 "Resistance at negative input of OpAmp";
-  parameter SI.Capacitance C=1/k/(2*pi*f*R) "Calculated capacitance to reach desired amplification k";
+  parameter SI.Resistance R=1000
+    "Resistance at negative input of OpAmp";
+  parameter SI.Capacitance C=1/k/(2*pi*f*R)
+    "Calculated capacitance to reach desired amplification k";
   SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
-  Basic.Capacitor  c(final C=C)
+  Modelica.Electrical.Analog.Basic.Capacitor c(final C=C)
     annotation (Placement(transformation(extent={{30,20},{10,40}})));
-  Basic.Resistor r(final R=R)
+  Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
     annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
 equation
   connect(n1, n2)
@@ -40,7 +42,7 @@ equation
             points={{-80.0,78.0},{-80.0,-90.0}},
             color={192,192,192}),
           Line(
-            points=DynamicSelect({{-80.0,-80.0},{80.0,80.0}}, if use_reset then {{-80.0,-80.0},{60.0,60.0},{60.0,-80.0},{80.0,-60.0}} else {{-80.0,-80.0},{80.0,80.0}}),
+            points={{-80.0,-80.0},{80.0,80.0}},
             color={0,0,127}),
           Line(
             points={{-90.0,-80.0},{82.0,-80.0}},

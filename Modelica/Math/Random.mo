@@ -765,7 +765,7 @@ Further explanations of the properties above:
 <ul>
 <li> The <strong>period</strong> defines the number of random numbers generated
      before the sequence begins to repeat itself. According to
-     \"<a href=\"http://xorshift.di.unimi.it/\">A long period does not imply high quality</a>\"
+     \"<a href=\"https://prng.di.unimi.it/\">A long period does not imply high quality</a>\"
      a period of 2^1024 is by far large enough for even massively parallel simulations
      with huge number of random number computations per simulation.
      A period of 2^128 might be not enough for massively parallel simulations.
@@ -774,7 +774,7 @@ Further explanations of the properties above:
 <li> <strong>Length of state (# 32 bit integer)</strong> defines the number of \"int\" (that is Modelica Integer) elements
      used for the internal state vector.</li>
 
-<li> <strong>Big Crush</strong> is part of <a href=\"http://simul.iro.umontreal.ca/testu01/tu01.html\">TestU01</a>
+<li> <strong>Big Crush</strong> is part of <a href=\"https://simul.iro.umontreal.ca/testu01/tu01.html\">TestU01</a>
      a huge framework for testing random number generators.
      According to these tests, the statistical properties of the xorshift random number
      generators are better than the ones of the Mersenne Twister random number generator.</li>
@@ -1013,7 +1013,7 @@ seed = Utilities.<strong>automaticLocalSeed</strong>(path);
 <p>
 Returns an automatically computed seed (Integer) from the hash value of
 the full path name of an instance (has to be inquired in the model or block
-where this function is called by the Modelica built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName()</a>).
+where this function is called by the Modelica built-in operator <a href=\"https://specification.modelica.org/maint/3.6/operators-and-expressions.html#getinstancename\">getInstanceName()</a>).
 Contrary to <a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed()</a>,
 this is a pure function, that is, the same seed is returned, if an identical
 path is provided.
@@ -1031,7 +1031,7 @@ path is provided.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed</a>, <a href=\"modelica://Modelica.Utilities.Strings.hashString\">hashString</a> and <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName</a>.
+<a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed</a>, <a href=\"modelica://Modelica.Utilities.Strings.hashString\">hashString</a> and <a href=\"https://specification.modelica.org/maint/3.6/operators-and-expressions.html#getinstancename\">getInstanceName</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">

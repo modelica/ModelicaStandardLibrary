@@ -68,11 +68,8 @@ At the first clock tick i=1 the past values are filled with u at this clock tick
         Text(
           extent={{-26,86},{88,56}},
           textColor={175,175,175},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Backward,
           textString="FIR"),
         Text(
           extent={{-150,-110},{150,-150}},
-          fillPattern=FillPattern.Solid,
           textString="a=%a")}));
 end FIRbyCoefficients;

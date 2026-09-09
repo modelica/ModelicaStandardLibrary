@@ -449,8 +449,7 @@ it is open.
     // Isenthalpic state transformation (no storage and no loss of energy)
     port_a.h_outflow = inStream(port_b.h_outflow);
     port_b.h_outflow = inStream(port_a.h_outflow);
-    connect(open, openingGenerator.u) annotation (Line(points={{0,80},{0,42},{2.22045e-15,
-            42}}, color={255,0,255}));
+    connect(open, openingGenerator.u) annotation (Line(points={{0,80},{0,42}}, color={255,0,255}));
     annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=false,

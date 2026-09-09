@@ -739,7 +739,7 @@ provided a two-phase medium model is used (see Advanced tab).
   W_nominal[2] = c[1] + V_flow_nominal[2]*c[2];
   */
       protected
-      Real c[2] = Modelica.Math.Matrices.solve([ones(3),V_flow_nominal],W_nominal)
+      Real c[2] = Modelica.Math.Matrices.solve([ones(2),V_flow_nominal],W_nominal)
           "Coefficients of linear power consumption curve";
     algorithm
       consumption := c[1] + V_flow*c[2];

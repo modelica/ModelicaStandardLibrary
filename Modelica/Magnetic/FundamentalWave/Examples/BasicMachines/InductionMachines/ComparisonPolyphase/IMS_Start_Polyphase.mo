@@ -2,15 +2,16 @@ within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachine
 model IMS_Start_Polyphase
   "Starting of polyphase induction machine with slip rings"
 
+  import Modelica.Constants.pi;
   extends Modelica.Icons.Example;
   constant Integer m3=3 "Number of stator phases of three-phase system";
   parameter Integer m=5 "Number of stator phases" annotation(Evaluate=true);
   parameter Integer mr=5 "Number of rotor phases" annotation(Evaluate=true);
   parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter SI.Frequency fNominal=aimsData.fsNominal "Nominal frequency";
+  parameter SI.Frequency fNominal=aimsData3.fsNominal "Nominal frequency";
   parameter SI.Time tOn=0.1 "Start time of machine";
-  parameter SI.Resistance RStart=0.16/aimsData.turnsRatio^2
+  parameter SI.Resistance RStart=0.16/aimsData3.turnsRatio^2
     "Starting resistance";
   parameter SI.Time tRheostat=1.0
     "Time of shortening the rheostat";
@@ -26,70 +27,70 @@ model IMS_Start_Polyphase
       terminalConnection="Y", m=m3) annotation (Placement(transformation(
           extent={{20,-54},{40,-34}})));
   Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing aimsM(
-    Jr=aimsData.Jr,
-    Js=aimsData.Js,
-    p=aimsData.p,
-    fsNominal=aimsData.fsNominal,
-    TsRef=aimsData.TsRef,
-    alpha20s(displayUnit="1/K") = aimsData.alpha20s,
-    ratioCommonStatorLeakage=aimsData.ratioCommonStatorLeakage,
-    frictionParameters=aimsData.frictionParameters,
-    statorCoreParameters=aimsData.statorCoreParameters,
-    strayLoadParameters=aimsData.strayLoadParameters,
+    Jr=aimsData3.Jr,
+    Js=aimsData3.Js,
+    p=aimsData3.p,
+    fsNominal=aimsData3.fsNominal,
+    TsRef=aimsData3.TsRef,
+    alpha20s(displayUnit="1/K") = aimsData3.alpha20s,
+    ratioCommonStatorLeakage=aimsData3.ratioCommonStatorLeakage,
+    frictionParameters=aimsDataM.frictionParameters,
+    statorCoreParameters=aimsDataM.statorCoreParameters,
+    strayLoadParameters=aimsDataM.strayLoadParameters,
     phiMechanical(fixed=true),
     wMechanical(fixed=true),
-    ratioCommonRotorLeakage=aimsData.ratioCommonRotorLeakage,
-    TrRef=aimsData.TrRef,
-    alpha20r(displayUnit="1/K") = aimsData.alpha20r,
-    useTurnsRatio=aimsData.useTurnsRatio,
-    VsNominal=aimsData.VsNominal,
-    VrLockedRotor=aimsData.VrLockedRotor,
-    rotorCoreParameters=aimsData.rotorCoreParameters,
-    TurnsRatio=aimsData.turnsRatio,
+    ratioCommonRotorLeakage=aimsData3.ratioCommonRotorLeakage,
+    TrRef=aimsData3.TrRef,
+    alpha20r(displayUnit="1/K") = aimsData3.alpha20r,
+    useTurnsRatio=aimsData3.useTurnsRatio,
+    VsNominal=aimsData3.VsNominal,
+    VrLockedRotor=aimsData3.VrLockedRotor,
+    rotorCoreParameters=aimsDataM.rotorCoreParameters,
+    TurnsRatio=aimsData3.turnsRatio,
     mr=mr,
     m=m,
-    Rs=aimsData.Rs*m/3,
-    Lssigma=aimsData.Lssigma*m/3,
-    Lszero=aimsData.Lszero*m/3,
-    Lm=aimsData.Lm*m/3,
-    Lrsigma=aimsData.Lrsigma*mr/3,
-    Lrzero=aimsData.Lrzero*mr/3,
-    Rr=aimsData.Rr*mr/3,
+    Rs=aimsData3.Rs*m/3,
+    Lssigma=aimsData3.Lssigma*m/3,
+    Lszero=aimsData3.Lszero*m/3,
+    Lm=aimsData3.Lm*m/3,
+    Lrsigma=aimsData3.Lrsigma*mr/3,
+    Lrzero=aimsData3.Lrzero*mr/3,
+    Rr=aimsData3.Rr*mr/3,
     TsOperational=293.15,
-    effectiveStatorTurns=aimsData.effectiveStatorTurns,
+    effectiveStatorTurns=aimsData3.effectiveStatorTurns,
     TrOperational=293.15)
     annotation (Placement(transformation(extent={{20,30},{40,50}})));
   Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing aims3(
-    p=aimsData.p,
-    fsNominal=aimsData.fsNominal,
-    Rs=aimsData.Rs,
-    TsRef=aimsData.TsRef,
-    alpha20s(displayUnit="1/K") = aimsData.alpha20s,
-    ratioCommonStatorLeakage=aimsData.ratioCommonStatorLeakage,
-    Lszero=aimsData.Lszero,
-    Lssigma=aimsData.Lssigma,
-    Jr=aimsData.Jr,
-    Js=aimsData.Js,
-    frictionParameters=aimsData.frictionParameters,
+    p=aimsData3.p,
+    fsNominal=aimsData3.fsNominal,
+    Rs=aimsData3.Rs,
+    TsRef=aimsData3.TsRef,
+    alpha20s(displayUnit="1/K") = aimsData3.alpha20s,
+    ratioCommonStatorLeakage=aimsData3.ratioCommonStatorLeakage,
+    Lszero=aimsData3.Lszero,
+    Lssigma=aimsData3.Lssigma,
+    Jr=aimsData3.Jr,
+    Js=aimsData3.Js,
+    frictionParameters=aimsData3.frictionParameters,
     phiMechanical(fixed=true),
     wMechanical(fixed=true),
-    statorCoreParameters=aimsData.statorCoreParameters,
-    strayLoadParameters=aimsData.strayLoadParameters,
-    Lm=aimsData.Lm,
-    Lrsigma=aimsData.Lrsigma,
-    ratioCommonRotorLeakage=aimsData.ratioCommonRotorLeakage,
-    Lrzero=aimsData.Lrzero,
-    Rr=aimsData.Rr,
-    TrRef=aimsData.TrRef,
-    alpha20r(displayUnit="1/K") = aimsData.alpha20r,
-    useTurnsRatio=aimsData.useTurnsRatio,
-    VsNominal=aimsData.VsNominal,
-    VrLockedRotor=aimsData.VrLockedRotor,
-    rotorCoreParameters=aimsData.rotorCoreParameters,
+    statorCoreParameters=aimsData3.statorCoreParameters,
+    strayLoadParameters=aimsData3.strayLoadParameters,
+    Lm=aimsData3.Lm,
+    Lrsigma=aimsData3.Lrsigma,
+    ratioCommonRotorLeakage=aimsData3.ratioCommonRotorLeakage,
+    Lrzero=aimsData3.Lrzero,
+    Rr=aimsData3.Rr,
+    TrRef=aimsData3.TrRef,
+    alpha20r(displayUnit="1/K") = aimsData3.alpha20r,
+    useTurnsRatio=aimsData3.useTurnsRatio,
+    VsNominal=aimsData3.VsNominal,
+    VrLockedRotor=aimsData3.VrLockedRotor,
+    rotorCoreParameters=aimsData3.rotorCoreParameters,
     m=m3,
-    TurnsRatio=aimsData.turnsRatio,
+    TurnsRatio=aimsData3.turnsRatio,
     TsOperational=566.3,
-    effectiveStatorTurns=aimsData.effectiveStatorTurns,
+    effectiveStatorTurns=aimsData3.effectiveStatorTurns,
     TrOperational=566.3)
     annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
   Modelica.Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
@@ -120,8 +121,8 @@ model IMS_Start_Polyphase
     w_nominal=w_Load) annotation (Placement(transformation(extent={{100,-70},
             {80,-50}})));
   parameter
-    Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData aimsData
-    "Induction machine data"
+    Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData aimsData3
+    "Induction machine data of a three-phase machine"
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
   Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
         transformation(origin={-90,50}, extent={{-10,-10},{10,10}})));
@@ -172,6 +173,19 @@ model IMS_Start_Polyphase
     annotation (Placement(transformation(extent={{40,80},{60,100}})));
   Modelica.Blocks.Math.Feedback feedback
     annotation (Placement(transformation(extent={{80,10},{100,-10}})));
+  parameter
+    Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData          aimsDataM(
+    m=m,
+    Rs=0.03*m/3,
+    Lszero=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)*m/3,
+    Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)*m/3,
+    statorCoreParameters(m=m),
+    Lm=3*sqrt(1 - 0.0667)/(2*pi*fNominal),
+    Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)/aimsDataM.turnsRatio^2,
+    Lrzero=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)/aimsDataM.turnsRatio^2,
+    Rr=0.04/aimsDataM.turnsRatio^2,
+    rotorCoreParameters(m=m)) "Induction machine data of an m-phase machine"
+    annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
 initial equation
   aims3.is[1:2] = zeros(2);
   aims3.ir[1:3] = zeros(3);
@@ -274,13 +288,9 @@ Simulate for 1.5 seconds and plot (versus time):
             -100},{100,100}}),
                          graphics={       Text(
                 extent={{40,68},{100,60}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%m-phase machine",
                 textStyle={TextStyle.Bold}),Text(
                 extent={{40,-32},{100,-40}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="Three-phase machine",
                 textStyle={TextStyle.Bold})}));
 end IMS_Start_Polyphase;

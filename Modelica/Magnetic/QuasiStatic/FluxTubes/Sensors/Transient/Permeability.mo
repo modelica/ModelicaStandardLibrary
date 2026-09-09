@@ -38,8 +38,6 @@ equation
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid), Text(
           extent={{60,-60},{-60,60}},
-          fillColor={255,170,85},
-          fillPattern=FillPattern.Solid,
           textString="μ")}),
   Documentation(info="<html>
 <p>This model determines the absolute and relative permeability from two real inputs:</p>

@@ -2,8 +2,8 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMach
 model IM_SquirrelCage "Induction machine with squirrel cage"
   // Removed from extension of FUNDAMENTAL WAVE model: is(start=zeros(m)) ##
   extends BaseClasses.Machine(
-    Rs(start=0.03),
-    Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
+    Rs(start=0.03*ZsRef),
+    Lssigma(start=3*ZsRef*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
     final L0(d=2.0*Lm/m/effectiveStatorTurns^2, q=2.0*Lm/m/
           effectiveStatorTurns^2),
     redeclare final
@@ -19,15 +19,15 @@ model IM_SquirrelCage "Induction machine with squirrel cage"
       Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMC
       powerBalance(final lossPowerRotorWinding=sum(rotorCage.resistor.resistor.LossPower),
         final lossPowerRotorCore=0));
-  parameter SI.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
+  parameter SI.Inductance Lm(start=3*ZsRef*sqrt(1 - 0.0667)/(2*pi
         *fsNominal)) "Stator main field inductance per phase" annotation (
      Dialog(tab="Nominal resistances and inductances", groupImage=
           "modelica://Modelica/Resources/Images/Electrical/Machines/IMC.png"));
-  parameter SI.Inductance Lrsigma(start=3*(1 - sqrt(1 -
+  parameter SI.Inductance Lrsigma(start=3*ZsRef*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal))
     "Rotor leakage inductance of equivalent m phase winding w.r.t. stator side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Resistance Rr(start=0.04)
+  parameter SI.Resistance Rr(start=0.04*ZsRef)
     "Rotor resistance of equivalent m phase winding w.r.t. stator side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter SI.Temperature TrRef(start=293.15)

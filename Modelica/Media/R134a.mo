@@ -176,9 +176,9 @@ package R134a "R134a: Medium model for R134a"
       sat.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
       sat.pt := f.R_s*f.d*(f.delta*(f.fdelta - f.tau*f.fdeltatau));
       sat.pd := f.R_s*f.T*(f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
-      sat.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      sat.a := sqrt(abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
-        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
+        f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau))));
       sat.kappa := 1/(f.d*f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
       sat.beta := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau)*sat.kappa;
       sat.gamma := sat.a^2/f.R_s/f.T;
@@ -280,8 +280,10 @@ package R134a "R134a: Medium model for R134a"
     redeclare function extends setState_phX
       "Set state for pressure and specific enthalpy (X not used since single substance)"
     algorithm
-      state := ThermodynamicState(phase=getPhase_ph(p, h), p=p, h=h, d=density_ph(p, h), T=temperature_ph(p, h));
-      annotation (Documentation(info="<html>
+      state := ThermodynamicState(
+         phase=if ((h < bubbleEnthalpy(SaturationProperties(psat=p,Tsat=0)) or (h > dewEnthalpy(SaturationProperties(psat=p,Tsat=0)))
+          or (p > R134aData.data.FPCRIT))) then 1 else 2, p=p, h=h, d=density_ph(p, h), T=temperature_ph(p, h));
+      annotation (GenerateEvents=true, Inline=true, Documentation(info="<html>
 <p>This function should be used by default in order to calculate the thermodynamic state record used as input by many functions.</p>
 <p>
 Example:
@@ -1591,9 +1593,9 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
         // assert(getPhase_ph(state.p, state.h)==1, "Function for velocity of sound is only valid for one-phase regime!");
       else
         f := f_R134a(state.d, state.T);
-        a := abs(R134aData.data.R_s*state.T*(2*f.delta*f.fdelta + f.delta*f.delta
+        a := sqrt(abs(R134aData.data.R_s*state.T*(2*f.delta*f.fdelta + f.delta*f.delta
           *f.fdeltadelta - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta
-          *f.fdelta - f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
+          *f.fdelta - f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau))));
       end if;
       annotation (Documentation(info="<html>
 <p>This function calculates the velocity of sound of R134a from the state record (e.g., use setState_phX function for input). The velocity of sound is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
@@ -2228,7 +2230,7 @@ This function computes the residual helmholtz derivatives of the fundamental equ
       phase := if ((h < hl) or (h > hv) or (p > R134aData.data.FPCRIT)) then 1
          else 2;
 
-      annotation (Documentation(info="<html>
+      annotation (GenerateEvents=true, Inline=true, Documentation(info="<html>
 This function computes the number of phases for R134a depending on the inputs for absolute pressure and specific enthalpy. It makes use of cubic spline functions for liquid and vapor specific enthalpy.
 </html>"));
     end getPhase_ph;
@@ -2471,6 +2473,12 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       output SI.Density d "Density";
 
     protected
+      constant Real p_breaks[:]=R134aData.pbreaks
+        "Grid points of reduced pressure";
+      constant Real dl_coef[:, 4]=R134aData.dlcoef
+        "Coefficients of cubic spline for rho_liq(p)";
+      constant Real dv_coef[:, 4]=R134aData.dvcoef
+        "Coefficients of cubic spline for rho_vap(p)";
       constant Real T_breaks[:]=R134aData.Tbreaks
         "Grid points of reduced temperature";
       constant Real dlt_coef[:, 4]=R134aData.dltcoef
@@ -2479,8 +2487,10 @@ This function integrates the derivative of temperature w.r.t. time in order to a
         "Coefficients of cubic spline for rho_vap(T)";
 
       Boolean liquid "Is liquid";
-      Boolean supercritical "Is supercritcal";
+      Boolean supercritical "Is supercritical (p > pcrit)";
+      Boolean highT "= true for high temperature";
       Integer int "Interval number";
+      Real pred "Reduced pressure";
       Real Tred "Reduced temperature";
       Real localx "Abscissa of local spline";
       Integer i "Newton iteration number";
@@ -2498,9 +2508,18 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       i := 0;
       error := 0;
       found := false;
+      pred := p/R134aData.data.FPCRIT;
       Tred := T/R134aData.data.FTCRIT;
-      (int,error) := Common.FindInterval(Tred, T_breaks);
-      localx := Tred - T_breaks[int];
+      highT := (Tred > 0.95);
+      // Guess values for density computed as function of p for high temperature, as function of T for low Temperature
+      // this improves convergence properties (see discussion in #3695)
+      if highT then
+        (int,error) := Common.FindInterval(pred, p_breaks);
+        localx := pred - p_breaks[int];
+      else
+        (int,error) := Common.FindInterval(Tred, T_breaks);
+        localx := Tred - T_breaks[int];
+      end if;
       // set decent initial guesses for d and T
       supercritical := p > R134aData.data.FPCRIT;
       if supercritical then
@@ -2509,11 +2528,11 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       else
         liquid := T <= Modelica.Media.R134a.R134a_ph.saturationTemperature(p);
         if liquid then
-          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dlt_coef[int,
-            1:4])*1.02;
+          d := if highT then R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dl_coef[int,1:4])*1.02
+                        else R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dlt_coef[int,1:4])*1.02;
         else
-          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dvt_coef[int,
-            1:4])*0.95;
+          d := if highT then R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dv_coef[int,1:4])*0.95
+                        else R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dvt_coef[int,1:4])*0.95;
         end if;
       end if;
 
@@ -9419,7 +9438,7 @@ Some parts of this library refer to the ThermoFluid library developed at Lund Un
 </p>
 
 <p>
-Copyright &copy; 2013-2020, Modelica Association and contributors
+Copyright &copy; 2013-2025, Modelica Association and contributors
 </p>
 </html>"));
 end R134a;

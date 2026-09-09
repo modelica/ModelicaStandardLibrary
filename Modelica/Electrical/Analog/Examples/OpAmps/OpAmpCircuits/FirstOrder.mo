@@ -1,18 +1,21 @@
 within Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits;
 model FirstOrder "Lowpass filter operational amplifier circuit"
-  extends PartialOpAmp(v2(start=0));
+  extends PartialOpAmp;
   import Modelica.Constants.pi;
   parameter Real k(final min=0)=1 "Desired amplification";
-  parameter SI.Resistance R1=1000 "Resistance at negative input of OpAmp";
-  parameter SI.Resistance R2=k*R1 "Calculated resistance to reach k";
+  parameter SI.Resistance R1=1000
+    "Resistance at negative input of OpAmp";
+  parameter SI.Resistance R2=k*R1
+    "Calculated resistance to reach k";
   parameter SI.Time T "Time constant";
-  parameter SI.Capacitance C=T/R2 "Calculated capacitance to reach T";
+  parameter SI.Capacitance C=T/R2
+    "Calculated capacitance to reach T";
   SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
-  Basic.Resistor                            r1(R=R1)
+  Modelica.Electrical.Analog.Basic.Resistor r1(R=R1)
     annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
-  Basic.Resistor                            r2(R=R2)
+  Modelica.Electrical.Analog.Basic.Resistor r2(R=R2)
     annotation (Placement(transformation(extent={{30,20},{10,40}})));
-  Basic.Capacitor                            c(C=C)
+  Modelica.Electrical.Analog.Basic.Capacitor c(C=C)
     annotation (Placement(transformation(extent={{30,40},{10,60}})));
 equation
   connect(n1, n2)

@@ -8,13 +8,13 @@ model IndirectCooling "Indirect cooling circuit"
   parameter SI.Temperature TAmb(displayUnit="degC")=293.15
     "Ambient temperature";
   output SI.TemperatureDifference dTSource=
-    prescribedHeatFlow.port.T-TAmb "Source over Ambient";
+    prescribedHeatFlow.port.T-TAmb "Temperature difference between heat source and ambient condition";
   output SI.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe1.T_q
-    "Source over inner Coolant";
+    "Temperature difference between heat source and coolant in pipe 1";
   output SI.TemperatureDifference dTinnerCoolant=pipe1.dT
     "Inner Coolant's temperature increase";
   output SI.TemperatureDifference dTCooler=innerPipe.T_q-outerPipe.T_q
-    "Cooler's temperature increase between inner and outer pipes";
+    "Coolant temperature difference between inner pipe and outer pipe";
   output SI.TemperatureDifference dTouterCoolant=outerPipe.dT
     "Outer coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
@@ -173,31 +173,31 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 </tr>
 <tr>
 <td>dTSource</td>
-<td>Source over Ambient</td>
+<td>Temperature difference between heat source and ambient condition</td>
 <td>dtouterCoolant + dtCooler + dTinnerCoolant + dtToPipe</td>
 <td>40 K</td>
 </tr>
 <tr>
 <td>dTtoPipe</td>
-<td>Source over inner Coolant</td>
+<td>Temperature difference between heat source and coolant in pipe 1</td>
 <td>Losses / ThermalConductor.G</td>
 <td>10 K</td>
 </tr>
 <tr>
-<td>dTinnerColant</td>
-<td>inner Coolant's temperature increase</td>
+<td>dTinnerCoolant</td>
+<td>Inner Coolant's temperature increase</td>
 <td>Losses * cp * innerMassFlow</td>
 <td>10 K</td>
 </tr>
 <tr>
 <td>dTCooler</td>
-<td>Cooler's temperature rise between inner and outer pipes</td>
+<td>Coolant temperature difference between inner pipe and outer pipe</td>
 <td>Losses * (innerGc + outerGc)</td>
 <td>10 K</td>
 </tr>
 <tr>
-<td>dTouterColant</td>
-<td>outer Coolant's temperature increase</td>
+<td>dTouterCoolant</td>
+<td>Outer coolant's temperature increase</td>
 <td>Losses * cp * outerMassFlow</td>
 <td>10 K</td>
 </tr>

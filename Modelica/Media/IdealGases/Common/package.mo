@@ -147,7 +147,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     end setState_dTX;
 
       redeclare function extends setSmoothState
-    "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+        "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
       algorithm
         state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
                                     T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
@@ -687,7 +687,7 @@ required from medium model \"" + mediumName + "\".");
     end setState_dTX;
 
       redeclare function extends setSmoothState
-    "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+        "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
       algorithm
         state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
                                     T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small),
@@ -943,7 +943,7 @@ end gasMixtureViscosity;
 
     redeclare replaceable function extends dynamicViscosity
     "Return mixture dynamic viscosity"
-  protected
+    protected
       DynamicViscosity[nX] etaX "Component dynamic viscosities";
     algorithm
       for i in 1:nX loop
@@ -1206,7 +1206,7 @@ end lowPressureThermalConductivity;
     "Return thermal conductivity for low pressure gas mixtures"
       input Integer method=methodForThermalConductivity
       "Method to compute single component thermal conductivity";
-  protected
+    protected
       ThermalConductivity[nX] lambdaX "Component thermal conductivities";
       DynamicViscosity[nX] eta "Component thermal dynamic viscosities";
       SpecificHeatCapacity[nX] cp "Component heat capacity";

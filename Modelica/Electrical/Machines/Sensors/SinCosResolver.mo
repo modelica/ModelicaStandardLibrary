@@ -25,7 +25,6 @@ equation
         Text(
           extent={{-150,120},{150,80}},
           textColor={0,0,255},
-          fillColor={255,255,255},
           textString="%name"),
         Ellipse(extent={{-20,20},{20,-20}}, lineColor={95,95,95},
           fillColor={255,255,255},

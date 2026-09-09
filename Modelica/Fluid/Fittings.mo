@@ -1050,15 +1050,15 @@ A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
           output LossFactorData data
             "Pressure loss factors for both flow directions";
         protected
-          Real D_rel=leastDiameter/diameter;
+          Real A_rel=(leastDiameter/diameter)^2;
           Real LD=length/leastDiameter;
           Real k=0.13 + 0.34*10^(-(3.4*LD + 88.4*LD^2.3));
        algorithm
           data.diameter_a := diameter;
           data.diameter_b := diameter;
-          data.zeta1 := ((1 - D_rel) + 0.707*(1 - D_rel)^0.375)^2*(1/D_rel)^2;
-          data.zeta2 := k*(1 - D_rel)^0.75 + (1 - D_rel)^2 + 2*sqrt(k*(1 -
-            D_rel)^0.375) + (1 - D_rel);
+          data.zeta1 := ((1 - A_rel) + 0.707*(1 - A_rel)^0.375)^2*(1/A_rel)^2;
+          data.zeta2 := k*(1 - A_rel)^0.75 + (1 - A_rel)^2 + 2*sqrt(k*(1 -
+            A_rel)^0.375) + (1 - A_rel);
           data.Re_turbulent := 1e4;
           data.D_Re := leastDiameter;
           data.zeta1_at_a := true;

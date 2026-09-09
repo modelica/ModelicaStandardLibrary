@@ -1,12 +1,14 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet;
 record M940_100A "M940-100A @ 50Hz"
   extends FluxTubes.Material.SoftMagnetic.BaseData(
+    label="M940-100A",
     mu_i=680,
     B_myMax=1.26,
     c_a=17760,
     c_b=3.13,
     n=13.9);
-  annotation (Documentation(info="<html>
+  annotation (defaultComponentPrefixes="parameter",
+    Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>

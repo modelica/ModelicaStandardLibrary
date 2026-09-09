@@ -4,7 +4,7 @@ model RelTemperatureSensor "Temperature difference sensor"
   extends FluidHeatFlow.Interfaces.RelativeSensorBase;
   Modelica.Blocks.Interfaces.RealOutput y(unit="K")
     "Temperature difference as output signal"
-	annotation (absoluteValue = false, Placement(transformation(
+    annotation (absoluteValue = false, Placement(transformation(
         origin={0,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));

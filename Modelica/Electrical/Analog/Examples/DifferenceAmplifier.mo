@@ -128,8 +128,5 @@ Christoph Clau&szlig;
 </html>"),
     experiment(StopTime=1e-8),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics={Text(
-          extent={{-98,106},{22,60}},
-          textColor={0,0,255},
-          textString="Difference Amplifier")}));
+            100,100}})));
 end DifferenceAmplifier;

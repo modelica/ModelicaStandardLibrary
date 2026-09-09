@@ -67,10 +67,10 @@ equation
             {100,100}}), graphics={Text(
               extent={{-100,80},{-80,60}},
               textString="1)",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{-100,20},{-80,0}},
               textString="2)",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{-100,-40},{-80,-60}},
               textColor={0,0,255},
               textString="3)")}),

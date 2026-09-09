@@ -55,7 +55,8 @@ model SMEE_LoadDump
     TrOperational=293.15,
     alpha20r=smeeData.alpha20r,
     alpha20e=smeeData.alpha20e,
-    TeOperational=293.15)
+    TeOperational=293.15,
+    ie(fixed=true))
     annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
   parameter Machines.Utilities.SynchronousMachineData smeeData(
     SNominal=30e3,
@@ -99,8 +100,7 @@ model SMEE_LoadDump
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={30,-50})));
-  Modelica.Blocks.Math.Gain setPointGain(k=(smeeData.VsNominal/wNominal)/
-        unitMagneticFlux)
+  Modelica.Blocks.Math.Gain setPointGain(k=(smeeData.VsNominal/wNominal))
     annotation (Placement(transformation(extent={{-50,-90},{-70,-70}})));
   Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(ToSpacePhasor1(y(
           each start=1E-3, each fixed=true))) annotation (Placement(
@@ -156,7 +156,6 @@ protected
 initial equation
   smee.idq_sr = zeros(2);
   //conditional damper cage currents are defined as fixed start values
-  smee.ie = 0;
 equation
   connect(terminalBox.plug_sn, smee.plug_sn) annotation (Line(
       points={{4,-20},{4,-20}},

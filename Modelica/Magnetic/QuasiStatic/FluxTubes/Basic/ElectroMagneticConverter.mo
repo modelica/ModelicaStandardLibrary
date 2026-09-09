@@ -76,7 +76,6 @@ equation
       Text(
         extent={{-150,150},{150,110}},
         textString="%name",
-          pattern=LinePattern.None,
           textColor={0,0,255}),
         Line(
           points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},

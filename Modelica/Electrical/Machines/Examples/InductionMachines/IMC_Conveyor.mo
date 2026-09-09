@@ -65,7 +65,7 @@ model IMC_Conveyor
     annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
   parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data"
     annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
-  Blocks.Math.Gain gain(k=fNominal/unitFrequency)
+  Blocks.Math.Gain gain(k=fNominal)
     annotation (Placement(transformation(extent={{-70,50},{-50,70}})));
   Mechanics.Translational.Components.IdealGearR2T idealGearR2T(ratio=1/r)
     annotation (Placement(transformation(extent={{12,-50},{32,-30}})));
@@ -107,7 +107,7 @@ equation
     annotation (Line(points={{32,-40},{36,-40},{40,-40}}, color={0,127,0}));
   connect(mass.flange_b, signForce.flange)
     annotation (Line(points={{60,-40},{66,-40},{70,-40}}, color={0,127,0}));
-  annotation (experiment(StopTime=20, Interval=1E-4, Tolerance=1e-06), Documentation(
+  annotation (experiment(StopTime=20, Interval=1E-3, Tolerance=1e-06), Documentation(
         info="<html>
 <p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
 Frequency is driven by a load cycle of acceleration, constant speed, deceleration and standstill.

@@ -929,6 +929,40 @@ The output <code>Q</code> is set by the input <code>S</code>, is reset by the in
 </html>"));
   end RSFlipFlop;
 
+  block AssertCondition "Assert that input u is true"
+    extends Modelica.Blocks.Interfaces.partialBooleanSI;
+    parameter String message = "Assert block failed"
+      "Assertion message to be displayed if the input u is false; please adapt";
+    parameter AssertionLevel assertionLevel=AssertionLevel.error
+      "Assertion level";
+  equation
+    assert(u,message,assertionLevel);
+    annotation (
+      Icon(graphics={
+          Text(
+            extent={{-90,40},{90,-40}},
+            textString="assert")}),
+      Documentation(
+        info="<html>
+<p>
+This block asserts that the Boolean input&nbsp;<strong>u</strong> is <strong>true</strong>.
+If&nbsp;<strong>u</strong> is <strong>false</strong>, the simulation will
+either abort with an error (if <strong>assertionLevel</strong> is set to
+<strong>error</strong>), or issue a&nbsp;warning and continue (if
+<strong>assertionLevel</strong> is set to <strong>warning</strong>).
+The <strong>message</strong> will be reported in either case.
+For further information, refer to the documentation of
+<a href=\"modelica://ModelicaReference.Operators.'assert()'\">ModelicaReference.Operators.'assert()'</a>
+&ndash; an operator which this block is based on.
+</p>
+<p>
+Typically, this block is used by connecting a&nbsp;(possibly) <strong>time
+varying</strong> outside condition and the input&nbsp;<strong>u</strong>
+to abort the simulation if the condition fails.
+</p>
+</html>"));
+  end AssertCondition;
+
   block TerminateSimulation "Terminate simulation if condition is fulfilled"
 
     Modelica.Blocks.Interfaces.BooleanOutput condition=false
@@ -942,7 +976,7 @@ The output <code>Q</code> is set by the input <code>S</code>, is reset by the in
       terminate(terminationText);
     end when;
     annotation (Icon(
-        coordinateSystem(preserveAspectRatio=true,
+        coordinateSystem(preserveAspectRatio=false,
           extent={{-200,-20},{200,20}},
           initialScale=0.2),
           graphics={
@@ -973,6 +1007,7 @@ parameter \"terminationText\".
 
 </html>"));
   end TerminateSimulation;
+
   annotation (Documentation(info="<html>
 <p>
 This package provides blocks with Boolean input and output signals

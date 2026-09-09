@@ -54,9 +54,11 @@ equation
     mode) == Backward or startBackward);
 
   a_relfric/unitAngularAcceleration = if locked then 0 else if free then sa
-     else if startForward then sa - tau0_max/unitTorque else if
-    startBackward then sa + tau0_max/unitTorque else if pre(mode) ==
-    Forward then sa - tau0_max/unitTorque else sa + tau0_max/unitTorque;
+    else if startForward then sa - tau0_max/unitTorque
+    else if startBackward then sa + tau0_max/unitTorque
+    else if pre(mode) == Forward then sa - tau0_max/unitTorque
+    else if pre(mode) == Backward then sa + tau0_max/unitTorque
+    else sa - sign(w_relfric)*tau0_max/unitTorque;
 
   /* Friction torque "tau" has to be defined in a subclass. Example for possible
      realization of a clutch utilizing interpolation by ExternalCombiTable1D see:
@@ -84,7 +86,7 @@ The method is described in [Otter1999]
 </p>
 <p>
 The parameter <code>w_small</code> is introduced for particular
-cases where a&nbsp;reinit is triggered at zero velocity. 
+cases where a&nbsp;reinit is triggered at zero velocity.
 For such &ndash; rather rare &ndash; cases the friction handling
 logic is no longer correct. On the other hand, introducing
 <code>w_small</code> in general leads to problems when more
@@ -107,6 +109,6 @@ a&nbsp;small value only when</strong> the special case with
         Aug. 22.-26, Hawaii 1999.
     </td>
   </tr>
-</table> 
+</table>
 </html>"));
 end PartialFriction;

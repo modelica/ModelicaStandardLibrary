@@ -2,8 +2,6 @@ within Modelica.Clocked.RealSignals.Sampler.Utilities.Internal;
 block UniformNoiseXorshift64star
   "Add band-limited uniform noise based on a xorshift64* number generator"
   extends Clocked.RealSignals.Interfaces.PartialNoise;
-  parameter Real noiseMax=0.1 "Upper limit of noise band";
-  parameter Real noiseMin=-noiseMax "Lower limit of noise band";
 
   parameter Integer globalSeed = 30020 "Global seed to initialize random number generator";
   // Random number generators with exposed state

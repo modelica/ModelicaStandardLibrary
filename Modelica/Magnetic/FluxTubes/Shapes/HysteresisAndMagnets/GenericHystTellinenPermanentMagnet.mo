@@ -7,18 +7,18 @@ model GenericHystTellinenPermanentMagnet
 
   parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
   parameter SI.MagneticFieldStrength Hc=5e5 "Coercitivity" annotation (Dialog(group="Hysteresis"));
-  parameter Real M(final unit="1") = unitH*10/Hc
+  parameter Real M(final unit="m/A") = 10/Hc
     "Slope of tanh()-function" annotation (Dialog(group="Hysteresis"));
   parameter Real K(final unit="1")=1 "mu_0 multiplier" annotation (Dialog(group="Hysteresis"));
 
 protected
   constant SI.MagneticFieldStrength unitH = 1;
   parameter SI.MagneticFluxDensity eps= Br/1000;
-  parameter SI.MagneticFieldStrength H0= 0.5*log((1+mu0*Hc/Br)/(1-mu0*Hc/Br)) + M*Hc;
+  parameter Real H0(final unit="1")= 0.5*log((1+mu0*Hc/Br)/(1-mu0*Hc/Br)) + M*Hc;
 
 equation
-  hystR = Br*tanh((M*H - H0)/unitH) + mu0*H - eps/2;
-  hystF = Br*tanh((M*H + H0)/unitH) + mu0*H + eps/2;
+  hystR = Br*tanh((M*H - H0)) + mu0*H - eps/2;
+  hystF = Br*tanh((M*H + H0)) + mu0*H + eps/2;
 
   annotation (defaultComponentName="pm",
               Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,

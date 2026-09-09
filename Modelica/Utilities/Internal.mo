@@ -21,9 +21,9 @@ package PartialModelicaServices
       "Position vector from origin of world frame to origin of object frame, resolved in world frame" annotation(Dialog);
     input SI.Position r_shape[3]={0,0,0}
       "Position vector from origin of object frame to shape origin, resolved in object frame" annotation(Dialog);
-    input Real lengthDirection[3](each final unit="1")={1,0,0}
+    input Real lengthDirection[3]={1,0,0}
       "Vector in length direction, resolved in object frame" annotation(Dialog);
-    input Real widthDirection[3](each final unit="1")={0,1,0}
+    input Real widthDirection[3]={0,1,0}
       "Vector in width direction, resolved in object frame" annotation(Dialog);
     input SI.Length length=0 "Length of visual object" annotation(Dialog);
     input SI.Length width=0 "Width of visual object" annotation(Dialog);

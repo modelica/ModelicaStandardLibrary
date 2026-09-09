@@ -76,8 +76,8 @@ model SymmetricPolyphaseWinding
     final Lsigma=(1 - ratioCommonLeakage)*Lsigma)
                                             "Symmetric winding"
     annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
-  Modelica.Electrical.Polyphase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero) if
-       mBase<>2 "Zero sequence inductance of winding"
+  Modelica.Electrical.Polyphase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero)
+    if mBase<>2 "Zero sequence inductance of winding"
     annotation (Placement(transformation(
         origin={-70,-30},
         extent={{10,-10},{-10,10}},

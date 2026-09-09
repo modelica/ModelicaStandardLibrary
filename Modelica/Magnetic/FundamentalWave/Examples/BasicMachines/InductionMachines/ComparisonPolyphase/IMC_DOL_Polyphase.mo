@@ -1,12 +1,13 @@
 within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase;
 model IMC_DOL_Polyphase
   "Direct on line start of polyphase induction machine with squirrel cage"
+
+  import Modelica.Constants.pi;
   extends Modelica.Icons.Example;
   constant Integer m3=3 "Number of stator phases of three-phase system";
   parameter Integer m=5 "Number of stator phases" annotation(Evaluate=true);
-  parameter SI.Voltage VsNominal=100
-    "Nominal RMS voltage per phase";
-  parameter SI.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
+  parameter SI.Voltage VsNominal=100 "Nominal RMS voltage per phase";
+  parameter SI.Frequency fNominal=aimcData3.fsNominal "Nominal frequency";
   parameter SI.Time tOn=0.1 "Start time of machine";
   parameter SI.Torque T_Load=161.4 "Nominal load torque";
   parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
@@ -43,30 +44,31 @@ model IMC_DOL_Polyphase
   Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(m=m,
       terminalConnection="Y") annotation (Placement(transformation(extent={{20,56},
             {40,76}})));
-  Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimcM(
-    Jr=aimcData.Jr,
-    Js=aimcData.Js,
-    p=aimcData.p,
-    fsNominal=aimcData.fsNominal,
-    TsRef=aimcData.TsRef,
-    alpha20s(displayUnit="1/K") = aimcData.alpha20s,
-    ratioCommonStatorLeakage=aimcData.ratioCommonStatorLeakage,
-    frictionParameters=aimcData.frictionParameters,
-    statorCoreParameters=aimcData.statorCoreParameters,
-    strayLoadParameters=aimcData.strayLoadParameters,
-    TrRef=aimcData.TrRef,
-    alpha20r(displayUnit="1/K") = aimcData.alpha20r,
+  Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
+    aimcM(
+    Jr=aimcDataM.Jr,
+    Js=aimcData3.Js,
+    p=aimcDataM.p,
+    fsNominal=aimcDataM.fsNominal,
+    TsRef=aimcDataM.TsRef,
+    alpha20s(displayUnit="1/K") = aimcDataM.alpha20s,
+    ratioCommonStatorLeakage=aimcDataM.ratioCommonStatorLeakage,
+    frictionParameters=aimcDataM.frictionParameters,
+    statorCoreParameters=aimcDataM.statorCoreParameters,
+    strayLoadParameters=aimcDataM.strayLoadParameters,
+    TrRef=aimcDataM.TrRef,
+    alpha20r(displayUnit="1/K") = aimcData3.alpha20r,
     phiMechanical(fixed=true),
     wMechanical(fixed=true),
     m=m,
-    Rs=aimcData.Rs*m/3,
-    Lssigma=aimcData.Lssigma*m/3,
-    Lszero=aimcData.Lszero*m/3,
-    Lm=aimcData.Lm*m/3,
-    Lrsigma=aimcData.Lrsigma*m/3,
-    Rr=aimcData.Rr*m/3,
+    Rs=aimcDataM.Rs,
+    Lssigma=aimcDataM.Lssigma,
+    Lszero=aimcDataM.Lszero,
+    Lm=aimcDataM.Lm,
+    Lrsigma=aimcDataM.Lrsigma,
+    Rr=aimcDataM.Rr,
     TsOperational=293.15,
-    effectiveStatorTurns=aimcData.effectiveStatorTurns,
+    effectiveStatorTurns=aimcDataM.effectiveStatorTurns,
     TrOperational=293.15)
     annotation (Placement(transformation(extent={{20,40},{40,60}})));
   Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=J_Load)
@@ -80,7 +82,7 @@ model IMC_DOL_Polyphase
             40},{80,60}})));
   parameter
     Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
-    aimcData "Induction machine data"
+    aimcData3 "Induction machine data of a three-phase machine"
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation (Placement(
         transformation(
@@ -112,30 +114,31 @@ model IMC_DOL_Polyphase
   Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox3(
       terminalConnection="Y", m=m3) annotation (Placement(transformation(
           extent={{20,-46},{40,-26}})));
-  Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc3(
-    Jr=aimcData.Jr,
-    Js=aimcData.Js,
-    p=aimcData.p,
-    fsNominal=aimcData.fsNominal,
-    Rs=aimcData.Rs,
-    TsRef=aimcData.TsRef,
-    alpha20s(displayUnit="1/K") = aimcData.alpha20s,
-    Lssigma=aimcData.Lssigma,
-    ratioCommonStatorLeakage=aimcData.ratioCommonStatorLeakage,
-    Lszero=aimcData.Lszero,
-    frictionParameters=aimcData.frictionParameters,
-    statorCoreParameters=aimcData.statorCoreParameters,
-    strayLoadParameters=aimcData.strayLoadParameters,
-    Lm=aimcData.Lm,
-    Lrsigma=aimcData.Lrsigma,
-    Rr=aimcData.Rr,
-    TrRef=aimcData.TrRef,
-    alpha20r(displayUnit="1/K") = aimcData.alpha20r,
+  Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
+    aimc3(
+    Jr=aimcData3.Jr,
+    Js=aimcData3.Js,
+    p=aimcData3.p,
+    fsNominal=aimcData3.fsNominal,
+    Rs=aimcData3.Rs,
+    TsRef=aimcData3.TsRef,
+    alpha20s(displayUnit="1/K") = aimcData3.alpha20s,
+    Lssigma=aimcData3.Lssigma,
+    ratioCommonStatorLeakage=aimcData3.ratioCommonStatorLeakage,
+    Lszero=aimcData3.Lszero,
+    frictionParameters=aimcData3.frictionParameters,
+    statorCoreParameters=aimcData3.statorCoreParameters,
+    strayLoadParameters=aimcData3.strayLoadParameters,
+    Lm=aimcData3.Lm,
+    Lrsigma=aimcData3.Lrsigma,
+    Rr=aimcData3.Rr,
+    TrRef=aimcData3.TrRef,
+    alpha20r(displayUnit="1/K") = aimcData3.alpha20r,
     phiMechanical(fixed=true),
     wMechanical(fixed=true),
     m=3,
     TsOperational=293.15,
-    effectiveStatorTurns=aimcData.effectiveStatorTurns,
+    effectiveStatorTurns=aimcData3.effectiveStatorTurns,
     TrOperational=293.15)
     annotation (Placement(transformation(extent={{20,-62},{40,-42}})));
   Modelica.Mechanics.Rotational.Components.Inertia loadInertia3(J=J_Load)
@@ -153,6 +156,18 @@ model IMC_DOL_Polyphase
         origin={10,32})));
   Modelica.Blocks.Math.Feedback feedback
     annotation (Placement(transformation(extent={{80,10},{100,-10}})));
+  parameter
+    Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
+    aimcDataM(
+    m=m,
+    Rs=0.03*m/3,
+    Lszero=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)*m/3,
+    Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)*m/3,
+    statorCoreParameters(m=m),
+    Lm=3*sqrt(1 - 0.0667)/(2*pi*fNominal)*m/3,
+    Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)*m/3,
+    Rr=0.04*m/3) "Induction machine data of an m-phase machine"
+    annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
 initial equation
   aimc3.is[1:2] = zeros(2);
   aimc3.ir[1:2] = zeros(2);
@@ -241,13 +256,9 @@ Simulate for 1.5 seconds and plot (versus time):
             -100},{100,100}}),
                          graphics={       Text(
                 extent={{20,88},{100,80}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%m-phase machine",
                 textStyle={TextStyle.Bold}),Text(
                 extent={{20,-22},{100,-30}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="Three-phase machine",
                 textStyle={TextStyle.Bold})}));
 end IMC_DOL_Polyphase;

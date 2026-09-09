@@ -15,7 +15,7 @@ model Integrator "Integrating amplifier"
     f=f,
     v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Sources.TrapezoidVoltage vIn(
+  Modelica.Electrical.Analog.Sources.TrapezoidVoltage vIn(
     V=2*Vin,
     rising=0.2/f,
     width=0.3/f,
@@ -23,8 +23,7 @@ model Integrator "Integrating amplifier"
     period=1/f,
     nperiod=-1,
     offset=-Vin,
-    startTime=-(vIn.rising + vIn.width/2))
-    annotation (Placement(
+    startTime=-(vIn.rising + vIn.width/2)) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -42,7 +41,6 @@ equation
     annotation (Line(points={{-40,-10},{-10,-10}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>This is an (inverting) integrating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
-<p>Note: <code>vOut</code> measure the negative output voltage.</p>
 </html>"),
     experiment(
       StartTime=0,

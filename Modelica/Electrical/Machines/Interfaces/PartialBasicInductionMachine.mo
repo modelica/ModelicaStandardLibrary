@@ -8,7 +8,7 @@ partial model PartialBasicInductionMachine
   parameter SI.Temperature TsOperational(start=293.15)
     "Operational temperature of stator resistance" annotation (Dialog(group=
          "Operational temperatures", enable=not useThermalPort));
-  parameter SI.Resistance Rs(start=0.03)
+  parameter SI.Resistance Rs(start=0.03*ZsRef)
     "Stator resistance per phase at TRef"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter SI.Temperature TsRef(start=293.15)
@@ -20,7 +20,7 @@ partial model PartialBasicInductionMachine
   parameter SI.Inductance Lszero=Lssigma
     "Stator zero sequence inductance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Inductance Lssigma(start=3*(1 - sqrt(1 -
+  parameter SI.Inductance Lssigma(start=3*ZsRef*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal)) "Stator stray inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   extends PartialBasicMachine(
@@ -100,8 +100,8 @@ partial model PartialBasicInductionMachine
     final useHeatPort=true,
     final m=m) annotation (Placement(transformation(extent={{90,70},{70,90}})));
   replaceable
-    Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines thermalPort(final m=m) if
-       useThermalPort
+    Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines thermalPort(final m=m)
+    if useThermalPort
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
   replaceable
     Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines
@@ -113,6 +113,7 @@ partial model PartialBasicInductionMachine
         rotation=270,
         origin={-30,-80})));
 protected
+  final parameter SI.Impedance ZsRef = 1 "Reference phase impedance based on nominal voltage 100 V and nominal current 100 A; per phase";
   constant Real pi = Modelica.Constants.pi;
   replaceable
     Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines internalThermalPort(final m=m)

@@ -5,7 +5,7 @@ package SimpleAir "Air: Simple dry air model (0..100 degC)"
     mediumName="SimpleAir",
     cp_const=1005.45,
     MM_const=0.0289651159,
-    R_gas=Constants.R/0.0289651159,
+    R_gas=Constants.R/MM_const,
     eta_const=1.82e-5,
     lambda_const=0.026,
     T_min=Cv.from_degC(0),
@@ -26,8 +26,10 @@ package SimpleAir "Air: Simple dry air model (0..100 degC)"
     "Constant data for the fluid";
 
   annotation (Documentation(info="<html>
-                            <h4>Simple Ideal gas air model for low temperatures</h4>
-                            <p>This model demonstrates how to use the PartialSimpleIdealGas base class to build a
-                            simple ideal gas model with a limited temperature validity range.</p>
-                            </html>"));
+<h4>Simple Ideal gas air model for low temperatures</h4>
+<p>
+This model demonstrates how to use the PartialSimpleIdealGas base class to build a
+simple ideal gas model with a limited temperature validity range.
+</p>
+</html>"));
 end SimpleAir;

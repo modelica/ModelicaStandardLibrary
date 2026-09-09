@@ -1,12 +1,14 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron;
-record MuMetall "MUMETALL (77% NiFe)"
+record MuMetall "Mu-metal (77% NiFe)"
   extends FluxTubes.Material.SoftMagnetic.BaseData(
+    label="Mu-metal",
     mu_i=27300,
     B_myMax=0.46,
     c_a=1037500,
     c_b=3.67,
     n=10);
-  annotation (Documentation(info="<html>
+  annotation (defaultComponentPrefixes="parameter",
+    Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>

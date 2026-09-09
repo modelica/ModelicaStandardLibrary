@@ -3,7 +3,7 @@ model IdealTransformer "Ideal transformer core with or without magnetization"
   extends Modelica.Electrical.Analog.Interfaces.TwoPort;
   parameter Real n(start=1) "Turns ratio primary:secondary voltage";
   parameter Boolean considerMagnetization=false
-    "Choice of considering magnetization";
+    "Choice of considering magnetization" annotation(Evaluate = true);
   parameter SI.Inductance Lm1(start=1)
     "Magnetization inductance w.r.t. primary side"
     annotation (Dialog(enable=considerMagnetization));

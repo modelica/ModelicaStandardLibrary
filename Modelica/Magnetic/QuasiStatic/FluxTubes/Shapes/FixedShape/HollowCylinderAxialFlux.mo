@@ -13,11 +13,11 @@ model HollowCylinderAxialFlux
     annotation (Dialog(group="Fixed geometry"));
   parameter SI.Radius r_o=0.01 "Outer radius of (hollow) cylinder"
     annotation (Dialog(group="Fixed geometry"));
-  parameter SI.Angle alpha=2*Modelica.Constants.pi
-  "Central angle";
+  parameter SI.Angle alpha=2*pi "Central angle"
+    annotation (Dialog(group="Fixed geometry"));
 equation
-  A = pi*(r_o^2 - r_i^2)*alpha/(2*Modelica.Constants.pi);
-  G_m = (mu_0*mu_r*A)/l;
+  A = (r_o^2 - r_i^2)*alpha/2;
+  G_m = mu_0*mu_r*A/l;
 
   annotation (Documentation(info="<html>
 <p>The axial cylinder models is characterized by the outer diameter, <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/r_o.png\"/>, the inner diameter, <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/r_i.png\"/>, length, <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\"/>. The magnetic reluctance is determined by:</p>

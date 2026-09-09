@@ -1,7 +1,7 @@
 within Modelica.Clocked.RealSignals.TickBasedSources;
 block Ramp "Generate ramp signal based on counted clock ticks"
   extends Interfaces.PartialClockedSO;
-  parameter Real height=1 "Height of ramps";
+  parameter Real height=1 "Height of ramp";
   parameter Integer durationTicks(min=1) = 1
 "Durations of ramp in number of clock ticks";
   parameter Real offset=0 "Offset of output signal";

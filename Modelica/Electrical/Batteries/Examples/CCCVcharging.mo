@@ -2,10 +2,11 @@ within Modelica.Electrical.Batteries.Examples;
 model CCCVcharging
   "Charge a battery with constant current - constant voltage characteristic"
   extends Modelica.Icons.Example;
+  parameter Modelica.Units.SI.Current Isc = 1200 "Short-circuit current of cell at OCVmax";
   parameter Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData cellData(
     Qnom=18000,
     useLinearSOCDependency=false,
-    Ri=cellData.OCVmax/1200,
+    Ri=cellData.OCVmax/Isc,
     Idis=0.001)
     annotation (Placement(transformation(extent={{20,-20},{40,0}})));
   Modelica.Electrical.Batteries.BatteryStacks.CellRCStack battery(

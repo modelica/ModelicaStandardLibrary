@@ -691,7 +691,7 @@ for a smooth transition from y1 to y2.
           c := 0.1*Delta0;
         end if;
         theta0 := (y0d*mu + y1d*eta)/h0;
-        if abs(theta0 - c) < 1e-6 then
+        if abs(theta0 - c) < 1e-6*abs(c) then
           // Slightly reduce c in order to avoid ill-posed problem
           c := (1 - 1e-6)*theta0;
         end if;
@@ -700,6 +700,7 @@ for a smooth transition from y1 to y2.
         eta_tilde := rho*eta;
         xi1 := x0 + mu_tilde;
         xi2 := x1 - eta_tilde;
+
         a1 := (y0d - c)/max(mu_tilde^2, 100*Modelica.Constants.eps);
         a2 := (y1d - c)/max(eta_tilde^2, 100*Modelica.Constants.eps);
         const12 := y0 - a1/3*(x0 - xi1)^3 - c*x0;

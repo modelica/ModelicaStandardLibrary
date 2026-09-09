@@ -12,7 +12,7 @@ model HallSensor "Hall sensor"
     annotation (Placement(transformation(extent={{-100,-10},{-120,10}})));
 equation
   flange.tau=0;
-  y=rem((flange.phi - phi_support - phi0)*p, 2*pi);
+  y=mod((flange.phi - phi_support - phi0)*p, 2*pi);
    annotation (
     Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Ellipse(extent={{-70,70},{70,-70}}, lineColor={95,95,95},

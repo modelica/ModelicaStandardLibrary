@@ -107,11 +107,7 @@ equation
           extent={{-62,-48},{-58,-52}},
           lineColor={0,0,255},
           fillColor={85,85,255},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-120,100},{120,80}},
-          textString="CauerLowPassAnalog",
-          textColor={0,0,255})}),
+          fillPattern=FillPattern.Solid)}),
     experiment(StopTime=60),
     Documentation(revisions="<html>
 <ul>
