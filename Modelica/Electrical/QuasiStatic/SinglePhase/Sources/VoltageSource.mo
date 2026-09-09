@@ -5,7 +5,7 @@ model VoltageSource "Constant AC voltage"
   parameter SI.Voltage V(start=1) "RMS voltage of the source";
   parameter SI.Angle phi(start=0) "Phase shift of the source";
 equation
-  omega = 2*Modelica.Constants.pi*f;
+  pin_p.reference.gamma = 2*Modelica.Constants.pi*f*time "Avoid integration error in loops";
   v = Complex(V*cos(phi), V*sin(phi));
   annotation (Icon(graphics={
         Line(points={{-50,0},{50,0}}, color={85,170,255}),
