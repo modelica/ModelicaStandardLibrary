@@ -1375,7 +1375,7 @@ converts from one unit into another one.
                 {48,13},{56,13},{56,-53},{66,-53}}),
           Text(
             extent={{-150,-110},{150,-150}},
-            textString="%samplePeriod s"),
+            textString="%{samplePeriod}"),
           Line(visible=not enableNoise,
             points={{-76,48},{72,48}}),
           Text(visible=not enableNoise,
