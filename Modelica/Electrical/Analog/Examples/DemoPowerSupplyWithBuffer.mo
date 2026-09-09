@@ -51,16 +51,16 @@ equation
     experiment(Interval = 1e-05, Tolerance = 1e-6, StartTime = 0, StopTime = 1),
     Documentation(info="<html>
 <p>
-At the beginning, the DC power supply charges the buffer capacitor within its limits (current, power, voltage). 
-The DC power supply is protected from back current by a buffer capacitor and a diode. 
-This also reduces current ripple of the power supply. 
+At the beginning, the DC power supply charges the buffer capacitor within its limits (current, power, voltage).
+The DC power supply is protected from back current by a buffer capacitor and a diode.
+This also reduces current ripple of the power supply.
 </p>
 <p>
-Of course, if the load current feeds back a too high current to the buffer capacitor for a longer period of time, 
+Of course, if the load current feeds back a too high current to the buffer capacitor for a longer period of time,
 the buffer capacitor's voltage increases. This should be under surveillance.
 </p>
 <p>
-The load current is 0 up to 0.5 s, afterwards a pulse with amplitude 50 A, an offset of -25 A, a dutyCycle of 0.5 and a frequency of 1 kHz. 
+The load current is 0 up to 0.5 s, afterwards a pulse with amplitude 50 A, an offset of -25 A, a dutyCycle of 0.5 and a frequency of 1 kHz.
 </p>
 </html>"));
 end DemoPowerSupplyWithBuffer;

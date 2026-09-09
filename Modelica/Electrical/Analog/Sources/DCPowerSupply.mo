@@ -82,8 +82,8 @@ equation
         textString="%P0")}),
     Documentation(info="<html>
 <p>
-This is a simple model of a DC power supply, as used in laboratories. 
-It can only work in one quadrant, i.e., positive voltage, delivering current. 
+This is a simple model of a DC power supply, as used in laboratories.
+It can only work in one quadrant, i.e., positive voltage, delivering current.
 It has three limitations:
 </p>
 <ul>

@@ -22,7 +22,7 @@ model LightningImpulseVoltage "Lightning impulse voltage"
               -39.3},{50.9,-44.5},{60.8,-48.8},{70,-51.4}})}),
                                      Documentation(info="<html>
 <p>
-Lightning impulse voltage using either a double exponential function or a Heidler function, 
+Lightning impulse voltage using either a double exponential function or a Heidler function,
 see block <a href=\"modelica://Modelica.Electrical.Analog.Sources.LightningImpulse\">LightningImpulse</a>.
 </p>
 </html>"));
