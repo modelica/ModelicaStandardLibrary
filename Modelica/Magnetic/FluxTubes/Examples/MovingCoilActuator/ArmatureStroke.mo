@@ -67,7 +67,10 @@ equation
           Text( extent={{-98,90},{-30,80}},
                 textColor={0,0,255},
                 textString="after a voltage step at t=0")}),
-    experiment(StopTime=0.05, Tolerance=1e-007),
+    experiment(
+      StopTime=0.05,
+      Interval=1e-05,
+      Tolerance=1e-07),
     Documentation(info="<html>
 <p>
 Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a>

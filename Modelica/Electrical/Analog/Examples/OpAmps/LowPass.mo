@@ -15,7 +15,7 @@ model LowPass "Low-pass filter"
   OpAmpCircuits.FirstOrder firstOrder(
     T=1/(2*pi*fG), v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Sources.TrapezoidVoltage vIn(
+  Modelica.Electrical.Analog.Sources.TrapezoidVoltage vIn(
     V=Vin,
     rising=0.2/f,
     width=0.3/f,
@@ -23,8 +23,7 @@ model LowPass "Low-pass filter"
     period=1/f,
     nperiod=-1,
     offset=0,
-    startTime=-(vIn.rising + vIn.width/2))
-    annotation (Placement(
+    startTime=-(vIn.rising + vIn.width/2)) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -43,7 +42,6 @@ equation
   annotation (Documentation(info="<html>
 <p>This is a (inverting) low pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
 <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
-<p>Note: <code>vOut</code> measure the negative output voltage.</p>
 </html>"),
     experiment(
       StartTime=0,

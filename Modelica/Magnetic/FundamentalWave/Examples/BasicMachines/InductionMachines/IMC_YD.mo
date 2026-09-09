@@ -37,7 +37,8 @@ model IMC_YD
     TsOperational=293.15,
     effectiveStatorTurns=aimcData.effectiveStatorTurns,
     alpha20r=aimcData.alpha20r,
-    TrOperational=293.15)
+    TrOperational=293.15,
+    stator(zeroInductor(i0(nominal=10))))
     annotation (Placement(transformation(extent={{20,10},{40,30}})));
   Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
     annotation (Placement(transformation(
@@ -112,8 +113,8 @@ equation
       points={{40,20},{50,20}}));
   annotation (experiment(
       StopTime=2.5,
-      Interval=1E-4,
-      Tolerance=1e-06),                                 Documentation(
+      Interval=0.0001,
+      Tolerance=1e-06),                      Documentation(
         info="<html>
 <p>At start time tStart three-phase voltage is supplied to the induction machine with squirrel cage,
 first star-connected, then delta-connected; the machine starts from standstill,

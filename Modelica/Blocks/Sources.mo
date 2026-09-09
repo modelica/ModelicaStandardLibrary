@@ -267,11 +267,11 @@ The Real output y is a step signal:
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-40,-70},{31,38}}),
+          Line(points={{-80,-70},{-40,-70},{31,38}, {86, 38}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            textString="duration=%duration"),
-          Line(points={{31,38},{86,38}})}),
+            textString="duration=%duration")
+          }),
       Documentation(info="<html>
 <p>
 The Real output y is a ramp signal:
@@ -377,12 +377,12 @@ The Real output y is a sine signal:
           Line(points={{-80,80},{-76.2,79.8},{-70.6,76.6},{-64.9,69.7},{-59.3,
                 59.4},{-52.9,44.1},{-44.83,21.2},{-27.9,-30.8},{-20.7,-50.2},{-14.3,
                 -64.2},{-8.7,-73.1},{-3,-78.4},{2.6,-80},{8.2,-77.6},{13.9,-71.5},
-                {19.5,-61.9},{25.9,-47.2},{34,-24.8},{42,0}}, smooth=Smooth.Bezier),
+                {19.5,-61.9},{25.9,-47.2},{34,-24.8},{42,0},{53.3,35.2},{60.5,54.1},{66.9,67.4},{72.6,75.6},{
+                78.2,80.1},{83.8,80.8}}, smooth=Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
-            textString="f=%f"),
-          Line(points={{42,1},{53.3,35.2},{60.5,54.1},{66.9,67.4},{72.6,75.6},{
-                78.2,80.1},{83.8,80.8}})}),
+            textString="f=%f")
+          }),
       Documentation(info="<html>
 <p>
 The Real output y is a cosine signal:
@@ -1504,7 +1504,7 @@ a flange according to a given acceleration.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
-                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}),
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-50}}),
           Text(
             extent={{-150,-150},{150,-110}},
             textString="offset=%offset")}),
@@ -1684,13 +1684,13 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     if verboseExtrapolation and (
       extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
       extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
-      assert(noEvent(time >= t_min), "
-Extrapolation warning: Time (=" + String(time) + ") must be greater or equal
-than the minimum abscissa value t_min (=" + String(t_min) + ") defined in the table.
+      assert(noEvent(time >= t_min + shiftTime), "
+Extrapolation warning: Time must be greater or equal
+than the shifted minimum abscissa value defined in the table.
 ", level=AssertionLevel.warning);
-      assert(noEvent(time <= t_max), "
-Extrapolation warning: Time (=" + String(time) + ") must be less or equal
-than the maximum abscissa value t_max (=" + String(t_max) + ") defined in the table.
+      assert(noEvent(time <= t_max + shiftTime), "
+Extrapolation warning: Time must be less or equal
+than the shifted maximum abscissa value defined in the table.
 ", level=AssertionLevel.warning);
     end if;
 
@@ -1840,7 +1840,7 @@ fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". CSV, text and MATLAB MAT-file format is possible.
-    (The text format is described below).
+    (Both the limitations on the CSV format and the text format are described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -1864,6 +1864,13 @@ savematfile tables.mat tab1 tab2 tab3
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
+<p>
+If the table is read from a CSV file, the following limitations apply
+</p>
+<ol>
+<li>Non-numeric data is not supported (in the lines following the header lines), even if such columns are excluded.</li>
+<li>Double-quoted data entries in the first header line shall not contain the column delimiter.</li>
+</ol>
 <p>
 If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
@@ -1940,7 +1947,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         fillColor={255,215,136},
         fillPattern=FillPattern.Solid,
         extent={{-48,-50},{2,70}}),
-      Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},{52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}),
+      Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},{52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-50}}),
       Text(extent={{-150,-150},{150,-110}}, textString="tableOnFile=%tableOnFile")}));
   end CombiTimeTable;
 
@@ -2150,7 +2157,7 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid), Line(points={{-18,-50},{-18,70},{32,
                 70},{32,-50},{-18,-50},{-18,-20},{32,-20},{32,10},{-18,10},{-18,
-                40},{32,40},{32,70},{32,70},{32,-51}})}),
+                40},{32,40},{32,70},{32,70},{32,-50}})}),
       Documentation(info="<html>
 <p>
 The Boolean output y is a signal defined by parameter vector <strong>table</strong>.
@@ -2426,7 +2433,7 @@ The Integer output y is a step signal:
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-46,-52},{-46,68},{54,68},{54,-52},{-46,-52},{-46,-22},
-                {54,-22},{54,8},{-46,8},{-46,38},{54,38},{54,68},{4,68},{4,-53}})}),
+                {54,-22},{54,8},{-46,8},{-46,38},{54,38},{54,68},{4,68},{4,-52}})}),
       Documentation(info="<html>
 
 <p>

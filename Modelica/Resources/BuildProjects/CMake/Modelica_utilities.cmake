@@ -1,0 +1,20 @@
+if(DEFINED MODELICA_UTILITIES_INCLUDE_DIR)
+  if(NOT MODELICA_UTILITIES_INCLUDE_DIR STREQUAL "")
+    file(TO_CMAKE_PATH ${MODELICA_UTILITIES_INCLUDE_DIR} MODELICA_UTILITIES_INCLUDE_DIR)
+    include_directories(${MODELICA_UTILITIES_INCLUDE_DIR})
+  else()
+    message(FATAL_ERROR "MODELICA_UTILITIES_INCLUDE_DIR is an empty string.")
+  endif()
+else()
+  set(
+    MODELICA_UTILITIES_INCLUDE_DIR ""
+    CACHE PATH
+    "Include directory of the (tool-vendor specific) ModelicaUtilities.h header file"
+  )
+  if(NOT MODELICA_UTILITIES_INCLUDE_DIR STREQUAL "")
+    file(TO_CMAKE_PATH ${MODELICA_UTILITIES_INCLUDE_DIR} MODELICA_UTILITIES_INCLUDE_DIR)
+    include_directories(${MODELICA_UTILITIES_INCLUDE_DIR})
+  else()
+    message(FATAL_ERROR "MODELICA_UTILITIES_INCLUDE_DIR is an empty string.")
+  endif()
+endif()

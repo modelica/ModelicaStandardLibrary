@@ -4319,7 +4319,7 @@ a linear damper is connected here.
       MultiBody.Forces.SpringDamperParallel
         springDamperParallel2(
         s_unstretched=0.2,
-        d=d,
+        final d=d,
         c=100) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             origin={20,-100})));
@@ -8741,8 +8741,6 @@ often possible to use the FreeMotion joint such that the singularity
               Text(
                 extent={{-150,-72},{-56,-90}},
                 textColor={255,85,85},
-                lineThickness=0.5,
-                fillPattern=FillPattern.Solid,
                 textString="Compare angles and position vector r",
                 fontSize=11),
               Line(

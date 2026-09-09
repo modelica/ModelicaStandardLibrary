@@ -89,12 +89,12 @@ model SmoothStep "Compares oLine and tLine behaviour"
   Modelica.Electrical.Analog.Basic.Ground groundT
     annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
 initial equation
-  oLine1.C.v=zeros(N1);
-  oLine1.L.i=zeros(N1 + 1);
-  oLine5.C.v=zeros(N5);
-  oLine5.L.i=zeros(N5 + 1);
-  oLine50.C.v=zeros(N50);
-  oLine50.L.i=zeros(N50 + 1);
+  oLine1.v=zeros(N1);
+  oLine1.i=zeros(N1 + 1);
+  oLine5.v=zeros(N5);
+  oLine5.i=zeros(N5 + 1);
+  oLine50.v=zeros(N50);
+  oLine50.i=zeros(N50 + 1);
 equation
   connect(groundS.p, sourceV.n) annotation (Line(
       points={{-50,-50},{-50,-40}},

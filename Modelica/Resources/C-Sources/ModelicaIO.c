@@ -1,6 +1,6 @@
 /* ModelicaIO.c - Array I/O functions
 
-   Copyright (C) 2016-2020, Modelica Association and contributors
+   Copyright (C) 2016-2025, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -95,7 +95,29 @@
 #include "ModelicaUtilities.h"
 
 #ifdef NO_FILE_SYSTEM
-MODELICA_NORETURN static void ModelicaNotExistError(const char* name) MODELICA_NORETURNATTR;
+
+/*
+  ModelicaNotExistError never returns to the caller. In order to compile
+  external Modelica C-code in most compilers, noreturn attributes need to
+  be present to avoid warnings or errors.
+
+  The following macro handles the noreturn attribute according to the
+  C23/C11/C++11 standard with fallback to the MSVC/Borland extension.
+*/
+#undef MODELICA_NORETURN
+#if (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L) || \
+    (defined(__cplusplus) && __cplusplus >= 201103L && \
+    (!defined(__GNUC__) || __GNUC__ >= 5 || (__GNUC__ == 4 && defined(__GNUC_MINOR__) && __GNUC_MINOR__ >= 8)))
+#define MODELICA_NORETURN [[noreturn]]
+#elif defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+#define MODELICA_NORETURN _Noreturn
+#elif (defined(_MSC_VER) && _MSC_VER >= 1200) || defined(__BORLANDC__)
+#define MODELICA_NORETURN __declspec(noreturn)
+#else
+#define MODELICA_NORETURN
+#endif
+
+MODELICA_NORETURN static void ModelicaNotExistError(const char* name);
 static void ModelicaNotExistError(const char* name) {
   /* Print error message if a function is not implemented */
     ModelicaFormatError("C-Function \"%s\" is called "
@@ -103,6 +125,8 @@ static void ModelicaNotExistError(const char* name) {
         "(e.g., because there is no file system available on the machine "
         "as for dSPACE or xPC systems)\n", name);
 }
+
+#undef MODELICA_NORETURN
 
 void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
     _In_z_ const char* matrixName, _Out_ int* dim) {

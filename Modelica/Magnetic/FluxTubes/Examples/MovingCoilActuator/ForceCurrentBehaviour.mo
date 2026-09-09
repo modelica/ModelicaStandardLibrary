@@ -77,7 +77,10 @@ equation
           Text( extent={{-98,88},{2,78}},
                 textColor={0,0,255},
                 textString="with armature blocked at mid-position")}),
-    experiment(StopTime=6, Tolerance=1e-007),
+    experiment(
+      StopTime=6,
+      Interval=0.0001,
+      Tolerance=1e-07),
     Documentation(info="<html>
 <p>
 Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models.<br>

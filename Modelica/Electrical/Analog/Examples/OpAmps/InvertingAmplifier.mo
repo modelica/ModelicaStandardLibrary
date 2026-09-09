@@ -20,7 +20,7 @@ model InvertingAmplifier "Inverting amplifier"
         origin={-40,0})));
   Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(
         transformation(
-        extent={{10,10},{-10,-10}},
+        extent={{-10,10},{10,-10}},
         rotation=270,
         origin={40,0})));
   OpAmpCircuits.Gain gain(k=2)
@@ -32,14 +32,13 @@ equation
     annotation (Line(points={{-10,-10},{-10,-20}}, color={0,0,255}));
   connect(gain.n1, vIn.n)
     annotation (Line(points={{-10,-10},{-40,-10}}, color={0,0,255}));
-  connect(gain.p2, vOut.n)
-    annotation (Line(points={{10,10},{40,10}}, color={0,0,255}));
-  connect(gain.n2, vOut.p)
+  connect(gain.n2, vOut.n)
     annotation (Line(points={{10,-10},{40,-10}}, color={0,0,255}));
+  connect(gain.p2, vOut.p)
+    annotation (Line(points={{10,10},{40,10}}, color={0,0,255}));
   annotation (
     Documentation(info="<html>
 <p>This is an inverting amplifier.</p>
-<p>Note: <code>vOut</code> measure the negative output voltage.</p>
 </html>"),
     experiment(
       StartTime=0,

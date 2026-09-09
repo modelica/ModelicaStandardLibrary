@@ -415,7 +415,7 @@ with exception of boundary pressure, do not have an effect.
   model MassFlowSource_T
     "Ideal flow source that produces a prescribed mass flow with prescribed temperature, mass fraction and trace substances"
     import Modelica.Media.Interfaces.Choices.IndependentVariables;
-    extends Sources.BaseClasses.PartialFlowSource;
+    extends Sources.BaseClasses.PartialFlowSource(nPorts(min=1));
     parameter Boolean use_m_flow_in = false
       "Get the mass flow rate from the input connector"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
@@ -562,7 +562,7 @@ with exception of boundary flow rate, do not have an effect.
   model MassFlowSource_h
     "Ideal flow source that produces a prescribed mass flow with prescribed specific enthalpy, mass fraction and trace substances"
     import Modelica.Media.Interfaces.Choices.IndependentVariables;
-    extends Sources.BaseClasses.PartialFlowSource;
+    extends Sources.BaseClasses.PartialFlowSource(nPorts(min=1));
     parameter Boolean use_m_flow_in = false
       "Get the mass flow rate from the input connector"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));

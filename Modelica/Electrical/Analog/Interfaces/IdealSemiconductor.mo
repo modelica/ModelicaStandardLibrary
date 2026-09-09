@@ -18,8 +18,8 @@ protected
   constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
   constant SI.Current unitCurrent=1 annotation (HideResult=true);
 equation
-  v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
-  i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
+  v = s*(if off then unitVoltage else Ron*unitCurrent) + Vknee;
+  i = s*(if off then Goff*unitVoltage else unitCurrent) + Goff*Vknee;
   LossPower = v*i;
   annotation (
     Documentation(info="<html>

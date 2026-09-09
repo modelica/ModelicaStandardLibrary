@@ -1,6 +1,6 @@
 dnl Init
 AC_PREREQ([2.63])
-AC_INIT([Modelica Standard Library Tables],[4.0.0],[https://github.com/modelica/ModelicaStandardLibrary],[libmodelicastandardtables],[https://modelica.org])
+AC_INIT([Modelica Standard Library Tables],[4.1.0],[https://github.com/modelica/ModelicaStandardLibrary],[libmodelicastandardtables],[https://modelica.org])
 
 AM_INIT_AUTOMAKE([subdir-objects])
 AC_CONFIG_MACRO_DIR([m4])

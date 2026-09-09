@@ -232,18 +232,20 @@ Specification (version &ge; 3.3).
 
   annotation (
     preferredView="info",
-    version="4.0.0",
-    versionDate="2020-06-04",
-    dateModified = "2020-06-04 11:00:00Z",
+    version="4.2.0 dev",
+    versionDate="20xx-xx-xx",
+    dateModified = "2025-05-23 15:00:00Z",
     revisionId="$Format:%h %ci$",
-    uses(Modelica(version="4.0.0")),
+    uses(Modelica(version="4.2.0 dev")),
     conversion(
       noneFromVersion="1.0",
       noneFromVersion="1.1",
       noneFromVersion="1.2",
       noneFromVersion="3.2.1",
       noneFromVersion="3.2.2",
-      noneFromVersion="3.2.3"),
+      noneFromVersion="3.2.3",
+      noneFromVersion="4.0.0",
+      noneFromVersion="4.1.0"),
     Documentation(info="<html>
 <p>
 This package contains a set of functions and models to be used in the
@@ -293,7 +295,7 @@ This ModelicaServices package provides only \"dummy\" models that do nothing.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 2009-2020, Modelica Association and contributors
+Copyright &copy; 2009-2025, Modelica Association and contributors
 </p>
 
 <p>

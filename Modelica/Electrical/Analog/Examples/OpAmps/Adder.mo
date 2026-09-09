@@ -5,22 +5,22 @@ model Adder "Inverting adder"
   parameter SI.Frequency f=10 "Frequency of input voltage";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-  Sources.SineVoltage vIn1(V=Vin, f=f) annotation (Placement(
-        transformation(
+  Modelica.Electrical.Analog.Sources.SineVoltage vIn1(V=Vin, f=f) annotation
+    (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-60,0})));
-  Sources.ConstantVoltage vIn2(V=Vin) annotation (Placement(
-        transformation(
+  Modelica.Electrical.Analog.Sources.ConstantVoltage vIn2(V=Vin) annotation (
+      Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-40,-10})));
   Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(
         transformation(
-        extent={{10,10},{-10,-10}},
+        extent={{-10,10},{10,-10}},
         rotation=270,
         origin={40,0})));
-  OpAmpCircuits.Add add(p1_2(i(start=0)))
+  OpAmpCircuits.Add add
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 equation
   connect(add.n1, ground.p)
@@ -33,13 +33,12 @@ equation
     annotation (Line(points={{-10,-20},{-40,-20}}, color={0,0,255}));
   connect(ground.p, vIn1.n)
     annotation (Line(points={{-10,-20},{-60,-20},{-60,-10}}, color={0,0,255}));
-  connect(add.p2, vOut.n)
+  connect(add.p2, vOut.p)
     annotation (Line(points={{10,10},{40,10}}, color={0,0,255}));
-  connect(add.n2, vOut.p)
+  connect(add.n2, vOut.n)
     annotation (Line(points={{10,-10},{40,-10}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>This is an inverting adder.</p>
-<p>Note: <code>vOut</code> measure the negative output voltage.</p>
 </html>"),
     experiment(
       StartTime=0,
