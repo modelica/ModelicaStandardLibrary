@@ -22,8 +22,9 @@ jobs:
             });
 
             const labels = (pr.labels || []).map(l => typeof l === 'string' ? l : l.name);
-            const hasLabel = labels.includes('c-code-checked');
-
+            const hasLabel = labels.includes('ready_for_ci');
+            const author = context.payload.pull_request.user.login
+            
             await github.rest.repos.createDispatchEvent({
               owner: '${{ secrets.PRIVATE_CI_OWNER }}',
               repo: '${{ secrets.PRIVATE_CI_REPO }}',
@@ -33,6 +34,7 @@ jobs:
                 head_sha: pr.head.sha,
                 base_sha: pr.base.sha,
                 has_label: hasLabel,
+                author: author,
                 github_repo: context.repo.full_name
               }
             });
