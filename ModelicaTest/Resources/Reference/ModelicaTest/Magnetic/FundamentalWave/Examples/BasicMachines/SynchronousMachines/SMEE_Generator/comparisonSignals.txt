@@ -1,0 +1,15 @@
+time
+constantSpeedE.phi
+constantSpeedM.phi
+smeeE.is[1]
+smeeE.is[2]
+smeeE.idq_dr[1]
+smeeE.idq_rr[2]
+smeeE.idq_sr[1]
+smeeE.idq_sr[2]
+smeeM.is[1]
+smeeM.is[2]
+smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+smeeM.stator.stray.port_p.Phi.im
+smeeM.stator.stray.port_p.Phi.re

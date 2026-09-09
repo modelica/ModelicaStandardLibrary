@@ -267,11 +267,11 @@ The Real output y is a step signal:
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-40,-70},{31,38}}),
+          Line(points={{-80,-70},{-40,-70},{31,38}, {86, 38}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            textString="duration=%duration"),
-          Line(points={{31,38},{86,38}})}),
+            textString="duration=%duration")
+          }),
       Documentation(info="<html>
 <p>
 The Real output y is a ramp signal:
@@ -377,12 +377,12 @@ The Real output y is a sine signal:
           Line(points={{-80,80},{-76.2,79.8},{-70.6,76.6},{-64.9,69.7},{-59.3,
                 59.4},{-52.9,44.1},{-44.83,21.2},{-27.9,-30.8},{-20.7,-50.2},{-14.3,
                 -64.2},{-8.7,-73.1},{-3,-78.4},{2.6,-80},{8.2,-77.6},{13.9,-71.5},
-                {19.5,-61.9},{25.9,-47.2},{34,-24.8},{42,0}}, smooth=Smooth.Bezier),
+                {19.5,-61.9},{25.9,-47.2},{34,-24.8},{42,0},{53.3,35.2},{60.5,54.1},{66.9,67.4},{72.6,75.6},{
+                78.2,80.1},{83.8,80.8}}, smooth=Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
-            textString="f=%f"),
-          Line(points={{42,1},{53.3,35.2},{60.5,54.1},{66.9,67.4},{72.6,75.6},{
-                78.2,80.1},{83.8,80.8}})}),
+            textString="f=%f")
+          }),
       Documentation(info="<html>
 <p>
 The Real output y is a cosine signal:
@@ -1504,7 +1504,7 @@ a flange according to a given acceleration.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
-                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}),
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-50}}),
           Text(
             extent={{-150,-150},{150,-110}},
             textString="offset=%offset")}),
@@ -1947,7 +1947,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         fillColor={255,215,136},
         fillPattern=FillPattern.Solid,
         extent={{-48,-50},{2,70}}),
-      Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},{52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}),
+      Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},{52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-50}}),
       Text(extent={{-150,-150},{150,-110}}, textString="tableOnFile=%tableOnFile")}));
   end CombiTimeTable;
 
@@ -2157,7 +2157,7 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid), Line(points={{-18,-50},{-18,70},{32,
                 70},{32,-50},{-18,-50},{-18,-20},{32,-20},{32,10},{-18,10},{-18,
-                40},{32,40},{32,70},{32,70},{32,-51}})}),
+                40},{32,40},{32,70},{32,70},{32,-50}})}),
       Documentation(info="<html>
 <p>
 The Boolean output y is a signal defined by parameter vector <strong>table</strong>.
@@ -2433,7 +2433,7 @@ The Integer output y is a step signal:
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-46,-52},{-46,68},{54,68},{54,-52},{-46,-52},{-46,-22},
-                {54,-22},{54,8},{-46,8},{-46,38},{54,38},{54,68},{4,68},{4,-53}})}),
+                {54,-22},{54,8},{-46,8},{-46,38},{54,38},{54,68},{4,68},{4,-52}})}),
       Documentation(info="<html>
 
 <p>
