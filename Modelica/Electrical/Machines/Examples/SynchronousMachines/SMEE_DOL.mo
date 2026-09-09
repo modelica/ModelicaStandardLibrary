@@ -41,7 +41,8 @@ model SMEE_DOL
     TrOperational=293.15,
     alpha20r=smeeData.alpha20r,
     alpha20e=smeeData.alpha20e,
-    TeOperational=293.15)
+    TeOperational=293.15,
+    ie(fixed=true))
     annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
   Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p, m=m)
     annotation (Placement(transformation(
@@ -132,7 +133,6 @@ model SMEE_DOL
     annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
 initial equation
   smee.is[1:2] = zeros(2);
-  smee.ie = 0;
   //conditional damper cage currents are defined as fixed start values
 equation
   connect(rotorDisplacementAngle.plug_n, smee.plug_sn) annotation (Line(
