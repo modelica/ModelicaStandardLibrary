@@ -132,21 +132,21 @@ and accelerate inertias. At time <code>tStep</code> a load step is applied.</p>
 </ul>
 
 <p>
-Compare with transient models 
+Compare with transient models
 <a href=\"modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Inverter\">IMC_Inverter (Electrical.Machines)</a> and
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter\">IMC_Inverter (FundamentalWave)</a>. 
-Note that electrical transients are neglected, but mechanical transients are taken into account. 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter\">IMC_Inverter (FundamentalWave)</a>.
+Note that electrical transients are neglected, but mechanical transients are taken into account.
 </p>
 
 <h4>Theoretical thoughts</h4>
 
 <p>
-By setting the stator resistance <code>Rs = 0</code>, comparing quasistatic points of operation for different stator frequencies <code>fs</code>, 
+By setting the stator resistance <code>Rs = 0</code>, comparing quasistatic points of operation for different stator frequencies <code>fs</code>,
 it can be seen that</p>
 
 <ul>
 <li>in the base region <code>fs &le; fNominal</code> rotor frequency <code>fr</code> is constant, if the load torque is constant,</li>
-<li>whereas in the field weakening region <code>f &ge; fNominal</code> slip is constant, 
+<li>whereas in the field weakening region <code>f &ge; fNominal</code> slip is constant,
 if load torque is adapted according to <code>tau = tauNominal*fNominal/f</code>.</li>
 </ul>
 

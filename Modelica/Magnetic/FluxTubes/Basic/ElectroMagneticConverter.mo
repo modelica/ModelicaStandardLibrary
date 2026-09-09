@@ -167,7 +167,7 @@ If a coil wound clockwise has to be modeled instead, the parameter N (Number of 
 
 <h4>Note</h4>
 <p>
-The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculated for information only. 
+The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculated for information only.
 Note that L_stat is set to |&Psi;/eps| if |i| &lt; eps (= 100*Modelica.Constants.eps).<br>
 <strong>Note</strong> that this local calculation of L_stat is only valid if this coil is the only source in the magnetic circuit.
 </p>

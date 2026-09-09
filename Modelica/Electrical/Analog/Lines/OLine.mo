@@ -48,7 +48,7 @@ model OLine "Lossy Transmission Line"
         iconTransformation(extent={{-110,-110},{-90,-90}})));
   output SI.Voltage v[N]=G.v "Voltages at the connections of the elements";
   output SI.Current i[N+1]=R.i "Currents at the connections of the elements";
-  /* 
+  /*
   The components R[N+1], L[N+1], C[N] and G[N] have been protected in the previous release(s)
   to avoid excessive size of simulation results.
   Voltages and currents at the connections are now mirrored to alias variables
