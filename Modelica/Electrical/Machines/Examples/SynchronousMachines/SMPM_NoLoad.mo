@@ -105,5 +105,14 @@ Additionally, you may check the phase shift of the stator voltages with respect 
 <p>Note that the angle of the voltage space phasor is pi/2 behind the angle of the hall sensor,
 i.e. after a rotation of the shaft by pi/2/p the flux linkage of phase 1 is zero and the induced voltage a maximum.
 </p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMPM NoLoad",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = smpm.wMechanical, y = toPolar.y[1]),
+          Curve(x = smpm.wMechanical, y = toDeg.y)})})}));
 end SMPM_NoLoad;

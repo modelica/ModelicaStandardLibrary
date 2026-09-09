@@ -131,5 +131,15 @@ and accelerating inertias. At time tStep a load step is applied.</p>
 </ul>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMR Inverter",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = smr.tauElectrical),
+          Curve(x = time, y = smr.wMechanical)})})}));
 end SMR_Inverter;

@@ -112,5 +112,16 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcpm2.wMechanical: motor's speed of quasi-static model</li>
 <li>dcpm2.tauElectrical: motor's torque of quasi-static model</li>
 </ul>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "DCPM QuasiStatic",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = dcpm1.ia),
+          Curve(x = time, y = dcpm2.ia),
+          Curve(x = time, y = dcpm1.wMechanical),
+          Curve(x = time, y = dcpm2.wMechanical)})})}));
 end DCPM_QuasiStatic;

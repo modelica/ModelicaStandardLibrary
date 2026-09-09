@@ -245,7 +245,31 @@ Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johanne
 <a href=\"https://2009.international.conference.modelica.org/proceedings/pages/papers/0103/0103_FI.pdf\">
 The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
-</html>"),
+</html>",
+figures = {
+  Figure( title = "IMC with Losses",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = Pmech, y = I_sim),
+          Curve(x = Pmech, y = I_meas)})}),
+  Figure( title = "IMC with Losses",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = Pmech, y = w_sim),
+          Curve(x = Pmech, y = w_meas)})}),
+  Figure( title = "IMC with Losses",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = Pmech, y = pf_sim),
+          Curve(x = Pmech, y = pf_meas),
+          Curve(x = Pmech, y = eff_sim),
+          Curve(x = Pmech, y = eff_meas)})})}),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={Text(
                 extent={{-72,100},{68,80}},

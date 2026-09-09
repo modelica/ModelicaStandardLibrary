@@ -210,5 +210,15 @@ To drive at higher torque, i.e., produce more electric power, excitation has to 
 This noise is caused by the interaction of the high resistance of the switch and the machine, see
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a>.
 </p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMEE DOL",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = smee.tauElectrical),
+          Curve(x = time, y = smee.wMechanical)})})}));
 end SMEE_DOL;

@@ -95,5 +95,15 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcse.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <em>DC_SeriesExcited</em> are used.
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "DCSE Start",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = dcse.ia),
+          Curve(x = time, y = dcse.tauElectrical),
+          Curve(x = time, y = dcse.wMechanical)})})}));
 end DCSE_Start;
