@@ -1,10 +1,3 @@
 time
-imc.idq_ss[1]
-imc.idq_ss[2]
-imc.idq_rs[1]
-imc.idq_rs[2]
-imc.wMechanical
-imc.phiMechanical
-imc.tauElectrical
-imc.tauShaft
-
+imc.idq_sr[1]
+imc.idq_sr[2]
