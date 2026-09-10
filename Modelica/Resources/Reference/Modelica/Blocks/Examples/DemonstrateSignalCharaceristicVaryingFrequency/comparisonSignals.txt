@@ -1,0 +1,4 @@
+time
+triggeredMean.y
+triggeredRectifiedMean.y
+triggeredRootMeanSquare.y
