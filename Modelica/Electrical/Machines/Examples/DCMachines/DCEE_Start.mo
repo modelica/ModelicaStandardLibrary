@@ -104,5 +104,15 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcee.ie: excitation current</li>
 </ul>
 Default machine parameters of model <em>DC_ElectricalExcited</em> are used.
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "DCEE Start",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = dcee.ia),
+          Curve(x = time, y = dcee.tauElectrical),
+          Curve(x = time, y = dcee.wMechanical)})})}));
 end DCEE_Start;

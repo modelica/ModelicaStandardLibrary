@@ -128,5 +128,15 @@ Choose a layout and plot tauElectrical and tauShaft versus wMechanical.
         ISBN 978-3-446-45218-3, 2017.</td>
     </tr>
 </table>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "IMC DC Braking",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = imc.wMechanical, y = imc.tauShaft),
+          Curve(x = imc.wMechanical, y = imc.tauElectrical)},
+        x = Axis(min = -100, max = 1500, unit = "rpm"))})}));
 end IMC_DCBraking;

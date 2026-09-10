@@ -135,5 +135,15 @@ Note that a switchYDwithArc is used to avoid unphysical voltage peaks when openi
 </p>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "IMC YDarc",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = aimc.tauElectrical),
+          Curve(x = time, y = aimc.wMechanical)})})}));
 end IMC_YDarc;

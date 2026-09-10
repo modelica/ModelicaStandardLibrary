@@ -160,5 +160,16 @@ Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johanne
 <a href=\"https://2009.international.conference.modelica.org/proceedings/pages/papers/0103/0103_FI.pdf\">
 The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference
-</html>"));
+</html>",
+figures = {
+  Figure(
+        title = "DCPM with Losses",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = dcpm1.ia),
+          Curve(x = time, y = dcpm2.ia),
+          Curve(x = time, y = dcpm1.wMechanical),
+          Curve(x = time, y = dcpm2.wMechanical)})})}));
 end DCPM_withLosses;

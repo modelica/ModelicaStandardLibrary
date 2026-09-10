@@ -70,6 +70,17 @@ At time=2.3 s a load torque step is applied, causing the drive to slightly leave
 Further reading:
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"),
+</html>",
+figures = {
+  Figure(
+        title = "PositionControlled DCPM",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = positionController.u),
+          Curve(x = time, y = positionController.u_m),
+          Curve(x = time, y = speedController.u_m),
+          Curve(x = time, y = currentController.u_m)})})}),
     Diagram(coordinateSystem(extent={{-200,-100},{100,100}})));
 end PositionControlledDCPM;
