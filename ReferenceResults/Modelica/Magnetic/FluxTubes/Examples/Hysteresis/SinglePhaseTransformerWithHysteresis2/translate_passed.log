@@ -1,0 +1,46 @@
+﻿ = true
+Translation of Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis2:
+The DAE has 138 scalar unknowns and 138 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 17
+  Variables: 244
+  Constants: 3 (3 scalars)
+  Parameters: 103 (103 scalars)
+  Unknowns: 138 (138 scalars)
+  Differentiated variables: 9 scalars
+  Equations: 128
+  Nontrivial: 101
+Translated Model
+  Constants: 34 scalars
+  Free parameters: 42 scalars
+  Parameter depending: 53 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 44 scalars
+  Alias variables: 71 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {14}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: {13}
+  Sizes after manipulation of the nonlinear systems: {3}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {3}
+    Sizes after manipulation of the linear systems: {0}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  transformer.core.B
+  transformer.core.MagRel
+ 
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There are 2 states to be selected from:
+  transformer.core.Hstat
+  transformer.winding1.i
+  transformer.winding2.i
+ 

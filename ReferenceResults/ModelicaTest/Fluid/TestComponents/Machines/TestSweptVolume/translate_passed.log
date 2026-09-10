@@ -1,0 +1,45 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestComponents.Machines.TestSweptVolume:
+The DAE has 89 scalar unknowns and 89 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 17
+  Variables: 204
+  Constants: 21 (49 scalars)
+  Parameters: 77 (75 scalars)
+  Unknowns: 106 (89 scalars)
+  Differentiated variables: 9 scalars
+  Equations: 99
+  Nontrivial: 83
+Translated Model
+  Constants: 104 scalars
+  Free parameters: 30 scalars
+  Parameter depending: 16 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 28 scalars
+  Alias variables: 35 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {7}
+  Sizes after manipulation of the nonlinear systems: {1}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {2}
+    Sizes after manipulation of the nonlinear systems: {1}
+    Number of numerical Jacobians: 1
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  springDamper.s_rel
+  springDamper.v_rel
+  sweptVolume.medium.T
+ 
+Warning: Some variables are iteration variables of the initialization problem:
+but they are not given any explicit start values. Zero will be used.
+Iteration variables:
+der(sweptVolume.medium.T)

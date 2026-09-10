@@ -1,0 +1,5 @@
+time
+battery.capacitor[1].v
+battery.capacitor[2].v
+battery.limIntegrator.y
+energy.y

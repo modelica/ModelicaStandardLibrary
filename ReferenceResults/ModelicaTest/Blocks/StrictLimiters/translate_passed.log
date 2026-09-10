@@ -1,0 +1,42 @@
+﻿ = true
+Translation of ModelicaTest.Blocks.StrictLimiters:
+The DAE has 121 scalar unknowns and 121 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 44
+  Variables: 298
+  Constants: 2 (2 scalars)
+  Parameters: 175 (175 scalars)
+  Unknowns: 121 (121 scalars)
+  Differentiated variables: 10 scalars
+  Equations: 131
+  Nontrivial: 129
+Translated Model
+  Constants: 62 scalars
+  Free parameters: 89 scalars
+  Parameter depending: 34 scalars
+  Continuous time states: 8 scalars
+  Time-varying variables: 43 scalars
+  Alias variables: 70 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  limIntegrator1.y
+  limIntegrator2.y
+  PID1.D.x
+  PID1.I.y
+  PID2.D.x
+  PID2.I.y
+  slewRateLimiter1.y
+  slewRateLimiter2.y
+ 
