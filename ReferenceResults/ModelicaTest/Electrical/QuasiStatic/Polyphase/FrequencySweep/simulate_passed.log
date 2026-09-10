@@ -1,0 +1,31 @@
+Log-file of program ./dymosim
+(generated: Wed Jan 22 01:07:55 2025)
+
+dymosim started
+... "ModelicaTest.Electrical.QuasiStatic.Polyphase.FrequencySweep" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 1
+   CPU-time for integration                : 0.03 seconds
+   CPU-time for one grid interval          : 0.006 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 5002
+   Number of grid points                   : 5001
+   Number of accepted steps                : 90
+   Number of f-evaluations (dynamics)      : 173
+   Number of Jacobian-evaluations          : 19
+   Number of model time events             : 1
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 2e-07
+   Maximum integration stepsize            : 0.0178
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Electrical.QuasiStatic.Polyphase.FrequencySweep

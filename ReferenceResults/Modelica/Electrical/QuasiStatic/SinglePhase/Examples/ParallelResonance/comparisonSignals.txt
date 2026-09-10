@@ -1,0 +1,2 @@
+time
+resistor.pin_p.reference.gamma

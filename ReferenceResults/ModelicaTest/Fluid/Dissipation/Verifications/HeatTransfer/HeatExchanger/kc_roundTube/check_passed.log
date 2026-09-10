@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 50
+The model could not be deduced to be symbolically well-posed.
+The model has
+  42+2*n
+scalar unknowns and
+  50
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  50
+Check of <a href="Modelica://ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.HeatExchanger.kc_roundTube">ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.HeatExchanger.kc_roundTube</a> successful.
+

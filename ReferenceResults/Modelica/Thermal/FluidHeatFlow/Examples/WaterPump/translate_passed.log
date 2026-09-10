@@ -1,0 +1,36 @@
+﻿ = true
+Translation of Modelica.Thermal.FluidHeatFlow.Examples.WaterPump:
+The DAE has 127 scalar unknowns and 127 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 30
+  Variables: 283
+  Constants: 4 (4 scalars)
+  Parameters: 152 (152 scalars)
+  Unknowns: 127 (127 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 106
+  Nontrivial: 87
+Translated Model
+  Constants: 36 scalars
+  Free parameters: 66 scalars
+  Parameter depending: 64 scalars
+  Outputs: 5 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 51 scalars
+  Alias variables: 66 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {5}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: {9}
+  Sizes after manipulation of the nonlinear systems: {2}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  speed.phi
+ 

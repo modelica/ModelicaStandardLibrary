@@ -1,0 +1,29 @@
+﻿ = true
+Translation of Modelica.Blocks.Examples.Noise.UniformNoise:
+The DAE has 15 scalar unknowns and 15 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 4
+  Variables: 38
+  Parameters: 29 (29 scalars)
+  Unknowns: 9 (15 scalars)
+  Equations: 7
+  Nontrivial: 6
+Translated Model
+  Free parameters: 19 scalars
+  Parameter depending: 10 scalars
+  Outputs: 1 scalars
+  Time-varying variables: 14 scalars
+  Alias variables: 1 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

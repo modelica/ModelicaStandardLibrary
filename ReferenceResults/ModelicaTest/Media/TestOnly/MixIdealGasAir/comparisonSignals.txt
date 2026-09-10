@@ -1,0 +1,7 @@
+time
+medium.T
+medium.p
+medium2.T
+medium2.X[1]
+medium2.X[2]
+medium2.p

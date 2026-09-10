@@ -1,0 +1,33 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 02:30:48 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+Error: The following error was detected at time: 0
+  Wrong solution selected
+  Failed condition: abs(mustUseHomotopy.x-100) < 1E-06
+
+Trying to solve non-linear system using global homotopy-method.
+... "LimitersHomotopy.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 100
+   CPU-time for integration                : 0.088 seconds
+   CPU-time for one grid interval          : 0.0176 milliseconds
+   CPU-time for initialization             : 0.002 seconds
+   Number of result points                 : 5004
+   Number of grid points                   : 5001
+   Number of accepted steps                : 92
+   Number of f-evaluations (dynamics)      : 140
+   Number of crossing function evaluations : 5096
+   Number of Jacobian-evaluations          : 52
+   Number of model time events             : 1
+   Number of input time events             : 0
+   Number of state events                  : 1
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.47e-05
+   Maximum integration stepsize            : 41.9
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)

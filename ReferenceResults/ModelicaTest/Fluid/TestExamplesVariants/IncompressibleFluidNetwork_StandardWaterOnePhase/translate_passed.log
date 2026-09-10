@@ -1,0 +1,130 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestExamplesVariants.IncompressibleFluidNetwork_StandardWaterOnePhase:
+The DAE has 1894 scalar unknowns and 1894 scalar equations.
+Redundant consistent initial conditions.
+Removed the following equations which are redundant and consistent: 
+  der(pipe1.mediums[1].p) = 0.0;
+  der(pipe2.mediums[1].p) = 0.0;
+  der(pipe3.mediums[1].p) = 0.0;
+  der(pipe6.mediums[1].p) = 0.0;
+  der(pipe8.mediums[1].p) = 0.0;
+  der(pipe8.mediums[2].p) = 0.0;
+  der(pipe9.mediums[1].p) = 0.0;
+  der(pipe9.mediums[2].p) = 0.0;
+  der(pipe10.mediums[1].p) = 0.0;
+  der(pipe10.mediums[2].p) = 0.0;
+  der(pipe5.mediums[1].p) = 0.0;
+  der(pipe5.mediums[2].p) = 0.0;
+  der(pipe11.mediums[1].p) = 0.0;
+ 
+The redundancies involve
+initial equations: 
+  der(pipe1.mediums[1].p) = 0.0;
+  der(pipe1.mediums[2].p) = 0.0;
+  der(pipe2.mediums[1].p) = 0.0;
+  der(pipe3.mediums[1].p) = 0.0;
+  der(pipe4.mediums[2].p) = 0.0;
+  der(pipe6.mediums[1].p) = 0.0;
+  der(pipe6.mediums[2].p) = 0.0;
+  der(pipe7.mediums[2].p) = 0.0;
+  der(pipe8.mediums[1].p) = 0.0;
+  der(pipe8.mediums[2].p) = 0.0;
+  der(pipe9.mediums[1].p) = 0.0;
+  der(pipe9.mediums[2].p) = 0.0;
+  der(pipe10.mediums[1].p) = 0.0;
+  der(pipe10.mediums[2].p) = 0.0;
+  der(pipe5.mediums[1].p) = 0.0;
+  der(pipe5.mediums[2].p) = 0.0;
+  der(pipe11.mediums[1].p) = 0.0;
+ 
+ 
+Statistics
+ 
+Original Model
+  Number of components: 216
+  Variables: 2802
+  Constants: 65 (65 scalars)
+  Parameters: 988 (1052 scalars)
+  Unknowns: 1749 (1910 scalars)
+  Differentiated variables: 88 scalars
+  Equations: 1165
+  Nontrivial: 886
+Translated Model
+  Constants: 1166 scalars
+  Free parameters: 108 scalars
+  Parameter depending: 309 scalars
+  Continuous time states: 31 scalars
+  Time-varying variables: 486 scalars
+  Alias variables: 958 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 3, 3, 3, 3}
+  Sizes after manipulation of the linear systems: {2, 2, 2, 2, 2}
+  Sizes of nonlinear systems of equations: {40, 66, 40, 66, 10}
+  Sizes after manipulation of the nonlinear systems: {4, 6, 4, 6, 1}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 414}
+    Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 30}
+    Number of numerical Jacobians: 1
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  pipe1.mediums[1].T
+  pipe1.mediums[2].p
+  pipe1.mediums[2].T
+  pipe2.mediums[1].T
+  pipe2.mediums[2].p
+  pipe2.mediums[2].T
+  pipe3.mediums[1].T
+  pipe3.mediums[2].p
+  pipe3.mediums[2].T
+  pipe4.mediums[1].p
+  pipe4.mediums[1].T
+  pipe4.mediums[2].p
+  pipe4.mediums[2].T
+  pipe5.mediums[1].T
+  pipe5.mediums[2].T
+  pipe6.mediums[1].T
+  pipe6.mediums[2].p
+  pipe6.mediums[2].T
+  pipe7.mediums[1].p
+  pipe7.mediums[1].T
+  pipe7.mediums[2].p
+  pipe7.mediums[2].T
+  pipe8.mediums[1].T
+  pipe8.mediums[2].T
+  pipe9.mediums[1].T
+  pipe9.mediums[2].T
+  pipe10.mediums[1].T
+  pipe10.mediums[2].T
+  pipe11.mediums[1].T
+  pipe11.mediums[2].p
+  pipe11.mediums[2].T
+ 
+Warning: Some variables are iteration variables of the initialization problem:
+but they are not given any explicit start values. Zero will be used.
+Iteration variables:
+der(pipe1.mediums[1].T)
+der(pipe1.mediums[2].T)
+der(pipe2.mediums[1].T)
+der(pipe2.mediums[2].T)
+der(pipe3.mediums[1].T)
+der(pipe3.mediums[2].T)
+der(pipe4.mediums[1].T)
+der(pipe4.mediums[2].T)
+der(pipe5.mediums[1].T)
+der(pipe5.mediums[2].T)
+der(pipe6.mediums[1].T)
+der(pipe6.mediums[2].T)
+der(pipe7.mediums[1].T)
+der(pipe7.mediums[2].T)
+der(pipe8.mediums[1].T)
+der(pipe8.mediums[2].T)
+der(pipe9.mediums[1].T)
+der(pipe9.mediums[2].T)
+der(pipe10.mediums[1].T)
+der(pipe10.mediums[2].T)
+der(pipe11.mediums[1].T)
+der(pipe11.mediums[2].T)
