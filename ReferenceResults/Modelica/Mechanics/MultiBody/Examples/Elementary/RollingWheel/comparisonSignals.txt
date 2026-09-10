@@ -1,0 +1,9 @@
+time
+wheel1.angles[1]
+wheel1.angles[2]
+wheel1.angles[3]
+wheel1.der_angles[1]
+wheel1.der_angles[2]
+wheel1.der_angles[3]
+wheel1.x
+wheel1.y

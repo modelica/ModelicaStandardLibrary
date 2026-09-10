@@ -1,0 +1,39 @@
+﻿ = true
+Translation of Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStatic:
+The DAE has 392 scalar unknowns and 392 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 75
+  Variables: 628
+  Constants: 10 (10 scalars)
+  Parameters: 226 (226 scalars)
+  Unknowns: 392 (392 scalars)
+  Differentiated variables: 24 scalars
+  Equations: 325
+  Nontrivial: 232
+Translated Model
+  Constants: 268 scalars
+  Free parameters: 25 scalars
+  Parameter depending: 137 scalars
+  Continuous time states: 5 scalars
+  Time-varying variables: 40 scalars
+  Alias variables: 158 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2}
+  Sizes after manipulation of the linear systems: {0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  dcpm1.la.i
+  loadInertia1.phi
+  loadInertia1.w
+  loadInertia2.phi
+  loadInertia2.w
+ 

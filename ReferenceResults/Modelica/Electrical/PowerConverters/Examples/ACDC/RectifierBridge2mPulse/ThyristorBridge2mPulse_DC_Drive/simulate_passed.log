@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Wed May 20 10:35:47 2026)
+
+dymosim started
+... "Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_DC_Drive" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 15
+   CPU-time for integration                : 6.23 seconds
+   CPU-time for one grid interval          : 0.0831 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 114221
+   Number of grid points                   : 75001
+   Number of accepted steps                : 632365
+   Number of f-evaluations (dynamics)      : 1133869
+   Number of crossing function evaluations : 824760
+   Number of Jacobian-evaluations          : 313652
+   Number of model time events             : 4500
+   Number of input time events             : 0
+   Number of state events                  : 18016
+   Number of step events                   : 0
+   Minimum integration stepsize            : 6.42e-13
+   Maximum integration stepsize            : 0.000275
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_DC_Drive

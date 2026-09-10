@@ -1,0 +1,13 @@
+time
+line1.v1
+line1.v2
+line1.i1
+line1.i2
+line2.v1
+line2.v2
+line2.i1
+line2.i2
+line3.v1
+line3.v2
+line3.i1
+line3.i2

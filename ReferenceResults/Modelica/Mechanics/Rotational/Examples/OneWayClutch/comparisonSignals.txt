@@ -1,0 +1,5 @@
+time
+inertiaIn.phi
+inertiaIn.w
+oneWayClutch.phi_rel
+oneWayClutch.w_rel

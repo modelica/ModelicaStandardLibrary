@@ -1,0 +1,87 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 09:28:14 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+Error: The following error was detected at time: 0
+  Error in region computation of IF97 steam tables(p = 200000, h = 4.05528e+07)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.rho_props_ph(
+pipe.mediums[1].p, 
+pipe.mediums[1].h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe.mediums[1].p, pipe.mediums[1].h, pipe.statesFM[2].phase, 0))
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  Error in region computation of IF97 steam tables(p = 200000, h = 4.05528e+07)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.rho_props_ph(
+pipe.mediums[1].p, 
+pipe.mediums[1].h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe.mediums[1].p, pipe.mediums[1].h, pipe.statesFM[2].phase, 0))
+Non-linear solver will attempt to handle this problem.
+
+
+ERROR: Failed to solve nonlinear system using Newton solver.
+  During initialization at time: 0
+  Tag: initialization.nonlinear[3]
+
+  Common causes:
+   * The system of equations has no solution - the residual will be above zero.
+     - This may be caused by initial conditions not being fully specified, check the translation log.
+     - In some cases the event-logic can cause this.
+   * Starting values are too far from the solution, see homotopy in the manual.
+     - In rare cases this could occur at events.
+   * The equations are too discontinuous for the nonlinear solver - the residual will have knees.
+     - Likely caused by over-using noEvent.
+  Especially consider the first two items above when the nonlinear solver fails during initialization.
+
+  To get more information consider the options:
+   * Simulation/Setup/Translation/Generate listing of translated Modelica code in dsmodel.mof
+   * Simulation/Setup/Translation/List non-linear iteration variables
+   * Simulation/Setup/Debug/Store variables after failed initialization
+     - If a failure to solve a nonlinear equation caused failed initialization.
+   * The options under the group Simulation/Setup/Debug/Nonlinear solver diagnostics
+
+  Jacobian inverse norm estimate: 9.74358e+11
+  Condition number estimate: 2.27193e+08
+  1-norm of the residual = 10.4218
+  The estimates indicate that the Jacobian is close to singular, suggesting that there is no solution.
+
+  Last value of the solution:
+    pipe.mediums[1].h = 84020
+    valve.dp = 100000
+  Last value of the residual:
+    { 9.99526, -0.426534 }
+ 
+Trying to solve non-linear system using global homotopy-method.
+Fixed point iterating to handle problem.
+... "DynamicPipeClosingValve.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 3
+   CPU-time for integration                : 0.209 seconds
+   CPU-time for one grid interval          : 0.0418 milliseconds
+   CPU-time for initialization             : 0.011 seconds
+   Number of result points                 : 5004
+   Number of grid points                   : 5001
+   Number of accepted steps                : 102
+   Number of f-evaluations (dynamics)      : 208
+   Number of crossing function evaluations : 5104
+   Number of Jacobian-evaluations          : 115
+   Number of model time events             : 2
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 7.29e-09
+   Maximum integration stepsize            : 0.419
+   Maximum integration order               : 1
+Calling terminal section
+... "dsfinal.txt" creating (final states)

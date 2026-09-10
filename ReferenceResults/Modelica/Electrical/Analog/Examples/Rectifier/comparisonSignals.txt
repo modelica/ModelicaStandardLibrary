@@ -1,0 +1,5 @@
+time
+Capacitor1.v
+Capacitor2.v
+Inductor2.i
+Inductor3.i
