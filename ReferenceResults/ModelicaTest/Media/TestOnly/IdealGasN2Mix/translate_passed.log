@@ -1,0 +1,35 @@
+﻿ = true
+Translation of ModelicaTest.Media.TestOnly.IdealGasN2Mix:
+The DAE has 21 scalar unknowns and 21 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 5
+  Variables: 46
+  Constants: 20 (48 scalars)
+  Parameters: 5 (5 scalars)
+  Unknowns: 21 (21 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 23
+  Nontrivial: 20
+Translated Model
+  Constants: 54 scalars
+  Free parameters: 3 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 15 scalars
+  Alias variables: 2 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  medium.p
+  medium.T
+ 

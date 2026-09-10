@@ -1,0 +1,7 @@
+time
+combiTable2D1D.y[1]
+combiTable2D1DT.y[1]
+clock1.y
+combiTable1D.y[1]
+combiTable2D.y[1]
+combiTable2DT.y[1]

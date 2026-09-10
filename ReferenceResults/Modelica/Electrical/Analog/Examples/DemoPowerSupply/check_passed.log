@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Electrical.Analog.Examples.DemoPowerSupply">Modelica.Electrical.Analog.Examples.DemoPowerSupply</a>
+The model has the same number of unknowns and equations: 24
+The model could not be deduced to be symbolically well-posed.
+The model has
+  24
+scalar unknowns and
+  23+(if  not conductor.useHeatPort then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  24
+Check of <a href="Modelica://Modelica.Electrical.Analog.Examples.DemoPowerSupply">Modelica.Electrical.Analog.Examples.DemoPowerSupply</a> successful.

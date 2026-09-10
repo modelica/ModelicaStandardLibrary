@@ -1,0 +1,40 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Forces.WorldForces2:
+The DAE has 2907 scalar unknowns and 2907 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 157
+  Variables: 1404
+  Constants: 3 (3 scalars)
+  Parameters: 386 (680 scalars)
+  Unknowns: 1015 (2907 scalars)
+  Differentiated variables: 54 scalars
+  Equations: 899
+  Nontrivial: 569
+Translated Model
+  Constants: 2154 scalars
+  Free parameters: 119 scalars
+  Parameter depending: 387 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 120 scalars
+  Alias variables: 810 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 3, 3}
+  Sizes after manipulation of the linear systems: {0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  Revolute1.phi
+  Revolute1.w
+  Revolute2.phi
+  Revolute2.w
+  Revolute3.phi
+  Revolute3.w
+ 

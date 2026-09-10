@@ -1,0 +1,12 @@
+time
+voltageSensor.v
+multiSensor.i
+multiSensor.v
+multiSensor.power
+meanPower.y
+vRMS.y
+vH01.y_rms
+vH01.y_arg
+iRMS.y
+iH01.y_rms
+iH01.y_arg

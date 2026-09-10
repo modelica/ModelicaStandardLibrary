@@ -1,0 +1,41 @@
+Translation of <a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking">Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking</a>
+The DAE has 653 scalar unknowns and 653 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 81
+  Variables: 911
+  Constants: 21 (21 scalars)
+  Parameters: 313 (375 scalars)
+  Unknowns: 577 (653 scalars)
+  Differentiated variables: 21 scalars
+  Equations: 381
+  Nontrivial: 305
+Translated Model
+  Constants: 321 scalars
+  Free parameters: 42 scalars
+  Parameter depending: 169 scalars
+  Continuous time states: 5 scalars
+  Time-varying variables: 125 scalars
+  Alias variables: 392 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {3, 20, 10, 2}
+  Sizes after manipulation of the linear systems: {0, 6, 2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking#text$inertiaLoad:phi">inertiaLoad.phi</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking#text$inertiaLoad:w">inertiaLoad.w</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking#text$smpm:i_0_s">smpm.i_0_s</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking#text$smpm:idq_sr">smpm.idq_sr[1]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking#text$smpm:idq_sr">smpm.idq_sr[2]</a>
+Finished

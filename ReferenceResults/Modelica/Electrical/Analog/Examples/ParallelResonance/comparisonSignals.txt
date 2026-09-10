@@ -1,0 +1,7 @@
+time
+capacitor1.v
+capacitor2.v
+cosineCurrent.phi
+inductor1.i
+inductor2.i
+sineCurrent.phi

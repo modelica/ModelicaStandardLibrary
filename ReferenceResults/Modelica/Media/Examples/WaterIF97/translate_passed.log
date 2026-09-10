@@ -1,0 +1,36 @@
+﻿ = true
+Translation of Modelica.Media.Examples.WaterIF97:
+The DAE has 34 scalar unknowns and 34 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 8
+  Variables: 96
+  Constants: 56 (56 scalars)
+  Parameters: 5 (5 scalars)
+  Unknowns: 35 (34 scalars)
+  Differentiated variables: 7 scalars
+  Equations: 24
+  Nontrivial: 19
+Translated Model
+  Constants: 63 scalars
+  Free parameters: 3 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 21 scalars
+  Alias variables: 8 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  medium.h
+  medium.p
+  V
+ 

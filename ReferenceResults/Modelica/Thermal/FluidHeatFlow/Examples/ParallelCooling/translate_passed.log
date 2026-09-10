@@ -1,0 +1,44 @@
+﻿ = true
+Translation of Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling:
+The DAE has 144 scalar unknowns and 144 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 35
+  Variables: 303
+  Constants: 2 (2 scalars)
+  Parameters: 157 (157 scalars)
+  Unknowns: 144 (144 scalars)
+  Differentiated variables: 5 scalars
+  Equations: 129
+  Nontrivial: 104
+Translated Model
+  Constants: 28 scalars
+  Free parameters: 41 scalars
+  Parameter depending: 113 scalars
+  Outputs: 7 scalars
+  Continuous time states: 5 scalars
+  Time-varying variables: 52 scalars
+  Alias variables: 69 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 4}
+  Sizes after manipulation of the linear systems: {0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {14}
+    Sizes after manipulation of the nonlinear systems: {1}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  heatCapacitor1.T
+  heatCapacitor2.T
+  pipe1.T
+  pipe2.T
+  pipe3.T
+ 

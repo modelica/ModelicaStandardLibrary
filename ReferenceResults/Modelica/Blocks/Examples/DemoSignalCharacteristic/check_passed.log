@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Blocks.Examples.DemoSignalCharacteristic">Modelica.Blocks.Examples.DemoSignalCharacteristic</a>
+The model has the same number of unknowns and equations: 53
+The model could not be deduced to be symbolically well-posed.
+The model has
+  47+rootMeanSquare.product.nu+harmonic.product1.nu+harmonic.product2.nu
+scalar unknowns and
+  53
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  53
+Check of <a href="Modelica://Modelica.Blocks.Examples.DemoSignalCharacteristic">Modelica.Blocks.Examples.DemoSignalCharacteristic</a> successful.

@@ -1,0 +1,4 @@
+time
+eddyCurrentTorque.lossPower
+inertia.phi
+heatCapacitor.T
