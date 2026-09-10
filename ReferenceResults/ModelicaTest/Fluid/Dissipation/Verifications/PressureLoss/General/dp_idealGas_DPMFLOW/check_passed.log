@@ -1,0 +1,3 @@
+The model has the same number of unknowns and equations: 64
+Check of <a href="Modelica://ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.General.dp_idealGas_DPMFLOW">ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.General.dp_idealGas_DPMFLOW</a> successful.
+

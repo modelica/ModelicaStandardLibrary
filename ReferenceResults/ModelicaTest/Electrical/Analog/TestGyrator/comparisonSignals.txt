@@ -1,0 +1,5 @@
+time
+gyrator.v1
+gyrator.v2
+gyrator.i1
+gyrator.i2

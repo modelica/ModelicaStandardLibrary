@@ -1,0 +1,3 @@
+time
+transformer.l2sigma.inductor[1].i
+transformer.l2sigma.inductor[3].i

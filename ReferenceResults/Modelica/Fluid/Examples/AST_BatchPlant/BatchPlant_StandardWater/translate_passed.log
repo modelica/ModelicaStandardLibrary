@@ -1,0 +1,74 @@
+Translation of <a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater">Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater</a>
+The DAE has 2389 scalar unknowns and 2389 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 296
+  Variables: 3921
+  Constants: 66 (66 scalars)
+  Parameters: 1264 (1272 scalars)
+  Unknowns: 2591 (2395 scalars)
+  Differentiated variables: 75 scalars
+  Equations: 1946
+  Nontrivial: 1546
+Translated Model
+  Constants: 1115 scalars
+  Free parameters: 289 scalars
+  Parameter depending: 382 scalars
+  Continuous time states: 34 scalars
+  Time-varying variables: 848 scalars
+  Alias variables: 1099 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {6, 6, 6, 6, 6, 6, 6, 2, 6, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4}
+  Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2}
+  Sizes of nonlinear systems of equations: {18, 3, 4, 9, 9, 12, 3, 12, 7, 7}
+  Sizes after manipulation of the nonlinear systems: {2, 1, 2, 2, 2, 2, 1, 2, 1, 1}
+  Number of numerical Jacobians: 7
+  Initialization problem
+    Number of mixed real/discrete systems of equations: 1
+    Sizes of nonlinear systems of equations: {1, 18, 9, 9, 12, 12, 7, 7}
+    Sizes after manipulation of the nonlinear systems: {1, 2, 2, 2, 2, 2, 1, 1}
+    Sizes of simplified homotopy nonlinear systems of equations: {9, 6, 6, 6, 6}
+    Sizes after manipulation of the simplified homotopy nonlinear systems: {2, 2, 2, 2, 2}
+    Number of numerical Jacobians: 7
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#text$B1:level">B1.level</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$B1:medium.h">B1.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#text$B2:level">B2.level</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$B2:medium.h">B2.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#text$B3:level">B3.level</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$B3:medium.h">B3.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#text$B4:level">B4.level</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$B4:medium.h">B4.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#text$B5:level">B5.level</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$B5:medium.h">B5.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#text$B6:level">B6.level</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$B6:medium.h">B6.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#text$B7:level">B7.level</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$B7:medium.h">B7.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$P1:medium.h">P1.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$P1:medium.p">P1.medium.p</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$P2:medium.h">P2.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$P2:medium.p">P2.medium.p</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipeB1B2:mediums[1].h">pipeB1B2.mediums[1].h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipeB1B2:mediums[1].p">pipeB1B2.mediums[1].p</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipeB1B2:mediums[2].h">pipeB1B2.mediums[2].h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipeB1B2:mediums[2].p">pipeB1B2.mediums[2].p</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipePump1B1:mediums[1].h">pipePump1B1.mediums[1].h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipePump1B1:mediums[1].p">pipePump1B1.mediums[1].p</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipePump1B1:mediums[2].h">pipePump1B1.mediums[2].h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipePump1B1:mediums[2].p">pipePump1B1.mediums[2].p</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipePump2B2:mediums[1].h">pipePump2B2.mediums[1].h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipePump2B2:mediums[1].p">pipePump2B2.mediums[1].p</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipePump2B2:mediums[2].h">pipePump2B2.mediums[2].h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$pipePump2B2:mediums[2].p">pipePump2B2.mediums[2].p</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$volume4:medium.h">volume4.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$volume4:medium.p">volume4.medium.p</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$volume5:medium.h">volume5.medium.h</a>
+<a href="Modelica://Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater#diagram$volume5:medium.p">volume5.medium.p</a>
+Finished

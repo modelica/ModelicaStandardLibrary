@@ -1,0 +1,63 @@
+﻿ = true
+Translation of Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStatic:
+The DAE has 527 scalar unknowns and 527 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 77
+  Variables: 862
+  Constants: 4 (4 scalars)
+  Parameters: 333 (414 scalars)
+  Unknowns: 525 (527 scalars)
+  Differentiated variables: 26 scalars
+  Equations: 482
+  Nontrivial: 415
+Translated Model
+  Constants: 122 scalars
+  Free parameters: 171 scalars
+  Parameter depending: 193 scalars
+  Continuous time states: 9 scalars
+  Time-varying variables: 227 scalars
+  Alias variables: 232 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 5, 3, 4, 3}
+  Sizes after manipulation of the linear systems: {0, 3, 0, 2, 0}
+  Sizes of nonlinear systems of equations: {61, 47}
+  Sizes after manipulation of the nonlinear systems: {8, 5}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {57, 45}
+    Sizes after manipulation of the nonlinear systems: {6, 4}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  advancedFeed_x.v
+  advancedSolenoid.c_par1.v
+  advancedSolenoid.c_par2.v
+  advancedSolenoid.x
+  simpleFeed_x.v
+  simpleSolenoid.x
+ 
+Dynamically selected continuous time states
+There are 2 sets of dynamic state selection.
+From set 1 there are 2 states to be selected from:
+  advancedSolenoid.coil1.i
+  advancedSolenoid.coil1.Phi
+  advancedSolenoid.coil2.i
+  advancedSolenoid.coil2.Phi
+  advancedSolenoid.g_mLeak1.port_p.Phi
+  advancedSolenoid.g_mLeak2.port_p.Phi
+  advancedSolenoid.g_mLeak3.port_p.Phi
+  advancedSolenoid.g_mLeakWork.port_p.Phi
+ 
+From set 2 there is 1 state to be selected from:
+  simpleSolenoid.coil.i
+  simpleSolenoid.coil.Phi
+  simpleSolenoid.g_mLeak1.port_p.Phi
+  simpleSolenoid.g_mLeak2.port_p.Phi
+  simpleSolenoid.g_mLeakWork.port_p.Phi
+ 

@@ -1,0 +1,8 @@
+time
+cDC1.v
+cDC2.v
+transformer1.l2sigma.inductor[1].i
+transformer1.l2sigma.inductor[3].i
+transformer2.l2sigma.inductor[1].i
+transformer2.l2sigma.inductor[2].i
+transformer2.l2sigma.inductor[3].i

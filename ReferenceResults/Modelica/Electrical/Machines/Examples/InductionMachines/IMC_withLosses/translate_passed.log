@@ -1,0 +1,45 @@
+Translation of <a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses">Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses</a>
+The DAE has 524 scalar unknowns and 524 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 67
+  Variables: 742
+  Constants: 7 (7 scalars)
+  Parameters: 275 (456 scalars)
+  Unknowns: 460 (524 scalars)
+  Differentiated variables: 25 scalars
+  Equations: 296
+  Nontrivial: 228
+Translated Model
+  Constants: 198 scalars
+  Free parameters: 106 scalars
+  Parameter depending: 220 scalars
+  Outputs: 13 scalars
+  Continuous time states: 8 scalars
+  Time-varying variables: 111 scalars
+  Alias variables: 352 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {15, 7, 14, 2}
+  Sizes after manipulation of the linear systems: {2, 0, 4, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {39}
+    Sizes after manipulation of the linear systems: {6}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses#text$aimc:i_0_s">aimc.i_0_s</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses#text$aimc:idq_rr">aimc.idq_rr[1]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses#text$aimc:idq_rr">aimc.idq_rr[2]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses#text$aimc:idq_sr">aimc.idq_sr[1]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses#text$aimc:idq_sr">aimc.idq_sr[2]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses#text$loadInertia:w">loadInertia.w</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses#text$PI:x">PI.x</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses#text$powerSensor.flange_a:phi">powerSensor.flange_a.phi</a>
+Finished

@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 50
+The model has the same number of unknowns and equations:
+  36+aD_Converter.N+dA_Converter.N
+Check of <a href="Modelica://Modelica.Electrical.Analog.Examples.AD_DA_conversion">Modelica.Electrical.Analog.Examples.AD_DA_conversion</a> successful.
+

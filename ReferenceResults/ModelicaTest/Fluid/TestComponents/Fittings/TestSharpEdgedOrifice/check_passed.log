@@ -1,0 +1,11 @@
+Check of <a href="Modelica://ModelicaTest.Fluid.TestComponents.Fittings.TestSharpEdgedOrifice">ModelicaTest.Fluid.TestComponents.Fittings.TestSharpEdgedOrifice</a>
+The model has the same number of unknowns and equations: 110
+The model could not be deduced to be symbolically well-posed.
+The model has
+  110
+scalar unknowns and
+  94+2*ambient_p.nPorts+(if  not ambient_p.use_p_in then 1 else 0)+(if  not   ambient_p.use_T_in then 1 else 0)+(if  not ambient_p.use_X_in then 1 else 0)+2  *ambient_p1.nPorts+(if  not ambient_p1.use_p_in then 1 else 0)+(if  not   ambient_p1.use_T_in then 1 else 0)+(if  not ambient_p1.use_X_in then 1 else 0)  +2*ambient_p2.nPorts+(if  not ambient_p2.use_p_in then 1 else 0)+(if  not   ambient_p2.use_T_in then 1 else 0)+(if  not ambient_p2.use_X_in then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  110
+Check of <a href="Modelica://ModelicaTest.Fluid.TestComponents.Fittings.TestSharpEdgedOrifice">ModelicaTest.Fluid.TestComponents.Fittings.TestSharpEdgedOrifice</a> successful.

@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 43
+The model has the same number of unknowns and equations:
+  27+2*(size(FIR2.a, 1)+size(FIR1.a, 1))
+Check of <a href="Modelica://Modelica.Clocked.Examples.Elementary.RealSignals.UpSample2">Modelica.Clocked.Examples.Elementary.RealSignals.UpSample2</a> successful.
+

@@ -1,0 +1,3 @@
+time
+aimc.idq_sr[1]
+aimc.idq_sr[2]

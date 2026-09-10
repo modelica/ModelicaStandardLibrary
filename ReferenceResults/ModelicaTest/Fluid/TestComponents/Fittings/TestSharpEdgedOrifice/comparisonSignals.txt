@@ -1,0 +1,7 @@
+time
+orifice1.port_b.m_flow
+orifice1.port_b.p
+orifice1.port_b.h_outflow
+orifice2.port_b.m_flow
+orifice2.port_b.p
+orifice2.port_b.h_outflow
