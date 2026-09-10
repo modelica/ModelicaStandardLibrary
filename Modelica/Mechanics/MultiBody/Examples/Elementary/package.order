@@ -2,6 +2,7 @@ DoublePendulum
 DoublePendulumInitTip
 ForceAndTorque
 FreeBody
+InitPlanar
 InitSpringConstant
 LineForceWithTwoMasses
 Pendulum

@@ -5337,6 +5337,446 @@ and plot gasForce.press over gasForce.s_rel.
       annotation (experiment(StopTime=1.1));
     end FreeMotionScalarInit5;
 
+    model FreeMotionScalarInitStatesNo
+      extends Modelica.Icons.Example;
+
+      parameter SI.Angle angle_start[3] = {0,0,0} "Initial angles of free motion joints";
+      parameter SI.AngularVelocity w_start[3] = {0.4,0.5,0.6} "Initial angles of free motion joints";
+      parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} "Sequence of angle rotations";
+
+      inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+            transformation(extent={{-100,-100},{-80,-80}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a1_bodyAroot(
+        r_CM=zeros(3),
+        m=1,
+        r_0(fixed=true),
+        v_0(fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={0,0,0},
+        enforceStates=true) annotation (Placement(transformation(extent={{-40,70},{-60,90}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a1_bodyB(r_CM=zeros(3), m=1) annotation (Placement(transformation(extent={{20,70},{40,90}})));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit a1_free_init_w(
+        use_r=true,
+        r_rel_a_1(fixed=true),
+        r_rel_a_2(fixed=true),
+        r_rel_a_3(fixed=true),
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        use_angle=true,
+        sequence_start=sequence_start,
+        angle_1(fixed=true, start=angle_start[1]),
+        angle_2(fixed=true, start=angle_start[2]),
+        angle_3(fixed=true, start=angle_start[3]),
+        use_angle_d=false,
+        angle_d_1(fixed=true),
+        angle_d_2(fixed=true),
+        angle_d_3(fixed=true),
+        use_w=true,
+        w_rel_b_1(fixed=true, start=w_start[1]),
+        w_rel_b_2(fixed=true, start=w_start[2]),
+        w_rel_b_3(fixed=true, start=w_start[3])) annotation (Placement(transformation(extent={{-20,70},{0,90}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a2_bodyAroot(
+        r_CM=zeros(3),
+        m=1,
+        r_0(fixed=true),
+        v_0(fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={0,0,0},
+        enforceStates=true) annotation (Placement(transformation(extent={{-40,40},{-60,60}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a2_bodyB(r_CM=zeros(3), m=1) annotation (Placement(transformation(extent={{20,40},{40,60}})));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit a2_free_init_angleDer(
+        use_r=true,
+        r_rel_a_1(fixed=true),
+        r_rel_a_2(fixed=true),
+        r_rel_a_3(fixed=true),
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        use_angle=true,
+        sequence_start=sequence_start,
+        angle_1(fixed=true, start=angle_start[1]),
+        angle_2(fixed=true, start=angle_start[2]),
+        angle_3(fixed=true, start=angle_start[3]),
+        use_angle_d=true,
+        angle_d_1(fixed=true, start=w_start[1]),
+        angle_d_2(fixed=true, start=w_start[2]),
+        angle_d_3(fixed=true, start=w_start[3]),
+        use_w=false,
+        w_rel_b_1(fixed=true, start=w_start[1]),
+        w_rel_b_2(fixed=true, start=w_start[2]),
+        w_rel_b_3(fixed=true, start=w_start[3])) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a3_bodyAroot(
+        r_CM=zeros(3),
+        m=1,
+        r_0(fixed=true),
+        v_0(fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={0,0,0},
+        enforceStates=true) annotation (Placement(transformation(extent={{-40,10},{-60,30}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a3_bodyBroot(
+        r_CM=zeros(3),
+        m=1,
+        r_0(fixed=true),
+        v_0(fixed=true),
+        angles_fixed=true,
+        angles_start(displayUnit="rad") = angle_start,
+        w_0_fixed=true,
+        w_0_start=w_start,
+        enforceStates=true,
+        useQuaternions=false) annotation (Placement(transformation(extent={{20,10},{40,30}})));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit a3_free_noInit(
+        use_r=false,
+        r_rel_a_1(fixed=true),
+        r_rel_a_2(fixed=true),
+        r_rel_a_3(fixed=true),
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        use_angle=false,
+        sequence_start=sequence_start,
+        angle_1(fixed=true, start=angle_start[1]),
+        angle_2(fixed=true, start=angle_start[2]),
+        angle_3(fixed=true, start=angle_start[3]),
+        use_angle_d=false,
+        angle_d_1(fixed=true),
+        angle_d_2(fixed=true),
+        angle_d_3(fixed=true),
+        use_w=false,
+        w_rel_b_1(fixed=true, start=0.4),
+        w_rel_b_2(fixed=true, start=0.5),
+        w_rel_b_3(fixed=true, start=0.6)) annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor a3_sensorRel(
+        animation=false,
+        get_w_rel=true,
+        get_angles=true,
+        sequence=sequence_start) annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a4_bodyA(
+        r_CM=zeros(3),
+        m=1,
+        angles_fixed=false,
+        w_0_fixed=false,
+        w_0_start={0,0,0}) annotation (Placement(transformation(extent={{-40,-50},{-60,-30}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a4_bodyBroot(
+        r_CM=zeros(3),
+        m=1,
+        r_0(fixed=true),
+        v_0(fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        enforceStates=true) annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit a4_free_init_w(
+        use_r=true,
+        r_rel_a_1(fixed=true),
+        r_rel_a_2(fixed=true),
+        r_rel_a_3(fixed=true),
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        use_angle=true,
+        sequence_start=sequence_start,
+        angle_1(fixed=true, start=angle_start[1]),
+        angle_2(fixed=true, start=angle_start[2]),
+        angle_3(fixed=true, start=angle_start[3]),
+        use_angle_d=false,
+        angle_d_1(fixed=true),
+        angle_d_2(fixed=true),
+        angle_d_3(fixed=true),
+        use_w=true,
+        w_rel_b_1(fixed=true, start=w_start[1]),
+        w_rel_b_2(fixed=true, start=w_start[2]),
+        w_rel_b_3(fixed=true, start=w_start[3])) annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a5_bodyA(
+        r_CM=zeros(3),
+        m=1,
+        angles_fixed=false,
+        w_0_fixed=false,
+        w_0_start={0,0,0}) annotation (Placement(transformation(extent={{-40,-80},{-60,-60}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a5_bodyBroot(
+        r_CM=zeros(3),
+        m=1,
+        r_0(fixed=true),
+        v_0(fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        enforceStates=true) annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit a5_free_init_angleDer(
+        use_r=true,
+        r_rel_a_1(fixed=true),
+        r_rel_a_2(fixed=true),
+        r_rel_a_3(fixed=true),
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        use_angle=true,
+        sequence_start=sequence_start,
+        angle_1(fixed=true, start=angle_start[1]),
+        angle_2(fixed=true, start=angle_start[2]),
+        angle_3(fixed=true, start=angle_start[3]),
+        use_angle_d=true,
+        angle_d_1(fixed=true, start=w_start[1]),
+        angle_d_2(fixed=true, start=w_start[2]),
+        angle_d_3(fixed=true, start=w_start[3]),
+        use_w=false,
+        w_rel_b_1(fixed=true, start=w_start[1]),
+        w_rel_b_2(fixed=true, start=w_start[2]),
+        w_rel_b_3(fixed=true, start=w_start[3])) annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+    equation
+      connect(a1_bodyAroot.frame_a, a1_free_init_w.frame_a) annotation (Line(
+          points={{-40,80},{-20,80}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a1_free_init_w.frame_b, a1_bodyB.frame_a) annotation (Line(
+          points={{0,80},{20,80}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a2_bodyAroot.frame_a, a2_free_init_angleDer.frame_a) annotation (Line(
+          points={{-40,50},{-20,50}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a2_free_init_angleDer.frame_b, a2_bodyB.frame_a) annotation (Line(
+          points={{0,50},{20,50}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a3_bodyAroot.frame_a, a3_free_noInit.frame_a) annotation (Line(
+          points={{-40,20},{-20,20}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a3_free_noInit.frame_b, a3_bodyBroot.frame_a) annotation (Line(
+          points={{0,20},{20,20}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a3_bodyAroot.frame_a, a3_sensorRel.frame_a) annotation (Line(
+          points={{-40,20},{-30,20},{-30,-10},{-20,-10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a3_bodyBroot.frame_a, a3_sensorRel.frame_b) annotation (Line(
+          points={{20,20},{10,20},{10,-10},{0,-10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a4_bodyA.frame_a, a4_free_init_w.frame_a) annotation (Line(
+          points={{-40,-40},{-20,-40}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a4_free_init_w.frame_b, a4_bodyBroot.frame_a) annotation (Line(
+          points={{0,-40},{20,-40}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a5_bodyA.frame_a, a5_free_init_angleDer.frame_a) annotation (Line(
+          points={{-40,-70},{-20,-70}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a5_free_init_angleDer.frame_b, a5_bodyBroot.frame_a) annotation (Line(
+          points={{0,-70},{20,-70}},
+          color={95,95,95},
+          thickness=0.5));
+      annotation (Diagram(graphics={
+            Line(
+              points={{-96,-24},{96,-24}},
+              color={95,95,95},
+              pattern=LinePattern.Dash,
+              thickness=0.5),
+            Text(
+              extent={{46,-12},{96,-20}},
+              textColor={95,95,95},
+              pattern=LinePattern.Dash,
+              lineThickness=0.5,
+              textString="body A is rooted"),
+            Text(
+              extent={{46,-28},{96,-36}},
+              textColor={95,95,95},
+              pattern=LinePattern.Dash,
+              lineThickness=0.5,
+              textString="body B is rooted")}));
+    end FreeMotionScalarInitStatesNo;
+
+    model FreeMotionScalarInitStates
+      extends Modelica.Icons.Example;
+
+      parameter SI.Angle angle_start[3] = {0,0,0} "Initial angles of free motion joints";
+      parameter SI.AngularVelocity w_start[3] = {0.4,0.5,0.6} "Initial angles of free motion joints";
+      parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3} "Sequence of angle rotations";
+
+      inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+            transformation(extent={{-100,-100},{-80,-80}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a1_bodyAroot(
+        r_CM=zeros(3),
+        m=1,
+        r_0(fixed=true),
+        v_0(fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={0,0,0},
+        enforceStates=true) annotation (Placement(transformation(extent={{-40,70},{-60,90}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a1_bodyB(r_CM=zeros(3), m=1) annotation (Placement(transformation(extent={{20,70},{40,90}})));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit a1_free_state_angle2only(
+        use_r=true,
+        r_rel_a_1(fixed=true),
+        r_rel_a_2(fixed=true),
+        r_rel_a_3(fixed=true),
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        use_angle=true,
+        sequence_start=sequence_start,
+        angle_1(fixed=true, start=angle_start[1]),
+        angle_2(fixed=true, start=angle_start[2]),
+        angle_3(fixed=true, start=angle_start[3]),
+        angle_2_stateSelect=StateSelect.always,
+        use_angle_d=false,
+        angle_d_1(fixed=true),
+        angle_d_2(fixed=true),
+        angle_d_3(fixed=true),
+        use_w=true,
+        w_rel_b_1(fixed=true, start=w_start[1]),
+        w_rel_b_2(fixed=true, start=w_start[2]),
+        w_rel_b_3(fixed=true, start=w_start[3])) annotation (Placement(transformation(extent={{-20,70},{0,90}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a2_bodyAroot(
+        r_CM=zeros(3),
+        m=1,
+        r_0(fixed=true),
+        v_0(fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={0,0,0},
+        enforceStates=true)
+                           annotation (Placement(transformation(extent={{-40,40},{-60,60}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a2_bodyB(r_CM=zeros(3), m=1) annotation (Placement(transformation(extent={{20,40},{40,60}})));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit a2_free_state_angle2(
+        use_r=true,
+        r_rel_a_1(fixed=true),
+        r_rel_a_2(fixed=true),
+        r_rel_a_3(fixed=true),
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        use_angle=true,
+        sequence_start=sequence_start,
+        angle_1(fixed=true, start=angle_start[1]),
+        angle_2(fixed=true, start=angle_start[2]),
+        angle_3(fixed=true, start=angle_start[3]),
+        angle_2_stateSelect=StateSelect.always,
+        use_angle_d=true,
+        angle_d_1(fixed=true, start=w_start[1]),
+        angle_d_2(fixed=true, start=w_start[2]),
+        angle_d_3(fixed=true, start=w_start[3]),
+        angle_d_2_stateSelect=StateSelect.always,
+        use_w=false,
+        w_rel_b_1(fixed=true, start=w_start[1]),
+        w_rel_b_2(fixed=true, start=w_start[2]),
+        w_rel_b_3(fixed=true, start=w_start[3])) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a3_bodyAroot(
+        r_CM=zeros(3),
+        m=1,
+        r_0(fixed=true),
+        v_0(fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={0,0,0},
+        enforceStates=true) annotation (Placement(transformation(extent={{-40,10},{-60,30}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a3_bodyB(r_CM=zeros(3), m=1) annotation (Placement(transformation(extent={{20,10},{40,30}})));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit a3_free_state_angleDer2only(
+        use_r=true,
+        r_rel_a_1(fixed=true),
+        r_rel_a_2(fixed=true),
+        r_rel_a_3(fixed=true),
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        use_angle=true,
+        sequence_start=sequence_start,
+        angle_1(fixed=true, start=angle_start[1]),
+        angle_2(fixed=true, start=angle_start[2]),
+        angle_3(fixed=true, start=angle_start[3]),
+        use_angle_d=true,
+        angle_d_1(fixed=true),
+        angle_d_2(fixed=true),
+        angle_d_3(fixed=true),
+        angle_d_2_stateSelect=StateSelect.always,
+        use_w=false,
+        w_rel_b_1(fixed=true, start=w_start[1]),
+        w_rel_b_2(fixed=true, start=w_start[2]),
+        w_rel_b_3(fixed=true, start=w_start[3]),
+        w_rel_b_2_stateSelect=StateSelect.always) annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a4_bodyAroot(
+        r_CM=zeros(3),
+        m=1,
+        r_0(fixed=true),
+        v_0(fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true,
+        w_0_start={0,0,0},
+        enforceStates=true) annotation (Placement(transformation(extent={{-40,-20},{-60,0}})));
+      Modelica.Mechanics.MultiBody.Parts.Body a4_body_B(r_CM=zeros(3), m=1) annotation (Placement(transformation(extent={{20,-20},{40,0}})));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit a4_free_initW_state_w2only(
+        use_r=true,
+        r_rel_a_1(fixed=true),
+        r_rel_a_2(fixed=true),
+        r_rel_a_3(fixed=true),
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        use_angle=true,
+        sequence_start=sequence_start,
+        angle_1(fixed=true, start=angle_start[1]),
+        angle_2(fixed=true, start=angle_start[2]),
+        angle_3(fixed=true, start=angle_start[3]),
+        use_angle_d=false,
+        angle_d_1(fixed=true),
+        angle_d_2(fixed=true),
+        angle_d_3(fixed=true),
+        use_w=true,
+        w_rel_b_1(fixed=true, start=w_start[1]),
+        w_rel_b_2(fixed=true, start=w_start[2]),
+        w_rel_b_3(fixed=true, start=w_start[3]),
+        w_rel_b_2_stateSelect=StateSelect.always) annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
+    equation
+      connect(a1_bodyAroot.frame_a, a1_free_state_angle2only.frame_a) annotation (Line(
+          points={{-40,80},{-20,80}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a1_free_state_angle2only.frame_b, a1_bodyB.frame_a) annotation (Line(
+          points={{0,80},{20,80}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a2_bodyAroot.frame_a, a2_free_state_angle2.frame_a) annotation (Line(
+          points={{-40,50},{-20,50}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a2_free_state_angle2.frame_b, a2_bodyB.frame_a) annotation (Line(
+          points={{0,50},{20,50}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a3_bodyAroot.frame_a, a3_free_state_angleDer2only.frame_a) annotation (Line(
+          points={{-40,20},{-20,20}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a3_free_state_angleDer2only.frame_b, a3_bodyB.frame_a) annotation (Line(
+          points={{0,20},{20,20}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a4_bodyAroot.frame_a, a4_free_initW_state_w2only.frame_a) annotation (Line(
+          points={{-40,-10},{-20,-10}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(a4_free_initW_state_w2only.frame_b, a4_body_B.frame_a) annotation (Line(
+          points={{0,-10},{20,-10}},
+          color={95,95,95},
+          thickness=0.5));
+    end FreeMotionScalarInitStates;
+
     model SphericalSpherical
       extends Modelica.Icons.Example;
 
