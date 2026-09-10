@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Wed May 20 10:36:01 2026)
+
+dymosim started
+... "Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_DC_Drive" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 24
+   CPU-time for integration                : 17.4 seconds
+   CPU-time for one grid interval          : 0.145 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 395096
+   Number of grid points                   : 120001
+   Number of accepted steps                : 2386565
+   Number of f-evaluations (dynamics)      : 2573787
+   Number of crossing function evaluations : 3277263
+   Number of Jacobian-evaluations          : 2192176
+   Number of model time events             : 48000
+   Number of input time events             : 0
+   Number of state events                  : 107056
+   Number of step events                   : 0
+   Minimum integration stepsize            : 4.87e-13
+   Maximum integration stepsize            : 0.000299
+   Maximum integration order               : 3
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_DC_Drive

@@ -1,0 +1,35 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.IdealTriacCircuit:
+The DAE has 62 scalar unknowns and 62 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 11
+  Variables: 106
+  Constants: 4 (4 scalars)
+  Parameters: 40 (40 scalars)
+  Unknowns: 62 (62 scalars)
+  Differentiated variables: 1 scalars
+  Equations: 58
+  Nontrivial: 50
+Translated Model
+  Constants: 14 scalars
+  Free parameters: 20 scalars
+  Parameter depending: 18 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 21 scalars
+  Alias variables: 33 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {9}
+  Sizes after manipulation of the linear systems: {3}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  idealTriac.capacitor.v
+ 

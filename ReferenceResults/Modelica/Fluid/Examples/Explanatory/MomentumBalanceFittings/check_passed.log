@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings">Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings</a>
+The model has the same number of unknowns and equations: 256
+The model could not be deduced to be symbolically well-posed.
+The model has
+  256
+scalar unknowns and
+  236+2*leftBoundary1.nPorts+(if  not leftBoundary1.use_p_in then 1 else 0)+(if    not leftBoundary1.use_T_in then 1 else 0)+(if  not leftBoundary1.use_X_in   then 1 else 0)+2*rightBoundary1.nPorts+(if  not rightBoundary1.use_p_in then 1   else 0)+(if  not rightBoundary1.use_T_in then 1 else 0)+(if  not   rightBoundary1.use_X_in then 1 else 0)+2*leftBoundary2.nPorts+(if  not   leftBoundary2.use_p_in then 1 else 0)+(if  not leftBoundary2.use_T_in then 1   else 0)+(if  not leftBoundary2.use_X_in then 1 else 0)+2*rightBoundary2.nPorts  +(if  not rightBoundary2.use_p_in then 1 else 0)+(if  not rightBoundary2.use_T_in   then 1 else 0)+(if  not rightBoundary2.use_X_in then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  256
+Check of <a href="Modelica://Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings">Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings</a> successful.

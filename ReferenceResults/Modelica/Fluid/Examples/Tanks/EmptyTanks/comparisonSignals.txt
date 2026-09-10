@@ -1,0 +1,4 @@
+time
+tank1.level
+tank2.level
+tank2.ports[1].m_flow

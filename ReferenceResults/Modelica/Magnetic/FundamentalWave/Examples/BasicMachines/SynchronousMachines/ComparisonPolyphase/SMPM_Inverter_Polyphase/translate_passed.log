@@ -1,0 +1,50 @@
+Translation of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase">Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase</a>
+The DAE has 1932 scalar unknowns and 1932 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 410
+  Variables: 2484
+  Constants: 8 (8 scalars)
+  Parameters: 688 (766 scalars)
+  Unknowns: 1788 (1932 scalars)
+  Differentiated variables: 44 scalars
+  Equations: 995
+  Nontrivial: 812
+Translated Model
+  Constants: 710 scalars
+  Free parameters: 59 scalars
+  Parameter depending: 346 scalars
+  Continuous time states: 14 scalars
+  Time-varying variables: 380 scalars
+  Alias variables: 1211 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {16, 25, 2, 16, 8, 4, 2}
+  Sizes after manipulation of the linear systems: {2, 5, 0, 2, 0, 2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {12, 2, 2}
+    Sizes after manipulation of the linear systems: {4, 2, 2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$loadInertia3:phi">loadInertia3.phi</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$loadInertia3:w">loadInertia3.w</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$loadInertiaM:phi">loadInertiaM.phi</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$loadInertiaM:w">loadInertiaM.w</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$smpm3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smpm3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$smpm3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smpm3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$smpm3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smpm3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$smpm3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smpm3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$smpmM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smpmM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$smpmM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smpmM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$smpmM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smpmM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$smpmM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smpmM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$vfController:x">vfController.x</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase#text$vfController3:x">vfController3.x</a>
+Finished

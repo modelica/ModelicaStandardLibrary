@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 89
+The model has the same number of unknowns and equations:
+  86+3*max([size(kinematicPTP.deltaq, 1); size(kinematicPTP.qd_max, 1); size(  kinematicPTP.qdd_max, 1)])
+Check of <a href="Modelica://Modelica.Blocks.Examples.PID_Controller">Modelica.Blocks.Examples.PID_Controller</a> successful.
+

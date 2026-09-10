@@ -1,0 +1,46 @@
+﻿ = true
+Translation of Modelica.Mechanics.Rotational.Examples.HeatLosses:
+The DAE has 243 scalar unknowns and 243 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 23
+  Variables: 357
+  Constants: 32 (32 scalars)
+  Parameters: 85 (98 scalars)
+  Unknowns: 240 (243 scalars)
+  Differentiated variables: 28 scalars
+  Equations: 216
+  Nontrivial: 184
+Translated Model
+  Constants: 66 scalars
+  Free parameters: 62 scalars
+  Parameter depending: 16 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 115 scalars
+  Alias variables: 114 scalars
+  Number of mixed real/discrete systems of equations: 2
+  Sizes of linear systems of equations: {4, 21}
+  Sizes after manipulation of the linear systems: {0, 5}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  clutch.phi_rel
+  clutch.w_rel
+  damper.phi_rel
+  damper.w_rel
+  elastoBacklash.phi_rel
+  elastoBacklash.w_rel
+  inertia5.phi
+  inertia5.w
+  oneWayClutch.phi_rel
+  oneWayClutch.w_rel
+  springDamper.phi_rel
+  springDamper.w_rel
+ 

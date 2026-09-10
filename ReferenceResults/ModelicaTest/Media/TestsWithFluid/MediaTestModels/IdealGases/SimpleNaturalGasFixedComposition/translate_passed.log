@@ -1,0 +1,41 @@
+Translation of <a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGasFixedComposition">ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGasFixedComposition</a>
+The DAE has 192 scalar unknowns and 192 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 31
+  Variables: 369
+  Constants: 121 (289 scalars)
+  Parameters: 106 (123 scalars)
+  Unknowns: 142 (192 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 126
+  Nontrivial: 114
+Translated Model
+  Constants: 426 scalars
+  Free parameters: 40 scalars
+  Parameter depending: 55 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 28 scalars
+  Alias variables: 55 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {0}
+    Sizes of nonlinear systems of equations: {1, 4}
+    Sizes after manipulation of the nonlinear systems: {1, 1}
+    Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGasFixedComposition#diagram$volume:medium.p">volume.medium.p</a>
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGasFixedComposition#text$volume.medium:T">volume.medium.T</a>
+Finished
