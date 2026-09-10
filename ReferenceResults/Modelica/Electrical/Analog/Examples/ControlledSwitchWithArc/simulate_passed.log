@@ -1,0 +1,28 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 00:44:48 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "ControlledSwitchWithArc.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 6
+   CPU-time for integration                : 0.619 seconds
+   CPU-time for one grid interval          : 0.0129 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 48038
+   Number of grid points                   : 48001
+   Number of accepted steps                : 2639
+   Number of f-evaluations (dynamics)      : 5122
+   Number of crossing function evaluations : 50768
+   Number of Jacobian-evaluations          : 782
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 18
+   Number of step events                   : 0
+   Minimum integration stepsize            : 7.22e-14
+   Maximum integration stepsize            : 0.439
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)

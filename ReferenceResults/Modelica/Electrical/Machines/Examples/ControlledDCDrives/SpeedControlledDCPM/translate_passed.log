@@ -1,0 +1,46 @@
+Translation of <a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM">Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM</a>
+The DAE has 413 scalar unknowns and 413 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 96
+  Variables: 690
+  Constants: 6 (6 scalars)
+  Parameters: 271 (271 scalars)
+  Unknowns: 413 (413 scalars)
+  Differentiated variables: 24 scalars
+  Equations: 375
+  Nontrivial: 302
+Translated Model
+  Constants: 212 scalars
+  Free parameters: 59 scalars
+  Parameter depending: 142 scalars
+  Continuous time states: 13 scalars
+  Time-varying variables: 57 scalars
+  Alias variables: 220 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#diagram$armatureInverter:iDCFilter.y">armatureInverter.iDCFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#diagram$armatureInverter.idealDcDc:deadTime.y">armatureInverter.idealDcDc.deadTime.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#diagram$armatureInverter.idealDcDc:powerController.y">armatureInverter.idealDcDc.powerController.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#diagram$armatureInverter:iMotFilter.y">armatureInverter.iMotFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#diagram$armatureInverter:vDCFilter.y">armatureInverter.vDCFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#diagram$armatureInverter:vMotFilter.y">armatureInverter.vMotFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#diagram$currentController:integrator.y">currentController.integrator.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#text$dcpm.la:i">dcpm.la.i</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#text$loadInertia:phi">loadInertia.phi</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#text$loadInertia:w">loadInertia.w</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#diagram$:preFilter.y">preFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#diagram$:slewRateLimiter.y">slewRateLimiter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM#diagram$speedController:integrator.y">speedController.integrator.y</a>
+Finished

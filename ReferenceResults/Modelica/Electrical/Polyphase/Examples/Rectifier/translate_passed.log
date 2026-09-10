@@ -1,0 +1,38 @@
+﻿ = true
+Translation of Modelica.Electrical.Polyphase.Examples.Rectifier:
+The DAE has 531 scalar unknowns and 531 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 69
+  Variables: 673
+  Constants: 13 (13 scalars)
+  Parameters: 153 (183 scalars)
+  Unknowns: 507 (531 scalars)
+  Differentiated variables: 5 scalars
+  Equations: 287
+  Nontrivial: 236
+Translated Model
+  Constants: 138 scalars
+  Free parameters: 25 scalars
+  Parameter depending: 79 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 93 scalars
+  Alias variables: 392 scalars
+  Number of mixed real/discrete systems of equations: 3
+  Sizes of linear systems of equations: {6, 6, 6, 6}
+  Sizes after manipulation of the linear systems: {2, 2, 2, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  cDC1.v
+  cDC2.v
+  supplyL.inductor[2].i
+  supplyL.inductor[3].i
+ 

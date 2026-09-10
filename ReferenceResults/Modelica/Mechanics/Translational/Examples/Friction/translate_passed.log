@@ -1,0 +1,40 @@
+﻿ = true
+Translation of Modelica.Mechanics.Translational.Examples.Friction:
+The DAE has 88 scalar unknowns and 88 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 10
+  Variables: 147
+  Constants: 21 (21 scalars)
+  Parameters: 38 (137 scalars)
+  Unknowns: 88 (88 scalars)
+  Differentiated variables: 8 scalars
+  Equations: 84
+  Nontrivial: 74
+Translated Model
+  Constants: 35 scalars
+  Free parameters: 130 scalars
+  Parameter depending: 6 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 40 scalars
+  Alias variables: 35 scalars
+  Number of mixed real/discrete systems of equations: 3
+  Sizes of linear systems of equations: {3, 3, 3}
+  Sizes after manipulation of the linear systems: {0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  mass.s
+  mass.v
+  stop1.s
+  stop1.v
+  stop2.s
+  stop2.v
+ 

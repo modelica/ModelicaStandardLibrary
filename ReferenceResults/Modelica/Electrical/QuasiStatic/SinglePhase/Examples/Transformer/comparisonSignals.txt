@@ -1,0 +1,11 @@
+time
+load.pin_p.reference.gamma
+voltageSource.pin_p.reference.gamma
+idealTransformer.v1.re
+idealTransformer.v1.im
+idealTransformer.i1.re
+idealTransformer.i1.im
+idealTransformer.v2.re
+idealTransformer.v2.im
+idealTransformer.i2.re
+idealTransformer.i2.im

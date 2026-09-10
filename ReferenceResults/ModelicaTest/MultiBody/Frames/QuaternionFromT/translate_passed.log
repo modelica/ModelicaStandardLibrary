@@ -1,0 +1,26 @@
+Translation of <a href="Modelica://ModelicaTest.MultiBody.Frames.QuaternionFromT">ModelicaTest.MultiBody.Frames.QuaternionFromT</a>
+The DAE has 96 scalar unknowns and 96 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 1
+  Variables: 48
+  Parameters: 24 (216 scalars)
+  Unknowns: 24 (96 scalars)
+  Equations: 24
+  Nontrivial: 24
+Translated Model
+  Free parameters: 216 scalars
+  Parameter depending: 96 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Finished

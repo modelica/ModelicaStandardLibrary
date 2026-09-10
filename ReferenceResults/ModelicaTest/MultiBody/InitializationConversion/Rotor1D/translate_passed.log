@@ -1,0 +1,53 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.InitializationConversion.Rotor1D:
+The DAE has 2330 scalar unknowns and 2330 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 102
+  Variables: 1228
+  Parameters: 295 (441 scalars)
+  Unknowns: 933 (2330 scalars)
+  Differentiated variables: 70 scalars
+  Equations: 824
+  Nontrivial: 552
+Translated Model
+  Constants: 2004 scalars
+  Free parameters: 59 scalars
+  Parameter depending: 183 scalars
+  Continuous time states: 20 scalars
+  Time-varying variables: 89 scalars
+  Alias variables: 436 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  rotor1D1.phi
+  rotor1D1.w
+  rotor1D2.phi
+  rotor1D2.w
+  rotor1D3.phi
+  rotor1D3.w
+  rotor1D4.phi
+  rotor1D4.w
+  rotor1D5.phi
+  rotor1D5.w
+  rotor1D6.phi
+  rotor1D6.w
+  rotor1D7.phi
+  rotor1D7.w
+  rotor1D8.phi
+  rotor1D8.w
+  rotor1D9.phi
+  rotor1D9.w
+  rotor1D10.phi
+  rotor1D10.w
+ 

@@ -1,0 +1,10 @@
+time
+cutForce1a.force[3]
+cutForce2a.force[3]
+cutForce2b.force[3]
+cutForce1a.force[2]
+cutForce2a.force[2]
+cutForce2b.force[2]
+cutForce1a.force[1]
+cutForce2a.force[1]
+cutForce2b.force[1]
