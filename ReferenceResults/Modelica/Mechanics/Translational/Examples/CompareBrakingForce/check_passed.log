@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce">Modelica.Mechanics.Translational.Examples.CompareBrakingForce</a>
+The model has the same number of unknowns and equations: 52
+The model could not be deduced to be symbolically well-posed.
+The model has
+  52
+scalar unknowns and
+  48+(if  not signForce.useSupport then 1 else 0)+(if  not linearSpeedDependentForce.useSupport   then 1 else 0)+(if  not quadraticSpeedDependentForce.useSupport then 1 else 0)  +(if  not inverseSpeedDependentForce.useSupport then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  52
+Check of <a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce">Modelica.Mechanics.Translational.Examples.CompareBrakingForce</a> successful.

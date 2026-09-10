@@ -1,0 +1,30 @@
+﻿ = true
+Translation of ModelicaTest.Electrical.Analog.Ideal.IdealTwoWaySwitches:
+The DAE has 68 scalar unknowns and 68 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 10
+  Variables: 104
+  Constants: 4 (4 scalars)
+  Parameters: 32 (32 scalars)
+  Unknowns: 68 (68 scalars)
+  Equations: 66
+  Nontrivial: 58
+Translated Model
+  Constants: 19 scalars
+  Free parameters: 20 scalars
+  Parameter depending: 8 scalars
+  Time-varying variables: 27 scalars
+  Alias variables: 30 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {8, 8}
+  Sizes after manipulation of the linear systems: {2, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

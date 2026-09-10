@@ -1,0 +1,9 @@
+time
+tank1.level
+tank1.medium.T
+tank2.level
+tank2.medium.T
+tank1.aboveLevel[1]
+tank1.aboveLevel[2]
+tank2.aboveLevel[1]
+tank2.aboveLevel[2]

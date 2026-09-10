@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 4128
+The model has the same number of unknowns and equations:
+  4100+4*(size(world.x_label.lines, 1)+size(world.y_label.lines, 1)+size(  world.z_label.lines, 1))
+Check of <a href="Modelica://ModelicaTest.MultiBody.Sensors.CutForceAndTorque2">ModelicaTest.MultiBody.Sensors.CutForceAndTorque2</a> successful.
+

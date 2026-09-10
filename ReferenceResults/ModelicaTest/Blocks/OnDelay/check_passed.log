@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 21
+The model has the same number of unknowns and equations:
+  20+max([1; size(booleanTable.combiTimeTable.offset, 1)])
+Check of <a href="Modelica://ModelicaTest.Blocks.OnDelay">ModelicaTest.Blocks.OnDelay</a> successful.
+

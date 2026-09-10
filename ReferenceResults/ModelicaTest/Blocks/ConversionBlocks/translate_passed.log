@@ -1,0 +1,28 @@
+﻿ = true
+Translation of ModelicaTest.Blocks.ConversionBlocks:
+The DAE has 66 scalar unknowns and 66 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 28
+  Variables: 71
+  Parameters: 5 (5 scalars)
+  Unknowns: 66 (66 scalars)
+  Equations: 66
+  Nontrivial: 53
+Translated Model
+  Free parameters: 5 scalars
+  Outputs: 13 scalars
+  Time-varying variables: 27 scalars
+  Alias variables: 39 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
