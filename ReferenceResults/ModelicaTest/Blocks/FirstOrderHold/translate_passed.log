@@ -1,0 +1,28 @@
+﻿ = true
+Translation of ModelicaTest.Blocks.FirstOrderHold:
+The DAE has 14 scalar unknowns and 14 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 4
+  Variables: 24
+  Parameters: 10 (10 scalars)
+  Unknowns: 14 (14 scalars)
+  Equations: 11
+  Nontrivial: 11
+Translated Model
+  Free parameters: 8 scalars
+  Parameter depending: 2 scalars
+  Time-varying variables: 12 scalars
+  Alias variables: 2 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

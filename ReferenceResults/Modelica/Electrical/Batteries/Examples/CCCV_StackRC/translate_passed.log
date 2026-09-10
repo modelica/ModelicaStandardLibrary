@@ -1,0 +1,59 @@
+﻿ = true
+Translation of Modelica.Electrical.Batteries.Examples.CCCV_StackRC:
+The DAE has 1013 scalar unknowns and 1013 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 253
+  Variables: 2211
+  Constants: 90 (90 scalars)
+  Parameters: 1138 (4907 scalars)
+  Unknowns: 983 (1013 scalars)
+  Differentiated variables: 25 scalars
+  Equations: 868
+  Nontrivial: 695
+Translated Model
+  Constants: 1098 scalars
+  Free parameters: 190 scalars
+  Parameter depending: 3815 scalars
+  Continuous time states: 25 scalars
+  Time-varying variables: 228 scalars
+  Alias variables: 679 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {19}
+  Sizes after manipulation of the linear systems: {3}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  energy.y
+  stack.cell[1, 1].cell.capacitor[1].v
+  stack.cell[1, 1].cell.capacitor[2].v
+  stack.cell[1, 1].cell.limIntegrator.y
+  stack.cell[1, 1].limIntegrator.y
+  stack.cell[1, 2].cell.capacitor[1].v
+  stack.cell[1, 2].cell.capacitor[2].v
+  stack.cell[1, 2].cell.limIntegrator.y
+  stack.cell[1, 2].limIntegrator.y
+  stack.cell[2, 1].cell.capacitor[1].v
+  stack.cell[2, 1].cell.capacitor[2].v
+  stack.cell[2, 1].cell.limIntegrator.y
+  stack.cell[2, 1].limIntegrator.y
+  stack.cell[2, 2].cell.capacitor[1].v
+  stack.cell[2, 2].cell.capacitor[2].v
+  stack.cell[2, 2].cell.limIntegrator.y
+  stack.cell[2, 2].limIntegrator.y
+  stack.cell[3, 1].cell.capacitor[1].v
+  stack.cell[3, 1].cell.capacitor[2].v
+  stack.cell[3, 1].cell.limIntegrator.y
+  stack.cell[3, 1].limIntegrator.y
+  stack.cell[3, 2].cell.capacitor[1].v
+  stack.cell[3, 2].cell.capacitor[2].v
+  stack.cell[3, 2].cell.limIntegrator.y
+  stack.cell[3, 2].limIntegrator.y
+ 

@@ -1,0 +1,40 @@
+﻿ = true
+Translation of Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics:
+The DAE has 666 scalar unknowns and 666 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 127
+  Variables: 1104
+  Constants: 11 (11 scalars)
+  Parameters: 427 (427 scalars)
+  Unknowns: 666 (666 scalars)
+  Differentiated variables: 33 scalars
+  Equations: 558
+  Nontrivial: 403
+Translated Model
+  Constants: 419 scalars
+  Free parameters: 50 scalars
+  Parameter depending: 262 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 63 scalars
+  Alias variables: 310 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2, 5, 2}
+  Sizes after manipulation of the linear systems: {0, 0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  loadInertia1.phi
+  loadInertia1.w
+  loadInertia2.phi
+  loadInertia2.w
+  loadInertia3.phi
+  loadInertia3.w
+ 

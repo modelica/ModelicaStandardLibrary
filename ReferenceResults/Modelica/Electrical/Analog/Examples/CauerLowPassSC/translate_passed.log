@@ -1,0 +1,50 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.CauerLowPassSC:
+The DAE has 658 scalar unknowns and 658 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 144
+  Variables: 911
+  Constants: 55 (55 scalars)
+  Parameters: 198 (198 scalars)
+  Unknowns: 658 (658 scalars)
+  Differentiated variables: 20 scalars
+  Equations: 567
+  Nontrivial: 491
+Translated Model
+  Constants: 258 scalars
+  Free parameters: 107 scalars
+  Parameter depending: 58 scalars
+  Continuous time states: 16 scalars
+  Time-varying variables: 218 scalars
+  Alias variables: 270 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}
+  Sizes after manipulation of the linear systems: {4, 4, 4, 4, 4, 4, 4, 4, 3, 4, 4, 4}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  C1.v
+  C2.v
+  C3.v
+  C4.v
+  C7.v
+  R1.Capacitor.v
+  R2.Capacitor.v
+  R3.Capacitor.v
+  R4.Capacitor.v
+  R5.Capacitor.v
+  R7.Capacitor.v
+  R8.Capacitor.v
+  R9.Capacitor.v
+  R10.Capacitor.v
+  R11.Capacitor.v
+  Rp1.Capacitor.v
+ 

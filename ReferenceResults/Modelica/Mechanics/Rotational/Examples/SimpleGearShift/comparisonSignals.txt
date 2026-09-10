@@ -1,0 +1,13 @@
+time
+clutch.phi_rel
+clutch.w_rel
+engine.phi
+engine.w
+load.phi
+load.w
+brake.mode
+brake.startBackward
+brake.startForward
+clutch.mode
+clutch.startBackward
+clutch.startForward

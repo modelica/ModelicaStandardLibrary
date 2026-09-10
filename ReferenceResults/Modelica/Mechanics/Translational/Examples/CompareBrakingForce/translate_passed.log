@@ -1,0 +1,40 @@
+Translation of <a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce">Modelica.Mechanics.Translational.Examples.CompareBrakingForce</a>
+The DAE has 52 scalar unknowns and 52 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 9
+  Variables: 86
+  Parameters: 34 (34 scalars)
+  Unknowns: 52 (52 scalars)
+  Differentiated variables: 12 scalars
+  Equations: 44
+  Nontrivial: 40
+Translated Model
+  Constants: 20 scalars
+  Free parameters: 8 scalars
+  Parameter depending: 14 scalars
+  Continuous time states: 8 scalars
+  Time-varying variables: 20 scalars
+  Alias variables: 24 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce#text$mass1:s">mass1.s</a>
+<a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce#text$mass1:v">mass1.v</a>
+<a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce#text$mass2:s">mass2.s</a>
+<a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce#text$mass2:v">mass2.v</a>
+<a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce#text$mass3:s">mass3.s</a>
+<a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce#text$mass3:v">mass3.v</a>
+<a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce#text$mass4:s">mass4.s</a>
+<a href="Modelica://Modelica.Mechanics.Translational.Examples.CompareBrakingForce#text$mass4:v">mass4.v</a>
+Finished

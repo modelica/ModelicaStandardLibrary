@@ -1,0 +1,53 @@
+﻿ = true
+Translation of ModelicaTest.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets:
+The DAE has 389 scalar unknowns and 389 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 22
+  Variables: 353
+  Constants: 6 (6 scalars)
+  Parameters: 156 (960 scalars)
+  Unknowns: 191 (389 scalars)
+  Differentiated variables: 34 scalars
+  Equations: 184
+  Nontrivial: 173
+Translated Model
+  Constants: 74 scalars
+  Free parameters: 475 scalars
+  Parameter depending: 446 scalars
+  Continuous time states: 15 scalars
+  Time-varying variables: 304 scalars
+  Alias variables: 56 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {1}
+    Sizes after manipulation of the nonlinear systems: {1}
+    Number of numerical Jacobians: 1
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  Core.B
+  Core.MagRel
+  Core1.B
+  Core1.MagRel
+  Core2.B
+  Core2.MagRel
+  Core3.B
+  Core3.MagRel
+  Core4.beta
+  Core4.J
+  Core4.MagRel
+  Core4.v
+  Core4.x
+  PM.B
+  PM.MagRel
+ 

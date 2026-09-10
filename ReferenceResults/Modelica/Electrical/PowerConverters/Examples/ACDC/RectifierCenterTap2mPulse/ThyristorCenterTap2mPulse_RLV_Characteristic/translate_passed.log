@@ -1,0 +1,37 @@
+Translation of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV_Characteristic">Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV_Characteristic</a>
+The DAE has 464 scalar unknowns and 464 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 89
+  Variables: 661
+  Constants: 12 (12 scalars)
+  Parameters: 238 (282 scalars)
+  Unknowns: 411 (464 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 276
+  Nontrivial: 234
+Translated Model
+  Constants: 149 scalars
+  Free parameters: 57 scalars
+  Parameter depending: 128 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 108 scalars
+  Alias variables: 316 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {18}
+  Sizes after manipulation of the linear systems: {6}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV_Characteristic#text$inductor:i">inductor.i</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV_Characteristic#text$meanCurrent:x">meanCurrent.x</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV_Characteristic#text$meanVoltage:x">meanVoltage.x</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV_Characteristic#text$rootMeanSquareVoltage.mean:x">rootMeanSquareVoltage.mean.x</a>
+Finished
