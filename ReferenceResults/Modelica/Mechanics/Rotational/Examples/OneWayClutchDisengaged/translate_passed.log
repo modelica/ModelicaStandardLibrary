@@ -1,0 +1,38 @@
+﻿ = true
+Translation of Modelica.Mechanics.Rotational.Examples.OneWayClutchDisengaged:
+The DAE has 47 scalar unknowns and 47 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 8
+  Variables: 72
+  Constants: 3 (3 scalars)
+  Parameters: 22 (23 scalars)
+  Unknowns: 47 (47 scalars)
+  Differentiated variables: 7 scalars
+  Equations: 43
+  Nontrivial: 35
+Translated Model
+  Constants: 12 scalars
+  Free parameters: 14 scalars
+  Parameter depending: 8 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 13 scalars
+  Alias variables: 26 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {5}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  inertiaIn.phi
+  inertiaIn.w
+  oneWayClutch.phi_rel
+  oneWayClutch.w_rel
+ 

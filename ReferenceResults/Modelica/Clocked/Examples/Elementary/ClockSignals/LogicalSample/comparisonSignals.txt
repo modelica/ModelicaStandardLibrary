@@ -1,0 +1,9 @@
+time
+rotational_clock_1.angle
+rotational_clock_1.direction
+rotational_clock_1.direction_changed
+rotational_clock_2.angle
+rotational_clock_2.direction
+rotational_clock_2.direction_changed
+sample_conjunctive.y
+sample_disjunctive.y

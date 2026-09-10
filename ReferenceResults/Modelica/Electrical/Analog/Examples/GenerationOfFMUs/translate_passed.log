@@ -1,0 +1,70 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.GenerationOfFMUs:
+The DAE has 306 scalar unknowns and 306 scalar equations.
+Redundant consistent initial conditions.
+Removed the following equations which are redundant and consistent: 
+  if (inverseCapacitor1.voltageToCurrent.use_pder and inverseCapacitor1.voltageToCurrent.use_pder2)     then 
+    inverseCapacitor1.voltageToCurrent.u = Modelica.Blocks.Interfaces.Adaptors.Functions.state2      ({inverseCapacitor1.voltageToCurrent.p, inverseCapacitor1.voltageToCurrent.u1,       inverseCapacitor1.voltageToCurrent.u2}, time);
+  elseif (inverseCapacitor1.voltageToCurrent.use_pder and  not inverseCapacitor1.voltageToCurrent.use_pder2)     then 
+    inverseCapacitor1.voltageToCurrent.u = Modelica.Blocks.Interfaces.Adaptors.Functions.state1      ({inverseCapacitor1.voltageToCurrent.p, inverseCapacitor1.voltageToCurrent.u1},       time);
+  else
+    inverseCapacitor1.voltageToCurrent.u = inverseCapacitor1.voltageToCurrent.p;
+  end if;
+  if (inverseInductor3.currentToVoltage.use_fder and inverseInductor3.currentToVoltage.use_fder2)     then 
+    inverseInductor3.currentToVoltage.u = Modelica.Blocks.Interfaces.Adaptors.Functions.state2      ({inverseInductor3.currentToVoltage.f, inverseInductor3.currentToVoltage.u1,       inverseInductor3.currentToVoltage.u2}, time);
+  elseif (inverseInductor3.currentToVoltage.use_fder and  not inverseInductor3.currentToVoltage.use_fder2)     then 
+    inverseInductor3.currentToVoltage.u = Modelica.Blocks.Interfaces.Adaptors.Functions.state1      ({inverseInductor3.currentToVoltage.f, inverseInductor3.currentToVoltage.u1},       time);
+  else
+    inverseInductor3.currentToVoltage.u = inverseInductor3.currentToVoltage.f;
+  end if;
+ 
+This required evaluation of 
+the interactive start values of 
+    directCapacitor1.capacitor.v(start = 0)
+    directInductor3.inductor.i(start = 0)
+    inverseCapacitor1.capacitor.v(start = 0)
+    inverseInductor3.inductor.i(start = 0)
+ 
+The redundancies involve
+active start values: 
+  directCapacitor1.capacitor.v = 0;
+  inverseCapacitor1.capacitor.v = 0;
+  directInductor3.inductor.i = 0;
+  inverseInductor3.inductor.i = 0;
+ 
+ 
+Statistics
+ 
+Original Model
+  Number of components: 45
+  Variables: 460
+  Parameters: 154 (154 scalars)
+  Unknowns: 306 (306 scalars)
+  Differentiated variables: 10 scalars
+  Equations: 307
+  Nontrivial: 241
+Translated Model
+  Constants: 206 scalars
+  Free parameters: 24 scalars
+  Parameter depending: 10 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 25 scalars
+  Alias variables: 195 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 3}
+  Sizes after manipulation of the linear systems: {0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  capacitor2a.v
+  capacitor2b.v
+  directCapacitor1.capacitor.v
+  directInductor3.inductor.i
+  inductor4a.i
+  inductor4b.i
+ 

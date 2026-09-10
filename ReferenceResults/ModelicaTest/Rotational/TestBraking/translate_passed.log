@@ -1,0 +1,44 @@
+Translation of <a href="Modelica://ModelicaTest.Rotational.TestBraking">ModelicaTest.Rotational.TestBraking</a>
+The DAE has 88 scalar unknowns and 88 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 14
+  Variables: 129
+  Parameters: 41 (41 scalars)
+  Unknowns: 88 (88 scalars)
+  Differentiated variables: 19 scalars
+  Equations: 76
+  Nontrivial: 60
+Translated Model
+  Constants: 30 scalars
+  Free parameters: 23 scalars
+  Continuous time states: 13 scalars
+  Time-varying variables: 20 scalars
+  Alias variables: 56 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$heatCapacitor:T">heatCapacitor.T</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia1:phi">inertia1.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia1:w">inertia1.w</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia2:phi">inertia2.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia2:w">inertia2.w</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia3:phi">inertia3.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia3:w">inertia3.w</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia4:phi">inertia4.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia4:w">inertia4.w</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia5:phi">inertia5.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia5:w">inertia5.w</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia6:phi">inertia6.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.TestBraking#text$inertia6:w">inertia6.w</a>
+Finished
