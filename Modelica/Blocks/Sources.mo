@@ -1951,8 +1951,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       Text(extent={{-150,-150},{150,-110}}, textString="tableOnFile=%tableOnFile")}));
   end CombiTimeTable;
 
-  block BooleanConstant "Generate constant signal of type Boolean"
-    parameter Boolean k=true "Constant output value"
+  block BooleanParameter "Generate parameter signal of type Boolean"
+    parameter Boolean k=true "Parameter output value"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanConstant.png"));
     extends Interfaces.partialBooleanSource;
 
@@ -1975,7 +1975,26 @@ The Boolean output y is a constant signal:
      alt=\"BooleanConstant.png\">
 </div>
 </html>"));
-  end BooleanConstant;
+  end BooleanParameter;
+
+  block BooleanConstant = BooleanParameter "Legacy name for a source with parameter variability Boolean output.";
+
+  block BooleanConstantVariability "Generate constant signal of type Boolean"
+    constant Boolean k = true "Constant output value" annotation(Dialog(group="Constants"));
+    extends Interfaces.partialBooleanSource;
+  equation
+    y = k;
+    annotation(Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}, initialScale = 0.1, grid = {10, 10}), graphics = {Line(visible = true, origin = {-4.523, 0}, points = {{-75.477, 0}, {75.477, 0}}, color = {64, 64, 64}), Text(visible = true, textColor = {64, 64, 64}, extent = {{-150, -140}, {150, -110}}, textString = "%k"), Text(visible = true, origin = {-0, 25}, extent = {{-100, -15}, {100, 15}}, textString = "constant")}), Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}, initialScale = 0.1, grid = {10, 10}), graphics = {Line(visible = true, points = {{-70, 0}, {80, 0}}, color = {0, 36, 164}, thickness = 0.5), Text(visible = true, textColor = {64, 64, 64}, extent = {{-69, 0}, {-49, 20}}, textString = "k"), Text(visible = true, textColor = {64, 64, 64}, extent = {{-96, -4}, {-76, 6}}, textString = "true"), Text(visible = true, textColor = {64, 64, 64}, extent = {{-98, -68}, {-72, -58}}, textString = "false")}), Documentation(info = "<html>
+<p>
+The Boolean output y has constant variability:
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanConstant.png\"
+     alt=\"BooleanConstant.png\">
+</p>
+</html>"));
+  end BooleanConstantVariability;
 
   block BooleanStep "Generate step signal of type Boolean"
     parameter SI.Time startTime=0 "Time instant of step start"
