@@ -1,0 +1,5 @@
+Check of <a href="Modelica://ModelicaTest.Tables.CombiTimeTable.Test89">ModelicaTest.Tables.CombiTimeTable.Test89</a>
+The model has the same number of unknowns and equations: 6
+The model has the same number of unknowns and equations:
+  5+max([size(t_new.columns, 1); size(t_new.offset, 1)])
+Check of <a href="Modelica://ModelicaTest.Tables.CombiTimeTable.Test89">ModelicaTest.Tables.CombiTimeTable.Test89</a> successful.

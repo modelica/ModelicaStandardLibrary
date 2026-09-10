@@ -1,0 +1,40 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetDriving:
+The DAE has 2462 scalar unknowns and 2462 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 126
+  Variables: 1198
+  Parameters: 294 (465 scalars)
+  Unknowns: 904 (2462 scalars)
+  Differentiated variables: 53 scalars
+  Equations: 780
+  Nontrivial: 527
+Translated Model
+  Constants: 1689 scalars
+  Free parameters: 89 scalars
+  Parameter depending: 188 scalars
+  Continuous time states: 7 scalars
+  Time-varying variables: 198 scalars
+  Alias variables: 763 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 17, 2, 2, 70, 2}
+  Sizes after manipulation of the linear systems: {2, 0, 2, 2, 6, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  wheelSet.der_theta1
+  wheelSet.der_theta2
+  wheelSet.phi
+  wheelSet.theta1
+  wheelSet.theta2
+  wheelSet.x
+  wheelSet.y
+ 

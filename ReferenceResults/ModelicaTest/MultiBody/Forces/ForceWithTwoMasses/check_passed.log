@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 1844
+The model could not be deduced to be symbolically well-posed.
+The model has
+  1816+4*(size(world.x_label.lines, 1)+size(world.y_label.lines, 1)+size(  world.z_label.lines, 1))
+scalar unknowns and
+  1797+(if  not Connections.isRoot(BodyBox1.body.frame_a.R) then 13 else 22)+(if   force.fixedRotationAtFrame_a then 12 else 3)+(if force.fixedRotationAtFrame_b   then 12 else 3)+4*size(world.x_label.lines, 1)+4*size(world.y_label.lines, 1)  +4*size(world.z_label.lines, 1)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  1844
+Check of <a href="Modelica://ModelicaTest.MultiBody.Forces.ForceWithTwoMasses">ModelicaTest.MultiBody.Forces.ForceWithTwoMasses</a> successful.
+

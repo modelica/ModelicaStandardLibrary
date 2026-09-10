@@ -1,0 +1,3 @@
+The model has the same number of unknowns and equations: 240
+Check of <a href="Modelica://ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Channel.dp_internalFlowOverall_DPMFLOW">ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Channel.dp_internalFlowOverall_DPMFLOW</a> successful.
+
