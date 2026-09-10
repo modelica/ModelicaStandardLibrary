@@ -1,0 +1,36 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Sensors.Distance2:
+The DAE has 1781 scalar unknowns and 1781 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 82
+  Variables: 825
+  Constants: 2 (2 scalars)
+  Parameters: 182 (291 scalars)
+  Unknowns: 641 (1781 scalars)
+  Differentiated variables: 19 scalars
+  Equations: 590
+  Nontrivial: 386
+Translated Model
+  Constants: 1489 scalars
+  Free parameters: 55 scalars
+  Parameter depending: 169 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 34 scalars
+  Alias variables: 327 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  Revolute1.phi
+  Revolute1.w
+ 

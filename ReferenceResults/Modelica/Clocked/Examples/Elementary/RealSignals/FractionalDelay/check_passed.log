@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 11
+The model has the same number of unknowns and equations:
+  10+div(fractionalDelay.shift, fractionalDelay.resolution)
+Check of <a href="Modelica://Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay">Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay</a> successful.
+

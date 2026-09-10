@@ -1,0 +1,27 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 01:26:55 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "Spice3BenchmarkMosfetCharacterization.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 1e-07
+   CPU-time for integration                : 0.003 seconds
+   CPU-time for one grid interval          : 0.015 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 210
+   Number of grid points                   : 201
+   Number of accepted steps                : 184
+   Number of f-evaluations (dynamics)      : 184
+   Number of Jacobian-evaluations          : 169
+   Number of model time events             : 14
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 5e-13
+   Maximum integration stepsize            : 1.36e-08
+   Maximum integration order               : 1
+Calling terminal section
+... "dsfinal.txt" creating (final states)

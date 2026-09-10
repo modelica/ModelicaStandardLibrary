@@ -1,0 +1,13 @@
+time
+SourceP1.ports[1].m_flow
+SourceP1.ports[1].p
+SourceP1.ports[1].h_outflow
+V1.port_b.m_flow
+V1.port_b.p
+V1.port_b.h_outflow
+V1.minLimiter.y
+SinkP1.ports[1].m_flow
+SinkP1.ports[1].p
+SinkP1.ports[1].h_outflow
+Opening.y
+downstreamPressure.y

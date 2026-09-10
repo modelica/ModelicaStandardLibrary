@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 2311
+The model has the same number of unknowns and equations:
+  2111+4*(size(fixedFrameOfWireframe.x_label.lines, 1)+size(fixedFrameOfWireframe.y_label.lines,   1)+size(fixedFrameOfWireframe.z_label.lines, 1)+size(fixedFrame.x_label.lines,   1)+size(fixedFrame.y_label.lines, 1)+size(fixedFrame.z_label.lines, 1))+3*(  surfaceWireframe.nu*surfaceWireframe.nv)+3*(surfaceSolid.nu*surfaceSolid.nv)
+Check of <a href="Modelica://ModelicaTest.MultiBody.Visualizers.Planes">ModelicaTest.MultiBody.Visualizers.Planes</a> successful.
+

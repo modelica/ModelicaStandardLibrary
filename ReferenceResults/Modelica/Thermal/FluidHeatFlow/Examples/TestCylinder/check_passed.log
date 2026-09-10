@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 61
+The model has the same number of unknowns and equations:
+  60+max([size(combiTimeTable.columns, 1); size(combiTimeTable.offset, 1)])
+Check of <a href="Modelica://Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder">Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder</a> successful.
+

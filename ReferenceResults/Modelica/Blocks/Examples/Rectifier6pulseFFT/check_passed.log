@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 5386
+The model has the same number of unknowns and equations:
+  584+Modelica.Math.FastFourierTransform.realFFTsamplePoints(realFFT.f_max,   realFFT.f_res, 5)+2*max(1, min(1+integer(ceil(realFFT.f_max/realFFT.f_res)),   div(Modelica.Math.FastFourierTransform.realFFTsamplePoints(realFFT.f_max,   realFFT.f_res, 5), 2)))
+Check of <a href="Modelica://Modelica.Blocks.Examples.Rectifier6pulseFFT">Modelica.Blocks.Examples.Rectifier6pulseFFT</a> successful.
+

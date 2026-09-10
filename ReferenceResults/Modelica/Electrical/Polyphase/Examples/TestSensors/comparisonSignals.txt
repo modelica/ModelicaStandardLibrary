@@ -1,0 +1,3 @@
+time
+inductor.inductor[2].i
+inductor.inductor[3].i
