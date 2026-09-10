@@ -1,0 +1,9 @@
+time
+Jraw
+J
+mu_r
+mu_rd
+v
+v_Alt1
+v_Alt2
+v_Alt3

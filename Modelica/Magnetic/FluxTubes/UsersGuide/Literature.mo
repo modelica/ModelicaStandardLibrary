@@ -60,6 +60,38 @@ class Literature "Literature"
 </table><br>
 </li>
 
+<li><strong>Approximation formulae of magnetization characteristics (besides [Ro00] are described in:</strong>
+
+<br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td>[Fischer1956] </td>
+      <td>J. Fischer and H. Moser:
+        <em>Die Nachbildung von Magnetisierungskurven durch einfache algebraische und transzendente Funktionen</em>,
+        etz Archiv 42 (1956), pp. 286-299 (in German).</td>
+    </tr>
+
+    <tr>
+      <td>[Macfadyen1973] </td>
+      <td>W. Macfadyen, W. Woods, R. Simpson and R. Slater:
+        <em>Representation of magnetization curves by exponential series</em>,
+        Proceedings of the Institution of Electrical Engineers Vol. 120 (1973), pp. 902-904.</td>
+    </tr>
+
+    <tr>
+      <td>[deBoor2001] </td>
+      <td>Carl deBoor: <em>A practical Guide to Splines</em>,
+        Applied Mathematical Sciences Volume 27. Editors: J.E. Marsden and L. Sirovich. Springer 2001, ISBN 0-337-95366-3.</td>
+    </tr>
+
+    <tr>
+      <td>[Rao2015] </td>
+      <td>Dantam K. Rao and Vladimir Kuptsov: 
+        <em>Effective Use of Magnetization Data in the Design of Electric Machines With Overfluxed Regions</em>,
+        IEEE Transactions on Magnetics, Vol. 51, No. 7, July 2015.</td>
+    </tr>
+</table><br>
+</li>
+
 <li><strong>Information related to the implemented hysteresis models can be found in:</strong>
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">

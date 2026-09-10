@@ -23,6 +23,11 @@ class Contact "Contact"
     Fax: +49 - 351 - 463 37183<br>
     email: <a href=\"mailto:Johannes.Ziske@tu-dresden.de\">Johannes.Ziske@tu-dresden.de</a>
 </p>
+<p>
+  <strong>Prof. Anton Haumer (retired)</strong><br>
+  <a href=\"https://www.oth-regensburg.de/en/\">Technical University of Applied Sciences OTH Regensburg</a>, Germany<br>
+  email: <a href=\"mailto:Anton.Haumer@oth-regensburg.de\">Anton.Haumer@oth-regensburg.de</a>
+</p>
 
 <h4>Acknowledgements</h4>
 
@@ -36,6 +41,9 @@ class Contact "Contact"
    <a href=\"https://cordis.europa.eu/project/id/296369\">JTI-CS-2011-1-SGO-02-026</a>;
    MOMOLIB - Modelica Model Library Development for Media, Magnetic Systems and Wavelets.
    The partial financial support by the European Union for this development is highly appreciated.</li>
+<li> The magnetisation characteristics of the soft magnetic materials included in the 
+   <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE\">sublibrary with material approximated with Smoothing Splines and Exponential Extrapolation</a>
+   were provided by <a href=\"https://www.voestalpine.com/isovac/Downloads/Datenblaetter\">VoestAlpine</a>. The support is highly appreciated!</li>
 </ul>
 </html>"));
 end Contact;

@@ -1,32 +1,18 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic;
-function mu_rApprox
+function app_mu_r
   "Approximation of relative permeability mu_r as a function of flux density B for soft magnetic materials"
-
   extends Modelica.Icons.Function;
-
   input SI.MagneticFluxDensity B
     "Flux density in ferromagnetic flux tube element";
-  //Material specific parameter set:
-  input SI.RelativePermeability mu_i
-    "Initial relative permeability at B=0";
-  input SI.MagneticFluxDensity B_myMax
-    "Flux density at maximum relative permeability";
-  input Real c_a "Coefficient of approximation function";
-  input Real c_b "Coefficient of approximation function";
-  input Real n "Exponent of approximation function";
-
-  output SI.RelativePermeability mu_r
+  input BaseData material "Material specific parameter set";
+  output SI.RelativePermeability mu_r=
+    1 + (material.mu_i - 1 + material.c_a*B_N)/(1 + material.c_b*B_N + B_N^material.n)
     "Relative magnetic permeability of ferromagnetic flux tube element";
-
 protected
-  Real B_N
+  Real B_N=abs(B/material.B_myMax)
     "Flux density B normalized to flux density at maximum relative permeability B_myMax";
-
-algorithm
-  B_N := abs(B/B_myMax);
-  mu_r := 1 + (mu_i - 1 + c_a*B_N)/(1 + c_b*B_N + B_N^n);
-
-  annotation (Documentation(info="<html>
+  annotation (Inline=true,
+    Documentation(info="<html>
 <p>
 The relative permeability mu_r as a function of flux density B for all soft magnetic materials currently included in this library is approximated with the following function <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro00]</a>:
 </p>
@@ -40,8 +26,8 @@ Two of the five parameters of this equation have a physical meaning, namely the 
 </p>
 <h4>Note:</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.app_mu_r\">app_mu_r</a> should be preferred 
+Should be preferred over <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox\">mu_rApprox</a> 
 due to the chance to inline the function.
 </p>
 </html>"));
-end mu_rApprox;
+end app_mu_r;
