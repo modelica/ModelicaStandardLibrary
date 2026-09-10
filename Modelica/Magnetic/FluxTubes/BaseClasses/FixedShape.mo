@@ -28,7 +28,7 @@ partial model FixedShape "Base class for flux tubes with fixed shape during simu
           nonLinearPermeability and magType ==MagType.SSEE));
 
   extends FluxTubes.Interfaces.TwoPort;
-  input Modelica.Units.SI.CrossSection A "Cross-sectional area";
+  Modelica.Units.SI.CrossSection A "Cross-sectional area";
   Modelica.Units.SI.Reluctance R_m "Magnetic reluctance";
   Modelica.Units.SI.Permeance G_m "Magnetic permeance";
   Modelica.Units.SI.MagneticFluxDensity B(start=0) "Magnetic flux density";

@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Shapes.FixedShape;
 model Cuboid
   "Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics"
   extends FluxTubes.Icons.Cuboid;
-  extends BaseClasses.FixedShape(final A=a*b);
+  extends BaseClasses.FixedShape;
 
   parameter Modelica.Units.SI.Length l=0.01 "Length in direction of flux"
     annotation (Dialog(group="Fixed geometry", groupImage=
@@ -15,6 +15,7 @@ model Cuboid
     annotation (Dialog(group="Fixed geometry"));
 
 equation
+  A = a*b;
   G_m = mu_0*mu_r*A/l;
   annotation (Documentation(info="<html>
 <p>
