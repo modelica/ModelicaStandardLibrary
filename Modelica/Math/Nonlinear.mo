@@ -807,7 +807,7 @@ Compute definite integral over function f(u,...) from u=a up to u=b using the
 </ul>
 <h4>Note</h4>
 <p>
-Higher degree of interpolation polynomial increases the chance of high error (Runge's phenomenon). <br>
+Higher degree of interpolation polynomial are not supported as it increases the chance of high error (Runge's phenomenon). <br>
 Even degrees of interpolation polynomial should be preferred, since they integrate the same polynomial as the next higher odd degree exactly.
 </p>
 </html>"));
