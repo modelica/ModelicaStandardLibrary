@@ -2,7 +2,8 @@ within Modelica.Mechanics.MultiBody.Forces.Internal;
 model BasicWorldTorque
   "External torque acting at frame_b, defined by 3 input signals"
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameB;
-  extends Interfaces.PartialOneFrame_b;
+  extends Interfaces.PartialTwoFrames(
+    break frame_a);
   Interfaces.Frame_resolve frame_resolve
     "The input signals are optionally resolved in this frame"
     annotation (Placement(transformation(

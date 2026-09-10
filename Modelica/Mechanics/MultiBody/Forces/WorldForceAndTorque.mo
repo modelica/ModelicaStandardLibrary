@@ -1,16 +1,14 @@
 within Modelica.Mechanics.MultiBody.Forces;
 model WorldForceAndTorque
   "External force and torque acting at frame_b, defined by 3+3 input signals and resolved in frame world, frame_b or in frame_resolve"
+  extends Interfaces.PartialTwoFramesResolve(
+    break frame_a,
+    break frame_resolve);
+  extends Interfaces.PartialFrameResolveConditional(
+    final enableFrameResolve = resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve);
 
   import Modelica.Mechanics.MultiBody.Types;
-  extends Interfaces.PartialOneFrame_b;
-  Interfaces.Frame_resolve frame_resolve if
-       resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
-    "The input signals are optionally resolved in this frame"
-    annotation (Placement(transformation(
-        origin={0,100},
-        extent={{16,-16},{-16,16}},
-        rotation=270)));
+
   Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
                    "N")
     "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
@@ -76,12 +74,12 @@ equation
     annotation (Line(
       points={{-12,60},{-120,60}}, color={0,0,127}));
   connect(basicWorldForce.frame_resolve, frame_resolve) annotation (Line(
-      points={{28,-50},{28,80},{0,80},{0,100}},
+      points={{28,-50},{28,80},{0,80},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(basicWorldTorque.frame_resolve, frame_resolve)
     annotation (Line(
-      points={{0,70},{0,100}},
+      points={{0,70},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
@@ -104,18 +102,18 @@ equation
           endAngle=150,
           closure=EllipseClosure.None),
         Text(
-          extent={{-100,50},{80,20}},
+          extent={{-80,-60},{100,-90}},
           textColor={192,192,192},
           textString="resolve"),
         Text(
-          extent={{-150,-75},{150,-115}},
+          extent={{-150,130},{150,90}},
           textString="%name",
           textColor={0,0,255}),
         Polygon(
           points={{91,21},{64,76},{36,48},{91,21}},
           fillPattern=FillPattern.Solid),
         Line(
-          points={{0,101},{0,-20}},
+          points={{0,79},{0,-100}},
           color={95,95,95},
           pattern=LinePattern.Dot),
         Line(
