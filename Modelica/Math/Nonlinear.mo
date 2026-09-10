@@ -347,6 +347,88 @@ The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> i
         experiment(StopTime=5));
     end QuadratureLobatto3;
 
+    model MovingIntegral
+      extends Modelica.Icons.Example;
+      import Modelica.Units.SI;
+      import Modelica.Constants.pi;
+      import funB=Modelica.Math.Nonlinear.Examples.UtilityFunctions.funB;
+      import Modelica.Math.Nonlinear.quadratureLobatto;
+      import Modelica.Math.Nonlinear.quadratureNewtonCotes;
+      parameter SI.MagneticFluxDensity Bpeak=1 "Amplitude";
+      parameter SI.Angle alfa(final min=0, final max=pi)=2*pi/3 "Pole coverage";
+      parameter SI.Angle beta(final min=0, final max=pi)=pi "Coil width";
+      parameter Integer N=180 "Number of intervals";
+      SI.Angle pos=2*pi*time/Tend "Position";
+      SI.MagneticFluxDensity B=Bpeak*funB(pos, alfa) "Flux density";
+      parameter SI.MagneticFlux psi0=Bpeak*wlD*(min(alfa, beta) +
+        (if alfa<beta then (1 + (pi/2 - beta/2)/(pi/2 - alfa/2))/2*(beta - alfa) else 0))
+        "Max. flux linkage (analytical)";
+      SI.MagneticFlux psi1=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+        pos + pi/2 - beta/2, pos + pi/2  + beta/2, N=N, d=1)
+        "Flux linkage using trapezoidal rule";
+      SI.MagneticFlux psi2=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+        pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=2)
+        "Flux linkage using Simpson's rule";
+      SI.MagneticFlux psi3=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+        pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=3)
+        "Flux linkage using 3/8-rule";
+      SI.MagneticFlux psi4=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+        pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=4)
+        "Flux linkage using Boole's rule";
+      SI.MagneticFlux psi5=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+        pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=5)
+        "Flux linkage using d=5";
+      SI.MagneticFlux psi6=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+        pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=6)
+        "Flux linkage using d=6";
+      SI.Voltage v=-(psi1 - xi)/Td "Induced voltage";
+    protected
+      constant SI.Time Tend=1 "Stop time of simulation";
+      constant SI.Area wlD=100*0.05*0.05 "Number of turns x length x diameter";
+      parameter SI.Time Td(min=Modelica.Constants.small)=0.001 "Derivative time constant";
+      SI.MagneticFlux xi(start=psi0, fixed=true) "Internal DT1-variable";
+    equation
+      der(xi) = -v;
+      annotation (experiment(
+          StopTime=1,
+          Interval=0.001,
+          Tolerance=1e-06), Documentation(info="<html>
+<p>
+This example tests quadrature functions:
+</p>
+<p>
+The function <a hRef=\"modelica://Modelica.Math.Nonlinear.UtilityFunctions.funB\"><code>funB</code></a> 
+defines the spatial distribution of the flux density with respect to the rotor surface, dependent on pole coverage &alpha;.
+</p>
+<p>
+As the rotor position increases, the flux linkage of a coil of width <code>&beta;</code> is caculated 
+by integration over the interval <code>[pos + &pi;/2 - beta/2, pos + &pi;/2 + &beta;/2]</code>.
+</p>
+<p>
+The maximum of the flux linkage <code>psi0</code> is calculated using analytically. 
+</p>
+<ul>
+<li><code>psi1</code> is the result of the moving integral using <strong>d=1 trapezoidal rule</strong></li>
+<li><code>psi2</code> is the result of the moving integral using <strong>d=2 Simpson's rule</strong></li>
+<li><code>psi3</code> is the result of the moving integral using <strong>d=3 3/8-rule</strong></li>
+<li><code>psi4</code> is the result of the moving integral using <strong>d=4 Boole's rule</strong></li>
+<li><code>psi5</code> is the result of the moving integral using <strong>d=5</strong></li>
+<li><code>psi6</code> is the result of the moving integral using <strong>d=6</strong></li>
+</ul>
+<p>
+At <code>time = 0</code>, the positive maximum of flux density distribution is at <code>pos = &pi;/2</code>, 
+the coil spans the angle <code>[&pi;/2 - &beta;/2, &pi;/2 + &beta;/2]</code>. 
+Therefore the flux linkage has a maximum.
+</p>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Math/Nonlinear/Examples/MovingIntegral.png\" alt=\"Moving Integral\">
+</div>
+<p>
+Since flux linkage is not differentiable, a derivative with first-order lag is used to calculate induced voltage.
+</p>
+</html>"));
+    end MovingIntegral;
+
     package UtilityFunctions
       "Utility functions that are used as function arguments to the examples"
       extends Modelica.Icons.UtilitiesPackage;
@@ -399,6 +481,45 @@ The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> i
       algorithm
         y := A*sin(w*u);
       end fun7;
+
+      function funB "Spatial distribution of flux density"
+        extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+        import Modelica.Math.wrapAngle;
+        import Modelica.Units.SI;
+        import Modelica.Constants.pi;
+        input SI.Angle alfa "Pole coverage";
+      protected
+        SI.Angle gap "Pole gap";
+        SI.Angle b[4] "Borders between linear and constant";
+        SI.Angle x "Angle wrapped to [0, 2*pi)";
+      algorithm
+        gap:=pi - alfa;
+        b:={gap/2, pi - gap/2, pi + gap/2, 2*pi - gap/2};
+        x:=wrapAngle(u, positiveRange=true);
+        if x<b[1] then
+          y:= 0 + (x - 0)   *2/gap;
+        elseif x<b[2] then
+          y:=+1;
+        elseif x<b[3] then
+          y:=+1 - (x - b[2])*2/gap;
+        elseif x<b[4] then
+          y:=-1;
+        else
+          y:=-1 + (x - b[4])*2/gap;
+        end if;
+        annotation (Documentation(info="<html>
+<p>
+This function defines a piecewise linear function on the interval [0, 2*&pi;], &alpha; indicates the angle of pole coverage. 
+</p>
+<ul>
+<li><pre>  &pi;/2 - &alpha;/2 &lt; x &lt;   &pi;/2 + &alpha;/2: y = +1</pre></li>
+<li><pre>3*&pi;/2 - &alpha;/2 &lt; x &lt; 3*&pi;/2 + &alpha;/2: y = -1</pre></li>
+</ul>
+<p>
+In the remaining intervals the function is a linear transition between positive and negative roof (trapezoidal shape).
+</p>
+</html>"));
+      end funB;
       annotation (Documentation(info="<html>
 <p>
 This package provides utility functions that are used as input
@@ -630,6 +751,67 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
 
 </html>"));
   end quadratureLobatto;
+
+  function quadratureNewtonCotes "Quadrature using the Newton-Cotes formulas"
+    extends Modelica.Icons.Function;
+    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f "Integrand function";
+    input Real a "Lower limit of integration interval";
+    input Real b "Upper limit of integration interval";
+    input Integer N = 360 "Number of intervals";
+    input Integer d(final min=1, final max=6) = 1 "Degree of interpolation polynominal";
+    output Real integral "Integral value";
+  protected
+    constant Real c[6,7]={
+      { 1,  1,  0,  0,  0,  0, 0},
+      { 1,  4,  1,  0,  0,  0, 0},
+      { 1,  3,  3,  1,  0,  0, 0},
+      { 7, 32, 12, 32,  7,  0, 0},
+      {19, 75, 50, 50, 75, 19, 0},
+      {41,216, 27,272, 27,216,41}} "Coefficients";
+    Real cRow[d + 1]=c[d, 1:d + 1] "Used row";
+    Integer n=N + mod(-N, d) "Ensure number of intervals is a multiple of d";
+    Real h=(b - a)/n "Width of intervals";
+    Real x[n + 1]=linspace(a, b, n + 1) "Knots";
+    Real y[n + 1] "Function evaluations at knots";
+  algorithm
+    y:={f(x[k]) for k in 1:n + 1};
+    integral:=0;
+    for kp in d:d:n loop
+      integral:=integral + sum(cRow[k]*y[kp -d + k] for k in 1:d + 1);
+    end for;
+    integral:=integral*h*d/sum(cRow);
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>quadratureNewtonCotes</strong>(function f(), a, b);
+<strong>quadratureNewtonCotes</strong>(function f(), a, b, N=1440);
+<strong>quadratureNewtonCotes</strong>(function f(), a, b, N=1440, d=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Compute definite integral over function f(u,...) from u=a up to u=b using the 
+<a href=\"https://en.wikipedia.org/wiki/Newton%E2%80%93Cotes_formulas#Closed_Newton%E2%80%93Cotes_formulas\">closed Newton-Cotes formulas</a>.
+</p>
+<p>
+<code>N</code> refers to the number of intervals to be used.<br>
+<code>1 &le; d &le; 6</code> refers to the degree of the used interpolation polynomial:
+</p>
+<ul>
+<li><code>d=1</code> trapezoidal rule</li>
+<li><code>d=2</code> Simpson's rule</li>
+<li><code>d=3</code> 3/8-rule</li>
+<li><code>d=4</code> Boole's rule</li>
+<li><code>d=5</code> - </li>
+<li><code>d=6</code> - </li>
+</ul>
+<h4>Note</h4>
+<p>
+Higher degree of interpolation polynomial are not supported as it increases the chance of high error (Runge's phenomenon). <br>
+Even degrees of interpolation polynomial should be preferred, since they integrate the same polynomial as the next higher odd degree exactly.
+</p>
+</html>"));
+  end quadratureNewtonCotes;
 
   function solveOneNonlinearEquation
     "Solve f(u) = 0 in a very reliable and efficient way (f(u_min) and f(u_max) must have different signs)"
