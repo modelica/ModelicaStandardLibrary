@@ -1,0 +1,7 @@
+time
+damper1.s_rel
+damper1.v_rel
+damper2.s_rel
+damper2.v_rel
+springDamper3.s_rel
+springDamper3.v_rel

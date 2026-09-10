@@ -1,0 +1,43 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R">ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R</a>
+The DAE has 197 scalar unknowns and 197 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 60
+  Variables: 414
+  Constants: 7 (204 scalars)
+  Parameters: 216 (319 scalars)
+  Unknowns: 191 (197 scalars)
+  Differentiated variables: 10 scalars
+  Equations: 200
+  Nontrivial: 181
+Translated Model
+  Constants: 386 scalars
+  Free parameters: 62 scalars
+  Parameter depending: 85 scalars
+  Continuous time states: 10 scalars
+  Time-varying variables: 65 scalars
+  Alias variables: 122 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {8}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R#diagram$adaptor.filter[1]:firstOrder.y">adaptor.filter[1].firstOrder.y</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R#text$adaptor.filter.transferFunction:x_scaled">adaptor.filter[1].transferFunction[1].x_scaled[1]</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R#text$adaptor.filter.transferFunction:x_scaled">adaptor.filter[1].transferFunction[2].x_scaled[1]</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R#text$iH01.mean1:x">iH01.mean1.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R#text$iH01.mean2:x">iH01.mean2.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R#text$iRMS.mean:x">iRMS.mean.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R#text$meanPower:x">meanPower.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R#text$vH01.mean1:x">vH01.mean1.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R#text$vH01.mean2:x">vH01.mean2.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_R#text$vRMS.mean:x">vRMS.mean.x</a>
+Finished

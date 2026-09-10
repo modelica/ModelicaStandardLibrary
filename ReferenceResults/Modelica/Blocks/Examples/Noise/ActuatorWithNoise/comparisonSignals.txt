@@ -1,0 +1,12 @@
+time
+controller.speed_PI.x
+controller.positionToSpeed.x
+controller.position_PI.x
+controller.busdelay.y
+gearbox.phi_rel
+gearbox.w_rel
+slewRateLimiter.y
+rodMass.s
+rodMass.v
+elastoGap.s_rel
+elastoGap.v_rel

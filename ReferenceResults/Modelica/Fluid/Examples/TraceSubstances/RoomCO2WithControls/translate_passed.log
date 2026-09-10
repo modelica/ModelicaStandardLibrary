@@ -1,0 +1,57 @@
+﻿ = true
+Translation of Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls:
+The DAE has 829 scalar unknowns and 829 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 93
+  Variables: 1005
+  Constants: 148 (347 scalars)
+  Parameters: 311 (344 scalars)
+  Unknowns: 546 (838 scalars)
+  Differentiated variables: 36 scalars
+  Equations: 463
+  Nontrivial: 391
+Translated Model
+  Constants: 673 scalars
+  Free parameters: 89 scalars
+  Parameter depending: 122 scalars
+  Continuous time states: 21 scalars
+  Time-varying variables: 308 scalars
+  Alias variables: 337 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {8, 8, 8, 8, 8}
+  Sizes after manipulation of the linear systems: {2, 2, 2, 2, 2}
+  Sizes of nonlinear systems of equations: {7}
+  Sizes after manipulation of the nonlinear systems: {1}
+  Number of numerical Jacobians: 1
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0}
+    Sizes of nonlinear systems of equations: {2, 2, 2, 2, 2, 2, 7}
+    Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1, 1, 1, 1}
+    Number of numerical Jacobians: 7
+ 
+Selected continuous time states
+Statically selected continuous time states
+  ductIn.mCs_scaled[]
+  ductIn.mediums[1].p
+  ductIn.mediums[1].T
+  ductIn.mediums[1].Xi[]
+  ductIn.mediums[2].p
+  ductIn.mediums[2].T
+  ductIn.mediums[2].Xi[]
+  ductOut.mCs_scaled[]
+  ductOut.mediums[1].p
+  ductOut.mediums[1].T
+  ductOut.mediums[1].Xi[]
+  ductOut.mediums[2].p
+  ductOut.mediums[2].T
+  ductOut.mediums[2].Xi[]
+  PID.I.y
+  volume.mC_scaled[]
+  volume.medium.p
+  volume.medium.T
+  volume.medium.Xi[]
+ 

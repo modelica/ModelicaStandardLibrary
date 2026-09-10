@@ -1,0 +1,5 @@
+time
+elastoBacklash.phi_rel
+elastoBacklash.w_rel
+springDamper.phi_rel
+springDamper.w_rel

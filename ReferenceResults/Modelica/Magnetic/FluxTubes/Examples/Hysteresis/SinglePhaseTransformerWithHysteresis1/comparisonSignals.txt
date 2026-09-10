@@ -1,0 +1,6 @@
+time
+core.B
+core.Hstat
+core.MagRel
+winding1.i
+winding2.i

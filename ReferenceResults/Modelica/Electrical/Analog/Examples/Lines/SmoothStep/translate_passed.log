@@ -1,0 +1,153 @@
+Translation of <a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep">Modelica.Electrical.Analog.Examples.Lines.SmoothStep</a>
+The DAE has 1935 scalar unknowns and 1935 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 245
+  Variables: 2599
+  Parameters: 773 (885 scalars)
+  Unknowns: 1826 (1935 scalars)
+  Differentiated variables: 116 scalars
+  Equations: 1485
+  Nontrivial: 1239
+Translated Model
+  Constants: 255 scalars
+  Free parameters: 34 scalars
+  Parameter depending: 841 scalars
+  Continuous time states: 116 scalars
+  Time-varying variables: 539 scalars
+  Alias variables: 1151 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {4}
+  Sizes after manipulation of the nonlinear systems: {2}
+  Number of numerical Jacobians: 1
+
+Settings
+Advanced.StoreProtectedVariables = true
+Sparse solvers enabled: false
+Enabled for integrator Jacobian: false
+Model sparse and large enough: true.
+Sparse solvers are available for dassl, lsodar, cvode, ida, radau, esdirk*, sdirk*.
+Enable sparse solvers by setting Advanced.Translation.SparseActivate.
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#diagram$:firstOrder.y">firstOrder.y</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine1.C:v">oLine1.C[1].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine1.L:i">oLine1.L[1].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine1.L:i">oLine1.L[2].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.C:v">oLine5.C[1].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.C:v">oLine5.C[2].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.C:v">oLine5.C[3].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.C:v">oLine5.C[4].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.C:v">oLine5.C[5].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.L:i">oLine5.L[1].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.L:i">oLine5.L[2].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.L:i">oLine5.L[3].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.L:i">oLine5.L[4].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.L:i">oLine5.L[5].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine5.L:i">oLine5.L[6].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[1].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[2].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[3].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[4].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[5].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[6].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[7].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[8].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[9].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[10].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[11].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[12].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[13].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[14].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[15].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[16].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[17].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[18].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[19].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[20].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[21].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[22].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[23].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[24].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[25].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[26].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[27].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[28].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[29].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[30].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[31].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[32].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[33].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[34].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[35].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[36].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[37].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[38].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[39].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[40].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[41].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[42].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[43].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[44].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[45].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[46].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[47].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[48].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[49].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.C:v">oLine50.C[50].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[1].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[2].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[3].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[4].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[5].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[6].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[7].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[8].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[9].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[10].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[11].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[12].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[13].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[14].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[15].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[16].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[17].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[18].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[19].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[20].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[21].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[22].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[23].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[24].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[25].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[26].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[27].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[28].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[29].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[30].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[31].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[32].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[33].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[34].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[35].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[36].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[37].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[38].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[39].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[40].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[41].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[42].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[43].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[44].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[45].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[46].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[47].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[48].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[49].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[50].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.SmoothStep#text$oLine50.L:i">oLine50.L[51].i</a>
+Finished
