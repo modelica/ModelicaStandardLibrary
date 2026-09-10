@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Shapes.FixedShape;
 model Toroid
   "Toroid with circular cross section; fixed shape; linear or non-linear material characteristics"
   extends FluxTubes.Icons.Toroid;
-  extends BaseClasses.FixedShape(final A = d^2*pi/4);
+  extends BaseClasses.FixedShape;
 
   import Modelica.Constants.pi;
   parameter Modelica.Units.SI.Radius r=0.1 "Radius of toroid (middle)"
@@ -13,6 +13,7 @@ model Toroid
   parameter Modelica.Units.SI.Angle alpha=pi/2 "Angle of toroid section"
     annotation (Dialog(group="Fixed geometry"));
 equation
+  A = d^2*pi/4;
   G_m = mu_0*mu_r*A/(r*alpha);
   annotation (defaultComponentName="cylinder", Documentation(info="<html>
 <p>

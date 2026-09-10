@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Shapes.FixedShape;
 model HollowCylinderCircumferentialFlux
   "Hollow cylinder with circumferential flux; fixed shape; linear or non-linear material characteristics"
   extends FluxTubes.Icons.HollowCylinderCircumferentialFlux;
-  extends BaseClasses.FixedShape(final A = (r_o - r_i)*l);
+  extends BaseClasses.FixedShape;
 
   import Modelica.Constants.pi;
   parameter Modelica.Units.SI.Length l=0.02
@@ -16,6 +16,7 @@ model HollowCylinderCircumferentialFlux
   parameter Modelica.Units.SI.Angle alpha=pi/2 "Angle of cylinder section"
     annotation (Dialog(group="Fixed geometry"));
 equation
+  A = (r_o - r_i)*l;
   G_m = mu_0*mu_r*A/((r_o + r_i)/2*alpha);
   annotation (defaultComponentName="cylinder", Documentation(info="<html>
 <p>

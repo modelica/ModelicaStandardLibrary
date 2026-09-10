@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Shapes.FixedShape;
 model GenericFluxTube
   "Flux tube with fixed cross-section and length; linear or non-linear material characteristics"
   extends FluxTubes.Icons.Reluctance;
-  extends BaseClasses.FixedShape(final A=area);
+  extends BaseClasses.FixedShape;
 
   parameter Modelica.Units.SI.Length l=0.01 "Length in direction of flux"
     annotation (Dialog(group="Fixed geometry", groupImage=
@@ -10,6 +10,7 @@ model GenericFluxTube
   parameter Modelica.Units.SI.CrossSection area=0.0001 "Area of cross section"
     annotation (Dialog(group="Fixed geometry"));
 equation
+  A = area;
   G_m = mu_0*mu_r*A/l;
   annotation (defaultComponentName="generic", Documentation(info="<html>
 <p>

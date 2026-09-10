@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Shapes.FixedShape;
 model HollowCylinderRadialFlux
   "Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics"
   extends FluxTubes.Icons.HollowCylinderRadialFlux;
-  extends BaseClasses.FixedShape(final A = l*alpha*(r_o + r_i)/2);
+  extends BaseClasses.FixedShape;
   // area at arithmetic mean radius for calculation of average flux density
   parameter Modelica.Units.SI.Length l=0.01
     "Width (orthogonal to flux direction)" annotation (Dialog(group=
@@ -15,6 +15,7 @@ model HollowCylinderRadialFlux
   parameter Modelica.Units.SI.Angle alpha=2*pi "Central angle"
     annotation (Dialog(group="Fixed geometry"));
 equation
+  A = l*alpha*(r_o + r_i)/2;
   G_m = mu_0*mu_r*alpha*l/Modelica.Math.log(r_o/r_i);
   annotation (defaultComponentName="cylinder", Documentation(info="<html>
 <p>
