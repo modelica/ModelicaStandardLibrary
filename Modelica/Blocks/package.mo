@@ -1447,6 +1447,76 @@ If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
 </html>"));
   end SinCosEncoder;
 
+  model DemoUnwrapAngle "Demonstrate unwrap angle"
+    extends Modelica.Icons.Example;
+    import Modelica.Constants.pi;
+    Modelica.Blocks.Sources.Trapezoid refFrequency(
+      amplitude=100,
+      rising=1,
+      width=0.5,
+      falling=1,
+      period=3,
+      nperiod=2,
+      offset=-50,
+      startTime=-0.5)
+      annotation (Placement(transformation(extent={{-70,22},{-50,42}})));
+    Modelica.Blocks.Continuous.Integrator f2pos(k=2*pi,   y_start=0)
+      annotation (Placement(transformation(extent={{-40,22},{-20,42}})));
+    Modelica.Mechanics.Rotational.Sources.Position position(exact=true)
+      annotation (Placement(transformation(extent={{-10,22},{10,42}})));
+    Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
+      annotation (Placement(transformation(extent={{20,22},{40,42}})));
+    Modelica.Blocks.Math.UnwrapAngle unwrapAngle
+      annotation (Placement(transformation(extent={{22,-50},{42,-30}})));
+    Modelica.Blocks.Math.Cos cos1
+      annotation (Placement(transformation(extent={{-50,-70},{-30,-50}})));
+    Modelica.Blocks.Math.Sin sin1
+      annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
+    Modelica.Blocks.Math.Atan2 atan2_1
+      annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
+    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
+      annotation (Placement(transformation(extent={{20,50},{40,70}})));
+  equation
+    connect(f2pos.y, position.phi_ref)
+      annotation (Line(points={{-19,32},{-12,32}},
+                                                 color={0,0,127}));
+    connect(position.flange, angleSensor.flange)
+      annotation (Line(points={{10,32},{20,32}},              color={0,0,0}));
+    connect(refFrequency.y, f2pos.u)
+      annotation (Line(points={{-49,32},{-42,32}},
+                                                 color={0,0,127}));
+    connect(angleSensor.phi, sin1.u) annotation (Line(points={{41,32},{50,32},{50,
+            0},{-60,0},{-60,-20},{-52,-20}}, color={0,0,127}));
+    connect(angleSensor.phi, cos1.u) annotation (Line(points={{41,32},{50,32},{50,
+            0},{-60,0},{-60,-60},{-52,-60}}, color={0,0,127}));
+    connect(sin1.y, atan2_1.u1) annotation (Line(points={{-29,-20},{-20,-20},{-20,
+            -34},{-12,-34}}, color={0,0,127}));
+    connect(cos1.y, atan2_1.u2) annotation (Line(points={{-29,-60},{-20,-60},{-20,
+            -46},{-12,-46}}, color={0,0,127}));
+    connect(atan2_1.y, unwrapAngle.u)
+      annotation (Line(points={{11,-40},{20,-40}}, color={0,0,127}));
+    connect(position.flange, speedSensor.flange)
+      annotation (Line(points={{10,32},{20,32},{20,60}}, color={0,0,0}));
+    annotation (experiment(
+        StopTime=3,
+        Interval=1e-05,
+        Tolerance=1e-06), Documentation(info="<html>
+<p>
+The reference frequency signal is integrated to obtain the angle, which is measured by an ideal AngleSensor. 
+The angle is used to build a phasor with real and imaginary part. 
+From this phasor, the (wrapped angle) is calculated which gets unwrapped using an angle tracking observer. 
+Compare angleSensor.phi and unwrapAngle.y.
+</p>
+<p>
+Additionally, it is possible to detect the angular velocity of the phasor. 
+Compare speedSensor.w and unwrapAngle.w.
+</p>
+<p>
+An ATO (angle tracking observer) is a robust method to evaluate the signals of a sin/cos-encoder.
+</p>
+</html>"));
+  end DemoUnwrapAngle;
+
   model CompareSincExpSine "Compare sinc and exponential sine signal"
     extends Modelica.Icons.Example;
     Sources.Sinc sinc(f=5)
