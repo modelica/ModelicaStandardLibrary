@@ -1,0 +1,13 @@
+time
+Bessel.x[1]
+Bessel.x[2]
+Bessel.x[3]
+Butterworth.x[1]
+Butterworth.x[2]
+Butterworth.x[3]
+ChebyshevI.x[1]
+ChebyshevI.x[2]
+ChebyshevI.x[3]
+CriticalDamping.x[1]
+CriticalDamping.x[2]
+CriticalDamping.x[3]

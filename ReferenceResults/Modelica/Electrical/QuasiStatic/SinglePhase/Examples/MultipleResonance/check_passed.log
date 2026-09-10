@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance">Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance</a>
+The model has the same number of unknowns and equations: 199
+The model could not be deduced to be symbolically well-posed.
+The model has
+  199
+scalar unknowns and
+  197+(if  not zi.useHeatPort then 1 else 0)+(if Connections.isRoot(  ground1.pin.reference) then 1 else 0)+(if Connections.isRoot(ground2.pin.reference)   then 1 else 0)+(if  not loadResistor.useHeatPort then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  199
+Check of <a href="Modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance">Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance</a> successful.

@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 2347
+The model has the same number of unknowns and equations:
+  2291+4*(size(frame_a.x_label.lines, 1)+size(frame_a.y_label.lines, 1)+size(  frame_a.z_label.lines, 1)+size(frame_a1.x_label.lines, 1)+size(  frame_a1.y_label.lines, 1)+size(frame_a1.z_label.lines, 1))
+Check of <a href="Modelica://ModelicaTest.MultiBody.Joints.Cylindrical">ModelicaTest.MultiBody.Joints.Cylindrical</a> successful.
+

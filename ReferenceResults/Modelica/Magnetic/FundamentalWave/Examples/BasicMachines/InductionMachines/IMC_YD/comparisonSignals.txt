@@ -1,0 +1,10 @@
+time
+aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+aimc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+aimc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+// aimc.stator.zeroInductor.i0
+aimc.is[1]
+aimc.is[2]
+loadInertia.phi
+loadInertia.w

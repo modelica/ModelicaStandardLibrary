@@ -1,0 +1,55 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Constraints.UniversalConstraint:
+The DAE has 3308 scalar unknowns and 3308 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 168
+  Variables: 1554
+  Constants: 1 (1 scalars)
+  Parameters: 406 (629 scalars)
+  Unknowns: 1147 (3308 scalars)
+  Differentiated variables: 52 scalars
+  Equations: 1031
+  Nontrivial: 700
+Translated Model
+  Constants: 2170 scalars
+  Free parameters: 92 scalars
+  Parameter depending: 283 scalars
+  Continuous time states: 8 scalars
+  Time-varying variables: 328 scalars
+  Alias variables: 1065 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {15, 22, 11}
+  Sizes after manipulation of the linear systems: {8, 3, 2}
+  Sizes of nonlinear systems of equations: {9}
+  Sizes after manipulation of the nonlinear systems: {3}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {3, 7}
+    Sizes after manipulation of the linear systems: {3, 0}
+    Sizes of nonlinear systems of equations: {7}
+    Sizes after manipulation of the nonlinear systems: {1}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  joint.phi_a
+  joint.phi_b
+  joint.w_a
+  joint.w_b
+ 
+Dynamically selected continuous time states
+There are 2 sets of dynamic state selection.
+From set 1 there are 2 states to be selected from:
+  freeMotionScalarInit.initAngle.angle[]
+ 
+From set 2 there are 2 states to be selected from:
+  bodyOfConstraint.body.w_a[]
+  der(freeMotionScalarInit.initAngle.angle[1])
+  der(freeMotionScalarInit.initAngle.angle[2])
+  freeMotionScalarInit.initAngle.R_rel.w[]
+ 
