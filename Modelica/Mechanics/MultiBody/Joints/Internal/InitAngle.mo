@@ -6,7 +6,8 @@ model InitAngle
   import Modelica.Mechanics.MultiBody.Frames;
 
   parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3}
-   "Sequence of angle rotations";
+   "Sequence of angle rotations"
+   annotation(Evaluate = true);
 
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
