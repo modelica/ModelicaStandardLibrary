@@ -1,0 +1,16 @@
+time
+Source.ports[1].m_flow
+Source.ports[1].p
+Source.ports[1].h_outflow
+Sink.ports[1].m_flow
+Sink.ports[1].p
+Sink.ports[1].h_outflow
+pump.port_b.m_flow
+pump.port_b.p
+pump.port_b.h_outflow
+valveOpening.y
+Valve.port_b.m_flow
+Valve.port_b.p
+Valve.port_b.h_outflow
+Valve.minLimiter.y
+downstreamPressure.y

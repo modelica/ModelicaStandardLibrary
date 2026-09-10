@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Tue Feb 11 00:42:23 2025)
+
+dymosim started
+... "ModelicaTest.Tables.CombiTable2Ds.Test32" simulating
+... "dsin.txt" loading (dymosim input file)
+... loading "Values" from "D:/MSL_Nightly/Repos/ModelicaStandardLibrary/ModelicaTest/Resources/Data/Tables/test2D.csv"
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 60
+   CPU-time for integration                : 0.003 seconds
+   CPU-time for one grid interval          : 0.0006 milliseconds
+   CPU-time for initialization             : 0.009 seconds
+   Number of result points                 : 5002
+   Number of grid points                   : 5001
+   Number of accepted steps                : 23
+   Number of f-evaluations (dynamics)      : 23
+   Number of Jacobian-evaluations          : 22
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.2e-05
+   Maximum integration stepsize            : 25.2
+   Maximum integration order               : 1
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Tables.CombiTable2Ds.Test32

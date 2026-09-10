@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 466
+The model has the same number of unknowns and equations:
+  463+currentQuasiRMSSensor.ToSpacePhasor1.m
+Check of <a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Initialize">Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Initialize</a> successful.
+

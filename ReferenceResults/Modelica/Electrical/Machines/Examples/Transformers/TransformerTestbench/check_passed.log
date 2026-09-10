@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 772
+The model could not be deduced to be symbolically well-posed.
+The model has
+  760+currentQuasiRMSSensorS.ToSpacePhasor1.m+voltageQuasiRMSSensorS.ToSpacePhasor1.m  +voltageRMSSensorL.ToSpacePhasor1.m+currentQuasiRMSSensorL.ToSpacePhasor1.m
+scalar unknowns and
+  766+currentQuasiRMSSensorL.ToSpacePhasor1.m+currentQuasiRMSSensorS.ToSpacePhasor1.m
+scalar equations.
+However, exploiting the given bindings parameters gives the same number of unknowns and equations:
+  772
+Check of <a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench">Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench</a> successful.
+
