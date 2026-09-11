@@ -846,7 +846,6 @@ The Real output y is a pulse signal:
     parameter SI.Time startTime=0.5 "Time instant of pulse maximum";
   protected
     SI.Time t0(start=startTime, fixed=true);
-  initial equation
   equation
     y = offset + (if nperiod==0 then 0 else amplitude*exp(-pi*((time - t0)/duration)^2));
     when time >= pre(t0) + period/2 then
