@@ -99,5 +99,22 @@ Default machine parameters of model <em>DC_SeriesExcited</em> are used.<br>
 <strong>Note:</strong><br>
 Since both the field and the armature current are sinusoidal, the waveform of the torque is the square of sine.
 Due to the additional inductive voltage drops, output of the motor is lower, compared to the same motor (DCSE_Start) at DC voltage.
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "04168",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = dcse.ia, legend = "Armature current"),
+                Curve(y = dcse.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = dcse.tauElectrical, legend = "Motor torque")
+              }
+            )
+          }
+        )
+      }
+    ));
 end DCSE_SinglePhase;

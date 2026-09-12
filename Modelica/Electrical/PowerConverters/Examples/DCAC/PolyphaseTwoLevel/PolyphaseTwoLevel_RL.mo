@@ -118,5 +118,27 @@ equation
       Interval=0.00002),
     Documentation(info="<html>
 <p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> directly show the switching pattern of the inverter.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltage and current",
+          identifier = "5144d",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentSensor.i[1], legend = "Measured value of current[1]"),
+                Curve(y = fundamentalWaveCurrent[1].y_rms, legend = "Root mean square of current[1] in fundamentalWaveCurrent[1]")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = voltageSensor.v[1], legend = "Measured value of voltage[1]"),
+                Curve(y = fundamentalWaveVoltage[1].y_rms, legend = "Root mean square of voltage in fundamentalWaveVoltage[1]")
+              }
+            )
+          }
+        )
+      }
+    ));
 end PolyphaseTwoLevel_RL;

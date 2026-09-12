@@ -116,5 +116,22 @@ finally reaching nominal speed.</p>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "36dc2",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentQuasiRMSSensor.I, legend = "Stator current RMS"),
+                Curve(y = aimc.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = aimc.tauElectrical, legend = "Motor torque")
+              }
+            )
+          }
+        )
+      }
+    ));
 end IMC_DOL;

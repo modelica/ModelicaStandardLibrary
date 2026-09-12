@@ -160,5 +160,25 @@ Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johanne
 <a href=\"https://2009.international.conference.modelica.org/proceedings/pages/papers/0103/0103_FI.pdf\">
 The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "0c174",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = dcpm1.ia, legend = "Armature current of dcpm1"),
+                Curve(y = dcpm2.ia, legend = "Armature current of dcpm2"),
+                Curve(y = dcpm1.wMechanical, legend = "Motor angular velocity of rotor against stator of dcpm1"),
+                Curve(y = dcpm2.wMechanical, legend = "Motor angular velocity of rotor against stator of dcpm2"),
+                Curve(y = dcpm1.tauElectrical, legend = "Motor torque of dcpm1"),
+                Curve(y = dcpm2.tauElectrical, legend = "Motor torque of dcpm2")
+              }
+            )
+          }
+        )
+      }
+    ));
 end DCPM_withLosses;

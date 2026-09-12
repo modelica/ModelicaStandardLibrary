@@ -86,6 +86,22 @@ equation
 The frequency of the current source is varied by a ramp.
 Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, versus time resp. frequency.
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Phasor length and angle vs. frequency",
+          identifier = "2f33b",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = currentSource.f, y = complexToPolar.phi, legend = "Complex angle phi vs. frequency of currentSource"),
+                Curve(x = currentSource.f, y = complexToPolar.len, legend = "Complex length len vs. frequency of currentSource")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=1.0, Interval=0.001));
 end ParallelResonance;

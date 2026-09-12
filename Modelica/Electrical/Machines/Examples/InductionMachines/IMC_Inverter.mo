@@ -118,5 +118,22 @@ and accelerating inertias.<br>At time tStep a load step is applied.</p>
 </ul>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "c51c3",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentQuasiRMSSensor.I, legend = "Stator current RMS"),
+                Curve(y = aimc.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = aimc.tauElectrical, legend = "Motor torque")
+              }
+            )
+          }
+        )
+      }
+    ));
 end IMC_Inverter;

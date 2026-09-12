@@ -138,5 +138,27 @@ and accelerating inertias. At time tStep a load step is applied.</p>
 
 <p>
 In practice it is nearly impossible to drive a PMSMD without current controller.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "e5cc1",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentQuasiRMSSensor.I, legend = "Stator current RMS"),
+                Curve(y = smpm.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = smpm.tauElectrical, legend = "Motor torque")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = rotorDisplacementAngle.rotorDisplacementAngle, legend = "Rotor displacement angle")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SMPM_Inverter;

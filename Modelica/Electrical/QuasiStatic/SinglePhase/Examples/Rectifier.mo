@@ -138,6 +138,30 @@ It can be seen that at the DC side the current is represented by its averaged va
 The quasi-static model needs a grounding at the QS side as well as the DC side,
 whereas the transient model may have only one ground since AC side and DC side are connected via the diodes.
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Rectifier values",
+          identifier = "f6602",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = iQS.len, legend = "AC rms current"),
+                Curve(y = iAC.u, legend = "AC instantaneous current"),
+                Curve(y = iAC.y_rms, legend = "AC rms current")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = iDC1.i, legend = "DC current"),
+                Curve(y = iDC2.u, legend = "DC instantaneous current"),
+                Curve(y = iDC2.y, legend = "DC rms current")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=1.0, Interval=0.0001));
 end Rectifier;

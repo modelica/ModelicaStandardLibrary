@@ -27,5 +27,27 @@ equation
 <p>This example shows a controlled center tap two pulse rectifier with resistive load.</p>
 
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltage and current",
+          identifier = "97a8e",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentSensor.i, legend = "Measured current value"),
+                Curve(y = meanCurrent.y, legend = "Mean value of current")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = voltagesensor.v, legend = "Measured voltage value"),
+                Curve(y = meanVoltage.y, legend = "Mean value of votlage")
+              }
+            )
+          }
+        )
+      }
+    ));
 end ThyristorCenterTap2Pulse_R;
