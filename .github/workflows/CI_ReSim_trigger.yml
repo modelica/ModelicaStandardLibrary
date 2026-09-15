@@ -1,7 +1,11 @@
 name: Sync_CI_Repo
 
-on: pull_request_target
-
+on: 
+  pull_request_target:
+    types: [opened, labeled,  synchronize, reopened]  
+    branches:
+      - master
+      - maint/**
 permissions:
   contents: read
   
@@ -9,7 +13,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/github-script@v9
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           github-token: ${{ secrets.LTX_SIMULATION_TOKEN }}
           script: |
