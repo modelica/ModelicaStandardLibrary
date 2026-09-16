@@ -810,6 +810,11 @@ Compute definite integral over function f(u,...) from u=a up to u=b using the
 Higher degree of interpolation polynomial increases the chance of high error (Runge's phenomenon). <br>
 Even degrees of interpolation polynomial should be preferred, since they integrate the same polynomial as the next higer odd degree exactly.
 </p>
+<h4>Note</h4>
+<p>
+The formulas are non-adaptive but composite implementations,
+i.e. dividing the interval [a, b] into sub-intervals and apply the Newton-Cotes formula to each sub-interval.
+</p>
 </html>"));
   end quadratureNewtonCotes;
 
