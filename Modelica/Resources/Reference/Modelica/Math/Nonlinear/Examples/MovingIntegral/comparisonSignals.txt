@@ -1,0 +1,7 @@
+time
+B
+psi1
+psi2
+psi3
+psi4
+v
