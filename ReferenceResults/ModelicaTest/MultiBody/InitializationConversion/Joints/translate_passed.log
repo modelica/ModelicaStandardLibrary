@@ -1,0 +1,73 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.InitializationConversion.Joints:
+The DAE has 4833 scalar unknowns and 4833 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 267
+  Variables: 2578
+  Constants: 1 (1 scalars)
+  Parameters: 866 (1722 scalars)
+  Unknowns: 1711 (4833 scalars)
+  Differentiated variables: 194 scalars
+  Equations: 1465
+  Nontrivial: 933
+Translated Model
+  Constants: 3218 scalars
+  Free parameters: 169 scalars
+  Parameter depending: 820 scalars
+  Continuous time states: 40 scalars
+  Time-varying variables: 537 scalars
+  Alias variables: 1812 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 4, 3, 2, 120, 3, 3, 3}
+  Sizes after manipulation of the linear systems: {4, 4, 3, 2, 14, 3, 3, 3}
+  Sizes of nonlinear systems of equations: {41}
+  Sizes after manipulation of the nonlinear systems: {11}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {3}
+    Sizes after manipulation of the linear systems: {3}
+    Sizes of nonlinear systems of equations: {4, 31}
+    Sizes after manipulation of the nonlinear systems: {4, 4}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  actuatedPrismatic.s
+  actuatedPrismatic.v
+  actuatedRevolute.phi
+  actuatedRevolute.w
+  bodyBox8.body.w_a[]
+  cylindrical.phi
+  cylindrical.s
+  cylindrical.v
+  cylindrical.w
+  freeMotion.r_rel_a[]
+  freeMotion.v_rel_a[]
+  freeMotion.w_rel_b[]
+  planar.phi
+  planar.s_x
+  planar.s_y
+  planar.v_x
+  planar.v_y
+  planar.w
+  prismatic.s
+  prismatic.v
+  revolute.phi
+  revolute.w
+  universal.phi_a
+  universal.phi_b
+  universal.w_a
+  universal.w_b
+ 
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There are 6 states to be selected from:
+  bodyBox8.body.frame_a.r_0[]
+  bodyBox8.body.Q[]
+  freeMotion.Q[]
+ 

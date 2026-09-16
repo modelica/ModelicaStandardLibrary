@@ -1,0 +1,7 @@
+time
+resistor_e.i[1]
+resistor_e.i[2]
+resistor_s.i[1]
+resistor_s.i[2]
+resistor_m.i[1]
+resistor_m.i[2]

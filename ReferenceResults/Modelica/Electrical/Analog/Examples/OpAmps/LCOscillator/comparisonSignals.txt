@@ -1,0 +1,5 @@
+time
+c.v
+l.i
+opAmp.out.v
+opAmp.out.i

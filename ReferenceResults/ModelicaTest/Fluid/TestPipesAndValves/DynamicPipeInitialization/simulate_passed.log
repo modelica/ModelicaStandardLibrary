@@ -1,0 +1,98 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 07:13:29 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+Error: The following error was detected at time: 0
+  IF97 medium function visc_dTp: viscosity computed outside the range
+of validity of the IF97 formulation: p = 9.87573e+06 Pa, Tc = 1309.67 K
+  Failed condition: p <= 500000000.0 and (Tc >= 0.0 and Tc <= 150) or p <= 350000000.0 and (Tc > 150.0 and Tc <= 600) or p <= 300000000.0 and (Tc > 600.0 and Tc <= 900)
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.dynamicViscosity
+Modelica.Media.Water.IF97_Utilities.dynamicViscosity(valve.state_b.d, valve.state_b.T, sink.p, 0, true)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  IF97 medium function g2: the temperature (= -59777.9 K) is lower than 273.15 K!
+  Failed condition: T >= 273.15
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.rho_props_ph(
+pipe.mediums[3].p, 
+pipe.mediums[3].h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe.mediums[3].p, pipe.mediums[3].h, pipe.statesFM[4].phase, 0))
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  IF97 medium function visc_dTp: viscosity computed outside the range
+of validity of the IF97 formulation: p = 9.73548e+06 Pa, Tc = 920.722 K
+  Failed condition: p <= 500000000.0 and (Tc >= 0.0 and Tc <= 150) or p <= 350000000.0 and (Tc > 150.0 and Tc <= 600) or p <= 300000000.0 and (Tc > 600.0 and Tc <= 900)
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.dynamicViscosity
+Modelica.Media.Water.IF97_Utilities.dynamicViscosity(valve.state_b.d, valve.state_b.T, sink.p, 0, true)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  IF97 medium function g2: the temperature (= -32512 K) is lower than 273.15 K!
+  Failed condition: T >= 273.15
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.rho_props_ph(
+pipe.mediums[3].p, 
+pipe.mediums[3].h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe.mediums[3].p, pipe.mediums[3].h, pipe.statesFM[4].phase, 0))
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  Error in region computation of IF97 steam tables(p = 1.04035e+07, h = 9.22383e+06)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.T_props_ph(
+pipe.mediums[5].p, 
+pipe.mediums[5].h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe.mediums[5].p, pipe.mediums[5].h, 0, 0))
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  Error in region computation of IF97 steam tables(p = 1.04035e+07, h = 9.22383e+06)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.T_props_ph(
+pipe.mediums[5].p, 
+pipe.mediums[5].h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe.mediums[5].p, pipe.mediums[5].h, 0, 0))
+Non-linear solver will attempt to handle this problem.
+
+... "DynamicPipeInitialization.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 4
+   CPU-time for integration                : 0.456 seconds
+   CPU-time for one grid interval          : 0.0912 milliseconds
+   CPU-time for initialization             : 0.031 seconds
+   Number of result points                 : 5006
+   Number of grid points                   : 5001
+   Number of accepted steps                : 138
+   Number of f-evaluations (dynamics)      : 198
+   Number of crossing function evaluations : 5138
+   Number of Jacobian-evaluations          : 88
+   Number of model time events             : 4
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 8e-07
+   Maximum integration stepsize            : 0.419
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)

@@ -1,0 +1,54 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 07:45:14 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+
+Demonstrate how to solve linear equation systems:
+
+diff1 = 8.00593e-16
+diff2 = 3.66878e-15
+diff3 = 4.07014e-15, n = 3, rank = 2
+diff4 = 2.04386e-14, n = 3, rank = 2
+
+Demonstrate how to solve linear equation systems:
+
+diff1 = 8.00593e-16
+diff2 = 3.66878e-15
+diff3 = 4.07014e-15, n = 3, rank = 2
+diff4 = 2.04386e-14, n = 3, rank = 2
+... "TestMatricesExamplesSolveLinearEquations.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Demonstrate how to solve linear equation systems:
+
+diff1 = 8.00593e-16
+diff2 = 3.66878e-15
+diff3 = 4.07014e-15, n = 3, rank = 2
+diff4 = 2.04386e-14, n = 3, rank = 2
+Integration terminated successfully at T = 0
+   CPU-time for integration                : 0.001 seconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 2
+   Number of grid points                   : 1
+   Number of accepted steps                : 0
+   Number of f-evaluations (dynamics)      : 0
+   Number of Jacobian-evaluations          : 0
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 0
+   Maximum integration stepsize            : 0
+   Maximum integration order               : 0
+Calling terminal section
+
+Demonstrate how to solve linear equation systems:
+
+diff1 = 8.00593e-16
+diff2 = 3.66878e-15
+diff3 = 4.07014e-15, n = 3, rank = 2
+diff4 = 2.04386e-14, n = 3, rank = 2
+... "dsfinal.txt" creating (final states)

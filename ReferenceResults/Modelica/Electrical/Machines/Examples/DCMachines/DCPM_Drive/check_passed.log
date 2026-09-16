@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive">Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive</a>
+The model has the same number of unknowns and equations: 658
+The model could not be deduced to be symbolically well-posed.
+The model has
+  658
+scalar unknowns and
+  656+(if  not switch.useHeatPort then 1 else 0)+(if  not resistor.useHeatPort   then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  658
+Check of <a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive">Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive</a> successful.

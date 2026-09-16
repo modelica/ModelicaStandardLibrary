@@ -1,0 +1,33 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Joints.SphericalSpherical:
+The DAE has 432 scalar unknowns and 432 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 22
+  Variables: 247
+  Parameters: 85 (105 scalars)
+  Unknowns: 162 (432 scalars)
+  Differentiated variables: 8 scalars
+  Equations: 145
+  Nontrivial: 91
+Translated Model
+  Constants: 288 scalars
+  Free parameters: 27 scalars
+  Parameter depending: 97 scalars
+  Alias variables: 125 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {1}
+    Sizes after manipulation of the nonlinear systems: {0}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

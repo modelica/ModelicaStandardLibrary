@@ -1,0 +1,9 @@
+time
+medium2.T
+medium2.X[1]
+medium2.X[2]
+medium2.X[3]
+medium2.X[4]
+medium2.p
+state.T
+state.p

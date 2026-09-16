@@ -1,0 +1,4 @@
+time
+freeMotion.r[3]
+freeMotion.r[2]
+freeMotion.r[1]

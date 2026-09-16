@@ -1,0 +1,61 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.SphericalDoublePendulum:
+The DAE has 3232 scalar unknowns and 3232 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 159
+  Variables: 1650
+  Parameters: 583 (1225 scalars)
+  Unknowns: 1067 (3232 scalars)
+  Differentiated variables: 124 scalars
+  Equations: 880
+  Nontrivial: 581
+Translated Model
+  Constants: 2381 scalars
+  Free parameters: 145 scalars
+  Parameter depending: 627 scalars
+  Continuous time states: 36 scalars
+  Time-varying variables: 412 scalars
+  Alias variables: 892 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 4, 4, 4, 21, 2, 2, 21, 21}
+  Sizes after manipulation of the linear systems: {4, 4, 4, 4, 6, 2, 2, 6, 6}
+  Sizes of nonlinear systems of equations: {13, 13, 16, 4}
+  Sizes after manipulation of the nonlinear systems: {4, 4, 4, 4}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2}
+    Sizes after manipulation of the linear systems: {2, 2}
+    Sizes of nonlinear systems of equations: {4, 19, 4, 13}
+    Sizes after manipulation of the nonlinear systems: {4, 4, 4, 4}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  boxBody5.body.w_a[]
+  boxBody6.body.w_a[]
+  Spherical1.phi[]
+  Spherical1.phi_d[]
+  Spherical2.phi[]
+  Spherical2.phi_d[]
+  Spherical3.w_rel[]
+  Spherical4.w_rel[]
+ 
+Dynamically selected continuous time states
+There are 4 sets of dynamic state selection.
+From set 1 there are 3 states to be selected from:
+  Spherical3.Q[]
+ 
+From set 2 there are 3 states to be selected from:
+  boxBody5.body.Q[]
+ 
+From set 3 there are 3 states to be selected from:
+  Spherical4.Q[]
+ 
+From set 4 there are 3 states to be selected from:
+  boxBody6.body.Q[]
+ 

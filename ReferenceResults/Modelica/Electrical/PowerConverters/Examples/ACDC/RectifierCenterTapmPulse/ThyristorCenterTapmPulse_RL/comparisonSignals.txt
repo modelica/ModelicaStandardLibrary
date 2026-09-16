@@ -1,0 +1,17 @@
+time
+inductor.i
+meanCurrent.x
+meanVoltage.x
+rootMeanSquareVoltage.mean.x
+meanCurrent.y
+meanVoltage.y
+pulsem.twomPulse.timerNegative[1].entryTime
+pulsem.twomPulse.timerNegative[2].entryTime
+pulsem.twomPulse.timerNegative[3].entryTime
+pulsem.twomPulse.timerPositive[1].entryTime
+pulsem.twomPulse.timerPositive[2].entryTime
+pulsem.twomPulse.timerPositive[3].entryTime
+rectifier.thyristor.idealThyristor[1].off
+rectifier.thyristor.idealThyristor[2].off
+rectifier.thyristor.idealThyristor[3].off
+rootMeanSquareVoltage.mean.y

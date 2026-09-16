@@ -1,0 +1,36 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.QuasiStatic.Polyphase.FrequencySweep">ModelicaTest.Electrical.QuasiStatic.Polyphase.FrequencySweep</a>
+The DAE has 1440 scalar unknowns and 1440 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 725
+  Variables: 1514
+  Constants: 2 (2 scalars)
+  Parameters: 172 (184 scalars)
+  Unknowns: 1340 (1440 scalars)
+  Differentiated variables: 12 scalars
+  Equations: 370
+  Nontrivial: 310
+Translated Model
+  Constants: 726 scalars
+  Free parameters: 20 scalars
+  Parameter depending: 72 scalars
+  Outputs: 6 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 196 scalars
+  Alias variables: 612 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.QuasiStatic.Polyphase.FrequencySweep#text$currentSource.plug_p.reference:gamma">currentSource.plug_p.reference.gamma</a>
+<a href="Modelica://ModelicaTest.Electrical.QuasiStatic.Polyphase.FrequencySweep#text$voltageSource.voltageSource.plug_p.reference:gamma">voltageSource.voltageSource.plug_p.reference.gamma</a>
+Finished

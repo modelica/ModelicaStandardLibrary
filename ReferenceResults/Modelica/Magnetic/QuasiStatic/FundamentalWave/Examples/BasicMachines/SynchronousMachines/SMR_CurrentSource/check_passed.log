@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 3329
+The model has the same number of unknowns and equations:
+  3323+2*dqToThreePhase.m
+Check of <a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource">Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource</a> successful.
+

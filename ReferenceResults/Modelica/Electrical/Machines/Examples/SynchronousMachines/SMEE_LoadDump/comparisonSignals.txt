@@ -1,0 +1,3 @@
+time
+smee.idq_sr[1]
+smee.idq_sr[2]

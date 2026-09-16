@@ -1,0 +1,35 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.NandGate:
+The DAE has 147 scalar unknowns and 147 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 23
+  Variables: 255
+  Parameters: 108 (108 scalars)
+  Unknowns: 147 (147 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 139
+  Nontrivial: 114
+Translated Model
+  Constants: 49 scalars
+  Free parameters: 74 scalars
+  Parameter depending: 34 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 48 scalars
+  Alias variables: 50 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  Nand.C4.v
+  Nand.C7.v
+ 

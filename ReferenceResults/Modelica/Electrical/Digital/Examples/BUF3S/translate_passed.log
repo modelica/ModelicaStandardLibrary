@@ -1,0 +1,30 @@
+﻿ = true
+Translation of Modelica.Electrical.Digital.Examples.BUF3S:
+The DAE has 14 scalar unknowns and 14 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 5
+  Variables: 31
+  Constants: 3 (250 scalars)
+  Parameters: 14 (20 scalars)
+  Unknowns: 14 (14 scalars)
+  Equations: 8
+  Nontrivial: 8
+Translated Model
+  Constants: 252 scalars
+  Free parameters: 16 scalars
+  Parameter depending: 2 scalars
+  Time-varying variables: 13 scalars
+  Alias variables: 1 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

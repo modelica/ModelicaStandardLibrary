@@ -1,0 +1,17 @@
+time
+imc.airGap.V_mrr.im
+imc.airGap.V_mrr.re
+imc.airGap.V_msr.im
+imc.airGap.V_msr.re
+imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+imc.stator.port_p.V_m.im
+imc.stator.port_p.V_m.re
+// imc.stator.zeroInductor.i0
+imcQS.rotorCage.port_p.reference.gamma
+loadInertia.phi
+loadInertia.w
+loadInertiaQS.phi
+loadInertiaQS.w

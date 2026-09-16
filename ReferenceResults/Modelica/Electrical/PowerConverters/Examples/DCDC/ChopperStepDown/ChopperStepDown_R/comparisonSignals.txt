@@ -1,0 +1,9 @@
+time
+meanCurrent.x
+meanVoltage.x
+meanCurrent.y
+meanVoltage.y
+chopperStepDown.vDC1
+chopperStepDown.iDC1
+chopperStepDown.vDC2
+chopperStepDown.iDC2

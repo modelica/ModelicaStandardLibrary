@@ -1,0 +1,4 @@
+time
+err1.y
+trapezoid1.T_start
+trapezoid1.count

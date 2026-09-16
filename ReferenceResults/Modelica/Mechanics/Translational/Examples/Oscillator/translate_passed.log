@@ -1,0 +1,36 @@
+﻿ = true
+Translation of Modelica.Mechanics.Translational.Examples.Oscillator:
+The DAE has 50 scalar unknowns and 50 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 12
+  Variables: 78
+  Parameters: 28 (28 scalars)
+  Unknowns: 50 (50 scalars)
+  Differentiated variables: 6 scalars
+  Equations: 44
+  Nontrivial: 39
+Translated Model
+  Constants: 9 scalars
+  Free parameters: 21 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 20 scalars
+  Alias variables: 28 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  damper1.s_rel
+  damper1.v_rel
+  mass1.s
+  mass1.v
+ 

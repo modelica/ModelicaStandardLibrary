@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 40
+The model could not be deduced to be symbolically well-posed.
+The model has
+  32+4*dLATREG.dLATR.n
+scalar unknowns and
+  34+3*dLATREG.dLATR.n
+scalar equations.
+However, exploiting the given bindings parameters gives the same number of unknowns and equations:
+  40
+Check of <a href="Modelica://Modelica.Electrical.Digital.Examples.DLATREG">Modelica.Electrical.Digital.Examples.DLATREG</a> successful.
+

@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 1348
+The model has the same number of unknowns and equations:
+  1342+currentRMSsensorM.ToSpacePhasor1.m+currentRMSsensorE.ToSpacePhasor1.m
+Check of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_DOL">Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_DOL</a> successful.
+

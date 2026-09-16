@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 27
+The model has the same number of unknowns and equations:
+  26+max([1; size(table.combiTimeTable.offset, 1)])
+Check of <a href="Modelica://Modelica.Clocked.Examples.Elementary.IntegerSignals.UpSample">Modelica.Clocked.Examples.Elementary.IntegerSignals.UpSample</a> successful.
+

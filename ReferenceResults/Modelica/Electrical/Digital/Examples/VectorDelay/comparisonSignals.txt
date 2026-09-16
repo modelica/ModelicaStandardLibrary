@@ -1,0 +1,7 @@
+time
+delay.inertialDelaySensitive[1].x
+delay.inertialDelaySensitive[1].y
+delay.inertialDelaySensitive[2].x
+delay.inertialDelaySensitive[2].y
+delay.inertialDelaySensitive[3].x
+delay.inertialDelaySensitive[3].y

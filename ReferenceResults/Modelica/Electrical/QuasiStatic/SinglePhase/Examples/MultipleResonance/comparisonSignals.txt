@@ -1,0 +1,5 @@
+time
+transformer.pin_n1.reference.gamma
+transformer.pin_n2.reference.gamma
+currentSensor.abs_i
+currentSensor.arg_i

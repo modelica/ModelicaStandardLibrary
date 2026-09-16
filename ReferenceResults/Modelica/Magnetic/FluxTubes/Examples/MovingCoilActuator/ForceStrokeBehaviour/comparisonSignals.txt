@@ -1,0 +1,5 @@
+time
+feedX.flange.f
+actuator.g_ma.G_m
+actuator.g_mb.G_m
+actuator.L

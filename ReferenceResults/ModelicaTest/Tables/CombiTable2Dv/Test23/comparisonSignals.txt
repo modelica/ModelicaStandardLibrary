@@ -1,0 +1,13 @@
+time
+combiTable2D_1R.y[1]
+der_1R.y
+combiTable2D_2R.y[1]
+der_2R.y
+cosine_R.y
+sine_R.y
+combiTable2D_1L.y[1]
+der_1L.y
+combiTable2D_2L.y[1]
+der_2L.y
+cosine_L.y
+sine_L.y

@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 1588
+The model could not be deduced to be symbolically well-posed.
+The model has
+  1560+4*(size(world.x_label.lines, 1)+size(world.y_label.lines, 1)+size(  world.z_label.lines, 1))
+scalar unknowns and
+  1506+(if Connections.isRoot(body1.frame_a.R) then 12 else 3)+(if   Connections.isRoot(body2.frame_a.R) then 12 else 3)+(if Connections.isRoot(  body3.frame_a.R) then 12 else 3)+(if Connections.isRoot(body4.frame_a.R) then 12   else 3)+(if spring.lineForce.fixedRotationAtFrame_a then 12 else 3)+(if   spring.lineForce.fixedRotationAtFrame_b then 12 else 3)+4*size(  world.x_label.lines, 1)+4*size(world.y_label.lines, 1)+4*size(world.z_label.lines,   1)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  1588
+Check of <a href="Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses">Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses</a> successful.
+

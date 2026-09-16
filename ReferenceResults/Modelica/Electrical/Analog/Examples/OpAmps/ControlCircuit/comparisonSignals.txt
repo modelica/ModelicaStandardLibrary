@@ -1,0 +1,9 @@
+time
+firstOrder1A.c.v
+firstOrder1B.y
+firstOrder2A.c.v
+firstOrder2B.y
+PIA.c.v
+PIB.x
+addA.opAmp.v_out
+addB.y

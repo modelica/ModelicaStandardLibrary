@@ -1,0 +1,35 @@
+﻿ = true
+Translation of Modelica.Media.Examples.SolveOneNonlinearEquation.Inverse_sh_TX:
+The DAE has 6 scalar unknowns and 6 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 1
+  Variables: 15
+  Constants: 1 (1 scalars)
+  Parameters: 8 (11 scalars)
+  Unknowns: 6 (6 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 6
+  Nontrivial: 6
+Translated Model
+  Constants: 1 scalars
+  Free parameters: 7 scalars
+  Parameter depending: 4 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 6 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  h1
+  s1
+ 

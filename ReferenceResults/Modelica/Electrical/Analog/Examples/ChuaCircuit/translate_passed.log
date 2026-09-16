@@ -1,0 +1,36 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.ChuaCircuit:
+The DAE has 44 scalar unknowns and 44 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 8
+  Variables: 60
+  Parameters: 16 (16 scalars)
+  Unknowns: 44 (44 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 42
+  Nontrivial: 35
+Translated Model
+  Constants: 7 scalars
+  Free parameters: 12 scalars
+  Parameter depending: 4 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 13 scalars
+  Alias variables: 24 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  C1.v
+  C2.v
+  L.i
+ 

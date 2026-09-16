@@ -1,0 +1,38 @@
+﻿ = true
+Translation of Modelica.Clocked.Examples.Systems.EngineThrottleControl:
+The DAE has 128 scalar unknowns and 128 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 43
+  Variables: 176
+  Parameters: 49 (49 scalars)
+  Unknowns: 116 (117 scalars)
+  Differentiated variables: 7 scalars
+  Equations: 123
+  Nontrivial: 114
+Translated Model
+  Constants: 24 scalars
+  Free parameters: 30 scalars
+  Parameter depending: 4 scalars
+  Continuous time states: 5 scalars
+  Time-varying variables: 54 scalars
+  Alias variables: 54 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  engine.cylinderAirCharge.integrator.y
+  engine.inertia.phi
+  engine.inertia.w
+  engine.intakeManifold.P_m
+  engine.throttleBody.m_ai
+ 

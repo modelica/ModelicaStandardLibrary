@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Electrical.QuasiStatic.Polyphase.Examples.UnsymmetricalLoad:
+The DAE has 1730 scalar unknowns and 1730 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 905
+  Variables: 1910
+  Constants: 2 (2 scalars)
+  Parameters: 234 (246 scalars)
+  Unknowns: 1674 (1730 scalars)
+  Differentiated variables: 22 scalars
+  Equations: 532
+  Nontrivial: 456
+Translated Model
+  Constants: 591 scalars
+  Free parameters: 66 scalars
+  Parameter depending: 68 scalars
+  Outputs: 8 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 241 scalars
+  Alias variables: 1012 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {6, 17}
+  Sizes after manipulation of the linear systems: {2, 4}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  resistor1_3.pin_p.reference.gamma
+  resistor2_3.pin_p.reference.gamma
+ 

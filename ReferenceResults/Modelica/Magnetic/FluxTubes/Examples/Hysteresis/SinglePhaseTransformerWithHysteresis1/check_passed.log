@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 89
+The model has the same number of unknowns and equations:
+  85+2*(size(core.tabris.columns, 1)+size(core.tabfal.columns, 1))
+Check of <a href="Modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1">Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1</a> successful.
+

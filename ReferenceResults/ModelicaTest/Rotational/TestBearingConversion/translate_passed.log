@@ -1,0 +1,74 @@
+﻿ = true
+Translation of ModelicaTest.Rotational.TestBearingConversion:
+The DAE has 719 scalar unknowns and 719 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 90
+  Variables: 1036
+  Constants: 62 (62 scalars)
+  Parameters: 271 (299 scalars)
+  Unknowns: 703 (719 scalars)
+  Differentiated variables: 94 scalars
+  Equations: 615
+  Nontrivial: 504
+Translated Model
+  Constants: 211 scalars
+  Free parameters: 161 scalars
+  Parameter depending: 56 scalars
+  Continuous time states: 40 scalars
+  Time-varying variables: 297 scalars
+  Alias variables: 355 scalars
+  Number of mixed real/discrete systems of equations: 8
+  Sizes of linear systems of equations: {7, 3, 3, 3, 12, 12, 10, 10, 4, 4}
+  Sizes after manipulation of the linear systems: {0, 0, 0, 0, 3, 3, 2, 2, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  bearingFriction.phi
+  bearingFriction.w
+  gear2_1.phi_rel
+  gear2_1.w_rel
+  gear2_2.phi_rel
+  gear2_2.w_rel
+  inertia1.phi
+  inertia1.w
+  inertia2.phi
+  inertia2.w
+  inertia3.phi
+  inertia3.w
+  inertia5.phi
+  inertia5.w
+  inertia7.phi
+  inertia7.w
+  inertia9.phi
+  inertia9.w
+  inertia11.phi
+  inertia11.w
+  inertia20.phi
+  inertia20.w
+  inertia21.phi
+  inertia21.w
+  position.phi
+  position.w
+  position1.phi
+  position1.w
+  position2.phi
+  position2.w
+  position3.phi
+  position3.w
+  position4.phi
+  position4.w
+  position5.phi
+  position5.w
+  slidingMass.s
+  slidingMass.v
+  slidingMass1.s
+  slidingMass1.v
+ 

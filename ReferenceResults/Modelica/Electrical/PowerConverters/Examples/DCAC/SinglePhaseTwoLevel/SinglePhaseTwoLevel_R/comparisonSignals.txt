@@ -1,0 +1,7 @@
+time
+inverter.ac.v
+inverter.ac.i
+fundamentalWaveVoltage.mean1.y
+fundamentalWaveVoltage.mean2.y
+fundamentalWaveCurrent.mean1.y
+fundamentalWaveCurrent.mean2.y

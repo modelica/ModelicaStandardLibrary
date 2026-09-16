@@ -1,0 +1,28 @@
+﻿ = true
+Translation of Modelica.Blocks.Examples.Noise.ImpureGenerator:
+The DAE has 2 scalar unknowns and 2 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 3
+  Variables: 8
+  Parameters: 6 (6 scalars)
+  Unknowns: 2 (2 scalars)
+  Equations: 2
+  Nontrivial: 1
+Translated Model
+  Free parameters: 4 scalars
+  Parameter depending: 2 scalars
+  Outputs: 1 scalars
+  Time-varying variables: 2 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

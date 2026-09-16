@@ -1,0 +1,36 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Joints.Revolute:
+The DAE has 2234 scalar unknowns and 2234 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 88
+  Variables: 980
+  Constants: 1 (1 scalars)
+  Parameters: 156 (206 scalars)
+  Unknowns: 823 (2234 scalars)
+  Differentiated variables: 12 scalars
+  Equations: 775
+  Nontrivial: 499
+Translated Model
+  Constants: 1657 scalars
+  Free parameters: 43 scalars
+  Parameter depending: 184 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 71 scalars
+  Alias variables: 486 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  revolute.phi
+  revolute.w
+ 

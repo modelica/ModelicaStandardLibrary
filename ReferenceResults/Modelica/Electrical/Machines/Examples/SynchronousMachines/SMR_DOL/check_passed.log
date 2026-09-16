@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 606
+The model has the same number of unknowns and equations:
+  603+currentQuasiRMSSensor.ToSpacePhasor1.m
+Check of <a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_DOL">Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_DOL</a> successful.
+

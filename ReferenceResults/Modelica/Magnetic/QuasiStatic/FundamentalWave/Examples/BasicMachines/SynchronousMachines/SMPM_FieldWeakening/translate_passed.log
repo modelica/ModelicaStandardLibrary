@@ -1,0 +1,41 @@
+Translation of <a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening">Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening</a>
+The DAE has 1903 scalar unknowns and 1903 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 867
+  Variables: 2235
+  Constants: 9 (9 scalars)
+  Parameters: 435 (452 scalars)
+  Unknowns: 1791 (1903 scalars)
+  Differentiated variables: 29 scalars
+  Equations: 742
+  Nontrivial: 627
+Translated Model
+  Constants: 750 scalars
+  Free parameters: 90 scalars
+  Parameter depending: 173 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 383 scalars
+  Alias variables: 968 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {58}
+  Sizes after manipulation of the nonlinear systems: {8}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {58}
+    Sizes after manipulation of the nonlinear systems: {8}
+    Sizes of simplified homotopy nonlinear systems of equations: {57}
+    Sizes after manipulation of the simplified homotopy nonlinear systems: {8}
+    Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening#diagram$fieldWeakeningController.PID:I.y">fieldWeakeningController.PID.I.y</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening#text$speedSource:phi">speedSource.phi</a>
+Finished

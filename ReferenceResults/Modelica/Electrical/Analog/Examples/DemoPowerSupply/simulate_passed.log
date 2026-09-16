@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Mon Oct 28 23:53:53 2024)
+
+dymosim started
+... "Modelica.Electrical.Analog.Examples.DemoPowerSupply" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 1
+   CPU-time for integration                : 0.017 seconds
+   CPU-time for one grid interval          : 0.0017 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 10006
+   Number of grid points                   : 10001
+   Number of accepted steps                : 68
+   Number of f-evaluations (dynamics)      : 68
+   Number of crossing function evaluations : 10079
+   Number of Jacobian-evaluations          : 65
+   Number of model time events             : 1
+   Number of input time events             : 0
+   Number of state events                  : 2
+   Number of step events                   : 0
+   Minimum integration stepsize            : 4.31e-08
+   Maximum integration stepsize            : 0.419
+   Maximum integration order               : 1
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Electrical.Analog.Examples.DemoPowerSupply

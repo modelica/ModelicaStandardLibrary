@@ -1,0 +1,46 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking">ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking</a>
+The DAE has 392 scalar unknowns and 392 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 47
+  Variables: 539
+  Constants: 4 (4 scalars)
+  Parameters: 191 (215 scalars)
+  Unknowns: 344 (392 scalars)
+  Differentiated variables: 27 scalars
+  Equations: 223
+  Nontrivial: 168
+Translated Model
+  Constants: 198 scalars
+  Free parameters: 19 scalars
+  Parameter depending: 114 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 58 scalars
+  Alias variables: 222 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {16, 20, 2, 2}
+  Sizes after manipulation of the linear systems: {4, 4, 2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {7, 2, 12}
+    Sizes after manipulation of the linear systems: {0, 2, 4}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking#text$imc:idq_rr">imc.idq_rr[1]</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking#text$imc:idq_rr">imc.idq_rr[2]</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking#text$loadInertia:phi">loadInertia.phi</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking#text$loadInertia:w">loadInertia.w</a>
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There are 2 states to be selected from:
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking#text$imc:i_0_s">imc.i_0_s</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking#text$imc:idq_sr">imc.idq_sr[]</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking#text$imc:is">imc.is[2]</a>
+Finished

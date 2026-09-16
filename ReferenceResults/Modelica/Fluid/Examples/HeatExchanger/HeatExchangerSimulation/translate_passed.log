@@ -1,0 +1,121 @@
+﻿ = true
+Translation of Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation:
+The DAE has 3731 scalar unknowns and 3731 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 277
+  Variables: 2315
+  Constants: 56 (56 scalars)
+  Parameters: 345 (624 scalars)
+  Unknowns: 1914 (3735 scalars)
+  Differentiated variables: 180 scalars
+  Equations: 904
+  Nontrivial: 614
+Translated Model
+  Constants: 1119 scalars
+  Free parameters: 45 scalars
+  Parameter depending: 292 scalars
+  Continuous time states: 100 scalars
+  Time-varying variables: 1125 scalars
+  Alias variables: 1834 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,   3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,   3, 2, 3, 2, 3, 2, 3, 2, 2, 3, 2, 2, 3, 3, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,   3}
+  Sizes after manipulation of the linear systems: {0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0,   2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0,   2, 0, 2, 0, 2, 0, 2, 0, 0, 2, 0, 0, 2, 2, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0,   2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0}
+    Sizes of nonlinear systems of equations: {724}
+    Sizes after manipulation of the nonlinear systems: {160}
+    Number of numerical Jacobians: 1
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  HEX.pipe_1.mediums[1].p
+  HEX.pipe_1.mediums[1].T
+  HEX.pipe_1.mediums[2].p
+  HEX.pipe_1.mediums[2].T
+  HEX.pipe_1.mediums[3].p
+  HEX.pipe_1.mediums[3].T
+  HEX.pipe_1.mediums[4].p
+  HEX.pipe_1.mediums[4].T
+  HEX.pipe_1.mediums[5].p
+  HEX.pipe_1.mediums[5].T
+  HEX.pipe_1.mediums[6].p
+  HEX.pipe_1.mediums[6].T
+  HEX.pipe_1.mediums[7].p
+  HEX.pipe_1.mediums[7].T
+  HEX.pipe_1.mediums[8].p
+  HEX.pipe_1.mediums[8].T
+  HEX.pipe_1.mediums[9].p
+  HEX.pipe_1.mediums[9].T
+  HEX.pipe_1.mediums[10].p
+  HEX.pipe_1.mediums[10].T
+  HEX.pipe_1.mediums[11].p
+  HEX.pipe_1.mediums[11].T
+  HEX.pipe_1.mediums[12].p
+  HEX.pipe_1.mediums[12].T
+  HEX.pipe_1.mediums[13].p
+  HEX.pipe_1.mediums[13].T
+  HEX.pipe_1.mediums[14].p
+  HEX.pipe_1.mediums[14].T
+  HEX.pipe_1.mediums[15].p
+  HEX.pipe_1.mediums[15].T
+  HEX.pipe_1.mediums[16].p
+  HEX.pipe_1.mediums[16].T
+  HEX.pipe_1.mediums[17].p
+  HEX.pipe_1.mediums[17].T
+  HEX.pipe_1.mediums[18].p
+  HEX.pipe_1.mediums[18].T
+  HEX.pipe_1.mediums[19].p
+  HEX.pipe_1.mediums[19].T
+  HEX.pipe_1.mediums[20].p
+  HEX.pipe_1.mediums[20].T
+  HEX.pipe_2.mediums[1].p
+  HEX.pipe_2.mediums[1].T
+  HEX.pipe_2.mediums[2].p
+  HEX.pipe_2.mediums[2].T
+  HEX.pipe_2.mediums[3].p
+  HEX.pipe_2.mediums[3].T
+  HEX.pipe_2.mediums[4].p
+  HEX.pipe_2.mediums[4].T
+  HEX.pipe_2.mediums[5].p
+  HEX.pipe_2.mediums[5].T
+  HEX.pipe_2.mediums[6].p
+  HEX.pipe_2.mediums[6].T
+  HEX.pipe_2.mediums[7].p
+  HEX.pipe_2.mediums[7].T
+  HEX.pipe_2.mediums[8].p
+  HEX.pipe_2.mediums[8].T
+  HEX.pipe_2.mediums[9].p
+  HEX.pipe_2.mediums[9].T
+  HEX.pipe_2.mediums[10].p
+  HEX.pipe_2.mediums[10].T
+  HEX.pipe_2.mediums[11].p
+  HEX.pipe_2.mediums[11].T
+  HEX.pipe_2.mediums[12].p
+  HEX.pipe_2.mediums[12].T
+  HEX.pipe_2.mediums[13].p
+  HEX.pipe_2.mediums[13].T
+  HEX.pipe_2.mediums[14].p
+  HEX.pipe_2.mediums[14].T
+  HEX.pipe_2.mediums[15].p
+  HEX.pipe_2.mediums[15].T
+  HEX.pipe_2.mediums[16].p
+  HEX.pipe_2.mediums[16].T
+  HEX.pipe_2.mediums[17].p
+  HEX.pipe_2.mediums[17].T
+  HEX.pipe_2.mediums[18].p
+  HEX.pipe_2.mediums[18].T
+  HEX.pipe_2.mediums[19].p
+  HEX.pipe_2.mediums[19].T
+  HEX.pipe_2.mediums[20].p
+  HEX.pipe_2.mediums[20].T
+  HEX.wall.T[]
+ 

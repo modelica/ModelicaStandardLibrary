@@ -1,0 +1,52 @@
+Translation of <a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start">ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start</a>
+The DAE has 1778 scalar unknowns and 1778 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 284
+  Variables: 2377
+  Constants: 27 (27 scalars)
+  Parameters: 719 (840 scalars)
+  Unknowns: 1631 (1778 scalars)
+  Differentiated variables: 48 scalars
+  Equations: 943
+  Nontrivial: 784
+Translated Model
+  Constants: 826 scalars
+  Free parameters: 63 scalars
+  Parameter depending: 289 scalars
+  Continuous time states: 16 scalars
+  Time-varying variables: 370 scalars
+  Alias variables: 1097 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {14, 8, 6, 6, 6, 5, 8, 3, 4, 3, 6, 6, 6, 16, 2, 2, 2}
+  Sizes after manipulation of the linear systems: {2, 2, 2, 2, 2, 2, 0, 0, 2, 0, 2, 2, 2, 4, 0, 0, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2}
+    Sizes after manipulation of the linear systems: {2, 2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsE:i_0_r">aimsE.i_0_r</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsE:i_0_s">aimsE.i_0_s</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsE:idq_rr">aimsE.idq_rr[1]</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsE:idq_rr">aimsE.idq_rr[2]</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsE:idq_sr">aimsE.idq_sr[1]</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsE:idq_sr">aimsE.idq_sr[2]</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsM.rotor.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimsM.rotor.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsM.rotor.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimsM.rotor.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsM.rotor.zeroInductor:i0">aimsM.rotor.zeroInductor.i0</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimsM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimsM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$aimsM.stator.zeroInductor:i0">aimsM.stator.zeroInductor.i0</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$loadInertiaE:phi">loadInertiaE.phi</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$loadInertiaE:w">loadInertiaE.w</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$loadInertiaM:phi">loadInertiaM.phi</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start#text$loadInertiaM:w">loadInertiaM.w</a>
+Finished

@@ -1,0 +1,10 @@
+time
+transition1.enableFire
+transition2.enableFire
+transition3.enableFire
+transition4.enableFire
+transition4a.enableFire
+transition5.enableFire
+transition6.enableFire
+transition6a.enableFire
+transition7.enableFire

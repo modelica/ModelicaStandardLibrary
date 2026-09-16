@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 100
+The model has the same number of unknowns and equations:
+  98+max([1; size(table1.combiTimeTable.offset, 1)])+max([1; size(table2.combiTimeTable.offset,   1)])
+Check of <a href="Modelica://ModelicaTest.Blocks.Logical">ModelicaTest.Blocks.Logical</a> successful.
+

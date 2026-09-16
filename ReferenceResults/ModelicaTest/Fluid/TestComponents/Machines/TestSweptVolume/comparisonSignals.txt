@@ -1,0 +1,6 @@
+time
+springDamper.s_rel
+springDamper.v_rel
+sweptVolume.medium.T
+trapezoid.T_start
+trapezoid.count

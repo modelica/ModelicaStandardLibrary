@@ -1,0 +1,29 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.HeatExchanger.kc_roundTube_KC:
+The DAE has 90 scalar unknowns and 90 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 10
+  Variables: 124
+  Parameters: 37 (37 scalars)
+  Unknowns: 87 (90 scalars)
+  Equations: 90
+  Nontrivial: 13
+Translated Model
+  Constants: 35 scalars
+  Free parameters: 35 scalars
+  Parameter depending: 21 scalars
+  Time-varying variables: 7 scalars
+  Alias variables: 29 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {1, 1}
+  Sizes after manipulation of the nonlinear systems: {1, 1}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

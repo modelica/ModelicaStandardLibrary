@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 3591
+The model could not be deduced to be symbolically well-posed.
+The model has
+  3563+4*(size(world.x_label.lines, 1)+size(world.y_label.lines, 1)+size(  world.z_label.lines, 1))
+scalar unknowns and
+  3536+(if springDamperParallel.fixedRotationAtFrame_a then 12 else 3)+(if   springDamperParallel.fixedRotationAtFrame_b then 12 else 3)+(if   Connections.isRoot(pm1.frame_a.R) then 12 else 3)+(if springDamperParallel1.fixedRotationAtFrame_a   then 12 else 3)+(if springDamperParallel1.fixedRotationAtFrame_b then 12   else 3)+(if Connections.isRoot(pm2.frame_a.R) then 12 else 3)+(if   springDamperParallel2.fixedRotationAtFrame_a then 12 else 3)+(if   springDamperParallel2.fixedRotationAtFrame_b then 12 else 3)+(if   Connections.isRoot(pm3.frame_a.R) then 12 else 3)+4*size(world.x_label.lines, 1)  +4*size(world.y_label.lines, 1)+4*size(world.z_label.lines, 1)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  3591
+Check of <a href="Modelica://ModelicaTest.MultiBody.Forces.SpringDamperParallel">ModelicaTest.MultiBody.Forces.SpringDamperParallel</a> successful.
+

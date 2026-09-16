@@ -1,0 +1,13 @@
+time
+freeMotion.r_rel_a[1]
+freeMotion.v_rel_a[1]
+prismatic1.s
+prismatic1.v
+universal.phi_a
+universal.phi_b
+universal.w_a
+universal.w_b
+universal1.phi_a
+universal1.phi_b
+universal1.w_a
+universal1.w_b

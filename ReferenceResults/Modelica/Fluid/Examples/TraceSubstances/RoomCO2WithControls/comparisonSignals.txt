@@ -1,0 +1,17 @@
+time
+PID.I.y
+ductIn.mediums[1].T
+ductIn.mediums[1].Xi[1]
+ductIn.mediums[1].p
+ductIn.mediums[2].T
+ductIn.mediums[2].Xi[1]
+ductIn.mediums[2].p
+ductOut.mediums[1].T
+ductOut.mediums[1].Xi[1]
+ductOut.mediums[1].p
+ductOut.mediums[2].T
+ductOut.mediums[2].Xi[1]
+ductOut.mediums[2].p
+volume.medium.T
+volume.medium.Xi[1]
+volume.medium.p

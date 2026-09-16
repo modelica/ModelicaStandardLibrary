@@ -1,0 +1,7 @@
+time
+PI.I.y
+inertia1.phi
+inertia1.w
+integrator.y
+spring.phi_rel
+spring.w_rel

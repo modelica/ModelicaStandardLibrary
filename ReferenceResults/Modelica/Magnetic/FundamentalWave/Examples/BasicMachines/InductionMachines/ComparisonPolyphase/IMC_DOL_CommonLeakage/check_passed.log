@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage">Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage</a>
+The model has the same number of unknowns and equations: 3573
+The model could not be deduced to be symbolically well-posed.
+The model has
+  3218+16*aimc0.m+2*aimc0.stator.electroMagneticConverter.m+16*aimcH.m+2*  aimcH.stator.electroMagneticConverter.m+16*aimc1.m+2*aimc1.stator.electroMagneticConverter.m  +5*m+4*currentRMSsensor0.m+4*currentRMSsensorH.m+4*currentRMSsensor1.m
+scalar unknowns and
+  3200+4*m+5*(if  not idealCloserM.useHeatPort then 1 else 0)+3*currentRMSsensor0.m  +18*aimc0.m+(if  not quadraticLoadTorque0.useSupport then 1 else 0)+3*  currentRMSsensorH.m+18*aimcH.m+(if  not quadraticLoadTorqueH.useSupport then 1   else 0)+3*currentRMSsensor1.m+18*aimc1.m+(if  not quadraticLoadTorque1.useSupport   then 1 else 0)+2*aimc0.stator.electroMagneticConverter.m+2*aimcH.stator.electroMagneticConverter.m  +2*aimc1.stator.electroMagneticConverter.m
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  3573
+Check of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage">Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage</a> successful.

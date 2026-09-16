@@ -1,0 +1,39 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.SingularTransformer">ModelicaTest.Electrical.SingularTransformer</a>
+The DAE has 51 scalar unknowns and 51 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 9
+  Variables: 81
+  Parameters: 30 (30 scalars)
+  Unknowns: 51 (51 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 48
+  Nontrivial: 39
+Translated Model
+  Constants: 17 scalars
+  Free parameters: 14 scalars
+  Parameter depending: 11 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 10 scalars
+  Alias variables: 29 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {6, 5}
+  Sizes after manipulation of the linear systems: {2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {3}
+    Sizes after manipulation of the linear systems: {0}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There is one state to be selected from:
+<a href="Modelica://ModelicaTest.Electrical.SingularTransformer#text$basicTransformer:i1">basicTransformer.i1</a>
+<a href="Modelica://ModelicaTest.Electrical.SingularTransformer#text$basicTransformer:i2">basicTransformer.i2</a>
+Finished

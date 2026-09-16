@@ -1,0 +1,44 @@
+﻿ = true
+Translation of Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Steinmetz:
+The DAE has 491 scalar unknowns and 491 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 63
+  Variables: 675
+  Constants: 10 (10 scalars)
+  Parameters: 229 (263 scalars)
+  Unknowns: 436 (491 scalars)
+  Differentiated variables: 27 scalars
+  Equations: 288
+  Nontrivial: 224
+Translated Model
+  Constants: 222 scalars
+  Free parameters: 33 scalars
+  Parameter depending: 122 scalars
+  Continuous time states: 9 scalars
+  Time-varying variables: 87 scalars
+  Alias variables: 300 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 14, 2, 2}
+  Sizes after manipulation of the linear systems: {0, 4, 0, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  aimc.i_0_s
+  aimc.idq_rr[]
+  aimc.idq_sr[]
+  cRun.v
+  cStart.v
+  loadInertia.phi
+  loadInertia.w
+ 

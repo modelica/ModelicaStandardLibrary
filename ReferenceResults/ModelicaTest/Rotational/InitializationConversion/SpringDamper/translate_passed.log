@@ -1,0 +1,46 @@
+﻿ = true
+Translation of ModelicaTest.Rotational.InitializationConversion.SpringDamper:
+The DAE has 119 scalar unknowns and 119 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 16
+  Variables: 168
+  Parameters: 49 (49 scalars)
+  Unknowns: 119 (119 scalars)
+  Differentiated variables: 26 scalars
+  Equations: 104
+  Nontrivial: 81
+Translated Model
+  Constants: 33 scalars
+  Free parameters: 25 scalars
+  Continuous time states: 14 scalars
+  Time-varying variables: 46 scalars
+  Alias variables: 64 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  inertia4.phi
+  inertia4.w
+  inertia5.phi
+  inertia5.w
+  inertia6.phi
+  inertia6.w
+  relativeStates.phi_rel
+  relativeStates.w_rel
+  springDamper1.phi_rel
+  springDamper1.w_rel
+  springDamper2.phi_rel
+  springDamper2.w_rel
+  springDamper3.phi_rel
+  springDamper3.w_rel
+ 

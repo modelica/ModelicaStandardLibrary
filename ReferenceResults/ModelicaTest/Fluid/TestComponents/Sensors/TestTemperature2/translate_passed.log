@@ -1,0 +1,45 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestComponents.Sensors.TestTemperature2:
+The DAE has 441 scalar unknowns and 441 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 52
+  Variables: 679
+  Constants: 61 (61 scalars)
+  Parameters: 179 (171 scalars)
+  Unknowns: 439 (441 scalars)
+  Differentiated variables: 12 scalars
+  Equations: 353
+  Nontrivial: 284
+Translated Model
+  Constants: 329 scalars
+  Free parameters: 46 scalars
+  Parameter depending: 87 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 56 scalars
+  Alias variables: 155 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {7, 7, 7, 7}
+  Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  volume1_1.medium.h
+  volume1_2.medium.h
+  volume2_1.medium.h
+  volume2_2.medium.h
+ 
+Warning: Some variables are iteration variables of the initialization problem:
+but they are not given any explicit start values. Zero will be used.
+Iteration variables:
+der(volume1_1.medium.h)
+der(volume1_2.medium.h)
+der(volume2_1.medium.h)
+der(volume2_2.medium.h)

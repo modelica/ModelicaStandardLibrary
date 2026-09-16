@@ -1,0 +1,13 @@
+time
+preisachEverett.beta
+preisachEverett.J
+preisachEverett.MagRel
+preisachEverett.v
+preisachEverett.x
+tellinenSoft.B
+tellinenSoft.MagRel
+tellinenTable.B
+tellinenTable.MagRel
+winding1.i
+winding2.i
+winding3.i

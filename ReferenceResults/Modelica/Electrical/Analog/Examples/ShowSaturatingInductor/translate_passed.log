@@ -1,0 +1,39 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.ShowSaturatingInductor:
+The DAE has 23 scalar unknowns and 23 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 6
+  Variables: 46
+  Parameters: 23 (23 scalars)
+  Unknowns: 23 (23 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 23
+  Nontrivial: 18
+Translated Model
+  Constants: 4 scalars
+  Free parameters: 9 scalars
+  Parameter depending: 14 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 6 scalars
+  Alias variables: 13 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {1}
+  Sizes after manipulation of the nonlinear systems: {1}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {1}
+    Sizes after manipulation of the nonlinear systems: {1}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  Inductance1.i
+  SaturatingInductance1.Psi
+ 
