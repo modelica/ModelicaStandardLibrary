@@ -220,12 +220,14 @@ Vector and array indices should be typeset as subscripts using the
 </html>"));
       end Equations;
 
-      class Figures "Figures"
+      class Figures "Figures embedded in HTML documentation"
         extends Modelica.Icons.Information;
 
         annotation (Documentation(info="<html>
 <p>
-Figures should in particular be included to examples to discuss the problems and results of the respective model. The library developers are yet encouraged to add figures to the documentation of other components to support the understanding of the users of the library.
+Figures in the HTML documentation should in particular be included to examples to discuss the problems and results of the respective model.
+When a figure shows simulation results, the figure should also be included as a <a href=\"modelica://Modelica.UsersGuide.Conventions.Figures\">simulation result figure</a>.
+The library developers are yet encouraged to add figures to the documentation of other components to support the understanding of the users of the library.
 </p>
 
 <ol>
@@ -1843,6 +1845,149 @@ In particular do not make the diagram layer a copy of the icon layer.
 Graphical illustrations shall not be added in the diagram layer, but can be added in the HTML documentation.</p>
 </html>"));
   end Icons;
+
+  class Figures "Simulation result figures"
+    extends Modelica.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+The use of figures in example models shall consider the following guidelines.
+Figures are defined in the <code>figures</code> sub-annotation of the <code>Documentation</code> annotation, explained in detail in <a href=\"https://specification.modelica.org/maint/3.6/annotations.html#annotations-for-figures\">Section&nbsp;18.2.2 <em>Figures</em> of the Modelica&nbsp;3.6 specification</a>.
+See also <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Figures\">Figures embedded in HTML documentation</a>.
+</p>
+
+<h4>Number of figures, preferred figures, and plots per figure</h4>
+
+<p>
+Each simulation example should have at least one figure, but having no figure is better than having a figure not conforming to these guidelines.
+Exactly one of the figures should be <em>preferred</em>, marked with <code>preferred = true</code>.
+Avoid more than two plots per figure.
+</p>
+
+<p>
+Avoid specifying grouping of figures using the <code>group</code> attribute.
+Keep down the number of figures instead so that grouping is not needed.
+</p>
+
+
+<h4>Titles</h4>
+
+<p>
+All specified titles shall use sentence case and no terminating punctuation.
+</p>
+
+<p>
+A figure shall have an explicit (non-empty) <code>title</code>.
+</p>
+
+<p>
+In a figure with a single plot, the plot should not specify a <code>title</code> (leaving it to the tool whether to show an automatically generated title).
+Otherwise, each plot in the figure should have an explicit non-empty <code>title</code>.
+A figure must not contain a mix of plots with and plots without <code>title</code>.
+</p>
+
+
+<h4>Captions</h4>
+
+<p>
+A figure shall have a caption.
+Avoid long captions.
+</p>
+
+<p>
+Make adequate use of the standardized markup for references to result variables and plots in the figure.
+The full specification of the markup is given in the Modelica specification, but things to keep in mind include:
+</p>
+<ol>
+<li>A newline means paragraph break; line breaks within a paragraph are not possible.</li>
+<li>References to variables have dedicated markup, for example: <code>%(variable:integrator.y)</code></li>
+<li>Values of parameters should not be hard-coded but be read from the result, for example: <code>%{integrator.k}</code></li>
+</ol>
+
+<p>
+When a figure contains multiple plots, let each plot be described by one paragraph in the caption, and start each paragraph with a plain reference to the plot it describes (for example, <code>%(plot:tracking)</code>), followed by one space, and then the paragraph text.
+See <a href=\"modelica://Modelica.Blocks.Examples.PID_Controller\">PID_Controller</a> for an example.
+</p>
+
+
+<h4>Curves</h4>
+
+<p>
+Avoid placing curves with units which are not conversion-compatible in the same plot.
+The unknown unit <em>may</em> be treated as compatible with any unit.
+Note the general recommendation in <a href=\"#inferred-units\">Inferred units</a>.
+</p>
+
+<p>
+Never hide a curve from the plot legend by specifying the empty <code>legend</code>.
+Do not mix curves with and without <code>legend</code> in the same figure.
+In figures where <code>legend</code> is not used, prefer showing result variables with short and self-explanatory names.
+</p>
+
+
+<h4>Axis specification</h4>
+
+<p>
+Avoid specifying axis properties when default tool behavior is expected to be acceptable.
+Exceptions include when <code>min</code> and <code>max</code> are used to show only a small part of the full data range, or when a logarithmic scale is desired.
+</p>
+
+<p>
+Use of the attributes <code>min</code> and <code>max</code> requires that also <code>unit</code> is specified, except when every variable plotted against the axis has unknown unit.
+Note the general recommendation in <a href=\"#inferred-units\">Inferred units</a>.
+</p>
+
+<p>
+Avoid specifying <code>label</code> for an <code>Axis</code>.
+In particular, <code>label</code> shall not be used for the following purposes:
+</p>
+<ul>
+<li><p>
+Conveying the axis unit (not allowed according to the Modelica specification).
+</p></li>
+<li><p>
+As substitute for curve legends, or showing information already present in the curve legends.
+</p></li>
+<li><p>
+Quantity names, for the sake of consistency across the library.
+(Nothing prevents a tool from using <code>quantity</code> attributes of the plotted variables to automatically and consistently present quantity names when no <code>label</code> is given.)
+</p></li>
+</ul>
+
+
+<h4>Identifiers</h4>
+
+<p>
+A <code>Figure</code> shall have the <code>identifier</code> attribute so that the figure can be referenced programmatically.
+Keep in mind the uniqueness requirement which concerns not only figures defined in the simulated model, but also inherited figures.
+</p>
+
+<p>
+A <code>Plot</code> is required to have an <code>identifier</code> when it is part of a figure with more than one plot.
+(This follows from the need to reference the plots from the caption.)
+A plot shall not have an identifier when it is part of a figure with only one plot.
+</p>
+
+<p>
+It is recommended to use lower-case hyphenated identifiers such as <code>\"anti-windup\"</code>.
+</p>
+
+
+<h4 id=\"inferred-units\">Inferred units</h4>
+
+<p>
+Unit inference is currently not defined by the Modelica specification.
+Strictly speaking, a variable without declared unit should therefore be considered to have unknown unit.
+On the other hand, many tools are already capable of inferring units based on non-standard assumptions about unit consistency, and it is strongly recommended to take any tool-dependent inferred units into consideration when designing the figures.
+</p>
+
+<p>
+For example, if <code>x</code> is declared with unit <code>\"m\"</code>, and <code>v</code> is defined as the time derivative of <code>x</code> but without a declared unit, these guidelines cannot require that <code>x</code> and <code>v</code> should not be added to the same plot.
+However, if a tool infers the unit <code>\"m/s\"</code> for <code>v</code>, it is strongly recommended to design the figure as if the unit of <code>v</code> was known and not put <code>x</code> and <code>v</code> in the same plot.
+</p>
+
+</html>"));
+  end Figures;
+
   annotation (DocumentationClass=true,Documentation(info="<html>
 <p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
