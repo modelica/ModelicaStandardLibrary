@@ -63,6 +63,23 @@ length&nbsp;<var>L</var> of the component.
 Plot <code>positionSensor1.s</code>, <code>positionSensor2.s</code> and <code>mass.s</code>
 to see the difference.
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Positions",
+          identifier = "5669c",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = positionSensor1.s, legend = "Output from positionSensor"),
+                Curve(y = positionSensor2.s, legend = "Output from positionSensor2"),
+                Curve(y = mass.s, legend = "Position of mass")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=1.0, Interval=0.001));
 end Sensors;

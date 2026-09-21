@@ -42,6 +42,22 @@ After 0.1&nbsp;s, a brake is activated and it is shown that the mass decelerates
 it arrives at rest and remains at rest. Two versions of this system are present,
 one where the brake is implicitly grounded and one where it is grounded explicitly.
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Braking mass",
+          identifier = "cfd0a",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = mass1.s, legend = "Position of mass1"),
+                Curve(y = mass1.v, legend = "Velocity of mass1")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=2.0, Interval=0.001));
 end Brake;
