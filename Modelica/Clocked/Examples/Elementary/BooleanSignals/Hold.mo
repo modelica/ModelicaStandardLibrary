@@ -20,7 +20,7 @@ equation
       pattern=LinePattern.Dot,
       thickness=0.5));
   connect(table.y, sample1.u)
-    annotation (Line(points={{-59,30},{-53.2,30}}, color={255,127,0}));
+    annotation (Line(points={{-59,30},{-53.2,30}}, color={255,0,255}));
   connect(shiftSample1.u, sample1.y)
     annotation (Line(points={{-31.2,30},{-39.4,30}}, color={255,0,255}));
   connect(hold1.u, shiftSample1.y)
