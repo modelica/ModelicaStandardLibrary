@@ -15,7 +15,8 @@ model AbsolutePosition
     "Coordinate system in which output vector r is optionally resolved"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
         rotation=-90,
-        origin={0,-100})));
+        origin={0,-100})),
+      mustBeConnected="An enabled frame_resolve connector should be connected");
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
