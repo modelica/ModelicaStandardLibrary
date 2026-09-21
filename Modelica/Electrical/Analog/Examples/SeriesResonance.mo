@@ -2,6 +2,8 @@ within Modelica.Electrical.Analog.Examples;
 model SeriesResonance "Series resonance circuit"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
+  parameter Modelica.Units.SI.Frequency f0=100 "Resonance frequency";
+  parameter Modelica.Units.SI.Resistance R=10 "Scaling";
   Sources.SineVoltageVariableFrequencyAndAmplitude sineVoltage(
       useConstantAmplitude=true,                               phi(fixed=true))
     annotation (Placement(transformation(
@@ -14,9 +16,9 @@ model SeriesResonance "Series resonance circuit"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={40,50})));
-  Basic.Inductor inductor1(i(fixed=true), L=0.1/(2*pi))
+  Basic.Inductor inductor1(i(fixed=true), L=R/(2*pi*f0))
     annotation (Placement(transformation(extent={{-30,60},{-10,80}})));
-  Basic.Capacitor capacitor1(v(fixed=true), C=0.001/(2*pi))
+  Basic.Capacitor capacitor1(v(fixed=true), C=1/(R*2*pi*f0))
     annotation (Placement(transformation(extent={{10,60},{30,80}})));
   Sensors.CurrentSensor currentSensor1
     annotation (Placement(transformation(extent={{10,20},{-10,40}})));
@@ -38,9 +40,9 @@ model SeriesResonance "Series resonance circuit"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={40,-50})));
-  Basic.Inductor inductor2(i(fixed=true), L=0.1/(2*pi))
+  Basic.Inductor inductor2(i(fixed=true), L=R/(2*pi*f0))
     annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
-  Basic.Capacitor capacitor2(v(fixed=true), C=0.001/(2*pi))
+  Basic.Capacitor capacitor2(v(fixed=true), C=1/(R*2*pi*f0))
     annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
   Sensors.CurrentSensor currentSensor2
     annotation (Placement(transformation(extent={{10,-80},{-10,-60}})));
