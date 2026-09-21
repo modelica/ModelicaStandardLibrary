@@ -10,7 +10,7 @@ model CurrentSource "Constant polyphase AC current"
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
     "Phase shift of the source";
 equation
-  omega = 2*Modelica.Constants.pi*f;
+  plug_p.reference.gamma = 2*Modelica.Constants.pi*f*time "Avoid integration error in loops";
   i = {I[k]*exp(j*phi[k]) for k in 1:m};
   annotation (
     Icon(graphics={Line(points={{0,50},{0,-50}}, color={85,170,255}),

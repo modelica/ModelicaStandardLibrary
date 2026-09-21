@@ -15,8 +15,7 @@ model BalancingStar "Balancing an unsymmetrical star-connected load"
     m=m,
     f=f,
     V=fill(V, m),
-    phi=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-    gamma(fixed=true, start=0)) annotation (Placement(transformation(
+    phi=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)) annotation (Placement(transformation(
         origin={-80,-20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
