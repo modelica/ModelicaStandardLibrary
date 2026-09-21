@@ -618,7 +618,7 @@ results in the following equations:
 
   block MultiSum "Sum of Reals: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]"
     extends Modelica.Blocks.Interfaces.PartialRealMISO;
-    parameter Real k[nu]=fill(1, nu) "Input gains";
+    parameter Real k[nu]=fill(Modelica.Constants.one, nu) "Input gains";
   equation
     if size(u, 1) > 0 then
       y = k*u;
@@ -873,8 +873,8 @@ results in the following equations:
   block Add "Output the sum of the two inputs"
     extends Interfaces.SI2SO;
 
-    parameter Real k1=+1 "Gain of input signal 1";
-    parameter Real k2=+1 "Gain of input signal 2";
+    parameter Real k1 = +Modelica.Constants.one "Gain of input signal 1";
+    parameter Real k2 = +Modelica.Constants.one "Gain of input signal 2";
 
   equation
     y = k1*u1 + k2*u2;
@@ -918,9 +918,9 @@ results in the following equations:
   block Add3 "Output the sum of the three inputs"
     extends Modelica.Blocks.Icons.Block;
 
-    parameter Real k1=+1 "Gain of input signal 1";
-    parameter Real k2=+1 "Gain of input signal 2";
-    parameter Real k3=+1 "Gain of input signal 3";
+    parameter Real k1 = +Modelica.Constants.one "Gain of input signal 1";
+    parameter Real k2 = +Modelica.Constants.one "Gain of input signal 2";
+    parameter Real k3 = +Modelica.Constants.one "Gain of input signal 3";
     Interfaces.RealInput u1 "Connector of Real input signal 1" annotation (
         Placement(transformation(extent={{-140,60},{-100,100}})));
     Interfaces.RealInput u2 "Connector of Real input signal 2" annotation (
