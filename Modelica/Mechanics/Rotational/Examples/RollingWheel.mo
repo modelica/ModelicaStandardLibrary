@@ -39,6 +39,26 @@ This model demonstrates the coupling between rotational and translational compon
 A torque (step) accelerates both the inertia (of the wheel) and the mass (of the vehicle).<br>
 Due to a speed dependent force (like a driving resistance), we find an equilibrium at 5 m/s after approx. 5 s.
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Velocities",
+          identifier = "fd586",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = inertia.w, legend = "Angular velocity of inertia connected to the wheel")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = mass.v, legend = "Velocity of inertia connected to the wheel")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=5.0, Interval=0.001));
 end RollingWheel;

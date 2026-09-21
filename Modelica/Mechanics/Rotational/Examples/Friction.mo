@@ -103,7 +103,32 @@ tSpring     Torque in spring
 <p>as well as the absolute angular velocities of the three inertia components
 (inertia1.w, inertia2.w, inertia3.w).</p>
 
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Torques and velocities",
+          identifier = "06e38",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = tBrake, legend = "Torque of brake"),
+                Curve(y = tClutch, legend = "Torque of clutch"),
+                Curve(y = tMotor, legend = "Torque of motor"),
+                Curve(y = tSpring, legend = "Torque of spring")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = inertia1.w, legend = "Angular velocity of inertia1"),
+                Curve(y = inertia2.w, legend = "Angular velocity of inertia2"),
+                Curve(y = inertia3.w, legend = "Angular velocity of inertia3")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=3.0, Interval=0.001),
   Diagram(coordinateSystem(extent = {{-170,-100},{120,100}})));
 end Friction;
