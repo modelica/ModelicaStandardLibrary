@@ -809,7 +809,31 @@ package Examples
       annotation (Line(points={{30.5,10},{46,10}}));
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
              {{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}));
-    annotation (experiment(StopTime=5.5));
+    annotation (
+      Documentation(
+        figures = {
+          Figure(
+            title = "Boolean signal in system",
+            identifier = "ef029",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = initialStep.active, legend = "Output from initialStep"),
+                  Curve(y = transition1.t, legend = "transition1 wait time")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = step.active, legend = "Output from step"),
+                  Curve(y = transition2.t, legend = "transition2 wait time")
+                }
+              )
+            }
+          )
+        }
+      ),
+      experiment(StopTime=5.5));
   end FirstExample;
 
   model FirstExample_Variant2
@@ -845,7 +869,33 @@ package Examples
               -30},{62,-30},{62,-2}}, color={255,0,255}));
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
              {{63.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}));
-    annotation (experiment(StopTime=5.5));
+    annotation (
+      Documentation(
+        figures = {
+          Figure(
+            title = "Boolean signal in system",
+            identifier = "72ddc",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = initialStep.active, legend = "Output from initialStep"),
+                  Curve(y = transition1.t, legend = "transition1 wait time")
+                },
+                x = Axis(min = 0, max = 5)
+              ),
+              Plot(
+                curves = {
+                  Curve(y = step.active, legend = "Output from step"),
+                  Curve(y = timer.y, legend = "Output from timer")
+                },
+                x = Axis(min = 0, max = 5)
+              )
+            }
+          )
+        }
+      ),
+      experiment(StopTime=5.5));
   end FirstExample_Variant2;
 
   model FirstExample_Variant3
@@ -883,7 +933,31 @@ package Examples
              {{67.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}));
     connect(SetBoolean1.y, transition2.condition) annotation (Line(points={{
               61.6,-30},{66,-30},{66,-2}}, color={255,0,255}));
-    annotation (experiment(StopTime=5.5));
+    annotation (
+      Documentation(
+        figures = {
+          Figure(
+            title = "Boolean signal in system",
+            identifier = "96375",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = initialStep.active, legend = "Output from initialStep"),
+                  Curve(y = transition1.t, legend = "transition1 wait time")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = step.active, legend = "Output from step"),
+                  Curve(y = timer.y, legend = "Output from timer, controlling transition2")
+                }
+              )
+            }
+          )
+        }
+      ),
+      experiment(StopTime=5.5));
   end FirstExample_Variant3;
 
   model ExecutionPaths
@@ -1076,7 +1150,46 @@ has a higher priority to fire as alternative.split[2]).
 This is the same example as \"ExecutionPaths\". The only difference
 is that the alternative paths are included in a \"CompositeStep\".
 </p>
-</html>"), experiment(StopTime=15));
+</html>",
+        figures = {
+          Figure(
+            title = "Boolean signal in system",
+            identifier = "22111",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = step0.active, legend = "Output from step0"),
+                  Curve(y = transition1.t, legend = "transition1 wait time")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = step1.active, legend = "Output from step1")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = compositeStep.active, legend = "Output from entire compositeStep block = sum of initStep, step3, and exitStep"),
+                  Curve(y = compositeStep.initStep.active, legend = "Output from initStep"),
+                  Curve(y = compositeStep.step3.active, legend = "Output from step3"),
+                  Curve(y = compositeStep.exitStep.active, legend = "Output from exitStep"),
+                  Curve(y = compositeStep.transition3.t, legend = "transistion3 wait time"),
+                  Curve(y = compositeStep.transition5.t, legend = "transition5 wait time"),
+                  Curve(y = compositeStep.transition5.waitTime, legend = "transition5 target wait time"),
+                  Curve(y = transition2.t, legend = "transition2 wait time")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = step6.active, legend = "Output from step6"),
+                  Curve(y = transition7.condition, legend = "transition7 condition for firing status")
+                }
+              )
+            }
+          )
+        }
+      ), experiment(StopTime=15));
   end ShowCompositeStep;
 
   model ShowExceptions
@@ -1133,7 +1246,43 @@ via its \"resume\" port, all steps within \"compositeStep\" are activated
 according to their setting before leaving the \"compositeStep\" via its
 \"suspend\" port.
 </p>
-</html>"),experiment(StopTime=20));
+</html>",
+        figures = {
+          Figure(
+            title = "Boolean signal in system",
+            identifier = "214ea",
+            preferred = true,
+            plots = {
+              Plot(
+                curves = {
+                  Curve(y = initialStep.active, legend = "Output of initalStep"),
+                  Curve(y = transition1.t, legend = "transition1 wait time")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = compositeStep.active, legend = "Output from entire compositeStep block"),
+                  Curve(y = transition3.t, legend = "transition3 wait time")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = step1.active, legend = "Output from step1"),
+                  Curve(y = transition4.t, legend = "transition4 wait time")
+                }
+              ),
+              Plot(
+                curves = {
+                  Curve(y = compositeStep.initStep.active, legend = "Output of initStep in compositeStep"),
+                  Curve(y = compositeStep.compositeStep11.active, legend = "Output of compositeStep11 in compositeStep"),
+                  Curve(y = compositeStep.compositeStep12.active, legend = "Output of compositeStep12 in compositeStep"),
+                  Curve(y = compositeStep.exitStep.active, legend = "Output of exitStep in compositeStep")
+                }
+              )
+            }
+          )
+        }
+      ),experiment(StopTime=20));
   end ShowExceptions;
 
   model ControlledTanks
