@@ -92,5 +92,22 @@ pmFixedPos.flange_b.f       // force of permeance model
 cFixedPos.flange_b.f        // force of converter constant model
 comparisonWithFEA.y[1]      // force of FEA model for comparison
 </pre></blockquote>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Force current characteristics",
+          identifier = "9ca98",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = iSensor.i, y = pmFixedPos.flange.f, legend = "Permeance actuator force vs. current"),
+                Curve(x = iSensor.i, y = cFixedPos.flange.f, legend = "Constant actuator force vs. current"),
+                Curve(x = iSensor.i, y = comparisonWithFEA.y[1], legend = "FEA force vs. current (use this as reference result)")
+              }
+            )
+          }
+        )
+      }
+    ));
 end ForceCurrentBehaviour;

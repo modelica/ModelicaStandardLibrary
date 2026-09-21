@@ -69,5 +69,37 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
   </tr>
 </table>
 
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Flux density vs. field strength",
+          identifier = "131b7",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = core.H, y = core.B, legend = "Magnetic flux density vs. magnetic field strength of core, B(H)")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Currents and power loss",
+          identifier = "0a0be",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = winding1.i, legend = "Primary current"),
+                Curve(y = winding2.i, legend = "Secondary current")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = core.LossPower, legend = "Power consumption of the iron core (LossPower)")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SinglePhaseTransformerWithHysteresis1;
