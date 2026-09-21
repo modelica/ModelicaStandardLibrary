@@ -353,7 +353,8 @@ int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
             return 0;
         }
     } else {
-        mat = Mat_Open(fileName, (int)MAT_ACC_RDWR | matv);
+        const int mode = ((int)matv) | ((int)MAT_ACC_RDWR);
+        mat = Mat_Open(fileName, mode);
         if (NULL == mat) {
             ModelicaFormatError("Not possible to open file \"%s\"\n", fileName);
             return 0;
