@@ -361,15 +361,18 @@ package HeatExchanger "Demo of a heat exchanger model"
             Rectangle(
               extent={{-100,60},{100,30}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,63,125}),
+              fillColor={0,63,125},
+              pattern=LinePattern.None),
             Rectangle(
               extent={{-100,-30},{100,-60}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,63,125}),
+              fillColor={0,63,125},
+              pattern=LinePattern.None),
             Rectangle(
               extent={{-100,26},{100,-26}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,128,255}),
+              fillColor={0,128,255},
+              pattern=LinePattern.None),
             Text(
               extent={{-150,110},{150,70}},
               textColor={0,0,255},

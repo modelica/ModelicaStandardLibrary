@@ -120,7 +120,8 @@ vector \"n\" defining the cylinder axis
           lineColor={64,64,64},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={255,255,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-30,-30},{100,30}},
           lineColor={64,64,64},
@@ -130,7 +131,8 @@ vector \"n\" defining the cylinder axis
           lineColor={64,64,64},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={255,255,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-100,-50},{0,50}},
           lineColor={64,64,64},

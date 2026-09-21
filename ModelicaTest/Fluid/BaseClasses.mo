@@ -49,7 +49,8 @@ package BaseClasses "Specific models used for testing"
               {100,100}}), graphics={Rectangle(
             extent={{-100,60},{100,-60}},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={0,127,255})}),        Documentation(info="<html>
+            fillColor={0,127,255},
+            pattern=LinePattern.None)}),     Documentation(info="<html>
 <p>
 This component is intended for early designs and later replacement by more detailed models.
 It describes the static head due to the height difference between its two ports.
@@ -226,11 +227,13 @@ pipe wall/environment).
             Rectangle(
               extent={{-100,60},{100,-60}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              fillColor={192,192,192},
+            pattern=LinePattern.None),
             Rectangle(
               extent={{-100,34},{100,-36}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,127,255}),
+              fillColor={0,127,255},
+            pattern=LinePattern.None),
             Text(
               extent={{-134,-66},{130,-92}},
               textString="quad.turbulent")}),
@@ -336,11 +339,13 @@ pipe wall/environment).
         Rectangle(
           extent={{-100,60},{100,-60}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+            pattern=LinePattern.None),
         Rectangle(
           extent={{-100,44},{100,-45}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={0,127,255}),
+          fillColor={0,127,255},
+            pattern=LinePattern.None),
         Text(
           extent={{-150,80},{150,120}},
           textColor={0,0,255},

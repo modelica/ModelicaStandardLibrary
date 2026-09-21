@@ -132,13 +132,15 @@ equation
           lineColor={64,64,64},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={255,255,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(
           extent={{30,-60},{100,60}},
           lineColor={64,64,64},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={255,255,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
         Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
         Text(
@@ -159,7 +161,8 @@ equation
           visible=useAxisFlange,
           extent={{-10,100},{10,50}},
           fillPattern=FillPattern.VerticalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Polygon(
           visible=useAxisFlange,
           points={{-10,30},{10,30},{30,50},{-30,50},{-10,30}},
