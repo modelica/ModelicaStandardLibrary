@@ -4669,13 +4669,17 @@ the return value changes discontinuously.]</em></p>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Trigger time events
+Trigger time events, or convert variables to clocked discrete-time domain
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>sample</strong>(start, interval)</pre></blockquote>
+<blockquote><pre>y = <strong>sample</strong>(u, c)</pre></blockquote>
 <h4>Description</h4>
-<p>Returns true and triggers time events at time instants
-<code>&quot;start + i*interval&quot; (i=0, 1, ...)</code>.
+<p>Returns either:
+<ul>
+    <li>true and triggers time events at time instants <code>&quot;start + i*interval&quot; (i=0, 1, ...)</code>, or</li>
+    <li>a clocked variable y that has c as associated clock and has the value of the left limit of u when c is active (that is the value of u just before the event of c is triggered)</li>
+</ul>
 During continuous integration the operator returns always
 false. The starting time &quot;start&quot; and the sample
 interval &quot;interval&quot; need to be parameter
