@@ -1,8 +1,9 @@
 within Modelica.Mechanics.MultiBody.Forces.Internal;
 model BasicForce
   "Force acting between two frames, defined by 3 input signals"
-  extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+  extends Interfaces.PartialForce;
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
+
   Interfaces.Frame_resolve frame_resolve
     "The input signals are optionally resolved in this frame"
     annotation (Placement(transformation(
@@ -22,36 +23,34 @@ model BasicForce
 
   SI.Position r_0[3]
     "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-  SI.Force f_b_0[3] "frame_b.f resolved in world frame";
+  SI.Force f_b_0[3] "Force frame_b.f resolved in world frame";
 
 equation
   assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
   frame_resolve.f = zeros(3);
   frame_resolve.t = zeros(3);
 
-   if resolveInFrame == ResolveInFrameAB.frame_a then
-      f_b_0     = -Frames.resolve1(frame_a.R, force);
-      frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
-   elseif resolveInFrame == ResolveInFrameAB.frame_b then
-      f_b_0     = -Frames.resolve1(frame_b.R, force);
-      frame_b.f = -force;
-   elseif resolveInFrame == ResolveInFrameAB.world then
-      f_b_0     = -force;
-      frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
-   elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
-      f_b_0     = -Frames.resolve1(frame_resolve.R, force);
-      frame_b.f = Frames.resolve2(frame_b.R, f_b_0);
-   else
-      assert(false, "Wrong value for parameter resolveInFrame");
-      f_b_0     = zeros(3);
-      frame_b.f = zeros(3);
-   end if;
-   frame_b.t = zeros(3);
+  r_0 = frame_b.r_0 - frame_a.r_0;
+  frame_b.t = zeros(3);
 
-   // Force and torque balance
-   r_0 = frame_b.r_0 - frame_a.r_0;
-   zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_b_0);
-   zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(r_0, f_b_0));
+  if resolveInFrame == ResolveInFrameAB.frame_a then
+    f_b_0     = -Frames.resolve1(frame_a.R, force);
+    frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
+  elseif resolveInFrame == ResolveInFrameAB.frame_b then
+    f_b_0     = -Frames.resolve1(frame_b.R, force);
+    frame_b.f = -force;
+  elseif resolveInFrame == ResolveInFrameAB.world then
+    f_b_0     = -force;
+    frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
+  elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
+    f_b_0     = -Frames.resolve1(frame_resolve.R, force);
+    frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
+  else
+    assert(false, "Wrong value for parameter resolveInFrame");
+    f_b_0     = zeros(3);
+    frame_b.f = zeros(3);
+  end if;
+
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
             100,100}}), graphics={
