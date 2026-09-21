@@ -497,10 +497,10 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   function interpolate "Interpolate linearly in a vector"
     extends Modelica.Icons.Function;
     input Real x[:]
-      "Abscissa table vector (strict monotonically increasing values required)";
+      "Abscissa table vector (monotonically increasing values required)";
     input Real y[size(x, 1)] "Ordinate table vector";
     input Real xi "Desired abscissa value";
-    input Integer iLast=1 "Index used in last search";
+    input Integer iLast=0 "Index used in last search (optional)";
     output Real yi "Ordinate value corresponding to xi";
     output Integer iNew=1 "xi is in the interval x[iNew] <= xi < x[iNew+1]";
   protected
@@ -516,18 +516,23 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       yi := y[1];
     else
       // Search interval
-      i := min(max(iLast, 1), nx - 1);
-      if xi >= x[i] then
-        // search forward
-        while i < nx and xi >= x[i] loop
-          i := i + 1;
-        end while;
-        i := i - 1;
+      if (nx == 2) then
+        i := 1;
       else
-        // search backward
-        while i > 1 and xi < x[i] loop
+        i := if iLast >= 1 then iLast else integer((xi-x[1]) / (x[nx]-x[1]) * nx);
+        i := min(max(i, 1), nx - 1);
+        if xi >= x[i] then
+          // search forward
+          while i < nx and xi >= x[i] loop
+            i := i + 1;
+          end while;
           i := i - 1;
-        end while;
+        else
+          // search backward
+          while i > 1 and xi < x[i] loop
+            i := i - 1;
+          end while;
+        end if;
       end if;
 
       // Get interpolation data
@@ -536,9 +541,12 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       y1 := y[i];
       y2 := y[i + 1];
 
-      assert(x2 > x1, "Abscissa table vector values must be increasing");
-      // Interpolate
-      yi := y1 + (y2 - y1)*(xi - x1)/(x2 - x1);
+      if x2 > x1 then
+        // Interpolate
+        yi := y1 + (y2 - y1)*(xi - x1)/(x2 - x1);
+      else
+        yi := y2;
+      end if;
       iNew := i;
     end if;
 
