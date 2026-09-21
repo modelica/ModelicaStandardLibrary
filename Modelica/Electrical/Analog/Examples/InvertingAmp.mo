@@ -77,7 +77,23 @@ equation
   annotation (
     Documentation(info="<html>
 <p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplification k.</p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Input and Output",
+          identifier = "466eb",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = vIn.v),
+                Curve(y = vOut.v)
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(
       StartTime=0,
       StopTime=1,

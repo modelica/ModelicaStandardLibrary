@@ -38,7 +38,34 @@ equation
     annotation (Line(points={{-10,-10},{-10,-20}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>This is a non inverting amplifier.</p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Voltages",
+          identifier = "e8928",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = vIn.v, legend = "Voltage from source vIn")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = buffer.opAmp.v_out, legend = "Amplified voltage out from opAmp"),
+                Curve(y = buffer.opAmp.Vns, legend = "Negative supply voltage in opAmp (negative limit voltage)"),
+                Curve(y = buffer.opAmp.Vps, legend = "Positive supply voltage in opAmp (positive limit voltage)")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = buffer.k, legend = "Desired amplification")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(
       StartTime=0,
       StopTime=1,

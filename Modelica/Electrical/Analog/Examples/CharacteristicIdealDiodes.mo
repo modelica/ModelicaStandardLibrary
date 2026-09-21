@@ -92,6 +92,33 @@ Ideal.i versus Ideal.v, With_Ron_Goff.i versus With_Ron_Goff.v, With_Ron_Goff_Vk
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Diode responses",
+          identifier = "b56f9",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = Ideal.i, y = Ideal.v, legend = "Ideal diode voltage vs. current")
+              },
+              x = Axis(min = -114.997, max = 10124.3),
+              y = Axis(min = -11.2936, max = 1.39137)
+            ),
+            Plot(
+              curves = {
+                Curve(x = With_Ron_Goff.i, y = With_Ron_Goff.v, legend = "Nearly ideal diode voltage vs. current")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(x = With_Ron_Goff_Vknee.i, y = With_Ron_Goff_Vknee.v, legend = "Nearly ideal and displaced diode voltage vs. current")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(StopTime=1));
 end CharacteristicIdealDiodes;

@@ -70,5 +70,27 @@ equation
 </dl>
 </html>", info="<html>
 <p>With the test circuit AmplifierWithOpAmpDetailed a time domain analysis of the example arrangement with a sinusoidal input voltage (12 V amplitude, frequency 1 kHz) using the operational amplifier model OpAmpDetailed is carried out. The working voltages are 15 V and -15 V.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltages",
+          identifier = "7f61d",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = sineVoltage.v, legend = "Voltage from source sineVoltage")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = opAmp.outp.v, legend = "Output voltage from opAmp"),
+                Curve(y = opAmp.m_supply.v, legend = "Supply voltage in opAmp.m_supply (negative limit voltage)"),
+                Curve(y = opAmp.p_supply.v, legend = "Supply voltage in opAmp.p_supply (positive limit voltage)")
+              }
+            )
+          }
+        )
+      }
+    ));
 end AmplifierWithOpAmpDetailed;
