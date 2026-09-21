@@ -1,4 +1,4 @@
 time
-C1.v
-C2.v
-L.i
+v1
+v2
+inductor.i

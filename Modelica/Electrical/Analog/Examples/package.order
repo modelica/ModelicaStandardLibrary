@@ -4,6 +4,7 @@ CauerLowPassSC
 CharacteristicIdealDiodes
 CharacteristicThyristors
 ChuaCircuit
+ChuaDiode
 DifferenceAmplifier
 HeatingMOSInverter
 HeatingNPN_NORGate
