@@ -14,7 +14,11 @@ class Contact "Contact"
 <dd>web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></dd>
 <dd><br /></dd>
 
-<dt>The development of this Modelica package, starting with version 3.2.3, is organized by:</dt>
+<dt>The development of this Modelica package, starting with version 4.1.0, is organized by:</dt>
+<dd><a href=\"https://github.com/casella\">Francesco Casella</a> and <a href=\"https://www.haumer.at/eindex.htm\">Anton Haumer</a></dd>
+<dd><br /></dd>
+
+<dt>The development of this Modelica package of versions 3.2.3 and 4.0.0 was organized by:</dt>
 <dd><a href=\"https://github.com/beutlich\">Thomas Beutlich</a> and <a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></dd>
 <dd><br /></dd>
 
