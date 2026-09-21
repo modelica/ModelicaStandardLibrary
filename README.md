@@ -12,6 +12,35 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ![ModelicaLibraries](Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png)
 
+## Building the external C libraries
+
+CMake is recommended as build system, which usually consists of three steps for configuration, build and installation. For example,
+
+```console
+git clone https://github.com/modelica/ModelicaStandardLibrary
+cd ModelicaStandardLibrary
+cmake -S ./Modelica/Resources -B .
+cmake --build .
+cmake --install .
+```
+
+The following Modelica Standard Library specific options for building with CMake are available.
+
+* `MODELICA_BUILD_TESTING:BOOL=ON`
+This flag enables the testsuite for CTest.
+* `MODELICA_BUILD_ZLIB:BOOL=ON`
+This flag enables the build of zlib dependency from source.
+* `MODELICA_COPY_TABLE_DATA:BOOL=ON`
+This flag avoids an undesired memory optimization of shallow-copying the passed table arrays.
+* `MODELICA_DEBUG_TIME_EVENTS:BOOL=OFF`
+This flag enables tracing of time events.
+* `MODELICA_DUMMY_FUNCTION_USERTAB:BOOL=OFF`
+This flag adds a dummy function "usertab".
+* `MODELICA_INSTALL_EXTC:BOOL=OFF`
+This flag also installs the ModelicaExternalC target.
+* `MODELICA_SHARE_TABLE_DATA:BOOL=ON`
+This flag enables the memory optimization of avoiding redundant copies of table arrays read from file.
+
 ## Current release
 
 [Modelica Standard Library v4.1.0 (2025-05-23)](https://github.com/modelica/ModelicaStandardLibrary/releases/tag/v4.1.0)
