@@ -1,16 +1,10 @@
 within Modelica.Mechanics.MultiBody.Joints;
 model RevolutePlanarLoopConstraint
   "Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)"
+  extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
   import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
   import Modelica.Mechanics.MultiBody.Types;
-
-  Interfaces.Frame_a frame_a
-    "Coordinate system fixed to the joint with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b
-    "Coordinate system fixed to the joint with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   parameter Boolean animation=true
     "= true, if animation shall be enabled (show axis as cylinder)";
@@ -30,7 +24,6 @@ model RevolutePlanarLoopConstraint
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(group="if animation = true", enable=animation));
 protected
-  outer Modelica.Mechanics.MultiBody.World world;
   parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(n)
     "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
   parameter Real nnx_a[3](each final unit="1")=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
@@ -64,11 +57,6 @@ protected
     r=frame_a.r_0,
     R=frame_a.R) if world.enableAnimation and animation;
 equation
-  assert(cardinality(frame_a) > 0,
-    "Connector frame_a of revolute joint is not connected");
-  assert(cardinality(frame_b) > 0,
-    "Connector frame_b of revolute joint is not connected");
-
   // Determine relative position vector resolved in frame_a
   R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
   r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
