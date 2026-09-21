@@ -6277,8 +6277,7 @@ quantities are assumed to be constant.
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state "Thermodynamic state record";
     algorithm
-      state := ThermodynamicState(p=p, T=Modelica.Math.exp(s/cp_const +
-        Modelica.Math.log(reference_T) + R_gas*Modelica.Math.log(p/reference_p)));
+      state := ThermodynamicState(p=p, T=reference_T*Modelica.Math.exp(1/cp_const*(s + R_gas*Modelica.Math.log(p/reference_p))));
     end setState_psX;
 
     redeclare function setState_dTX
