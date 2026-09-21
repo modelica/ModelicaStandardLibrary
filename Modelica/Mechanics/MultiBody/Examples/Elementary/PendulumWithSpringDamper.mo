@@ -84,5 +84,33 @@ and a point fixed in the world frame:
 
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PendulumWithSpringDamper.png\"
 alt=\"model Examples.Elementary.PendulumWithSpringDamper\">
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "End point position",
+          identifier = "11319",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = body1.r_0[1], y = body1.r_0[2], legend = "Pendulum end point position in the x-y plane")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Spring and damper",
+          identifier = "3fbed",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = spring1.spring.f, legend = "Force from spring affecting the elongation of the prismatic joint, depending on displacement"),
+                Curve(y = prismatic.s, legend = "Elongation of the prismatic joint"),
+                Curve(y = damper1.f, legend = "Force from damper affecting the prismatic joint depending on the elongation velocity")
+              }
+            )
+          }
+        )
+      }
+    ));
 end PendulumWithSpringDamper;

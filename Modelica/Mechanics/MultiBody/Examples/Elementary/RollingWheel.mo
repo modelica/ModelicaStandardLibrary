@@ -27,5 +27,37 @@ model RollingWheel
 Demonstrates how a single wheel is rolling on ground
 (starting with an initial velocity).
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Wheel position from above",
+          identifier = "d1c70",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = wheel1.x, y = wheel1.y, legend = "Wheel position from above, in the x-y plane")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Wheel forces",
+          identifier = "134a8",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = wheel1.rollingWheel.f_n, legend = "Normal force acting on wheel")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = wheel1.rollingWheel.f_lat, legend = "Contact force on wheel in lateral direction"),
+                Curve(y = wheel1.rollingWheel.f_long, legend = "Contact force on wheel in longitudinal direction")
+              }
+            )
+          }
+        )
+      }
+    ));
 end RollingWheel;

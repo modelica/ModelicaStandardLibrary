@@ -124,5 +124,31 @@ for rodLength:
 <blockquote><pre>
 rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
 </pre></blockquote>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Joints j1 and j2",
+          identifier = "42bb2",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = j1_phi, legend = "Angle of revolute joint j1")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = j2_s, legend = "Distance of prismatic joint j2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = j1_w, legend = "Angular velocity of revolute joint j1"),
+                Curve(y = j2_v, legend = "Velocity of prismatic joint j2")
+              }
+            )
+          }
+        )
+      }
+    ));
 end Fourbar2;

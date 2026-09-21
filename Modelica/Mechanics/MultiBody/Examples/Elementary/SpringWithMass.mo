@@ -44,5 +44,26 @@ light blue, sphere.
 
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png\"
 alt=\"model Examples.Elementary.SpringWithMass\">
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Elongation of spring",
+          identifier = "f7644",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = spring.lineForce.length, legend = "Elongation of spring")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = spring.lengthFraction, legend = "Fraction of distance from frame_a to frame_b where mass in spring is located"),
+                Curve(y = spring.m, legend = "Mass of springMass")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SpringWithMass;

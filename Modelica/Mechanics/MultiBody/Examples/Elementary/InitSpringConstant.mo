@@ -82,5 +82,36 @@ An animation of this simulation is shown in the figure below.
 
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/InitSpringConstant.png\"
 alt=\"model Examples.Elementary.InitSpringConstant\">
-</html>"), experiment(StopTime=1.01));
+</html>",
+      figures = {
+        Figure(
+          title = "Forces and initial conditions",
+          identifier = "83624",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = body.body.frame_a.f[2], legend = "Force from gravity on body")
+              },
+              x = Axis(min = 0, max = 1.2)
+            ),
+            Plot(
+              curves = {
+                Curve(y = spring.c, legend = "Calculated spring constant"),
+                Curve(y = spring.spring.f, legend = "Force from spring on end point of the body")
+              },
+              x = Axis(min = 0, max = 1.2)
+            ),
+            Plot(
+              curves = {
+                Curve(y = rev.phi, legend = "Angle of the revolute joint (set to 0 at initialization)"),
+                Curve(y = rev.w, legend = "Angular velocity of the revolute joint (set to 0 at initialization)"),
+                Curve(y = rev.a, legend = "Angular acceleration of the revolute joint (set to 0 at initialization)")
+              },
+              x = Axis(min = 0, max = 1.2)
+            )
+          }
+        )
+      }
+    ), experiment(StopTime=1.01));
 end InitSpringConstant;
