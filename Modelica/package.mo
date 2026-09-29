@@ -72,7 +72,7 @@ This version of the Modelica Standard Library consists of
 </ul>
 <p>
 that are directly usable (= number of public, non-partial, non-internal and non-obsolete classes). It is fully compliant
-to <a href=\"https://specification.modelica.org/maint/3.6/MLS.html\">Modelica Specification version 3.6</a>
+to <a href=\"https://specification.modelica.org/maint/3.7/MLS.html\">Modelica Specification version 3.7</a>
 and it has been tested with Modelica tools from different vendors.
 </p>
 
