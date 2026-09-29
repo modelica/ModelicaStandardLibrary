@@ -818,8 +818,8 @@ functions.
 For details about how to define and to use functions as input arguments
 to functions, see
 <a href=\"modelica://ModelicaReference.Classes.'function'\">ModelicaReference.Classes.'function'</a>
-or <a href=\"https://specification.modelica.org/maint/3.6/functions.html#functional-input-arguments-to-functions\">Section&nbsp;12.4.2
-<em>Functional Input Arguments</em> of the Modelica&nbsp;3.6 specification</a>.
+or <a href=\"https://specification.modelica.org/maint/3.7/functions.html#functional-input-arguments-to-functions\">Section&nbsp;12.4.2
+<em>Functional Input Arguments</em> of the Modelica&nbsp;3.7 specification</a>.
 </p>
 
 </html>", revisions="<html>
