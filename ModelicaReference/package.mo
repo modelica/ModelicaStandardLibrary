@@ -5039,7 +5039,7 @@ In this case, the internal state of the operator is hidden from the ODE solver.
 
 <p>
 See <a href=\"https://specification.modelica.org/maint/3.7/operators-and-expressions.html#spatialdistribution\">
-Section 3.7.2.2 of the Modelica Language Specification&nbsp;3.7</a> for a more in-depth description
+Section&nbsp;3.7.2.2 <em>spatialDistribution</em> of the Modelica&nbsp;3.7 specification</a> for a more in-depth description
 and elaborate example.
 </p>
 </html>"));
