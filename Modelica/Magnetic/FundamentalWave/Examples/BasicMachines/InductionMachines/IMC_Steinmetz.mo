@@ -13,11 +13,11 @@ model IMC_Steinmetz
   parameter SI.Capacitance Cs=5*Cr
     "Motor's (additional) starting capacitor";
   parameter SI.AngularVelocity wSwitch(displayUnit="rev/min")=
-       1350*2*Modelica.Constants.pi/60
+       Modelica.Units.Conversions.from_rpm(1350)
     "Speed for switching off the starting capacitor";
   parameter SI.Torque TLoad=2/3*161.4 "Nominal load torque";
   parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
-       1462.5*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1462.5) "Nominal load speed";
   parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(

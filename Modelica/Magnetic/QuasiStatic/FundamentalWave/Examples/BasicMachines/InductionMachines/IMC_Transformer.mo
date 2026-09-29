@@ -11,7 +11,7 @@ model IMC_Transformer "Induction machine with squirrel cage starting with transf
     "Start time of bypass transformer";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
   parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
-       1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage

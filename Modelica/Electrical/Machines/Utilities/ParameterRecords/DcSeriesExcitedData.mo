@@ -1,7 +1,6 @@
 within Modelica.Electrical.Machines.Utilities.ParameterRecords;
 record DcSeriesExcitedData "Common parameters for DC machines"
-  extends DcPermanentMagnetData(wNominal=1410*2*pi/60);
-  import Modelica.Constants.pi;
+  extends DcPermanentMagnetData(wNominal=Modelica.Units.Conversions.from_rpm(1410));
   parameter SI.Resistance Re=0.01
     "Series excitation resistance at TeRef"
     annotation (Dialog(tab="Excitation"));
