@@ -7,7 +7,7 @@ model SMEE_Generator
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=50 "Nominal frequency";
   parameter SI.AngularVelocity wActual(displayUnit="rev/min")=
-       1499*2*Modelica.Constants.pi/60 "Actual speed";
+       Modelica.Units.Conversions.from_rpm(1499) "Actual speed";
   parameter SI.Current Ie=19 "Excitation current";
   parameter SI.Current Ie0=10 "Initial excitation current";
   parameter SI.Angle gamma0(displayUnit="deg") = 0
