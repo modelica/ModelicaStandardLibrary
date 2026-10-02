@@ -7,7 +7,7 @@ package Tables
     extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
     parameter Boolean tableOnFile=false
       "= true, if table is defined on file or in function usertab"
-      annotation (Dialog(group="Table data definition"));
+      annotation (Evaluate=true, Dialog(group="Table data definition"));
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])"
       annotation (Dialog(group="Table data definition",enable=not tableOnFile));
@@ -276,7 +276,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
     parameter Boolean tableOnFile=false
       "= true, if table is defined on file or in function usertab"
-      annotation (Dialog(group="Table data definition"));
+      annotation (Evaluate=true, Dialog(group="Table data definition"));
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])"
       annotation (Dialog(group="Table data definition",enable=not tableOnFile));
