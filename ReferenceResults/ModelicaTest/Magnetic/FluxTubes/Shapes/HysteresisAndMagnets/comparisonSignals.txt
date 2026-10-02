@@ -1,0 +1,17 @@
+time
+Core.B
+Core.MagRel
+Core1.B
+Core1.MagRel
+Core2.B
+Core2.MagRel
+Core3.B
+Core3.MagRel
+Core4.J
+Core4.MagRel
+Core4.beta
+Core4.v
+Core4.x
+PM.B
+PM.MagRel
+PM1.B

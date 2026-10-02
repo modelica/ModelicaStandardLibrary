@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 389
+The model has the same number of unknowns and equations:
+  185+2*(size(Core3.tabris.columns, 1)+size(Core3.tabfal.columns, 1)+Core4.Count)
+Check of <a href="Modelica://ModelicaTest.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets">ModelicaTest.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets</a> successful.
+

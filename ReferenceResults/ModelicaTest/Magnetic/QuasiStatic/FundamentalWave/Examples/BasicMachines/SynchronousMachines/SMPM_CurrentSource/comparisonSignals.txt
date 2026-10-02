@@ -1,0 +1,17 @@
+time
+inertiaLoad.phi
+inertiaLoad.w
+inertiaLoadQS.phi
+inertiaLoadQS.w
+terminalBoxQS.plugSupply.pin[1].v.re
+terminalBoxQS.plugSupply.pin[1].v.im
+terminalBoxQS.plugSupply.pin[1].i.re
+terminalBoxQS.plugSupply.pin[1].i.im
+terminalBoxQS.plugSupply.pin[2].v.re
+terminalBoxQS.plugSupply.pin[2].v.im
+terminalBoxQS.plugSupply.pin[2].i.re
+terminalBoxQS.plugSupply.pin[2].i.im
+terminalBoxQS.plugSupply.pin[3].v.re
+terminalBoxQS.plugSupply.pin[3].v.im
+terminalBoxQS.plugSupply.pin[3].i.re
+terminalBoxQS.plugSupply.pin[3].i.im

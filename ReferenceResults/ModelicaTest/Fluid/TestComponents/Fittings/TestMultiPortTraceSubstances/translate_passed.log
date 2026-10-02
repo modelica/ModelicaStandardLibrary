@@ -1,0 +1,52 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestComponents.Fittings.TestMultiPortTraceSubstances:
+The DAE has 752 scalar unknowns and 752 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 71
+  Variables: 1092
+  Constants: 131 (303 scalars)
+  Parameters: 377 (382 scalars)
+  Unknowns: 584 (752 scalars)
+  Differentiated variables: 21 scalars
+  Equations: 486
+  Nontrivial: 436
+Translated Model
+  Constants: 643 scalars
+  Free parameters: 99 scalars
+  Parameter depending: 199 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 240 scalars
+  Alias variables: 256 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {8, 8, 8}
+  Sizes after manipulation of the linear systems: {2, 2, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Sizes of nonlinear systems of equations: {2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1, 1, 1}
+    Number of numerical Jacobians: 6
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  volume1.mC_scaled[]
+  volume1.medium.p
+  volume1.medium.T
+  volume1.medium.Xi[]
+  volume2.mC_scaled[]
+  volume2.medium.p
+  volume2.medium.T
+  volume2.medium.Xi[]
+  volume3.mC_scaled[]
+  volume3.medium.p
+  volume3.medium.T
+  volume3.medium.Xi[]
+ 

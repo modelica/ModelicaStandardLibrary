@@ -1,0 +1,6 @@
+time
+coil.Phi
+coil.i
+r_mLeak.port_p.Phi
+rootMeanSquare.mean.x
+sourceQS.pin_p.reference.gamma

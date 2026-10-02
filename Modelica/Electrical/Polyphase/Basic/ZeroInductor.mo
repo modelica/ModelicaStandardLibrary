@@ -2,15 +2,21 @@ within Modelica.Electrical.Polyphase.Basic;
 model ZeroInductor "Linear zero sequence inductor"
   extends Polyphase.Interfaces.OnePort;
   parameter SI.Inductance Lzero "Zero sequence inductance";
+  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed" annotation(Evaluate = true);
   SI.Current i0;
   SI.Voltage v0;
 equation
   m*i0 = sum(i);
-  v0 = Lzero*der(i0);
+  if useZeroSystem then
+    v0 = Lzero*der(i0);
+  else
+    i0 = 0;
+  end if;
   v = fill(v0, m);
   annotation (defaultComponentName="inductor", Documentation(info="<html>
 <p>
 Model of a polyphase zero sequence inductor.
+For a short explanation of the zero system see <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ZeroSystem\">the User&apos;s Guide of the FundamentalWave library</a>.
 </p>
 <h4>Implementation</h4>
 <blockquote><pre>
@@ -30,5 +36,7 @@ v = Lzero*sum(der(i)) = Lzero*der(sum(i))
           textColor={0,0,255}),
         Text(
           extent={{-150,-80},{150,-40}},
-          textString="m=%m")}));
+          textString="m=%m"),
+        Rectangle(extent={{-60,30},{-50,-32}}, lineColor={28,108,200}),
+        Rectangle(extent={{52,30},{62,-32}},   lineColor={28,108,200})}));
 end ZeroInductor;

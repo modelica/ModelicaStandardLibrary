@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.DiodeBridge2mPulse:
+The DAE has 251 scalar unknowns and 251 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 34
+  Variables: 391
+  Constants: 12 (12 scalars)
+  Parameters: 147 (173 scalars)
+  Unknowns: 232 (251 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 158
+  Nontrivial: 135
+Translated Model
+  Constants: 114 scalars
+  Free parameters: 27 scalars
+  Parameter depending: 84 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 66 scalars
+  Alias variables: 145 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {22}
+  Sizes after manipulation of the linear systems: {6}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  meanCurrent.x
+  meanVoltage.x
+  rootMeanSquareVoltage.mean.x
+ 

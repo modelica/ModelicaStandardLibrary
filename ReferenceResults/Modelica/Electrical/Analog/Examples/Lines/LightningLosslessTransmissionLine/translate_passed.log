@@ -1,0 +1,33 @@
+Translation of <a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.LightningLosslessTransmissionLine">Modelica.Electrical.Analog.Examples.Lines.LightningLosslessTransmissionLine</a>
+The DAE has 53 scalar unknowns and 53 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 9
+  Variables: 108
+  Parameters: 55 (55 scalars)
+  Unknowns: 53 (53 scalars)
+  Equations: 55
+  Nontrivial: 45
+Translated Model
+  Constants: 12 scalars
+  Free parameters: 22 scalars
+  Parameter depending: 30 scalars
+  Time-varying variables: 14 scalars
+  Alias variables: 30 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {9}
+  Sizes after manipulation of the nonlinear systems: {4}
+  Number of numerical Jacobians: 1
+  Initialization problem
+    Sizes of nonlinear systems of equations: {5}
+    Sizes after manipulation of the nonlinear systems: {4}
+    Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Finished

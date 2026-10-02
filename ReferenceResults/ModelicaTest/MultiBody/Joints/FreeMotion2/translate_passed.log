@@ -1,0 +1,46 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Joints.FreeMotion2:
+The DAE has 2588 scalar unknowns and 2588 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 134
+  Variables: 1281
+  Constants: 1 (1 scalars)
+  Parameters: 328 (570 scalars)
+  Unknowns: 952 (2588 scalars)
+  Differentiated variables: 60 scalars
+  Equations: 841
+  Nontrivial: 540
+Translated Model
+  Constants: 2006 scalars
+  Free parameters: 79 scalars
+  Parameter depending: 261 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 133 scalars
+  Alias variables: 680 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {10, 10}
+  Sizes after manipulation of the linear systems: {3, 3}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  freeMotion.r_rel_a[1]
+  freeMotion.v_rel_a[1]
+  prismatic1.s
+  prismatic1.v
+  universal.phi_a
+  universal.phi_b
+  universal.w_a
+  universal.w_b
+  universal1.phi_a
+  universal1.phi_b
+  universal1.w_a
+  universal1.w_b
+ 

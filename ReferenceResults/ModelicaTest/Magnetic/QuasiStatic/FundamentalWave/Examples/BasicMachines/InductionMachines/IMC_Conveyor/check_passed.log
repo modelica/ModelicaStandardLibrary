@@ -1,0 +1,5 @@
+Check of <a href="Modelica://ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor">ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor</a>
+The model has the same number of unknowns and equations: 3019
+The model has the same number of unknowns and equations:
+  3018+max([size(dutyCycle.columns, 1); size(dutyCycle.offset, 1)])
+Check of <a href="Modelica://ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor">ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor</a> successful.

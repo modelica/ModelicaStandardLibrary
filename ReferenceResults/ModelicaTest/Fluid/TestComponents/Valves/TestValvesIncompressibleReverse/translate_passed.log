@@ -1,0 +1,34 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestComponents.Valves.TestValvesIncompressibleReverse:
+The DAE has 209 scalar unknowns and 209 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 40
+  Variables: 482
+  Constants: 15 (15 scalars)
+  Parameters: 214 (209 scalars)
+  Unknowns: 253 (212 scalars)
+  Equations: 272
+  Nontrivial: 242
+Translated Model
+  Constants: 122 scalars
+  Free parameters: 74 scalars
+  Parameter depending: 87 scalars
+  Time-varying variables: 41 scalars
+  Alias variables: 112 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {19}
+  Sizes after manipulation of the nonlinear systems: {3}
+  Number of numerical Jacobians: 1
+  Initialization problem
+    Sizes of nonlinear systems of equations: {19}
+    Sizes after manipulation of the nonlinear systems: {3}
+    Number of numerical Jacobians: 1
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

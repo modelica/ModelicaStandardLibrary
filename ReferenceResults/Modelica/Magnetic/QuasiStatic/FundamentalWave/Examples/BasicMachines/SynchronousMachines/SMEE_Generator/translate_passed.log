@@ -1,0 +1,49 @@
+Translation of <a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator">Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator</a>
+The DAE has 3043 scalar unknowns and 3043 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 1232
+  Variables: 3640
+  Constants: 12 (12 scalars)
+  Parameters: 735 (788 scalars)
+  Unknowns: 2893 (3043 scalars)
+  Differentiated variables: 42 scalars
+  Equations: 1254
+  Nontrivial: 1009
+Translated Model
+  Constants: 1461 scalars
+  Free parameters: 94 scalars
+  Parameter depending: 284 scalars
+  Outputs: 2 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 440 scalars
+  Alias variables: 1564 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {13, 8, 33, 4, 10}
+  Sizes after manipulation of the linear systems: {5, 0, 6, 2, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$constantSpeed:phi">constantSpeed.phi</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$constantSpeedQS:phi">constantSpeedQS.phi</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smee.stator.zeroInductor:i0">smee.stator.zeroInductor.i0</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smeeQS.short.port_p.reference:gamma">smeeQS.short.port_p.reference.gamma</a>
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There are 2 states to be selected from:
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smee.excitation.electroMagneticConverter.Phi:re">smee.excitation.electroMagneticConverter.Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smee.stator.stray.port_p.Phi:im">smee.stator.stray.port_p.Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator#text$smee.stator.stray.port_p.Phi:re">smee.stator.stray.port_p.Phi.re</a>
+Finished

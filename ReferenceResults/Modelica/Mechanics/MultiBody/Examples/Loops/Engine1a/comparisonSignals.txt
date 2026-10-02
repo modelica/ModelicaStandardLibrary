@@ -1,0 +1,3 @@
+time
+inertia.phi
+inertia.w

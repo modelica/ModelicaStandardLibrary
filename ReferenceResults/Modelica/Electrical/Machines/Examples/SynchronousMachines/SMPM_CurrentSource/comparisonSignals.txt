@@ -1,0 +1,5 @@
+time
+smpm.is[1]
+smpm.is[2]
+inertiaLoad.w
+multiSensor.flange_a.phi

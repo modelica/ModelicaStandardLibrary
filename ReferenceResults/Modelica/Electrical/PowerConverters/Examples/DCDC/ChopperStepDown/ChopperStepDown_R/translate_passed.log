@@ -1,0 +1,38 @@
+﻿ = true
+Translation of Modelica.Electrical.PowerConverters.Examples.DCDC.ChopperStepDown.ChopperStepDown_R:
+The DAE has 116 scalar unknowns and 116 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 26
+  Variables: 194
+  Constants: 4 (4 scalars)
+  Parameters: 74 (74 scalars)
+  Unknowns: 116 (116 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 115
+  Nontrivial: 97
+Translated Model
+  Constants: 38 scalars
+  Free parameters: 25 scalars
+  Parameter depending: 29 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 38 scalars
+  Alias variables: 64 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {6}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  capacitor.v
+  inductor.i
+  meanCurrent.x
+  meanVoltage.x
+ 

@@ -1,0 +1,28 @@
+﻿ = true
+Translation of ModelicaTest.Utilities.TestReadFile:
+The DAE has 1 scalar unknowns and 1 scalar equations.
+... Test of Modelica.Utilities.Streams to read from file
+... Test of Modelica.Utilities.Streams to read from file
+ 
+Statistics
+ 
+Original Model
+  Number of components: 1
+  Variables: 2
+  Parameters: 1 (1 scalars)
+  Unknowns: 1 (1 scalars)
+  Equations: 1
+  Nontrivial: 1
+Translated Model
+  Constants: 1 scalars
+  Time-varying variables: 1 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

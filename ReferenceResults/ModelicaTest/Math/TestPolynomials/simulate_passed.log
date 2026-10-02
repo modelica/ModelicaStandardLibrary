@@ -1,0 +1,28 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 07:44:38 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... Test of Modelica.Math.Polynomials
+... Test of Modelica.Math.Polynomials
+... "TestPolynomials.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 0
+   CPU-time for integration                : 0 seconds
+   CPU-time for initialization             : 0.021 seconds
+   Number of result points                 : 2
+   Number of grid points                   : 1
+   Number of accepted steps                : 0
+   Number of f-evaluations (dynamics)      : 0
+   Number of Jacobian-evaluations          : 0
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 0
+   Maximum integration stepsize            : 0
+   Maximum integration order               : 0
+Calling terminal section
+... "dsfinal.txt" creating (final states)

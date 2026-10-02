@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 3174
+The model could not be deduced to be symbolically well-posed.
+The model has
+  3146+4*(size(world.x_label.lines, 1)+size(world.y_label.lines, 1)+size(  world.z_label.lines, 1))
+scalar unknowns and
+  3099+(if  not Connections.isRoot(bodyOfJoint.body.frame_a.R) then 13 else 22)+(  if  not Connections.isRoot(bodyOfConstraint.body.frame_a.R) then 13 else 22)+(  if springOfJoint.lineForce.fixedRotationAtFrame_a then 12 else 3)+(if   springOfJoint.lineForce.fixedRotationAtFrame_b then 12 else 3)+(if   springOfConstraint.lineForce.fixedRotationAtFrame_a then 12 else 3)+(if   springOfConstraint.lineForce.fixedRotationAtFrame_b then 12 else 3)+4*size(  world.x_label.lines, 1)+4*size(world.y_label.lines, 1)+4*size(world.z_label.lines,   1)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  3174
+Check of <a href="Modelica://Modelica.Mechanics.MultiBody.Examples.Constraints.PrismaticConstraint">Modelica.Mechanics.MultiBody.Examples.Constraints.PrismaticConstraint</a> successful.
+

@@ -1,0 +1,4 @@
+time
+L.i
+simpleTriac.thyristor.vControl
+simpleTriac.thyristor1.vControl

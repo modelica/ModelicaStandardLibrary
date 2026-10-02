@@ -1,0 +1,49 @@
+Translation of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter">Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter</a>
+The DAE has 1347 scalar unknowns and 1347 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 247
+  Variables: 1737
+  Constants: 10 (10 scalars)
+  Parameters: 506 (584 scalars)
+  Unknowns: 1221 (1347 scalars)
+  Differentiated variables: 44 scalars
+  Equations: 742
+  Nontrivial: 594
+Translated Model
+  Constants: 570 scalars
+  Free parameters: 37 scalars
+  Parameter depending: 260 scalars
+  Continuous time states: 13 scalars
+  Time-varying variables: 257 scalars
+  Alias variables: 817 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {14, 8, 4, 2, 3, 14, 2}
+  Sizes after manipulation of the linear systems: {2, 0, 2, 0, 2, 4, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2}
+    Sizes after manipulation of the linear systems: {2, 2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$loadInertiaE:phi">loadInertiaE.phi</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$loadInertiaE:w">loadInertiaE.w</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$loadInertiaM:phi">loadInertiaM.phi</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$loadInertiaM:w">loadInertiaM.w</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$smrE:idq_rr">smrE.idq_rr[1]</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$smrE:idq_rr">smrE.idq_rr[2]</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$smrE:idq_sr">smrE.idq_sr[1]</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$smrE:idq_sr">smrE.idq_sr[2]</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$smrM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smrM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$smrM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smrM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$smrM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smrM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$smrM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smrM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter#text$vfController:x">vfController.x</a>
+Finished

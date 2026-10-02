@@ -1,0 +1,33 @@
+﻿ = true
+Translation of Modelica.Math.Nonlinear.Examples.QuadratureLobatto3:
+The DAE has 3 scalar unknowns and 3 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 1
+  Variables: 7
+  Parameters: 4 (4 scalars)
+  Unknowns: 3 (3 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 3
+  Nontrivial: 3
+Translated Model
+  Free parameters: 3 scalars
+  Parameter depending: 1 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 3 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  q
+  qd
+ 

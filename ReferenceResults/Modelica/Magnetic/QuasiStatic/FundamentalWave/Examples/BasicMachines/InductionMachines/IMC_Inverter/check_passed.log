@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter">Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter</a>
+The model has the same number of unknowns and equations: 2107
+The model could not be deduced to be symbolically well-posed.
+The model has
+  1933+58*aimc.m
+scalar unknowns and
+  1764+96*aimc.m+(if Connections.isRoot(aimc.groundS.port_p.reference) then 1   else 0)+(if Connections.isRoot(aimc.airGap.port_sp.reference) then 1 else 0)+  (if Connections.isRoot(aimc.groundR.port_p.reference) then 1 else 0)+(if   Connections.isRoot(aimc.rotorCage.ground.pin.reference) then 1 else 0)+12*  currentQuasiRMSSensor.m+(if Connections.isRoot(ground.pin.reference) then 1   else 0)+(if  not loadTorqueStep.useSupport then 1 else 0)+6*terminalBox.m+(  if Connections.isRoot(ground1.pin.reference) then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  2107
+Check of <a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter">Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter</a> successful.

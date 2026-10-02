@@ -1,0 +1,9 @@
+time
+position1.w
+position2.w
+r1.phi
+r2.phi
+revolute.phi
+revolute.w
+rotor1D.phi
+rotor1D.w

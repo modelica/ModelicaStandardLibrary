@@ -1,0 +1,35 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.HeatingMOSInverter:
+The DAE has 92 scalar unknowns and 92 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 14
+  Variables: 146
+  Parameters: 54 (54 scalars)
+  Unknowns: 92 (92 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 92
+  Nontrivial: 75
+Translated Model
+  Constants: 17 scalars
+  Free parameters: 41 scalars
+  Parameter depending: 11 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 39 scalars
+  Alias variables: 38 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {10, 10}
+  Sizes after manipulation of the nonlinear systems: {1, 1}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  Capacitor1.v
+  HeatCapacitor1.T
+ 

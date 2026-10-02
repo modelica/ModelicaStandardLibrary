@@ -1,0 +1,33 @@
+Translation of <a href="Modelica://Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings">Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings</a>
+The DAE has 256 scalar unknowns and 256 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 48
+  Variables: 549
+  Constants: 56 (56 scalars)
+  Parameters: 205 (201 scalars)
+  Unknowns: 288 (256 scalars)
+  Equations: 226
+  Nontrivial: 190
+Translated Model
+  Constants: 199 scalars
+  Free parameters: 32 scalars
+  Parameter depending: 174 scalars
+  Alias variables: 108 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {1, 17}
+    Sizes after manipulation of the nonlinear systems: {1, 3}
+    Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Finished

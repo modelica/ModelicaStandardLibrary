@@ -1,0 +1,35 @@
+﻿ = true
+Translation of Modelica.Media.Examples.ReferenceAir.DryAir1:
+The DAE has 66 scalar unknowns and 66 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 11
+  Variables: 122
+  Parameters: 32 (32 scalars)
+  Unknowns: 90 (66 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 68
+  Nontrivial: 44
+Translated Model
+  Constants: 20 scalars
+  Free parameters: 9 scalars
+  Parameter depending: 18 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 18 scalars
+  Alias variables: 33 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  volume.medium.p
+  volume.medium.T
+ 

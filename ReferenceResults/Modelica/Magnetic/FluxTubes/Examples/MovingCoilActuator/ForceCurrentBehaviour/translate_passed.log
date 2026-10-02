@@ -1,0 +1,30 @@
+﻿ = true
+Translation of Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour:
+The DAE has 242 scalar unknowns and 242 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 40
+  Variables: 385
+  Parameters: 143 (168 scalars)
+  Unknowns: 242 (242 scalars)
+  Differentiated variables: 12 scalars
+  Equations: 218
+  Nontrivial: 175
+Translated Model
+  Constants: 91 scalars
+  Free parameters: 67 scalars
+  Parameter depending: 96 scalars
+  Time-varying variables: 29 scalars
+  Alias variables: 127 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

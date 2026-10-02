@@ -1,0 +1,7 @@
+time
+dFFREGL.dFFR.clock
+dFFREGL.dFFR.reset
+dFFREGL.delay.inertialDelaySensitive[1].x
+dFFREGL.delay.inertialDelaySensitive[1].y
+dFFREGL.delay.inertialDelaySensitive[2].x
+dFFREGL.delay.inertialDelaySensitive[2].y

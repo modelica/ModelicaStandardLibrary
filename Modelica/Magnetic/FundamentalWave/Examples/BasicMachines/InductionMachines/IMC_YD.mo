@@ -17,6 +17,7 @@ model IMC_YD
   Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
     p=aimcData.p,
     fsNominal=aimcData.fsNominal,
+    useZeroSystem=false,
     TsRef=aimcData.TsRef,
     alpha20s(displayUnit="1/K") = aimcData.alpha20s,
     Jr=aimcData.Jr,
@@ -37,8 +38,7 @@ model IMC_YD
     TsOperational=293.15,
     effectiveStatorTurns=aimcData.effectiveStatorTurns,
     alpha20r=aimcData.alpha20r,
-    TrOperational=293.15,
-    stator(zeroInductor(i0(nominal=10))))
+    TrOperational=293.15)
     annotation (Placement(transformation(extent={{20,10},{40,30}})));
   Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
     annotation (Placement(transformation(

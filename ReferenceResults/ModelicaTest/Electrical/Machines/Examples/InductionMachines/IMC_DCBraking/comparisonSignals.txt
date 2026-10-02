@@ -1,0 +1,12 @@
+time
+imc.idq_rr[1]
+imc.idq_rr[2]
+loadInertia.phi
+loadInertia.w
+imc.idq_sr[1]
+imc.idq_sr[2]
+imc.is[1]
+imc.is[2]
+tauElectrical
+tauShaft
+wMechanical

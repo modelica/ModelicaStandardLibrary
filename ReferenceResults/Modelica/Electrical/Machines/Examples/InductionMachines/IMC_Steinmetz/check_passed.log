@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 491
+The model has the same number of unknowns and equations:
+  488+currentQuasiRMSSensor.ToSpacePhasor1.m
+Check of <a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Steinmetz">Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Steinmetz</a> successful.
+

@@ -1,0 +1,11 @@
+time
+directInertia.inertia.phi
+directInertia.inertia.w
+inertia2a.phi
+inertia2a.w
+inertia2b.phi
+inertia2b.w
+inertia3a.phi
+inertia3a.w
+inertia3b.phi
+inertia3b.w

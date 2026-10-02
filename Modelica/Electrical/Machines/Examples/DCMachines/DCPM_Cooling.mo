@@ -163,7 +163,7 @@ equation
       points={{22,0},{6,0},{6,-0.8},{-10.4,-0.8}}, color={191,0,0}));
   connect(dcpm.thermalPort, thermalPort) annotation (Line(points={{-10,20},
           {-10,10},{-10,0}}, color={191,0,0}));
-  annotation (experiment(StopTime=25, Interval=1E-4, Tolerance=1E-6), Documentation(info=
+  annotation (experiment(StopTime=25, Interval=1E-3, Tolerance=1E-6), Documentation(info=
          "<html>
 <strong>Test example: Demonstrate cooling of a DCPM motor</strong><br>
 The motor starts at no-load speed, then load pulses are applied.<br>

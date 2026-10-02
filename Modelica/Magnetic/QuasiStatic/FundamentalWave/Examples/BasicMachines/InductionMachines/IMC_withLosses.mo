@@ -153,7 +153,7 @@ equation
   annotation (
     experiment(
       StopTime=10,
-      Interval=0.0001,
+      Interval=0.01,
       Tolerance=1e-06),
     Documentation(info="<html>
 <ul>

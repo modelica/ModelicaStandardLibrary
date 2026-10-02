@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 11
+The model has the same number of unknowns and equations:
+  9+max([size(t_new.columns, 1); size(t_new.offset, 1)])+max([1; size(  booleanTable.combiTimeTable.offset, 1)])
+Check of <a href="Modelica://ModelicaTest.Tables.CombiTimeTable.Test83">ModelicaTest.Tables.CombiTimeTable.Test83</a> successful.
+

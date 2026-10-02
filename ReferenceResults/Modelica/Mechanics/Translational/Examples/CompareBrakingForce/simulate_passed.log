@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Mon Oct 28 23:56:56 2024)
+
+dymosim started
+... "Modelica.Mechanics.Translational.Examples.CompareBrakingForce" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 5
+   CPU-time for integration                : 0.063 seconds
+   CPU-time for one grid interval          : 0.00126 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 50005
+   Number of grid points                   : 50001
+   Number of accepted steps                : 355
+   Number of f-evaluations (dynamics)      : 688
+   Number of crossing function evaluations : 50372
+   Number of Jacobian-evaluations          : 78
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 2
+   Number of step events                   : 0
+   Minimum integration stepsize            : 7.07e-09
+   Maximum integration stepsize            : 0.163
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Mechanics.Translational.Examples.CompareBrakingForce

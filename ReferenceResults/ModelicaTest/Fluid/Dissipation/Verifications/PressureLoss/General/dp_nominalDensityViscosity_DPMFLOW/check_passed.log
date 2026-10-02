@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 70
+The model has the same number of unknowns and equations:
+  64+size(eta, 1)+size(rho, 1)
+Check of <a href="Modelica://ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.General.dp_nominalDensityViscosity_DPMFLOW">ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.General.dp_nominalDensityViscosity_DPMFLOW</a> successful.
+

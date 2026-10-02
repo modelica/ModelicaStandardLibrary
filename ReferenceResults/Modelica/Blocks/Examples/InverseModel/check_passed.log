@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 15
+The model has the same number of unknowns and equations:
+  14+criticalDamping.n
+Check of <a href="Modelica://Modelica.Blocks.Examples.InverseModel">Modelica.Blocks.Examples.InverseModel</a> successful.
+

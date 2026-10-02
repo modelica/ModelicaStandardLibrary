@@ -1,0 +1,31 @@
+Log-file of program ./dymosim
+(generated: Tue Feb 11 00:45:48 2025)
+
+dymosim started
+... "ModelicaTest.MultiBody.Frames.QuaternionFromT" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 0.1
+   CPU-time for integration                : 0 seconds
+   CPU-time for one grid interval          : 0 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 3
+   Number of grid points                   : 2
+   Number of accepted steps                : 10
+   Number of f-evaluations (dynamics)      : 10
+   Number of Jacobian-evaluations          : 9
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 0.0001
+   Maximum integration stepsize            : 0.0489
+   Maximum integration order               : 1
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.MultiBody.Frames.QuaternionFromT

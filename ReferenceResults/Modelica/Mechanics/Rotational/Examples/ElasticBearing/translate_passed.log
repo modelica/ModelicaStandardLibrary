@@ -1,0 +1,38 @@
+﻿ = true
+Translation of Modelica.Mechanics.Rotational.Examples.ElasticBearing:
+The DAE has 63 scalar unknowns and 63 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 11
+  Variables: 85
+  Parameters: 22 (22 scalars)
+  Unknowns: 63 (63 scalars)
+  Differentiated variables: 9 scalars
+  Equations: 56
+  Nontrivial: 43
+Translated Model
+  Constants: 9 scalars
+  Free parameters: 14 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 21 scalars
+  Alias variables: 41 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  load.phi
+  load.w
+  shaft.phi
+  shaft.w
+  springDamper.phi_rel
+  springDamper.w_rel
+ 

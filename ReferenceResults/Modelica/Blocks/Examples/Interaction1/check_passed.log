@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 50
+The model has the same number of unknowns and equations:
+  42+2*(size(start.reset, 1)+size(stop.reset, 1))+max([1; size(integerTable.combiTimeTable.offset,   1)])+max([1; size(booleanTable.combiTimeTable.offset, 1)])+max([1; size(  start.table.combiTimeTable.offset, 1)])+max([1; size(stop.table.combiTimeTable.offset,   1)])
+Check of <a href="Modelica://Modelica.Blocks.Examples.Interaction1">Modelica.Blocks.Examples.Interaction1</a> successful.
+

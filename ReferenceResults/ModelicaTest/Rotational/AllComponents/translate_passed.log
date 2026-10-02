@@ -1,0 +1,64 @@
+Translation of <a href="Modelica://ModelicaTest.Rotational.AllComponents">ModelicaTest.Rotational.AllComponents</a>
+The DAE has 553 scalar unknowns and 553 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 79
+  Variables: 825
+  Constants: 40 (40 scalars)
+  Parameters: 243 (258 scalars)
+  Unknowns: 542 (553 scalars)
+  Differentiated variables: 79 scalars
+  Equations: 489
+  Nontrivial: 394
+Translated Model
+  Constants: 161 scalars
+  Free parameters: 145 scalars
+  Parameter depending: 38 scalars
+  Continuous time states: 31 scalars
+  Time-varying variables: 230 scalars
+  Alias variables: 277 scalars
+  Number of mixed real/discrete systems of equations: 5
+  Sizes of linear systems of equations: {5, 3, 12, 4, 10}
+  Sizes after manipulation of the linear systems: {2, 0, 2, 0, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$accelerate:phi">accelerate.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$accelerate:w">accelerate.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$clutch:phi_rel">clutch.phi_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$clutch:w_rel">clutch.w_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$damper:phi_rel">damper.phi_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$damper:w_rel">damper.w_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$elastoBacklash:phi_rel">elastoBacklash.phi_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$elastoBacklash:w_rel">elastoBacklash.w_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$elastoBacklash2:phi_rel">elastoBacklash2.phi_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$elastoBacklash2:w_rel">elastoBacklash2.w_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$gear2_1:phi_rel">gear2_1.phi_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$gear2_1:w_rel">gear2_1.w_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia2:phi">inertia2.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia2:w">inertia2.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia3:phi">inertia3.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia3:w">inertia3.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia8:phi">inertia8.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia8:w">inertia8.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia13:phi">inertia13.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia13:w">inertia13.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia14:phi">inertia14.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia14:w">inertia14.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia15:phi">inertia15.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia17:phi">inertia17.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia17:w">inertia17.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$position:phi">position.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$position:w">position.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$speed:phi">speed.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$speed:w">speed.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$springDamper:phi_rel">springDamper.phi_rel</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$springDamper:w_rel">springDamper.w_rel</a>
+Finished

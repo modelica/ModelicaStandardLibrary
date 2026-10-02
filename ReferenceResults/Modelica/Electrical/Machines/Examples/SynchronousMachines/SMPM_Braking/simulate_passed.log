@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Mon Mar 10 23:54:37 2025)
+
+dymosim started
+... "Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 0.8
+   CPU-time for integration                : 0.201 seconds
+   CPU-time for one grid interval          : 0.0126 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 16290
+   Number of grid points                   : 16001
+   Number of accepted steps                : 6610
+   Number of f-evaluations (dynamics)      : 12687
+   Number of crossing function evaluations : 23631
+   Number of Jacobian-evaluations          : 1814
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 144
+   Number of step events                   : 0
+   Minimum integration stepsize            : 8.96e-13
+   Maximum integration stepsize            : 0.00782
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking

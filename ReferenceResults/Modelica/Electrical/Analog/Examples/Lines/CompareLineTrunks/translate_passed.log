@@ -1,0 +1,109 @@
+Translation of <a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks">Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks</a>
+The DAE has 1091 scalar unknowns and 1091 scalar equations.
+Redundant consistent initial conditions.
+Removed the following equations which are redundant and consistent: 
+  oLine2.i[1] = 0;
+  oLine3.i[1] = 0;
+  oLine4.i[1] = 0;
+
+The redundancies involve
+initial equations: 
+  oLine1.i[8] = 0;
+  oLine2.i[1] = 0;
+  oLine2.i[8] = 0;
+  oLine3.i[1] = 0;
+  oLine3.i[8] = 0;
+  oLine4.i[1] = 0;
+
+active start values: 
+  oLine1.L[8].i = 0;
+  oLine2.L[8].i = 0;
+  oLine3.L[8].i = 0;
+
+
+Statistics
+
+Original Model
+  Number of components: 136
+  Variables: 1495
+  Parameters: 456 (512 scalars)
+  Unknowns: 1039 (1091 scalars)
+  Differentiated variables: 60 scalars
+  Equations: 865
+  Nontrivial: 723
+Translated Model
+  Constants: 145 scalars
+  Free parameters: 38 scalars
+  Parameter depending: 465 scalars
+  Continuous time states: 57 scalars
+  Time-varying variables: 299 scalars
+  Alias variables: 656 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 3, 3}
+  Sizes after manipulation of the linear systems: {0, 0, 0}
+  Sizes of nonlinear systems of equations: {16}
+  Sizes after manipulation of the nonlinear systems: {8}
+  Number of numerical Jacobians: 1
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.C:v">oLine1.C[1].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.C:v">oLine1.C[2].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.C:v">oLine1.C[3].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.C:v">oLine1.C[4].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.C:v">oLine1.C[5].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.C:v">oLine1.C[6].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.C:v">oLine1.C[7].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.L:i">oLine1.L[1].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.L:i">oLine1.L[2].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.L:i">oLine1.L[3].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.L:i">oLine1.L[4].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.L:i">oLine1.L[5].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.L:i">oLine1.L[6].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.L:i">oLine1.L[7].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine1.L:i">oLine1.L[8].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.C:v">oLine2.C[1].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.C:v">oLine2.C[2].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.C:v">oLine2.C[3].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.C:v">oLine2.C[4].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.C:v">oLine2.C[5].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.C:v">oLine2.C[6].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.C:v">oLine2.C[7].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.L:i">oLine2.L[2].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.L:i">oLine2.L[3].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.L:i">oLine2.L[4].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.L:i">oLine2.L[5].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.L:i">oLine2.L[6].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.L:i">oLine2.L[7].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine2.L:i">oLine2.L[8].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.C:v">oLine3.C[1].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.C:v">oLine3.C[2].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.C:v">oLine3.C[3].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.C:v">oLine3.C[4].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.C:v">oLine3.C[5].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.C:v">oLine3.C[6].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.C:v">oLine3.C[7].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.L:i">oLine3.L[2].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.L:i">oLine3.L[3].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.L:i">oLine3.L[4].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.L:i">oLine3.L[5].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.L:i">oLine3.L[6].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.L:i">oLine3.L[7].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine3.L:i">oLine3.L[8].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.C:v">oLine4.C[1].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.C:v">oLine4.C[2].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.C:v">oLine4.C[3].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.C:v">oLine4.C[4].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.C:v">oLine4.C[5].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.C:v">oLine4.C[6].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.C:v">oLine4.C[7].v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.L:i">oLine4.L[2].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.L:i">oLine4.L[3].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.L:i">oLine4.L[4].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.L:i">oLine4.L[5].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.L:i">oLine4.L[6].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.L:i">oLine4.L[7].i</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLineTrunks#text$oLine4.L:i">oLine4.L[8].i</a>
+Finished

@@ -1,0 +1,37 @@
+Translation of <a href="Modelica://ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource">ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource</a>
+The DAE has 3414 scalar unknowns and 3414 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 1430
+  Variables: 3985
+  Constants: 11 (11 scalars)
+  Parameters: 748 (803 scalars)
+  Unknowns: 3226 (3414 scalars)
+  Differentiated variables: 56 scalars
+  Equations: 1319
+  Nontrivial: 1082
+Translated Model
+  Constants: 1615 scalars
+  Free parameters: 79 scalars
+  Parameter depending: 279 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 518 scalars
+  Alias variables: 1737 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2, 46, 2, 2}
+  Sizes after manipulation of the linear systems: {2, 0, 8, 0, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource#text$inertiaLoad:phi">inertiaLoad.phi</a>
+<a href="Modelica://ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource#text$inertiaLoad:w">inertiaLoad.w</a>
+<a href="Modelica://ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource#text$inertiaLoadQS:phi">inertiaLoadQS.phi</a>
+<a href="Modelica://ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource#text$inertiaLoadQS:w">inertiaLoadQS.w</a>
+Finished

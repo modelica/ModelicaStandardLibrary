@@ -1,0 +1,30 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestComponents.Valves.TestValveDiscrete:
+The DAE has 73 scalar unknowns and 73 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 17
+  Variables: 201
+  Constants: 56 (56 scalars)
+  Parameters: 60 (58 scalars)
+  Unknowns: 85 (73 scalars)
+  Equations: 78
+  Nontrivial: 65
+Translated Model
+  Constants: 92 scalars
+  Free parameters: 23 scalars
+  Parameter depending: 19 scalars
+  Time-varying variables: 17 scalars
+  Alias variables: 36 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

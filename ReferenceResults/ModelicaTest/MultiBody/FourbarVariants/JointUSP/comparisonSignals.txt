@@ -1,0 +1,3 @@
+time
+revolute.phi
+revolute.w

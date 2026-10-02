@@ -1,0 +1,46 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Frames.AngularVelocity:
+The DAE has 2010 scalar unknowns and 2010 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 89
+  Variables: 939
+  Constants: 1 (1 scalars)
+  Parameters: 216 (298 scalars)
+  Unknowns: 722 (2010 scalars)
+  Differentiated variables: 19 scalars
+  Equations: 643
+  Nontrivial: 422
+Translated Model
+  Constants: 1401 scalars
+  Free parameters: 57 scalars
+  Parameter depending: 133 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 161 scalars
+  Alias variables: 557 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 3, 3}
+  Sizes after manipulation of the linear systems: {4, 3, 3}
+  Sizes of nonlinear systems of equations: {4}
+  Sizes after manipulation of the nonlinear systems: {4}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {4}
+    Sizes after manipulation of the nonlinear systems: {4}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  body.body.frame_a.r_0[]
+  body.body.w_a[]
+  body.v_0[]
+ 
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There are 3 states to be selected from:
+  body.body.Q[]
+ 

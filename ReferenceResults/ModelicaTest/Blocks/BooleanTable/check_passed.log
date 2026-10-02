@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 56
+The model has the same number of unknowns and equations:
+  48+max([1; size(booleanTable1.combiTimeTable.offset, 1)])+max([1; size(  booleanTable2a.combiTimeTable.offset, 1)])+max([1; size(booleanTable2b.combiTimeTable.offset,   1)])+max([1; size(booleanTable3a.combiTimeTable.offset, 1)])+max([1; size(  booleanTable3b.combiTimeTable.offset, 1)])+max([1; size(booleanTable3c.combiTimeTable.offset,   1)])+max([1; size(booleanTable4a.combiTimeTable.offset, 1)])+max([1; size(  booleanTable4b.combiTimeTable.offset, 1)])
+Check of <a href="Modelica://ModelicaTest.Blocks.BooleanTable">ModelicaTest.Blocks.BooleanTable</a> successful.
+

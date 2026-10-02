@@ -1,0 +1,7 @@
+time
+mass1.s
+mass1.v
+mass2.s
+mass2.v
+mass3.s
+mass3.v

@@ -1,0 +1,6 @@
+time
+cell.cell.capacitor[1].v
+cell.cell.capacitor[2].v
+cell.cell.limIntegrator.y
+cell.limIntegrator.y
+energy.y

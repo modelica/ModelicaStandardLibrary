@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 40
+The model could not be deduced to be symbolically well-posed.
+The model has
+  32+4*dFFREG.dFFR.n
+scalar unknowns and
+  34+3*dFFREG.dFFR.n
+scalar equations.
+However, exploiting the given bindings parameters gives the same number of unknowns and equations:
+  40
+Check of <a href="Modelica://Modelica.Electrical.Digital.Examples.DFFREG">Modelica.Electrical.Digital.Examples.DFFREG</a> successful.
+

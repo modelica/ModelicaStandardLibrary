@@ -1,0 +1,11 @@
+time
+signalSource.V_m
+signalSource.Phi
+cuboid.G_m
+cuboid.A
+hollowCylinderAxialFlux.G_m
+hollowCylinderAxialFlux.A
+hollowCylinderRadialFlux.G_m
+hollowCylinderRadialFlux.A
+genericFluxTube.G_m
+genericFluxTube.A

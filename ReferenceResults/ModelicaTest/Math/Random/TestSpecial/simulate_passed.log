@@ -1,0 +1,42 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 07:46:11 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+
+... Check Math.Special
+erf: err = 1.39375e-07
+erfInv: err = 2.77379e-09
+erf and erfInv: err = 3.85025e-13
+erfc: err = 2.22045e-16
+erfc and erfcInv: err = 6.20393e-13
+sinc = 1.11022e-16
+
+... Check Math.Special
+erf: err = 1.39375e-07
+erfInv: err = 2.77379e-09
+erf and erfInv: err = 3.85025e-13
+erfc: err = 2.22045e-16
+erfc and erfcInv: err = 6.20393e-13
+sinc = 1.11022e-16
+... "TestSpecial.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 0
+   CPU-time for integration                : 0.001 seconds
+   CPU-time for initialization             : 0.015 seconds
+   Number of result points                 : 2
+   Number of grid points                   : 1
+   Number of accepted steps                : 0
+   Number of f-evaluations (dynamics)      : 0
+   Number of Jacobian-evaluations          : 0
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 0
+   Maximum integration stepsize            : 0
+   Maximum integration order               : 0
+Calling terminal section
+... "dsfinal.txt" creating (final states)

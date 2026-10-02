@@ -1,0 +1,41 @@
+Translation of <a href="Modelica://Modelica.Electrical.Analog.Examples.DifferenceAmplifier">Modelica.Electrical.Analog.Examples.DifferenceAmplifier</a>
+The DAE has 221 scalar unknowns and 221 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 37
+  Variables: 356
+  Parameters: 135 (135 scalars)
+  Unknowns: 221 (221 scalars)
+  Differentiated variables: 13 scalars
+  Equations: 203
+  Nontrivial: 171
+Translated Model
+  Constants: 40 scalars
+  Free parameters: 97 scalars
+  Parameter depending: 34 scalars
+  Continuous time states: 9 scalars
+  Time-varying variables: 69 scalars
+  Alias variables: 116 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {16}
+  Sizes after manipulation of the linear systems: {5}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DifferenceAmplifier#text$C1:v">C1.v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DifferenceAmplifier#text$C2:v">C2.v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DifferenceAmplifier#text$C3:v">C3.v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DifferenceAmplifier#text$C4:v">C4.v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DifferenceAmplifier#text$C5:v">C5.v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DifferenceAmplifier#text$Transistor1.ct:v">Transistor1.ct.v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DifferenceAmplifier#text$Transistor1.Tr:vcs">Transistor1.Tr.vcs</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DifferenceAmplifier#text$Transistor2.ct:v">Transistor2.ct.v</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DifferenceAmplifier#text$Transistor2.Tr:vcs">Transistor2.Tr.vcs</a>
+Finished

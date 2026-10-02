@@ -169,7 +169,10 @@ equation
   connect(terminalBox.starpoint, starMachine.plug_p) annotation (Line(points={{-20,-38},{-40,-38},{-40,-52}}, color={0,0,255}));
   connect(starMachine.pin_n, ground.p) annotation (Line(points={{-40,-72},{-40,-80},{-70,-80}}, color={0,0,255}));
   connect(starMachineQS.pin_n, groundQS.pin) annotation (Line(points={{-40,28},{-40,20},{-70,20}}, color={85,170,255}));
-  annotation (experiment(StopTime=1.5, Interval=0.00001, Tolerance=1e-06), Documentation(
+  annotation (experiment(
+      StopTime=1.5,
+      Interval=0.0001,
+      Tolerance=1e-06),                                         Documentation(
         info="<html>
 <strong>Test example: Steady-State Initialization of an induction machine with squirrel cage</strong><br>
 The induction machine with squirrel cage is initialized in steady-state at no-load;

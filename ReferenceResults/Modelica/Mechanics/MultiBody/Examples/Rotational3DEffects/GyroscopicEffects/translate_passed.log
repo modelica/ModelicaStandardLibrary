@@ -1,0 +1,53 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects:
+The DAE has 2976 scalar unknowns and 2976 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 146
+  Variables: 1525
+  Parameters: 494 (984 scalars)
+  Unknowns: 1031 (2976 scalars)
+  Differentiated variables: 76 scalars
+  Equations: 885
+  Nontrivial: 566
+Translated Model
+  Constants: 2069 scalars
+  Free parameters: 105 scalars
+  Parameter depending: 492 scalars
+  Continuous time states: 16 scalars
+  Time-varying variables: 314 scalars
+  Alias variables: 980 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 4, 37, 34}
+  Sizes after manipulation of the linear systems: {4, 4, 7, 3}
+  Sizes of nonlinear systems of equations: {22, 28}
+  Sizes after manipulation of the nonlinear systems: {4, 4}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {3, 2}
+    Sizes after manipulation of the linear systems: {3, 2}
+    Sizes of nonlinear systems of equations: {22, 31}
+    Sizes after manipulation of the nonlinear systems: {4, 4}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  bodyCylinder2.body.w_a[]
+  bodyCylinder3.body.w_a[]
+  revolute.phi
+  revolute.w
+  rotor1D.phi
+  rotor1D.w
+ 
+Dynamically selected continuous time states
+There are 2 sets of dynamic state selection.
+From set 1 there are 3 states to be selected from:
+  bodyCylinder3.body.Q[]
+ 
+From set 2 there are 3 states to be selected from:
+  bodyCylinder2.body.Q[]
+ 

@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 100
+The model has the same number of unknowns and equations:
+  82+3*(max([size(kinematicPTP1a.deltaq, 1); size(kinematicPTP1a.qd_max, 1); size(  kinematicPTP1a.qdd_max, 1)])+max([size(kinematicPTP2a.deltaq, 1); size(  kinematicPTP2a.qd_max, 1); size(kinematicPTP2a.qdd_max, 1)]))+6*max([size(  kinematicPTP1b.q_begin, 1); size(kinematicPTP1b.q_end, 1); size(  kinematicPTP1b.qd_max, 1); size(kinematicPTP1b.qdd_max, 1)])+6*max([size(  kinematicPTP2b.q_begin, 1); size(kinematicPTP2b.q_end, 1); size(  kinematicPTP2b.qd_max, 1); size(kinematicPTP2b.qdd_max, 1)])
+Check of <a href="Modelica://ModelicaTest.Blocks.KinematicPTP">ModelicaTest.Blocks.KinematicPTP</a> successful.
+

@@ -1,0 +1,13 @@
+time
+volume1.mC_scaled[1]
+volume1.medium.T
+volume1.medium.Xi[1]
+volume1.medium.p
+volume2.mC_scaled[1]
+volume2.medium.T
+volume2.medium.Xi[1]
+volume2.medium.p
+volume3.mC_scaled[1]
+volume3.medium.T
+volume3.medium.Xi[1]
+volume3.medium.p

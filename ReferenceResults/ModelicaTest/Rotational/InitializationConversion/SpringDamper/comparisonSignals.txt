@@ -1,0 +1,15 @@
+time
+inertia4.phi
+inertia4.w
+inertia5.phi
+inertia5.w
+inertia6.phi
+inertia6.w
+relativeStates.phi_rel
+relativeStates.w_rel
+springDamper1.phi_rel
+springDamper1.w_rel
+springDamper2.phi_rel
+springDamper2.w_rel
+springDamper3.phi_rel
+springDamper3.w_rel

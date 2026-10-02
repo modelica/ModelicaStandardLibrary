@@ -1,0 +1,49 @@
+[ResultCreationLog]
+modelName="Modelica.Media.Examples.R134a.R134a2"
+
+// Test info
+generationTool="Dymola Version 2020x (64-bit), 2019-10-10"
+generationDateAndTime="2020-05-05T02:23:51Z"
+gitURL="https://github.com/modelica/ModelicaStandardLibrary.git"
+gitRevision=bd753330a
+gitStatus="D Modelica/Resources/C-Sources/ModelicaInternal.c, M ModelicaServices/package.mo"
+testPC="LAPTOP"
+testOS="Microsoft Windows [Version 10.0.18363.815]"
+testUser="tbeu"
+testDescription="Reg test MSL v4.0.0-rc.1"
+
+// Experiment settings (standardized annotation)
+StartTime=0
+StopTime=1.01 // from model
+Interval=0.000202 // (stopTime-startTime)/5000
+Tolerance=1e-06 // used default, because no tolerance annotation in model
+
+// Experiment settings (tool specific)
+// The following lines can be used as mos-script in Dymola
+Advanced.PedanticModelica := false;
+SetDymolaCompiler("vs", {"MSVCDir=c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Auxiliary/Build"});
+Evaluate := false;
+OutputCPUtime := false;
+translateModel("Modelica.Media.Examples.R134a.R134a2");
+Advanced.StoreProtectedVariables := true;
+Advanced.EfficientMinorEvents := false;
+Advanced.PlaceDymolaSourceFirst := 2;
+experimentSetupOutput(
+  textual=false,
+  doublePrecision=true,
+  states=true,
+  derivatives=true,
+  inputs=true,
+  outputs=true,
+  auxiliaries=true,
+  equidistant=true,
+  events=true,
+  debug=false);
+simulateModel(
+  problem="Modelica.Media.Examples.R134a.R134a2",
+  startTime=0,
+  stopTime=1.01,
+  outputInterval=0.000202,
+  method="Dassl",
+  tolerance=1e-06,
+  resultFile="R134a2");

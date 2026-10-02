@@ -1,0 +1,81 @@
+﻿ = true
+Translation of Modelica.Magnetic.FluxTubes.Examples.Hysteresis.ThreePhaseTransformerWithRectifier:
+The DAE has 490 scalar unknowns and 490 scalar equations.
+Redundant consistent initial conditions.
+Removed the following equations which are redundant and consistent: 
+  transformer.winding11.V_m = transformer.winding11.port_p.V_m-transformer.winding11.port_n.V_m;
+  transformer.winding13.V_m = transformer.winding13.port_p.V_m-transformer.winding13.port_n.V_m;
+ 
+This required evaluation of 
+the interactive parameters 
+    transformer.HStart[](each start = 0)
+    transformer.I1Start[](each start = 0)
+    transformer.I2Start[1](start = 0)
+    transformer.l1(start = 0.2)
+    transformer.l2(start = 0.15)
+    transformer.N1(start = 200)
+    transformer.N2(start = 10)
+ 
+The redundancies involve
+active start values: 
+  transformer.winding22.i = transformer.I2Start[1];
+  transformer.core2.H = transformer.HStart[2];
+  transformer.winding11.i = transformer.I1Start[1];
+  transformer.winding23.i = transformer.I2Start[1];
+  transformer.core3.H = transformer.HStart[3];
+  transformer.winding21.i = transformer.I2Start[1];
+  transformer.winding13.i = transformer.I1Start[3];
+  transformer.winding12.i = transformer.I1Start[2];
+  transformer.core1.H = transformer.HStart[1];
+ 
+ 
+Statistics
+ 
+Original Model
+  Number of components: 54
+  Variables: 824
+  Constants: 21 (21 scalars)
+  Parameters: 344 (348 scalars)
+  Unknowns: 459 (490 scalars)
+  Differentiated variables: 38 scalars
+  Equations: 473
+  Nontrivial: 417
+Translated Model
+  Constants: 122 scalars
+  Free parameters: 119 scalars
+  Parameter depending: 164 scalars
+  Continuous time states: 23 scalars
+  Time-varying variables: 205 scalars
+  Alias variables: 249 scalars
+  Number of mixed real/discrete systems of equations: 6
+  Sizes of linear systems of equations: {7, 6, 6, 6, 6, 6, 7, 6, 7}
+  Sizes after manipulation of the linear systems: {0, 2, 0, 2, 2, 0, 0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  capacitor1.v
+  capacitor2.v
+  pdissCopAvg.x[]
+  pdissEddyAvg.x[]
+  pdissStatAvg.x[]
+  transformer.core1.B
+  transformer.core1.Hstat
+  transformer.core1.MagRel
+  transformer.core2.B
+  transformer.core2.Hstat
+  transformer.core2.MagRel
+  transformer.core3.B
+  transformer.core3.Hstat
+  transformer.core3.MagRel
+  transformer.winding11.i
+  transformer.winding12.i
+  transformer.winding13.i
+  transformer.winding21.i
+  transformer.winding22.i
+  transformer.winding23.i
+ 

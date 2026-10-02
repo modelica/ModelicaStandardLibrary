@@ -1,0 +1,6 @@
+time
+converter.Phi
+converter.i
+converter1.i
+eddyCurrent.Phi
+leakageWithCoefficient.port_p.Phi

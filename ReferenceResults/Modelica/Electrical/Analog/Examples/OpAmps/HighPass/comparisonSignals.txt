@@ -1,0 +1,4 @@
+time
+derivative.c.v
+derivative.opAmp.out.v
+derivative.opAmp.out.i
