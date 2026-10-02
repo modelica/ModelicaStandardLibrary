@@ -29,9 +29,9 @@ model SeriesResonance "Series resonance circuit"
     annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
   QuasiStatic.SinglePhase.Basic.Resistor resistor(R_ref=0.1)
     annotation (Placement(transformation(extent={{10,-10},{30,10}})));
-  QuasiStatic.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
+  QuasiStatic.SinglePhase.Basic.Inductor inductor(L=1'H'/(2*Modelica.Constants.pi))
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-  QuasiStatic.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
+  QuasiStatic.SinglePhase.Basic.Capacitor capacitor(C=1'F'/(2*Modelica.Constants.pi))
     annotation (Placement(transformation(extent={{70,-10},{90,10}})));
   QuasiStatic.SinglePhase.Sensors.CurrentSensor currentSensor
     annotation (Placement(transformation(extent={{-20,10},{0,-10}})));

@@ -29,8 +29,8 @@ package SinglePhase "Single-phase quasi-static package"
           origin={40,-40})));
     Modelica.Blocks.Sources.Constant const(k=1) annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
     Modelica.Blocks.Sources.Constant const1(k=1) annotation (Placement(transformation(extent={{-20,70},{0,90}})));
-    Modelica.Blocks.Sources.Constant const2(k=1/100/Modelica.Constants.pi) annotation (Placement(transformation(extent={{70,70},{50,90}})));
-    Modelica.Blocks.Sources.Constant const3(k=1/100/Modelica.Constants.pi) annotation (Placement(transformation(extent={{100,50},{80,70}})));
+    Modelica.Blocks.Sources.Constant const2(k=1'F'/100/Modelica.Constants.pi) annotation (Placement(transformation(extent={{70,70},{50,90}})));
+    Modelica.Blocks.Sources.Constant const3(k=1'H'/100/Modelica.Constants.pi) annotation (Placement(transformation(extent={{100,50},{80,70}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const4(k(re=0.5, im=0.5))   annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const5(k(re=1, im=1)) annotation (Placement(transformation(extent={{-30,-90},{-10,-70}})));
     Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor voltageSensor annotation (Placement(transformation(
