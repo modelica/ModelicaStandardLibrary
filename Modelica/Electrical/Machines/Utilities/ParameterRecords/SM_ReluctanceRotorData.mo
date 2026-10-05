@@ -1,18 +1,18 @@
 within Modelica.Electrical.Machines.Utilities.ParameterRecords;
 record SM_ReluctanceRotorData
   "Common parameters for synchronous machines with reluctance rotor"
-  extends InductionMachineData(Lssigma=0.1/(2*pi*fsNominal));
+  extends InductionMachineData(Lssigma=0.1'Ohm'/(2*pi*fsNominal));
   import Modelica.Constants.pi;
-  parameter SI.Inductance Lmd=2.9/(2*pi*fsNominal)
+  parameter SI.Inductance Lmd=2.9'Ohm'/(2*pi*fsNominal)
     "Stator main field inductance per phase in d-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Inductance Lmq=0.9/(2*pi*fsNominal)
+  parameter SI.Inductance Lmq=0.9'Ohm'/(2*pi*fsNominal)
     "Stator main field inductance per phase in q-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Boolean useDamperCage=true "Enable / disable damper cage"
     annotation (Evaluate=true,Dialog(tab=
           "Nominal resistances and inductances", group="Damper cage"));
-  parameter SI.Inductance Lrsigmad=0.05/(2*pi*fsNominal)
+  parameter SI.Inductance Lrsigmad=0.05'Ohm'/(2*pi*fsNominal)
     "Damper stray inductance in d-axis" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",

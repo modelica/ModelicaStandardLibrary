@@ -7,7 +7,7 @@ model IMC_YDarc "Test example: InductionMachineSquirrelCage Y-D"
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=50 "Nominal frequency";
   parameter SI.Resistance RLine=0.0001 "Line resistance";
-  parameter SI.Inductance LLine=0.0001/(2*pi*fNominal) "Line inductance";
+  parameter SI.Inductance LLine=0.0001'Ohm'/(2*pi*fNominal) "Line inductance";
   parameter SI.Time tStart1=0.1 "Start time";
   parameter SI.Time tStart2=2.0 "Start time from Y to D";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
