@@ -401,7 +401,7 @@ defines the spatial distribution of the flux density with respect to the rotor s
 </p>
 <p>
 As the rotor position increases, the flux linkage of a coil of width <code>&beta;</code> is caculated 
-by integration over the interval <code>[pos + &pi;/2 - beta/2, pos + &pi;/2 + &beta;/2]</code>.
+by integration over the interval <code>[pos + &pi;/2 - &beta;/2, pos + &pi;/2 + &beta;/2]</code>.
 </p>
 <p>
 The maximum of the flux linkage <code>psi0</code> is calculated analytically. 
