@@ -38,7 +38,7 @@ model ElectroMagneticConverterWithLeakageInductance
   SI.Inductance L_stat "Static inductance (valid if this coil is the only source)";
 
 protected
-  constant Real eps=100*Modelica.Constants.eps;
+  constant SI.Current eps=100*Modelica.Constants.eps;
 equation
   v = p.v - n.v;
   0 = p.i + n.i;
