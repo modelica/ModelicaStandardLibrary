@@ -51,7 +51,7 @@ model Friction "Drive train with clutch and brake"
     offset=1,
     startTime=startTime) annotation (Placement(transformation(extent={{-160,
             -30},{-140,-10}})));
-  Modelica.Blocks.Sources.Sine sine(amplitude=200, f=50/pi)
+  Modelica.Blocks.Sources.Sine sine(amplitude=200, f=50'Hz'/pi)
     annotation (Placement(transformation(extent={{-160,10},{-140,30}})));
   Modelica.Blocks.Math.Product product annotation (Placement(transformation(
           extent={{-120,-10},{-100,10}})));
