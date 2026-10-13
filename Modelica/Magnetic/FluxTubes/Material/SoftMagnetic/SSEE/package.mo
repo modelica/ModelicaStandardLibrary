@@ -14,7 +14,7 @@ package SSEE "Smoothing Splines with Exponential Extrapolation"
 <li>initial relative permeability <code>mu_ri</code></li>
 </ul>
 <p>Parameters for Exponential Extrapolation:
-<code>J(H) = JD[k0] + (Jsat - JD[k0])*(1 - exp(-(H - HD(k0))/Hpar))</code></p>
+<code>J(H) = JD[k0] + (Jsat - JD[k0])*(1 - exp(-(H - HD[k0])/Hpar))</code></p>
 <ul>
 <li>Index in raw data where exponential extrapolation starts <code>k0</code></li>
 <li>Parameter in exponential function <code>Hpar</code></li>
@@ -30,7 +30,7 @@ package SSEE "Smoothing Splines with Exponential Extrapolation"
    For <code>H&gt;hH2</code> pure exponential extrapolation is used. 
    In the region between both are mixed, linearly dependent on <code>H</code>.</p>
 <p>Number of raw data nodes = 1 + number of spline coefficients <code>N</code>.</p>
-<p>Parameters for Spline interpolation: 
+<p>Parameters for spline interpolation: 
 <code>J(H) = c0[k] + c1[k]*(H - HD[k]) + c2[k]*(H - HD[k])^2 + c3[k]*(H - HD[k])^3</code></p>
 <ul>
 <li>coefficients for 3<sup>rd</sup> power <code>c3</code></li>
@@ -38,20 +38,20 @@ package SSEE "Smoothing Splines with Exponential Extrapolation"
 <li>coefficients for 1<sup>st</sup> power <code>c1</code></li>
 <li>constant coefficients <code>c0</code></li>
 </ul>
-<p>Raw Data nodes:</p>
+<p>Raw data nodes:</p>
 <ul>
 <li>field strength array <code>HD</code></li>
-<li>polarization  array  <code>JD</code></li>
+<li>polarization array <code>JD</code></li>
 </ul>
 <p>
-Measured data were provided by <a href=\"https://www.voestalpine.com/isovac/Downloads/Datenblaetter\">VoestAlpine</a>. 
+Measured data were provided by <a href=\"https://www.voestalpine.com/isovac/Downloads/Datenblaetter\">voestalpine</a>. 
 Many thanks to that company for allowing us to use this data!
 </p>
 <p>Note:</p>
 <ul>
 <li>The origin <code>(0, 0)</code> has to be included as first node in the arrays.</li>
 <li>The arrays have to be specified in ascending order.</li>
-<li>The arrays are only specified for positive field strength, it is assumed that the characteristic is point symmetric to the origin.</li>
+<li>The arrays are only specified for positive field strength; it is assumed that the characteristic is point-symmetric to the origin.</li>
 </ul>
 </html>"));
 end SSEE;

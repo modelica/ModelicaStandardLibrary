@@ -4,17 +4,17 @@ model CompareModels
   extends Modelica.Icons.Example;
   parameter Modelica.Units.SI.Current I=1 "Excitation peak current";
   Modelica.Units.SI.MagneticFieldStrength H1=coreNon_Hys.H
-    "Field Strength in non-hysteretic core";
+    "Field strength in non-hysteretic core";
   Modelica.Units.SI.MagneticFluxDensity B1=coreNon_Hys.B
-    "Flux Density in non-hysteretic core";
+    "Flux density in non-hysteretic core";
   Modelica.Units.SI.MagneticPolarization J1=B1 - mu_0*H1
-    "Magnetic polarisation in non-hysteretic core";
+    "Magnetic polarization in non-hysteretic core";
   Modelica.Units.SI.MagneticFieldStrength H2=coreEverett.H
-    "Field Strength in hysteretic core = H1";
+    "Field strength in hysteretic core = H1";
   Modelica.Units.SI.MagneticFluxDensity B2=coreEverett.B
-    "Flux Density in hysteretic core";
+    "Flux density in hysteretic core";
   Modelica.Units.SI.MagneticPolarization J2=B2 - mu_0*H2
-    "Magnetic polarisation in hysteretic core";
+    "Magnetic polarization in hysteretic core";
   Modelica.Electrical.Analog.Sources.SignalCurrent signalCurrent1 annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -107,10 +107,10 @@ equation
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>
-This model compares the magnetization characteristic of a non-hysteretic model with a Tellinen/Everett-model including hysteresis, both for M330-50A. 
+This model compares the magnetization characteristic of a non-hysteretic model with a Tellinen/Everett model including hysteresis, both for M330-50A. 
 </p>
 <p>
-Plot <code>B1</code> (flux density of the non-hysteretic model) and <code>B1</code> (flux density of the hysteretic model) 
+Plot <code>B1</code> (flux density of the non-hysteretic model) and <code>B2</code> (flux density of the hysteretic model) 
 versus <code>H1</code> (field strength, which is the same as <code>H2</code> due to the same geometry of the core and the same excitation).
 Try different excitation peak currents <code>I</code>.
 </p>

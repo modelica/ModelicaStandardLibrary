@@ -16,7 +16,7 @@ model EIcore "An iron core with shape E and I"
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.075,
     a(displayUnit="mm") = 0.04,
-    b(displayUnit="mm") = 0.02) "Upper Left yoke"
+    b(displayUnit="mm") = 0.02) "Upper left yoke"
     annotation (Placement(transformation(extent={{-40,90},{-60,70}})));
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid yokeUR(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
@@ -26,7 +26,7 @@ model EIcore "An iron core with shape E and I"
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.075,
     a(displayUnit="mm") = 0.04,
-    b(displayUnit="mm") = 0.02) "Upper RIght yoke"
+    b(displayUnit="mm") = 0.02) "Upper right yoke"
     annotation (Placement(transformation(extent={{40,70},{60,90}})));
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid yokeLL(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
@@ -36,7 +36,7 @@ model EIcore "An iron core with shape E and I"
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.075,
     a(displayUnit="mm") = 0.04,
-    b(displayUnit="mm") = 0.02) "Lower Left yoke"
+    b(displayUnit="mm") = 0.02) "Lower left yoke"
     annotation (Placement(transformation(extent={{-60,-90},{-40,-70}})));
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid yokeLR(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
@@ -46,7 +46,7 @@ model EIcore "An iron core with shape E and I"
     materialSSEE=materialSettings.materialSSEE,
     l(displayUnit="mm") = 0.075,
     a(displayUnit="mm") = 0.04,
-    b(displayUnit="mm") = 0.02) "Lower Right yoke"
+    b(displayUnit="mm") = 0.02) "Lower right yoke"
     annotation (Placement(transformation(extent={{60,-90},{40,-70}})));
   Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid legL(
     nonLinearPermeability=materialSettings.nonLinearPermeability,
@@ -89,7 +89,7 @@ model EIcore "An iron core with shape E and I"
     mu_rConst=1,
     l(displayUnit="mm") = delta,
     a(displayUnit="mm") = 0.04,
-    b(displayUnit="mm") = 0.04) "Airgap" annotation (Placement(transformation(
+    b(displayUnit="mm") = 0.04) "Air gap" annotation (Placement(transformation(
         extent={{10,10},{-10,-10}},
         rotation=270)));
   Modelica.Magnetic.FluxTubes.Basic.Ground groundMag
@@ -165,10 +165,10 @@ equation
       Interval=1e-04,
       Tolerance=1e-06), Documentation(info="<html>
 <p>
-This is a core shaped as an E and an I with an airgap. 
+This is a core shaped as an E and an I with an air gap. 
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption><strong>Fig. 1:</strong> EI - core</caption>
+  <caption><strong>Fig. 1:</strong> EI core</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/BasicExamples/EIcore.png\">
@@ -180,7 +180,7 @@ You might vary different parameters:
 </p>
 <ul>
 <li>The current amplitude <code>I</code></li>
-<li>The length of the airgap <code>delta</code></li>
+<li>The length of the air gap <code>delta</code></li>
 <li>The material for all shapes at once via the record <code>materialSettings</code></li>
 </ul>
 </html>"));

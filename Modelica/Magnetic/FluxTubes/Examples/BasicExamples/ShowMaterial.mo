@@ -112,14 +112,14 @@ by applying a sinusoidal excitation current to the exciting coil.
 However, hysteresis is not taken into account.
 </p>
 <p>
-Number of turns and measurements of the core are approximately as they would be of an Epstein frame.
+Number of turns and dimensions of the core are approximately those of an Epstein frame.
 </p>
 <p>
-It is possible to compare the approximation with interpolated data from a manufacturer's datasheet (raw Data)  <code>J_rD</code> and <code>mu_r_rD</code>, choosing the same material (e.g. <code>M330_50A</code>).<br>
 Note that smoothness (the interpolation method) is set to <code>LinearSegments</code>. This shows the nodes and avoids undesired curvature between them.
+It is possible to compare the approximation with interpolated data from a manufacturer's datasheet (raw data) <code>J_rD</code>, choosing the same material (e.g. <code>M330_50A</code>).<br>
 </p>
 <p>
-Note the non-sinusoidal trajectory of voltage <code>excitingCoil.v</code> due to saturation and a sonusoidal excitation current.
+Note the non-sinusoidal trajectory of voltage <code>excitingCoil.v</code> due to saturation and a sinusoidal excitation current.
 </p>
 <p>
 Note that the output of the integrated voltage (divided by the number of turns of the measurement coil) shows the magnetic flux in the core. 

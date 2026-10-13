@@ -6,7 +6,7 @@ model BasicFormulae "Basic relations of properties"
   <tfoot>
   <tr>
     <td><strong>Fig. 1:</strong> Passive part of the magnetic circuit: Flux tube</td>
-    <td><strong>Fig. 2:</strong> Active part of the magnetic circuit: Electro-Magnetic converter</td>
+    <td><strong>Fig. 2:</strong> Active part of the magnetic circuit: Electromagnetic converter</td>
   </tr>
   </tfoot>
   <tbody>
@@ -19,10 +19,10 @@ model BasicFormulae "Basic relations of properties"
 <h4>Note:</h4>
 <p>
 The coil shown in Fig. 2 is wound counter-clockwise (positive mathematical direction). 
-For a coil wound clockwise the number of turns <code>N</code> has to be entered negative.<br> 
+For a coil wound clockwise the number of turns <code>N</code> has to be entered as a negative value.<br> 
 There is a left-hand assignment between coil current <code>i</code> and magnetic potential difference <code>V<sub>m</sub></code>.<br> 
-The magnetomotive force <code>mmf</code> has the opposite direction as the magnetic potential difference <code>V<sub>m</sub></code> 
-(and therefore a right-hand assignement), but it is not used in this library.
+The magnetomotive force <code>mmf</code> has the opposite direction to the magnetic potential difference <code>V<sub>m</sub></code> 
+(and therefore a right-hand assignment), but it is not used in this library.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
@@ -31,7 +31,7 @@ The magnetomotive force <code>mmf</code> has the opposite direction as the magne
     <td><code>V<sub>m</sub> = N&sdot;i</code></td>
   </tr>
   <tr>
-    <td>Ohm's law of the magnetic circuit</td>
+    <td>Kirchhoff's voltage law of the magnetic circuit</td>
     <td>&Sum; V<sub>m</sub> = 0</td>
     <td><code>&Sum; V<sub>mPassive</sub> = -&Sum; V<sub>mActive</sub></code></td>
   </tr>
@@ -51,7 +51,7 @@ The magnetomotive force <code>mmf</code> has the opposite direction as the magne
     <td><code>M = &chi;&sdot;H</code></td>
   </tr>
   <tr>
-    <td>Suceptibility</td>
+    <td>Susceptibility</td>
     <td>1</td>
     <td><code>&chi; = &micro;<sub>r</sub> - 1</code></td>
   </tr>
@@ -81,7 +81,7 @@ The magnetomotive force <code>mmf</code> has the opposite direction as the magne
     <td>&#934; = B&sdot;A</td>
   </tr>
   <tr>
-    <td>Magnetic conductance</td>
+    <td>Magnetic permeance</td>
     <td>H</td>
     <td><code>G<sub>m</sub> = 1/R<sub>m</sub> = &#934;/V<sub>m</sub> = &micro;<sub>0</sub>&sdot;&micro;<sub>r</sub>&sdot;A/l</code></td>
   </tr>
@@ -91,7 +91,7 @@ The magnetomotive force <code>mmf</code> has the opposite direction as the magne
     <td><code>&psi; = N&sdot;&#934;</code></td>
   </tr>
   <tr>
-    <td>Induced voltage (Farady's law)</td>
+    <td>Induced voltage (Faraday's law)</td>
     <td>V</td>
     <td><code>v = -d&psi;/dt</code></td>
   </tr>

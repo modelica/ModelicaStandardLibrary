@@ -40,9 +40,9 @@ equation
       Interval=0.0001,
       Tolerance=1e-06), Documentation(info="<html>
 <p>
-Magnetic field Strength <code>H</code> is varied within 1 second from <code>Hmin</code> to <code>Hmax</code>. 
+Magnetic field strength <code>H</code> is varied within 1 second from <code>Hmin</code> to <code>Hmax</code>. 
 Magnetic polarization <code>J</code>, magnetic flux density <code>B</code>, relative permeability <code>mu_r</code>, differential relative permeability <code>mu_rd</code>, 
-magnetic flux linkage <code>psi</code> and induced voltage <code>v</code> are calculated an can be plotted versus H to investigate the characteristic of the choosen material. 
+magnetic flux linkage <code>psi</code> and induced voltage <code>v</code> are calculated and plotted versus H to investigate the characteristic of the chosen material. 
 Additionally, all approximation functions are tested. 
 </p>
 </html>"));

@@ -20,7 +20,7 @@ record BaseData "CastIron"
   // Homotopy
   parameter SI.MagneticFieldStrength hH1  =   5000.00 "Start of homotopy"
     annotation(Dialog(group="Homotopy"));
-  parameter SI.MagneticFieldStrength hH2  =  15000.00 "End   of homotopy"
+  parameter SI.MagneticFieldStrength hH2  =  15000.00 "End of homotopy"
     annotation(Dialog(group="Homotopy"));
   // Length of Raw Data
   parameter Integer N    = 22 "Count of nodes"

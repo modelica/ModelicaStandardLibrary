@@ -60,7 +60,7 @@ class Literature "Literature"
 </table><br>
 </li>
 
-<li><strong>Approximation formulae of magnetization characteristics (besides [Ro00] are described in:</strong>
+<li><strong>Approximation formulae of magnetization characteristics (besides [Ro00]) are described in:</strong>
 
 <br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
@@ -79,8 +79,8 @@ class Literature "Literature"
 
     <tr>
       <td>[deBoor2001] </td>
-      <td>Carl deBoor: <em>A practical Guide to Splines</em>,
-        Applied Mathematical Sciences Volume 27. Editors: J.E. Marsden and L. Sirovich. Springer 2001, ISBN 0-337-95366-3.</td>
+      <td>Carl de Boor: <em>A Practical Guide to Splines</em>,
+        Applied Mathematical Sciences Volume 27. Editors: J.E. Marsden and L. Sirovich. Springer 2001, ISBN 0-387-95366-3.</td>
     </tr>
 
     <tr>

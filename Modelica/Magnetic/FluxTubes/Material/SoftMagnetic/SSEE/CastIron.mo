@@ -1,5 +1,5 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE;
-record CastIron "CastIron (artificial)"
+record CastIron "Cast iron (artificial)"
   extends BaseData(
     Type="CastIron",
     vRef =     25.00,
