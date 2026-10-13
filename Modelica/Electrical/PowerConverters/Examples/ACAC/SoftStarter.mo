@@ -10,7 +10,7 @@ model SoftStarter "Soft start of an induction machine"
   parameter SI.Inertia JLoad=aimcData.Jr "Load's moment of inertia";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
   parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
-       1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
     final m=m,
     f=fill(fNominal, m),
