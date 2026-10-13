@@ -3,7 +3,7 @@ function der_mu_r "Approximation der_mu_r(H)"
   extends Modelica.Icons.Function;
   input SI.MagneticFieldStrength H "Magnetic field strength";
   input BaseData material
-                         " Material data";
+                         "Material data";
   input Modelica.Magnetic.FluxTubes.Types.MagneticFieldStrengthSlope derH
     "Slope of magnetic field strength";
   output Real dermu_r "Slope of relative magnetic permeability";

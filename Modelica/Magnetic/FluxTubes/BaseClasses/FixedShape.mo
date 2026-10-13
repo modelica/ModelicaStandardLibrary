@@ -6,7 +6,7 @@ partial model FixedShape "Base class for flux tubes with fixed shape during simu
 
   // Material
   // The parameter nonLinearPermeability is kept for backwards compatibility reasons,
-  // and will be replaced by a member "Linear" in the enumeration MagType in next major release
+  // and will be replaced by a member "Linear" in the enumeration MagType in the next major release
   parameter Boolean nonLinearPermeability=true
     "= true, if non-linear rel. permeability is used, otherwise constant rel. permeability"
     annotation (Dialog(tab="Material"), Evaluate=true);

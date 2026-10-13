@@ -1,5 +1,5 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE.Functions;
-package Internal "Internal used functions"
+package Internal "Internally used functions"
   extends Modelica.Icons.InternalPackage;
 
 end Internal;

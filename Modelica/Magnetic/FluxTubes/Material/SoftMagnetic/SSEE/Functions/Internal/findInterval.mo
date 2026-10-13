@@ -22,7 +22,7 @@ algorithm
 <p>
 Determines the interval <code>k</code> that includes the value <code>x</code>: <code>xD[k]&le;x&lt;xD[k+1]</code>.
 <code>x&lt;xD[1]</code> returns <code>k=0</code>.
-<code>x&gt;xD[N]</code> returns <code>k=N</code> where <code>N=size(xD, 1)</code>.
+<code>x&ge;xD[N]</code> returns <code>k=N</code> where <code>N=size(xD, 1)</code>.
 </p>
 </html>"));
 end findInterval;

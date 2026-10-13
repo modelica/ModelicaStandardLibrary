@@ -1,10 +1,10 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic;
 record MaterialSettings
-  "Gathers all settings for a softmagnetic material"
+  "Gathers all settings for a soft magnetic material"
   extends Modelica.Icons.Record;
   import Modelica.Magnetic.FluxTubes.Types.MagType;
   // The parameter nonLinearPermeability is kept for backwards compatibility reasons,
-  // and will be replaced by a member "Linear" in the enumeration MagType in next major release
+  // and will be replaced by a member "Linear" in the enumeration MagType in the next major release
   parameter Boolean nonLinearPermeability=true
     "= true, if non-linear rel. permeability is used, otherwise constant rel. permeability"
     annotation (Evaluate=true);
@@ -26,8 +26,8 @@ record MaterialSettings
           magType==MagType.SSEE));
   annotation(defaultComponentPrefixes="parameter", Documentation(info="<html>
 <p>
-This parameter record gathers all settings for a softmagnetic material. 
-It can be used once in an example to propagate to several components the same material settings. 
+This parameter record gathers all settings for a soft magnetic material. 
+It can be used once in an example to propagate the same material settings to several components. 
 </p>
 </html>"));
 end MaterialSettings;

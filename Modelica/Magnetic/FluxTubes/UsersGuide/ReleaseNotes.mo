@@ -6,9 +6,9 @@ class ReleaseNotes "Release Notes"
 <h5>Version 4.2.0, 2026-08-01 (Anton&nbsp;Haumer)</h5>
 
 <ul>
-<li>Enabled the usage of additional approximation functions (e.g. Smoothing Splines with Exponential Extrapolation), 
+<li>Enabled the usage of additional approximation functions (e.g. Smoothing Splines with Exponential Extrapolation)
     by updating <a href=\"modelica://Modelica.Magnetic.FluxTubes.BaseClasses.FixedShape\">FluxTubes.BaseClasses.FixedShape</a></li>
-<li>Added package <a href=\"modelica://FluxTubes.Material.SoftMagnetic.SSEE\">softmagnetic material approximated by Smoothing Splines with Exponential Extrapolation</a></li>
+<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE\">soft magnetic material approximated by Smoothing Splines with Exponential Extrapolation</a></li>
 </ul>
 
 <h5>Version 3.2.2, 2014-12-05 (Johannes&nbsp;Ziske, Thomas&nbsp;B&ouml;drich)</h5>

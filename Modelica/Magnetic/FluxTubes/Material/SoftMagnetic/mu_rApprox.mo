@@ -36,12 +36,12 @@ The relative permeability mu_r as a function of flux density B for all soft magn
 </div>
 
 <p>
-Two of the five parameters of this equation have a physical meaning, namely the initial relative permeability mu_i at B=0 and the magnetic flux density at maximum permeability B_myMax. B_N is the flux density normalized to latter parameter.
+Two of the five parameters of this equation have a physical meaning, namely the initial relative permeability mu_i at B=0 and the magnetic flux density at maximum permeability B_myMax. B_N is the flux density normalized to the latter parameter.
 </p>
 <h4>Note:</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.app_mu_r\">app_mu_r</a> should be preferred 
-due to the chance to inline the function.
+since it can be inlined.
 </p>
 </html>"));
 end mu_rApprox;
