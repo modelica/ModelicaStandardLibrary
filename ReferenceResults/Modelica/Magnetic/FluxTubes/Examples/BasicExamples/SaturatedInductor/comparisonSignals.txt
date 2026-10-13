@@ -1,0 +1,7 @@
+time
+coil.i
+coil.Phi
+r_mLeak.port_p.Phi
+r_mFe.mu_r
+r_mFe.B
+r_mFe.H

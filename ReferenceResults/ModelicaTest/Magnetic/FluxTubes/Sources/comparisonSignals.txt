@@ -1,0 +1,9 @@
+time
+constantSource.V_m
+constantSource.Phi
+signalSource.V_m
+signalSource.Phi
+constantSource1.Phi
+constantSource1.V_m
+signalSource1.Phi
+signalSource1.V_m

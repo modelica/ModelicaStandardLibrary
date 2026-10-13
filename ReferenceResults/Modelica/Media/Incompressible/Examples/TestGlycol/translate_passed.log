@@ -1,0 +1,29 @@
+﻿ = true
+Translation of Modelica.Media.Incompressible.Examples.TestGlycol:
+The DAE has 20 scalar unknowns and 20 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 3
+  Variables: 26
+  Constants: 2 (2 scalars)
+  Parameters: 3 (3 scalars)
+  Unknowns: 21 (20 scalars)
+  Equations: 23
+  Nontrivial: 18
+Translated Model
+  Constants: 10 scalars
+  Free parameters: 1 scalars
+  Time-varying variables: 13 scalars
+  Alias variables: 1 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

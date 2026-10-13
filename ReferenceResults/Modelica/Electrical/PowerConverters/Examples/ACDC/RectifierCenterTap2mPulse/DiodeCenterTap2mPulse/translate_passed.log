@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.DiodeCenterTap2mPulse:
+The DAE has 267 scalar unknowns and 267 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 37
+  Variables: 419
+  Constants: 12 (12 scalars)
+  Parameters: 163 (199 scalars)
+  Unknowns: 244 (267 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 161
+  Nontrivial: 132
+Translated Model
+  Constants: 99 scalars
+  Free parameters: 30 scalars
+  Parameter depending: 107 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 66 scalars
+  Alias variables: 176 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {20}
+  Sizes after manipulation of the linear systems: {6}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  meanCurrent.x
+  meanVoltage.x
+  rootMeanSquareVoltage.mean.x
+ 

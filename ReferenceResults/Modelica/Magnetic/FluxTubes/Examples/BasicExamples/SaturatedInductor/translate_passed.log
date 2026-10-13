@@ -1,0 +1,42 @@
+﻿ = true
+Translation of Modelica.Magnetic.FluxTubes.Examples.BasicExamples.SaturatedInductor:
+The DAE has 67 scalar unknowns and 67 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 12
+  Variables: 104
+  Parameters: 37 (37 scalars)
+  Unknowns: 67 (67 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 62
+  Nontrivial: 51
+Translated Model
+  Constants: 12 scalars
+  Free parameters: 28 scalars
+  Parameter depending: 11 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 23 scalars
+  Alias variables: 30 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {10}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: {12}
+  Sizes after manipulation of the nonlinear systems: {3}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {8}
+    Sizes after manipulation of the nonlinear systems: {1}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There is one state to be selected from:
+  coil.i
+  coil.Phi
+  r_mLeak.port_p.Phi
+ 

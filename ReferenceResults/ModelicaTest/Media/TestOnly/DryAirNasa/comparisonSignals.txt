@@ -1,0 +1,10 @@
+time
+T
+eta
+lambda
+eta_der
+lambda_der
+eta2
+lambda2
+eta2_der
+lambda2_der

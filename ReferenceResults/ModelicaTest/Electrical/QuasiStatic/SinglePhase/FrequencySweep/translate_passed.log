@@ -1,0 +1,37 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.QuasiStatic.SinglePhase.FrequencySweep">ModelicaTest.Electrical.QuasiStatic.SinglePhase.FrequencySweep</a>
+The DAE has 296 scalar unknowns and 296 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 115
+  Variables: 352
+  Parameters: 56 (56 scalars)
+  Unknowns: 296 (296 scalars)
+  Differentiated variables: 10 scalars
+  Equations: 224
+  Nontrivial: 188
+Translated Model
+  Constants: 40 scalars
+  Free parameters: 38 scalars
+  Parameter depending: 38 scalars
+  Outputs: 4 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 95 scalars
+  Alias variables: 141 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.QuasiStatic.SinglePhase.FrequencySweep#text$constantSource.pin_p.reference:gamma">constantSource.pin_p.reference.gamma</a>
+<a href="Modelica://ModelicaTest.Electrical.QuasiStatic.SinglePhase.FrequencySweep#text$currentCurrent.pin_p.reference:gamma">currentCurrent.pin_p.reference.gamma</a>
+<a href="Modelica://ModelicaTest.Electrical.QuasiStatic.SinglePhase.FrequencySweep#text$currentSource.pin_p.reference:gamma">currentSource.pin_p.reference.gamma</a>
+<a href="Modelica://ModelicaTest.Electrical.QuasiStatic.SinglePhase.FrequencySweep#text$voltageSource.pin_p.reference:gamma">voltageSource.pin_p.reference.gamma</a>
+Finished

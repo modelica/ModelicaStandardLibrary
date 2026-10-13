@@ -1,0 +1,6 @@
+time
+mean.y
+rectifiedMean.y
+rootMeanSquare.y
+harmonic.mean1.y
+harmonic.mean2.y
