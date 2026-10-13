@@ -352,33 +352,32 @@ The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> i
       import Modelica.Units.SI;
       import Modelica.Constants.pi;
       import funB=Modelica.Math.Nonlinear.Examples.UtilityFunctions.funB;
-      import Modelica.Math.Nonlinear.quadratureLobatto;
       import Modelica.Math.Nonlinear.quadratureNewtonCotes;
       parameter SI.MagneticFluxDensity Bpeak=1 "Amplitude";
-      parameter SI.Angle alfa(final min=0, final max=pi)=2*pi/3 "Pole coverage";
+      parameter SI.Angle alpha(final min=0, final max=pi)=2*pi/3 "Pole coverage";
       parameter SI.Angle beta(final min=0, final max=pi)=pi "Coil width";
       parameter Integer N=180 "Number of intervals";
       SI.Angle pos=2*pi*time/Tend "Position";
-      SI.MagneticFluxDensity B=Bpeak*funB(pos, alfa) "Flux density";
-      parameter SI.MagneticFlux psi0=Bpeak*wlD*(min(alfa, beta) +
-        (if alfa<beta then (1 + (pi/2 - beta/2)/(pi/2 - alfa/2))/2*(beta - alfa) else 0))
+      SI.MagneticFluxDensity B=Bpeak*funB(pos, alpha) "Flux density";
+      parameter SI.MagneticFlux psi0=Bpeak*wlD*(min(alpha, beta) +
+        (if alpha<beta then (1 + (pi/2 - beta/2)/(pi/2 - alpha/2))/2*(beta - alpha) else 0))
         "Max. flux linkage (analytical)";
-      SI.MagneticFlux psi1=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+      SI.MagneticFlux psi1=Bpeak*wlD*quadratureNewtonCotes(function funB(alpha=alpha),
         pos + pi/2 - beta/2, pos + pi/2  + beta/2, N=N, d=1)
         "Flux linkage using trapezoidal rule";
-      SI.MagneticFlux psi2=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+      SI.MagneticFlux psi2=Bpeak*wlD*quadratureNewtonCotes(function funB(alpha=alpha),
         pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=2)
         "Flux linkage using Simpson's rule";
-      SI.MagneticFlux psi3=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+      SI.MagneticFlux psi3=Bpeak*wlD*quadratureNewtonCotes(function funB(alpha=alpha),
         pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=3)
         "Flux linkage using 3/8-rule";
-      SI.MagneticFlux psi4=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+      SI.MagneticFlux psi4=Bpeak*wlD*quadratureNewtonCotes(function funB(alpha=alpha),
         pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=4)
         "Flux linkage using Boole's rule";
-      SI.MagneticFlux psi5=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+      SI.MagneticFlux psi5=Bpeak*wlD*quadratureNewtonCotes(function funB(alpha=alpha),
         pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=5)
         "Flux linkage using d=5";
-      SI.MagneticFlux psi6=Bpeak*wlD*quadratureNewtonCotes(function funB(alfa=alfa),
+      SI.MagneticFlux psi6=Bpeak*wlD*quadratureNewtonCotes(function funB(alpha=alpha),
         pos + pi/2  - beta/2, pos + pi/2  + beta/2, N=N, d=6)
         "Flux linkage using d=6";
       SI.Voltage v=-(psi1 - xi)/Td "Induced voltage";
@@ -405,7 +404,7 @@ As the rotor position increases, the flux linkage of a coil of width <code>&beta
 by integration over the interval <code>[pos + &pi;/2 - beta/2, pos + &pi;/2 + &beta;/2]</code>.
 </p>
 <p>
-The maximum of the flux linkage <code>psi0</code> is calculated using analytically. 
+The maximum of the flux linkage <code>psi0</code> is calculated analytically. 
 </p>
 <ul>
 <li><code>psi1</code> is the result of the moving integral using <strong>d=1 trapezoidal rule</strong></li>
@@ -487,13 +486,13 @@ Since flux linkage is not differentiable, a derivative with first-order lag is u
         import Modelica.Math.wrapAngle;
         import Modelica.Units.SI;
         import Modelica.Constants.pi;
-        input SI.Angle alfa "Pole coverage";
+        input SI.Angle alpha "Pole coverage";
       protected
         SI.Angle gap "Pole gap";
         SI.Angle b[4] "Borders between linear and constant";
         SI.Angle x "Angle wrapped to [0, 2*pi)";
       algorithm
-        gap:=pi - alfa;
+        gap:=pi - alpha;
         b:={gap/2, pi - gap/2, pi + gap/2, 2*pi - gap/2};
         x:=wrapAngle(u, positiveRange=true);
         if x<b[1] then
