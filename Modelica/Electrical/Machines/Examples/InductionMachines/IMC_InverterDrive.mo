@@ -13,7 +13,7 @@ model IMC_InverterDrive
   parameter SI.Voltage VDC=factorY2DC(m)*VNominal/sqrt(3) "Theoretical DC voltage";
   parameter SI.Capacitance CDC=5e-3 "DC capacitor";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
-  parameter SI.AngularVelocity wLoad=1440.45*2*pi/60 "Nominal load speed";
+  parameter SI.AngularVelocity wLoad=Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter SI.Inertia JLoad=0.29 "Load's moment of inertia";
   Polyphase.Sources.SineVoltage sineVoltage(
     final m=m,
