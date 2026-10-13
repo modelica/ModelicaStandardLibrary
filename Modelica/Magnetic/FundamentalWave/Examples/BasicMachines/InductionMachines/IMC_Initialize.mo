@@ -11,7 +11,7 @@ model IMC_Initialize
   parameter SI.Time tStart=0.5 "Start time";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
   parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
-       1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
