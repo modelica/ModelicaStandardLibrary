@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.Utilities.ParameterRecords;
 record SM_PermanentMagnetData
   "Common parameters for synchronous machines with permanent magnet"
-  extends SM_ReluctanceRotorData(Lmd=0.3/(2*pi*fsNominal), Lmq=0.3/(2*pi*
+  extends SM_ReluctanceRotorData(Lmd=0.3'Ohm'/(2*pi*fsNominal), Lmq=0.3'Ohm'/(2*pi*
         fsNominal));
   import Modelica.Constants.pi;
   parameter SI.Voltage VsOpenCircuit=112.3
