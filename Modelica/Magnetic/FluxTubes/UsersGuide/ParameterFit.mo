@@ -28,10 +28,11 @@ can be determined by minimizing the following objective function:
 k&ge;k0
 </code></pre>
 <p>
-Functions which can be called from Octave or Matlab are provided in the repository 
-<a href=\"https://github.com/AHaumer/AppMag\">Approximation of magnetic characteristics</a> 
+Functions which can be called from Octave or Matlab are provided in the subdirectory 
+<a href=\"modelica://Modelica/Resources/Utilities/Modelica/Magnetic/FluxTubes/Material/Approximation/SSEE\">Approximation of magnetic characteristics</a> 
 together with the used raw data RD.ods in OpenDocument format as well as the 
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE\">BaseData Modelica record</a>.
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.SSEE\">BaseData Modelica record</a>. 
+Further information about this preprocssing tool can be found in the enclosed README.md.
 </p>
 </html>"));
 end ParameterFit;
