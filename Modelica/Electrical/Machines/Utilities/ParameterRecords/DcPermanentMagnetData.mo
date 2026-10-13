@@ -1,7 +1,6 @@
 within Modelica.Electrical.Machines.Utilities.ParameterRecords;
 record DcPermanentMagnetData "Common parameters for DC machines"
   extends Modelica.Icons.Record;
-  import Modelica.Constants.pi;
   parameter SI.Inertia Jr=0.15 "Rotor's moment of inertia";
   parameter SI.Inertia Js=Jr "Stator's moment of inertia";
   parameter SI.Voltage VaNominal=100
@@ -11,7 +10,7 @@ record DcPermanentMagnetData "Common parameters for DC machines"
     "Nominal armature current (>0..Motor, <0..Generator)"
     annotation (Dialog(tab="Nominal parameters"));
   parameter SI.AngularVelocity wNominal(displayUnit="rev/min")=
-       1425*2*pi/60 "Nominal speed"
+       Modelica.Units.Conversions.from_rpm(1425) "Nominal speed"
     annotation (Dialog(tab="Nominal parameters"));
   parameter SI.Temperature TaNominal=293.15
     "Nominal armature temperature"
