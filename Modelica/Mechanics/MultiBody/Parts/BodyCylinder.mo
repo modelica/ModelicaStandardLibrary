@@ -5,7 +5,6 @@ model BodyCylinder
   import Modelica.Units.NonSI;
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Math.Vectors.normalizeWithAssert;
-  import Modelica.Units.Conversions.to_unit1;
   import Modelica.Constants.pi;
 
   Interfaces.Frame_a frame_a
@@ -21,7 +20,7 @@ model BodyCylinder
   parameter SI.Position r_shape[3]={0,0,0}
     "Vector from frame_a to cylinder origin, resolved in frame_a";
   parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=
-    to_unit1(r - r_shape)
+    (r - r_shape) / 1'm'
     "Vector in length direction of cylinder, resolved in frame_a"
     annotation (Evaluate=true);
   parameter SI.Length length=Modelica.Math.Vectors.length(r - r_shape)
