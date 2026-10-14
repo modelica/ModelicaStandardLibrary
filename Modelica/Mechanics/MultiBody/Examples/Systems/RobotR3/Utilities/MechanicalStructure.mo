@@ -1,7 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities;
 model MechanicalStructure
   "Model of the mechanical part of the r3 robot (without animation)"
-  import Modelica.Units.Conversions.to_unit1;
 
   parameter Boolean animation=true "= true, if animation shall be enabled";
   parameter SI.Mass mLoad(min=0)=15 "Mass of load";
@@ -213,7 +212,7 @@ model MechanicalStructure
     width=0.05,
     height=0.05,
     color={255,0,0},
-    lengthDirection = to_unit1(rLoad),
+    lengthDirection = rLoad / 1'm',
     length=Modelica.Math.Vectors.length(rLoad),
     animation=animation)
     annotation (Placement(transformation(
