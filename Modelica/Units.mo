@@ -1296,7 +1296,10 @@ Practical Guide to Metrication</strong> (Springer 1997).</p>
     output Real result(unit="1") "Real number r with unit=\"1\"";
   algorithm
     result := r;
-    annotation (Inline=true, Documentation(info="<html>
+    annotation (
+      Inline=true,
+      obsolete="Please divide by a unitful literal instead, such as r/1'm' for a position r",
+      Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Modelica.Units.Conversions.<strong>to_unit1</strong>(r);
