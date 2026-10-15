@@ -1942,16 +1942,17 @@ Avoid specifying <code>label</code> for an <code>Axis</code>.
 In particular, <code>label</code> shall not be used for the following purposes:
 </p>
 <ul>
-<li><p>
-Conveying the axis unit (not allowed according to the Modelica specification).
-</p></li>
-<li><p>
-As substitute for curve legends, or showing information already present in the curve legends.
-</p></li>
-<li><p>
-Quantity names, for the sake of consistency across the library.
-(Nothing prevents a tool from using <code>quantity</code> attributes of the plotted variables to automatically and consistently present quantity names when no <code>label</code> is given.)
-</p></li>
+  <li>
+    Conveying the axis unit (not allowed according to the Modelica specification).
+  </li>
+  <li>
+    As substitute for curve legends, or showing information already present in the curve legends.
+  </li>
+  <li>
+    Quantity names, for the sake of consistency across the library.
+    (Nothing prevents a tool from using <code>quantity</code> attributes of the plotted variables to automatically and
+    consistently present quantity names when no <code>label</code> is given.)
+  </li>
 </ul>
 
 
