@@ -1851,7 +1851,8 @@ Graphical illustrations shall not be added in the diagram layer, but can be adde
     annotation (Documentation(info="<html>
 <p>
 The use of figures in example models shall consider the following guidelines.
-Figures are defined in the <code>figures</code> sub-annotation of the <code>Documentation</code> annotation, explained in detail in <a href=\"https://specification.modelica.org/maint/3.6/annotations.html#annotations-for-figures\">Section&nbsp;18.2.2 <em>Figures</em> of the Modelica&nbsp;3.6 specification</a>.
+Figures are defined in the <code>figures</code> sub-annotation of the <code>Documentation</code> annotation, explained in detail in
+<a href=\"https://specification.modelica.org/maint/3.6/annotations.html#annotations-for-figures\">Section&nbsp;18.2.2 <em>Figures</em> of the Modelica&nbsp;3.6 specification</a>.
 See also <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Figures\">Figures embedded in HTML documentation</a>.
 </p>
 
