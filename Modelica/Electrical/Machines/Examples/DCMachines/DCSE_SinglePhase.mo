@@ -7,7 +7,7 @@ model DCSE_SinglePhase
   parameter SI.Time tRamp=0.9 "Resistance ramp";
   parameter SI.Torque TLoad=63.66 "Nominal load torque";
   parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
-       1410*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1410) "Nominal load speed";
   parameter SI.Inertia JLoad=0.15
     "Load's moment of inertia";
   Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse(
