@@ -303,6 +303,10 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
   #include <direct.h>
   #include <sys/types.h>
   #include <sys/stat.h>
+  #if !defined(WIN32_LEAN_AND_MEAN)
+    #define WIN32_LEAN_AND_MEAN
+  #endif
+  #include <windows.h>
 
   #if defined(__MINGW32__) || defined(__CYGWIN__) /* MinGW and Cygwin have dirent.h */
     #include <dirent.h>
@@ -754,9 +758,54 @@ FALLBACK_getcwd:
 }
 
 _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
-    /* Get full path name of a temporary file name which does not exist */
+    /* Atomically create an empty temporary file and return its full path name */
     char* fullName;
-
+#if defined(_WIN32)
+    char tempPath[BUFFER_LENGTH];
+    char tempFile[BUFFER_LENGTH];
+    DWORD pathLen = GetTempPathA((DWORD)sizeof(tempPath), tempPath);
+    if (pathLen == 0 || pathLen >= (DWORD)sizeof(tempPath)) {
+        ModelicaFormatError("Not possible to get path of temporary directory\nError code: %lu",
+            (unsigned long)GetLastError());
+        return "";
+    }
+    if (0 == GetTempFileNameA(tempPath, "tmp", 0, tempFile)) {
+        ModelicaFormatError("Not possible to get temporary filename\nError code: %lu",
+            (unsigned long)GetLastError());
+        return "";
+    }
+    /* GetTempFileNameA already atomically created an empty file with this unique name */
+    fullName = ModelicaDuplicateString(tempFile);
+    ModelicaConvertToUnixDirectorySeparator(fullName);
+#elif defined(_POSIX_) || defined(__GNUC__)
+    /* Use mkstemp to atomically create the temporary file itself (avoiding
+       the race condition of tmpnam) */
+    char fileTemplate[BUFFER_LENGTH];
+    static const char fileSuffix[] = "/modelicaXXXXXX";
+    const char* tmpDir = getenv("TMPDIR");
+    int fileDescriptor;
+    if (tmpDir == NULL || tmpDir[0] == '\0') {
+#if defined(P_tmpdir)
+        tmpDir = P_tmpdir;
+#else
+        tmpDir = "/tmp";
+#endif
+    }
+    if (strlen(tmpDir) + sizeof(fileSuffix) > sizeof(fileTemplate)) {
+        ModelicaFormatError("Path of temporary directory is too long\n\"%s\"", tmpDir);
+        return "";
+    }
+    strcpy(fileTemplate, tmpDir);
+    strcat(fileTemplate, fileSuffix);
+    fileDescriptor = mkstemp(fileTemplate);
+    if (fileDescriptor == -1) {
+        ModelicaFormatError("Not possible to create temporary file\n%s", strerror(errno));
+        return "";
+    }
+    close(fileDescriptor);
+    fullName = ModelicaDuplicateString(fileTemplate);
+    ModelicaConvertToUnixDirectorySeparator(fullName);
+#else
     char* tempName = tmpnam(NULL);
     if (tempName == NULL) {
         ModelicaFormatError("Not possible to get temporary filename\n%s", strerror(errno));
@@ -764,6 +813,7 @@ _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
     }
     fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
+#endif
 
     return fullName;
 }
