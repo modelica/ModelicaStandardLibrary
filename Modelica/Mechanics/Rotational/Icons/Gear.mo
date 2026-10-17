@@ -9,12 +9,14 @@ partial class Gear "Icon of a rotational gear"
         origin={-35.0,60.0},
         fillColor={255,255,255},
         fillPattern=FillPattern.HorizontalCylinder,
-        extent={{-15.0,-40.0},{15.0,40.0}}),
+        extent={{-15.0,-40.0},{15.0,40.0}},
+          pattern=LinePattern.None),
       Rectangle(
         origin={-35.0,0.0},
         fillColor={255,255,255},
         fillPattern=FillPattern.HorizontalCylinder,
-        extent={{-15.0,-21.0},{15.0,21.0}}),
+        extent={{-15.0,-21.0},{15.0,21.0}},
+          pattern=LinePattern.None),
       Line(
         points={{-80.0,20.0},{-60.0,20.0}}),
       Line(
@@ -40,13 +42,15 @@ partial class Gear "Icon of a rotational gear"
         lineColor={64,64,64},
         fillColor={191,191,191},
         fillPattern=FillPattern.HorizontalCylinder,
-        extent={{-25.0,-10.0},{25.0,10.0}}),
+        extent={{-25.0,-10.0},{25.0,10.0}},
+          pattern=LinePattern.None),
       Rectangle(
         origin={75.0,0.0},
         lineColor={64,64,64},
         fillColor={191,191,191},
         fillPattern=FillPattern.HorizontalCylinder,
-        extent={{-25.0,-10.0},{25.0,10.0}}),
+        extent={{-25.0,-10.0},{25.0,10.0}},
+          pattern=LinePattern.None),
       Rectangle(
         origin={-35.0,-19.0},
         fillColor={153,153,153},
@@ -72,7 +76,8 @@ partial class Gear "Icon of a rotational gear"
         lineColor={64,64,64},
         fillColor={191,191,191},
         fillPattern=FillPattern.HorizontalCylinder,
-        extent={{-20.0,-10.0},{20.0,10.0}}),
+        extent={{-20.0,-10.0},{20.0,10.0}},
+          pattern=LinePattern.None),
       Rectangle(
         origin={-35.0,98.0},
         fillColor={153,153,153},
@@ -107,7 +112,8 @@ partial class Gear "Icon of a rotational gear"
         origin={35.0,60.0},
         fillColor={255,255,255},
         fillPattern=FillPattern.HorizontalCylinder,
-        extent={{-15.0,-21.0},{15.0,21.0}}),
+        extent={{-15.0,-21.0},{15.0,21.0}},
+          pattern=LinePattern.None),
       Rectangle(
         origin={35.0,41.0},
         fillColor={153,153,153},
@@ -132,7 +138,8 @@ partial class Gear "Icon of a rotational gear"
         origin={35.0,0.0},
         fillColor={255,255,255},
         fillPattern=FillPattern.HorizontalCylinder,
-        extent={{-15.0,-40.0},{15.0,40.0}}),
+        extent={{-15.0,-40.0},{15.0,40.0}},
+          pattern=LinePattern.None),
       Rectangle(
         origin={35.0,38.0},
         fillColor={153,153,153},

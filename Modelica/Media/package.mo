@@ -3431,10 +3431,12 @@ transport.
               extent={{-100,-100},{100,100}}), graphics={Rectangle(
                         extent={{20,60},{100,-60}},
                         fillPattern=FillPattern.HorizontalCylinder,
-                        fillColor={192,192,192}),Rectangle(
+                        fillColor={192,192,192},
+                pattern=LinePattern.None),       Rectangle(
                         extent={{38,40},{100,-40}},
                         fillPattern=FillPattern.HorizontalCylinder,
-                        fillColor={0,127,255}),Ellipse(
+                        fillColor={0,127,255},
+                pattern=LinePattern.None),     Ellipse(
                         extent={{-100,80},{60,-80}},
                         fillColor={255,255,255},
                         fillPattern=FillPattern.Solid,
@@ -3590,10 +3592,12 @@ with exception of ambient pressure, do not have an effect.
                   -100},{100,100}}), graphics={Rectangle(
                         extent={{-100,60},{100,-60}},
                         fillPattern=FillPattern.HorizontalCylinder,
-                        fillColor={192,192,192}),Rectangle(
+                        fillColor={192,192,192},
+                pattern=LinePattern.None),       Rectangle(
                         extent={{-100,34},{100,-36}},
                         fillPattern=FillPattern.HorizontalCylinder,
-                        fillColor={0,127,255}),Text(
+                        fillColor={0,127,255},
+                pattern=LinePattern.None),     Text(
                         extent={{-150,110},{150,70}},
                         textString="%name", textColor={0,0,255}), Text(
                         extent={{-150,-70},{150,-110}},
