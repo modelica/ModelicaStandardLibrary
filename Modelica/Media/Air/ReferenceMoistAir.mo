@@ -3320,8 +3320,8 @@ for region 2.
         p) else
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Tsat(p);
       if (pds < p) then
-        xws_der := Modelica.Media.Air.ReferenceMoistAir.k_mair*((pds_der*(p -
-          pds) + pds*pds_der)/(p - pds)^2);
+        xws_der := Modelica.Media.Air.ReferenceMoistAir.k_mair*(pds_der*p - pds*
+          p_der)/(p - pds)^2;
       else
         xws_der := 0;
       end if;
@@ -3445,7 +3445,8 @@ for region 2.
           end if;
         else
           if (T < 273.16) then
-            o[1] := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T);
+            o[1] := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T)
+               + pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
             o[2] :=
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(
               p, T);
@@ -3458,12 +3459,12 @@ for region 2.
                   pl,
                   T,
                   Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
-                p, T),
-                  p_der,
-                  T_der);
+                pl, T),
+                  pl_der,
+                  T_der) + (pd_der*T - pd*T_der)/(
+              Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T^2);
 
-            o[5] := (xws_der*o[1] - (1 + xws)*o[4])/o[1]^2 + (pd_der*T - pd*
-              T_der)/Modelica.Media.Air.ReferenceMoistAir.steam.R_s/T^2 + (xw_der
+            o[5] := (xws_der*o[1] - (1 + xws)*o[4])/o[1]^2 + (xw_der
               *o[2] - xw*
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der(
                   p,
@@ -3494,8 +3495,8 @@ for region 2.
                   pl,
                   T,
                   Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
-                p, T),
-                  p_der,
+                pl, T),
+                  pl_der,
                   T_der) + IF97_new.rho_pT_der(
                   pd,
                   T,
