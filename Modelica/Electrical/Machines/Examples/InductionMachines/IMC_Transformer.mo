@@ -190,5 +190,15 @@ at start time tStart2 the machine is fed directly from the voltage source, final
 </ul>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "IMC Transformer",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = aimc.tauElectrical),
+          Curve(x = time, y = aimc.wMechanical)})})}));
 end IMC_Transformer;

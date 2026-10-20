@@ -106,5 +106,15 @@ Default machine parameters are used, but:
 </ul>
 So the machine is at the beginning in cold condition, ending in warm condition
 (with the same armature resistance as the unmodified machine).
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "DCPM Temperature",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = dcpm.ia),
+          Curve(x = time, y = dcpm.tauElectrical),
+          Curve(x = time, y = dcpm.wMechanical)})})}));
 end DCPM_Temperature;

@@ -152,6 +152,17 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 <li>Dd ... No grounding necessary.</li>
 <li>Dz ... No grounding necessary.</li>
 </ul>
-</html>"),
+</html>",
+figures = {
+  Figure(
+        title = "Transformer TestBench",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = transformer.v1[1]),
+          Curve(x = time, y = transformer.v2[1]),
+          Curve(x = time, y = transformer.i1[1]),
+          Curve(x = time, y = transformer.i2[1])})})}),
      experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6));
 end TransformerTestbench;

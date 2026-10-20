@@ -196,5 +196,15 @@ Default machine parameters are used, but:
 <li>Armature reference temperature is set to 80 degC.</li>
 <li>Nominal armature temperature is set to 80 degC.</li>
 </ul>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "DCPM Cooling",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = armature.T),
+          Curve(x = time, y = core.T),
+          Curve(x = time, y = cooling.T)})})}));
 end DCPM_Cooling;

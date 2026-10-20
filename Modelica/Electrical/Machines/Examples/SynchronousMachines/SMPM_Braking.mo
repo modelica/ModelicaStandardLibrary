@@ -158,5 +158,15 @@ Since induced voltage is reduced proportional to falling speed, the braking resi
 achieve constant current and torque.</p>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMPM Braking",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = smpm.tauElectrical),
+          Curve(x = time, y = smpm.wMechanical)})})}));
 end SMPM_Braking;

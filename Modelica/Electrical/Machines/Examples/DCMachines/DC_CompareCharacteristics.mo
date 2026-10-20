@@ -193,5 +193,15 @@ but speed of the series excited dc machine rises when load torque is lowered.
 Dynamic increase of speed is determined by the sum of inertias.
 Load torque of the series excited is not lowered to zero, otherwise speed would rise infinitely.
 </p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+        title = "DCPM CompareCharacteristics",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = ramp.y, y = dcpm.wMechanical),
+          Curve(x = ramp.y, y = dcee.wMechanical),
+          Curve(x = ramp.y, y = dcse.wMechanical)})})}));
 end DC_CompareCharacteristics;

@@ -200,5 +200,15 @@ and the output voltages fed to the machine. The result shows that the torque is 
 whereas the stator voltage is influenced by the d-current.</p>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMPM VoltageSource",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = smpm.tauElectrical),
+          Curve(x = time, y = smpm.wMechanical)})})}));
 end SMPM_VoltageSource;
