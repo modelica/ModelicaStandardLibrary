@@ -1,0 +1,5 @@
+time
+dLATREG.delay.inertialDelaySensitive[1].x
+dLATREG.delay.inertialDelaySensitive[1].y
+dLATREG.delay.inertialDelaySensitive[2].x
+dLATREG.delay.inertialDelaySensitive[2].y

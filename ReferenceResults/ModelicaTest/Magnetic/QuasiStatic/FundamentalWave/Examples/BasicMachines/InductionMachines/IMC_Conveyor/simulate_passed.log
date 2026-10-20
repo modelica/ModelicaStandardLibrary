@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Wed May 20 08:04:44 2026)
+
+dymosim started
+... "ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 5
+   CPU-time for integration                : 1.6 seconds
+   CPU-time for one grid interval          : 0.032 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 50006
+   Number of grid points                   : 50001
+   Number of accepted steps                : 11649
+   Number of f-evaluations (dynamics)      : 23324
+   Number of crossing function evaluations : 61654
+   Number of Jacobian-evaluations          : 84
+   Number of model time events             : 3
+   Number of input time events             : 0
+   Number of state events                  : 1
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.21e-08
+   Maximum integration stepsize            : 0.00531
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor

@@ -1,0 +1,48 @@
+﻿ = true
+Translation of Modelica.Mechanics.Rotational.Examples.SimpleGearShift:
+The DAE has 84 scalar unknowns and 84 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 11
+  Variables: 131
+  Constants: 14 (14 scalars)
+  Parameters: 33 (35 scalars)
+  Unknowns: 84 (84 scalars)
+  Differentiated variables: 9 scalars
+  Equations: 78
+  Nontrivial: 65
+Translated Model
+  Constants: 28 scalars
+  Free parameters: 25 scalars
+  Parameter depending: 2 scalars
+  Outputs: 3 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 41 scalars
+  Alias variables: 37 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {4, 4, 12}
+  Sizes after manipulation of the linear systems: {3, 3, 3}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2}
+    Sizes after manipulation of the linear systems: {0, 0}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Dynamically selected continuous time states
+There are 2 sets of dynamic state selection.
+From set 1 there are 2 states to be selected from:
+  clutch.phi_rel
+  engine.phi
+  load.phi
+ 
+From set 2 there are 2 states to be selected from:
+  clutch.w_rel
+  engine.w
+  load.w
+ 

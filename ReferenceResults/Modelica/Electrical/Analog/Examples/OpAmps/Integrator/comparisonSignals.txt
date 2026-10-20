@@ -1,0 +1,4 @@
+time
+integrator.c.v
+integrator.opAmp.out.v
+integrator.opAmp.out.i

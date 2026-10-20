@@ -16,22 +16,22 @@ equation
       Tolerance=1e-06),
       Documentation(info="<html>
 <p>
-This examples demonstrates bidirectional coupling of two batteries with different voltages as used in automotive. 
+This examples demonstrates bidirectional coupling of two batteries with different voltages as used in automotive.
 For <code>idleDutyCycle = 1 - (VLV/VHV)</code>, no current is exchanged.
 </p>
 <p>
-Starting with <code>dutyCycle &lt; idleDutyCycle</code>, the high voltage battery feeds the low voltage battery. 
-Changing the <code>dutyCycle &gt; idleDutyCycle</code>, the low voltage battery feeds the high voltage battery. 
+Starting with <code>dutyCycle &lt; idleDutyCycle</code>, the high voltage battery feeds the low voltage battery.
+Changing the <code>dutyCycle &gt; idleDutyCycle</code>, the low voltage battery feeds the high voltage battery.
 </p>
 <p>
-The capacitors are precharged to the battery voltages, but the inductor leads zero current. 
+The capacitors are precharged to the battery voltages, but the inductor leads zero current.
 The current sensor may be used to implement current control.
 </p>
 <h4>Control</h4>
 <p>
 For hints implementing control, see:
-Stefan Norbert Matlok, 
-<a href=\"https://nbn-resolving.org/urn:nbn:de:bvb:29-opus4-146221\"><em>Digitale Regelung bidirektionaler Gleichspannungswandler</em></a> 
+Stefan Norbert Matlok,
+<a href=\"https://nbn-resolving.org/urn:nbn:de:bvb:29-opus4-146221\"><em>Digitale Regelung bidirektionaler Gleichspannungswandler</em></a>
 (German, <em>Digital control of bidirectional DC/DC converters</em>), PhD thesis University Erlangen-Nuremberg 2020.
 </p>
 </html>"));

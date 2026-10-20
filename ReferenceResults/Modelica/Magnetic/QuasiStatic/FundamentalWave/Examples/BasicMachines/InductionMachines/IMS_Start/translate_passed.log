@@ -1,0 +1,49 @@
+﻿ = true
+Translation of Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start:
+The DAE has 5030 scalar unknowns and 5030 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 2137
+  Variables: 5878
+  Constants: 51 (51 scalars)
+  Parameters: 1067 (1167 scalars)
+  Unknowns: 4760 (5030 scalars)
+  Differentiated variables: 61 scalars
+  Equations: 1821
+  Nontrivial: 1533
+Translated Model
+  Constants: 1981 scalars
+  Free parameters: 105 scalars
+  Parameter depending: 302 scalars
+  Outputs: 2 scalars
+  Continuous time states: 11 scalars
+  Time-varying variables: 930 scalars
+  Alias variables: 2930 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {14, 8, 112, 5, 8, 6, 6, 6, 6, 2, 2}
+  Sizes after manipulation of the linear systems: {2, 2, 18, 2, 2, 2, 2, 2, 2, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  ims.rotor.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+  ims.rotor.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+  ims.rotor.zeroInductor.i0
+  ims.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+  ims.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+  ims.stator.zeroInductor.i0
+  imsQS.rotor.electroMagneticConverter.port_p.reference.gamma
+  loadInertia.phi
+  loadInertia.w
+  loadInertiaQS.phi
+  loadInertiaQS.w
+ 

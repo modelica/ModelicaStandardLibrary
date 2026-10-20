@@ -1,0 +1,29 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Sensors.CutForceAndTorque3:
+The DAE has 1570 scalar unknowns and 1570 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 81
+  Variables: 661
+  Constants: 2 (2 scalars)
+  Parameters: 130 (184 scalars)
+  Unknowns: 529 (1570 scalars)
+  Equations: 481
+  Nontrivial: 314
+Translated Model
+  Constants: 767 scalars
+  Free parameters: 42 scalars
+  Parameter depending: 288 scalars
+  Alias variables: 659 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

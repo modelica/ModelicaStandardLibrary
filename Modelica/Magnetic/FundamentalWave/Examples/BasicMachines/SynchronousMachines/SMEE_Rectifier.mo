@@ -42,6 +42,7 @@ model SMEE_Rectifier
     statorCoreParameters(VRef=100),
     strayLoadParameters(IRef=100),
     brushParameters(ILinear=0.01),
+    ie(fixed=true),
     ir(each fixed=true),
     Rs=smeeData.Rs*m/3,
     Lssigma=smeeData.Lssigma*m/3,
@@ -182,7 +183,6 @@ protected
 initial equation
   smee.is[1:2] = zeros(2);
   //conditional damper cage currents are defined as fixed start values
-  smee.ie = 0;
 equation
   connect(terminalBox.plug_sn, smee.plug_sn) annotation (Line(
       points={{4,-20},{4,-20}}, color={0,0,255}));

@@ -1,0 +1,5 @@
+Check of <a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive">ModelicaTest.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive</a>
+The model has the same number of unknowns and equations: 373
+The model has the same number of unknowns and equations:
+  369+size(pulse2.twoPulse.filter[1].transferFunction[1].a, 1)+size(  pulse2.twoPulse.filter[1].transferFunction[2].a, 1)
+Check of <a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive">ModelicaTest.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive</a> successful.

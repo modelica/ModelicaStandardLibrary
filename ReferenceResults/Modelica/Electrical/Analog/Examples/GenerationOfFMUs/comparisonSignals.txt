@@ -1,0 +1,7 @@
+time
+capacitor2a.v
+capacitor2b.v
+directCapacitor1.capacitor.v
+directInductor3.inductor.i
+inductor4a.i
+inductor4b.i

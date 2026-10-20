@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 829
+The model could not be deduced to be symbolically well-posed.
+The model has
+  828+max([size(numberOfPeople.columns, 1); size(numberOfPeople.offset, 1)])
+scalar unknowns and
+  820+(if ductOut.massDynamics == Modelica.Fluid.Types.Dynamics.SteadyState then 2   else 4)+max([size(numberOfPeople.columns, 1); size(numberOfPeople.offset, 1)])  +(if ductIn.massDynamics == Modelica.Fluid.Types.Dynamics.SteadyState then 2   else 4)
+scalar equations.
+However, exploiting the given bindings parameters gives the same number of unknowns and equations:
+  829
+Check of <a href="Modelica://Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls">Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls</a> successful.
+

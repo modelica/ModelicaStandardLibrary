@@ -1,0 +1,5 @@
+time
+inertia1.w
+inertia2.w
+inertia3.w
+inertia4.w

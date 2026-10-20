@@ -1,0 +1,5 @@
+Check of <a href="Modelica://Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence">Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence</a>
+The model has the same number of unknowns and equations: 15
+The model has the same number of unknowns and equations:
+  9+2*size(Hw.a, 1)
+Check of <a href="Modelica://Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence">Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence</a> successful.
