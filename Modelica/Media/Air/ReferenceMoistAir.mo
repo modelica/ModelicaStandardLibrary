@@ -2078,10 +2078,11 @@ for region 2.
             "Gibbs function and derivatives w.r.t. T and p";
 
         protected
-          final constant Real[5] g_0={-0.632020233449497E+006,0.655022213658955,
-              -0.189369929326131E-007,0.339746123271053E-014,-0.556464869058991E-021}
+          final constant Real[5] g_0(each unit="J/kg")={-0.632020233449497E+006,
+              0.655022213658955,-0.189369929326131E-007,0.339746123271053E-014,
+              -0.556464869058991E-021}
             "Coefficients of EOS";
-          final constant Real s_0=-0.332733756492168E+004 "Coefficient of EOS";
+          final constant Real s_0(unit="J/(kg.K)")=-0.332733756492168E+004 "Coefficient of EOS";
           final Complex[2] t={Complex(0.368017112855051E-001,
               0.510878114959572E-001),Complex(0.337315741065416,
               0.335449415919309)} "Coefficients of EOS";
