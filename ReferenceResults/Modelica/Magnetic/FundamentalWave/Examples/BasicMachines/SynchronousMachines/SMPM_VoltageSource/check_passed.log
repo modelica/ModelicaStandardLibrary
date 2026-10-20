@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 911
+The model could not be deduced to be symbolically well-posed.
+The model has
+  905+voltageQuasiRMSSensor.ToSpacePhasor1.m+currentQuasiRMSSensor.ToSpacePhasor1.m
+scalar unknowns and
+  908+currentQuasiRMSSensor.ToSpacePhasor1.m
+scalar equations.
+However, exploiting the given bindings parameters gives the same number of unknowns and equations:
+  911
+Check of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_VoltageSource">Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_VoltageSource</a> successful.
+

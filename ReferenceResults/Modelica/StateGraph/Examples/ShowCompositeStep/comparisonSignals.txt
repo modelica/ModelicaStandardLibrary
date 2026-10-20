@@ -1,0 +1,10 @@
+time
+compositeStep.transition3.enableFire
+compositeStep.transition4.enableFire
+compositeStep.transition4a.enableFire
+compositeStep.transition5.enableFire
+compositeStep.transition6.enableFire
+compositeStep.transition6a.enableFire
+transition1.enableFire
+transition2.enableFire
+transition7.enableFire

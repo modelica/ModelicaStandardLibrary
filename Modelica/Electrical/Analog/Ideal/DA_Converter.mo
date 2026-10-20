@@ -66,7 +66,7 @@ y = SUM ( x[i]*2^(i-1) )*Vref/(2^N-1),
         Text(
           extent={{-60,50},{60,10}},
           textColor={0,0,255},
-          textString="%n-bit"),
+          textString="%N-bit"),
         Text(
           extent={{-60,-10},{60,-50}},
           textColor={0,0,255},

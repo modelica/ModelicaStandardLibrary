@@ -1,0 +1,34 @@
+﻿ = true
+Translation of ModelicaTest.Tables.CombiTimeTable.Test13:
+The DAE has 15 scalar unknowns and 15 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 7
+  Variables: 45
+  Parameters: 30 (31 scalars)
+  Unknowns: 15 (15 scalars)
+  Differentiated variables: 1 scalars
+  Equations: 16
+  Nontrivial: 16
+Translated Model
+  Constants: 14 scalars
+  Free parameters: 12 scalars
+  Parameter depending: 7 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 8 scalars
+  Alias variables: 5 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  err1.y
+ 

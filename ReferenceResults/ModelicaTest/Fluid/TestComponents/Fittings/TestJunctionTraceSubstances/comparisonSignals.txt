@@ -1,0 +1,5 @@
+time
+junction1.port_2.C_outflow[1]
+junction1.medium.p
+junction1.medium.Xi[1]
+junction1.medium.T

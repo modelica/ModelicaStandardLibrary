@@ -1,0 +1,3 @@
+time
+Capacitor1.v
+HeatCapacitor1.T

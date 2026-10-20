@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel.SinglePhaseTwoLevel_R">Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel.SinglePhaseTwoLevel_R</a>
+The model has the same number of unknowns and equations: 171
+The model could not be deduced to be symbolically well-posed.
+The model has
+  163+fundamentalWaveVoltage.product1.nu+fundamentalWaveVoltage.product2.nu+  fundamentalWaveCurrent.product1.nu+fundamentalWaveCurrent.product2.nu
+scalar unknowns and
+  164+6*(if  not inverter.useHeatPort then 1 else 0)+(if  not resistor.useHeatPort   then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  171
+Check of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel.SinglePhaseTwoLevel_R">Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel.SinglePhaseTwoLevel_R</a> successful.

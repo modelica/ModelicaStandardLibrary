@@ -1,0 +1,3 @@
+time
+saturatingInductor.Psi
+saturatingInductor.i

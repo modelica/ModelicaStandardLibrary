@@ -1,0 +1,8 @@
+time
+evenExponent.y
+oddExponent.y
+oneExponent.y
+zeroExponent.y
+nonInteger.y
+sqrtExponent.y
+inverse.y

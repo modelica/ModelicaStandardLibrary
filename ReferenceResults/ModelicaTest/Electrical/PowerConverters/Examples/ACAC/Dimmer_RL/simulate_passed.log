@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Wed May 20 10:37:37 2026)
+
+dymosim started
+... "ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_RL" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 3
+   CPU-time for integration                : 0.228 seconds
+   CPU-time for one grid interval          : 0.0152 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 17267
+   Number of grid points                   : 15001
+   Number of accepted steps                : 38946
+   Number of f-evaluations (dynamics)      : 67612
+   Number of crossing function evaluations : 62565
+   Number of Jacobian-evaluations          : 15909
+   Number of model time events             : 150
+   Number of input time events             : 0
+   Number of state events                  : 1338
+   Number of step events                   : 0
+   Minimum integration stepsize            : 5.03e-15
+   Maximum integration stepsize            : 0.000466
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Electrical.PowerConverters.Examples.ACAC.Dimmer_RL

@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties">Modelica.Blocks.Examples.Noise.UniformNoiseProperties</a>
+The model has the same number of unknowns and equations: 38
+The model could not be deduced to be symbolically well-posed.
+The model has
+  36+theoreticalVariance.nu
+scalar unknowns and
+  38
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  38
+Check of <a href="Modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties">Modelica.Blocks.Examples.Noise.UniformNoiseProperties</a> successful.

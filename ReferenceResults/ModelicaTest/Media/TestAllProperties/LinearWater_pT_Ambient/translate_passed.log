@@ -1,0 +1,28 @@
+﻿ = true
+Translation of ModelicaTest.Media.TestAllProperties.LinearWater_pT_Ambient:
+The DAE has 56 scalar unknowns and 56 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 9
+  Variables: 63
+  Constants: 3 (3 scalars)
+  Parameters: 3 (3 scalars)
+  Unknowns: 57 (56 scalars)
+  Equations: 56
+  Nontrivial: 52
+Translated Model
+  Constants: 59 scalars
+  Free parameters: 1 scalars
+  Alias variables: 2 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

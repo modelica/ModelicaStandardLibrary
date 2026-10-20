@@ -1,0 +1,168 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestComponents.Pipes.DynamicPipesAndFittings:
+The DAE has 5664 scalar unknowns and 5664 scalar equations.
+Sparse solver handling possible: false.
+Due to flag Advanced.SparseActivate=false.
+Model sparse and large enough: true.
+Sparse solvers are available for dassl, lsodar, cvode, radau, esdirk*, sdirk* (using OpenMP, set number of cores with Advanced.NumberOfCores).
+ 
+Statistics
+ 
+Original Model
+  Number of components: 516
+  Variables: 4811
+  Constants: 56 (56 scalars)
+  Parameters: 1181 (1497 scalars)
+  Unknowns: 3574 (5670 scalars)
+  Differentiated variables: 248 scalars
+  Equations: 2020
+  Nontrivial: 1420
+Translated Model
+  Constants: 1990 scalars
+  Free parameters: 153 scalars
+  Parameter depending: 572 scalars
+  Continuous time states: 124 scalars
+  Time-varying variables: 1556 scalars
+  Alias variables: 2952 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,   2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,   2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+  Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  Sizes of nonlinear systems of equations: {15, 15}
+  Sizes after manipulation of the nonlinear systems: {2, 2}
+  Number of numerical Jacobians: 2
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Sizes of nonlinear systems of equations: {15, 15}
+    Sizes after manipulation of the nonlinear systems: {2, 2}
+    Number of numerical Jacobians: 2
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  junction1.medium.h
+  junction1.medium.p
+  junction2.medium.h
+  junction2.medium.p
+  pipe1.mediums[1].h
+  pipe1.mediums[1].p
+  pipe1.mediums[2].h
+  pipe1.mediums[2].p
+  pipe1.mediums[3].h
+  pipe1.mediums[3].p
+  pipe1.mediums[4].h
+  pipe1.mediums[4].p
+  pipe1.mediums[5].h
+  pipe1.mediums[5].p
+  pipe2.mediums[1].h
+  pipe2.mediums[1].p
+  pipe2.mediums[2].h
+  pipe2.mediums[2].p
+  pipe2.mediums[3].h
+  pipe2.mediums[3].p
+  pipe2.mediums[4].h
+  pipe2.mediums[4].p
+  pipe2.mediums[5].h
+  pipe2.mediums[5].p
+  pipe3.mediums[1].h
+  pipe3.mediums[1].p
+  pipe3.mediums[2].h
+  pipe3.mediums[2].p
+  pipe3.mediums[3].h
+  pipe3.mediums[3].p
+  pipe3.mediums[4].h
+  pipe3.mediums[4].p
+  pipe3.mediums[5].h
+  pipe3.mediums[5].p
+  pipe4.mediums[1].h
+  pipe4.mediums[1].p
+  pipe4.mediums[2].h
+  pipe4.mediums[2].p
+  pipe4.mediums[3].h
+  pipe4.mediums[3].p
+  pipe4.mediums[4].h
+  pipe4.mediums[4].p
+  pipe4.mediums[5].h
+  pipe4.mediums[5].p
+  pipe5.mediums[1].h
+  pipe5.mediums[1].p
+  pipe5.mediums[2].h
+  pipe5.mediums[2].p
+  pipe5.mediums[3].h
+  pipe5.mediums[3].p
+  pipe5.mediums[4].h
+  pipe5.mediums[4].p
+  pipe5.mediums[5].h
+  pipe5.mediums[5].p
+  pipe6.mediums[1].h
+  pipe6.mediums[1].p
+  pipe6.mediums[2].h
+  pipe6.mediums[2].p
+  pipe6.mediums[3].h
+  pipe6.mediums[3].p
+  pipe6.mediums[4].h
+  pipe6.mediums[4].p
+  pipe6.mediums[5].h
+  pipe6.mediums[5].p
+  pipe7.mediums[1].h
+  pipe7.mediums[1].p
+  pipe7.mediums[2].h
+  pipe7.mediums[2].p
+  pipe7.mediums[3].h
+  pipe7.mediums[3].p
+  pipe7.mediums[4].h
+  pipe7.mediums[4].p
+  pipe7.mediums[5].h
+  pipe7.mediums[5].p
+  pipe8.mediums[1].h
+  pipe8.mediums[1].p
+  pipe8.mediums[2].h
+  pipe8.mediums[2].p
+  pipe8.mediums[3].h
+  pipe8.mediums[3].p
+  pipe8.mediums[4].h
+  pipe8.mediums[4].p
+  pipe8.mediums[5].h
+  pipe8.mediums[5].p
+  pipe9.mediums[1].h
+  pipe9.mediums[1].p
+  pipe9.mediums[2].h
+  pipe9.mediums[2].p
+  pipe9.mediums[3].h
+  pipe9.mediums[3].p
+  pipe9.mediums[4].h
+  pipe9.mediums[4].p
+  pipe9.mediums[5].h
+  pipe9.mediums[5].p
+  pipe10.mediums[1].h
+  pipe10.mediums[1].p
+  pipe10.mediums[2].h
+  pipe10.mediums[2].p
+  pipe10.mediums[3].h
+  pipe10.mediums[3].p
+  pipe10.mediums[4].h
+  pipe10.mediums[4].p
+  pipe10.mediums[5].h
+  pipe10.mediums[5].p
+  pipe11.mediums[1].h
+  pipe11.mediums[1].p
+  pipe11.mediums[2].h
+  pipe11.mediums[2].p
+  pipe11.mediums[3].h
+  pipe11.mediums[3].p
+  pipe11.mediums[4].h
+  pipe11.mediums[4].p
+  pipe11.mediums[5].h
+  pipe11.mediums[5].p
+  pipe12.mediums[1].h
+  pipe12.mediums[1].p
+  pipe12.mediums[2].h
+  pipe12.mediums[2].p
+  pipe12.mediums[3].h
+  pipe12.mediums[3].p
+  pipe12.mediums[4].h
+  pipe12.mediums[4].p
+  pipe12.mediums[5].h
+  pipe12.mediums[5].p
+ 
