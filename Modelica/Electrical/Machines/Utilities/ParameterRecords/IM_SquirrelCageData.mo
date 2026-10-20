@@ -3,10 +3,10 @@ record IM_SquirrelCageData
   "Common parameters for induction machines with squirrel cage"
   extends InductionMachineData;
   import Modelica.Constants.pi;
-  parameter SI.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*
+  parameter SI.Inductance Lm=3'Ohm'*sqrt(1 - 0.0667)/(2*pi*
       fsNominal) "Stator main field inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/
+  parameter SI.Inductance Lrsigma=3'Ohm'*(1 - sqrt(1 - 0.0667))/
       (2*pi*fsNominal)
     "Rotor stray inductance per phase (equivalent three-phase winding)"
     annotation (Dialog(tab="Nominal resistances and inductances"));
