@@ -32,12 +32,12 @@ model ParallelResonance "Parallel resonance circuit"
         origin={-10,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  QuasiStatic.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
+  QuasiStatic.SinglePhase.Basic.Inductor inductor(L=1'H'/(2*Modelica.Constants.pi))
     annotation (Placement(transformation(
         origin={10,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  QuasiStatic.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
+  QuasiStatic.SinglePhase.Basic.Capacitor capacitor(C=1'F'/(2*Modelica.Constants.pi))
     annotation (Placement(transformation(
         origin={30,20},
         extent={{-10,-10},{10,10}},
