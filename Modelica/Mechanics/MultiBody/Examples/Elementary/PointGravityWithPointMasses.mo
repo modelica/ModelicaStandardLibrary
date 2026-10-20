@@ -10,7 +10,7 @@ model PointGravityWithPointMasses
   Modelica.Mechanics.MultiBody.Parts.PointMass body1(
     m=1,
     sphereDiameter=0.1,
-    r_0(start={0,0.6,0}, each fixed=true),
+    r_0(start={0,0.6,0}, fixed=true),
     v_0(start={1,0,0}, each fixed=true))
     annotation (Placement(transformation(extent={{-20,20},{0,40}})));
   Modelica.Mechanics.MultiBody.Parts.PointMass body2(
