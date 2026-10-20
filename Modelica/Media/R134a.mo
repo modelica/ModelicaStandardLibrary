@@ -1423,7 +1423,11 @@ Please note, that the function can also be called in the two-phase region, but t
       Real B_eta "2nd viscosity virial coeff.";
       Real E "Temperature contribution to residual viscosity";
       Real eta_res "Residual part";
-      Real eta_star "Dilute part";
+      Real eta_star "Reduced dilute part";
+      constant SI.Temperature Tstar=1.0 "Reference temperature";
+      constant SI.MolarMass Mstar=1E-003 "Reference molar mass";
+      constant SI.Length sigmastar=1E-009 "Reference length";
+      constant SI.DynamicViscosity etastar=1E-006 "Reference viscosity";
 
     algorithm
       omega_log := 0;
@@ -1432,8 +1436,8 @@ Please note, that the function can also be called in the two-phase region, but t
            - 1);
       end for;
       omega := Modelica.Math.exp(omega_log);
-      eta_star := (K*sqrt(R134aData.data.MM*1000))/((sigma*1e+09)^2*omega)*sqrt(
-        state.T);
+      eta_star := (K*sqrt(R134aData.data.MM/Mstar))/((sigma/sigmastar)^2*omega)*sqrt(
+        state.T/Tstar);
 
       d_red := state.d/R134aData.data.DCRIT;
       E := 1 + c[3]*state.T/R134aData.data.TCRIT;
@@ -1446,7 +1450,7 @@ Please note, that the function can also be called in the two-phase region, but t
       eta_res := (c[1] + B_eta*eta_star)*d_red + c[2]*d_red^2 + (c[5] + c[6]*
         d_red)/(c[4]*E - d_red) - c[5]/(c[4]*E);
 
-      eta := (eta_star + eta_res*1e3)*1e-06;
+      eta := (eta_star + eta_res*1e3)*etastar;
 
       annotation (Documentation(info="<html>
 <p>This function calculates the dynamic viscosity of R134a from the state record (e.g., use setState_phX function for input). The dynamic viscosity is modelled by the corresponding states method of Klein, McLinden and Laesecke (1997).</p>
@@ -1476,9 +1480,9 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
       SI.ThermalConductivity lambda_reduced "Reduced lambda";
       SI.ThermalConductivity lambda_crit
         "Enhancement of lambda in the critical region";
-      SI.ThermalConductivity chi_star "Correlation length";
-      SI.ThermalConductivity chi_star_ref "Correlation length";
-      SI.ThermalConductivity delta_chi "Chi_star - chi_star_ref";
+      Real chi_star "Dimensionless susceptibility";
+      Real chi_star_ref "Dimensionless susceptibility at the reference temperature";
+      Real delta_chi "Chi_star - chi_star_ref";
       Real rho_molar "Molar density [mol/l]";
       Real dddp "Derivative of density w.r.t. pressure";
       Real dddp_ref "Derivative of density w.r.t. pressure for reference state";
@@ -1488,8 +1492,8 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
       SI.SpecificHeatCapacity cv
         "Specific heat capacity at constant volume";
       SI.DynamicViscosity eta "Dynamic viscosity";
-      SI.ThermalConductivity omega "Crossover function";
-      SI.ThermalConductivity omega_0 "Crossover function";
+      Real omega "Crossover function";
+      Real omega_0 "Crossover function";
 
     algorithm
       f := f_R134a(state.d, state.T);
@@ -1922,6 +1926,10 @@ The function cannot be inverted in a numerical way. Please use functions <a href
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
       Modelica.Media.Common.NewtonDerivatives_ph nDerivs "Newton derivatives";
       Boolean found "Iteration converged";
+      constant SI.TemperatureDifference T_slope=120.0
+        "Slope of the supercritical initial guess for T w.r.t. h/HCRIT";
+      constant Real det_min(unit="J2/(kg2.K)")=1e-10
+        "Smallest magnitude of det";
     algorithm
       i := 0;
       error := 0;
@@ -1938,7 +1946,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
         d := R134aData.data.FDCRIT*3.0;
         //      dTR.T := data.TCRIT + 10.0;
         // linear approximation that can be made generic
-        T := 270.0 + 120.0*(h/R134aData.data.HCRIT);
+        T := 270.0 + T_slope*(h/R134aData.data.HCRIT);
       else
         liquid := h < 1.01*R134aData.data.HCRIT*Common.CubicSplineEval(localx,
           hl_coef[int, 1:4]);
@@ -1966,8 +1974,8 @@ The function cannot be inverted in a numerical way. Please use functions <a href
           error := if not found then 1 else 0;
         end if;
         det := nDerivs.ht*nDerivs.pd - nDerivs.pt*nDerivs.hd;
-        if abs(det) < 1e-10 then
-          det := sign(det)*1e-10;
+        if abs(det) < det_min then
+          det := sign(det)*det_min;
         end if;
         delt := (nDerivs.pd*dh - nDerivs.hd*dp)/det;
         deld := (nDerivs.ht*dp - nDerivs.pt*dh)/det;
