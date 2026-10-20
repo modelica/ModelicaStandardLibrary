@@ -156,9 +156,9 @@ jobs:
         with:
           fetch-depth: 5
       - name: Setup python environment
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
-          python-version: 3.8
+          python-version: 3.11
       - name: Install python packages
         run: |
           pip install --disable-pip-version-check --user pytidylib
@@ -212,9 +212,9 @@ jobs:
         with:
           fetch-depth: 5
       - name: Setup python environment
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
-          python-version: 3.8
+          python-version: 3.11
       - name: Check deprecated Text.lineColor annotation
         run: |
           echo "::add-matcher::./.github/check_deprecated_line_color.json"
