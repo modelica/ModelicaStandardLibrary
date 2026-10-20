@@ -1677,6 +1677,41 @@ The output is constant from the beginning.
 </html>"));
   end DemoSignalCharacteristic;
 
+  model ComparePulses "Compare Gaussian and rectangular pulse"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.GaussianPulse gaussianPulse(duration=1,
+      period=4,                                                     startTime=2)
+      annotation (Placement(transformation(extent={{-30,10},{-10,30}})));
+    Modelica.Blocks.Continuous.Integrator integrator1
+      annotation (Placement(transformation(extent={{10,10},{30,30}})));
+    Modelica.Blocks.Sources.Pulse pulse(
+      amplitude=gaussianPulse.amplitude,
+      width=gaussianPulse.duration/gaussianPulse.period*100,
+      period=gaussianPulse.period,
+      nperiod=gaussianPulse.nperiod,
+      offset=gaussianPulse.offset,
+      startTime=gaussianPulse.startTime - gaussianPulse.duration/2)
+      annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
+    Modelica.Blocks.Continuous.Integrator integrator2
+      annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
+  equation
+    connect(gaussianPulse.y, integrator1.u)
+      annotation (Line(points={{-9,20},{8,20}}, color={0,0,127}));
+    connect(pulse.y, integrator2.u) annotation (Line(
+        points={{-9,-20},{-9,-20},{8,-20}},
+        color={0,0,127},
+        smooth=Smooth.Bezier));
+    annotation (experiment(
+        StopTime=4,
+        Interval=0.001,
+        Tolerance=1e-06), Documentation(info="<html>
+<p>
+Compare a single Gaussian pulse with a single rectangular pulse with the same amplitude and the same area under the curve.
+
+</p>
+</html>"));
+  end ComparePulses;
+
   package Noise "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
 
