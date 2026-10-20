@@ -26,7 +26,7 @@ equation
   x = 1 - s_rel/L;
   v_rel = der(s_rel);
 
-  press = 1e5 * (
+  press = 1e5'Pa' * (
     if v_rel < 0 then (
       if x < 0.986061 then 177.4132*x^4 - 287.2189*x^3 + 151.8252*x^2 - 24.9973*x + 2.4
       else 2836360*x^4 - 10569296*x^3 + 14761814*x^2 - 9158505*x + 2129670)
