@@ -1782,7 +1782,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,58}},
-              textString="m/s"), Text(
+              textString="m2"), Text(
               extent={{100,-50},{-18,-100}},
               textString="cm2")}));
     end to_cm2;
@@ -1798,7 +1798,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               extent={{2,100},{-100,58}},
               textString="cm2"), Text(
               extent={{100,-50},{-16,-98}},
-              textString="m/s")}));
+              textString="m2")}));
     end from_cm2;
     annotation (Documentation(info="<html>
 <p>This package provides conversion functions from the non SI Units
