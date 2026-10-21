@@ -1,6 +1,7 @@
 within Modelica.Electrical.Machines.Utilities;
 record DcBrakeSettings "Setting for DC current braking"
   parameter SI.Current INominal=100 "Nominal RMS current per phase";
+  parameter SI.Resistance R=0.03 "Phase resistance at desired temperature";
   parameter String layout="Y3" "Braking connection layout"
     annotation (choices(
       choice="Y3" "Y 3 phases",
@@ -25,6 +26,12 @@ record DcBrakeSettings "Setting for DC current braking"
     elseif layout=="D2" then Idc*{2/3,-1/3,-1/3}
     else                     Idc*{1/2,-1/2,0}
     "Phase currents" annotation(Dialog(group="Results", enable=false));
+  parameter SI.Voltage Vdc=
+    if     layout == "Y3" then 3/2*R*INominal*sqrt(2)
+    elseif layout == "Y2" then 2.0*R*INominal*sqrt(3/2)
+    elseif layout == "D2" then 2/3*R*INominal*3/sqrt(2)
+    else                       1/2*R*INominal*sqrt(6) "DC braking voltage"
+    annotation (Dialog(group="Results", enable=false));
    annotation (defaultComponentPrefixes="parameter",
     Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                                 Rectangle(
