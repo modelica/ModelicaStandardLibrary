@@ -22,12 +22,19 @@ block SVPWM "Space vector pulse width modulation"
     annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
 protected
   discrete Real uRef(start=0, fixed=true) "Length of reference vector";
-  discrete SI.Angle phiRef(start=0, fixed=true) "Angle of reference vector within (-pi, +pi]";
-  discrete SI.Angle phiPos(start=0, fixed=true) "Angle of reference vector within [0, 2*pi)";
+  discrete SI.Angle phiRef(start=0, fixed=true)
+    "Angle of reference vector within (-pi, +pi]";
+  discrete SI.Angle phiPos(start=0, fixed=true)
+    "Angle of reference vector within [0, 2*pi)";
   Integer ka(start=0, fixed=true), kb(start=0, fixed=true) "Switching patterns limiting the sector";
-  discrete SI.Angle phiSec(start=0, fixed=true) "Angle of reference vector within sector within [0, pi/m)";
+  discrete SI.Angle phiSec(start=0, fixed=true)
+    "Angle of reference vector within sector within [0, pi/m)";
   discrete Real ta(start=0, fixed=true), tb(start=0, fixed=true), t0(start=1, fixed=true) "Relative time spans of vectors a, b, and 0";
-  discrete SI.Time T0(start=startTime, fixed=true) "Start time of switching interval";
+  // take sector number into account: swapping for sectors 2,4,6
+  Integer k1(start=0, fixed=true), k2(start=0, fixed=true) "Switching patterns limiting the sector";
+  discrete Real t1(start=0, fixed=true), t2(start=0, fixed=true) "Relative time spans of vectors a, b, and 0";
+  discrete SI.Time T0(start=startTime, fixed=true)
+    "Start time of switching interval";
 algorithm
   when sampleTrigger then
     //Limited relative reference signal
@@ -49,25 +56,39 @@ algorithm
     tb:=min(uRef*sin(phiSec)/sin(pi/m), 1);
     ta:=min(uRef*cos(phiSec) - tb*cos(pi/m), 1);
     t0:=max(1 - ta - tb, 0);
+    // take sector number into account: swapping for sectors 2,4,6
+    if mod(ka, 2) == 0 then
+      // sectors 1,2,3
+      k1:=ka;
+      k2:=kb;
+      t1:=ta;
+      t2:=tb;
+    else
+      // sectors 2,4,6
+      k1:=kb;
+      k2:=ka;
+      t1:=tb;
+      t2:=ta;
+    end if;
     //Remember start time of switching interval
     T0:=time;
   end when;
 equation
-  //Distribute switching patterns t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + ta/2 + t0/4
+  //Distribute switching patterns t0/4 + t1/2 + t2/2 + t0/2 + t2/2 + t1/2 + t0/4
   if time<startTime then
     fire_p= fill(true, m);
   elseif time < T0 + samplePeriod * (t0/4) then
     fire_p= fill(false, m);
-  elseif time < T0 + samplePeriod * (t0/4 + ta/2) then
-    fire_p= fire[ka + 1, :];
-  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2) then
-    fire_p= fire[kb + 1, :];
-  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2 + t0/2) then
+  elseif time < T0 + samplePeriod * (t0/4 + t1/2) then
+    fire_p= fire[k1 + 1, :];
+  elseif time < T0 + samplePeriod * (t0/4 + t1/2 + t2/2) then
+    fire_p= fire[k2 + 1, :];
+  elseif time < T0 + samplePeriod * (t0/4 + t1/2 + t2/2 + t0/2) then
     fire_p= fill(true, m);
-  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2 + t0/2 + tb/2) then
-    fire_p= fire[kb + 1, :];
-  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + ta/2) then
-    fire_p= fire[ka + 1, :];
+  elseif time < T0 + samplePeriod * (t0/4 + t1/2 + t2/2 + t0/2 + t2/2) then
+    fire_p= fire[k2 + 1, :];
+  elseif time < T0 + samplePeriod * (t0/4 + t1/2 + t2/2 + t0/2 + t2/2 + t1/2) then
+    fire_p= fire[k1 + 1, :];
   else
     fire_p= fill(false, m);
   end if;
@@ -115,6 +136,9 @@ The relative time spans for averaging over one switching period are determined b
 <li>Imag.part: <u>u</u>*sin(&phi;) = <u>u</u><sub>b</sub>*t<sub>b</sub>*sin(60&deg;)</li>
 <li>t<sub>a</sub> + t<sub>b</sub> + t<sub>0</sub> = 1</li>
 </ul>
+<p>
+For sectors 2,4,6 ta and tb as well as the vector indices ka and kb have to get swapped. 
+</p>
 <p>
 To obtain the positive fire signal, the switching time spans are distributed symmetrically:
 t<sub>0</sub>/4 + t<sub>a</sub>/2 + t<sub>b</sub>/2 +t<sub>0</sub>/2 + t<sub>b</sub>/2 + t<sub>a</sub>/2 + t<sub>0</sub>/4
