@@ -28,9 +28,9 @@ class References "References"
 
     <tr>
       <td>[TIspra524]</td>
-      <td>Zhenyu Yu
+      <td>Zhenyu Yu, 
        <a href=\"https://www.ti.com/lit/an/spra524/spra524.pdf\">
-<em>TI Application Report SPRA524: Space-Vector PWM With TMS320C24x/F24x Using Hardware and Software Determined Switching Patterns</em></a>
+<em>TI Application Report SPRA524: Space-Vector PWM With TMS320C24x/F24x Using Hardware and Software Determined Switching Patterns</em></a></td>
     </tr>
 </table>
 </html>"));
