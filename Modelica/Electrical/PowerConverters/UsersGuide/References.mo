@@ -25,6 +25,13 @@ class References "References"
       <td><a href=\"http://personal.strath.ac.uk/barry.williams/book.htm\">
 <em>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</em></a>, available at <a href=\"http://personal.strath.ac.uk/barry.williams/book.htm\">University of Strathclyde</a>, ISBN 978-0-9553384-0-3</td>
     </tr>
+
+    <tr>
+      <td>[TIspra524]</td>
+      <td>Zhenyu Yu
+       <a href=\"https://www.ti.com/lit/an/spra524/spra524.pdf\">
+<em>TI Application Report SPRA524: Space-Vector PWM With TMS320C24x/F24x Using Hardware and Software Determined Switching Patterns</em></a>
+    </tr>
 </table>
 </html>"));
 end References;
