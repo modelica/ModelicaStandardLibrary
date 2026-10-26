@@ -10,7 +10,7 @@ model SoftStarter "Soft start of an induction machine"
   parameter SI.Inertia JLoad=aimcData.Jr "Load's moment of inertia";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
   parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
-       1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
     final m=m,
     f=fill(fNominal, m),
@@ -194,7 +194,7 @@ equation
     annotation (Line(points={{-11,-60},{-18,-60}}, color={255,0,255}));
   annotation (experiment(
       StopTime=10,
-      Interval=0.0001,
+      Interval=0.0002,
       Tolerance=1e-06), Documentation(info="<html>
 <p>This model demonstrates a soft start of an induction machine:
 Voltage ramp is started at 0.1 s and should ramp up to nominal voltage within 4s,

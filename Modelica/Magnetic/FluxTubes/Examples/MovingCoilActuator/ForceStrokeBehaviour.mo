@@ -51,6 +51,7 @@ equation
   annotation (experiment(
       StartTime=-4,
       StopTime=4,
+      Interval=0.0001,
       Tolerance=1e-007), Documentation(info="<html>
 <p>
 Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models.<br>

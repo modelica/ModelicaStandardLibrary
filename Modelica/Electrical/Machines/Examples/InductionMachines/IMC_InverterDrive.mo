@@ -13,7 +13,7 @@ model IMC_InverterDrive
   parameter SI.Voltage VDC=factorY2DC(m)*VNominal/sqrt(3) "Theoretical DC voltage";
   parameter SI.Capacitance CDC=5e-3 "DC capacitor";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
-  parameter SI.AngularVelocity wLoad=1440.45*2*pi/60 "Nominal load speed";
+  parameter SI.AngularVelocity wLoad=Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter SI.Inertia JLoad=0.29 "Load's moment of inertia";
   Polyphase.Sources.SineVoltage sineVoltage(
     final m=m,
@@ -54,14 +54,19 @@ model IMC_InverterDrive
         rotation=90,
         origin={-80,60})));
 
-  PowerConverters.ACDC.DiodeBridge2mPulse rectifier
+  PowerConverters.ACDC.DiodeBridge2mPulse rectifier(RonDiode=1e-4, GoffDiode=
+        1e-4)
     annotation (Placement(transformation(extent={{-68,60},{-48,80}})));
   Analog.Basic.Capacitor capacitor(v(fixed=true, start=VDC), C=CDC)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-30,70})));
-  PowerConverters.DCAC.Polyphase2Level inverter annotation (Placement(
+  PowerConverters.DCAC.Polyphase2Level inverter(
+    RonTransistor=1e-4,
+    GoffTransistor=1e-4,
+    RonDiode=1e-4,
+    GoffDiode=1e-4)                             annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         origin={0,70})));

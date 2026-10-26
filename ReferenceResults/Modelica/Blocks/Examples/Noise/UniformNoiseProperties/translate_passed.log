@@ -1,0 +1,38 @@
+Translation of <a href="Modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties">Modelica.Blocks.Examples.Noise.UniformNoiseProperties</a>
+The DAE has 38 scalar unknowns and 38 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 14
+  Variables: 69
+  Parameters: 35 (35 scalars)
+  Unknowns: 34 (38 scalars)
+  Differentiated variables: 5 scalars
+  Equations: 34
+  Nontrivial: 30
+Translated Model
+  Constants: 1 scalars
+  Free parameters: 16 scalars
+  Parameter depending: 19 scalars
+  Outputs: 2 scalars
+  Continuous time states: 5 scalars
+  Time-varying variables: 19 scalars
+  Alias variables: 18 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties#text$mean:mu">mean.mu</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties#text$standardDeviation.variance:mu">standardDeviation.variance.mu</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties#text$standardDeviation.variance:var">standardDeviation.variance.var</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties#text$variance:mu">variance.mu</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties#text$variance:var">variance.var</a>
+Finished

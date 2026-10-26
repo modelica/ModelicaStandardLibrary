@@ -696,7 +696,7 @@ through the sensor is allowed.
     extends Sensors.BaseClasses.PartialRelativeSensor;
 
     Modelica.Blocks.Interfaces.RealOutput T_rel(final quantity="ThermodynamicTemperature",
-                                                final unit = "K", displayUnit = "degC", min=0)
+                                                final unit = "K", displayUnit = "degC")
       "Relative temperature signal" annotation (Placement(
           transformation(
           origin={0,-90},

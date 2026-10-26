@@ -1,0 +1,8 @@
+time
+inductor.i
+meanCurrent.y
+meanVoltage.y
+hbridge.vDC1
+hbridge.iDC1
+hbridge.vDC2
+hbridge.iDC2

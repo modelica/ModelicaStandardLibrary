@@ -1,0 +1,29 @@
+﻿ = true
+Translation of Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample:
+The DAE has 242 scalar unknowns and 242 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 96
+  Variables: 312
+  Parameters: 74 (74 scalars)
+  Unknowns: 208 (212 scalars)
+  Equations: 223
+  Nontrivial: 219
+Translated Model
+  Constants: 28 scalars
+  Free parameters: 42 scalars
+  Parameter depending: 5 scalars
+  Time-varying variables: 100 scalars
+  Alias variables: 111 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

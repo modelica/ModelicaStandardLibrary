@@ -11,12 +11,13 @@ model IMC_YD
   parameter SI.Time tStart2=2.0 "Start time from Y to D";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
   parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
-       1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
     p=aimcData.p,
     fsNominal=aimcData.fsNominal,
+    useZeroSystem=false,
     TsRef=aimcData.TsRef,
     alpha20s(displayUnit="1/K") = aimcData.alpha20s,
     Jr=aimcData.Jr,
@@ -112,8 +113,8 @@ equation
       points={{40,20},{50,20}}));
   annotation (experiment(
       StopTime=2.5,
-      Interval=1E-4,
-      Tolerance=1e-06),                                 Documentation(
+      Interval=0.0001,
+      Tolerance=1e-06),                      Documentation(
         info="<html>
 <p>At start time tStart three-phase voltage is supplied to the induction machine with squirrel cage,
 first star-connected, then delta-connected; the machine starts from standstill,

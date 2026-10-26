@@ -1,0 +1,44 @@
+Translation of <a href="Modelica://Modelica.Fluid.Examples.Tanks.EmptyTanks">Modelica.Fluid.Examples.Tanks.EmptyTanks</a>
+The DAE has 138 scalar unknowns and 138 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 18
+  Variables: 291
+  Constants: 2 (2 scalars)
+  Parameters: 127 (125 scalars)
+  Unknowns: 162 (138 scalars)
+  Differentiated variables: 8 scalars
+  Equations: 143
+  Nontrivial: 120
+Translated Model
+  Constants: 83 scalars
+  Free parameters: 32 scalars
+  Parameter depending: 48 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 45 scalars
+  Alias variables: 57 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {5}
+  Sizes after manipulation of the nonlinear systems: {2}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Number of mixed real/discrete systems of equations: 1
+    Sizes of nonlinear systems of equations: {5}
+    Sizes after manipulation of the nonlinear systems: {2}
+    Sizes of simplified homotopy nonlinear systems of equations: {5}
+    Sizes after manipulation of the simplified homotopy nonlinear systems: {2}
+    Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Fluid.Examples.Tanks.EmptyTanks#text$tank1:level">tank1.level</a>
+<a href="Modelica://Modelica.Fluid.Examples.Tanks.EmptyTanks#text$tank1.medium:T">tank1.medium.T</a>
+<a href="Modelica://Modelica.Fluid.Examples.Tanks.EmptyTanks#text$tank2:level">tank2.level</a>
+<a href="Modelica://Modelica.Fluid.Examples.Tanks.EmptyTanks#text$tank2.medium:T">tank2.medium.T</a>
+Finished

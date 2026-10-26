@@ -1,0 +1,40 @@
+Log-file of program ./dymosim
+(generated: Wed May 20 10:37:42 2026)
+
+dymosim started
+... "ModelicaTest.Electrical.PowerConverters.Examples.ACAC.SoftStarter" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+... Warning message from dymosim
+At time T = 2.243483e+00 in current integration interval
+T_interval = 2.243400e+00 ... 2.243600e+00
+a large amount of work has been expended
+(about 500 steps) in the integrator. Probably the communication
+interval is too large or the system is stiff.
+
+
+Integration terminated successfully at T = 2.6
+   CPU-time for integration                : 1.46 seconds
+   CPU-time for one grid interval          : 0.112 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 17694
+   Number of grid points                   : 13001
+   Number of accepted steps                : 99050
+   Number of f-evaluations (dynamics)      : 204463
+   Number of crossing function evaluations : 130897
+   Number of Jacobian-evaluations          : 62789
+   Number of model time events             : 130
+   Number of input time events             : 0
+   Number of state events                  : 2571
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.95e-10
+   Maximum integration stepsize            : 0.000546
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Electrical.PowerConverters.Examples.ACAC.SoftStarter

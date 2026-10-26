@@ -265,5 +265,6 @@ package SinglePhase "Single-phase quasi-static package"
     connect(currentCurrent.pin_p, impedanceC.pin_n) annotation (Line(points={{20,-50},{20,-60},{50,-60},{50,-50}}, color={85,170,255}));
     connect(groundI1.pin, currentCurrent.pin_p) annotation (Line(points={{0,-60},{20,-60},{20,-50}}, color={85,170,255}));
     connect(complexRampC.y, impedanceC.Z_ref) annotation (Line(points={{69,-40},{62,-40}}, color={85,170,255}));
+  annotation(experiment(StopTime = 1.0));
   end FrequencySweep;
 end SinglePhase;

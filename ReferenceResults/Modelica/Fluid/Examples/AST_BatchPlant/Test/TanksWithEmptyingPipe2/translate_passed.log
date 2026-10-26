@@ -1,0 +1,45 @@
+﻿ = true
+Translation of Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2:
+The DAE has 315 scalar unknowns and 315 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 42
+  Variables: 611
+  Parameters: 278 (274 scalars)
+  Unknowns: 333 (315 scalars)
+  Differentiated variables: 12 scalars
+  Equations: 283
+  Nontrivial: 248
+Translated Model
+  Constants: 177 scalars
+  Free parameters: 87 scalars
+  Parameter depending: 106 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 90 scalars
+  Alias variables: 129 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {5, 4, 5, 3}
+  Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    Sizes of nonlinear systems of equations: {5, 4, 5}
+    Sizes after manipulation of the nonlinear systems: {1, 1, 1}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  tank1.level
+  tank1.medium.T
+  tank2.level
+  tank2.medium.T
+  tank3.level
+  tank3.medium.T
+ 

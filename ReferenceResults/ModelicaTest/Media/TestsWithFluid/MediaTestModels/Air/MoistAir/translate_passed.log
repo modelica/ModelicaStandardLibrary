@@ -1,0 +1,42 @@
+Translation of <a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.Air.MoistAir">ModelicaTest.Media.TestsWithFluid.MediaTestModels.Air.MoistAir</a>
+The DAE has 186 scalar unknowns and 186 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 23
+  Variables: 313
+  Constants: 41 (97 scalars)
+  Parameters: 106 (107 scalars)
+  Unknowns: 166 (186 scalars)
+  Differentiated variables: 6 scalars
+  Equations: 150
+  Nontrivial: 135
+Translated Model
+  Constants: 178 scalars
+  Free parameters: 32 scalars
+  Parameter depending: 62 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 54 scalars
+  Alias variables: 64 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {8}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {0}
+    Sizes of nonlinear systems of equations: {8, 1}
+    Sizes after manipulation of the nonlinear systems: {2, 0}
+    Number of numerical Jacobians: 1
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.Air.MoistAir#diagram$volume:medium.p">volume.medium.p</a>
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.Air.MoistAir#text$volume.medium:T">volume.medium.T</a>
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.Air.MoistAir#diagram$volume:medium.Xi[1]">volume.medium.Xi[1]</a>
+Finished

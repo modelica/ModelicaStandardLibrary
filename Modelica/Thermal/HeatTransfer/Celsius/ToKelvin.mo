@@ -11,14 +11,6 @@ equation
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
         Text(
-          extent={{54,-88},{114,-148}},
-          textColor={64,64,64},
-          textString="degC"),
-        Text(
-          extent={{194,-88},{254,-148}},
-          textColor={64,64,64},
-          textString="K"),
-        Text(
           extent={{-100,60},{-40,0}},
           textColor={64,64,64},
           textString="degC"),

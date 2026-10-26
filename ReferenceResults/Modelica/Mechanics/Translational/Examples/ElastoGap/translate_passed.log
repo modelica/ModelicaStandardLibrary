@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Mechanics.Translational.Examples.ElastoGap:
+The DAE has 70 scalar unknowns and 70 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 10
+  Variables: 106
+  Parameters: 36 (36 scalars)
+  Unknowns: 70 (70 scalars)
+  Differentiated variables: 12 scalars
+  Equations: 63
+  Nontrivial: 58
+Translated Model
+  Constants: 14 scalars
+  Free parameters: 22 scalars
+  Parameter depending: 4 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 37 scalars
+  Alias variables: 29 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  elastoGap1.v_rel
+  elastoGap2.s_rel
+  springDamper1.v_rel
+  springDamper2.s_rel
+ 

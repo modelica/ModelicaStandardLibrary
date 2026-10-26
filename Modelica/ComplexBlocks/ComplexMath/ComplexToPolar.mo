@@ -12,7 +12,7 @@ block ComplexToPolar "Converts complex to polar representation"
   parameter Boolean useConjugateInput=false
     "If true, input is processed conjugate complex";
 equation
-  len = (u.re^2 + u.im^2)^0.5;
+  len = sqrt(u.re^2 + u.im^2);
   phi = (if useConjugateInput then Modelica.Math.atan2(-u.im, u.re) else
     Modelica.Math.atan2(u.im, u.re));
 

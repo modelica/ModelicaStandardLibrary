@@ -1100,16 +1100,16 @@ end UsersGuide;
               redeclare Modelica.Units.SI.CurrentDensity im "Imaginary part of complex current density")
       "Complex electric current density";
     operator record ComplexElectricPotential =
-      Complex(redeclare Modelica.Units.SI.ElectricPotential re "Imaginary part of complex electric potential",
-              redeclare Modelica.Units.SI.ElectricPotential im "Real part of complex electric potential")
+      Complex(redeclare Modelica.Units.SI.ElectricPotential re "Real part of complex electric potential",
+              redeclare Modelica.Units.SI.ElectricPotential im "Imaginary part of complex electric potential")
       "Complex electric potential";
     operator record ComplexPotentialDifference =
       Complex(redeclare Modelica.Units.SI.PotentialDifference re "Real part of complex potential difference",
               redeclare Modelica.Units.SI.PotentialDifference im "Imaginary part of complex potential difference")
       "Complex electric potential difference";
     operator record ComplexVoltage =
-      Complex(redeclare Modelica.Units.SI.Voltage re "Imaginary part of complex voltage",
-              redeclare Modelica.Units.SI.Voltage im "Real part of complex voltage")
+      Complex(redeclare Modelica.Units.SI.Voltage re "Real part of complex voltage",
+              redeclare Modelica.Units.SI.Voltage im "Imaginary part of complex voltage")
       "Complex electric voltage";
     operator record ComplexVoltageSlope =
       Complex(redeclare Modelica.Units.SI.VoltageSlope re "Real part of complex voltage slope",
@@ -1893,7 +1893,7 @@ with package Units, have a look at:
 </p>
 
 <p>
-Copyright &copy; 1998-2024, Modelica Association and contributors
+Copyright &copy; 1998-2025, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>

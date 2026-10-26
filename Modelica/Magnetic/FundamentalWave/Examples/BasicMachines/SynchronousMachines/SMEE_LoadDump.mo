@@ -59,7 +59,8 @@ model SMEE_LoadDump
     alpha20r=smeeData.alpha20r,
     TrOperational=293.15,
     TeOperational=293.15,
-    alpha20e=smeeData.alpha20e)
+    alpha20e=smeeData.alpha20e,
+    ie(fixed=true))
     annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
   parameter Modelica.Electrical.Machines.Utilities.SynchronousMachineData smeeData(
     SNominal=30e3,
@@ -163,7 +164,6 @@ public
 initial equation
   smee.airGap.V_msr = Complex(0, 0);
   //conditional damper cage currents are defined as fixed start values
-  smee.ie = 0;
 equation
   connect(terminalBox.plug_sn, smee.plug_sn) annotation (Line(
       points={{4,-20},{4,-20}}, color={0,0,255}));

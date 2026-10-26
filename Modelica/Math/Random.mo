@@ -765,7 +765,7 @@ Further explanations of the properties above:
 <ul>
 <li> The <strong>period</strong> defines the number of random numbers generated
      before the sequence begins to repeat itself. According to
-     \"<a href=\"http://xorshift.di.unimi.it/\">A long period does not imply high quality</a>\"
+     \"<a href=\"https://prng.di.unimi.it/\">A long period does not imply high quality</a>\"
      a period of 2^1024 is by far large enough for even massively parallel simulations
      with huge number of random number computations per simulation.
      A period of 2^128 might be not enough for massively parallel simulations.
@@ -774,7 +774,7 @@ Further explanations of the properties above:
 <li> <strong>Length of state (# 32 bit integer)</strong> defines the number of \"int\" (that is Modelica Integer) elements
      used for the internal state vector.</li>
 
-<li> <strong>Big Crush</strong> is part of <a href=\"http://simul.iro.umontreal.ca/testu01/tu01.html\">TestU01</a>
+<li> <strong>Big Crush</strong> is part of <a href=\"https://simul.iro.umontreal.ca/testu01/tu01.html\">TestU01</a>
      a huge framework for testing random number generators.
      According to these tests, the statistical properties of the xorshift random number
      generators are better than the ones of the Mersenne Twister random number generator.</li>

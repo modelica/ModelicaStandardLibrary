@@ -1,0 +1,28 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 02:08:55 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "OneWayClutch.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 2
+   CPU-time for integration                : 0.068 seconds
+   CPU-time for one grid interval          : 0.017 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 4030
+   Number of grid points                   : 4001
+   Number of accepted steps                : 585
+   Number of f-evaluations (dynamics)      : 1024
+   Number of crossing function evaluations : 4665
+   Number of Jacobian-evaluations          : 187
+   Number of model time events             : 2
+   Number of input time events             : 0
+   Number of state events                  : 13
+   Number of step events                   : 0
+   Minimum integration stepsize            : 2e-10
+   Maximum integration stepsize            : 0.0124
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)

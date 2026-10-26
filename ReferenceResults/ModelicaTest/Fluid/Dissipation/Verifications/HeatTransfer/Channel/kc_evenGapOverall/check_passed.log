@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 134
+The model has the same number of unknowns and equations:
+  131+size(m_flow, 1)
+Check of <a href="Modelica://ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.Channel.kc_evenGapOverall">ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.Channel.kc_evenGapOverall</a> successful.
+

@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 2257
+The model has the same number of unknowns and equations:
+  2229+4*(size(world.x_label.lines, 1)+size(world.y_label.lines, 1)+size(  world.z_label.lines, 1))
+Check of <a href="Modelica://ModelicaTest.MultiBody.Parts.Rotor1D.Bevel1D">ModelicaTest.MultiBody.Parts.Rotor1D.Bevel1D</a> successful.
+

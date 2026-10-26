@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Copyright (C) 2020, Modelica Association and contributors
+Copyright (C) 2020-2025, Modelica Association and contributors
 All rights reserved.
 
 Print class coverage for all classes, sorted by reference count

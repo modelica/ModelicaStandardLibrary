@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 242
+The model has the same number of unknowns and equations:
+  241+size(comparisonWithFEA.columns, 1)
+Check of <a href="Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour">Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour</a> successful.
+

@@ -88,14 +88,14 @@ model CompareLineTrunks "Compares oLine and tLine splitting lines into trunks"
         extent={{-10,-10},{10,10}},
         rotation=-90)));
 initial equation
-  oLine1.C.v=zeros(segsPerTrunk);
-  oLine1.L.i=zeros(segsPerTrunk + 1);
-  oLine2.C.v=zeros(segsPerTrunk);
-  oLine2.L.i=zeros(segsPerTrunk + 1);
-  oLine3.C.v=zeros(segsPerTrunk);
-  oLine3.L.i=zeros(segsPerTrunk + 1);
-  oLine4.C.v=zeros(segsPerTrunk);
-  oLine4.L.i=zeros(segsPerTrunk + 1);
+  oLine1.v=zeros(segsPerTrunk);
+  oLine1.i=zeros(segsPerTrunk + 1);
+  oLine2.v=zeros(segsPerTrunk);
+  oLine2.i=zeros(segsPerTrunk + 1);
+  oLine3.v=zeros(segsPerTrunk);
+  oLine3.i=zeros(segsPerTrunk + 1);
+  oLine4.v=zeros(segsPerTrunk);
+  oLine4.i=zeros(segsPerTrunk + 1);
 equation
   connect(srcLump.v, ramp.y)
     annotation (Line(points={{-52,30},{-60,30},{-60,0},{-67,0}},

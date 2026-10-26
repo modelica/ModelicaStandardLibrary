@@ -1,0 +1,8 @@
+time
+bodyOfConstraint.body.w_a[1]
+bodyOfConstraint.body.w_a[2]
+bodyOfConstraint.body.w_a[3]
+joint.phi_a
+joint.phi_b
+joint.w_a
+joint.w_b

@@ -1,0 +1,36 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestComponents.Sources.TestSources:
+The DAE has 480 scalar unknowns and 480 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 64
+  Variables: 884
+  Constants: 169 (397 scalars)
+  Parameters: 288 (295 scalars)
+  Unknowns: 427 (507 scalars)
+  Equations: 421
+  Nontrivial: 383
+Translated Model
+  Constants: 562 scalars
+  Free parameters: 93 scalars
+  Parameter depending: 276 scalars
+  Time-varying variables: 75 scalars
+  Alias variables: 193 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0}
+    Sizes of nonlinear systems of equations: {7, 8}
+    Sizes after manipulation of the nonlinear systems: {1, 1}
+    Number of numerical Jacobians: 2
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

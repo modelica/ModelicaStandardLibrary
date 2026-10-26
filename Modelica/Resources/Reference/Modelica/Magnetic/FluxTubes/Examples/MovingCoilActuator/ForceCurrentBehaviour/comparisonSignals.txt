@@ -2,4 +2,3 @@ time
 cActuator.flange.f
 pmActuator.flange.f
 pmActuator.coil.Phi
-pmActuator.coil.L_stat
