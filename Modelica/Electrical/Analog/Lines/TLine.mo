@@ -23,9 +23,9 @@ equation
   annotation (defaultComponentName="line",
     Documentation(info="<html>
 <p>
-Lossless transmission line with characteristic impedance Z0 and transmission delay TD. The lossless transmission line TLine is a two Port. 
-Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. 
-For further details see [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. 
+Lossless transmission line with characteristic impedance Z0 and transmission delay TD. The lossless transmission line TLine is a two Port.
+Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD.
+For further details see [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>].
 The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39; / C&#39;).
 </p>
 <p>
@@ -34,7 +34,7 @@ There are three possibilities for specifying the transmission delay TD:
 <ul>
 <li>Calculate TD = sqrt(L&#39; * C&#39;)*length_of_line.</li>
 <li>Specify the normalized length NL, i.e. the length of the line divided by the wavelength corresponding to the frequency F: TD = NL / F.</li>
-<li>Specify NL = 1/4, i.e. the length of the line is assumed to be equal to a quarter of the wavelength corresponding to the frequency F: TD = 1/4 / F. 
+<li>Specify NL = 1/4, i.e. the length of the line is assumed to be equal to a quarter of the wavelength corresponding to the frequency F: TD = 1/4 / F.
     In that case, the characteristic impedance Z0 is called natural impedance.</li>
 </ul>
 

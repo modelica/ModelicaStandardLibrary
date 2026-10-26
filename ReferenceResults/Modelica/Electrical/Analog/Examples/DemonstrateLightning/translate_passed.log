@@ -1,0 +1,38 @@
+Translation of <a href="Modelica://Modelica.Electrical.Analog.Examples.DemonstrateLightning">Modelica.Electrical.Analog.Examples.DemonstrateLightning</a>
+The DAE has 58 scalar unknowns and 58 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 15
+  Variables: 120
+  Parameters: 62 (62 scalars)
+  Unknowns: 58 (58 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 54
+  Nontrivial: 42
+Translated Model
+  Constants: 24 scalars
+  Free parameters: 18 scalars
+  Parameter depending: 34 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 8 scalars
+  Alias variables: 36 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {5, 5}
+    Sizes after manipulation of the nonlinear systems: {4, 4}
+    Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DemonstrateLightning#diagram$:integrator1.y">integrator1.y</a>
+<a href="Modelica://Modelica.Electrical.Analog.Examples.DemonstrateLightning#diagram$:integrator2.y">integrator2.y</a>
+Finished

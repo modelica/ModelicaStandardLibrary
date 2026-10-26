@@ -1,0 +1,11 @@
+time
+Itr
+Iqs
+loadInertiaM.phi
+loadInertiaM.w
+loadInertiaMQS.phi
+loadInertiaMQS.w
+smpm.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smpm.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+smpm.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smpm.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im

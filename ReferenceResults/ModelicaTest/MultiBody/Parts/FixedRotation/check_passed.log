@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 4192
+The model has the same number of unknowns and equations:
+  4080+4*(size(frameT1.x_label.lines, 1)+size(frameT1.y_label.lines, 1)+size(  frameT1.z_label.lines, 1)+size(frameT2.x_label.lines, 1)+size(frameT2.y_label.lines,   1)+size(frameT2.z_label.lines, 1)+size(frameT3.x_label.lines, 1)+size(  frameT3.y_label.lines, 1)+size(frameT3.z_label.lines, 1)+size(frameT4.x_label.lines,   1)+size(frameT4.y_label.lines, 1)+size(frameT4.z_label.lines, 1))
+Check of <a href="Modelica://ModelicaTest.MultiBody.Parts.FixedRotation">ModelicaTest.MultiBody.Parts.FixedRotation</a> successful.
+

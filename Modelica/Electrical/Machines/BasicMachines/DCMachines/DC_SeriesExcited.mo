@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.BasicMachines.DCMachines;
 model DC_SeriesExcited "Series excited linear DC machine"
   extends Machines.Interfaces.PartialBasicDCMachine(
-    wNominal(start=1410*2*pi/60),
+    wNominal(start=Modelica.Units.Conversions.from_rpm(1410)),
     final ViNominal=VaNominal - (Machines.Thermal.convertResistance(
         Ra,
         TaRef,

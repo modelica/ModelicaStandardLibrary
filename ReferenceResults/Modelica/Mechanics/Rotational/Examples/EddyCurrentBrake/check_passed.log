@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Mechanics.Rotational.Examples.EddyCurrentBrake">Modelica.Mechanics.Rotational.Examples.EddyCurrentBrake</a>
+The model has the same number of unknowns and equations: 25
+The model could not be deduced to be symbolically well-posed.
+The model has
+  25
+scalar unknowns and
+  24+(if  not eddyCurrentTorque.useSupport then 1 else 0)+(if  not   eddyCurrentTorque.useHeatPort then 1 else 0)+(if  not eddyCurrentTorque.useExcitationInput   then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  25
+Check of <a href="Modelica://Modelica.Mechanics.Rotational.Examples.EddyCurrentBrake">Modelica.Mechanics.Rotational.Examples.EddyCurrentBrake</a> successful.

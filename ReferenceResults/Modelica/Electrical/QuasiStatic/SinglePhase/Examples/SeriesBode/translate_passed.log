@@ -1,0 +1,39 @@
+﻿ = true
+Translation of Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesBode:
+The DAE has 151 scalar unknowns and 151 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 59
+  Variables: 173
+  Constants: 1 (1 scalars)
+  Parameters: 21 (21 scalars)
+  Unknowns: 151 (151 scalars)
+  Differentiated variables: 5 scalars
+  Equations: 110
+  Nontrivial: 94
+Translated Model
+  Constants: 27 scalars
+  Free parameters: 10 scalars
+  Parameter depending: 4 scalars
+  Outputs: 3 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 47 scalars
+  Alias variables: 85 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {6}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {6}
+    Sizes after manipulation of the linear systems: {2}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  inductor.pin_p.reference.gamma
+ 

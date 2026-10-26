@@ -1,0 +1,30 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Joints.JointSSR:
+The DAE has 1034 scalar unknowns and 1034 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 54
+  Variables: 490
+  Constants: 2 (2 scalars)
+  Parameters: 132 (176 scalars)
+  Unknowns: 356 (1034 scalars)
+  Differentiated variables: 7 scalars
+  Equations: 302
+  Nontrivial: 192
+Translated Model
+  Constants: 751 scalars
+  Free parameters: 48 scalars
+  Parameter depending: 175 scalars
+  Alias variables: 238 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

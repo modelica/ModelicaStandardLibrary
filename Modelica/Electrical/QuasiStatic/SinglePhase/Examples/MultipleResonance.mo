@@ -83,7 +83,7 @@ equation
       Interval=0.0001),
       Documentation(info="<html>
 <p>
-The series resonance load circuit is fed by a voltage source with inner impedance. 
+The series resonance load circuit is fed by a voltage source with inner impedance.
 By using a transformer between source and load, we achieve multiple resonance by varying the source frequency:
 </p>
 <ul>
@@ -91,7 +91,7 @@ By using a transformer between source and load, we achieve multiple resonance by
 <li>parallel resonance: Im{Y}=0</li>
 </ul>
 <p>
-Plot <code>currentSensor.abs_i</code> and <code>currentSensor.arg_i</code> versus frequency, i.e. <code>frequencySweep.y</code>. 
+Plot <code>currentSensor.abs_i</code> and <code>currentSensor.arg_i</code> versus frequency, i.e. <code>frequencySweep.y</code>.
 Note that the behaviour is fundamentally different from that of a simple series resonance circuit.
 </p>
 </html>"));

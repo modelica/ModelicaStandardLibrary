@@ -1,0 +1,42 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.Machines.SMPM_VoltageSourceWithLosses">ModelicaTest.Electrical.Machines.SMPM_VoltageSourceWithLosses</a>
+The DAE has 745 scalar unknowns and 745 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 114
+  Variables: 979
+  Constants: 11 (11 scalars)
+  Parameters: 330 (413 scalars)
+  Unknowns: 638 (745 scalars)
+  Differentiated variables: 25 scalars
+  Equations: 418
+  Nontrivial: 323
+Translated Model
+  Constants: 380 scalars
+  Free parameters: 36 scalars
+  Parameter depending: 158 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 135 scalars
+  Alias variables: 460 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {30, 10, 3}
+  Sizes after manipulation of the linear systems: {4, 2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {3, 2}
+    Sizes after manipulation of the linear systems: {2, 2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.Machines.SMPM_VoltageSourceWithLosses#text$dqCurrentController.PI_d:x">dqCurrentController.PI_d.x</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.SMPM_VoltageSourceWithLosses#text$dqCurrentController.PI_q:x">dqCurrentController.PI_q.x</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.SMPM_VoltageSourceWithLosses#text$inertiaLoad:phi">inertiaLoad.phi</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.SMPM_VoltageSourceWithLosses#text$inertiaLoad:w">inertiaLoad.w</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.SMPM_VoltageSourceWithLosses#text$smpm:idq_sr">smpm.idq_sr[1]</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.SMPM_VoltageSourceWithLosses#text$smpm:idq_sr">smpm.idq_sr[2]</a>
+Finished
