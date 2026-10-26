@@ -2588,7 +2588,7 @@ than computing the determinant. Examples:
 <li> Use <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
      to solve the linear equation A*x = b.</li>
 
-<li> Use <a href=\"modelica://Modelica.Math.Matrices.rcond\"Matrices.rcond</a>(A)>=epsilon
+<li> Use <a href=\"modelica://Modelica.Math.Matrices.rcond\">Matrices.rcond</a>(A)>=epsilon
      to check that the system is well-conditioned and not singular.</li>
 </ul>
 
