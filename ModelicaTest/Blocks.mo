@@ -1339,7 +1339,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
   end ConversionBlocks;
 
   model PadeDelay1
-    "Check that new implementation gives the same result as the old implementation for the default balance = false"
+    "Check that new implementation gives the same result as the old implementation for balance = false"
     extends Modelica.Icons.Example;
     parameter Integer n=10 "Order of Pade approximation";
     parameter SI.Time delayTime=0.2
@@ -1399,7 +1399,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
     [y] = transpose([zeros(n - m, 1); b])*[x1dot; x];
 
     initial equation
-    x[n] = u;
+      der(x) = zeros(n);
     annotation (
       Documentation(info="<html>
 <p>
