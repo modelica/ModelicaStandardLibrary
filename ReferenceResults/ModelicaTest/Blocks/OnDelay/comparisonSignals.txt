@@ -1,0 +1,11 @@
+time
+booleanTable.y
+onDelay1.delaySignal
+onDelay1.t_next
+onDelay1.u
+onDelay2.delaySignal
+onDelay2.t_next
+onDelay2.u
+onDelay3.delaySignal
+onDelay3.t_next
+onDelay3.u

@@ -1,0 +1,44 @@
+Translation of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive">Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive</a>
+The DAE has 373 scalar unknowns and 373 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 82
+  Variables: 652
+  Constants: 13 (13 scalars)
+  Parameters: 267 (273 scalars)
+  Unknowns: 372 (373 scalars)
+  Differentiated variables: 19 scalars
+  Equations: 339
+  Nontrivial: 271
+Translated Model
+  Constants: 221 scalars
+  Free parameters: 47 scalars
+  Parameter depending: 125 scalars
+  Outputs: 2 scalars
+  Continuous time states: 10 scalars
+  Time-varying variables: 82 scalars
+  Alias variables: 184 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {12, 3}
+  Sizes after manipulation of the linear systems: {4, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive#text$dcpm.inertiaRotor:phi">dcpm.inertiaRotor.phi</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive#text$dcpm.inertiaRotor:w">dcpm.inertiaRotor.w</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive#text$inductor:i">inductor.i</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive#text$lMains:i">lMains.i</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive#text$meanCurrent:x">meanCurrent.x</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive#text$meanVoltage:x">meanVoltage.x</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive#diagram$pulse2.twoPulse.filter[1]:firstOrder.y">pulse2.twoPulse.filter[1].firstOrder.y</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive#text$pulse2.twoPulse.filter.transferFunction:x_scaled">pulse2.twoPulse.filter[1].transferFunction[1].x_scaled[1]</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive#text$pulse2.twoPulse.filter.transferFunction:x_scaled">pulse2.twoPulse.filter[1].transferFunction[2].x_scaled[1]</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive#text$rootMeanSquareVoltage.mean:x">rootMeanSquareVoltage.mean.x</a>
+Finished

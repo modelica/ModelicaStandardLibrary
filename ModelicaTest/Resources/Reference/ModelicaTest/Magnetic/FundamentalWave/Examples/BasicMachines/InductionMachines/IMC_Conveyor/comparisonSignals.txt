@@ -1,0 +1,10 @@
+time
+aimc.is[1]
+aimc.is[2]
+aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+aimc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+aimc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+mass.s
+mass.v
+vfController.x

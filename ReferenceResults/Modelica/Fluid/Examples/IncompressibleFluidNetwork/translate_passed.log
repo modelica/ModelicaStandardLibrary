@@ -1,0 +1,60 @@
+﻿ = true
+Translation of Modelica.Fluid.Examples.IncompressibleFluidNetwork:
+The DAE has 1492 scalar unknowns and 1492 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 190
+  Variables: 2368
+  Constants: 9 (9 scalars)
+  Parameters: 1012 (1076 scalars)
+  Unknowns: 1347 (1508 scalars)
+  Differentiated variables: 44 scalars
+  Equations: 1165
+  Nontrivial: 910
+Translated Model
+  Constants: 979 scalars
+  Free parameters: 143 scalars
+  Parameter depending: 305 scalars
+  Continuous time states: 22 scalars
+  Time-varying variables: 445 scalars
+  Alias variables: 721 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5}
+  Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  Sizes of nonlinear systems of equations: {51}
+  Sizes after manipulation of the nonlinear systems: {9}
+  Number of numerical Jacobians: 1
+  Initialization problem
+    Sizes of nonlinear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 51}
+    Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9}
+    Number of numerical Jacobians: 23
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  pipe1.mediums[1].T
+  pipe1.mediums[2].T
+  pipe2.mediums[1].T
+  pipe2.mediums[2].T
+  pipe3.mediums[1].T
+  pipe3.mediums[2].T
+  pipe4.mediums[1].T
+  pipe4.mediums[2].T
+  pipe5.mediums[1].T
+  pipe5.mediums[2].T
+  pipe6.mediums[1].T
+  pipe6.mediums[2].T
+  pipe7.mediums[1].T
+  pipe7.mediums[2].T
+  pipe8.mediums[1].T
+  pipe8.mediums[2].T
+  pipe9.mediums[1].T
+  pipe9.mediums[2].T
+  pipe10.mediums[1].T
+  pipe10.mediums[2].T
+  pipe11.mediums[1].T
+  pipe11.mediums[2].T
+ 

@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D">Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D</a>
+The model has the same number of unknowns and equations: 2275
+The model could not be deduced to be symbolically well-posed.
+The model has
+  2247+4*(size(world.x_label.lines, 1)+size(world.y_label.lines, 1)+size(  world.z_label.lines, 1))
+scalar unknowns and
+  2231+(if  not torque1.useSupport then 1 else 0)+(if  not torque2.useSupport   then 1 else 0)+(if  not torque3.useSupport then 1 else 0)+(if  not   torque.useSupport then 1 else 0)+(if  not Connections.isRoot(bodyBox.body.frame_a.R)   then 13 else 22)+4*size(world.x_label.lines, 1)+4*size(world.y_label.lines, 1)  +4*size(world.z_label.lines, 1)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  2275
+Check of <a href="Modelica://Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D">Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D</a> successful.

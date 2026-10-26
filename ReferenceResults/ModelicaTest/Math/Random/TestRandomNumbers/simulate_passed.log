@@ -1,0 +1,69 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 07:46:03 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+
+... Demonstrate how to generate uniform random numbers with xorshift64*:
+   random = 0.313593
+   random = 0.511035
+   random = 0.0424458
+   random = 0.686031
+   random = 0.448066
+
+... Demonstrate how to generate uniform random numbers with xorshift128+ (and 3 different localSeeds):
+   random = 0.461154, 0.340066, 0.850204
+   random = 0.0317015, 0.708537, 0.291911
+   random = 0.919226, 0.883382, 0.191143
+   random = 0.544481, 0.735601, 0.220053
+   random = 0.492459, 0.41285, 0.836544
+
+... Demonstrate how to generate uniform random numbers with xorshift1024*:
+   random = 0.311559
+   random = 0.0599521
+   random = 0.9468
+   random = 0.0379248
+   random = 0.67468
+... "TestRandomNumbers.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+... Demonstrate how to generate uniform random numbers with xorshift64*:
+   random = 0.313593
+   random = 0.511035
+   random = 0.0424458
+   random = 0.686031
+   random = 0.448066
+
+... Demonstrate how to generate uniform random numbers with xorshift128+ (and 3 different localSeeds):
+   random = 0.461154, 0.340066, 0.850204
+   random = 0.0317015, 0.708537, 0.291911
+   random = 0.919226, 0.883382, 0.191143
+   random = 0.544481, 0.735601, 0.220053
+   random = 0.492459, 0.41285, 0.836544
+
+... Demonstrate how to generate uniform random numbers with xorshift1024*:
+   random = 0.311559
+   random = 0.0599521
+   random = 0.9468
+   random = 0.0379248
+   random = 0.67468
+Integration terminated successfully at T = 1.5
+   CPU-time for integration                : 0.005 seconds
+   CPU-time for one grid interval          : 1.67 milliseconds
+   CPU-time for initialization             : 0.002 seconds
+   Number of result points                 : 5
+   Number of grid points                   : 4
+   Number of accepted steps                : 21
+   Number of f-evaluations (dynamics)      : 21
+   Number of Jacobian-evaluations          : 19
+   Number of model time events             : 1
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 0.0005
+   Maximum integration stepsize            : 0.489
+   Maximum integration order               : 1
+Calling terminal section
+... "dsfinal.txt" creating (final states)

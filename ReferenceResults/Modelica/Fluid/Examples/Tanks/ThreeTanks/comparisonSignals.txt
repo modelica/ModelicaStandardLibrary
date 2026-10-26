@@ -1,0 +1,7 @@
+time
+tank1.level
+tank1.medium.T
+tank2.level
+tank2.medium.T
+tank3.level
+tank3.medium.T

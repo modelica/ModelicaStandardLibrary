@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.EddyCurrentLosses:
+The DAE has 2497 scalar unknowns and 2497 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 1309
+  Variables: 2749
+  Constants: 11 (11 scalars)
+  Parameters: 353 (391 scalars)
+  Unknowns: 2385 (2497 scalars)
+  Differentiated variables: 21 scalars
+  Equations: 750
+  Nontrivial: 641
+Translated Model
+  Constants: 932 scalars
+  Free parameters: 82 scalars
+  Parameter depending: 92 scalars
+  Outputs: 2 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 463 scalars
+  Alias variables: 1330 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {37, 29}
+  Sizes after manipulation of the linear systems: {8, 8}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  sineVoltage_e.plug_p.reference.gamma
+  sineVoltage_m.plug_p.reference.gamma
+ 
