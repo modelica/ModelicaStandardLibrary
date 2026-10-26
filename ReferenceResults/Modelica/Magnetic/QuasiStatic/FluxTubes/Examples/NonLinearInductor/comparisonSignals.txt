@@ -1,0 +1,11 @@
+time
+coil.Phi
+coil.i
+fundamentalWavePermabilitySensor.harmonicFlux.mean1.x
+fundamentalWavePermabilitySensor.harmonicFlux.mean2.x
+fundamentalWavePermabilitySensor.harmonicPotential.mean1.x
+fundamentalWavePermabilitySensor.harmonicPotential.mean2.x
+r_mLeak.port_p.Phi
+rootMeanSquare.mean1.x
+rootMeanSquare.mean2.x
+sourceQS.pin_p.reference.gamma

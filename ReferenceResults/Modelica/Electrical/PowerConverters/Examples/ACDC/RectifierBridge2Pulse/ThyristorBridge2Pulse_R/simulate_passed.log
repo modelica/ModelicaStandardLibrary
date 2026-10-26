@@ -1,0 +1,28 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 01:10:46 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "ThyristorBridge2Pulse_R.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 0.1
+   CPU-time for integration                : 0.025 seconds
+   CPU-time for one grid interval          : 0.025 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 1041
+   Number of grid points                   : 1001
+   Number of accepted steps                : 1095
+   Number of f-evaluations (dynamics)      : 1875
+   Number of crossing function evaluations : 2284
+   Number of Jacobian-evaluations          : 375
+   Number of model time events             : 10
+   Number of input time events             : 0
+   Number of state events                  : 21
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.43e-11
+   Maximum integration stepsize            : 0.00164
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)

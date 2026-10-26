@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM">Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM</a>
+The model has the same number of unknowns and equations: 413
+The model could not be deduced to be symbolically well-posed.
+The model has
+  413
+scalar unknowns and
+  411+(if  not resistor.useHeatPort then 1 else 0)+(if  not loadTorque.useSupport   then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  413
+Check of <a href="Modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM">Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM</a> successful.

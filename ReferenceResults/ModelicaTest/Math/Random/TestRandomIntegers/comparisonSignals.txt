@@ -1,0 +1,9 @@
+time
+y
+cnt[1]
+cnt[2]
+cnt[3]
+avg
+lowBound
+highBound
+samples

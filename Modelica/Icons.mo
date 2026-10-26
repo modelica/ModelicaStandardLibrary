@@ -808,11 +808,10 @@ corresponding library in a future release.
     <dd><a href=\"https://www.modelon.com/\">Modelon AB</a></dd>
     <dd>Ideon Science Park</dd>
     <dd>22370 Lund, Sweden</dd>
-    <dd>email: <a href=\"mailto:johan.andreasson@modelon.se\">johan.andreasson@modelon.se</a></dd>
 </dl>
 
 <p>
-Copyright &copy; 1998-2024, Modelica Association and contributors
+Copyright &copy; 1998-2025, Modelica Association and contributors
 </p>
 </html>"));
 end Icons;

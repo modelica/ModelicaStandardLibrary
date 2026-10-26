@@ -1,0 +1,29 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC:
+The DAE has 275 scalar unknowns and 275 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 33
+  Variables: 309
+  Parameters: 69 (154 scalars)
+  Unknowns: 240 (275 scalars)
+  Equations: 240
+  Nontrivial: 131
+Translated Model
+  Constants: 54 scalars
+  Free parameters: 144 scalars
+  Parameter depending: 185 scalars
+  Time-varying variables: 44 scalars
+  Alias variables: 2 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

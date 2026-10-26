@@ -1,0 +1,46 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestComponents.Vessels.TestMixingVolumesPressureStates:
+The DAE has 256 scalar unknowns and 256 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 34
+  Variables: 474
+  Constants: 59 (59 scalars)
+  Parameters: 139 (135 scalars)
+  Unknowns: 276 (262 scalars)
+  Differentiated variables: 8 scalars
+  Equations: 223
+  Nontrivial: 186
+Translated Model
+  Constants: 211 scalars
+  Free parameters: 28 scalars
+  Parameter depending: 55 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 62 scalars
+  Alias variables: 100 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {14, 5}
+  Sizes after manipulation of the nonlinear systems: {3, 1}
+  Number of numerical Jacobians: 1
+  Initialization problem
+    Number of mixed real/discrete systems of equations: 1
+    Sizes of nonlinear systems of equations: {19}
+    Sizes after manipulation of the nonlinear systems: {3}
+    Number of numerical Jacobians: 1
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  mixingVolume1.medium.h
+  mixingVolume1.medium.p
+  mixingVolume2.medium.h
+ 
+Warning: Some variables are iteration variables of the initialization problem:
+but they are not given any explicit start values. Zero will be used.
+Iteration variables:
+der(mixingVolume2.medium.h)

@@ -1,0 +1,35 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Orifice.dp_thickEdgedOverall_DPMFLOW:
+The DAE has 149 scalar unknowns and 149 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 26
+  Variables: 120
+  Constants: 1 (1 scalars)
+  Parameters: 10 (25 scalars)
+  Unknowns: 109 (149 scalars)
+  Differentiated variables: 1 scalars
+  Equations: 109
+  Nontrivial: 35
+Translated Model
+  Constants: 40 scalars
+  Free parameters: 11 scalars
+  Parameter depending: 61 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 39 scalars
+  Alias variables: 24 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {1, 1, 1, 1, 1, 1}
+  Sizes after manipulation of the nonlinear systems: {0, 0, 0, 0, 0, 0}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  L
+ 

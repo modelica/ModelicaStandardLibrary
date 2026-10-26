@@ -1,0 +1,84 @@
+﻿ = true
+Translation of ModelicaTest.Translational.Vehicles:
+The DAE has 678 scalar unknowns and 678 scalar equations.
+Warning: The initial conditions are not fully specified.
+Dymola has selected default initial conditions.
+Warning: Assuming fixed default start value for the continuous states:
+    vehicleDrag.inertia.phi(start = 0.0)
+    vehicleDragInConst.inertia.phi(start = 0.0)
+    vehicleDragInVar.inertia.phi(start = 0.0)
+    vehicleInclination.inertia.phi(start = 0.0)
+    vehicleInclinationInConst.inertia.phi(start = 0.0)
+    vehicleInclinationInVar.inertia.phi(start = 0.0)
+    vehicleRoll.inertia.phi(start = 0.0)
+    vehicleRollInConst.inertia.phi(start = 0.0)
+    vehicleRollInVar.inertia.phi(start = 0.0)
+ 
+ 
+Statistics
+ 
+Original Model
+  Number of components: 156
+  Variables: 1097
+  Constants: 9 (9 scalars)
+  Parameters: 410 (410 scalars)
+  Unknowns: 678 (678 scalars)
+  Differentiated variables: 72 scalars
+  Equations: 651
+  Nontrivial: 504
+Translated Model
+  Constants: 216 scalars
+  Free parameters: 153 scalars
+  Parameter depending: 135 scalars
+  Continuous time states: 36 scalars
+  Time-varying variables: 134 scalars
+  Alias variables: 459 scalars
+  Assumed default initial conditions: 9
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 4, 4, 4, 4, 4, 4, 4, 4}
+  Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  vehicleDrag.inertia.phi
+  vehicleDrag.inertia.w
+  vehicleDrag.windSpeed.s
+  vehicleDrag.windSpeed.v
+  vehicleDragInConst.inertia.phi
+  vehicleDragInConst.inertia.w
+  vehicleDragInConst.windSpeed.s
+  vehicleDragInConst.windSpeed.v
+  vehicleDragInVar.inertia.phi
+  vehicleDragInVar.inertia.w
+  vehicleDragInVar.windSpeed.s
+  vehicleDragInVar.windSpeed.v
+  vehicleInclination.inertia.phi
+  vehicleInclination.inertia.w
+  vehicleInclination.windSpeed.s
+  vehicleInclination.windSpeed.v
+  vehicleInclinationInConst.inertia.phi
+  vehicleInclinationInConst.inertia.w
+  vehicleInclinationInConst.windSpeed.s
+  vehicleInclinationInConst.windSpeed.v
+  vehicleInclinationInVar.inertia.phi
+  vehicleInclinationInVar.inertia.w
+  vehicleInclinationInVar.windSpeed.s
+  vehicleInclinationInVar.windSpeed.v
+  vehicleRoll.inertia.phi
+  vehicleRoll.inertia.w
+  vehicleRoll.windSpeed.s
+  vehicleRoll.windSpeed.v
+  vehicleRollInConst.inertia.phi
+  vehicleRollInConst.inertia.w
+  vehicleRollInConst.windSpeed.s
+  vehicleRollInConst.windSpeed.v
+  vehicleRollInVar.inertia.phi
+  vehicleRollInVar.inertia.w
+  vehicleRollInVar.windSpeed.s
+  vehicleRollInVar.windSpeed.v
+ 

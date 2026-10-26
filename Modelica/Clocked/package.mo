@@ -47,7 +47,7 @@ Furthermore:
      gives author and acknowledgement information for this library.</li>
 </ul>
 <p>
-<em>Copyright &copy; 2012-2024, Modelica Association and contributors.</em>
+<em>Copyright &copy; 2012-2025, Modelica Association and contributors.</em>
 </p>
 </html>",
 revisions="<html>

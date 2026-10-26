@@ -1,0 +1,35 @@
+Translation of <a href="Modelica://Modelica.Blocks.Examples.DemonstrateContinuousSignalExtrema">Modelica.Blocks.Examples.DemonstrateContinuousSignalExtrema</a>
+The DAE has 43 scalar unknowns and 43 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 14
+  Variables: 82
+  Parameters: 39 (39 scalars)
+  Unknowns: 43 (43 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 31
+  Nontrivial: 31
+Translated Model
+  Constants: 3 scalars
+  Free parameters: 36 scalars
+  Parameter depending: 1 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 31 scalars
+  Alias variables: 11 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Blocks.Examples.DemonstrateContinuousSignalExtrema#text$signalExtrema1:x">signalExtrema1.x</a>
+<a href="Modelica://Modelica.Blocks.Examples.DemonstrateContinuousSignalExtrema#text$signalExtrema2:x">signalExtrema2.x</a>
+<a href="Modelica://Modelica.Blocks.Examples.DemonstrateContinuousSignalExtrema#text$signalExtrema3:x">signalExtrema3.x</a>
+Finished

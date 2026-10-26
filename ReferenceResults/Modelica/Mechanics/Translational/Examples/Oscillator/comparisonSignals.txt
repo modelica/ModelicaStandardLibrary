@@ -1,0 +1,5 @@
+time
+damper1.s_rel
+damper1.v_rel
+mass1.s
+mass1.v

@@ -1,5 +1,6 @@
 within Modelica.Electrical.Analog.Ideal;
 model IdealizedOpAmpLimited "Idealized operational amplifier with limitation"
+  extends Modelica.Icons.ObsoleteModel;
   parameter Real V0=15000.0 "No-load amplification";
   parameter Boolean useSupply=false
     "Use supply pins (otherwise constant supply)" annotation (Evaluate=true);
@@ -64,7 +65,8 @@ equation
                        simplified=simplifiedExpr);
     end if;
   end if;
-  annotation (defaultComponentName="opAmp",
+  annotation (obsolete = "Please use Modelica.Electrical.Analog.Ideal.OpAmpLimited instead of this model",
+    defaultComponentName="opAmp",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics={
         Line(points={{60,0},{90,0}}, color={0,0,255}),

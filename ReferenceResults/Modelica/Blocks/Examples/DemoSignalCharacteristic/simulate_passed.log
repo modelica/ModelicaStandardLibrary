@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Mon Oct 28 23:52:51 2024)
+
+dymosim started
+... "Modelica.Blocks.Examples.DemoSignalCharacteristic" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 0.5
+   CPU-time for integration                : 0.004 seconds
+   CPU-time for one grid interval          : 0.004 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 1051
+   Number of grid points                   : 1001
+   Number of accepted steps                : 1075
+   Number of f-evaluations (dynamics)      : 1600
+   Number of crossing function evaluations : 2075
+   Number of Jacobian-evaluations          : 624
+   Number of model time events             : 50
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 5e-07
+   Maximum integration stepsize            : 0.0041
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Blocks.Examples.DemoSignalCharacteristic

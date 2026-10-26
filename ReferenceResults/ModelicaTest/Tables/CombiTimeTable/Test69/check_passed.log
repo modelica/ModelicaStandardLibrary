@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 8
+The model has the same number of unknowns and equations:
+  6+max([size(startTime_0.columns, 1); size(startTime_0.offset, 1)])+max([size(  startTime.columns, 1); size(startTime.offset, 1)])
+Check of <a href="Modelica://ModelicaTest.Tables.CombiTimeTable.Test69">ModelicaTest.Tables.CombiTimeTable.Test69</a> successful.
+

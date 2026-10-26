@@ -1,0 +1,54 @@
+[ResultCreationLog]
+modelName = "Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter"
+
+// Test info
+generationTool = Dymola Version 2025x, 2025-01-15
+generationDateAndTime = 2026-06-02 12:07:51
+gitURL = https://github.com/Modelica/ModelicaStandardLibrary/
+gitRevision = 8ebe5ef1
+gitStatus =  M Resources/BuildProjects/CMake/options.cmake
+
+testPC = LTXA320
+testOS = Windows [Version 10.0.19045]
+testUser = Matthias Schaefer
+testDescription = Modelica.Magnetic.FundamentalWave from #4789
+compiler = Microsoft Visual Studio 2022
+
+// Experiment settings (standardized annotation)
+StartTime = 0.0    // set by user or program default value
+StopTime = 1.5    // from experiment annotation
+Interval = 0.0001    // set by user or program default value
+Tolerance = 1e-06    // from experiment annotation
+
+// Experiment settings (tool specific)
+// The following lines can be used as mos-script in Dymola
+clearFlags();
+
+openModel("C:\Program Files\Dymola 2025x Refresh 1\Modelica\Library\ModelicaServices 4.1.0\package.mo",true, false);
+openModel("C:\Program Files\Dymola 2025x Refresh 1\Modelica\Library\ModelManagement 1.4.1\package.moe",true, false);
+ModelManagement.Structure.AST.Misc.EraseClasses({"Modelica"});
+openModel("D:\MSL_Nightly\Tests\ModelicaStandardLibrary\Modelica\package.mo",true,true);
+Advanced.HideDymosim := true;
+Advanced.PlaceDymolaSourceFirst := 2;
+Advanced.StoreProtectedVariables := true;
+SetDymolaCompiler("vs", {"CCompiler=MSVC","MSVCDir=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build"});
+experimentSetupOutput(
+    textual=false,
+    doublePrecision=false,
+    states=true,
+    derivatives=true,
+    inputs=true,
+    outputs=true,
+    auxiliaries=true,
+    equidistant=true,
+    events=true,
+    onlyStopTime=false,
+    debug=false);
+simulateModel(
+    problem="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter",
+    startTime=0.0,
+    stopTime=1.5,
+    method="Dassl",
+    tolerance=1e-06,
+    resultFile="result",
+    outputInterval=0.0001);

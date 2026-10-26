@@ -1,0 +1,29 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.AD_DA_conversion:
+The DAE has 50 scalar unknowns and 50 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 8
+  Variables: 66
+  Parameters: 28 (28 scalars)
+  Unknowns: 38 (50 scalars)
+  Equations: 33
+  Nontrivial: 29
+Translated Model
+  Constants: 7 scalars
+  Free parameters: 17 scalars
+  Parameter depending: 9 scalars
+  Time-varying variables: 29 scalars
+  Alias variables: 16 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

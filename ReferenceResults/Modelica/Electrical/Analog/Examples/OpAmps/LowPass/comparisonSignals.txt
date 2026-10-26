@@ -1,0 +1,4 @@
+time
+firstOrder.c.v
+firstOrder.opAmp.out.v
+firstOrder.opAmp.out.i
