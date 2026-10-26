@@ -11,7 +11,7 @@ model IMC_DOL_CommonLeakage
   parameter SI.Time tOn=0.1 "Start time of machine";
   parameter SI.Torque T_Load=161.4 "Nominal load torque";
   parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
-       1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter SI.Inertia J_Load=0.29 "Load inertia";
   Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
         transformation(

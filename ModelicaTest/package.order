@@ -2,6 +2,7 @@ testAllFunctions
 Blocks
 Tables
 Electrical
+Magnetic
 Fluid
 Media
 Math
@@ -10,4 +11,3 @@ Rotational
 Translational
 Utilities
 ComplexMath
-Magnetic

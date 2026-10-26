@@ -1,0 +1,6 @@
+time
+transformer.core.B
+transformer.core.MagRel
+transformer.core.Hstat
+transformer.winding1.i
+transformer.winding2.i

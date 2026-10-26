@@ -1,0 +1,35 @@
+﻿ = true
+Translation of Modelica.Media.Examples.R134a.R134a1:
+The DAE has 81 scalar unknowns and 81 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 14
+  Variables: 137
+  Parameters: 32 (32 scalars)
+  Unknowns: 105 (81 scalars)
+  Differentiated variables: 5 scalars
+  Equations: 86
+  Nontrivial: 53
+Translated Model
+  Constants: 26 scalars
+  Free parameters: 10 scalars
+  Parameter depending: 24 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 26 scalars
+  Alias variables: 27 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  volume.medium.h
+  volume.medium.p
+ 

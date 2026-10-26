@@ -1,0 +1,13 @@
+time
+freeMotionScalarInit.angle_1
+freeMotionScalarInit.angle_2
+freeMotionScalarInit.angle_3
+freeMotionScalarInit.derdd[1].u
+freeMotionScalarInit.derdd[2].u
+freeMotionScalarInit.derdd[3].u
+freeMotionScalarInit.r_rel_a_1
+freeMotionScalarInit.r_rel_a_2
+freeMotionScalarInit.r_rel_a_3
+freeMotionScalarInit.v_rel_a_1
+freeMotionScalarInit.v_rel_a_2
+freeMotionScalarInit.v_rel_a_3

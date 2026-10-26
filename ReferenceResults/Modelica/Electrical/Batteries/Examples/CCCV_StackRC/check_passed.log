@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 1013
+The model has the same number of unknowns and equations:
+  1007+size(stack.cell[1, 1].cell.ocv_soc.columns, 1)+size(stack.cell[1, 2].cell.ocv_soc.columns,   1)+size(stack.cell[2, 1].cell.ocv_soc.columns, 1)+size(stack.cell[2, 2].cell.ocv_soc.columns,   1)+size(stack.cell[3, 1].cell.ocv_soc.columns, 1)+size(stack.cell[3, 2].cell.ocv_soc.columns,   1)
+Check of <a href="Modelica://Modelica.Electrical.Batteries.Examples.CCCV_StackRC">Modelica.Electrical.Batteries.Examples.CCCV_StackRC</a> successful.
+

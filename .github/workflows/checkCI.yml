@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 5
       - name: Configure
@@ -73,7 +73,7 @@ jobs:
             compiler: mingw
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 5
       - name: Configure
@@ -112,7 +112,7 @@ jobs:
       - name: Set git to use LF
         run: git config --global core.autocrlf input
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 5
       - name: Setup cygwin
@@ -152,13 +152,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 5
       - name: Setup python environment
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
-          python-version: 3.8
+          python-version: 3.11
       - name: Install python packages
         run: |
           pip install --disable-pip-version-check --user pytidylib
@@ -188,7 +188,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 5
       - name: Get moparser
@@ -208,13 +208,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 5
       - name: Setup python environment
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
-          python-version: 3.8
+          python-version: 3.11
       - name: Check deprecated Text.lineColor annotation
         run: |
           echo "::add-matcher::./.github/check_deprecated_line_color.json"

@@ -1,0 +1,78 @@
+﻿ = true
+Translation of ModelicaTest.Blocks.PadeDelay1:
+The DAE has 104 scalar unknowns and 104 scalar equations.
+Warning: The initial conditions are not fully specified.
+Dymola has selected default initial conditions.
+Warning: Assuming fixed default start value for the continuous states:
+    padeDelay1.x[1](start = 0.0)
+    padeDelay1.x[2](start = 0.0)
+    padeDelay1.x[3](start = 0.0)
+    padeDelay1.x[4](start = 0.0)
+    padeDelay1.x[5](start = 0.0)
+    padeDelay1.x[6](start = 0.0)
+    padeDelay1.x[7](start = 0.0)
+    padeDelay1.x[8](start = 0.0)
+    padeDelay1.x[9](start = 0.0)
+    padeDelay2.x[1](start = 0.0)
+    padeDelay2.x[2](start = 0.0)
+    padeDelay2.x[3](start = 0.0)
+    padeDelay2.x[4](start = 0.0)
+    padeDelay2.x[5](start = 0.0)
+    padeDelay2.x[6](start = 0.0)
+    padeDelay2.x[7](start = 0.0)
+    padeDelay2.x[8](start = 0.0)
+    padeDelay2.x[9](start = 0.0)
+    padeDelayOld1.x[1](start = 0.0)
+    padeDelayOld1.x[2](start = 0.0)
+    padeDelayOld1.x[3](start = 0.0)
+    padeDelayOld1.x[4](start = 0.0)
+    padeDelayOld1.x[5](start = 0.0)
+    padeDelayOld1.x[6](start = 0.0)
+    padeDelayOld1.x[7](start = 0.0)
+    padeDelayOld1.x[8](start = 0.0)
+    padeDelayOld1.x[9](start = 0.0)
+    padeDelayOld2.x[1](start = 0.0)
+    padeDelayOld2.x[2](start = 0.0)
+    padeDelayOld2.x[3](start = 0.0)
+    padeDelayOld2.x[4](start = 0.0)
+    padeDelayOld2.x[5](start = 0.0)
+    padeDelayOld2.x[6](start = 0.0)
+    padeDelayOld2.x[7](start = 0.0)
+    padeDelayOld2.x[8](start = 0.0)
+    padeDelayOld2.x[9](start = 0.0)
+ 
+ 
+Statistics
+ 
+Original Model
+  Number of components: 9
+  Variables: 62
+  Parameters: 34 (86 scalars)
+  Unknowns: 28 (104 scalars)
+  Differentiated variables: 40 scalars
+  Equations: 28
+  Nontrivial: 28
+Translated Model
+  Constants: 11 scalars
+  Free parameters: 9 scalars
+  Parameter depending: 110 scalars
+  Continuous time states: 40 scalars
+  Time-varying variables: 48 scalars
+  Alias variables: 12 scalars
+  Assumed default initial conditions: 36
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  padeDelay1.x[]
+  padeDelay2.x[]
+  padeDelayOld1.x[]
+  padeDelayOld2.x[]
+ 

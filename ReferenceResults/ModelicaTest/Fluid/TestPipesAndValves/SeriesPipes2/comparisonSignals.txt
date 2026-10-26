@@ -1,0 +1,11 @@
+time
+pipe1.mediums[1].h
+pipe1.mediums[1].p
+pipe3.mediums[1].h
+pipe3.mediums[1].p
+valveIncompressible1.filter.x[1]
+valveIncompressible1.filter.x[2]
+valveOpening1.a
+valveOpening1.b
+valveOpening1.last
+valveOpening1.nextEvent

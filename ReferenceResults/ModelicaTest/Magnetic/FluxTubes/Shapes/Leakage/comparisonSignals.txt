@@ -1,0 +1,10 @@
+time
+quarterCylinder.G_m
+quarterHollowCylinder.G_m
+halfCylinder.G_m
+halfHollowCylinder.G_m
+quarterSphere.G_m
+quarterHollowSphere.G_m
+eighthOfSphere.G_m
+eighthOfHollowSphere.G_m
+coaxCylindersEndFaces.G_m
