@@ -1,0 +1,5 @@
+Check of <a href="Modelica://ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL">ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL</a>
+The model has the same number of unknowns and equations: 701
+The model has the same number of unknowns and equations:
+  698+booleanReplicator.nout
+Check of <a href="Modelica://ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL">ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL</a> successful.

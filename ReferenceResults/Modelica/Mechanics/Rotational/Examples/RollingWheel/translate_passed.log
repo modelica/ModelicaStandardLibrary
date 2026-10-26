@@ -1,0 +1,34 @@
+﻿ = true
+Translation of Modelica.Mechanics.Rotational.Examples.RollingWheel:
+The DAE has 41 scalar unknowns and 41 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 10
+  Variables: 59
+  Parameters: 18 (18 scalars)
+  Unknowns: 41 (41 scalars)
+  Differentiated variables: 5 scalars
+  Equations: 37
+  Nontrivial: 28
+Translated Model
+  Constants: 9 scalars
+  Free parameters: 11 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 10 scalars
+  Alias variables: 29 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  inertia.phi
+  inertia.w
+ 

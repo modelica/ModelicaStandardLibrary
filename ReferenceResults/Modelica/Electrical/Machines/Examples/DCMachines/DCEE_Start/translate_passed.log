@@ -1,0 +1,38 @@
+﻿ = true
+Translation of Modelica.Electrical.Machines.Examples.DCMachines.DCEE_Start:
+The DAE has 246 scalar unknowns and 246 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 47
+  Variables: 408
+  Constants: 3 (3 scalars)
+  Parameters: 159 (159 scalars)
+  Unknowns: 246 (246 scalars)
+  Differentiated variables: 13 scalars
+  Equations: 206
+  Nontrivial: 149
+Translated Model
+  Constants: 134 scalars
+  Free parameters: 27 scalars
+  Parameter depending: 92 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 28 scalars
+  Alias variables: 127 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  dcee.airGapDC.psi_e
+  dcee.la.i
+  loadInertia.phi
+  loadInertia.w
+ 

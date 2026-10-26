@@ -1,0 +1,38 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.Machines.Examples.DCMachines.DCPM_Cooling">ModelicaTest.Electrical.Machines.Examples.DCMachines.DCPM_Cooling</a>
+The DAE has 272 scalar unknowns and 272 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 52
+  Variables: 501
+  Constants: 6 (6 scalars)
+  Parameters: 223 (223 scalars)
+  Unknowns: 272 (272 scalars)
+  Differentiated variables: 15 scalars
+  Equations: 218
+  Nontrivial: 170
+Translated Model
+  Constants: 128 scalars
+  Free parameters: 56 scalars
+  Parameter depending: 129 scalars
+  Continuous time states: 5 scalars
+  Time-varying variables: 48 scalars
+  Alias variables: 140 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {13, 2}
+  Sizes after manipulation of the linear systems: {0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.DCMachines.DCPM_Cooling#text$armature:T">armature.T</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.DCMachines.DCPM_Cooling#text$core:T">core.T</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.DCMachines.DCPM_Cooling#text$dcpm.la:i">dcpm.la.i</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.DCMachines.DCPM_Cooling#text$loadInertia:phi">loadInertia.phi</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.DCMachines.DCPM_Cooling#text$loadInertia:w">loadInertia.w</a>
+Finished

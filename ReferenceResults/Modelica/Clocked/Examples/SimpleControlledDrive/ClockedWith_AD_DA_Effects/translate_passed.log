@@ -1,0 +1,35 @@
+﻿ = true
+Translation of Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects:
+The DAE has 70 scalar unknowns and 70 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 21
+  Variables: 121
+  Parameters: 53 (55 scalars)
+  Unknowns: 66 (68 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 85
+  Nontrivial: 81
+Translated Model
+  Constants: 23 scalars
+  Free parameters: 19 scalars
+  Parameter depending: 16 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 27 scalars
+  Alias variables: 38 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  load.phi
+  load.w
+ 

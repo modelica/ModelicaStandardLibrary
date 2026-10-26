@@ -1,0 +1,56 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2:
+The DAE has 4020 scalar unknowns and 4020 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 175
+  Variables: 1884
+  Constants: 1 (1 scalars)
+  Parameters: 451 (793 scalars)
+  Unknowns: 1432 (4020 scalars)
+  Differentiated variables: 107 scalars
+  Equations: 1304
+  Nontrivial: 817
+Translated Model
+  Constants: 2575 scalars
+  Free parameters: 102 scalars
+  Parameter depending: 233 scalars
+  Continuous time states: 24 scalars
+  Time-varying variables: 509 scalars
+  Alias variables: 1395 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 4, 42, 42}
+  Sizes after manipulation of the linear systems: {4, 4, 6, 6}
+  Sizes of nonlinear systems of equations: {31, 31}
+  Sizes after manipulation of the nonlinear systems: {4, 4}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {5}
+    Sizes after manipulation of the linear systems: {3}
+    Sizes of nonlinear systems of equations: {4, 11}
+    Sizes after manipulation of the nonlinear systems: {4, 4}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  freeMotion.r_rel_a[]
+  freeMotion.v_rel_a[]
+  freeMotion.w_rel_b[]
+  referenceSystem.pointMass1.w_a[]
+  referenceSystem.pointMass3.v_0[2]
+  referenceSystem.pointMass3.v_0[3]
+  referenceSystem.pointMass4.v_0[1]
+  referenceSystem.pointMass6.frame_a.r_0[]
+ 
+Dynamically selected continuous time states
+There are 2 sets of dynamic state selection.
+From set 1 there are 3 states to be selected from:
+  referenceSystem.pointMass1.Q[]
+ 
+From set 2 there are 3 states to be selected from:
+  freeMotion.Q[]
+ 

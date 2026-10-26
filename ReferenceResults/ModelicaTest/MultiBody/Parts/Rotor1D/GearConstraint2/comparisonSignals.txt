@@ -1,0 +1,5 @@
+time
+gc1.actuatedRevolute_b.phi
+gc1.actuatedRevolute_b.w
+gc2.actuatedRevolute_b.phi
+gc2.actuatedRevolute_b.w

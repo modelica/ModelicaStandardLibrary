@@ -1,0 +1,41 @@
+Translation of <a href="Modelica://ModelicaTest.Fluid.TestComponents.Fittings.TestJunctionTraceSubstances">ModelicaTest.Fluid.TestComponents.Fittings.TestJunctionTraceSubstances</a>
+The DAE has 498 scalar unknowns and 498 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 62
+  Variables: 889
+  Constants: 140 (336 scalars)
+  Parameters: 311 (317 scalars)
+  Unknowns: 438 (516 scalars)
+  Differentiated variables: 7 scalars
+  Equations: 426
+  Nontrivial: 378
+Translated Model
+  Constants: 506 scalars
+  Free parameters: 93 scalars
+  Parameter depending: 219 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 149 scalars
+  Alias variables: 202 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {8}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: {25}
+  Sizes after manipulation of the nonlinear systems: {2}
+  Number of numerical Jacobians: 1
+  Initialization problem
+    Sizes of nonlinear systems of equations: {25}
+    Sizes after manipulation of the nonlinear systems: {4}
+    Number of numerical Jacobians: 1
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Fluid.TestComponents.Fittings.TestJunctionTraceSubstances#text$junction1:mC_scaled">junction1.mC_scaled[1]</a>
+<a href="Modelica://ModelicaTest.Fluid.TestComponents.Fittings.TestJunctionTraceSubstances#diagram$junction1:medium.p">junction1.medium.p</a>
+<a href="Modelica://ModelicaTest.Fluid.TestComponents.Fittings.TestJunctionTraceSubstances#text$junction1.medium:T">junction1.medium.T</a>
+<a href="Modelica://ModelicaTest.Fluid.TestComponents.Fittings.TestJunctionTraceSubstances#diagram$junction1:medium.Xi[1]">junction1.medium.Xi[1]</a>
+Finished

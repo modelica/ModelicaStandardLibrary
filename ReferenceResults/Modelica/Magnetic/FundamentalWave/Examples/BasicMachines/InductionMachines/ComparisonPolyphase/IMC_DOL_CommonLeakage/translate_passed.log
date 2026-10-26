@@ -1,0 +1,80 @@
+Translation of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage">Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage</a>
+The DAE has 3573 scalar unknowns and 3573 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 725
+  Variables: 4310
+  Constants: 16 (16 scalars)
+  Parameters: 1005 (1181 scalars)
+  Unknowns: 3289 (3573 scalars)
+  Differentiated variables: 87 scalars
+  Equations: 1694
+  Nontrivial: 1390
+Translated Model
+  Constants: 1084 scalars
+  Free parameters: 46 scalars
+  Parameter depending: 591 scalars
+  Continuous time states: 22 scalars
+  Time-varying variables: 754 scalars
+  Alias variables: 2295 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {62, 58, 14, 40, 20, 52, 20, 47, 20, 2, 2, 2}
+  Sizes after manipulation of the linear systems: {15, 15, 2, 7, 5, 6, 5, 6, 5, 0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2, 18, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 2, 0, 0, 2, 5, 0, 0, 2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc1.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc1.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc1.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc1.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc1.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc1.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc1.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc1.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$loadInertia0:phi">loadInertia0.phi</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$loadInertia0:w">loadInertia0.w</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$loadInertia1:phi">loadInertia1.phi</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$loadInertia1:w">loadInertia1.w</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$loadInertiaH:phi">loadInertiaH.phi</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$loadInertiaH:w">loadInertiaH.w</a>
+Dynamically selected continuous time states
+There are 2 sets of dynamic state selection.
+From set 1 there are 6 states to be selected from:
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimcH.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimcH.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[3].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[3].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[4].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[4].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[5].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimcH.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[5].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$currentRMSsensorH:i">currentRMSsensorH.i[2]</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$currentRMSsensorH:i">currentRMSsensorH.i[3]</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$currentRMSsensorH:i">currentRMSsensorH.i[4]</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$currentRMSsensorH:i">currentRMSsensorH.i[5]</a>
+From set 2 there are 6 states to be selected from:
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc0.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc0.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[3].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[3].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[4].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[4].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[5].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc0.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[5].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$currentRMSsensor0:i">currentRMSsensor0.i[2]</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$currentRMSsensor0:i">currentRMSsensor0.i[3]</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$currentRMSsensor0:i">currentRMSsensor0.i[4]</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage#text$currentRMSsensor0:i">currentRMSsensor0.i[5]</a>
+Finished

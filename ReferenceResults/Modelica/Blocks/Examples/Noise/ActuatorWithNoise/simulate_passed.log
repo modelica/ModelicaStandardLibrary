@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Tue Sep 17 23:23:01 2024)
+
+dymosim started
+... "Modelica.Blocks.Examples.Noise.ActuatorWithNoise" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 8
+   CPU-time for integration                : 1.24 seconds
+   CPU-time for one grid interval          : 0.777 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 3573
+   Number of grid points                   : 1601
+   Number of accepted steps                : 100254
+   Number of f-evaluations (dynamics)      : 183315
+   Number of crossing function evaluations : 103104
+   Number of Jacobian-evaluations          : 28659
+   Number of model time events             : 1600
+   Number of input time events             : 0
+   Number of state events                  : 186
+   Number of step events                   : 0
+   Minimum integration stepsize            : 6.65e-11
+   Maximum integration stepsize            : 0.000865
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Blocks.Examples.Noise.ActuatorWithNoise

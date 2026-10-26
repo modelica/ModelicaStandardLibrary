@@ -1,0 +1,8 @@
+time
+body.frame_a.r_0[1]
+body.v_0[1]
+heatCapacitor.T
+prismatic1.s
+prismatic1.v
+prismatic2.s
+prismatic2.v

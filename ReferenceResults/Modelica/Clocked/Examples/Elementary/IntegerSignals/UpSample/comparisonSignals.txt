@@ -1,0 +1,4 @@
+time
+upSample1.y
+upSample2.y
+sum.y

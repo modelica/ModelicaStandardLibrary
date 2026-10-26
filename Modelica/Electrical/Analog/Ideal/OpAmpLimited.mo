@@ -104,8 +104,8 @@ In the first case the necessary power is drawn from an implicit internal supply,
 <p>
 For most applications it is sufficient to use default settings <code>useFirstOrder=false</code> (default on the Advanced-tab).
 In this case the intermediate voltage <code>v_int</code> is simply <code>V0*v_in</code>.<br>
-In some applications it might be necessary to set <code>useFirstOrder=true</code> 
-to let the intermediate voltage <code>v_int</code> rise according to a firstOrder with time constant <code>Tau</code>. 
+In some applications it might be necessary to set <code>useFirstOrder=true</code>
+to let the intermediate voltage <code>v_int</code> rise according to a firstOrder with time constant <code>Tau</code>.
 In that case the time constant <code>Tau</code> should fit to the dynamics of the input signal.
 </p>
 <p>
@@ -115,14 +115,14 @@ Intermediate voltage <code>v_int</code> is limited between positive supply and n
 </p>
 <h4>Initialization</h4>
 <p>
-<code>v_in.start</code> and <code>i_out.start</code> are just helpful starting values during initialization, 
+<code>v_in.start</code> and <code>i_out.start</code> are just helpful starting values during initialization,
 it is unlikely that it is necessary to change the start values and / or to declare them as fixed.
 </p>
 <p>
 If it is necessary to use <code>useFirstOrder=true</code>, it is essential to initialize intermediate voltage <code>v_int</code> correctly.<br>
 As a default, default initialization (<strong>Linear</strong>) is sufficient: <code>v_int = V0*v_in</code>.<br>
-However, in some cases the initialization has more than one solution and it is desired to set 
-<code>v_int</code> at the positive supply (<strong>UpperLimit</strong>) or 
+However, in some cases the initialization has more than one solution and it is desired to set
+<code>v_int</code> at the positive supply (<strong>UpperLimit</strong>) or
 <code>v_int</code> at the negative supply (<strong>LowerLimit</strong>).
 </p>
 </html>"));

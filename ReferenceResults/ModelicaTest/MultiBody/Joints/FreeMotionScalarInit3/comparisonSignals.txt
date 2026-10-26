@@ -1,0 +1,13 @@
+time
+body.w_a[1]
+body.w_a[2]
+body.w_a[3]
+freeMotionScalarInit.angle_1
+freeMotionScalarInit.angle_2
+freeMotionScalarInit.angle_3
+freeMotionScalarInit.r_rel_a_1
+freeMotionScalarInit.r_rel_a_2
+freeMotionScalarInit.r_rel_a_3
+freeMotionScalarInit.v_rel_a_1
+freeMotionScalarInit.v_rel_a_2
+freeMotionScalarInit.v_rel_a_3

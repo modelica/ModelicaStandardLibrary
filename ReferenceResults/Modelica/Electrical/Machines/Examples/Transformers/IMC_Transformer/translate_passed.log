@@ -1,0 +1,45 @@
+Translation of <a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer">Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer</a>
+The DAE has 940 scalar unknowns and 940 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 104
+  Variables: 1267
+  Constants: 22 (22 scalars)
+  Parameters: 414 (490 scalars)
+  Unknowns: 831 (940 scalars)
+  Differentiated variables: 30 scalars
+  Equations: 492
+  Nontrivial: 397
+Translated Model
+  Constants: 326 scalars
+  Free parameters: 58 scalars
+  Parameter depending: 250 scalars
+  Continuous time states: 9 scalars
+  Time-varying variables: 189 scalars
+  Alias variables: 629 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 21, 14, 2, 2}
+  Sizes after manipulation of the linear systems: {0, 6, 4, 0, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer#text$aimc:i_0_s">aimc.i_0_s</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer#text$aimc:idq_rr">aimc.idq_rr[1]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer#text$aimc:idq_rr">aimc.idq_rr[2]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer#text$aimc:idq_sr">aimc.idq_sr[1]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer#text$aimc:idq_sr">aimc.idq_sr[2]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer#text$loadInertia:phi">loadInertia.phi</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer#text$loadInertia:w">loadInertia.w</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer#text$transformer.l2sigma.inductor:i">transformer.l2sigma.inductor[2].i</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.Transformers.IMC_Transformer#text$transformer.l2sigma.inductor:i">transformer.l2sigma.inductor[3].i</a>
+Finished
