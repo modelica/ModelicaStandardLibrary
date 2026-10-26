@@ -126,6 +126,84 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
+class Version_4_2_0 "Version 4.2.0 (mmm dd, yyyy)"
+  extends Modelica.Icons.ReleaseNotes;
+
+  annotation (Documentation(info="<html>
+<p>Version 4.2.0 is backward compatible to version 4.1.0. This means, there is no need to convert user models, because no renaming or moving has been done on the library.</p>
+<p>Short overview:</p>
+<ul>
+<li>xx new components (e.g. Blocks for recording of min and max of a signal)</li>
+<li>xx improved components (e.g. tables can now read CSV)</li>
+<li>xx potentially non-backwards-compatible changes (especially Constants.inf, Constants.small, Constants.eps)</li>
+<li>xx bug fixes, which may cause the simulation results to change for the better</li>
+<li>xx models marked as obsolete</li>
+<li>This version is based on the recent Modelica language standard version 3.6.</li>
+<li>About [Link to resolved] issues xxx issues (including xxx pull requests) have been addressed for this release.</li>
+</ul>
+<p>
+The following libraries, that were previously using version Modelica 4.0.0, were tested successfully with version 4.1.0 without any modification, using Dymola 2025x Refresh 1 and/or OpenModelica 1.25.0
+(alphabetical list):
+</p>
+
+<p><br>The following <strong><font color=\"blue\">new components</font></strong> have been added to <strong><font color=\"blue\">existing</font></strong> libraries: </p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.Analog.Ideal</h4></td>
+</tr>
+<tr>
+<td>OpAmpLimited</td>
+<td>Replaces the deprecated IdealizedOpAmpLimited which caused numerical problems.</td>
+</tr>
+</table>
+
+<p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><font color=\"blue\">improved</font></strong> in a <strong><font color=\"blue\">backward compatible</font></strong> way:</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
+<td colspan=\"2\"><h4>Library</h4></td>
+</tr>
+<tr>
+<td>Component(s)</td>
+<td>Description.</td>
+</tr>
+</table>
+
+<p><br><br>The following <strong><font color=\"blue\">existing components</font></strong> have been <strong><font color=\"blue\">changed</font></strong> in a <strong><font color=\"blue\">non-backward compatible</font></strong> way, even though this is not expected in general to affect models using the library, except in very rare cases:</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
+<td colspan=\"2\"><h4>Library</h4></td>
+</tr>
+<tr>
+<td>Component(s)</td>
+<td>Description.</td>
+</tr>
+</table>
+
+<p><br><br>The following <strong><font color=\"blue\">critical errors</font></strong> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
+<td colspan=\"2\"><h4>Library</h4></td>
+</tr>
+<tr>
+<td>Component(s)</td>
+<td>Description.</td>
+</tr>
+</table>
+
+<p><br><br>The following models were declared as <strong><font color=\"blue\">obsolete</font></strong>, thus to be preferably replaced with better, more general ones:</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
+<td colspan=\"2\"><h4>Modelica.Electrical.Analog.Ideal</h4></td>
+</tr>
+<tr>
+<td>IdealizedOpAmpLimited</td>
+<td>Replaced by OpAmpLimited.</td>
+</tr>
+</table>
+
+</html>"));
+end Version_4_2_0;
+
 class Version_4_1_0 "Version 4.1.0 (May 23, 2025)"
   extends Modelica.Icons.ReleaseNotes;
 

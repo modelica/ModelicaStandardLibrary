@@ -17,8 +17,6 @@ partial model Enable1
 equation
   connect(andCondition_p.u1, fire_p) annotation (Line(
       points={{-60,-92},{-60,-120}}, color={255,0,255}));
-  connect(enableLogic.enable, enable) annotation (Line(
-      points={{100,-92},{100,-120}}, color={255,0,255}));
   connect(enableLogic.internalEnable[1], andCondition_p.u2) annotation (
       Line(
       points={{79,-80},{76,-80},{76,-96},{40,-96},{40,-76},{-40,-76},{-40,-100},

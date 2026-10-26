@@ -1,0 +1,48 @@
+Translation of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase">Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase</a>
+The DAE has 2135 scalar unknowns and 2135 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 429
+  Variables: 2764
+  Constants: 23 (23 scalars)
+  Parameters: 767 (899 scalars)
+  Unknowns: 1974 (2135 scalars)
+  Differentiated variables: 50 scalars
+  Equations: 1073
+  Nontrivial: 881
+Translated Model
+  Constants: 790 scalars
+  Free parameters: 68 scalars
+  Parameter depending: 397 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 431 scalars
+  Alias variables: 1371 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {14, 20, 35, 2, 14, 12, 8, 4, 2}
+  Sizes after manipulation of the linear systems: {2, 5, 6, 0, 2, 3, 0, 2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {18, 2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {4, 0, 0, 2, 2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$aimc3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$aimc3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$aimc3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$aimc3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$aimcM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimcM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$aimcM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimcM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$aimcM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimcM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$aimcM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimcM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$loadInertia3:phi">loadInertia3.phi</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$loadInertia3:w">loadInertia3.w</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$loadInertiaM:phi">loadInertiaM.phi</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase#text$loadInertiaM:w">loadInertiaM.w</a>
+Finished

@@ -1,0 +1,35 @@
+Log-file of program ./dymosim
+(generated: Tue Feb 11 00:43:15 2025)
+
+dymosim started
+... "ModelicaTest.Tables.CombiTimeTable.Test89" simulating
+... "dsin.txt" loading (dymosim input file)
+... loading "Values" from "D:/MSL_Nightly/Repos/ModelicaStandardLibrary/ModelicaTest/Resources/Data/Tables/test1D.csv"
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 100
+  WARNING: You have many time events. This is probably due to fast sampling.
+  Enable logging of event in Simulation/Setup/Debug/Events during simulation
+   CPU-time for integration                : 0.005 seconds
+   CPU-time for one grid interval          : 0.001 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 5039
+   Number of grid points                   : 5001
+   Number of accepted steps                : 24
+   Number of f-evaluations (dynamics)      : 24
+   Number of crossing function evaluations : 5061
+   Number of Jacobian-evaluations          : 22
+   Number of model time events             : 37
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 2e-05
+   Maximum integration stepsize            : 44.1
+   Maximum integration order               : 1
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Tables.CombiTimeTable.Test89

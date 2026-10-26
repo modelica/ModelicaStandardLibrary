@@ -1,0 +1,4 @@
+time
+motor.inertiaRotor.phi
+motor.inertiaRotor.w
+motor.la.i

@@ -1,0 +1,41 @@
+﻿ = true
+Translation of Modelica.Mechanics.Rotational.Examples.Friction:
+The DAE has 98 scalar unknowns and 98 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 14
+  Variables: 154
+  Constants: 14 (14 scalars)
+  Parameters: 42 (44 scalars)
+  Unknowns: 98 (98 scalars)
+  Differentiated variables: 12 scalars
+  Equations: 92
+  Nontrivial: 71
+Translated Model
+  Constants: 27 scalars
+  Free parameters: 30 scalars
+  Parameter depending: 8 scalars
+  Outputs: 4 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 40 scalars
+  Alias variables: 51 scalars
+  Number of mixed real/discrete systems of equations: 2
+  Sizes of linear systems of equations: {5, 4}
+  Sizes after manipulation of the linear systems: {2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  clutch.phi_rel
+  clutch.w_rel
+  inertia3.phi
+  inertia3.w
+  spring.phi_rel
+  spring.w_rel
+ 

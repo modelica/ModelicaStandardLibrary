@@ -1,0 +1,51 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Joints.RevolutePlanarLoopConstraint:
+The DAE has 1771 scalar unknowns and 1771 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 108
+  Variables: 1028
+  Parameters: 414 (838 scalars)
+  Unknowns: 614 (1771 scalars)
+  Differentiated variables: 71 scalars
+  Equations: 508
+  Nontrivial: 313
+Translated Model
+  Constants: 1076 scalars
+  Free parameters: 79 scalars
+  Parameter depending: 403 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 303 scalars
+  Alias variables: 748 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {74, 124}
+  Sizes after manipulation of the linear systems: {4, 5}
+  Sizes of nonlinear systems of equations: {54}
+  Sizes after manipulation of the nonlinear systems: {4}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {34}
+    Sizes after manipulation of the linear systems: {2}
+    Sizes of nonlinear systems of equations: {34}
+    Sizes after manipulation of the nonlinear systems: {2}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Dynamically selected continuous time states
+There are 2 sets of dynamic state selection.
+From set 1 there are 2 states to be selected from:
+  revolute1.phi
+  revolute2.phi
+  revolute3.phi
+  revolute4.phi
+ 
+From set 2 there are 2 states to be selected from:
+  revolute1.w
+  revolute2.w
+  revolute3.w
+  revolute4.w
+ 

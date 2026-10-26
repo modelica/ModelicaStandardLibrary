@@ -1,0 +1,19 @@
+time
+// aimcE.i_0_s
+aimcE.idq_rr[1]
+aimcE.idq_rr[2]
+aimcE.idq_sr[1]
+aimcE.idq_sr[2]
+aimcE.is[1]
+aimcE.is[2]
+aimcM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+aimcM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+aimcM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+aimcM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+// aimcM.stator.zeroInductor.i0
+aimcM.is[1]
+aimcM.is[2]
+loadInertiaE.phi
+loadInertiaE.w
+loadInertiaM.phi
+loadInertiaM.w

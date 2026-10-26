@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCDC.ChopperBuckBoost.ChopperBuckBoost_DutyCycle">Modelica.Electrical.PowerConverters.Examples.DCDC.ChopperBuckBoost.ChopperBuckBoost_DutyCycle</a>
+The model has the same number of unknowns and equations: 174
+The model could not be deduced to be symbolically well-posed.
+The model has
+  174
+scalar unknowns and
+  165+2*(if  not dcdc.useHeatPort then 1 else 0)+(if  not dcdc.transistorLS.useHeatPort   then 1 else 0)+(if  not dcdc.diodeLS.useHeatPort then 1 else 0)+(if  not   dcdc.transistorHS.useHeatPort then 1 else 0)+(if  not dcdc.diodeHS.useHeatPort   then 1 else 0)+(if  not resistorLV.useHeatPort then 1 else 0)+(if  not   resistor.useHeatPort then 1 else 0)+(if  not resistorHV.useHeatPort then 1   else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  174
+Check of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCDC.ChopperBuckBoost.ChopperBuckBoost_DutyCycle">Modelica.Electrical.PowerConverters.Examples.DCDC.ChopperBuckBoost.ChopperBuckBoost_DutyCycle</a> successful.

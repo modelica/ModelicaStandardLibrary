@@ -1,0 +1,46 @@
+﻿ = true
+Translation of Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_R:
+The DAE has 614 scalar unknowns and 614 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 120
+  Variables: 967
+  Constants: 24 (24 scalars)
+  Parameters: 383 (423 scalars)
+  Unknowns: 560 (614 scalars)
+  Differentiated variables: 12 scalars
+  Equations: 443
+  Nontrivial: 397
+Translated Model
+  Constants: 195 scalars
+  Free parameters: 105 scalars
+  Parameter depending: 168 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 193 scalars
+  Alias variables: 400 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {39}
+  Sizes after manipulation of the linear systems: {12}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  fundamentalWaveCurrent[1].mean1.x
+  fundamentalWaveCurrent[1].mean2.x
+  fundamentalWaveCurrent[2].mean1.x
+  fundamentalWaveCurrent[2].mean2.x
+  fundamentalWaveCurrent[3].mean1.x
+  fundamentalWaveCurrent[3].mean2.x
+  fundamentalWaveVoltage[1].mean1.x
+  fundamentalWaveVoltage[1].mean2.x
+  fundamentalWaveVoltage[2].mean1.x
+  fundamentalWaveVoltage[2].mean2.x
+  fundamentalWaveVoltage[3].mean1.x
+  fundamentalWaveVoltage[3].mean2.x
+ 

@@ -1,0 +1,12 @@
+time
+pipe.mediums[1].h
+pipe.mediums[1].p
+pipe.mediums[2].h
+pipe.mediums[2].p
+pipe.mediums[3].h
+pipe.mediums[3].p
+pipe.mediums[4].h
+pipe.mediums[4].p
+pipe.mediums[5].h
+pipe.mediums[5].p
+m_flow_initial

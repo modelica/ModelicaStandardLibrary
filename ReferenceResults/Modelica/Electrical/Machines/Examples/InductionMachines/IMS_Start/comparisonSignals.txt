@@ -1,0 +1,12 @@
+time
+// aims.i_0_r
+aims.ir[1]
+aims.ir[2]
+aims.idq_rr[1]
+aims.idq_rr[2]
+aims.is[1]
+aims.is[2]
+aims.idq_sr[1]
+aims.idq_sr[2]
+loadInertia.phi
+loadInertia.w

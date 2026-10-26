@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 215
+The model has the same number of unknowns and equations:
+  213+size(battery1.ocv_soc.columns, 1)+size(battery2.ocv_soc.columns, 1)
+Check of <a href="Modelica://Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge">Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge</a> successful.
+

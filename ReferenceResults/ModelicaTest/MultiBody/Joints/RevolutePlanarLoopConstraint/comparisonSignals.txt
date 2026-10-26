@@ -1,0 +1,9 @@
+time
+revolute1.phi
+revolute1.w
+revolute2.phi
+revolute2.w
+revolute3.phi
+revolute3.w
+revolute4.phi
+revolute4.w

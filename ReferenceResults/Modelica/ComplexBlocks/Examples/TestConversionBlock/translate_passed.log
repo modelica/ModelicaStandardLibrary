@@ -1,0 +1,27 @@
+﻿ = true
+Translation of Modelica.ComplexBlocks.Examples.TestConversionBlock:
+The DAE has 10 scalar unknowns and 10 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 5
+  Variables: 19
+  Parameters: 9 (9 scalars)
+  Unknowns: 10 (10 scalars)
+  Equations: 8
+  Nontrivial: 7
+Translated Model
+  Free parameters: 9 scalars
+  Time-varying variables: 5 scalars
+  Alias variables: 5 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

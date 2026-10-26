@@ -9,7 +9,7 @@ partial model PartialBasicDCMachine "Partial model for DC machine"
     "Nominal armature current (>0..Motor, <0..Generator)"
     annotation (Dialog(tab="Nominal parameters"));
   parameter SI.AngularVelocity wNominal(displayUnit="rev/min",
-      start=1425*2*pi/60) "Nominal speed"
+      start=Modelica.Units.Conversions.from_rpm(1425)) "Nominal speed"
     annotation (Dialog(tab="Nominal parameters"));
   parameter SI.Temperature TaNominal(start=293.15)
     "Nominal armature temperature"

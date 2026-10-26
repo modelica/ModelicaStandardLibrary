@@ -6,7 +6,7 @@ The following versions of the Modelica Standard Library are currently being supp
 
 | Version | Supported |
 | ------- | --------- |
-| ≤ 4.0.0 | :x:       |
+| ≤ 4.1.0 | :x:       |
 
 ## Reporting a Vulnerability
 

@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_TrianglePWM_RL">Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_TrianglePWM_RL</a>
+The model has the same number of unknowns and equations: 233
+The model could not be deduced to be symbolically well-posed.
+The model has
+  233
+scalar unknowns and
+  218+14*(if  not hbridge.useHeatPort then 1 else 0)+(if  not resistor.useHeatPort   then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  233
+Check of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_TrianglePWM_RL">Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_TrianglePWM_RL</a> successful.

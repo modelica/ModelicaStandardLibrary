@@ -1,0 +1,40 @@
+﻿ = true
+Translation of Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_ResistiveBraking:
+The DAE has 739 scalar unknowns and 739 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 84
+  Variables: 1007
+  Constants: 16 (16 scalars)
+  Parameters: 344 (405 scalars)
+  Unknowns: 647 (739 scalars)
+  Differentiated variables: 20 scalars
+  Equations: 427
+  Nontrivial: 343
+Translated Model
+  Constants: 328 scalars
+  Free parameters: 59 scalars
+  Parameter depending: 207 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 132 scalars
+  Alias variables: 434 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 4, 4, 4, 4, 4, 4, 10, 2}
+  Sizes after manipulation of the linear systems: {2, 0, 0, 0, 0, 0, 0, 2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  inertiaLoad.phi
+  inertiaLoad.w
+  smpm.idq_sr[]
+ 

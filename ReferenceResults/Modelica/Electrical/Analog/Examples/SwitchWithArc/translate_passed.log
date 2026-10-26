@@ -1,0 +1,36 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.SwitchWithArc:
+The DAE has 71 scalar unknowns and 71 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 12
+  Variables: 102
+  Constants: 2 (2 scalars)
+  Parameters: 29 (29 scalars)
+  Unknowns: 71 (71 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 65
+  Nontrivial: 53
+Translated Model
+  Constants: 18 scalars
+  Free parameters: 20 scalars
+  Parameter depending: 5 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 21 scalars
+  Alias variables: 38 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  inductor1.i
+  inductor2.i
+ 
