@@ -660,7 +660,7 @@ extends Modelica.Icons.ExamplesPackage;
     ok := true;
   end Vectors;
 
-  function colorMapToSvg "Store all predefined color maps in svg"
+  impure function colorMapToSvg "Store all predefined color maps in svg"
     extends Modelica.Icons.Function;
     import Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg;
     import Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.{jet, hot, gray, spring, summer, autumn, winter};
@@ -762,7 +762,7 @@ extends Modelica.Icons.ExamplesPackage;
 
   model TestMatricesExamplesSolveLinearEquations
     extends Modelica.Icons.Example;
-  equation
+  initial equation
       Modelica.Math.Matrices.Examples.solveLinearEquations();
     annotation (experiment(StopTime=0));
   end TestMatricesExamplesSolveLinearEquations;
