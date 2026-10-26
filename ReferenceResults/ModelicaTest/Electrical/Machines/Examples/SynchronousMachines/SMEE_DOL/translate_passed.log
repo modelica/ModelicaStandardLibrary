@@ -1,0 +1,43 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL">ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL</a>
+The DAE has 701 scalar unknowns and 701 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 89
+  Variables: 969
+  Constants: 14 (14 scalars)
+  Parameters: 339 (401 scalars)
+  Unknowns: 616 (701 scalars)
+  Differentiated variables: 25 scalars
+  Equations: 402
+  Nontrivial: 313
+Translated Model
+  Constants: 317 scalars
+  Free parameters: 63 scalars
+  Parameter depending: 178 scalars
+  Continuous time states: 7 scalars
+  Time-varying variables: 129 scalars
+  Alias variables: 429 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 19}
+  Sizes after manipulation of the linear systems: {2, 5}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL#diagram$:smee.idq_dr[1]">smee.idq_dr[1]</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL#text$smee:idq_rr">smee.idq_rr[2]</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL#text$smee:idq_sr">smee.idq_sr[1]</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL#text$smee:idq_sr">smee.idq_sr[2]</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL#text$smee.inertiaRotor:phi">smee.inertiaRotor.phi</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL#text$smee.inertiaRotor:w">smee.inertiaRotor.w</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL#text$smee.lesigma:i">smee.lesigma.i</a>
+Finished

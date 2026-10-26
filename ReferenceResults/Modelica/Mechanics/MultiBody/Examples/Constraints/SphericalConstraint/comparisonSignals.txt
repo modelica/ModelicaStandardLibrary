@@ -1,0 +1,4 @@
+time
+bodyOfConstraint.body.w_a[1]
+bodyOfConstraint.body.w_a[2]
+bodyOfConstraint.body.w_a[3]

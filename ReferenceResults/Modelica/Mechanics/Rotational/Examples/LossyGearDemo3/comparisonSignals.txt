@@ -1,0 +1,4 @@
+time
+Inertia2.phi
+Inertia2.w
+gear.mode

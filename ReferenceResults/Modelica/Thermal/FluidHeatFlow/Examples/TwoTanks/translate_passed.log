@@ -1,0 +1,39 @@
+﻿ = true
+Translation of Modelica.Thermal.FluidHeatFlow.Examples.TwoTanks:
+The DAE has 50 scalar unknowns and 50 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 11
+  Variables: 115
+  Constants: 2 (2 scalars)
+  Parameters: 63 (63 scalars)
+  Unknowns: 50 (50 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 48
+  Nontrivial: 40
+Translated Model
+  Constants: 13 scalars
+  Free parameters: 33 scalars
+  Parameter depending: 22 scalars
+  Outputs: 5 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 30 scalars
+  Alias variables: 17 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {3}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: {1}
+  Sizes after manipulation of the nonlinear systems: {1}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  openTank1.H
+  openTank1.m
+  openTank2.H
+  openTank2.m
+ 

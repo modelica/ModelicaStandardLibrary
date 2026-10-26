@@ -1,0 +1,63 @@
+﻿ = true
+Translation of Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL:
+The DAE has 1268 scalar unknowns and 1268 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 229
+  Variables: 1874
+  Constants: 48 (48 scalars)
+  Parameters: 697 (802 scalars)
+  Unknowns: 1129 (1268 scalars)
+  Differentiated variables: 30 scalars
+  Equations: 820
+  Nontrivial: 729
+Translated Model
+  Constants: 342 scalars
+  Free parameters: 199 scalars
+  Parameter depending: 345 scalars
+  Continuous time states: 29 scalars
+  Time-varying variables: 397 scalars
+  Alias variables: 835 scalars
+  Number of mixed real/discrete systems of equations: 6
+  Sizes of linear systems of equations: {11, 11, 11, 11, 11, 11, 12}
+  Sizes after manipulation of the linear systems: {4, 4, 4, 4, 4, 4, 5}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  fundamentalWaveCurrent[1].mean1.x
+  fundamentalWaveCurrent[1].mean2.x
+  fundamentalWaveCurrent[2].mean1.x
+  fundamentalWaveCurrent[2].mean2.x
+  fundamentalWaveCurrent[3].mean1.x
+  fundamentalWaveCurrent[3].mean2.x
+  fundamentalWaveCurrent[4].mean1.x
+  fundamentalWaveCurrent[4].mean2.x
+  fundamentalWaveCurrent[5].mean1.x
+  fundamentalWaveCurrent[5].mean2.x
+  fundamentalWaveCurrent[6].mean1.x
+  fundamentalWaveCurrent[6].mean2.x
+  fundamentalWaveVoltage[1].mean1.x
+  fundamentalWaveVoltage[1].mean2.x
+  fundamentalWaveVoltage[2].mean1.x
+  fundamentalWaveVoltage[2].mean2.x
+  fundamentalWaveVoltage[3].mean1.x
+  fundamentalWaveVoltage[3].mean2.x
+  fundamentalWaveVoltage[4].mean1.x
+  fundamentalWaveVoltage[4].mean2.x
+  fundamentalWaveVoltage[5].mean1.x
+  fundamentalWaveVoltage[5].mean2.x
+  fundamentalWaveVoltage[6].mean1.x
+  fundamentalWaveVoltage[6].mean2.x
+  inductor.inductor[2].i
+  inductor.inductor[3].i
+  inductor.inductor[4].i
+  inductor.inductor[5].i
+  inductor.inductor[6].i
+ 

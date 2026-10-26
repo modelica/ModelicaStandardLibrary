@@ -1,0 +1,49 @@
+Translation of <a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive">Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive</a>
+The DAE has 658 scalar unknowns and 658 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 129
+  Variables: 986
+  Constants: 14 (14 scalars)
+  Parameters: 314 (314 scalars)
+  Unknowns: 658 (658 scalars)
+  Differentiated variables: 35 scalars
+  Equations: 560
+  Nontrivial: 427
+Translated Model
+  Constants: 350 scalars
+  Free parameters: 66 scalars
+  Parameter depending: 163 scalars
+  Continuous time states: 16 scalars
+  Time-varying variables: 76 scalars
+  Alias variables: 331 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#text$coupling.flange_a:phi">coupling.flange_a.phi</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter1:iDCFilter.y">dcdcInverter1.iDCFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter1.idealDcDc:deadTime.y">dcdcInverter1.idealDcDc.deadTime.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter1.idealDcDc:powerController.y">dcdcInverter1.idealDcDc.powerController.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter1:iMotFilter.y">dcdcInverter1.iMotFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter1:vDCFilter.y">dcdcInverter1.vDCFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter1:vMotFilter.y">dcdcInverter1.vMotFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter2:iDCFilter.y">dcdcInverter2.iDCFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter2.idealDcDc:deadTime.y">dcdcInverter2.idealDcDc.deadTime.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter2.idealDcDc:powerController.y">dcdcInverter2.idealDcDc.powerController.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter2:iMotFilter.y">dcdcInverter2.iMotFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter2:vDCFilter.y">dcdcInverter2.vDCFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#diagram$dcdcInverter2:vMotFilter.y">dcdcInverter2.vMotFilter.y</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#text$dcpm1.inertiaRotor:w">dcpm1.inertiaRotor.w</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#text$dcpm1.la:i">dcpm1.la.i</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive#text$dcpm2.la:i">dcpm2.la.i</a>
+Finished

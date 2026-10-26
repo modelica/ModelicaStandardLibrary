@@ -1,0 +1,38 @@
+﻿ = true
+Translation of Modelica.Electrical.Spice3.Examples.Oscillator:
+The DAE has 131 scalar unknowns and 131 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 27
+  Variables: 616
+  Constants: 6 (6 scalars)
+  Parameters: 479 (479 scalars)
+  Unknowns: 131 (131 scalars)
+  Differentiated variables: 6 scalars
+  Equations: 100
+  Nontrivial: 84
+Translated Model
+  Constants: 484 scalars
+  Free parameters: 16 scalars
+  Parameter depending: 3 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 68 scalars
+  Alias variables: 45 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {12}
+  Sizes after manipulation of the linear systems: {4}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  c.vinternal
+  c1.vinternal
+  T1.vbe
+  T2.vbe
+ 

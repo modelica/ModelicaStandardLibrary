@@ -1,0 +1,3 @@
+time
+inductor1.i
+inductor2.i

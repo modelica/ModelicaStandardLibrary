@@ -1,0 +1,50 @@
+﻿ = true
+Translation of Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison:
+The DAE has 404 scalar unknowns and 404 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 27
+  Variables: 328
+  Constants: 6 (6 scalars)
+  Parameters: 116 (947 scalars)
+  Unknowns: 206 (404 scalars)
+  Differentiated variables: 25 scalars
+  Equations: 191
+  Nontrivial: 170
+Translated Model
+  Constants: 70 scalars
+  Free parameters: 486 scalars
+  Parameter depending: 433 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 290 scalars
+  Alias variables: 78 scalars
+  Number of mixed real/discrete systems of equations: 2
+  Sizes of linear systems of equations: {8, 10, 9}
+  Sizes after manipulation of the linear systems: {0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {1}
+    Sizes after manipulation of the nonlinear systems: {1}
+    Number of numerical Jacobians: 1
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  preisachEverett.beta
+  preisachEverett.J
+  preisachEverett.MagRel
+  preisachEverett.v
+  preisachEverett.x
+  tellinenSoft.B
+  tellinenSoft.MagRel
+  tellinenTable.B
+  tellinenTable.MagRel
+  winding1.i
+  winding2.i
+  winding3.i
+ 

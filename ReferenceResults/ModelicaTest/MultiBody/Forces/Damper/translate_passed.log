@@ -1,0 +1,41 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Forces.Damper:
+The DAE has 3575 scalar unknowns and 3575 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 166
+  Variables: 1604
+  Constants: 3 (3 scalars)
+  Parameters: 306 (466 scalars)
+  Unknowns: 1295 (3575 scalars)
+  Differentiated variables: 37 scalars
+  Equations: 1198
+  Nontrivial: 796
+Translated Model
+  Constants: 3023 scalars
+  Free parameters: 115 scalars
+  Parameter depending: 252 scalars
+  Continuous time states: 7 scalars
+  Time-varying variables: 126 scalars
+  Alias variables: 528 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  body.frame_a.r_0[1]
+  body.v_0[1]
+  heatCapacitor.T
+  prismatic1.s
+  prismatic1.v
+  prismatic2.s
+  prismatic2.v
+ 

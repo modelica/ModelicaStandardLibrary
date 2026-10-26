@@ -1,0 +1,29 @@
+﻿ = true
+Translation of Modelica.Blocks.Examples.Noise.AutomaticSeed:
+The DAE has 45 scalar unknowns and 45 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 8
+  Variables: 106
+  Parameters: 79 (79 scalars)
+  Unknowns: 27 (45 scalars)
+  Equations: 21
+  Nontrivial: 18
+Translated Model
+  Free parameters: 42 scalars
+  Parameter depending: 37 scalars
+  Outputs: 3 scalars
+  Time-varying variables: 42 scalars
+  Alias variables: 3 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

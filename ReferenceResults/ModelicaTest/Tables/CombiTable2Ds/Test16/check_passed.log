@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 24579
+The model has the same number of unknowns and equations:
+  36+3*(surface.nu*surface.nv+(if surface.multiColoredSurface then surface.nu   else 0)*(if surface.multiColoredSurface then surface.nv else 0))
+Check of <a href="Modelica://ModelicaTest.Tables.CombiTable2Ds.Test16">ModelicaTest.Tables.CombiTable2Ds.Test16</a> successful.
+

@@ -217,7 +217,7 @@ extends Modelica.Icons.ExamplesPackage;
 
     // Strings.contains
     assert(Strings.contains("", ""), "Strings.contains 1 failed (empty strings)");
-    assert(Strings.contains("foo bar", "o"), "Strings.contains 2 failed (multiple occurences)");
+    assert(Strings.contains("foo bar", "o"), "Strings.contains 2 failed (multiple occurrences)");
     assert(Strings.contains("foo bar", "o ba"), "Strings.contains 3 failed (occurrence at middle)");
     assert(Strings.contains("foo bar", "fo"), "Strings.contains 4 failed (occurrence at start)");
     assert(Strings.contains("foo bar", "ar"), "Strings.contains 5 failed (occurrence at end)");

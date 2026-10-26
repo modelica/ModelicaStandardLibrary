@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 154
+The model has the same number of unknowns and equations:
+  153+size(cell.cell.ocv_soc.columns, 1)
+Check of <a href="Modelica://Modelica.Electrical.Batteries.Examples.CCCV_CellRC">Modelica.Electrical.Batteries.Examples.CCCV_CellRC</a> successful.
+

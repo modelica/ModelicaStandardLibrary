@@ -1,0 +1,5 @@
+time
+damper.phi_rel
+damper.w_rel
+inertia3.phi
+inertia3.w
