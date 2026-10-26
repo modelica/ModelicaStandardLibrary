@@ -268,7 +268,7 @@ end OpenTank;
         constant SI.ReynoldsNumber Re_turbulent = 100 "cf. suddenExpansion";
         SI.MassFlowRate[nPorts] m_flow_turbulent;
 
-    protected
+      protected
         input SI.Height fluidLevel = 0
         "Level of fluid in the vessel for treating heights of ports";
         parameter SI.Height fluidLevel_max = 1
@@ -292,6 +292,8 @@ end OpenTank;
         Modelica.Blocks.Interfaces.BooleanInput[nPorts] regularFlow(each start=true);
         Modelica.Blocks.Interfaces.BooleanInput[nPorts] inFlow(each start=false);
 
+        constant Medium.MassFlowRate unitMassFlow=1 annotation (HideResult=true);
+        constant SI.Height unitHeight=1 annotation (HideResult=true);
       equation
         mb_flow = sum(ports.m_flow);
         mbXi_flow = sum_ports_mXi_flow;
@@ -374,7 +376,7 @@ of the modeller. Increase nPorts to add an additional port.
           elseif inFlow[i] then
             // ports[i] is above fluidLevel and has inflow
             ports[i].p = vessel_ps_static[i];
-            s[i] = ports[i].m_flow;
+            s[i] = ports[i].m_flow*(unitHeight/unitMassFlow);
 
           else
             // ports[i] is above fluidLevel, preventing outflow
