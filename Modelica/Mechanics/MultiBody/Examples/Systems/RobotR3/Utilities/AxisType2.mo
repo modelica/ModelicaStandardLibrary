@@ -131,7 +131,8 @@ Default values of the parameters are given for the axis of joint 1.
           extent={{68,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192},
-          lineColor={64,64,64}),
+          lineColor={64,64,64},
+          pattern=LinePattern.None),
         Text(
           extent={{-150,100},{150,60}},
           textString="%name",
@@ -140,7 +141,8 @@ Default values of the parameters are given for the axis of joint 1.
           extent={{-100,50},{66,-50}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175},
-          lineColor={0,0,0}),
+          lineColor={0,0,0},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-100,34},{62,-34}},
           fillPattern=FillPattern.Solid,
@@ -149,7 +151,8 @@ Default values of the parameters are given for the axis of joint 1.
         Rectangle(
           extent={{60,54},{80,-54}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={160,160,164}),
+          fillColor={160,160,164},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{60,54},{80,-54}}, lineColor={0,0,0})}));
 end AxisType2;

@@ -82,7 +82,8 @@ blocks of the block library Modelica.Blocks.Sources.
                   extent={{-100,20},{100,-20}},
                   lineColor={64,64,64},
                   fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Line(points={{-30,-32},{30,-32}}),Line(points={{0,52},{0,32}}),Line(
+                  fillColor={192,192,192},
+            pattern=LinePattern.None),     Line(points={{-30,-32},{30,-32}}),Line(points={{0,52},{0,32}}),Line(
             points={{-29,32},{30,32}}),Line(points={{0,-32},
             {0,-100}}),Line(points={{30,-42},{20,-52}}),Line(points={{30,-32},{10,-52}}),
             Line(points={{20,-32},{0,-52}}),Line(points={{10,
@@ -154,7 +155,8 @@ blocks of the block library Modelica.Blocks.Sources.
                   extent={{-100,20},{100,-20}},
                   lineColor={64,64,64},
                   fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Line(points={{-30,-32},{30,-32}}),Line(points={{0,52},{0,32}}),Line(
+                  fillColor={192,192,192},
+            pattern=LinePattern.None),     Line(points={{-30,-32},{30,-32}}),Line(points={{0,52},{0,32}}),Line(
             points={{-29,32},{30,32}}),Line(points={{0,-32},
             {0,-100}}),Line(points={{30,-42},{20,-52}}),Line(points={{30,-32},{10,-52}}),
             Line(points={{20,-32},{0,-52}}),Line(points={{10,
@@ -208,7 +210,8 @@ equation
           lineColor={95,95,95},
           fillColor={255,255,255},
           fillPattern=FillPattern.HorizontalCylinder,
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-20,100},{20,-100}},
           lineColor={95,95,95},
