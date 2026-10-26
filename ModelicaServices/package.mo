@@ -156,6 +156,13 @@ The interface of this model is defined at
 
 </html>"));
     end Vector;
+  function supportsGLB
+  "Returns true, if the tool can visualize meshes in GLB format with model Shape"
+  output Boolean result=false "= true, if GLB format is supported";
+algorithm 
+
+end supportsGLB;
+
   end Animation;
 
   package ExternalReferences "Library of functions to access external resources"
