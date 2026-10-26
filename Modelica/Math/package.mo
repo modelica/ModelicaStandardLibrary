@@ -2579,18 +2579,17 @@ result = Matrices.<strong>det</strong>(A);
 This function returns the determinant \"result\" of matrix A
 computed by a LU decomposition with row pivoting. For details about determinants, see
 <a href=\"http://en.wikipedia.org/wiki/Determinant\">http://en.wikipedia.org/wiki/Determinant</a>.
-Usually, this function should never be used, because
+Usually, this function should not be used, because
 there are nearly always better numerical algorithms
-as by computing the determinant. Examples:
+than computing the determinant. Examples:
 </p>
 
 <ul>
-<li> Use <a href=\"modelica://Modelica.Math.Matrices.rank\">Matrices.rank</a>
-     to compute whether det(A) = 0 (i.e., Matrices.rank(A) &lt; size(A,1)).</li>
-
 <li> Use <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
-     to solve the linear equation A*x = b, instead of using determinants to
-     compute the solution.</li>
+     to solve the linear equation A*x = b.</li>
+
+<li> Use <a href=\"modelica://Modelica.Math.Matrices.rcond\"Matrices.rcond</a>(A)>=epsilon
+     to check that the system is well-conditioned and not singular.</li>
 </ul>
 
 <h4>See also</h4>
