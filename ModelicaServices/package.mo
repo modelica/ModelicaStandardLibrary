@@ -146,8 +146,7 @@ The interface of this model is defined at
     model Vector "Animation of a moveable vector-quantity (the length is not fixed in meters)"
       extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector;
 
-      annotation (Documentation(info=
-                                 "<html>
+      annotation (Documentation(info="<html>
 <p>
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>.<br>
