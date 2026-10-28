@@ -1,6 +1,8 @@
 # Routines
 
 The routines run both in Matlab and in Octave.
+Using Matlab, you need the toolboxes CurveFitting and Optimization.
+Using Octave, you need the packages splines and io.
 
 In future, more routines might be added for different approximation methods.
 

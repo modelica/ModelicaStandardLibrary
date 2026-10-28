@@ -31,5 +31,6 @@ In the spreadsheets, line 8 and 9 are calculated automatically.
 In the text file, count the data pairs and store the number in line 8 and 9.
 
 Starting in line 10, pairs of measured sata J and H are stored. Bear in mind to include the origin (0,0) as first row. Recommendation: Separate J and H by a tab.
+Both arrays J and H have to be strictly increasing.
 
 The structure of the spreadsheets is designed to be exported as tab-separated text file to get a text file with correct structure. Bear in mind to use the name RD_*material*.txt.

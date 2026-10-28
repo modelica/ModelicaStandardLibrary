@@ -68,6 +68,10 @@ function par=SSEE(material, varargin)
         end
     end
     par.material=material;
+% check RawData
+    if check_RD(par)<0
+        disp('Please check rawData'); return;
+    end
 % smoothed spline interpolation
     par.pp=csaps(par.HD,par.JD,p);
     par.dpp=fnder(par.pp);
