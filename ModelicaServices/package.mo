@@ -146,7 +146,7 @@ The interface of this model is defined at
     model Vector "Animation of a moveable vector-quantity (the length is not fixed in meters)"
       extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector;
 
-  annotation (Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>.<br>
@@ -156,6 +156,12 @@ The interface of this model is defined at
 
 </html>"));
     end Vector;
+
+  function supportsMeshFormat "Return true, if the provided mesh format is supported"
+    input String format  "Extension of the mesh file name that shall be used, e.g., \"stl\", \"dxf\", \"glb\"";
+    output Boolean result = false "Return true, if the format is supported by the tool";
+  end supportsMeshFormat;
+
   end Animation;
 
   package ExternalReferences "Library of functions to access external resources"
