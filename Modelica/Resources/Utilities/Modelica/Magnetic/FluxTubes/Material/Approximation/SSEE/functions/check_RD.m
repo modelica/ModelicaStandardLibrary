@@ -15,12 +15,17 @@ function result=check_RD(par)
         disp('rawData J(H) has to start with (0,0)');
         result=-2; return;
     end
-    if ~all(diff(par.HD)>0)
-        disp('rawData H not strictly increasing!');
+    N=length(par.HD);
+    for k=1:N-1
+        if(par.HD(k)>=par.HD(k+1))
+        dispVal('rawData H not strictly increasing: k=', k);
         result=-3; return;
+        end
     end
-    if ~all(diff(par.JD)>0)
-        disp('rawData J not strictly increasing!');
-        result=-4; return;
+    for k=1:N-1
+        if(par.JD(k)>=par.JD(k+1))
+            dispVal('rawData J not strictly increasing: k=', k);
+            result=-4; return;
+        end
     end
 end
