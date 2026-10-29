@@ -1,11 +1,13 @@
 #1	
-# type       =	M470-50A
-# vRef[W/kg] =	4.70
-# Bref[T]    =	1.5
-# fRef[Hz]   =	50
-# dens[kg/m3]=	7700
+# type           =	M470-50A
+# vRef[W/kg]     =	4.70
+# Bref[T]        =	1.5
+# fRef[Hz]       =	50
+# rhoEl  [Ohm.m] =	3.58E-07
+# lambda [W/m.K] =	28.1
+# dens[kg/m3]    =	7700
 # table J [T] vs. H [A/m]	
-# N          =	33
+# N              =	33
 double JH(33,2)	
 0	0
 0.008643225	9.969833049

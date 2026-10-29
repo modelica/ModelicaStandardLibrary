@@ -1,11 +1,13 @@
 #1	
-# type       =	M400-50A
-# vRef[W/kg] =	4.00
-# Bref[T]    =	1.5
-# fRef[Hz]   =	50
-# dens[kg/m3]=	7700
+# type           =	M400-50A
+# vRef[W/kg]     =	4.00
+# Bref[T]        =	1.5
+# fRef[Hz]       =	50
+# rhoEl  [Ohm.m] =	4.50E-07
+# lambda [W/m.K] =	24
+# dens[kg/m3]    =	7700
 # table J [T] vs. H [A/m]	
-# N          =	33
+# N              =	33
 double JH(33,2)	
 0	0
 0.011735983	10.01073959

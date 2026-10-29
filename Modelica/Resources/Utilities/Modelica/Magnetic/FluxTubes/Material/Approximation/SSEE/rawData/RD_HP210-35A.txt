@@ -1,11 +1,13 @@
 #1	
-# type       =	HP210-35A
-# vRef[W/kg] =	2.10
-# Bref[T]    =	1.5
-# fRef[Hz]   =	50
-# dens[kg/m3]=	7600
+# type           =	HP210-35A
+# vRef[W/kg]     =	2.10
+# Bref[T]        =	1.5
+# fRef[Hz]       =	50
+# rhoEl  [Ohm.m] =	6.45E-07
+# lambda [W/m.K] =	19
+# dens[kg/m3]    =	7600
 # table J [T] vs. H [A/m]	
-# N          =	33
+# N              =	33
 double JH(33,2)	
 0	0
 0.025919331	9.985741149

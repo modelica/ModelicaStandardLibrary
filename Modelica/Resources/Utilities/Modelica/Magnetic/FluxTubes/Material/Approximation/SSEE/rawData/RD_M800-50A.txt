@@ -1,11 +1,13 @@
 #1	
-# type       =	M800-50A
-# vRef[W/kg] =	8.00
-# Bref[T]    =	1.5
-# fRef[Hz]   =	50
-# dens[kg/m3]=	7800
+# type           =	M800-50A
+# vRef[W/kg]     =	8.00
+# Bref[T]        =	1.5
+# fRef[Hz]       =	50
+# rhoEl  [Ohm.m] =	2.82E-07
+# lambda [W/m.K] =	37.1
+# dens[kg/m3]    =	7800
 # table J [T] vs. H [A/m]	
-# N          =	33
+# N              =	33
 double JH(33,2)	
 0	0
 0.004955084	10.05846389

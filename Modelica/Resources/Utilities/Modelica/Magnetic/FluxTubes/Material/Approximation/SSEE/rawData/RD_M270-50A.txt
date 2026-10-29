@@ -1,11 +1,13 @@
 #1	
-# type       =	M270-50A
-# vRef[W/kg] =	2.70
-# Bref[T]    =	1.5
-# fRef[Hz]   =	50
-# dens[kg/m3]=	7600
+# type           =	M270-50A
+# vRef[W/kg]     =	2.70
+# Bref[T]        =	1.5
+# fRef[Hz]       =	50
+# rhoEl  [Ohm.m] =	6.45E-07
+# lambda [W/m.K] =	19
+# dens[kg/m3]    =	7600
 # table J [T] vs. H [A/m]	
-# N          =	33
+# N              =	33
 double JH(33,2)	
 0	0
 0.023570577	10.01982993

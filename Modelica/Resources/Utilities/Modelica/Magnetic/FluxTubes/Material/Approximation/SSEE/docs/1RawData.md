@@ -8,21 +8,25 @@ In order to focus on the parameter determination, the process of importing the r
 
 1. \#`1` *necessary to import a text file into Modelica.Tables*
 
-2. \# `type       =`*material*
+2. \# `type         =`*material*
 
-3. \# `vRef[W/kg] =`*specific losses*
+3. \# `vRef[W/kg]   =`*specific losses*
 
-4. \# `Bref[T]    =`*measured at this peak flux density*
+4. \# `Bref[T]      =`*measured at this peak flux density*
 
-5. \# `fRef[Hz]   =`*measured at this frequency*
+5. \# `fRef[Hz]     =`*measured at this frequency*
 
-6. \# `dens[kg/m3]=`*density of material*
+6. \# `rhoEl[Ohm.m] =`*specific electric resistivity*
 
-7. \# `table J [T] vs. H [A/m]`*just a description*
+7. \# `lambda[W/m.K]=`*specific thermal conductivity*
 
-8. \# `N          =`*number of data pairs J H*
+8. \# `dens[kg/m3]  =`*density of material*
 
-9. `double JH(`*N*`,2)`*necessary to import a text file into Modelica.Tables*
+9. \# `table J [T] vs. H [A/m]`*just a description*
+
+10. \# `N          =`*number of data pairs J H*
+
+11. `double JH(`*N*`,2)`*necessary to import a text file into Modelica.Tables*
 
 Lines 2 to 6 are additional parameters not used for the magnetic chracteristic, but they enable a later loss calculation.
 

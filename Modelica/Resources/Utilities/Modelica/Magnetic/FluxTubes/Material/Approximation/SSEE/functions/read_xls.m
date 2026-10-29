@@ -6,24 +6,28 @@ function par=read_xls(fileName, material)
 % Author : A. Haumer
 % Date   : 2026-08-15
 % -----------------------------------------------------------------------
-    firstRow=10; % Row where table starts
+    firstRow=12; % Row where table starts
     if exist("OCTAVE_VERSION","builtin")>0
 % get additional scalar parameters to save them later to parameter file
-        par.vRef=xlsread(fileName,material,'B3:B3');
-        par.BRef=xlsread(fileName,material,'B4:B4');
-        par.fRef=xlsread(fileName,material,'B5:B5');
-        par.dens=xlsread(fileName,material,'B6:B6');
-        n=firstRow-1+xlsread(fileName,material,'B8:B8');
+        par.vRef  =xlsread(fileName,material,'B3:B3');
+        par.BRef  =xlsread(fileName,material,'B4:B4');
+        par.fRef  =xlsread(fileName,material,'B5:B5');
+        par.rhoEl =xlsread(fileName,material,'B6:B6');
+        par.lambda=xlsread(fileName,material,'B7:B7');
+        par.dens  =xlsread(fileName,material,'B8:B8');
+        n=firstRow-1+xlsread(fileName,material,'B10:B10');
 % raw data arrays J and H
         RD=xlsread(fileName,material, ...
             ['A' mat2str(firstRow) ':B' mat2str(n)]);
     else
 % get additional scalar parameters to save them later to the parameter file
-        par.vRef=readmatrix(fileName,'Sheet',material,'Range','B3:B3');
-        par.BRef=readmatrix(fileName,'Sheet',material,'Range','B4:B4');
-        par.fRef=readmatrix(fileName,'Sheet',material,'Range','B5:B5');
-        par.dens=readmatrix(fileName,'Sheet',material,'Range','B6:B6');
-        n=firstRow-1+readmatrix(fileName,'Sheet',material,'Range','B8:B8');
+        par.vRef  =readmatrix(fileName,'Sheet',material,'Range','B3:B3');
+        par.BRef  =readmatrix(fileName,'Sheet',material,'Range','B4:B4');
+        par.fRef  =readmatrix(fileName,'Sheet',material,'Range','B5:B5');
+        par.rhoEl =readmatrix(fileName,'Sheet',material,'Range','B6:B6');
+        par.lambda=readmatrix(fileName,'Sheet',material,'Range','B7:B7');
+        par.dens  =readmatrix(fileName,'Sheet',material,'Range','B8:B8');
+        n=firstRow-1+readmatrix(fileName,'Sheet',material,'Range','B10:B10');
 % raw data arrays J and H
         RD=readmatrix(fileName,'Sheet',material, ...
             'Range',['A' mat2str(firstRow) ':B' mat2str(n)]);

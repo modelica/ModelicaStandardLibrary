@@ -6,6 +6,8 @@ record BaseData "CastIron"
     "Specific losses at BRef and fRef";
   parameter SI.MagneticFluxDensity BRef=1.5 "Ref. flux density for spec. losses";
   parameter SI.Frequency fRef=50 "Ref. frequency for spec. losses";
+  parameter SI.Resistivity rhoEl=7.50E-7 "Electric resistivity";
+  parameter SI.ThermalConductivity lambda=50 "Thermal conductivity";
   parameter SI.Density dens = 7500 "Density of material";
   parameter SI.RelativePermeability mu_ri= 155.80 "Initial relative permeability";
   // Exponential Extrapolation

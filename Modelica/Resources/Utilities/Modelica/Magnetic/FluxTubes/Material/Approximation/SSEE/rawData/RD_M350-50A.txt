@@ -1,11 +1,13 @@
 #1	
-# type       =	M350-50A
-# vRef[W/kg] =	3.50
-# Bref[T]    =	1.5
-# fRef[Hz]   =	50
-# dens[kg/m3]=	7650
+# type           =	M350-50A
+# vRef[W/kg]     =	3.50
+# Bref[T]        =	1.5
+# fRef[Hz]       =	50
+# rhoEl  [Ohm.m] =	4.50E-07
+# lambda [W/m.K] =	24
+# dens[kg/m3]    =	7650
 # table J [T] vs. H [A/m]	
-# N          =	33
+# N              =	33
 double JH(33,2)	
 0	0
 0.016063598	10.01869364

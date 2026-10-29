@@ -1,11 +1,13 @@
 #1	
-# type       =	M330-50A
-# vRef[W/kg] =	3.30
-# Bref[T]    =	1.5
-# fRef[Hz]   =	50
-# dens[kg/m3]=	7650
+# type           =	M330-50A
+# vRef[W/kg]     =	3.30
+# Bref[T]        =	1.5
+# fRef[Hz]       =	50
+# rhoEl  [Ohm.m] =	5.20E-07
+# lambda [W/m.K] =	21.8
+# dens[kg/m3]    =	7650
 # table J [T] vs. H [A/m]	
-# N          =	33
+# N              =	33
 double JH(33,2)	
 0	0
 0.018521728	10.02210252

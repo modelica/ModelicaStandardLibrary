@@ -1,11 +1,13 @@
 #1	
-# type       =	HP235-35A
-# vRef[W/kg] =	2.35
-# Bref[T]    =	1.5
-# fRef[Hz]   =	50
-# dens[kg/m3]=	7600
+# type           =	HP235-35A
+# vRef[W/kg]     =	2.35
+# Bref[T]        =	1.5
+# fRef[Hz]       =	50
+# rhoEl  [Ohm.m] =	5.40E-07
+# lambda [W/m.K] =	20.2
+# dens[kg/m3]    =	7600
 # table J [T] vs. H [A/m]	
-# N          =	33
+# N              =	33
 double JH(33,2)	
 0	0
 0.025064219	9.997104077

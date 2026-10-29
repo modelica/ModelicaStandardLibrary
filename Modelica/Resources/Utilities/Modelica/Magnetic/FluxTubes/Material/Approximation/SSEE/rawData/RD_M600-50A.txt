@@ -1,11 +1,13 @@
 #1	
-# type       =	M600-50A
-# vRef[W/kg] =	6.00
-# Bref[T]    =	1.5
-# fRef[Hz]   =	50
-# dens[kg/m3]=	7750
+# type           =	M600-50A
+# vRef[W/kg]     =	6.00
+# Bref[T]        =	1.5
+# fRef[Hz]       =	50
+# rhoEl  [Ohm.m] =	3.11E-07
+# lambda [W/m.K] =	31.7
+# dens[kg/m3]    =	7750
 # table J [T] vs. H [A/m]	
-# N          =	33
+# N              =	33
 double JH(33,2)	
 0	0
 0.00196682	10.00164925
