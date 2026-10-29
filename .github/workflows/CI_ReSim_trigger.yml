@@ -1,4 +1,4 @@
-name: Sync_CI_Repo
+name: CI_ReSim_trigger
 
 on: 
   pull_request_target:
