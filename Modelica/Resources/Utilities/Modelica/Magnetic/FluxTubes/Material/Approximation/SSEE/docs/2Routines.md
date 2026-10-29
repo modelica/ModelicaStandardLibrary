@@ -52,6 +52,11 @@ There are optional parameters to control the parameter calculation and the deter
 | H2       | 20000   | 0<H1<H2 | end   of switch-over from *SS* to *EE*          |
 | markMax  | true    | logical | &mu;<sub>rMax</sub> is marked in figure 2 and 4 |
 
+Bear in mind that you have to inspect the results and adapt the parameters, 
+especially p, H0, H1, H2.
+
+p=1 defines no smooting, p=0 maximum smoothing.
+
 Optional parameters are specified using `('argument', value)`, e.g. 
 
 `par=SSEE('M330-50A', 'p', 0.01, 'markMax', true);`
