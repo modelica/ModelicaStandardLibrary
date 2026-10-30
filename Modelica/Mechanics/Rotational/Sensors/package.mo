@@ -6,7 +6,7 @@ package Sensors "Sensors to measure variables in 1D rotational mechanical compon
 <p>
 This package contains ideal sensor components that provide
 the connector variables as signals for further processing with the
-Modelica.Blocks library.
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library.
 </p>
 </html>"));
 end Sensors;

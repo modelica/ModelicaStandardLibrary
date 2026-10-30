@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.Utilities.ParameterRecords;
 record InductionMachineData "Common parameters for induction machines"
   extends Modelica.Icons.Record;
   import Modelica.Constants.pi;
-  final parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Inertia Jr=0.29 "Rotor's moment of inertia";
   parameter SI.Inertia Js=Jr "Stator's moment of inertia";
   parameter Integer p(min=1) = 2 "Number of pole pairs (Integer)";
@@ -30,7 +30,7 @@ record InductionMachineData "Common parameters for induction machines"
         2*pi*fsNominal/p) "Friction loss parameter record"
     annotation (Dialog(tab="Losses"));
   parameter Machines.Losses.CoreParameters statorCoreParameters(
-    final m=m,
+    m=m,
     PRef=0,
     VRef=100,
     wRef=2*pi*fsNominal)

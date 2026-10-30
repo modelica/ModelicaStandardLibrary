@@ -356,8 +356,8 @@ The ideal gas constant for moist air is computed from the gas phase composition.
 
     extends Modelica.Icons.Function;
     input SI.Temperature Tsat "Saturation temperature";
-    input Real dTsat(unit="K/s") "Saturation temperature derivative";
-    output Real psat_der(unit="Pa/s") "Saturation pressure derivative";
+    input SI.TemperatureSlope dTsat "Saturation temperature derivative";
+    output SI.PressureSlope psat_der "Saturation pressure derivative";
   protected
     SI.Temperature Tcritical=647.096 "Critical temperature";
     SI.AbsolutePressure pcritical=22.064e6 "Critical pressure";
@@ -414,8 +414,8 @@ The ideal gas constant for moist air is computed from the gas phase composition.
 
     extends Modelica.Icons.Function;
     input SI.Temperature Tsat "Sublimation temperature";
-    input Real dTsat(unit="K/s") "Sublimation temperature derivative";
-    output Real psat_der(unit="Pa/s") "Sublimation pressure derivative";
+    input SI.TemperatureSlope dTsat "Sublimation temperature derivative";
+    output SI.PressureSlope psat_der "Sublimation pressure derivative";
   protected
     SI.Temperature Ttriple=273.16 "Triple point temperature";
     SI.AbsolutePressure ptriple=611.657 "Triple point pressure";
@@ -458,9 +458,9 @@ Saturation pressure of water in the liquid and the solid region is computed usin
   function saturationPressure_der
     "Derivative function for 'saturationPressure'"
     extends Modelica.Icons.Function;
-    input Temperature Tsat "Saturation temperature";
-    input Real dTsat(unit="K/s") "Time derivative of saturation temperature";
-    output Real psat_der(unit="Pa/s") "Saturation pressure";
+    input SI.Temperature Tsat "Saturation temperature";
+    input SI.TemperatureSlope dTsat "Time derivative of saturation temperature";
+    output SI.PressureSlope psat_der "Time derivative of saturation pressure";
 
   algorithm
     /*psat := Utilities.spliceFunction(saturationPressureLiquid(Tsat),sublimationPressureIce(Tsat),Tsat-273.16,1.0);*/
@@ -801,8 +801,8 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
-    input Real dp(unit="Pa/s") "Pressure derivative";
-    input Real dT(unit="K/s") "Temperature derivative";
+    input SI.PressureSlope dp "Pressure derivative";
+    input SI.TemperatureSlope dT "Temperature derivative";
     input Real dX[:](each unit="1/s") "Composition derivative";
     output Real h_der(unit="J/(kg.s)") "Time derivative of specific enthalpy";
   protected
@@ -817,7 +817,7 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
     Real dX_air(unit="1/s") "Time derivative of dry air mass fraction";
     Real dX_liq(unit="1/s")
       "Time derivative of liquid/solid water mass fraction";
-    Real dps(unit="Pa/s") "Time derivative of saturation pressure";
+    SI.PressureSlope dps "Time derivative of saturation pressure";
     Real dx_sat(unit="1/s")
       "Time derivative of absolute humidity per unit mass of dry air";
   algorithm
@@ -969,8 +969,8 @@ Specific internal energy is determined from pressure p, temperature T and compos
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
-    input Real dp(unit="Pa/s") "Pressure derivative";
-    input Real dT(unit="K/s") "Temperature derivative";
+    input SI.PressureSlope dp "Pressure derivative";
+    input SI.TemperatureSlope dT "Temperature derivative";
     input Real dX[:](each unit="1/s") "Mass fraction derivatives";
     output Real u_der(unit="J/(kg.s)") "Specific internal energy derivative";
   protected
@@ -987,7 +987,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
     Real dX_air(unit="1/s") "Time derivative of dry air mass fraction";
     Real dX_liq(unit="1/s")
       "Time derivative of liquid/solid water mass fraction";
-    Real dps(unit="Pa/s") "Time derivative of saturation pressure";
+    SI.PressureSlope dps "Time derivative of saturation pressure";
     Real dx_sat(unit="1/s")
       "Time derivative of absolute humidity per unit mass of dry air";
     Real dR_gas(unit="J/(kg.K.s)") "Time derivative of ideal gas constant";
@@ -1168,7 +1168,7 @@ end thermalConductivity;
   algorithm
     a := sqrt(isentropicExponent(state)*gasConstant(state)*temperature(state));
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end velocityOfSound;
 
@@ -1177,7 +1177,7 @@ end thermalConductivity;
   algorithm
     beta := 1/temperature(state);
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end isobaricExpansionCoefficient;
 
@@ -1186,7 +1186,7 @@ end thermalConductivity;
   algorithm
     kappa := 1/pressure(state);
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end isothermalCompressibility;
 
@@ -1196,7 +1196,7 @@ end thermalConductivity;
     ddph := 1/(gasConstant(state)*temperature(state));
 
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end density_derp_h;
 
@@ -1205,7 +1205,7 @@ end thermalConductivity;
   algorithm
     ddhp := -density(state)/(specificHeatCapacityCp(state)*temperature(state));
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end density_derh_p;
 
@@ -1215,7 +1215,7 @@ end thermalConductivity;
     ddpT := 1/(gasConstant(state)*temperature(state));
 
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end density_derp_T;
 
@@ -1224,7 +1224,7 @@ end thermalConductivity;
   algorithm
     ddTp := -density(state)/temperature(state);
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end density_derT_p;
 
@@ -1237,8 +1237,8 @@ end thermalConductivity;
       state.X[Air])^2*temperature(state));
 
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
-<p>2019-05-14        Stefan Wischhusen: Corrected derivatives.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
+<p>2019-05-14 Stefan Wischhusen: Corrected derivatives.</p>
 </html>"));
   end density_derX;
 
@@ -1246,7 +1246,7 @@ end thermalConductivity;
   algorithm
     MM := Modelica.Constants.R/Modelica.Media.Air.MoistAir.gasConstant(state);
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end molarMass;
 
@@ -1275,7 +1275,7 @@ end thermalConductivity;
 Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.s_pTX\">s_pTX</a>.
 </html>",
         revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end T_psX;
 
@@ -1301,7 +1301,7 @@ Temperature is computed from pressure, specific entropy and composition via nume
 The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
 </html>",
         revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end setState_psX;
 
@@ -1328,9 +1328,9 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
 Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
 </html>",
         revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
-<p>2019-05-14        Stefan Wischhusen: Corrected calculation.</p>
-<p>2019-09-10        Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
+<p>2019-05-14 Stefan Wischhusen: Corrected calculation.</p>
+<p>2019-09-10 Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
@@ -1344,8 +1344,8 @@ Specific entropy of moist air is computed from pressure, temperature and composi
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
-    input Real dp(unit="Pa/s") "Derivative of pressure";
-    input Real dT(unit="K/s") "Derivative of temperature";
+    input SI.PressureSlope dp "Derivative of pressure";
+    input SI.TemperatureSlope dT "Derivative of temperature";
     input Real dX[nX](each unit="1/s") "Derivative of mass fractions";
     output Real ds(unit="J/(kg.K.s)") "Specific entropy at p, T, X";
   protected
@@ -1389,9 +1389,9 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
 </html>",
         revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
-<p>2019-05-14        Stefan Wischhusen: Corrected calculation.</p>
-<p>2019-09-10        Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
+<p>2019-05-14 Stefan Wischhusen: Corrected calculation.</p>
+<p>2019-09-10 Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
@@ -1415,7 +1415,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
             extent={{-100,100},{100,-100}},
             textColor={255,127,0},
             textString="f")}), Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end isentropicEnthalpy;
 
@@ -1429,20 +1429,24 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       input Real deltax=1 "Region around x with spline interpolation";
       output Real out;
     protected
-      Real scaledX;
-      Real scaledX1;
+      constant Real lim = 0.9999999999 "Limit in criterion for smoothing range";
+      Real scaledX1 "x scaled to -1 ... 1 interval";
+      Real scaledXp "x scaled to -pi/2 ... pi/2 interval";
+      Real scaledXt "x scaled to -inf ... inf interval";
       Real y;
     algorithm
       scaledX1 := x/deltax;
-      scaledX := scaledX1*Modelica.Math.asin(1);
-      if scaledX1 <= -0.999999999 then
-        y := 0;
-      elseif scaledX1 >= 0.999999999 then
-        y := 1;
+      if scaledX1 <= -lim then
+        y := 0.0;
+      elseif scaledX1 >= lim then
+        y := 1.0;
       else
-        y := (Modelica.Math.tanh(Modelica.Math.tan(scaledX)) + 1)/2;
+        scaledXp := scaledX1*0.5*Modelica.Constants.pi;
+        scaledXt := Modelica.Math.tan(scaledXp);
+        y := 0.5*Modelica.Math.tanh(scaledXt) + 0.5;
       end if;
-      out := pos*y + (1 - y)*neg;
+      out := pos*y + (1.0 - y)*neg;
+
       annotation (derivative=spliceFunction_der);
     end spliceFunction;
 
@@ -1458,26 +1462,28 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       input Real ddeltax=0;
       output Real out;
     protected
-      Real scaledX;
-      Real scaledX1;
+      constant Real lim = 0.9999999999 "Limit in criterion for smoothing range";
+      Real scaledX1 "x scaled to -1 ... 1 interval";
+      Real scaledXp "x scaled to -pi/2 ... pi/2 interval";
+      Real scaledXt "x scaled to -inf ... inf interval";
       Real dscaledX1;
       Real y;
     algorithm
       scaledX1 := x/deltax;
-      scaledX := scaledX1*Modelica.Math.asin(1);
-      dscaledX1 := (dx - scaledX1*ddeltax)/deltax;
-      if scaledX1 <= -0.99999999999 then
-        y := 0;
-      elseif scaledX1 >= 0.9999999999 then
-        y := 1;
+      if scaledX1 <= -lim then
+        y := 0.0;
+      elseif scaledX1 >= lim then
+        y := 1.0;
       else
-        y := (Modelica.Math.tanh(Modelica.Math.tan(scaledX)) + 1)/2;
+        scaledXp := scaledX1*0.5*Modelica.Constants.pi;
+        scaledXt := Modelica.Math.tan(scaledXp);
+        y := 0.5*Modelica.Math.tanh(scaledXt) + 0.5;
       end if;
       out := dpos*y + (1 - y)*dneg;
-      if (abs(scaledX1) < 1) then
-        out := out + (pos - neg)*dscaledX1*Modelica.Math.asin(1)/2/(
-          Modelica.Math.cosh(Modelica.Math.tan(scaledX))*Modelica.Math.cos(
-          scaledX))^2;
+
+      if (abs(scaledX1) < lim) then
+        dscaledX1 := (dx - scaledX1*ddeltax)/deltax;
+        out := out + (pos - neg)*dscaledX1*0.25*Modelica.Constants.pi*(1 - Modelica.Math.tanh(scaledXt)^2)*(scaledXt^2 + 1);
       end if;
     end spliceFunction_der;
 

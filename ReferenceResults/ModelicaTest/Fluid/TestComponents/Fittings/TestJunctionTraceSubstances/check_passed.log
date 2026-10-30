@@ -1,0 +1,11 @@
+Check of <a href="Modelica://ModelicaTest.Fluid.TestComponents.Fittings.TestJunctionTraceSubstances">ModelicaTest.Fluid.TestComponents.Fittings.TestJunctionTraceSubstances</a>
+The model has the same number of unknowns and equations: 498
+The model could not be deduced to be symbolically well-posed.
+The model has
+  494+2*multiPort.nPorts_b
+scalar unknowns and
+  452+3*source2.nPorts+(if  not source2.use_p_in then 1 else 0)+(if  not   source2.use_T_in then 1 else 0)+2*(if  not source2.use_X_in then 1 else 0)+(  if  not source2.use_C_in then 1 else 0)+3*source3.nPorts+(if  not   source3.use_p_in then 1 else 0)+(if  not source3.use_T_in then 1 else 0)+2*(  if  not source3.use_X_in then 1 else 0)+(if  not source3.use_C_in then 1 else 0)  +3*source1.nPorts+(if  not source1.use_p_in then 1 else 0)+(if  not   source1.use_T_in then 1 else 0)+2*(if  not source1.use_X_in then 1 else 0)+(  if  not source1.use_C_in then 1 else 0)+3*source4.nPorts+(if  not   source4.use_p_in then 1 else 0)+(if  not source4.use_T_in then 1 else 0)+2*(  if  not source4.use_X_in then 1 else 0)+(if  not source4.use_C_in then 1 else 0)  +3*source5.nPorts+(if  not source5.use_p_in then 1 else 0)+(if  not   source5.use_T_in then 1 else 0)+2*(if  not source5.use_X_in then 1 else 0)+(  if  not source5.use_C_in then 1 else 0)+5*multiPort.nPorts_b
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  498
+Check of <a href="Modelica://ModelicaTest.Fluid.TestComponents.Fittings.TestJunctionTraceSubstances">ModelicaTest.Fluid.TestComponents.Fittings.TestJunctionTraceSubstances</a> successful.

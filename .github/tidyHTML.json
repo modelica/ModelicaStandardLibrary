@@ -1,0 +1,18 @@
+{
+    "problemMatcher": [
+        {
+            "owner": "tidyHTML",
+            "pattern": [
+                {
+                    "regexp": "^File\\s\"(?:\\.\\/)?([^\"]*)\":\\sline\\s(\\d+)\\scolumn\\s(\\d+)\\s-\\s(Error|Warning|Info):\\s(.*)\\s\\((.*)\\)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5,
+                    "code": 6
+                }
+            ]
+        }
+    ]
+}

@@ -20,9 +20,10 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <strong>relative angular velocity w_rel</strong> between two flanges
-in an ideal way and provides the result as output signal <strong>w_rel</strong>
-(to be further processed with blocks of the Modelica.Blocks library).
+Measures the <em>relative angular velocity</em> between two flanges
+in an ideal way and provides the result as output signal <code>w_rel</code>
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
 </html>"),
        Icon(

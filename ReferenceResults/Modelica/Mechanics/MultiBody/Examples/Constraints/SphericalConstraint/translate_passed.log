@@ -1,0 +1,48 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Constraints.SphericalConstraint:
+The DAE has 2983 scalar unknowns and 2983 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 147
+  Variables: 1388
+  Constants: 1 (1 scalars)
+  Parameters: 370 (586 scalars)
+  Unknowns: 1017 (2983 scalars)
+  Differentiated variables: 49 scalars
+  Equations: 911
+  Nontrivial: 632
+Translated Model
+  Constants: 2070 scalars
+  Free parameters: 94 scalars
+  Parameter depending: 292 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 260 scalars
+  Alias variables: 854 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 6, 6, 2, 3}
+  Sizes after manipulation of the linear systems: {4, 3, 3, 2, 3}
+  Sizes of nonlinear systems of equations: {16}
+  Sizes after manipulation of the nonlinear systems: {4}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {3}
+    Sizes after manipulation of the linear systems: {3}
+    Sizes of nonlinear systems of equations: {4}
+    Sizes after manipulation of the nonlinear systems: {4}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  bodyOfConstraint.body.w_a[]
+  freeMotionScalarInit.initAngle.angle[]
+  joint.w_rel[]
+ 
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There are 3 states to be selected from:
+  joint.Q[]
+ 

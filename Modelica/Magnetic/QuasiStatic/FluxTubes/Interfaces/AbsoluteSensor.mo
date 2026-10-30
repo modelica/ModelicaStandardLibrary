@@ -11,9 +11,6 @@ equation
         Text(
           extent={{-150,120},{150,80}},
           textColor={0,0,255},
-          pattern=LinePattern.None,
-          fillColor={170,85,255},
-          fillPattern=FillPattern.Solid,
           textString="%name")}), Documentation(info="<html>
 <p>
 The absolute sensor partial model provides a single

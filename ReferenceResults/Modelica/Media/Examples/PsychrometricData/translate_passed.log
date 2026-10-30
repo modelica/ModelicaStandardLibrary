@@ -1,0 +1,36 @@
+﻿ = true
+Translation of Modelica.Media.Examples.PsychrometricData:
+The DAE has 621 scalar unknowns and 621 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 47
+  Variables: 574
+  Constants: 41 (98 scalars)
+  Parameters: 60 (94 scalars)
+  Unknowns: 473 (621 scalars)
+  Differentiated variables: 17 scalars
+  Equations: 445
+  Nontrivial: 382
+Translated Model
+  Constants: 144 scalars
+  Free parameters: 10 scalars
+  Parameter depending: 92 scalars
+  Continuous time states: 17 scalars
+  Time-varying variables: 420 scalars
+  Alias variables: 147 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  hx_h[]
+  x
+ 

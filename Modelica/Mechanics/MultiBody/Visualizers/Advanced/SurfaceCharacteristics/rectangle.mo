@@ -1,7 +1,8 @@
 within Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics;
 function rectangle "Function defining the surface characteristic of a planar rectangle"
   extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
-    final multiColoredSurface=false);
+    final multiColoredSurface=false,
+    final C=zeros(0,0,3));
   input SI.Distance lu=1 "Length in direction u" annotation(Dialog);
   input SI.Distance lv=3 "Length in direction v" annotation(Dialog);
 algorithm

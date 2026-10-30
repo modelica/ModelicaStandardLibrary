@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Electrical.Analog.Examples.DemonstrateLightning">Modelica.Electrical.Analog.Examples.DemonstrateLightning</a>
+The model has the same number of unknowns and equations: 58
+The model could not be deduced to be symbolically well-posed.
+The model has
+  58
+scalar unknowns and
+  56+(if  not resistor1.useHeatPort then 1 else 0)+(if  not resistor2.useHeatPort   then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  58
+Check of <a href="Modelica://Modelica.Electrical.Analog.Examples.DemonstrateLightning">Modelica.Electrical.Analog.Examples.DemonstrateLightning</a> successful.

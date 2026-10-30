@@ -1,5 +1,5 @@
 within Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities;
-block VfController "Voltage-Frequency-Controller"
+block VfController "Voltage-Frequency controller"
   import Modelica.Constants.pi;
   parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Angle orientation[m]=-
@@ -54,7 +54,7 @@ equation
               textColor={0,0,255})}),
     Documentation(info="<html>
 <p>
-This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An
+This is a simple voltage-frequency controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An
 <code>m</code> quasi-static phasor signal is provided as output signal <code>y</code>, representing complex voltages.
 The output voltages may serve as inputs for complex voltage sources with phase input. Symmetrical voltages are assumed.
 </p>

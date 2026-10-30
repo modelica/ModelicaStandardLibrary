@@ -130,8 +130,6 @@ equation
             {60,-44}}, lineColor={255,0,0}), Text(
         extent={{12,42},{58,34}},
         textColor={255,0,0},
-        fillColor={0,0,255},
-        fillPattern=FillPattern.Solid,
         textString="controller")}),
     experiment(StopTime=300),
     Documentation(info="<html>
@@ -249,7 +247,7 @@ as desired cooling temperature at the output of the controller)
 and the desired temperature T (which is used as desired value for
 the feedback controller). This part of the control system is the
 \"feed-forward\" part that computes the desired actuator signal.
-As feedback controller a simple P-Controller with one gain is used.
+As feedback controller a simple P controller with one gain is used.
 </p>
 
 <p>

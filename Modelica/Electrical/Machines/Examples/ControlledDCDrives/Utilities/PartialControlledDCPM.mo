@@ -38,12 +38,6 @@ partial model PartialControlledDCPM
     Tmf=driveData.Tmf,
     VMax=driveData.VaMax)
     annotation (Placement(transformation(extent={{20,-20},{40,0}})));
-  Battery source(
-    INominal=driveData.motorData.IaNominal, V0=driveData.VBat)
-    annotation (Placement(transformation(
-        extent={{10,-10},{-10,10}},
-        rotation=180,
-        origin={30,80})));
   LimitedPI currentController(
     constantLimits=false,
     k=driveData.kpI,
@@ -57,6 +51,20 @@ partial model PartialControlledDCPM
         extent={{10,-10},{-10,10}},
         rotation=180,
         origin={-70,-10})));
+  Analog.Sources.ConstantVoltage constantVoltage(V=
+        driveData.VBat)
+    annotation (Placement(transformation(extent={{40,70},{20,90}})));
+  Analog.Basic.Resistor resistor(R=0.05*driveData.VBat/driveData.motorData.IaNominal)
+    annotation (Placement(
+        transformation(
+        extent={{10,-10},{-10,10}},
+        rotation=90,
+        origin={40,50})));
+  Analog.Basic.Ground ground annotation (Placement(
+        transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=0,
+        origin={0,70})));
 equation
   connect(dcpm.flange, loadInertia.flange_a)
     annotation (Line(points={{40,-40},{50,-40}}));
@@ -80,10 +88,14 @@ equation
                                                      color={0,0,127}));
   connect(tau2i.y, currentController.u)
     annotation (Line(points={{-59,-10},{-52,-10}}, color={0,0,127}));
-  connect(source.pin_n, armatureInverter.pin_nBat) annotation (Line(points={{24,70},
-          {24,70},{24,0}},             color={0,0,255}));
-  connect(source.pin_p, armatureInverter.pin_pBat) annotation (Line(points={{36,70},
-          {36,60},{36,60},{36,0}},     color={0,0,255}));
+  connect(ground.p, constantVoltage.n)
+    annotation (Line(points={{0,80},{20,80}}, color={0,0,255}));
+  connect(constantVoltage.n, armatureInverter.pin_nBat) annotation (Line(points
+        ={{20,80},{20,20},{24,20},{24,0}}, color={0,0,255}));
+  connect(constantVoltage.p, resistor.p)
+    annotation (Line(points={{40,80},{40,60}}, color={0,0,255}));
+  connect(resistor.n, armatureInverter.pin_pBat) annotation (Line(points={{40,
+          40},{40,20},{36,20},{36,0}}, color={0,0,255}));
   annotation (Documentation(info="<html>
   <p>This is a partial model of a controlled DC PM drive.</p>
 <p>

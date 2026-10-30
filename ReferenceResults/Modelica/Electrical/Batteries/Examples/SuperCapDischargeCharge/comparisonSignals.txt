@@ -1,0 +1,3 @@
+time
+energy.y
+superCap.capacitor.v

@@ -11,7 +11,7 @@ function maxWithoutEvent_d
 algorithm
   y_d := if u1 > u2 then u1_d else u2_d;
   annotation (
-    Inline=false,
+    LateInline=true,
     derivative(order=2) = maxWithoutEvent_dd,
     Documentation(info="<html>
 <p>

@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling:
+The DAE has 80 scalar unknowns and 80 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 22
+  Variables: 176
+  Constants: 2 (2 scalars)
+  Parameters: 94 (94 scalars)
+  Unknowns: 80 (80 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 71
+  Nontrivial: 55
+Translated Model
+  Constants: 19 scalars
+  Free parameters: 22 scalars
+  Parameter depending: 65 scalars
+  Outputs: 3 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 24 scalars
+  Alias variables: 46 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  heatCapacitor.T
+  pipe.T
+ 

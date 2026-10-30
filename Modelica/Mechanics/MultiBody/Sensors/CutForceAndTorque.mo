@@ -3,13 +3,17 @@ model CutForceAndTorque "Measure cut force and cut torque vector"
 
   import Modelica.Mechanics.MultiBody.Types;
 
-  Modelica.Blocks.Interfaces.RealOutput force[3](each final quantity="Force", each final unit="N")
+  Modelica.Blocks.Interfaces.RealOutput force[3](
+    each final quantity="Force",
+    each final unit="N")
     "Cut force resolved in frame defined by resolveInFrame"
        annotation (Placement(transformation(
         origin={-80,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  Modelica.Blocks.Interfaces.RealOutput torque[3]
+  Modelica.Blocks.Interfaces.RealOutput torque[3](
+    each final quantity="Torque",
+    each final unit="N.m")
     "Cut torque resolved in frame defined by resolveInFrame"
        annotation (Placement(transformation(
         origin={0,-110},
@@ -34,22 +38,23 @@ model CutForceAndTorque "Measure cut force and cut torque vector"
 
 protected
   parameter Integer csign=if positiveSign then +1 else -1;
-  Visualizers.Advanced.Arrow forceArrow(
+  Visualizers.Advanced.Vector forceArrow(
     color=forceColor,
     specularCoefficient=specularCoefficient,
     R=frame_b.R,
     r=frame_b.r_0,
     headAtOrigin=true,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
-    r_head=-frame_a.f*csign) if world.enableAnimation and animation;
-  Visualizers.Advanced.DoubleArrow torqueArrow(
+    coordinates=-frame_a.f*csign) if world.enableAnimation and animation;
+  Visualizers.Advanced.Vector torqueArrow(
     color=torqueColor,
     specularCoefficient=specularCoefficient,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
     R=frame_b.R,
     r=frame_b.r_0,
     headAtOrigin=true,
-    r_head=-frame_a.t*csign) if world.enableAnimation and animation;
+    twoHeadedArrow=true,
+    coordinates=-frame_a.t*csign) if world.enableAnimation and animation;
   Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
         positiveSign)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));

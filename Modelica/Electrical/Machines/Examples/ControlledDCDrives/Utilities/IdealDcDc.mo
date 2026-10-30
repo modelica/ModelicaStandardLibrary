@@ -28,7 +28,7 @@ model IdealDcDc "Ideal DC-DC inverter"
   Modelica.Blocks.Continuous.Integrator powerController(
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     y_start=0,
-    k=1/Ti) annotation (Placement(transformation(extent={{30,10},{10,30}})));
+    k=1/Ti/unitVoltage) annotation (Placement(transformation(extent={{30,10},{10,30}})));
   Modelica.Electrical.Analog.Basic.Ground groundMotor annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
@@ -45,6 +45,8 @@ model IdealDcDc "Ideal DC-DC inverter"
     annotation (Placement(transformation(extent={{90,-112},{110,-92}})));
   Modelica.Blocks.Interfaces.RealInput vRef
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+protected
+  constant SI.Voltage unitVoltage=1 annotation(HideResult=true);
 equation
   connect(signalCurrent.p, powerBat.nc)
     annotation (Line(points={{10,70},{20,70}},         color={0,0,255}));
@@ -55,7 +57,7 @@ equation
   connect(powerMot.pc, powerMot.pv)
     annotation (Line(points={{20,-70},{20,-60},{30,-60}}, color={0,0,255}));
   connect(powerBat.power, feedback.u2) annotation (Line(points={{40,81},
-          {40,88},{70,88},{70,-4.44089e-16},{58,-4.44089e-16}},
+          {40,88},{70,88},{70,0},{58,0}},
                                   color={0,0,127}));
   connect(powerMot.power, feedback.u1) annotation (Line(points={{20,-81},
           {20,-88},{50,-88},{50,-8}},

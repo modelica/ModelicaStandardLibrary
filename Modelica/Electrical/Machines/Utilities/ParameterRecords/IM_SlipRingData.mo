@@ -40,7 +40,7 @@ record IM_SlipRingData
     "Locked-rotor voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));
   parameter Machines.Losses.CoreParameters rotorCoreParameters(
-    final m=3,
+    m=m,
     PRef=0,
     VRef=1,
     wRef=1)

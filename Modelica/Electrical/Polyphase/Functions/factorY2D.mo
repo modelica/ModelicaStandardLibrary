@@ -7,7 +7,7 @@ function factorY2D "Calculates factor Y voltage to polygon (delta) voltage"
   input Integer kPolygon=1 "Alternative of polygon";
   output Real y "Factor Y to D";
 protected
-  parameter Integer mBasic=integer(m/numberOfSymmetricBaseSystems(m));
+  Integer mBasic=integer(m/numberOfSymmetricBaseSystems(m));
 algorithm
   if mBasic==2 then
     y := sqrt(2);

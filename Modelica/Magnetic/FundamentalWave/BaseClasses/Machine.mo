@@ -15,10 +15,12 @@ partial model Machine "Base model of machines"
   parameter Integer p(min=1, start=2) "Number of pole pairs (Integer)";
   parameter SI.Frequency fsNominal(start=50)
     "Nominal frequency";
+  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed"
+    annotation(Evaluate=true);
   parameter SI.Temperature TsOperational(start=293.15)
     "Operational temperature of stator resistance" annotation (Dialog(group=
          "Operational temperatures", enable=not useThermalPort));
-  parameter SI.Resistance Rs(start=0.03)
+  parameter SI.Resistance Rs(start=ZsRef*0.03)
     "Stator resistance per phase at TRef"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter SI.Temperature TsRef(start=293.15)
@@ -30,7 +32,7 @@ partial model Machine "Base model of machines"
     "Temperature coefficient of stator resistance at 20 degC"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Real effectiveStatorTurns=1 "Effective number of stator turns";
-  parameter SI.Inductance Lssigma(start=3*(1 - sqrt(1 -
+  parameter SI.Inductance Lssigma(start=3*ZsRef*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal)) "Stator stray inductance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Real ratioCommonStatorLeakage(final min=0, final max=1)=1
@@ -47,7 +49,7 @@ partial model Machine "Base model of machines"
     "Friction loss parameter record" annotation (Dialog(tab="Losses"));
   parameter Modelica.Electrical.Machines.Losses.CoreParameters
     statorCoreParameters(
-    final m=m,
+    m=m,
     wRef=2*pi*fsNominal/p,
     VRef(start=100))
     "Stator core loss parameter record; all parameters refer to stator side"
@@ -116,6 +118,7 @@ partial model Machine "Base model of machines"
     final TRef=TsRef,
     final Lsigma=Lssigma,
     final ratioCommonLeakage=ratioCommonStatorLeakage,
+    final useZeroSystem=useZeroSystem,
     final effectiveTurns=effectiveStatorTurns,
     final TOperational=TsOperational,
     final GcRef=statorCoreParameters.GcRef,
@@ -164,12 +167,14 @@ partial model Machine "Base model of machines"
       frictionParameters=frictionParameters, final useHeatPort=true)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={90,
             -30})));
+protected
   replaceable
     Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
     internalThermalPort(final m=m)
     annotation (Placement(transformation(extent={{-44,-94},{-36,-86}})));
   Modelica.Mechanics.Rotational.Interfaces.Support internalSupport
     annotation (Placement(transformation(extent={{56,-104},{64,-96}})));
+  final parameter SI.Impedance ZsRef = 1 "Reference phase impedance based on nominal voltage 100 V and nominal current 100 A; per phase";
 initial algorithm
   assert(not Modelica.Math.isPowerOf2(m), String(m) +
     " phases are currently not supported in this version of FundametalWave");

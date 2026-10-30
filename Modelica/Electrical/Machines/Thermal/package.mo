@@ -137,16 +137,6 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
 <li><code>heatPortFriction</code>: friction losses</li>
 </ul>
-<h5><!--<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_Compound\">-->DC machine with compound excitation (not yet implemented)<!--</a>--></h5>
-<ul>
-<li><code>heatPortArmature</code>: armature losses</li>
-<li><code>heatPortShuntExcitation</code>: electrical (shunt) excitation</li>
-<li><code>heatPortSeriesExcitation</code>: electrical series excitation</li>
-<li><code>heatPortBrush</code>: brush losses</li>
-<li><code>heatPortCore</code>: armature core losses</li>
-<li><code>heatPortStrayLoad</code>: stray load losses</li>
-<li><code>heatPortFriction</code>: friction losses</li>
-</ul>
 <h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.Transformers\">Transformers</a></h5>
 <ul>
 <li><code>heatPort1[m]</code>: m=3 heatPorts for the m=3 primary phases</li>

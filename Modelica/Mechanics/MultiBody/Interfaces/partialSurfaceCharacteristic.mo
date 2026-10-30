@@ -18,6 +18,18 @@ partial function partialSurfaceCharacteristic "Interface for a function returnin
 <p>This partial function defines the interface of a function that returns
 surface characteristics for an object visualization, see e.g.
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus\">Visualizers.Advanced.SurfaceCharacteristics.torus</a>.
+Function which extends from this partial class shall define all outputs
+<code>X</code>, <code>Y</code>, <code>Z</code> and <code>C</code>.
+The last one output <code>C</code> can be set as follows when a multi-colored surface
+is not utilized.
 </p>
+<blockquote><pre>
+<strong>function</strong> mySurface
+  <strong>extends</strong> partialSurfaceCharacteristic(
+    <strong>final</strong> multiColoredSurface = false,
+    <strong>final</strong> C = zeros(0,0,3));
+  ...
+<strong>end</strong> mySurface;
+</pre></blockquote>
 </html>"));
 end partialSurfaceCharacteristic;

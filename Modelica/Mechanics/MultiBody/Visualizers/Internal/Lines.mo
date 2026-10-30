@@ -102,7 +102,7 @@ Via vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional
 coordinate system is defined. The points defined with variable
 <strong>lines</strong> are with respect to this coordinate system. For example
 \"[0, 0; 1, 1]\" defines a line that starts at {0,0} and ends at {1,1}.
-The        and color of all line cylinders are identical
+The diameter and color of all line cylinders are identical
 and are defined by parameters.
 </p>
 

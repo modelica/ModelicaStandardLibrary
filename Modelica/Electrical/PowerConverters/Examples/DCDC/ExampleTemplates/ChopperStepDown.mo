@@ -64,16 +64,13 @@ equation
   connect(chopperStepDown.dc_p2, inductor.p)
     annotation (Line(points={{-40,6},{-30,6},{-30,10}}, color={0,0,255}));
   connect(inductor.n, capacitor.p)
-    annotation (Line(points={{-10,10},{1.77636e-15,10}},
-                                               color={0,0,255}));
+    annotation (Line(points={{-10,10},{0,10}}, color={0,0,255}));
   connect(voltageSensor.p, capacitor.p)
-    annotation (Line(points={{60,20},{60,60},{1.77636e-15,60},{
-          1.77636e-15,10}},                                  color={0,0,255}));
+    annotation (Line(points={{60,20},{60,60},{0,60},{0,10}}, color={0,0,255}));
   connect(chopperStepDown.dc_n2, capacitor.n) annotation (Line(points={
-          {-40,-6},{-20,-6},{-20,-10},{-1.77636e-15,-10}}, color={0,0,
-          255}));
+          {-40,-6},{-20,-6},{-20,-10},{0,-10}}, color={0,0,255}));
   connect(capacitor.n, currentSensor.n) annotation (Line(points={{
-          -1.77636e-15,-10},{10,-10}}, color={0,0,255}));
+          0,-10},{10,-10}}, color={0,0,255}));
   annotation (Documentation(
         info="<html>
 <p>Step down chopper example template including supply and sensors; load is not yet included</p>

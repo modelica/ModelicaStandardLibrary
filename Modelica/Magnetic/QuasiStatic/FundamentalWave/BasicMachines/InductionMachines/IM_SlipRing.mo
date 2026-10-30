@@ -2,8 +2,8 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMach
 model IM_SlipRing "Induction machine with slip ring rotor"
   parameter Integer mr(min=3) = m "Number of rotor phases" annotation(Evaluate=true);
   extends BaseClasses.Machine(
-    Rs(start=0.03),
-    Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
+    Rs(start=0.03*ZsRef),
+    Lssigma(start=3*ZsRef*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
     final L0(d=2.0*Lm/m/effectiveStatorTurns^2, q=2.0*Lm/m/
           effectiveStatorTurns^2),
     redeclare final
@@ -22,9 +22,7 @@ model IM_SlipRing "Induction machine with slip ring rotor"
       final lossPowerRotorCore=rotor.core.lossPower,
       final lossPowerBrush=0,
       final powerRotor=
-          Modelica.Electrical.QuasiStatic.Polyphase.Functions.activePower(
-                                                                 vr,
-          ir)));
+          Modelica.Electrical.QuasiStatic.Polyphase.Functions.activePower(vr, ir)));
 
   Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug
     plug_rn(final m=mr) "Negative plug of rotor" annotation (Placement(
@@ -32,15 +30,15 @@ model IM_SlipRing "Induction machine with slip ring rotor"
   Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug
     plug_rp(final m=mr) "Positive plug of rotor" annotation (Placement(
         transformation(extent={{-110,70},{-90,50}})));
-  parameter SI.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
+  parameter SI.Inductance Lm(start=3*ZsRef*sqrt(1 - 0.0667)/(2*pi
         *fsNominal)) "Stator main field inductance per phase" annotation (
      Dialog(tab="Nominal resistances and inductances", groupImage=
           "modelica://Modelica/Resources/Images/Electrical/Machines/IMS.png"));
-  parameter SI.Inductance Lrsigma(start=3*(1 - sqrt(1 -
+  parameter SI.Inductance Lrsigma(start=3*ZsRef*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal))
     "Rotor leakage inductance per phase w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Resistance Rr(start=0.04)
+  parameter SI.Resistance Rr(start=0.04*ZsRef)
     "Rotor resistance per phase w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter SI.Temperature TrRef(start=293.15)

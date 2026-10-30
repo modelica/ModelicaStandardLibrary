@@ -16,14 +16,14 @@ equation
   magnitude = if not useLogRamp then
     magnitude1 + (if time < startTime then
       0 else
-      if time < (startTime + max(duration,eps)) then
-        (time - startTime)*(magnitude2-magnitude1)/max(duration,eps)
+      if time < (startTime + duration) then
+        (time - startTime)*(magnitude2-magnitude1)/duration
       else
       magnitude2-magnitude1)
   else
     if time < startTime then magnitude1 else
-    if time < (startTime + max(duration,eps)) then
-      10^(log10(magnitude1) + (log10(magnitude2) - log10(magnitude1))*min(1, (time-startTime)/max(duration,eps)))
+    if time < (startTime + duration) then
+      10^(log10(magnitude1) + (log10(magnitude2) - log10(magnitude1))*min(1, (time-startTime)/duration))
     else
       magnitude2;
 

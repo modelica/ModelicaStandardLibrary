@@ -13,7 +13,8 @@ function maxWithoutEvent_dd
 algorithm
   y_dd := if u1 > u2 then u1_dd else u2_dd;
   annotation (
-    Inline=true, Documentation(info="<html>
+    LateInline=true,
+    Documentation(info="<html>
 <p>
 This is a derivative of function
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent_d\">maxWithoutEvent_d</a>,

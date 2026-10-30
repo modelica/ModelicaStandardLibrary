@@ -9,8 +9,6 @@ connector PositiveMagneticPort "Positive quasi-static magnetic port"
             graphics={Text(
               extent={{-100,100},{100,60}},
               textColor={255,170,85},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"), Rectangle(
           extent={{-40,40},{40,-40}},
           lineColor={255,170,85},

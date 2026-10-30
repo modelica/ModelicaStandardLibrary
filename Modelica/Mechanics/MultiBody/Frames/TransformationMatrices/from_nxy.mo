@@ -4,9 +4,9 @@ function from_nxy "Return orientation object from n_x and n_y vectors"
   import Modelica.Math.Vectors.length;
   import Modelica.Math.Vectors.normalize;
 
-  input Real n_x[3](each final unit="1")
+  input Real n_x[3]
     "Vector in direction of x-axis of frame 2, resolved in frame 1";
-  input Real n_y[3](each final unit="1")
+  input Real n_y[3]
     "Vector in direction of y-axis of frame 2, resolved in frame 1";
   output TransformationMatrices.Orientation T
     "Orientation object to rotate frame 1 into frame 2";

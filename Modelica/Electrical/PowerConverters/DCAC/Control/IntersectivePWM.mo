@@ -15,34 +15,34 @@ block IntersectivePWM "Intersective PWM"
   Modelica.Blocks.Interfaces.BooleanOutput fire_n[m] "Negative fire signal"
     annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor
-    fromSpacePhasor
+    fromSpacePhasor(final m=m)
     annotation (Placement(transformation(extent={{-60,50},{-40,70}})));
-  Modelica.Blocks.Sources.Constant zero(k=0) annotation (Placement(
+  Modelica.Blocks.Sources.Constant zero(final k=0) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-70,30})));
   Modelica.Blocks.Sources.SawTooth sawTooth[m](
-    each nperiod=-1,
-    each amplitude=uMax,
-    each offset=-uMax/2,
-    each period=1/f,
-    startTime={startTime - 1.5 + (if refType == ReferenceType.Sawtooth1
-         then 0 else k)/m for k in 0:m - 1}/f) if
-       (refType==ReferenceType.Sawtooth1 or refType==ReferenceType.Sawtooth3)
-    annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
+    each final nperiod=-1,
+    each final amplitude=uMax,
+    each final offset=-uMax/2,
+    each final period=1/f,
+    final startTime={startTime - 1.5 + (if refType == ReferenceType.Sawtooth1
+         then 0 else k)/m for k in 0:m - 1}/f)
+         if (refType==ReferenceType.Sawtooth1 or refType==ReferenceType.Sawtooth3)
+      annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
   Modelica.Blocks.Sources.Trapezoid trapezoid[3](
-    each amplitude=uMax,
-    each width=0,
-    each nperiod=-1,
-    each offset=-uMax/2,
-    each rising=0.5/f,
-    each falling=0.5/f,
-    each period=1/f,
-    startTime={startTime - 1.25 + (if refType == ReferenceType.Triangle1
-         then 0 else k)/m for k in 0:m - 1}/f) if
-       (refType==ReferenceType.Triangle1 or refType==ReferenceType.Triangle3)
-     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
+    each final amplitude=uMax,
+    each final width=0,
+    each final nperiod=-1,
+    each final offset=-uMax/2,
+    each final rising=0.5/f,
+    each final falling=0.5/f,
+    each final period=1/f,
+    final startTime={startTime - 1.25 + (if refType == ReferenceType.Triangle1
+         then 0 else k)/m for k in 0:m - 1}/f)
+         if (refType==ReferenceType.Triangle1 or refType==ReferenceType.Triangle3)
+      annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
   Modelica.Blocks.Logical.GreaterEqual greaterEqual[m]
     annotation (Placement(transformation(extent={{30,50},{50,70}})));
   Modelica.Blocks.Logical.Not negation[m]

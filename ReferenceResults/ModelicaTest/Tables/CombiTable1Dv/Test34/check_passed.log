@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 7
+The model has the same number of unknowns and equations:
+  5+2*size(t_new.columns, 1)
+Check of <a href="Modelica://ModelicaTest.Tables.CombiTable1Dv.Test34">ModelicaTest.Tables.CombiTable1Dv.Test34</a> successful.
+

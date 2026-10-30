@@ -86,7 +86,6 @@ equation
 annotation (Diagram(coordinateSystem(preserveAspectRatio=false),          graphics={Text(
           extent={{-100,100},{100,80}},
           textColor={0,0,255},
-          pattern=LinePattern.Dash,
           textString="Added short and idle model for testing purposes only")}),
     Documentation(info="<html>
 <p>This model investigates a magnetic circuit consisting of four different cuboid sections. The circuit is operated at 50Hz and variable magnetic potential difference.</p>

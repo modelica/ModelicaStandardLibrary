@@ -1,5 +1,5 @@
 within Modelica.Electrical.Machines.Utilities;
-block VfController "Voltage-Frequency-Controller"
+block VfController "Voltage-Frequency controller"
   import Modelica.Constants.pi;
   extends Modelica.Blocks.Interfaces.SIMO(u(unit="Hz"), final nout=m);
   parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
@@ -51,7 +51,7 @@ equation
         Line(visible=EconomyMode, points={{-100,-100},{-90,-98},{-80,-94},{-70,-86},{-60,-74},
               {-50,-60},{-40,-42},{-30,-22},{-20,2},{-10,30},{0,60},{80,60}},
              color={0,0,255})}),   Documentation(info="<html>
-Simple Voltage-Frequency-Controller.<br>
+Simple Voltage-Frequency controller.<br>
 Amplitude of voltage is linear dependent (VNominal/fNominal) on frequency (input signal \"u\"), but limited by VNominal (nominal RMS voltage per phase).<br>
 m sine-waves with amplitudes as described above are provided as output signal \"y\".<br>
 By setting parameter EconomyMode=true, Voltage rises quadratically with frequency which means flux,torque and loss reduction for fan and pump drives.<br>

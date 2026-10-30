@@ -1,7 +1,8 @@
 within Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics;
 function torus "Function defining the surface characteristic of a torus"
   extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
-    final multiColoredSurface=false);
+    final multiColoredSurface=false,
+    final C=zeros(0,0,3));
   input SI.Length R=1 "Major radius (distance from center of torus to center of tube)" annotation(Dialog);
   input SI.Length r=0.2 "Minor radius (radius of tube)" annotation(Dialog);
   input SI.Angle opening=0 "Opening angle of torus" annotation(Dialog);

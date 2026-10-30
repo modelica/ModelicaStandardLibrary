@@ -33,7 +33,7 @@ class Contact "Contact"
 </li>
 <li> The hysteresis models of this library have been developed by Johannes Ziske and Thomas B&ouml;drich as part of the
    <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project; project number: 296369; Theme:
-   <a href=\"http://cordis.europa.eu/project/rcn/101194_en.html\">JTI-CS-2011-1-SGO-02-026</a>;
+   <a href=\"https://cordis.europa.eu/project/id/296369\">JTI-CS-2011-1-SGO-02-026</a>;
    MOMOLIB - Modelica Model Library Development for Media, Magnetic Systems and Wavelets.
    The partial financial support by the European Union for this development is highly appreciated.</li>
 </ul>

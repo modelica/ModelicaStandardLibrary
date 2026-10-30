@@ -1,0 +1,16 @@
+{
+    "problemMatcher": [
+        {
+            "owner": "moparser",
+            "pattern": [
+                {
+                    "regexp": "^syntax\\s(error)\\son\\s\\line\\s(\\d+)\\sof\\s(.*):\\s(.*)$",
+                    "file": 3,
+                    "line": 2,
+                    "severity": 1,
+                    "message": 4
+                }
+            ]
+        }
+    ]
+}

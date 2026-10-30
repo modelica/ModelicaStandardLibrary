@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 528
+The model has the same number of unknowns and equations:
+  525+max([size(comparisonWithFEA.columns, 1); size(comparisonWithFEA.offset, 1)])
+Check of <a href="Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke">Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke</a> successful.
+

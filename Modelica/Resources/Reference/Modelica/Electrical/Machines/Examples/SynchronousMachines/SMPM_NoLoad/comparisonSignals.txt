@@ -1,4 +1,4 @@
 time
-smpm.is[1]
-smpm.is[2]
-constantSpeed.phi
+toSpacePhasor.y[1]
+toSpacePhasor.y[2]
+hallSensor.y

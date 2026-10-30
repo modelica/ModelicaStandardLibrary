@@ -50,11 +50,7 @@ equation
   annotation (Line(points={{40,80},{40,50}}, color={0,0,255}));
 
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics={Text(
-          extent={{-94,102},{0,74}},
-          textString="HeatingRectifier",
-          textColor={0,0,255})}),
-                                Documentation(info="<html>
+            -100},{100,100}})), Documentation(info="<html>
 <p>The heating rectifier shows a heat flow always if the electrical capacitor is loaded.</p>
 <p>Simulate until T=5 s.Plot in separate windows:
 <br>SineVoltage1.v and Capacitor1.p.v

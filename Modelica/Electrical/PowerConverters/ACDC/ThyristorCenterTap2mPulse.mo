@@ -75,11 +75,9 @@ equation
   connect(thyristor_n.plug_n, star_n.plug_p) annotation (Line(
       points={{0,-60},{72,-60}}, color={0,0,255}));
   connect(andCondition_p.y, thyristor_p.fire) annotation (Line(
-      points={{-60,-69},{-60,80},{1.77636e-15,80},{1.77636e-15,71.8}},
-                                                   color={255,0,255}));
+      points={{-60,-69},{-60,80},{0,80},{0,71.8}}, color={255,0,255}));
   connect(andCondition_n.y, thyristor_n.fire) annotation (Line(
-      points={{60,-69},{60,-40},{1.77636e-15,-40},{1.77636e-15,-48.2}},
-                                                    color={255,0,255}));
+      points={{60,-69},{60,-40},{0,-40},{0,-48.2}}, color={255,0,255}));
   annotation (defaultComponentName="rectifier",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={

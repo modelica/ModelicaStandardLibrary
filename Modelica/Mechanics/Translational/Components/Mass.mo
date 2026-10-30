@@ -42,13 +42,9 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
         Text(
           extent={{-150,85},{150,45}},
           textString="%name",
-          textColor={0,0,255},
-          fillColor={110,210,110},
-          fillPattern=FillPattern.Solid),
+          textColor={0,0,255}),
         Text(
           extent={{-150,-45},{150,-75}},
           textString="m=%m",
-          fillColor={110,221,110},
-          fillPattern=FillPattern.Solid,
           fontSize=0)}));
 end Mass;

@@ -124,7 +124,6 @@ model OpAmpDetailed "Detailed model of an operational amplifier"
     else
       result := (v_out - v_source)/Rout;
     end if;
-    return;
     annotation (Documentation(info="<html>
 <p>Internal limitation function, designed for OpAmpDetailed, not for purpose of external usage.</p>
 </html>"));
@@ -148,7 +147,6 @@ model OpAmpDetailed "Detailed model of an operational amplifier"
     else
       result := q_sum;
     end if;
-    return;
     annotation (Documentation(info="<html>
 <p>Internal limitation function, designed for OpAmpDetailed, not for purpose of external usage.</p>
 </html>"));

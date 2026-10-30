@@ -1,0 +1,27 @@
+﻿ = true
+Translation of ModelicaTest.Blocks.Hysteresis:
+The DAE has 3 scalar unknowns and 3 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 3
+  Variables: 11
+  Parameters: 8 (8 scalars)
+  Unknowns: 3 (3 scalars)
+  Equations: 4
+  Nontrivial: 4
+Translated Model
+  Free parameters: 8 scalars
+  Time-varying variables: 2 scalars
+  Alias variables: 1 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

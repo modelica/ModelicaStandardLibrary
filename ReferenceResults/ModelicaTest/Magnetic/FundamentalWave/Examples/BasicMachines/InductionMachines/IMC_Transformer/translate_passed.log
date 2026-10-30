@@ -1,0 +1,45 @@
+Translation of <a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer">ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer</a>
+The DAE has 1293 scalar unknowns and 1293 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 230
+  Variables: 1720
+  Constants: 21 (21 scalars)
+  Parameters: 503 (581 scalars)
+  Unknowns: 1196 (1293 scalars)
+  Differentiated variables: 27 scalars
+  Equations: 677
+  Nontrivial: 564
+Translated Model
+  Constants: 439 scalars
+  Free parameters: 56 scalars
+  Parameter depending: 286 scalars
+  Continuous time states: 9 scalars
+  Time-varying variables: 275 scalars
+  Alias variables: 839 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {14, 12, 8, 4, 21, 2}
+  Sizes after manipulation of the linear systems: {2, 3, 0, 2, 6, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer#text$aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer#text$aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer#text$aimc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">aimc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer#text$aimc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">aimc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer#text$aimc.stator.zeroInductor:i0">aimc.stator.zeroInductor.i0</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer#text$loadInertia:phi">loadInertia.phi</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer#text$loadInertia:w">loadInertia.w</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer#text$transformer.l2sigma.inductor:i">transformer.l2sigma.inductor[2].i</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer#text$transformer.l2sigma.inductor:i">transformer.l2sigma.inductor[3].i</a>
+Finished

@@ -9,11 +9,12 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
     Tp=60,
     startTime=60)
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+  parameter Modelica.Units.SI.Current Isc = 1200 "Short-circuit current of cell at OCVmax";
   parameter Modelica.Electrical.Batteries.ParameterRecords.CellData cellData1(
     Qnom=18000,
     OCVmax=4.2,
     OCVmin=2.5,
-    Ri=cellData1.OCVmax/1200)
+    Ri=cellData1.OCVmax/Isc)
     annotation (Placement(transformation(extent={{60,20},{80,40}})));
   Modelica.Electrical.Batteries.BatteryStacks.CellStack battery1(
     Ns=10,
@@ -38,7 +39,7 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
   parameter Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData cellData2(
     Qnom=18000,
     useLinearSOCDependency=false,
-    Ri=cellData2.OCVmax/1200,
+    Ri=cellData2.OCVmax/Isc,
     Idis=0.1,
     nRC=2,
     rcData={Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(

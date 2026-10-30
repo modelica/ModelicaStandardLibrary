@@ -23,14 +23,14 @@ model CutForce "Measure cut force vector"
   extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
 
 protected
-  Visualizers.Advanced.Arrow forceArrow(
+  Visualizers.Advanced.Vector forceArrow(
     color=forceColor,
     specularCoefficient=specularCoefficient,
     R=frame_b.R,
     r=frame_b.r_0,
     headAtOrigin=true,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
-    r_head=-frame_a.f*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
+    coordinates=-frame_a.f*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
 
   Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
         positiveSign)

@@ -85,13 +85,13 @@ model RelativeSensor
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Blocks.Interfaces.RealOutput w_rel[3](each final quantity="AngularVelocity",
-      each final unit="1/s") if get_w_rel "Relative angular velocity vector"
+      each final unit="rad/s") if get_w_rel "Relative angular velocity vector"
     annotation (Placement(transformation(
         origin={60,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Blocks.Interfaces.RealOutput z_rel[3](each final quantity="AngularAcceleration",
-      each final unit="1/s2") if get_z_rel
+      each final unit="rad/s2") if get_z_rel
     "Relative angular acceleration vector"
     annotation (Placement(transformation(
         origin={100,-110},
@@ -99,8 +99,8 @@ model RelativeSensor
         rotation=90)));
 
 protected
-  RelativePosition relativePosition(resolveInFrame=resolveInFrame) if
-                                                get_r_rel or get_v_rel or get_a_rel
+  RelativePosition relativePosition(resolveInFrame=resolveInFrame)
+    if get_r_rel or get_v_rel or get_a_rel
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 
 protected
@@ -136,11 +136,12 @@ protected
 protected
   outer Modelica.Mechanics.MultiBody.World world;
 
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector arrow(
     r=frame_a.r_0,
-    r_head=frame_b.r_0 - frame_a.r_0,
+    coordinates=frame_b.r_0 - frame_a.r_0,
+    quantity=Types.VectorQuantity.RelativePosition,
     color=arrowColor,
-    specularCoefficient) if world.enableAnimation and animation;
+    specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
 equation
   connect(relativePosition.frame_a, frame_a) annotation (Line(
       points={{-80,0},{-100,0}},
@@ -211,7 +212,7 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(frame_resolve, relativePosition.frame_resolve) annotation (Line(
-      points={{100,80},{50,80},{50,20},{-30,20},{-30,8.1},{-60,8.1}},
+      points={{100,80},{50,80},{50,20},{-30,20},{-30,8},{-60,8}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(frame_resolve, zeroForce3.frame_a) annotation (Line(
@@ -220,7 +221,7 @@ equation
       pattern=LinePattern.Dot));
   connect(relativeAngularVelocity.frame_resolve, frame_resolve) annotation (
       Line(
-      points={{70,-21.9},{70,-21.9},{70,20},{50,20},{50,80},{100,80}},
+      points={{70,-22},{70,-22},{70,20},{50,20},{50,80},{100,80}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(der2.y, transformVector_a_rel.r_in) annotation (Line(

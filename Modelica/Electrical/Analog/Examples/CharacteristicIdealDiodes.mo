@@ -74,10 +74,7 @@ equation
     annotation (Line(points={{-20,-50},{-20,-60},{-40,-60}}, color={0,0,255}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics={Text(
-          extent={{-88,102},{92,48}},
-          textString="Characteristic Ideal Diodes",
-          textColor={0,0,255})}),
+            100,100}})),
     Documentation(info="<html>
 <p>Three examples of ideal diodes are shown:
 <br>the <strong>totally ideal diode</strong> (Ideal) with all parameters to be zero,

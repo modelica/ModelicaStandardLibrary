@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Mechanics.Rotational.Examples.CompareBrakingTorque">Modelica.Mechanics.Rotational.Examples.CompareBrakingTorque</a>
+The model has the same number of unknowns and equations: 52
+The model could not be deduced to be symbolically well-posed.
+The model has
+  52
+scalar unknowns and
+  48+(if  not signTorque.useSupport then 1 else 0)+(if  not linearSpeedDependentTorque.useSupport   then 1 else 0)+(if  not quadraticSpeedDependentTorque.useSupport then 1 else 0)  +(if  not inverseSpeedDependentTorque.useSupport then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  52
+Check of <a href="Modelica://Modelica.Mechanics.Rotational.Examples.CompareBrakingTorque">Modelica.Mechanics.Rotational.Examples.CompareBrakingTorque</a> successful.

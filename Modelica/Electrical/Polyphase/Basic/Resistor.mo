@@ -12,7 +12,8 @@ model Resistor "Ideal linear electrical resistors"
     final R=R,
     final T_ref=T_ref,
     final alpha=alpha,
-    each final useHeatPort=useHeatPort) annotation (Placement(
+    each final useHeatPort=useHeatPort,
+    final T=T) annotation (Placement(
         transformation(extent={{-10,-10},{10,10}})));
 equation
   connect(resistor.p, plug_p.pin)

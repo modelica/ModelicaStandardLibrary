@@ -11,8 +11,8 @@ model GenericFluxTube
   parameter SI.CrossSection area=0.0001 "Area of cross section"
     annotation (Dialog(group="Fixed geometry"));
 equation
-  A=area;
-  G_m = (mu_0*mu_r*A)/l;
+  A = area;
+  G_m = mu_0*mu_r*A/l;
 
   annotation (defaultComponentName="generic", Documentation(info="<html>
 <p>

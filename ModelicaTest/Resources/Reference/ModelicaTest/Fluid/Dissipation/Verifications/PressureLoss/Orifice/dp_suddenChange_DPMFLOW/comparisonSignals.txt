@@ -1,6 +1,5 @@
 time
 frac_A1toA2
-frac_A1toA2
 A_1
 A_2
 C_1

@@ -1,0 +1,48 @@
+Translation of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance">Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance</a>
+The DAE has 588 scalar unknowns and 588 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 145
+  Variables: 815
+  Parameters: 259 (319 scalars)
+  Unknowns: 556 (588 scalars)
+  Differentiated variables: 14 scalars
+  Equations: 320
+  Nontrivial: 270
+Translated Model
+  Constants: 220 scalars
+  Free parameters: 41 scalars
+  Parameter depending: 170 scalars
+  Continuous time states: 8 scalars
+  Time-varying variables: 121 scalars
+  Alias variables: 355 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {5, 5, 5, 5, 16}
+  Sizes after manipulation of the linear systems: {3, 2, 3, 2, 3}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$converter_m.singlePhaseElectroMagneticConverter.Phi:re">converter_m.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$converter_m.singlePhaseElectroMagneticConverter.Phi:im">converter_m.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$converter_s.Phi:re">converter_s[1].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$inductor_e.inductor:i">inductor_e.inductor[1].i</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$inductor_e.inductor:i">inductor_e.inductor[2].i</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$inductor_e.inductor:i">inductor_e.inductor[3].i</a>
+Dynamically selected continuous time states
+There are 2 sets of dynamic state selection.
+From set 1 there is 1 state to be selected from:
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$converter_s.Phi:im">converter_s[2].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$converter_s.Phi:re">converter_s[2].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$voltageSource_s:i">voltageSource_s.i[2]</a>
+From set 2 there is 1 state to be selected from:
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$converter_s.Phi:im">converter_s[3].Phi.im</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$converter_s.Phi:re">converter_s[3].Phi.re</a>
+<a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.Components.PolyphaseInductance#text$voltageSource_s:i">voltageSource_s.i[3]</a>
+Finished

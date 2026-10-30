@@ -51,8 +51,7 @@ equation
   connect(ac, thyristor.plug_p) annotation (Line(
       points={{-100,0},{-20,0}}, color={0,0,255}));
   connect(andCondition_p.y, thyristor.fire) annotation (Line(
-      points={{-60,-69},{-60,20},{1.77636e-15,20},{1.77636e-15,11.8}},
-                                                   color={255,0,255}));
+      points={{-60,-69},{-60,20},{0,20},{0,11.8}}, color={255,0,255}));
   annotation (defaultComponentName="rectifier",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={

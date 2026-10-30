@@ -39,16 +39,16 @@ Note that up to now only the eddy current loss is taken into account, since the 
 </p>
 
 <p>
-Individual and common stray field (leakage) is modeled as <a href=\"Modelica.Magnetic.FundamentalWave.Components.Permeance\">permeances</a> (see Fig. 1):
+Individual and common stray field (leakage) is modeled as <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">permeances</a> (see Fig. 1):
 The parameter <code>0 &le; ratioCommonLeakage &le; 1</code> describes the discrimination in common and individual stray field.
 Note that for <code>ratioCommonLeakage &gt; 1 - eps</code> the individual part is conditionally removed,
 whereas for <code>ratioCommonLeakage &lt; eps</code> the common part is conditionally removed.
 </p>
 <p>
-Note that for <a href=\"Modelica.Electrical.Machines\">machines with three phases</a> and for
-<a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave\">quasi-static machines</a> the parameter <code>ratioCommonLeakage</code> has no influence.
+Note that for <a href=\"modelica://Modelica.Electrical.Machines\">machines with three phases</a> and for
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">quasi-static machines</a> the parameter <code>ratioCommonLeakage</code> has no influence.
 Feeding polyphase machines with more than three phases by switching power electronics, this discrimination is essential.
-Therefore the split stray field representation is only modeled in the <a href=\"Modelica.Magnetic.FundamentalWave\">FundamentalWave library</a>.
+Therefore the split stray field representation is only modeled in the <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">FundamentalWave library</a>.
 </p>
 <p>
 The parameter <code>ratioCommonLeakage</code> has a default of 1, which is perfectly backwards compatible.

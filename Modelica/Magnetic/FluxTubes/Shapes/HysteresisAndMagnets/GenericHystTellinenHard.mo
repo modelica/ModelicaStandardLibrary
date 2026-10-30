@@ -7,21 +7,21 @@ model GenericHystTellinenHard
   //Hysteresis parameter
   parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
   parameter SI.MagneticFieldStrength Hc=5e5 "Coercitivity" annotation (Dialog(group="Hysteresis"));
-  parameter Real M = 10/Hc "Slope of tanh()-function" annotation (Dialog(group="Hysteresis"));
+  parameter Real M(final unit="m/A") = 10/Hc "Slope of tanh()-function" annotation (Dialog(group="Hysteresis"));
   parameter Real K=1 "Slope of hysteresis in the saturation region (K*mu_0)" annotation (Dialog(group="Hysteresis"));
 
 protected
   final parameter SI.MagneticFluxDensity eps = Br/1000;
   //final parameter Real mu0(final unit="N/A2") = K*mu_0;
-  final parameter SI.MagneticFieldStrength H0= 0.5*log((1+mu0*Hc/Br)/(1-mu0*Hc/Br)) + M*Hc;
+  final parameter Real H0= 0.5*log((1+mu0*Hc/Br)/(1-mu0*Hc/Br)) + M*Hc;
   constant SI.MagneticFieldStrength unitH = 1;
 
   Real tanhR;
   Real tanhF;
 
 equation
-  tanhR = tanh((M*H - H0)/unitH);
-  tanhF = tanh((M*H + H0)/unitH);
+  tanhR = tanh(M*H - H0);
+  tanhF = tanh(M*H + H0);
   hystR = Br*tanhR + mu0*H - eps/2;
   hystF = Br*tanhF + mu0*H + eps/2;
 

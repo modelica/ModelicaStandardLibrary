@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.LightningLosslessTransmissionLine">Modelica.Electrical.Analog.Examples.Lines.LightningLosslessTransmissionLine</a>
+The model has the same number of unknowns and equations: 53
+The model could not be deduced to be symbolically well-posed.
+The model has
+  53
+scalar unknowns and
+  52+(if  not load.useHeatPort then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  53
+Check of <a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.LightningLosslessTransmissionLine">Modelica.Electrical.Analog.Examples.Lines.LightningLosslessTransmissionLine</a> successful.

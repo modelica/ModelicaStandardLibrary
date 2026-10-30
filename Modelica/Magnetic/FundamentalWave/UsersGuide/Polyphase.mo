@@ -16,7 +16,7 @@ sine waves with an angular displacement of
 
 <p>
 Electrical three-phase machines have (usually) symmetrical three-phase windings which
-excite spatial magnetic potential with a spacial displacement of
+excite spatial magnetic potential with a spatial displacement of
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/2pi_3.png\"/>
 - with respect to the fundamental wave,
 see [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Laughton02</a>].

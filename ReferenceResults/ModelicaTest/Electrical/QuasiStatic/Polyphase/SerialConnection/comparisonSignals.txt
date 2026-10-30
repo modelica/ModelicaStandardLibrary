@@ -1,0 +1,7 @@
+time
+v[1].re
+v[1].im
+v[2].re
+v[2].im
+v[3].re
+v[3].im

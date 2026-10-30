@@ -9,7 +9,8 @@ partial model PartialTwoFlangesAndSupport
     choices(checkBox=true));
   extends Translational.Interfaces.PartialTwoFlanges;
   Support support if useSupport "Support/housing of component"
-    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})),
+      mustBeConnected="An enabled support connector should be connected");
 protected
   Support internalSupport
     "Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"

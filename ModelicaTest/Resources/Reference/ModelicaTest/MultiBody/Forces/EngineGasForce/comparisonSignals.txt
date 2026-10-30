@@ -1,5 +1,4 @@
 time
-gasForce.dens
 gasForce.f
 gasForce.T
 gasForce.V

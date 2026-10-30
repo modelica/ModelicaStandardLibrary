@@ -1,0 +1,6 @@
+time
+reluctance.abs_V_m
+reluctance.abs_Phi
+permeance.abs_V_m
+permeance.abs_Phi
+magFluxSource.gamma

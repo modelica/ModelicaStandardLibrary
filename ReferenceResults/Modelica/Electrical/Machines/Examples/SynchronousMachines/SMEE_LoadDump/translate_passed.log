@@ -1,0 +1,46 @@
+Translation of <a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump">Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump</a>
+The DAE has 734 scalar unknowns and 734 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 96
+  Variables: 1037
+  Constants: 10 (10 scalars)
+  Parameters: 374 (442 scalars)
+  Unknowns: 653 (734 scalars)
+  Differentiated variables: 31 scalars
+  Equations: 452
+  Nontrivial: 365
+Translated Model
+  Constants: 298 scalars
+  Free parameters: 89 scalars
+  Parameter depending: 196 scalars
+  Outputs: 1 scalars
+  Continuous time states: 8 scalars
+  Time-varying variables: 141 scalars
+  Alias variables: 462 scalars
+  Number of mixed real/discrete systems of equations: 3
+  Sizes of linear systems of equations: {3}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: {47}
+  Sizes after manipulation of the nonlinear systems: {8}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Number of mixed real/discrete systems of equations: 3
+    Sizes of linear systems of equations: {3, 15, 2, 16}
+    Sizes after manipulation of the linear systems: {0, 3, 2, 5}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump#diagram$:smee.idq_dr[1]">smee.idq_dr[1]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump#text$smee:idq_rr">smee.idq_rr[2]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump#text$smee:idq_sr">smee.idq_sr[1]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump#text$smee:idq_sr">smee.idq_sr[2]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump#text$smee.lesigma:i">smee.lesigma.i</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump#text$speed:phi">speed.phi</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump#text$speed:w">speed.w</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump#diagram$voltageController:I.y">voltageController.I.y</a>
+Finished

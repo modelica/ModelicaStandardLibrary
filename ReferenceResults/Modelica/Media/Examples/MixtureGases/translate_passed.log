@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Media.Examples.MixtureGases:
+The DAE has 75 scalar unknowns and 75 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 22
+  Variables: 204
+  Constants: 150 (360 scalars)
+  Parameters: 7 (7 scalars)
+  Unknowns: 47 (75 scalars)
+  Differentiated variables: 10 scalars
+  Equations: 47
+  Nontrivial: 41
+Translated Model
+  Constants: 398 scalars
+  Free parameters: 3 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 39 scalars
+  Alias variables: 2 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2}
+  Sizes after manipulation of the linear systems: {0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  medium1.p
+  medium1.T
+  medium2.p
+  medium2.T
+ 

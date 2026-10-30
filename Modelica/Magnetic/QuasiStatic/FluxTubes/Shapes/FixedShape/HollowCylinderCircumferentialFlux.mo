@@ -15,7 +15,7 @@ model HollowCylinderCircumferentialFlux "Hollow cylinder with circumferential fl
   parameter SI.Angle alpha=pi/2 "Angle of cylinder section"
     annotation (Dialog(group="Fixed geometry"));
 equation
-  A = l*(r_o - r_i) "Area at arithmetic mean radius for calculation of average flux density";
+  A = (r_o - r_i)*l;
   G_m = mu_0*mu_r*A/((r_o + r_i)/2*alpha);
 
   annotation (defaultComponentName="cylinder", Documentation(info="<html>

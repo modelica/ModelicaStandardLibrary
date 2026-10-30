@@ -1,0 +1,45 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings:
+The DAE has 2066 scalar unknowns and 2066 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 83
+  Variables: 975
+  Parameters: 203 (260 scalars)
+  Unknowns: 772 (2066 scalars)
+  Differentiated variables: 13 scalars
+  Equations: 692
+  Nontrivial: 450
+Translated Model
+  Constants: 1549 scalars
+  Free parameters: 50 scalars
+  Parameter depending: 134 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 135 scalars
+  Alias variables: 458 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 3, 3}
+  Sizes after manipulation of the linear systems: {4, 3, 3}
+  Sizes of nonlinear systems of equations: {4, 35}
+  Sizes after manipulation of the nonlinear systems: {4, 3}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {4}
+    Sizes after manipulation of the nonlinear systems: {4}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  body1.frame_a.r_0[]
+  body1.v_0[]
+  body1.w_a[]
+ 
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There are 3 states to be selected from:
+  body1.Q[]
+ 

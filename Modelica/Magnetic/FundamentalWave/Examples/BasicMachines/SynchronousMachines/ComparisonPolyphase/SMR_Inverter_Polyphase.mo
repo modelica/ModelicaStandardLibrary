@@ -275,17 +275,11 @@ Simulate for 1.5 seconds and plot (versus time):
                 fillPattern=FillPattern.Solid,
                 pattern=LinePattern.Dash),Text(
                 extent={{40,-44},{100,-52}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
-                textString="%m-phase machine
-"),     Text(
+                textString="%m-phase machine"),     Text(
           extent={{40,-54},{100,-62}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
-                textString="Three-phase machine
-"),     Rectangle(
+                textString="Three-phase machine"),     Rectangle(
           extent={{-20,-60},{100,-100}},
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid,

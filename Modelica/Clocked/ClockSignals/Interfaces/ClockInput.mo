@@ -24,9 +24,7 @@ connector ClockInput = input Clock "'input Clock' as connector"
           fillPattern=FillPattern.Solid), Text(
           extent={{-10,85},{-10,60}},
           textColor={0,0,255},
-          textString="%name",
-        fillPattern=FillPattern.Solid,
-        fillColor={128,0,255})}),
+          textString="%name")}),
     Documentation(info="<html>
 <p>
 Connector with one input signal of type Clock.

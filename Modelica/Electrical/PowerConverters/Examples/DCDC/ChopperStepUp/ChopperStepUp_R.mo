@@ -25,7 +25,7 @@ equation
   connect(loadResistor.n, currentSensor.p)
     annotation (Line(points={{40,30},{40,-10},{30,-10}}, color={0,0,255}));
   connect(loadResistor.p, capacitor.p) annotation (Line(points={{40,50},{40,60},
-          {1.77636e-15,60},{1.77636e-15,10}}, color={0,0,255}));
+          {0,60},{0,10}}, color={0,0,255}));
   connect(adaptor.dutyCycle, signalPWM.dutyCycle)
     annotation (Line(points={{-70,-49},{-70,-40},{-42,-40}}, color={0,0,127}));
   connect(vRef.y, adaptor.v)

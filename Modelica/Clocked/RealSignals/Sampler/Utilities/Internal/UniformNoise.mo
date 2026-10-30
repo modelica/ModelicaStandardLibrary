@@ -1,8 +1,6 @@
 within Modelica.Clocked.RealSignals.Sampler.Utilities.Internal;
 block UniformNoise "Add band-limited uniform noise using a variant of the Wichmann-Hill algorithm"
   extends Clocked.RealSignals.Interfaces.PartialNoise;
-  parameter Real noiseMax=0.1 "Upper limit of noise band";
-  parameter Real noiseMin=-noiseMax "Lower limit of noise band";
   parameter Integer firstSeed[3](each min=0, each max=255) = {23,87,187}
     "Integer[3] defining random sequence; required element range: 0..255";
 protected

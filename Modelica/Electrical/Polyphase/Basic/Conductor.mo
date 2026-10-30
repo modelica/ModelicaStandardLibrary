@@ -12,7 +12,8 @@ model Conductor "Ideal linear electrical conductors"
     final G=G,
     final T_ref=T_ref,
     final alpha=alpha,
-    each final useHeatPort=useHeatPort) annotation (Placement(
+    each final useHeatPort=useHeatPort,
+    final T=T) annotation (Placement(
         transformation(extent={{-10,-10},{10,10}})));
 equation
   connect(plug_p.pin, conductor.p)

@@ -30,14 +30,14 @@ package Machines "Quasi-static machine models"
               -100},{-70,-100},{-70,-90}})}), preferredView="info", Documentation(info="<html>
 <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
+Copyright &copy; 1998-2025, Modelica Association and contributors
 </p>
 <p>This package hosts models for quasi-static transformers.
 </p>
 <h4>Note</h4>
 <p>
 Quasi-static DC machines are still operated with DC voltage and current, whereas the quasi-static transformers
-are operated with sinusoidal voltages and currents represented by time phasors. 
+are operated with sinusoidal voltages and currents represented by time phasors.
 Quasi-static DC machine models therefore are part of the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines\">machines library</a>.
 </p>

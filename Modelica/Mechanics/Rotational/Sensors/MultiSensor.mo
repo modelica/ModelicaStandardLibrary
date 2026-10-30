@@ -1,6 +1,6 @@
 within Modelica.Mechanics.Rotational.Sensors;
 model MultiSensor
-  "Ideal sensor to measure the torque and power between two flanges (= flange_a.tau*der(flange_a.phi)) and the absolute angular velocity"
+  "Ideal sensor to measure the absolute angular velocity, torque and power between two flanges"
   extends .Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor;
   Modelica.Blocks.Interfaces.RealOutput power(unit="W")
     "Power in flange flange_a as output signal"
@@ -27,7 +27,11 @@ equation
   power = tau*w;
   annotation (
     Documentation(info="<html>
-<p>Measures the <strong>absolute angular velocity</strong> of a flange_a, the <strong>cut-torque</strong> and <strong>power</strong> between two flanges in an ideal way and provides the results as output signals <strong>w</strong>, <strong>tau</strong> and <strong>power</strong>, respectively.
+<p>
+Measures the <em>absolute angular velocity</em> of the <code>flange_a</code> and
+the <em>cut-torque</em> and <em>power</em> between two flanges
+in an ideal way and provides the results as output signals&nbsp;<code>w</code>,
+<code>tau</code> and <code>power</code>, respectively.
 </p>
 </html>"),
        Icon(coordinateSystem(

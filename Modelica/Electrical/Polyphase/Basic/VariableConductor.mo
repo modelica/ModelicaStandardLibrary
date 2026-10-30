@@ -18,7 +18,8 @@ model VariableConductor
   Modelica.Electrical.Analog.Basic.VariableConductor variableConductor[m](
     final T_ref=T_ref,
     final alpha=alpha,
-    each final useHeatPort=useHeatPort) annotation (Placement(
+    each final useHeatPort=useHeatPort,
+    final T=T) annotation (Placement(
         transformation(extent={{-10,-10},{10,10}})));
 equation
   connect(variableConductor.p, plug_p.pin)

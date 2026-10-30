@@ -34,13 +34,13 @@ model Force
     annotation (Dialog(group="if animation = true", enable=animation));
 
 protected
-  Visualizers.Advanced.Arrow forceArrow(
+  Visualizers.Advanced.Vector forceArrow(
     color=forceColor,
     specularCoefficient=specularCoefficient,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
     R=frame_b.R,
     r=frame_b.r_0,
-    r_head=-frame_b.f,
+    coordinates=-frame_b.f,
     headAtOrigin=true) if world.enableAnimation and animation;
   Visualizers.Advanced.Shape connectionLine(
     shapeType="cylinder",

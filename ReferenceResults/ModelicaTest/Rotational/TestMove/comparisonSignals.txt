@@ -1,0 +1,15 @@
+time
+ActuatedRevolute1.frame_b.r_0[1]
+ActuatedRevolute1.frame_b.r_0[2]
+ActuatedRevolute1.frame_b.r_0[3]
+ActuatedRevolute1.frame_b.f[1]
+ActuatedRevolute1.frame_b.f[2]
+ActuatedRevolute1.frame_b.f[3]
+ActuatedRevolute1.frame_b.t[1]
+ActuatedRevolute1.frame_b.t[2]
+ActuatedRevolute1.frame_b.t[3]
+Multiplex3_1.y[1]
+Multiplex3_1.y[2]
+Multiplex3_1.y[3]
+Constant1.y
+Constant2.y

@@ -8,7 +8,7 @@ function maxWithoutEvent
 algorithm
   y := if u1 > u2 then u1 else u2;
   annotation (
-    Inline=false,
+    LateInline=true,
     derivative=maxWithoutEvent_d,
     Documentation(info="<html>
 <h4>Syntax</h4>
