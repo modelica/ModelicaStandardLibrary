@@ -7,6 +7,7 @@ package Constants
   import Modelica.Units.NonSI;
 
   // Mathematical constants
+  final constant Real one(final unit="1") = 1.0 "The number 1 with unit \"1\“";
   final constant Real e(final unit="1") = Modelica.Math.exp(1.0);
   final constant Real pi = 2*Modelica.Math.asin(1.0); // 3.14159265358979;
   final constant Real D2R(final unit="rad/deg") = pi/180 "Degree to Radian";
