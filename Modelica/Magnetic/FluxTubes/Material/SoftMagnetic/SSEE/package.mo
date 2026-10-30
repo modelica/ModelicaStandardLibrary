@@ -11,7 +11,7 @@ package SSEE "Smoothing Splines with Exponential Extrapolation"
 <li>at specified flux density <code>BRef</code></li>
 <li>and frequency <code>fRef</code></li>
 <li>electric resistivity <code>rhoEl</code></li>
-<li>thermal conductivity <code>rhoEl</code></li>
+<li>thermal conductivity <code>lambda</code></li>
 <li>density <code>dens</code></li>
 <li>initial relative permeability <code>mu_ri</code></li>
 </ul>
