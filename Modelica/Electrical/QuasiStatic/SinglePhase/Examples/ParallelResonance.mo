@@ -14,7 +14,7 @@ model ParallelResonance "Parallel resonance circuit"
         extent={{-10,-10},{10,10}},
       rotation=90)));
   parameter Modelica.Units.SI.Frequency f0=1 "Resonance frequency";
-  parameter Modelica.Units.SI.Resistance R=1 "Scaling";
+  parameter Modelica.Units.SI.Resistance R=1 "Characteristic impedance";
   Modelica.Blocks.Sources.Ramp f(
     height=2,
     duration=1,

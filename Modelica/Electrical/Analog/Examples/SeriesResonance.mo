@@ -3,7 +3,7 @@ model SeriesResonance "Series resonance circuit"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Modelica.Units.SI.Frequency f0=100 "Resonance frequency";
-  parameter Modelica.Units.SI.Resistance R=10 "Scaling";
+  parameter Modelica.Units.SI.Resistance R=10 "Characteristic impedance";
   Sources.SineVoltageVariableFrequencyAndAmplitude sineVoltage(
       useConstantAmplitude=true,                               phi(fixed=true))
     annotation (Placement(transformation(
