@@ -68,6 +68,7 @@ function par=SSEE(material, varargin)
         end
     end
     par.material=material;
+    par.p=p;
 % check RawData
     if check_RD(par)<0
         disp('Please check rawData'); return;

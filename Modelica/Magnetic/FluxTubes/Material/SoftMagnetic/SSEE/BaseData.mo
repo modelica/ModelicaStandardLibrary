@@ -27,6 +27,8 @@ record BaseData "CastIron"
   // Length of Raw Data
   parameter Integer N    = 22 "Count of nodes"
     annotation(Dialog(tab="Smoothing Splines"));
+  parameter Real smooth  = 0.005 "Smoothing parameter"
+    annotation(Dialog(tab="Smoothing Splines"));
   // Smoothing Spline coefficients
   parameter Real c3[:](each unit="V.s.m/A2")={
      1.05287e-10, 3.46651e-10,-1.34759e-10,-4.61913e-10,-1.76527e-10,

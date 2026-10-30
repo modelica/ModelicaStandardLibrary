@@ -10,6 +10,8 @@ package SSEE "Smoothing Splines with Exponential Extrapolation"
 <li>specific losses <code>vRef</code></li>
 <li>at specified flux density <code>BRef</code></li>
 <li>and frequency <code>fRef</code></li>
+<li>electric resistivity <code>rhoEl</code></li>
+<li>thermal conductivity <code>rhoEl</code></li>
 <li>density <code>dens</code></li>
 <li>initial relative permeability <code>mu_ri</code></li>
 </ul>
@@ -29,7 +31,8 @@ package SSEE "Smoothing Splines with Exponential Extrapolation"
 <p>For <code>H&lt;hH1</code> pure spline interpolation is used. 
    For <code>H&gt;hH2</code> pure exponential extrapolation is used. 
    In the region between both are mixed, linearly dependent on <code>H</code>.</p>
-<p>Number of raw data nodes = 1 + number of spline coefficients <code>N</code>.</p>
+<p>Number of raw data nodes = 1 + number of spline coefficients <code>N</code>.
+   The smoothing parameter used for calculation of splines is documented.</p>
 <p>Parameters for spline interpolation: 
 <code>J(H) = c0[k] + c1[k]*(H - HD[k]) + c2[k]*(H - HD[k])^2 + c3[k]*(H - HD[k])^3</code></p>
 <ul>

@@ -29,6 +29,7 @@ function savParSSEE(par)
 %   length of raw data = 1 + length of interval coefficients
     N=length(par.HD);
     fprintf(fID, '    N      = %1u,\n', N);
+    fprintf(fID, '    smooth = %9.3e,\n', par.p);
 % Smoothing Spline coefficients
     for m=1:4
         fprintf(fID, '    c%1u={\n', 4-m);
