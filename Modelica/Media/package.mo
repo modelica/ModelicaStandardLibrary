@@ -6985,83 +6985,83 @@ package Common "Data structures and fundamental functions for fluid properties"
       parameter Integer n(min=1) "Discretization number";
       parameter Integer nspecies(min=1) "Number of species";
       SI.Pressure[n] p(
-        min=PMIN,
-        max=PMAX,
-        nominal=PNOM,
+        each min=PMIN,
+        each max=PMAX,
+        each nominal=PNOM,
         start=fill(1.0e5, n)) "Pressure";
       SI.Temperature[n] T(
-        min=TMIN,
-        max=TMAX,
-        nominal=TNOM) "Temperature";
+        each min=TMIN,
+        each max=TMAX,
+        each nominal=TNOM) "Temperature";
       SI.Density[n] d(
-        min=DMIN,
-        max=DMAX,
-        nominal=DNOM) "Density";
+        each min=DMIN,
+        each max=DMAX,
+        each nominal=DNOM) "Density";
       SI.SpecificEnthalpy[n] h(
-        min=SHMIN,
-        max=SHMAX,
-        nominal=SHNOM) "Specific enthalpy";
+        each min=SHMIN,
+        each max=SHMAX,
+        each nominal=SHNOM) "Specific enthalpy";
       SI.SpecificEntropy[n] s(
-        min=SSMIN,
-        max=SSMAX,
-        nominal=SSNOM) "Specific entropy";
+        each min=SSMIN,
+        each max=SSMAX,
+        each nominal=SSNOM) "Specific entropy";
       SI.RatioOfSpecificHeatCapacities[n] kappa "Ratio of cp/cv";
       SI.Mass[n] M(
-        min=MMIN,
-        max=MMAX,
-        nominal=MNOM) "Total mass";
+        each min=MMIN,
+        each max=MMAX,
+        each nominal=MNOM) "Total mass";
       SI.Energy[n] U(
-        min=EMIN,
-        max=EMAX,
-        nominal=ENOM) "Inner energy";
+        each min=EMIN,
+        each max=EMAX,
+        each nominal=ENOM) "Inner energy";
       SI.MassFlowRate[n] dM(
-        min=MDOTMIN,
-        max=MDOTMAX,
-        nominal=MDOTNOM) "Change in total mass";
+        each min=MDOTMIN,
+        each max=MDOTMAX,
+        each nominal=MDOTNOM) "Change in total mass";
       SI.Power[n] dU(
-        min=POWMIN,
-        max=POWMAX,
-        nominal=POWNOM) "Change in inner energy";
+        each min=POWMIN,
+        each max=POWMAX,
+        each nominal=POWNOM) "Change in inner energy";
       SI.Volume[n] V(
-        min=VMIN,
-        max=VMAX,
-        nominal=VNOM) "Volume";
+        each min=VMIN,
+        each max=VMAX,
+        each nominal=VNOM) "Volume";
       SI.MassFraction[n, nspecies] mass_x(
-        min=MASSXMIN,
-        max=MASSXMAX,
-        nominal=MASSXNOM) "Mass fraction";
+        each min=MASSXMIN,
+        each max=MASSXMAX,
+        each nominal=MASSXNOM) "Mass fraction";
       SI.MoleFraction[n, nspecies] mole_y(
-        min=MOLEYMIN,
-        max=MOLEYMAX,
-        nominal=MOLEYNOM) "Mole fraction";
+        each min=MOLEYMIN,
+        each max=MOLEYMAX,
+        each nominal=MOLEYNOM) "Mole fraction";
       SI.Mass[n, nspecies] M_x(
-        min=MMIN,
-        max=MMAX,
-        nominal=MNOM) "Component mass";
+        each min=MMIN,
+        each max=MMAX,
+        each nominal=MNOM) "Component mass";
       SI.MassFlowRate[n, nspecies] dM_x(
-        min=MDOTMIN,
-        max=MDOTMAX,
-        nominal=MDOTNOM) "Rate of change in component mass";
+        each min=MDOTMIN,
+        each max=MDOTMAX,
+        each nominal=MDOTNOM) "Rate of change in component mass";
       MolarFlowRate[n, nspecies] dZ(
-        min=-1.0e6,
-        max=1.0e6,
-        nominal=0.0) "Rate of change in component moles";
+        each min=-1.0e6,
+        each max=1.0e6,
+        each nominal=1.0) "Rate of change in component moles";
       MolarFlowRate[n, nspecies] rZ(
-        min=-1.0e6,
-        max=1.0e6,
-        nominal=0.0) "Reaction(source) mole rates";
+        each min=-1.0e6,
+        each max=1.0e6,
+        each nominal=1.0) "Reaction(source) mole rates";
       SI.MolarMass[n] MM(
-        min=MMMIN,
-        max=MMMAX,
-        nominal=MMNOM) "Molar mass of mixture";
+        each min=MMMIN,
+        each max=MMMAX,
+        each nominal=MMNOM) "Molar mass of mixture";
       SI.AmountOfSubstance[n] Moles(
-        min=MOLMIN,
-        max=MOLMAX,
-        nominal=MOLNOM) "Total moles";
+        each min=MOLMIN,
+        each max=MOLMAX,
+        each nominal=MOLNOM) "Total moles";
       SI.AmountOfSubstance[n, nspecies] Moles_z(
-        min=MOLMIN,
-        max=MOLMAX,
-        nominal=MOLNOM) "Mole vector";
+        each min=MOLMIN,
+        each max=MOLMAX,
+        each nominal=MOLNOM) "Mole vector";
       annotation (Documentation(info="<html>
                          <h4>Model description</h4>
                               <p>
@@ -7126,13 +7126,13 @@ package Common "Data structures and fundamental functions for fluid properties"
         max=MMMAX,
         nominal=MMNOM) "Molar mass of mixture";
       SI.MassFraction[nspecies] mass_x(
-        min=MASSXMIN,
-        max=MASSXMAX,
-        nominal=MASSXNOM) "Mass fraction";
+        each min=MASSXMIN,
+        each max=MASSXMAX,
+        each nominal=MASSXNOM) "Mass fraction";
       SI.MoleFraction[nspecies] mole_y(
-        min=MOLEYMIN,
-        max=MOLEYMAX,
-        nominal=MOLEYNOM) "Mole fraction";
+        each min=MOLEYMIN,
+        each max=MOLEYMAX,
+        each nominal=MOLEYNOM) "Mole fraction";
       SI.RatioOfSpecificHeatCapacities kappa "Ratio of cp/cv";
       SI.DerDensityByTemperature ddTp
         "Derivative of density by temperature at constant pressure";
@@ -7147,13 +7147,13 @@ package Common "Data structures and fundamental functions for fluid properties"
       SI.SpecificEnergy ddx[nspecies]
         "Derivative vector of density by change in mass composition";
       SI.SpecificEnergy[nspecies] compu(
-        min=SEMIN,
-        max=SEMAX,
-        nominal=SENOM) "Inner energy of the components";
+        each min=SEMIN,
+        each max=SEMAX,
+        each nominal=SENOM) "Inner energy of the components";
       SI.Pressure[nspecies] compp(
-        min=COMPPMIN,
-        max=COMPPMAX,
-        nominal=COMPPNOM) "Partial pressures of the components";
+        each min=COMPPMIN,
+        each max=COMPPMAX,
+        each nominal=COMPPNOM) "Partial pressures of the components";
       SI.Velocity a(
         min=VELMIN,
         max=VELMAX,
@@ -7163,9 +7163,9 @@ package Common "Data structures and fundamental functions for fluid properties"
       SI.MolarInternalEnergy[nspecies] dUZT
         "Derivative of inner energy by moles at constant temperature";
       SI.SpecificEnthalpy[nspecies] dHMxT(
-        min=SEMIN,
-        max=SEMAX,
-        nominal=SENOM)
+        each min=SEMIN,
+        each max=SEMAX,
+        each nominal=SENOM)
         "Derivative of total enthalpy w.r.t. component mass at constant T";
       Real dpT "Derivative of pressure w.r.t. temperature";
       Real dpZ[nspecies] "Derivative of pressure w.r.t. moles";
