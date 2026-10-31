@@ -19,9 +19,16 @@ block Feedback
   parameter Boolean useConjugateInput2=false
     "If true, input 2 is processed conjugate complex";
 
+protected
+  Complex u1Internal=(if useConjugateInput1 then Modelica.ComplexMath.conj(
+      u1) else u1)
+    "Equals either u1 or conjugate complex input u1 if useConjugateInput1 = true";
+  Complex u2Internal=(if useConjugateInput2 then Modelica.ComplexMath.conj(
+      u2) else u2)
+    "Equals either u2 or conjugate complex input u2 if useConjugateInput2 = true";
+
 equation
-  y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1) -
-    (if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2);
+  y = u1Internal - u2Internal;
   annotation (
     Documentation(info="<html>
 <p>
