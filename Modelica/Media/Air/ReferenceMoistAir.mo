@@ -934,6 +934,7 @@ package ReferenceMoistAir
         Real cp;
         Real Eu;
         Real lambdad;
+        constant SI.ThermalConductivity lambda_ice=2.21 "Thermal conductivity of ice";
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Transport.coef coef;
 
       algorithm
@@ -991,7 +992,7 @@ package ReferenceMoistAir
             lambdad := 0.083232*sqrt(T/coef.M)/(coef.sigma^2*Omega)*Eu;
             lambda := ya*
               Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.lambda_dT(
-              da, T) + yd*lambdad + yf*2.21;
+              da, T) + yd*lambdad + yf*lambda_ice;
           else
             dd :=
               Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.rho_pT(pd,
