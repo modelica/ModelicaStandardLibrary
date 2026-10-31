@@ -10,8 +10,13 @@ block Gain "Output the product of a gain value with the input signal"
   Interfaces.ComplexOutput y "Output signal connector" annotation (
       Placement(transformation(extent={{100,-10},{120,10}})));
 
+protected
+  Complex uInternal=(if useConjugateInput then Modelica.ComplexMath.conj(
+      u) else u)
+    "Equals either u or conjugate complex input u if useConjugateInput = true";
+
 equation
-  y = k*(if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
+  y = k*uInternal;
   annotation (
     Documentation(info="<html>
 <p>

@@ -6,8 +6,7 @@ block Division "Output first input divided by second input"
   parameter Boolean useConjugateInput2=false
     "If true, input 2 is processed conjugate complex";
 equation
-  y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)/(
-    if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2);
+  y = u1Internal/u2Internal;
   annotation (
     Documentation(info="<html>
 <p>
