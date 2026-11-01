@@ -89,7 +89,7 @@ Hence the output will change instantaneously when the trigger signal rises.
         Text(
           extent={{-60,50},{60,10}},
           textColor={0,0,255},
-          textString="%n-bit"),
+          textString="%N-bit"),
         Text(
           extent={{-60,-10},{60,-50}},
           textColor={0,0,255},

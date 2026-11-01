@@ -10,7 +10,7 @@ model IMC_YD "Induction machine with squirrel cage starting Y-D"
   parameter SI.Time tStart2=2.0 "Start time from Y to D";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
   parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
-       1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage

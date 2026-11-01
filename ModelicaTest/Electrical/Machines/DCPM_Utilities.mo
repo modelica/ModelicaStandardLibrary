@@ -119,12 +119,11 @@ The controller parameter record is used in the drive parameters record, and fill
 
   record MachineData "Standard machine parameters"
     extends Modelica.Icons.Record;
-    import Modelica.Constants.pi;
     parameter Modelica.Units.SI.Voltage VANominal=100
       "Nominal armature voltage";
     parameter Modelica.Units.SI.Current IANominal=100
       "Nominal armature current";
-    parameter Modelica.Units.SI.AngularVelocity wNominal=1425*pi/30
+    parameter Modelica.Units.SI.AngularVelocity wNominal=Modelica.Units.Conversions.from_rpm(1425)
       "Nominal speed";
     parameter Modelica.Units.SI.Resistance RA=0.05 "Armature resistance";
     parameter Modelica.Units.SI.Inductance LA=0.0015 "Armature inductance";
@@ -146,11 +145,10 @@ Extending from this record, the parameters of other machines (with different par
   end MachineData;
 
   record M48V "Real machine 48 V"
-    import Modelica.Constants.pi;
     extends ModelicaTest.Electrical.Machines.DCPM_Utilities.MachineData(
       VANominal=48,
       IANominal=25,
-      wNominal=3500*pi/30,
+      wNominal=Modelica.Units.Conversions.from_rpm(3500),
       RA=0.24,
       LA=0.004,
       J=0.0008);

@@ -7,7 +7,7 @@ model IMC_Characteristics "Characteristic curves of Induction machine with squir
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=imcData.fsNominal "Nominal frequency";
   parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
-       1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter Integer p=imcData.p "Number of pole pairs";
   Real speedPerUnit = p*imcQS.wMechanical/(2*pi*fNominal) "Per unit speed";
   Real slip = 1-speedPerUnit "Slip";
