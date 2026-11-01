@@ -55,7 +55,7 @@ There are optional parameters to control the parameter calculation and the deter
 Bear in mind that you have to inspect the results and adapt the parameters, 
 especially p, H0, H1, H2.
 
-p=1 defines no smooting, p=0 maximum smoothing.
+p=1 defines no smoothing, p=0 maximum smoothing.
 
 Optional parameters are specified using `('argument', value)`, e.g. 
 

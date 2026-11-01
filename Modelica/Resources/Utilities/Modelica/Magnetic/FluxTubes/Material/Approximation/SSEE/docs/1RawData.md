@@ -16,9 +16,9 @@ In order to focus on the parameter determination, the process of importing the r
 
 5. \# `fRef[Hz]     =`*measured at this frequency*
 
-6. \# `rhoEl[Ohm.m] =`*specific electric resistivity*
+6. \# `rhoEl[Ohm.m] =`*electric resistivity*
 
-7. \# `lambda[W/m.K]=`*specific thermal conductivity*
+7. \# `lambda[W/m.K]=`*thermal conductivity*
 
 8. \# `dens[kg/m3]  =`*density of material*
 
