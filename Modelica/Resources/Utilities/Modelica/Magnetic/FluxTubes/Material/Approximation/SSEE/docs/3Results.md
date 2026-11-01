@@ -9,8 +9,8 @@
 - vRef     specific losses
 - BRef     vRef measured with peak flux density Bref
 - fRef     vRef measured with frequency fRef
-- rhoEl    specific electric resistivity
-- lambda   specific thermal conductivity
+- rhoEl    electric resistivity
+- lambda   thermal conductivity
 - dens     density of material
 - k0       index of raw data field strength where exponential extrapolation is based
 - hH1      field strength where switch-over from smoothed splines to exponential extrapolation starts
