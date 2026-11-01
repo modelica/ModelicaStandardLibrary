@@ -19,6 +19,7 @@ function result=check_RD(par)
     if N>128
         disp(['Note: too high number of nodes increases the risk of noisy' ...
               'derivative and increases the number of spline intervals']);
+    end
     for k=1:N-1
         if(par.HD(k)>=par.HD(k+1))
         dispVal('rawData H not strictly increasing: k=', k);
