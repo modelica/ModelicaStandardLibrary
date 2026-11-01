@@ -24,7 +24,7 @@ In order to focus on the parameter determination, the process of importing the r
 
 9. \# `table J [T] vs. H [A/m]`*just a description*
 
-10. \# `N          =`*number of data pairs J H*
+10. \# `N           =`*number of data pairs J H*
 
 11. `double JH(`*N*`,2)`*necessary to import a text file into Modelica.Tables*
 
