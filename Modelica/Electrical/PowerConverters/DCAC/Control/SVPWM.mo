@@ -58,7 +58,7 @@ algorithm
     t0:=max(1 - ta - tb, 0);
     // take sector number into account: swapping for sectors 2,4,6
     if mod(ka, 2) == 0 then
-      // sectors 1,2,3
+      // sectors 1,3,5
       k1:=ka;
       k2:=kb;
       t1:=ta;
