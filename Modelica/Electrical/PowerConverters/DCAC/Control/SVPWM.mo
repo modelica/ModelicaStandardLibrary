@@ -32,7 +32,7 @@ protected
   discrete Real ta(start=0, fixed=true), tb(start=0, fixed=true), t0(start=1, fixed=true) "Relative time spans of vectors a, b, and 0";
   // take sector number into account: swapping for sectors 2,4,6
   Integer k1(start=0, fixed=true), k2(start=0, fixed=true) "Switching patterns limiting the sector";
-  discrete Real t1(start=0, fixed=true), t2(start=0, fixed=true) "Relative time spans of vectors a, b, and 0";
+  discrete Real t1(start=0, fixed=true), t2(start=0, fixed=true) "Relative time spans of first and second active vector";
   discrete SI.Time T0(start=startTime, fixed=true)
     "Start time of switching interval";
 algorithm
