@@ -138,10 +138,11 @@ The relative time spans for averaging over one switching period are determined b
 </ul>
 <p>
 For sectors 2,4,6 ta and tb as well as the vector indices ka and kb have to get swapped. 
+The results are t1 and t2 as well as k1 and k2, swapped for sector 2,4,6 and without swapping for sector 1,3,5.
 </p>
 <p>
 To obtain the positive fire signal, the switching time spans are distributed symmetrically:
-t<sub>0</sub>/4 + t<sub>a</sub>/2 + t<sub>b</sub>/2 +t<sub>0</sub>/2 + t<sub>b</sub>/2 + t<sub>a</sub>/2 + t<sub>0</sub>/4
+t<sub>0</sub>/4 + t<sub>1</sub>/2 + t<sub>2</sub>/2 +t<sub>0</sub>/2 + t<sub>2</sub>/2 + t<sub>1</sub>/2 + t<sub>0</sub>/4
 </p>
 <p>
 The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
