@@ -31,7 +31,7 @@ The remaining 6 (no. 1 - 6) produce voltage space phasors of the same length but
 The following table gives an overview about the relationships between the voltages.
 </p>
 
-<table border=\\\"0\\\" cellspacing=\\\"0\\\" cellpadding=\\\"2\\\">
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption><strong>Fig. 1:</strong> Structure of a three-phase inverter drive </caption>
   <tr>
     <td>
@@ -57,7 +57,7 @@ The following table gives an overview about the relationships between the voltag
     <td> V<sub>nom</sub>=1/&radic;2  &sdot; V<sub>max</sub>=1/&radic;6  &sdot; V<sub>DC</sub>=1/&radic;3  &sdot; V<sub>LL</sub></td></tr>
 </table>
 
-<table border=\\\"0\\\" cellspacing=\\\"0\\\" cellpadding=\\\"2\\\">
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption><strong>Fig. 2:</strong> Possible voltage space phasors </caption>
   <tr>
     <td>
