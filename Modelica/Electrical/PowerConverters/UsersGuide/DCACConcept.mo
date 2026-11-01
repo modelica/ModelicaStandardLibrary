@@ -21,6 +21,25 @@ can be used.
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC\">Examples.DCAC</a>.
 </p>
 
+<h4>Structure of a three-phase inverter drive</h4>
+
+<p>
+The machine-side inverter (see Fig. 1) consist of 6 switches (power transistors, MOSFETs or IGBTs) with anti-parallel freewheeling diodes. 
+It can be seen that there are 8 allowed switch combinations that avoid a short-circuit of the DC capacitor. 
+Two of them (no. 0 and 7) tie all three terminals either to the positive or to the negative terminal of the DC circuit, and therefore produce no voltage. 
+The remaining 6 (no. 1 - 6) produce voltage space phasors of the same length but in 6 different positions (see Fig. 2). 
+The following table gives an overview about the relationships between the voltages.
+</p>
+
+<table border=\\\"0\\\" cellspacing=\\\"0\\\" cellpadding=\\\"2\\\">
+  <caption><strong>Fig. 1:</strong> Structure of a three-phase inverter drive </caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/InverterDrive.png\">
+    </td>
+  </tr>
+</table>
+
 <h4>Relations between voltages of a three-phase inverter drive</h4>
 
 <table>
@@ -32,14 +51,14 @@ can be used.
     <td> </td></tr>
 <tr><td>Maximum length of space phasor</td>
     <td> |<u>V</u>|=2/3 &sdot; V<sub>DC</sub></td></tr>
-<tr><td>Inradius of the hexagon (see Fig. 1)</td>
+<tr><td>Inradius of the hexagon (see Fig. 2)</td>
     <td> V<sub>max</sub>=|<u>V</u>| &sdot; cos(&pi;/6)=1/&radic;3 &sdot; V<sub>DC</sub></td></tr>
 <tr><td>RMS of nominal phase voltage</td>
     <td> V<sub>nom</sub>=1/&radic;2  &sdot; V<sub>max</sub>=1/&radic;6  &sdot; V<sub>DC</sub>=1/&radic;3  &sdot; V<sub>LL</sub></td></tr>
 </table>
 
 <table border=\\\"0\\\" cellspacing=\\\"0\\\" cellpadding=\\\"2\\\">
-  <caption><strong>Fig. 1:</strong> Possible voltage space phasors </caption>
+  <caption><strong>Fig. 2:</strong> Possible voltage space phasors </caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/PWM.png\">
