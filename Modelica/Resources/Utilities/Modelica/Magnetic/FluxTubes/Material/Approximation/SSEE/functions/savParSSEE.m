@@ -10,7 +10,7 @@ function savParSSEE(par)
     fID=fopen(fileName,'w');
     fprintf(fID, '  extends BaseData(\n');
 % common parameters
-    fprintf(fID, '    Type   ="%s",\n', par.material);
+    fprintf(fID, '    Type   = "%s",\n', par.material);
     fprintf(fID, '    vRef   = %9.2f,\n', par.vRef);
     fprintf(fID, '    BRef   = %9.5f,\n', par.BRef);
     fprintf(fID, '    fRef   = %9.2f,\n', par.fRef);
@@ -29,7 +29,7 @@ function savParSSEE(par)
 %   length of raw data = 1 + length of interval coefficients
     N=length(par.HD);
     fprintf(fID, '    N      = %1u,\n', N);
-    fprintf(fID, '    smooth = %9.3e,\n', par.p);
+    fprintf(fID, '    psmooth= %9.3e,\n', par.p);
 % Smoothing Spline coefficients
     for m=1:4
         fprintf(fID, '    c%1u={\n', 4-m);
