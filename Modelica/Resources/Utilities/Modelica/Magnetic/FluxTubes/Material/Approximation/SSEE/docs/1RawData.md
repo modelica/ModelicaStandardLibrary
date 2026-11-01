@@ -28,7 +28,7 @@ In order to focus on the parameter determination, the process of importing the r
 
 11. `double JH(`*N*`,2)`*necessary to import a text file into Modelica.Tables*
 
-Lines 2 to 6 are additional parameters not used for the magnetic chracteristic, but they enable a later loss calculation.
+Lines 2 to 8 are additional parameters not used for the magnetic characteristic, but they enable a later loss calculation.
 
 In the spreadsheets, line 8 and 9 are calculated automatically.
 
