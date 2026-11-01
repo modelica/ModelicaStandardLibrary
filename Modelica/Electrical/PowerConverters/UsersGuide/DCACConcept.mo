@@ -20,5 +20,32 @@ can be used.
 <p>Some examples are provided at
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC\">Examples.DCAC</a>.
 </p>
+
+<h4>Relations between voltages of a three-phase inverter drive</h4>
+
+<table>
+<tr><td>RMS of grid line-to-line voltage</td>
+    <td> V<sub>LL</sub></td></tr>
+<tr><td>Maximum of DC voltage</td>
+    <td> V<sub>DC</sub>=&radic;2 &sdot; V<sub>LL</sub></td></tr>
+<tr><td>Considering (fictious) Y-connection of the connected machine</td>
+    <td> </td></tr>
+<tr><td>Maximum length of space phasor</td>
+    <td> |<u>V</u>|=2/3 &sdot; V<sub>DC</sub></td></tr>
+<tr><td>Inradius of the hexagon (see Fig. 1)</td>
+    <td> V<sub>max</sub>=|<u>V</u>| &sdot; cos(&pi;/6)=1/&radic;3 &sdot; V<sub>DC</sub></td></tr>
+<tr><td>RMS of nominal phase voltage</td>
+    <td> V<sub>nom</sub>=1/&radic;2  &sdot; V<sub>max</sub>=1/&radic;6  &sdot; V<sub>DC</sub>=1/&radic;3  &sdot; V<sub>LL</sub></td></tr>
+</table>
+
+<table border=\\\"0\\\" cellspacing=\\\"0\\\" cellpadding=\\\"2\\\">
+  <caption><strong>Fig. 1:</strong> Possible voltage space phasors </caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/PWM.png\">
+    </td>
+  </tr>
+</table>
+
 </html>"));
 end DCACConcept;
