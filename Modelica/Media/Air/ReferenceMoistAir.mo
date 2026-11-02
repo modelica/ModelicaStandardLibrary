@@ -657,7 +657,7 @@ package ReferenceMoistAir
   package Utilities "Utility package for moist air"
     extends Modelica.Icons.UtilitiesPackage;
 
-    final constant MoleFraction[4] MMX={18.015257E-003,28.01348E-003,
+    final constant SI.MolarMass[4] MMX={18.015257E-003,28.01348E-003,
         31.9988E-003,39.948E-003};
 
     final constant Real[3] Xi_Air={0.7557,0.2316,0.0127};
@@ -1035,13 +1035,14 @@ package ReferenceMoistAir
         final constant Real[19] j={0,0.33,1.01,0,0,0.15,0,0.2,0.35,1.35,1.6,0.8,
             0.95,1.25,3.6,6,3.25,3.5,15};
         Real tau=ReferenceAir.Air_Utilities.Basic.Constants.Tred/T;
+        Real baa_red "Reduced second virial coefficient";
 
       algorithm
-        baa := 0;
+        baa_red := 0;
         for k in 1:19 loop
-          baa := if (i[k] == 1) then baa + N[k]*tau^j[k] else baa;
+          baa_red := if (i[k] == 1) then baa_red + N[k]*tau^j[k] else baa_red;
         end for;
-        baa := 1/ReferenceAir.Air_Utilities.Basic.Constants.rhored*baa;
+        baa := baa_red/ReferenceAir.Air_Utilities.Basic.Constants.rhored;
 
       end Baa_dT;
 
@@ -1154,9 +1155,10 @@ package ReferenceMoistAir
         Real psi56delta=0;
 
         Real tau=Water95_Utilities.Constants.Tred/T;
+        Real bww_red "Reduced second virial coefficient";
 
       algorithm
-        bww := 0;
+        bww_red := 0;
         theta55 := (1 - tau) + AA[55];
         theta56 := (1 - tau) + AA[56];
         psi55 := exp(-CC[55] - DD[55]*(tau - 1)^2);
@@ -1171,18 +1173,17 @@ package ReferenceMoistAir
         psi56delta := 2*CC[56]*psi56;
 
         for k in 1:7 loop
-          bww := if (dd[k] == 1) then bww + N[k]*tau^t[k] else bww;
+          bww_red := if (dd[k] == 1) then bww_red + N[k]*tau^t[k] else bww_red;
         end for;
         for k in 8:51 loop
-          bww := if (dd[k] == 1) then bww + N[k]*tau^t[k]*dd[k] else bww;
+          bww_red := if (dd[k] == 1) then bww_red + N[k]*tau^t[k]*dd[k] else bww_red;
         end for;
         for k in 52:54 loop
-          bww := if (dd[k] == 1) then bww + N[k]*tau^t[k]*exp(-alpha[k]*epsilon[
-            k]^2 - beta[k]*(tau - gamma[k])^2) else bww;
+          bww_red := if (dd[k] == 1) then bww_red + N[k]*tau^t[k]*exp(-alpha[k]*epsilon[
+            k]^2 - beta[k]*(tau - gamma[k])^2) else bww_red;
         end for;
-        bww := (bww + N[55]*Delta55^b[55]*psi55 + N[56]*Delta56^b[56]*psi56)/
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Constants.rhored
-          *Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Constants.MM;
+        bww := (bww_red + N[55]*Delta55^b[55]*psi55 + N[56]*Delta56^b[56]*psi56)/
+          Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Constants.rhored;
       end Bww_dT;
 
       function Caaa_dT "Third molar virial coefficient of dry air"
@@ -1190,7 +1191,7 @@ package ReferenceMoistAir
 
         input SI.Density d "Density";
         input SI.Temperature T "Temperature";
-        output SI.MolarVolume caaa "Third virial coefficient";
+        output Real caaa(unit="m6/mol2") "Third virial coefficient";
 
       protected
         final constant Real[19] N={0.118160747229,0.713116392079,-0.161824192067E+001,
@@ -1204,17 +1205,18 @@ package ReferenceMoistAir
             0.95,1.25,3.6,6,3.25,3.5,15};
         final constant Integer[19] l={0,0,0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,3,3};
         Real tau=ReferenceAir.Air_Utilities.Basic.Constants.Tred/T;
+        Real caaa_red "Reduced third virial coefficient";
 
       algorithm
-        caaa := 0;
+        caaa_red := 0;
         for k in 1:10 loop
-          caaa := if (i[k] == 2) then caaa + 2*N[k]*tau^j[k] else caaa;
+          caaa_red := if (i[k] == 2) then caaa_red + 2*N[k]*tau^j[k] else caaa_red;
         end for;
         for k in 11:19 loop
-          caaa := if (i[k] == 2) then caaa + 2*N[k]*tau^j[k] elseif ((i[k] == 1)
-             and (l[k] == 1)) then caaa - 2*N[k]*tau^j[k] else caaa;
+          caaa_red := if (i[k] == 2) then caaa_red + 2*N[k]*tau^j[k] elseif ((i[k] == 1)
+             and (l[k] == 1)) then caaa_red - 2*N[k]*tau^j[k] else caaa_red;
         end for;
-        caaa := 1/ReferenceAir.Air_Utilities.Basic.Constants.rhored^2*caaa;
+        caaa := caaa_red/ReferenceAir.Air_Utilities.Basic.Constants.rhored^2;
       end Caaa_dT;
 
       function Caaw_dT "Third molar cross-virial coefficient"
@@ -1222,20 +1224,24 @@ package ReferenceMoistAir
 
         input SI.Density d "Density";
         input SI.Temperature T "Temperature";
-        output Real caaw "Third cross-virial coefficient";
+        output Real caaw(unit="m6/mol2") "Third cross-virial coefficient";
 
       protected
         final constant Real[5] c={0.482737E+003,0.105678E+006,-0.656394E+008,
             0.294442E+011,-0.319317E+013};
 
-        Real theta=T;
+        constant SI.Temperature Tstar=1.0 "Reference temperature";
+        constant Real Cstar(unit="m6/mol2")=1E-012
+          "Reference third virial coefficient";
+        Real theta=T/Tstar;
+        Real caaw_red "Reduced third cross-virial coefficient";
 
       algorithm
-        caaw := 0;
+        caaw_red := 0;
         for k in 1:5 loop
-          caaw := caaw + c[k]*theta^(1 - k);
+          caaw_red := caaw_red + c[k]*theta^(1 - k);
         end for;
-        caaw := caaw*1E-012;
+        caaw := caaw_red*Cstar;
 
       end Caaw_dT;
 
@@ -1244,20 +1250,24 @@ package ReferenceMoistAir
 
         input SI.Density d "Density";
         input SI.Temperature T "Temperature";
-        output Real caww "Third cross-virial coefficient";
+        output Real caww(unit="m6/mol2") "Third cross-virial coefficient";
 
       protected
         final constant Real[4] dd={-0.1072887E+002,0.347804E+004,-0.383383E+006,
             0.33406E+008};
 
-        Real theta=T;
+        constant SI.Temperature Tstar=1.0 "Reference temperature";
+        constant Real Cstar(unit="m6/mol2")=1E-012
+          "Reference third virial coefficient";
+        Real theta=T/Tstar;
+        Real caww_red "Reduced third cross-virial coefficient";
 
       algorithm
-        caww := 0;
+        caww_red := 0;
         for k in 1:4 loop
-          caww := caww + dd[k]*theta^(1 - k);
+          caww_red := caww_red + dd[k]*theta^(1 - k);
         end for;
-        caww := -exp(caww)*1E-012;
+        caww := -exp(caww_red)*Cstar;
 
       end Caww_dT;
 
@@ -1266,7 +1276,7 @@ package ReferenceMoistAir
 
         input SI.Density d "Density";
         input SI.Temperature T "Temperature";
-        output SI.MolarVolume cwww "Third virial coefficient";
+        output Real cwww(unit="m6/mol2") "Third virial coefficient";
 
       protected
         final constant Real[56] N={0.12533547935523E-001,0.78957634722828E+001,
@@ -1353,9 +1363,10 @@ package ReferenceMoistAir
         Real psi56deltadelta=0;
 
         Real tau=Water95_Utilities.Constants.Tred/T;
+        Real cwww_red "Reduced third virial coefficient";
 
       algorithm
-        cwww := 0;
+        cwww_red := 0;
         theta55 := (1 - tau) + AA[55];
         theta56 := (1 - tau) + AA[56];
         psi55 := exp(-CC[55] - DD[55]*(tau - 1)^2);
@@ -1379,19 +1390,18 @@ package ReferenceMoistAir
         psi55deltadelta := (2*CC[55] - 1)*2*CC[55]*psi55;
         psi56deltadelta := (2*CC[56] - 1)*2*CC[56]*psi56;
 
-        cwww := 0;
+        cwww_red := 0;
         for k in 1:7 loop
-          cwww := if (dd[k] == 2) then cwww + 2*N[k]*tau^t[k] else cwww;
+          cwww_red := if (dd[k] == 2) then cwww_red + 2*N[k]*tau^t[k] else cwww_red;
         end for;
         for k in 8:51 loop
-          cwww := if (dd[k] == 2) then cwww + 2*N[k]*tau^t[k] elseif ((dd[k]
-             == 1) and (c[k] == 1)) then cwww - 2*N[k]*tau^t[k] else cwww;
+          cwww_red := if (dd[k] == 2) then cwww_red + 2*N[k]*tau^t[k] elseif ((dd[k]
+             == 1) and (c[k] == 1)) then cwww_red - 2*N[k]*tau^t[k] else cwww_red;
         end for;
-        cwww := cwww + N[55]*(Delta55^b[55]*2*psi55delta + 2*Deltab55delta*
+        cwww_red := cwww_red + N[55]*(Delta55^b[55]*2*psi55delta + 2*Deltab55delta*
           psi55) + N[56]*(Delta56^b[56]*2*psi56delta + 2*Deltab56delta*psi56);
-        cwww := Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Constants.MM
-          ^2/Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Constants.rhored
-          ^2*cwww*1E-006;
+        cwww := cwww_red/Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Constants.rhored^2
+          *1E-006;
       end Cwww_dT;
     end VirialCoefficients;
 
@@ -1881,7 +1891,7 @@ for region 2.
         R_bar=8.314371,
         R_s=461.51805,
         MM=18.015268E-003,
-        rhored=322,
+        rhored=322/18.015268E-003,
         Tred=647.096,
         pred=22064000,
         h_off=0.0,
@@ -2519,7 +2529,7 @@ for region 2.
         Real caaw=0;
         Real caww=0;
         Real cwww=0;
-        final constant Real R_bar=8.314472;
+        final constant SI.MolarHeatCapacity R_bar=8.314472;
 
       algorithm
         //p_ws is the saturation pressure of water
@@ -2944,7 +2954,7 @@ for region 2.
       output Real u "Reaction index";
     protected
       Real uges;
-      Real invMMX[4] "Inverses of molar weights";
+      Real invMMX[4](each unit="mol/kg") "Inverses of molar weights";
       SI.MolarMass Mmix "Molar mass of mixture";
       MassFraction[4] massFraction "Mass fractions of components";
       SI.MoleFraction[4] Y
@@ -3105,7 +3115,7 @@ for region 2.
       output Real u "Reaction index";
     protected
       Real uges;
-      Real invMMX[4] "Inverses of molar weights";
+      Real invMMX[4](each unit="mol/kg") "Inverses of molar weights";
       SI.MolarMass Mmix "Molar mass of mixture";
       MassFraction[4] massFraction "Mass fractions of components";
       SI.MoleFraction[4] Y
@@ -3181,7 +3191,7 @@ for region 2.
       output Real u "Reaction index";
     protected
       Real uges;
-      Real invMMX[4] "Inverses of molar weights";
+      Real invMMX[4](each unit="mol/kg") "Inverses of molar weights";
       SI.MolarMass Mmix "Molar mass of mixture";
       MassFraction[4] massFraction "Mass fractions of components";
       SI.MoleFraction[4] Y
@@ -3535,7 +3545,7 @@ for region 2.
       output Real u_der "Derivative of reaction index";
     protected
       Real uges,      uges_der,      o[7],      l;
-      Real invMMX[4] "Inverses of molar weights";
+      Real invMMX[4](each unit="mol/kg") "Inverses of molar weights";
       SI.MolarMass Mmix "Molar mass of mixture";
       Real Mmix_der "Derivative of molar mass of mixture";
       MassFraction[4] massFraction "Mass fractions of components";
