@@ -166,7 +166,8 @@ or other flow models without storage, are directly connected.
           Rectangle(
             extent={{-100,44},{100,-44}},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={0,127,255}),
+            fillColor={0,127,255},
+            pattern=LinePattern.None),
           Ellipse(
             extent={{-72,10},{-52,-10}},
             fillPattern=FillPattern.Solid),
@@ -267,7 +268,9 @@ or other flow models without storage, are directly connected.
               pattern=LinePattern.None), Rectangle(
               extent={{-100,44},{100,-44}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,127,255})}), Documentation(info="<html>
+              fillColor={0,127,255},
+              pattern=LinePattern.None)}),
+                                        Documentation(info="<html>
 <p>
 Base class for one dimensional flow models. It specializes a PartialTwoPort with a parameter interface and icon graphics.
 </p>

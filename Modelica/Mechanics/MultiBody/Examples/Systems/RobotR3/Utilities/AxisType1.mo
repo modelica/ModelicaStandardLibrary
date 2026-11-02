@@ -18,17 +18,20 @@ a model of the electrical motor and a continuous-time cascade controller.
           extent={{80,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192},
-          lineColor={64,64,64}),
+          lineColor={64,64,64},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{28,10},{46,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192},
-          lineColor={64,64,64}),
+          lineColor={64,64,64},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-100,50},{22,-50}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175},
-          lineColor={0,0,0}),
+          lineColor={0,0,0},
+          pattern=LinePattern.None),
         Text(
           extent={{-150,100},{150,60}},
           textString="%name",
@@ -41,7 +44,8 @@ a model of the electrical motor and a continuous-time cascade controller.
         Rectangle(
           extent={{10,54},{30,-54}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={160,160,164}),
+          fillColor={160,160,164},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{10,54},{30,-54}}, lineColor={0,0,0})}));
 end AxisType1;

@@ -1564,7 +1564,8 @@ buttons:
                      + level*100)}}),
                 lineThickness=0.5,
                 fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={191,0,95})}));
+                fillColor={191,0,95},
+                pattern=LinePattern.None)}));
     end Tank;
 
     model Source
