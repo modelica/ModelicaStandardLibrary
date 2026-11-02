@@ -773,7 +773,9 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
     Real x[n + 1]=linspace(a, b, n + 1) "Knots";
     Real y[n + 1] "Function evaluations at knots";
   algorithm
-    y:={f(x[k]) for k in 1:n + 1};
+    for k in 1:n + 1 loop
+      y[k]:=f(x[k]);
+    end for;
     integral:=0;
     for kp in d:d:n loop
       integral:=integral + sum(cRow[k]*y[kp -d + k] for k in 1:d + 1);
