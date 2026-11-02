@@ -138,7 +138,7 @@ class Version_4_2_0 "Version 4.2.0 (mmm dd, yyyy)"
 <li>xx potentially non-backwards-compatible changes (especially Constants.inf, Constants.small, Constants.eps)</li>
 <li>xx bug fixes, which may cause the simulation results to change for the better</li>
 <li>xx models marked as obsolete</li>
-<li>This version is based on the recent Modelica language standard version 3.6.</li>
+<li>This version is based on the recent Modelica language standard version&nbsp;3.7.</li>
 <li>About [Link to resolved] issues xxx issues (including xxx pull requests) have been addressed for this release.</li>
 </ul>
 <p>
