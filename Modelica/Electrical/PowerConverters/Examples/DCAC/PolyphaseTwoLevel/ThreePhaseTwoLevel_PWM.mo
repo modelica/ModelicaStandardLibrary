@@ -4,9 +4,9 @@ model ThreePhaseTwoLevel_PWM "Test of pulse width modulation methods"
   import Modelica.Constants.pi;
   parameter SI.Voltage V_LL=400 "RMS line-to-line voltage";
   parameter SI.Voltage V_DC=sqrt(2)*V_LL "Ideal DC volatge";
-  parameter SI.Voltage Vmax=V_DC/sqrt(3) "Max. output voltage";
+  parameter SI.Voltage Vmax=2/3*V_DC "Max. output voltage";
   parameter SI.Frequency f_sw=2500 "Switching frequency";
-  parameter SI.Voltage VNom=V_LL/sqrt(3) "Nominal RMS voltage";
+  parameter SI.Voltage VNom=Vmax/sqrt(2) "Nominal RMS output voltage";
   parameter SI.Frequency fNom=50 "Nominal frequency";
   parameter SI.Frequency fRef=50 "Reference frequency";
   Modelica.Blocks.Sources.Constant refFrequ(k=fRef)
@@ -58,6 +58,12 @@ model ThreePhaseTwoLevel_PWM "Test of pulse width modulation methods"
     annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
   Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar toPolar
     annotation (Placement(transformation(extent={{70,-50},{90,-30}})));
+  Blocks.Continuous.Filter          filter1[3](
+    each init=Modelica.Blocks.Types.Init.InitialOutput,
+    each analogFilter=Modelica.Blocks.Types.AnalogFilter.Bessel,
+    each order=2,
+    each f_cut=0.1*f_sw)
+    annotation (Placement(transformation(extent={{70,10},{90,30}})));
 equation
   connect(pwm.fire_p, multiPhase2Level.fire_p)
     annotation (Line(points={{4,31},{4,38}},          color={255,0,255}));
@@ -94,6 +100,8 @@ equation
     annotation (Line(points={{-69,0},{-62,0}}, color={0,0,127}));
   connect(rotationAngle.y, rotator.angle)
     annotation (Line(points={{-39,-60},{20,-60},{20,-52}}, color={0,0,127}));
+  connect(filter1.u, potentialSensor.phi) annotation (Line(points={{68,20},{60,
+          20},{60,50},{51,50}}, color={0,0,127}));
   annotation (experiment(
       StopTime=0.1,
       Interval=0.001,
@@ -123,7 +131,7 @@ Please note that the filter has a settle time depending on the filter parameters
 <h4>Note</h4>
 <p>
 Intersective PWM without additional measures (e.g. over-modulation or injection of 3<sup>rd</sup> harmonic) achieves lower voltages (&radic;3 / 2) 
-than space vector PWM, in this example 200 V RMS comapred to 230.94 V RMS.
+than space vector PWM, in this example 200 V RMS compared to 230.94 V RMS.
 </p>
 </html>"));
 end ThreePhaseTwoLevel_PWM;

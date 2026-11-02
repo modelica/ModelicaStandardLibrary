@@ -24,18 +24,18 @@ block IntersectivePWM "Intersective PWM"
         origin={-70,30})));
   Modelica.Blocks.Sources.SawTooth sawTooth[m](
     each final nperiod=-1,
-    each final amplitude=2,
-    each final offset=-1,
+    each final amplitude=2*uMax,
+    each final offset=-uMax,
     each final period=1/f,
     final startTime={startTime - 1.5/f + (if refType == ReferenceType.Sawtooth1
          then 0 else k)/m/f for k in 0:m - 1})
          if (refType==ReferenceType.Sawtooth1 or refType==ReferenceType.Sawtooth3)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
   Modelica.Blocks.Sources.Trapezoid trapezoid[m](
-    each final amplitude=2,
+    each final amplitude=2*uMax,
     each final width=0,
     each final nperiod=-1,
-    each final offset=-1,
+    each final offset=-uMax,
     each final rising=0.5/f,
     each final falling=0.5/f,
     each final period=1/f,
@@ -49,7 +49,7 @@ block IntersectivePWM "Intersective PWM"
     annotation (Placement(transformation(extent={{72,-70},{92,-50}})));
   Modelica.Blocks.Logical.Switch switch1[m]
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Modelica.Blocks.Sources.Constant const[m](each k=-1)    annotation (Placement(
+  Modelica.Blocks.Sources.Constant const[m](each k=-uMax) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -59,8 +59,6 @@ block IntersectivePWM "Intersective PWM"
     annotation (Placement(transformation(extent={{-100,-70},{-80,-50}})));
   Modelica.Blocks.Routing.BooleanReplicator booleanReplicator(nout=m)
     annotation (Placement(transformation(extent={{-70,-70},{-50,-50}})));
-  Blocks.Math.Gain          gain[m](each k=1/uMax)
-    annotation (Placement(transformation(extent={{-30,50},{-10,70}})));
 equation
   connect(u, fromSpacePhasor.u) annotation (Line(points={{-120,0},{-90,0},{-90,60},
           {-62,60}}, color={0,0,127}));
@@ -84,10 +82,8 @@ equation
           -60},{-40,0},{-12,0}}, color={255,0,255}));
   connect(booleanExpression.y, booleanReplicator.u)
     annotation (Line(points={{-79,-60},{-72,-60}}, color={255,0,255}));
-  connect(fromSpacePhasor.y, gain.u)
-    annotation (Line(points={{-39,60},{-32,60}}, color={0,0,127}));
-  connect(gain.y, greaterEqual.u1)
-    annotation (Line(points={{-9,60},{28,60}}, color={0,0,127}));
+  connect(fromSpacePhasor.y, greaterEqual.u1)
+    annotation (Line(points={{-39,60},{28,60}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Line(
           points={{-60,0},{-51.6,34.2},{-46.1,53.1},{-41.3,66.4},{-37.1,74.6},{-32.9,
@@ -103,7 +99,9 @@ equation
 <p>
 The intersective PWM transforms the input space phasor <u>u</u> to the three-phase voltages,
 and compares them with the reference signals.
-As long as the phase voltage is greater than the corresponding reference signal, the corresponding fire signal is true.
+As long as the phase voltage is greater than the corresponding reference signal, the corresponding fire signal is true. 
+The input signal is limited automatically, since the comparison won't change 
+if the amplitude of input signal grows larger than the amplitude of the carrier. 
 The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
 </p>
 <p>

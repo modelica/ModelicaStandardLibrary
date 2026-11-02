@@ -31,7 +31,8 @@ protected
 algorithm
   when sampleTrigger then
     //Limited relative reference signal
-    uRef:=min(sqrt(u[1]^2 + u[2]^2)/(2/3*uMax), cos(pi/6));
+    //Limit to maximum length of space phasor then to incircle of hexagon
+    uRef:=min(sqrt(u[1]^2 + u[2]^2)/uMax, cos(pi/6));
     //Determine angle of reference signal within (-pi, +pi]
     phiRef:=if uRef < small then 0 else atan2(u[2], u[1]);
     //Shift angle to [0, 2*pi)
