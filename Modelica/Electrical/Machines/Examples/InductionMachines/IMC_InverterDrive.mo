@@ -6,15 +6,18 @@ model IMC_InverterDrive
   import Modelica.Electrical.Polyphase.Functions.factorY2DC;
   constant Integer m=3 "Number of phases";
   parameter SI.Voltage VNominal=400
-    "Nominal RMS voltage per phase";
-  parameter SI.Frequency fNominal=50 "Nominal frequency";
+    "Nominal RMS voltage per machine phase (D) = line-to-line at the grid";
+  parameter SI.Frequency fNominal=50 "Nominal frequency = grid frequency";
   parameter SI.Resistance RGrid=10e-3 "Grid choke resistance";
-  parameter SI.Inductance LGrid=500e-6 "Grid choke inductance";
-  parameter SI.Voltage VDC=factorY2DC(m)*VNominal/sqrt(3) "Theoretical DC voltage";
+  parameter SI.Inductance LGrid=250e-6 "Grid choke inductance";
+  parameter SI.Voltage VDC=factorY2DC(m)*VNominal/sqrt(3)
+    "Theoretical (average) DC voltage (w/o grid voltage drop)";
   parameter SI.Capacitance CDC=5e-3 "DC capacitor";
+  parameter SI.Frequency fSwitch=2000 "Switching frequency";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
   parameter SI.AngularVelocity wLoad=Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter SI.Inertia JLoad=0.29 "Load's moment of inertia";
+  output SI.Voltage vDC=capacitor.v "DC voltage";
   Polyphase.Sources.SineVoltage sineVoltage(
     final m=m,
     final phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
@@ -114,7 +117,8 @@ model IMC_InverterDrive
     TorqueDirection=false,
     w_nominal=wLoad)
     annotation (Placement(transformation(extent={{100,-40},{80,-20}})));
-  Modelica.Blocks.Sources.Ramp ramp(height=fNominal,
+  Modelica.Blocks.Sources.Ramp ramp(
+    height=fNominal,
     startTime=0,
     duration=1.2)
     annotation (
@@ -122,7 +126,7 @@ model IMC_InverterDrive
         origin={-20,-50})));
   Machines.Utilities.VfController vfController(
     final m=m,
-    VNominal=VNominal,
+    VNominal=VNominal/sqrt(3),
     fNominal=fNominal,
     EconomyMode=true) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -133,7 +137,9 @@ model IMC_InverterDrive
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,10})));
-  PowerConverters.DCAC.Control.PWM pwm(uMax=VDC, f=2000)
+  PowerConverters.DCAC.Control.PWM pwm(
+    pwmType=Modelica.Electrical.PowerConverters.Types.PWMType.SVPWM,
+                                       uMax=2/3*VDC, f=fSwitch)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,40})));
@@ -207,8 +213,14 @@ This is a model of a complete inverter drive comprising:
 <li>an induction machine with squirrel cage</li>
 <li>a load inertia and quadratic speed dependent load torque (like a fan or pump)</li>
 </ul>
-<p>Please note: Be patient, two switching devices cause many event iterations which cost performance.</p>
-<p>Note that due to the voltage drop the voltage at the machine can't reach the full voltage which means torque reduction.</p>
-<p>Default machine parameters are adapted to nominal phase voltage 400 V and nominal phase current 25 A.</p>
+<h4>Note:</h4>
+<p>
+Default machine parameters are adapted to nominal phase voltage 400 V (delta connection) and nominal phase current 25 A.<br>
+Be patient, two switching devices cause many event iterations which cost performance.<br>
+The average of the DC voltage with ripple and the voltage drop at the grid's choke cause 
+the DC voltage being noticeable lower than the theoretical (ideal) value (peak value of the grid line-to-line voltage).<br>
+Therefore the voltage at the machine's terminal will stay lower than the nominal voltage, even with space vector PWM.<br>
+Using an intersective PWM without additonal measures, the machine's voltage is even lower.
+</p>
 </html>"));
 end IMC_InverterDrive;
