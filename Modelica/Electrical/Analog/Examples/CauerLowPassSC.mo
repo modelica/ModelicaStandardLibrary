@@ -5,10 +5,10 @@ model CauerLowPassSC "Cauer low-pass filter with operational amplifiers and swit
   parameter SI.Capacitance l1=1.304 "Filter coefficient i1";
   parameter SI.Capacitance l2=0.8586 "Filter coefficient i2";
   parameter SI.Capacitance c1=1.072 "Filter coefficient c1";
-  parameter SI.Capacitance c2=1/(1.704992^2*l1)
+  parameter SI.Capacitance c2=1/((1.704992'rad/s')^2*l1*1'Ohm2')
     "Filter coefficient c2";
   parameter SI.Capacitance c3=1.682 "Filter coefficient c3";
-  parameter SI.Capacitance c4=1/(1.179945^2*l2)
+  parameter SI.Capacitance c4=1/((1.179945'rad/s')^2*l2*1'Ohm2')
     "Filter coefficient c4";
   parameter SI.Capacitance c5=0.7262 "Filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2,v(start=0, fixed=true))

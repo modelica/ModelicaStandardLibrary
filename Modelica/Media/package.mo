@@ -2293,7 +2293,7 @@ is given to compare the approximation.
 
     // smooth states
     m_flow_ext2 = time - 0.5;
-    state2 = Medium.setState_pT(1e5*(1 + time), 300 + 200*time);
+    state2 = Medium.setState_pT(1e5'Pa'*(1 + time/1's'), 300'K' + 200'K/s' * time);
     state = Medium.setSmoothState(
           m_flow_ext2,
           medium.state,

@@ -5,10 +5,10 @@ model CauerLowPassAnalog "Cauer low pass filter with analog components"
   parameter SI.Inductance l1=1.304 "Filter coefficient I1";
   parameter SI.Inductance l2=0.8586 "Filter coefficient I2";
   parameter SI.Capacitance c1=1.072 "Filter coefficient c1";
-  parameter SI.Capacitance c2=1/(1.704992^2*l1)
+  parameter SI.Capacitance c2=1/((1.704992'rad/s')^2*l1)
     "Filter coefficient c2";
   parameter SI.Capacitance c3=1.682 "Filter coefficient c3";
-  parameter SI.Capacitance c4=1/(1.179945^2*l2)
+  parameter SI.Capacitance c4=1/((1.179945'rad/s')^2*l2)
     "Filter coefficient c4";
   parameter SI.Capacitance c5=0.7262 "Filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Ground G

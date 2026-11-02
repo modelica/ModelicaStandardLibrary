@@ -17,7 +17,7 @@ public
     "Unitless denominator polynomial coefficients {m,d,c} of the transfer function";
   parameter Real wMin=0.01 "Lower bound for frequency sweep";
   parameter Real wMax=100 "Upper bound for frequency sweep";
-  Real lg_w=log10(logFrequencySweep.y) "Logarithm of frequency";
+  Real lg_w=log10(logFrequencySweep.y/1'rad/s') "Logarithm of frequency";
   Real dB=20*log10(complexToPolar.len) "Magnitude of the transfer function in decibel";
   Modelica.Units.SI.Angle phi(displayUnit="deg")=complexToPolar.phi "Argument of the transfer function";
   Modelica.Blocks.Sources.LogFrequencySweep logFrequencySweep(
