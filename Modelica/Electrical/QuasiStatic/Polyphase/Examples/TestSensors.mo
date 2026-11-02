@@ -7,7 +7,7 @@ model TestSensors
     "Nominal RMS voltage per phase";
   parameter SI.Frequency f=50 "Frequency";
   parameter SI.Resistance R=1/sqrt(2) "Load resistance";
-  parameter SI.Inductance L=1/sqrt(2)/(2*pi*f) "Load inductance";
+  parameter SI.Inductance L=1'Ohm'/sqrt(2)/(2*pi*f) "Load inductance";
   final parameter SI.Impedance Z=sqrt(R^2 + (2*pi*f*L)^2) "Load impedance";
   final parameter SI.Current IRMS=VRMS/Z "Steady state RMS current";
   final parameter SI.ActivePower P=3*R*IRMS^2 "Total active power";

@@ -6,7 +6,7 @@ model IMS_Start "Test example: InductionMachineSlipRing"
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=50 "Nominal frequency";
   parameter SI.Time tStart1=0.1 "Start time";
-  parameter SI.Resistance Rstart=0.16/aimsData.turnsRatio^2
+  parameter SI.Resistance Rstart=0.16'Ohm'/aimsData.turnsRatio^2
     "Starting resistance";
   parameter SI.Time tStart2=1.0
     "Start time of shorting starting resistance";
