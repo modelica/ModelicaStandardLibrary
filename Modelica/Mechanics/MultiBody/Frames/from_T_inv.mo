@@ -9,7 +9,7 @@ function from_T_inv
     "Angular velocity from frame 1 with respect to frame 2, resolved in frame 1 (skew(w)=T_inv*der(transpose(T_inv)))";
   output Orientation R "Orientation object to rotate frame 1 into frame 2";
 algorithm
-  R := Orientation(T=transpose(T_inv),w= -w);
+  R := Orientation(T=transpose(T_inv),w= -transpose(T_inv)*w);
   annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
