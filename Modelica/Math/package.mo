@@ -8372,10 +8372,7 @@ For details of the arguments, see documentation of dgtsv.
       Real Awork[size(A, 1), size(A, 1)]=A;
       Real Bwork[size(A, 1), size(A, 1)]=B;
       Integer lda=max(1, n);
-      Real Q[1, 1]=fill(
-                0,
-                1,
-                n);
+      Real Q[1, 1]=fill(0, 1, 1) "Not referenced (compq = compz = \"N\")";
 
     external"FORTRAN 77" dhgeqz(
               "E",
