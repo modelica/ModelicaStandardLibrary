@@ -73,6 +73,12 @@ An overview about the relationships between the voltages is given in Tab. 2.
     <td> V<sub>nom</sub>=1/&radic;2  &sdot; V<sub>max</sub>=1/&radic;6  &sdot; V<sub>DC</sub>=1/&radic;3  &sdot; V<sub>LL</sub></td></tr>
 </table>
 
+<h4>Note:</h4>
+<p>
+Using a six pulse diode bridge to obtain DC voltage, the theoretical DC voltage is the average of this six pulse voltage.
+The DC voltage and all following voltages arelower by a factor of 3/&pi;. 
+</p>
+
 <p>
 There are 2 examples demonstrating that: 
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreephaseTwoLevel_PWM\">ThreephaseTwoLevel_PWM</a> and
