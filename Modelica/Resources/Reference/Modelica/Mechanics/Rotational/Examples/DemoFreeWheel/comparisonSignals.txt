@@ -1,0 +1,5 @@
+time
+inertia1.w
+inertia2.w
+freeWheel.w_rel
+freeWheel.tau
