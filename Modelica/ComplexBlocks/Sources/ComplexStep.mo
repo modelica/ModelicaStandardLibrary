@@ -3,8 +3,12 @@ block ComplexStep "Generate step signal of type Complex"
   parameter Complex height=Complex(1) "Height of step";
   extends ComplexBlocks.Interfaces.ComplexSignalSource;
 
+protected
+  Complex stepValue=(if time < startTime then Complex(0) else height)
+    "Step value without offset";
+
 equation
-  y = offset + (if time < startTime then Complex(0) else height);
+  y = offset + stepValue;
   annotation (defaultComponentName="complexStep",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={Line(points={{-80,68},{-80,-80}}, color={

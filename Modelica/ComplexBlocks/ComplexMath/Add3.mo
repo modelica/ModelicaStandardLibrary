@@ -23,10 +23,19 @@ block Add3 "Output the sum of the three inputs"
   Interfaces.ComplexOutput y "Connector of Complex output signals"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
+protected
+  Complex u1Internal=(if useConjugateInput1 then Modelica.ComplexMath.conj(
+      u1) else u1)
+    "Equals either u1 or conjugate complex input u1 if useConjugateInput1 = true";
+  Complex u2Internal=(if useConjugateInput2 then Modelica.ComplexMath.conj(
+      u2) else u2)
+    "Equals either u2 or conjugate complex input u2 if useConjugateInput2 = true";
+  Complex u3Internal=(if useConjugateInput3 then Modelica.ComplexMath.conj(
+      u3) else u3)
+    "Equals either u3 or conjugate complex input u3 if useConjugateInput3 = true";
+
 equation
-  y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
-     + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
-     + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);
+  y = k1*u1Internal + k2*u2Internal + k3*u3Internal;
   annotation (
     Documentation(info="<html>
 <p>
