@@ -79,7 +79,7 @@ model IncompressibleFluidNetwork
     m_flow_nominal=1,
     rho_nominal=1000,
     CvData=Modelica.Fluid.Types.CvTypes.Av,
-    Av=2.5e-2^2/4*Modelica.Constants.pi,
+    Av=(2.5e-2'm')^2/4*Modelica.Constants.pi,
     dp_nominal=30000)
                 annotation (Placement(transformation(extent={{-46,30},{-26,50}})));
   Valves.ValveIncompressible valve2(
@@ -87,7 +87,7 @@ model IncompressibleFluidNetwork
     m_flow_nominal=1,
     rho_nominal=1000,
     CvData=Modelica.Fluid.Types.CvTypes.Av,
-    Av=2.5e-2^2/4*Modelica.Constants.pi,
+    Av=(2.5e-2'm')^2/4*Modelica.Constants.pi,
     dp_nominal=30000)
                 annotation (Placement(transformation(extent={{-46,-30},{-26,-50}})));
   Pipes.DynamicPipe pipe7(
@@ -106,7 +106,7 @@ model IncompressibleFluidNetwork
     m_flow_nominal=1,
     rho_nominal=1000,
     CvData=Modelica.Fluid.Types.CvTypes.Av,
-    Av=2.5e-2^2/4*Modelica.Constants.pi,
+    Av=(2.5e-2'm')^2/4*Modelica.Constants.pi,
     dp_nominal=30000)
                 annotation (Placement(transformation(extent={{80,0},{100,20}})));
   Sources.Boundary_pT sink(nPorts=1,
