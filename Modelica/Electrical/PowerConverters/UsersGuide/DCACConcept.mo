@@ -28,7 +28,8 @@ The machine-side inverter (see Fig. 1) consist of 6 switches (power transistors,
 It can be seen that there are 8 allowed switch combinations that avoid a short-circuit of the DC capacitor. 
 Two of them (no. 0 and 7) tie all three terminals either to the positive or to the negative terminal of the DC circuit, and therefore produce no voltage. 
 The remaining 6 (no. 1 - 6) produce voltage space phasors of the same length but in 6 different positions (see Fig. 2). 
-The following table gives an overview about the relationships between the voltages.
+Which switch states (hi-side and lo-side) cause which space phasors is shown in Tab. 1. 
+An overview about the relationships between the voltages is given in Tab. 2.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -40,9 +41,24 @@ The following table gives an overview about the relationships between the voltag
   </tr>
 </table>
 
-<h4>Relations between voltages of a three-phase inverter drive</h4>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+<caption><strong>Tab. 1:</strong> Space phasors and switch states </caption>
+<tr><td>Voltage space phasor no.</td><td> 0 </td><td> 1 </td><td> 2 </td><td> 3 </td><td> 4 </td><td> 5 </td><td> 6 </td><td> 7 </td></tr>
+<tr><td>Switch state hi-side    </td><td>000</td><td>100</td><td>110</td><td>010</td><td>011</td><td>001</td><td>101</td><td>111</td></tr>
+<tr><td>Switch state lo-side    </td><td>111</td><td>011</td><td>001</td><td>101</td><td>100</td><td>110</td><td>010</td><td>000</td></tr>
+</table>
 
-<table>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption><strong>Fig. 2:</strong> Possible voltage space phasors </caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/PWM.png\">
+    </td>
+  </tr>
+</table>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+<caption><strong>Tab. 2:</strong> Relations between voltages of a three-phase inverter drive </caption>  
 <tr><td>RMS of grid line-to-line voltage</td>
     <td> V<sub>LL</sub></td></tr>
 <tr><td>Maximum of DC voltage</td>
@@ -55,15 +71,6 @@ The following table gives an overview about the relationships between the voltag
     <td> V<sub>max</sub>=|<u>V</u>| &sdot; cos(&pi;/6)=1/&radic;3 &sdot; V<sub>DC</sub></td></tr>
 <tr><td>RMS of nominal phase voltage</td>
     <td> V<sub>nom</sub>=1/&radic;2  &sdot; V<sub>max</sub>=1/&radic;6  &sdot; V<sub>DC</sub>=1/&radic;3  &sdot; V<sub>LL</sub></td></tr>
-</table>
-
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption><strong>Fig. 2:</strong> Possible voltage space phasors </caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/PWM.png\">
-    </td>
-  </tr>
 </table>
 
 </html>"));
