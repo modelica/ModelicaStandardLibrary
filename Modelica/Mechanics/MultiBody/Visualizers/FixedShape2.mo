@@ -4,7 +4,6 @@ model FixedShape2
 
   import Modelica.Mechanics.MultiBody.Frames;
   import Modelica.Mechanics.MultiBody.Types;
-  import Modelica.Units.Conversions.to_unit1;
 
   Interfaces.Frame_a frame_a
     "Coordinate system a (all shape definition vectors are resolved in this frame)"
@@ -20,7 +19,7 @@ model FixedShape2
   input SI.Position r_shape[3]={0,0,0}
     "Vector from frame_a to shape origin, resolved in frame_a"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input Types.Axis lengthDirection = to_unit1(r - r_shape)
+  input Types.Axis lengthDirection = (r - r_shape) / 1'm'
     "Vector in length direction of shape, resolved in frame_a"
     annotation (Dialog(group="if animation = true", enable=animation));
   input Types.Axis widthDirection={0,1,0}

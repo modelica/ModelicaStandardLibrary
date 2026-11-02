@@ -3,7 +3,6 @@ model JointRRR
   "Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)"
 
   import Modelica.Mechanics.MultiBody.Types;
-  import Modelica.Units.Conversions.to_unit1;
 
   extends Interfaces.PartialTwoFramesDoubleSize;
 
@@ -136,7 +135,7 @@ protected
                          rRod1_ia),
     width=rodDiameter,
     height=rodDiameter,
-    lengthDirection = to_unit1(rRod1_ia),
+    lengthDirection = rRod1_ia / 1'm',
     widthDirection=e_ia,
     r=frame_ia.r_0,
     R=frame_ia.R) if world.enableAnimation and animation;
@@ -148,7 +147,7 @@ protected
                          rRod2_ib),
     width=rodDiameter,
     height=rodDiameter,
-    lengthDirection = to_unit1(rRod2_ib),
+    lengthDirection = rRod2_ib / 1'm',
     widthDirection=e_b,
     r=frame_ib.r_0,
     R=frame_ib.R) if world.enableAnimation and animation;
