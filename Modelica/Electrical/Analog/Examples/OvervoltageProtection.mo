@@ -23,7 +23,7 @@ model OvervoltageProtection "Example for Zener diodes"
        extent={{-10,-10},{10,10}},
        rotation=270,
        origin={62,4})));
-  Semiconductors.ZDiode zDiode annotation (Placement(transformation(
+  Semiconductors.ZDiode zDiode2 annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,-20})));
@@ -38,22 +38,22 @@ equation
      points={{26,14},{62,14}}, color={0,0,255}));
  connect(RL.n, CL.n) annotation (Line(
      points={{26,-6},{62,-6}}, color={0,0,255}));
-  connect(sineVoltage.n, zDiode.p) annotation (Line(
-      points={{-66,-4},{-66,-30},{-20,-30}}, color={0,0,255}));
-  connect(zDiode.p, ground.p) annotation (Line(
-      points={{-20,-30},{-20,-62}}, color={0,0,255}));
-  connect(zDiode.p, RL.n) annotation (Line(
-      points={{-20,-30},{26,-30},{26,-6}}, color={0,0,255}));
+  connect(sineVoltage.n, zDiode2.p)
+    annotation (Line(points={{-66,-4},{-66,-30},{-20,-30}}, color={0,0,255}));
+  connect(zDiode2.p, ground.p)
+    annotation (Line(points={{-20,-30},{-20,-62}}, color={0,0,255}));
+  connect(zDiode2.p, RL.n)
+    annotation (Line(points={{-20,-30},{26,-30},{26,-6}}, color={0,0,255}));
   connect(zDiode1.p, Rv.n) annotation (Line(
       points={{-20,32},{-20,42},{-36,42}}, color={0,0,255}));
   connect(RL.p, Rv.n) annotation (Line(
       points={{26,14},{26,42},{-36,42}}, color={0,0,255}));
-  connect(zDiode1.n, zDiode.n) annotation (Line(
-      points={{-20,12},{-20,1},{-20,1},{-20,-10}}, color={0,0,255}));
+  connect(zDiode1.n, zDiode2.n) annotation (Line(points={{-20,12},{-20,1},{-20,
+          1},{-20,-10}}, color={0,0,255}));
  annotation (experiment(StopTime=0.4),
    Documentation(info="<html>
-<p>This example is a simple circuit for overvoltage protection. If the voltage zDiode_1.n.v is too high, the Diode zDiode_2 breaks through and the voltage gets down.</p>
-<p>The simulation end time should be set to 0.4. To get the typical behaviour please plot sineVoltage.p.v, RL.p.v, zDiode_2.n.v and zDiode_1.n.i.</p>
+<p>This example is a simple circuit for overvoltage protection. If the voltage zDiode1.n.v is too high, the Diode zDiode2 breaks through and the voltage gets down.</p>
+<p>The simulation end time should be set to 0.4. To get the typical behaviour please plot sineVoltage.p.v, RL.p.v, zDiode2.n.v and zDiode1.n.i.</p>
 </html>",revisions="<html>
 <ul>
 <li><em>February 02, 2009</em>
