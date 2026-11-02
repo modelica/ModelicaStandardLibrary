@@ -1,0 +1,13 @@
+time
+twoWay.LossPower
+twoWay.p.i
+twoWay.n1.v
+twoWay.n1.i
+twoWay.n2.v
+twoWay.n2.i
+controlledTwoWay.LossPower
+controlledTwoWay.p.i
+controlledTwoWay.n1.v
+controlledTwoWay.n1.i
+controlledTwoWay.n2.v
+controlledTwoWay.n2.i

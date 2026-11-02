@@ -1,0 +1,47 @@
+Translation of <a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGas">ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGas</a>
+The DAE has 276 scalar unknowns and 276 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 31
+  Variables: 369
+  Constants: 121 (289 scalars)
+  Parameters: 106 (123 scalars)
+  Unknowns: 142 (276 scalars)
+  Differentiated variables: 16 scalars
+  Equations: 126
+  Nontrivial: 111
+Translated Model
+  Constants: 369 scalars
+  Free parameters: 40 scalars
+  Parameter depending: 75 scalars
+  Continuous time states: 8 scalars
+  Time-varying variables: 59 scalars
+  Alias variables: 145 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0}
+    Sizes of nonlinear systems of equations: {13}
+    Sizes after manipulation of the nonlinear systems: {2}
+    Number of numerical Jacobians: 1
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGas#diagram$volume:medium.p">volume.medium.p</a>
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGas#text$volume.medium:T">volume.medium.T</a>
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGas#diagram$volume:medium.Xi[1]">volume.medium.Xi[1]</a>
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGas#diagram$volume:medium.Xi[2]">volume.medium.Xi[2]</a>
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGas#diagram$volume:medium.Xi[3]">volume.medium.Xi[3]</a>
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGas#diagram$volume:medium.Xi[4]">volume.medium.Xi[4]</a>
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGas#diagram$volume:medium.Xi[5]">volume.medium.Xi[5]</a>
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.IdealGases.SimpleNaturalGas#diagram$volume:medium.Xi[6]">volume.medium.Xi[6]</a>
+Finished

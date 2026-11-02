@@ -1,0 +1,52 @@
+﻿ = true
+Translation of Modelica.Fluid.Examples.Explanatory.MeasuringTemperature:
+The DAE has 462 scalar unknowns and 462 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 63
+  Variables: 906
+  Constants: 63 (63 scalars)
+  Parameters: 277 (268 scalars)
+  Unknowns: 566 (472 scalars)
+  Differentiated variables: 30 scalars
+  Equations: 467
+  Nontrivial: 383
+Translated Model
+  Constants: 237 scalars
+  Free parameters: 78 scalars
+  Parameter depending: 92 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 181 scalars
+  Alias variables: 215 scalars
+  Number of mixed real/discrete systems of equations: 3
+  Sizes of linear systems of equations: {6, 6, 6, 6, 6, 6}
+  Sizes after manipulation of the linear systems: {2, 2, 2, 2, 2, 2}
+  Sizes of nonlinear systems of equations: {12, 12, 12}
+  Sizes after manipulation of the nonlinear systems: {2, 2, 2}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  openTankCold1.level
+  openTankCold1.medium.h
+  openTankCold2.level
+  openTankCold2.medium.h
+  openTankCold3.level
+  openTankCold3.medium.h
+  openTankHot1.level
+  openTankHot1.medium.h
+  openTankHot2.level
+  openTankHot2.medium.h
+  openTankHot3.level
+  openTankHot3.medium.h
+ 
+Warning: Some variables are iteration variables of the initialization problem:
+but they are not given any explicit start values. Zero will be used.
+Iteration variables:
+der(openTankCold3.m)
+der(openTankHot1.m)
+der(openTankHot2.m)

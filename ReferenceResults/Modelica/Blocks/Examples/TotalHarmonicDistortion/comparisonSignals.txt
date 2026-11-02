@@ -1,0 +1,7 @@
+time
+thd1.harmonic.mean1.x
+thd1.harmonic.mean2.x
+thd1.rootMeanSquare.mean.x
+thdRMS.harmonic.mean1.x
+thdRMS.harmonic.mean2.x
+thdRMS.rootMeanSquare.mean.x

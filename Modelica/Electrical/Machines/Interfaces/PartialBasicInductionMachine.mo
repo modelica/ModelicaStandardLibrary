@@ -5,6 +5,8 @@ partial model PartialBasicInductionMachine
   parameter Integer p(min=1, start=2) "Number of pole pairs (Integer)";
   parameter SI.Frequency fsNominal(start=50)
     "Nominal frequency";
+  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed"
+    annotation(Evaluate=true);
   parameter SI.Temperature TsOperational(start=293.15)
     "Operational temperature of stator resistance" annotation (Dialog(group=
          "Operational temperatures", enable=not useThermalPort));
@@ -81,7 +83,8 @@ partial model PartialBasicInductionMachine
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={20,20})));
-  Modelica.Electrical.Analog.Basic.Inductor lszero(final L=Lszero)
+  BasicMachines.Components.ZeroImpedance    lszero(final L=Lszero, final
+      useZeroSystem=useZeroSystem)
     annotation (Placement(transformation(extent={{0,40},{-20,60}})));
   Machines.Losses.InductionMachines.Core statorCore(
     final coreParameters=statorCoreParameters,

@@ -515,8 +515,6 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
               fillPattern=FillPattern.Solid), Text(
               extent={{-80,100},{80,60}},
               textColor={0,0,255},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid,
               textString="Since the initialization was changed some elements here
 are redundant (e.g. inertia4, inertia5).
 But for compatibility reasons they were not deleted yet.")}));

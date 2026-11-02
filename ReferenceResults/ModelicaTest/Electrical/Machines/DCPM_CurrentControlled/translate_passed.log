@@ -1,0 +1,37 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.Machines.DCPM_CurrentControlled">ModelicaTest.Electrical.Machines.DCPM_CurrentControlled</a>
+The DAE has 115 scalar unknowns and 115 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 31
+  Variables: 196
+  Parameters: 81 (81 scalars)
+  Unknowns: 115 (115 scalars)
+  Differentiated variables: 10 scalars
+  Equations: 111
+  Nontrivial: 91
+Translated Model
+  Constants: 29 scalars
+  Free parameters: 21 scalars
+  Parameter depending: 44 scalars
+  Continuous time states: 5 scalars
+  Time-varying variables: 25 scalars
+  Alias variables: 77 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.Machines.DCPM_CurrentControlled#diagram$currentController:integrator.y">currentController.integrator.y</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.DCPM_CurrentControlled#text$dcpm.inductor:i">dcpm.inductor.i</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.DCPM_CurrentControlled#diagram$:deadTime.y">deadTime.y</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.DCPM_CurrentControlled#text$inertiaLoad:phi">inertiaLoad.phi</a>
+<a href="Modelica://ModelicaTest.Electrical.Machines.DCPM_CurrentControlled#text$inertiaLoad:w">inertiaLoad.w</a>
+Finished

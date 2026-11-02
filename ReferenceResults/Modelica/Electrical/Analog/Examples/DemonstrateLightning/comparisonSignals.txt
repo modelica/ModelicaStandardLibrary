@@ -1,0 +1,7 @@
+time
+currentSensor1.i
+currentSensor2.i
+integrator1.y
+der1.y
+integrator2.y
+der2.y

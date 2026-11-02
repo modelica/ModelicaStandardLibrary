@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Blocks.Examples.FilterWithDifferentiation:
+The DAE has 15 scalar unknowns and 15 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 6
+  Variables: 41
+  Parameters: 30 (30 scalars)
+  Unknowns: 11 (15 scalars)
+  Differentiated variables: 6 scalars
+  Equations: 17
+  Nontrivial: 17
+Translated Model
+  Constants: 9 scalars
+  Free parameters: 13 scalars
+  Parameter depending: 8 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 8 scalars
+  Alias variables: 7 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  Bessel.x[]
+ 

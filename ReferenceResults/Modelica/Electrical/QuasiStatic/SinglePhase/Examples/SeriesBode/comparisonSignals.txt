@@ -1,0 +1,5 @@
+time
+inductor.pin_p.reference.gamma
+abs_y
+dB_y
+arg_y

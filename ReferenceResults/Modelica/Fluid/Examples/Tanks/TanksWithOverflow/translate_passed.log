@@ -1,0 +1,45 @@
+﻿ = true
+Translation of Modelica.Fluid.Examples.Tanks.TanksWithOverflow:
+The DAE has 271 scalar unknowns and 271 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 33
+  Variables: 447
+  Constants: 3 (3 scalars)
+  Parameters: 196 (193 scalars)
+  Unknowns: 248 (274 scalars)
+  Differentiated variables: 10 scalars
+  Equations: 218
+  Nontrivial: 190
+Translated Model
+  Constants: 110 scalars
+  Free parameters: 62 scalars
+  Parameter depending: 70 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 109 scalars
+  Alias variables: 119 scalars
+  Number of mixed real/discrete systems of equations: 3
+  Sizes of linear systems of equations: {7, 7}
+  Sizes after manipulation of the linear systems: {2, 2}
+  Sizes of nonlinear systems of equations: {9, 3, 9}
+  Sizes after manipulation of the nonlinear systems: {2, 1, 2}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Number of mixed real/discrete systems of equations: 2
+    Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0}
+    Sizes of nonlinear systems of equations: {9, 9}
+    Sizes after manipulation of the nonlinear systems: {2, 2}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  lowerTank.level
+  lowerTank.medium.T
+  upperTank.level
+  upperTank.medium.T
+ 

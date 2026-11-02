@@ -1,0 +1,43 @@
+﻿ = true
+Translation of Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs:
+The DAE has 214 scalar unknowns and 214 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 40
+  Variables: 271
+  Parameters: 65 (65 scalars)
+  Unknowns: 206 (214 scalars)
+  Differentiated variables: 17 scalars
+  Equations: 224
+  Nontrivial: 190
+Translated Model
+  Constants: 59 scalars
+  Free parameters: 16 scalars
+  Parameter depending: 7 scalars
+  Continuous time states: 10 scalars
+  Time-varying variables: 26 scalars
+  Alias variables: 171 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2}
+  Sizes after manipulation of the linear systems: {0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  directInertia.inertia.phi
+  directInertia.inertia.w
+  inertia2a.phi
+  inertia2a.w
+  inertia2b.phi
+  inertia2b.w
+  inertia3a.phi
+  inertia3a.w
+  inertia3b.phi
+  inertia3b.w
+ 

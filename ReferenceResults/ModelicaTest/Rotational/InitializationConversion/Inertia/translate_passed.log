@@ -1,0 +1,56 @@
+﻿ = true
+Translation of ModelicaTest.Rotational.InitializationConversion.Inertia:
+The DAE has 118 scalar unknowns and 118 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 20
+  Variables: 154
+  Parameters: 36 (36 scalars)
+  Unknowns: 118 (118 scalars)
+  Differentiated variables: 24 scalars
+  Equations: 92
+  Nontrivial: 61
+Translated Model
+  Constants: 28 scalars
+  Free parameters: 24 scalars
+  Continuous time states: 24 scalars
+  Time-varying variables: 39 scalars
+  Alias variables: 63 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  inertia1.phi
+  inertia1.w
+  inertia2.phi
+  inertia2.w
+  inertia3.phi
+  inertia3.w
+  inertia4.phi
+  inertia4.w
+  inertia5.phi
+  inertia5.w
+  inertia6.phi
+  inertia6.w
+  inertia7.phi
+  inertia7.w
+  inertia7a.phi
+  inertia7a.w
+  inertia8.phi
+  inertia8.w
+  inertia8a.phi
+  inertia8a.w
+  inertia9.phi
+  inertia9.w
+  inertia9a.phi
+  inertia9a.w
+ 

@@ -1,0 +1,35 @@
+Translation of <a href="Modelica://Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence">Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence</a>
+The DAE has 15 scalar unknowns and 15 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 5
+  Variables: 44
+  Constants: 1 (1 scalars)
+  Parameters: 33 (39 scalars)
+  Unknowns: 10 (15 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 8
+  Nontrivial: 8
+Translated Model
+  Constants: 9 scalars
+  Free parameters: 17 scalars
+  Parameter depending: 14 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 11 scalars
+  Alias variables: 4 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence#text$Hw:x_scaled">Hw.x_scaled[1]</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence#text$Hw:x_scaled">Hw.x_scaled[2]</a>
+Finished

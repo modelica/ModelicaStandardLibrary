@@ -1,0 +1,62 @@
+﻿ = true
+Translation of Modelica.Fluid.Examples.NonCircularPipes:
+The DAE has 391 scalar unknowns and 391 scalar equations.
+Redundant consistent initial conditions.
+Removed the following equations which are redundant and consistent: 
+  circular_pipe.port_a.p = circular_pipe.mediums[1].p;
+  annulus_pipe.port_a.p = annulus_pipe.mediums[1].p;
+ 
+This required evaluation of 
+the interactive parameters 
+    boundary.p(start = 1000000.0)
+ 
+The redundancies involve
+initial equations: 
+  circular_pipe.mediums[1].p = 1000000.0;
+  annulus_pipe.mediums[1].p = 1000000.0;
+ 
+ 
+Statistics
+ 
+Original Model
+  Number of components: 50
+  Variables: 640
+  Constants: 58 (58 scalars)
+  Parameters: 207 (216 scalars)
+  Unknowns: 375 (391 scalars)
+  Differentiated variables: 14 scalars
+  Equations: 276
+  Nontrivial: 212
+Translated Model
+  Constants: 301 scalars
+  Free parameters: 24 scalars
+  Parameter depending: 69 scalars
+  Continuous time states: 6 scalars
+  Time-varying variables: 96 scalars
+  Alias variables: 175 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2}
+  Sizes after manipulation of the linear systems: {0, 0}
+  Sizes of nonlinear systems of equations: {9, 9}
+  Sizes after manipulation of the nonlinear systems: {1, 1}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  annulus_pipe.mediums[1].h
+  annulus_pipe.mediums[2].h
+  annulus_pipe.mediums[2].p
+  circular_pipe.mediums[1].h
+  circular_pipe.mediums[2].h
+  circular_pipe.mediums[2].p
+ 
+Warning: Some variables are iteration variables of the initialization problem:
+but they are not given any explicit start values. Zero will be used.
+Iteration variables:
+der(annulus_pipe.mediums[1].h)
+der(circular_pipe.mediums[1].h)

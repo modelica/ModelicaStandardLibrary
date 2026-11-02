@@ -1,0 +1,34 @@
+Translation of <a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_NoLoad">Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_NoLoad</a>
+The DAE has 404 scalar unknowns and 404 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 56
+  Variables: 581
+  Constants: 5 (5 scalars)
+  Parameters: 227 (261 scalars)
+  Unknowns: 349 (404 scalars)
+  Differentiated variables: 18 scalars
+  Equations: 241
+  Nontrivial: 182
+Translated Model
+  Constants: 351 scalars
+  Free parameters: 27 scalars
+  Parameter depending: 132 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 33 scalars
+  Alias variables: 127 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2, 3}
+  Sizes after manipulation of the linear systems: {2, 2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_NoLoad#text$speed:phi">speed.phi</a>
+Finished

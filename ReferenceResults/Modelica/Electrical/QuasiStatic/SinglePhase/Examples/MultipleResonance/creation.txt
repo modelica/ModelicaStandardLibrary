@@ -1,0 +1,48 @@
+[ResultCreationLog]
+modelName = "Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance"
+
+// Test info
+generationTool = Dymola Version 2024x Refresh 1, 2024-04-12
+generationDateAndTime = 2024-10-28 23:55:09
+gitURL = https://github.com/modelica/ModelicaStandardLibrary
+gitRevision = 72d5551a
+gitStatus = 
+testPC = LTXA320
+testOS = Windows [Version 10.0.19041]
+testUser = Matthias Schaefer
+testDescription = 
+compiler = Microsoft Visual Studio 2022
+
+// Experiment settings (standardized annotation)
+StartTime = 0.0    // set by user or program default value
+StopTime = 1.0    // from experiment annotation
+Interval = 0.0001    // set by user or program default value
+Tolerance = 1e-06    // set by user or program default value
+
+// Experiment settings (tool specific)
+// The following lines can be used as mos-script in Dymola
+clearFlags();
+Advanced.HideDymosim := true;
+Advanced.PlaceDymolaSourceFirst := 2;
+Advanced.StoreProtectedVariables := true;
+SetDymolaCompiler("vs", {"CCompiler=MSVC","MSVCDir=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build"});
+experimentSetupOutput(
+    textual=false,
+    doublePrecision=false,
+    states=true,
+    derivatives=true,
+    inputs=true,
+    outputs=true,
+    auxiliaries=true,
+    equidistant=true,
+    events=true,
+    onlyStopTime=false,
+    debug=false);
+simulateModel(
+    problem="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance",
+    startTime=0.0,
+    stopTime=1.0,
+    method="Dassl",
+    tolerance=1e-06,
+    resultFile="result",
+    outputInterval=0.0001);

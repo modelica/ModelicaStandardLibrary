@@ -22,7 +22,7 @@ equation
     annotation (Line(points={{50,0},{50,20}}, color={0,0,255}));
   annotation (experiment(
       StopTime=8,
-      Interval=0.0001,
+      Interval=0.0002,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>

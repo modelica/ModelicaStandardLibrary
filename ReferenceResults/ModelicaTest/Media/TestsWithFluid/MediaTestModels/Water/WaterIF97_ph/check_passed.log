@@ -1,0 +1,11 @@
+Check of <a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.Water.WaterIF97_ph">ModelicaTest.Media.TestsWithFluid.MediaTestModels.Water.WaterIF97_ph</a>
+The model has the same number of unknowns and equations: 160
+The model could not be deduced to be symbolically well-posed.
+The model has
+  130+15*volume.nPorts
+scalar unknowns and
+  119+(if  not volume.use_portsData then 4*volume.nPorts else 0)+13*volume.nPorts+2  *fixedMassFlowRate.nPorts+(if  not fixedMassFlowRate.use_m_flow_in then 1   else 0)+(if  not fixedMassFlowRate.use_T_in then 1 else 0)+(if  not   fixedMassFlowRate.use_X_in then 1 else 0)+2*ambient.nPorts
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  160
+Check of <a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.Water.WaterIF97_ph">ModelicaTest.Media.TestsWithFluid.MediaTestModels.Water.WaterIF97_ph</a> successful.

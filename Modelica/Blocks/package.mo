@@ -1669,9 +1669,9 @@ Note that the ContinuousSignalExtremaBlock detects extrema of both signals witho
 
 <p>The output of these blocks is updated after each period of the signal.</p>
 <p>
-Using a simple pulse series, these values can be calculated analytically. 
-Propagating these values as initial values for the output, 
-we can compare the numerical solution with the analytical solution: 
+Using a simple pulse series, these values can be calculated analytically.
+Propagating these values as initial values for the output,
+we can compare the numerical solution with the analytical solution:
 The output is constant from the beginning.
 </p>
 </html>"));

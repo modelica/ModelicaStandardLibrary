@@ -1,0 +1,4 @@
+time
+eddyCurrentForce.lossPower
+mass.s
+heatCapacitor.T

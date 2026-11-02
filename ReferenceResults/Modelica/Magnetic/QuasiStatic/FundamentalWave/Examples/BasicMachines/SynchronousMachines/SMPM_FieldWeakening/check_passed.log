@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening">Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening</a>
+The model has the same number of unknowns and equations: 1903
+The model could not be deduced to be symbolically well-posed.
+The model has
+  1735+40*smpm.m+8*referenceCurrentSource.m+8*resistorS.m
+scalar unknowns and
+  1574+56*smpm.m+(if Connections.isRoot(smpm.groundS.port_p.reference) then 1   else 0)+(if Connections.isRoot(smpm.airGap.port_sp.reference) then 1 else 0)+  (if Connections.isRoot(smpm.groundR.port_p.reference) then 1 else 0)+(if  not   smpm.useDamperCage then 1 else 0)+(if Connections.isRoot(groundM.pin.reference)   then 1 else 0)+6*terminalBox.m+6*starS.m+(if Connections.isRoot(  groundeQS.pin.reference) then 1 else 0)+20*resistorS.m+3*(if  not   resistorS.useHeatPort then 1 else 0)+12*voltageQuasiRMSSensorQS.m+(if  not   speedSource.useSupport then 1 else 0)+8*referenceCurrentSource.m
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  1903
+Check of <a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening">Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_FieldWeakening</a> successful.

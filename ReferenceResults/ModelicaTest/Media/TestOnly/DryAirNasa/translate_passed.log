@@ -1,0 +1,30 @@
+﻿ = true
+Translation of ModelicaTest.Media.TestOnly.DryAirNasa:
+The DAE has 13 scalar unknowns and 13 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 5
+  Variables: 36
+  Constants: 21 (49 scalars)
+  Parameters: 2 (2 scalars)
+  Unknowns: 13 (13 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 11
+  Nontrivial: 11
+Translated Model
+  Constants: 49 scalars
+  Free parameters: 2 scalars
+  Time-varying variables: 9 scalars
+  Alias variables: 4 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 3}
+  Sizes after manipulation of the linear systems: {0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

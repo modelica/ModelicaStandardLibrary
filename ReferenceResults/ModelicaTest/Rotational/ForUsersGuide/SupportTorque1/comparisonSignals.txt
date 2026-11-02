@@ -1,0 +1,6 @@
+time
+inertia4.phi
+inertia4.w
+bearingFriction1.mode
+bearingFriction1.startBackward
+bearingFriction1.startForward

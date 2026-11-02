@@ -1,0 +1,40 @@
+Translation of <a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.Incompressible.Glycol47">ModelicaTest.Media.TestsWithFluid.MediaTestModels.Incompressible.Glycol47</a>
+The DAE has 133 scalar unknowns and 133 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 19
+  Variables: 248
+  Constants: 1 (1 scalars)
+  Parameters: 109 (106 scalars)
+  Unknowns: 138 (133 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 129
+  Nontrivial: 111
+Translated Model
+  Constants: 90 scalars
+  Free parameters: 28 scalars
+  Parameter depending: 47 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 25 scalars
+  Alias variables: 50 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {8, 5}
+  Sizes after manipulation of the nonlinear systems: {1, 1}
+  Number of numerical Jacobians: 1
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {0}
+    Sizes of nonlinear systems of equations: {1}
+    Sizes after manipulation of the nonlinear systems: {1}
+    Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.Incompressible.Glycol47#text$volume.medium:T">volume.medium.T</a>
+Finished

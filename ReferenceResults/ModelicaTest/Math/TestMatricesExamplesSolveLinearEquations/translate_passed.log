@@ -1,0 +1,22 @@
+﻿ = true
+Translation of ModelicaTest.Math.TestMatricesExamplesSolveLinearEquations:
+The DAE has 0 scalar unknowns and 0 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 1
+  Variables: 0
+  Equations: 1
+  Nontrivial: 1
+Translated Model
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

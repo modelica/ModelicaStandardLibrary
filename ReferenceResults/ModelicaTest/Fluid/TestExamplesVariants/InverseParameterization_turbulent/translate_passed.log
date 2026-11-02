@@ -1,0 +1,35 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestExamplesVariants.InverseParameterization_turbulent:
+The DAE has 287 scalar unknowns and 287 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 41
+  Variables: 579
+  Constants: 60 (60 scalars)
+  Parameters: 207 (202 scalars)
+  Unknowns: 312 (291 scalars)
+  Equations: 273
+  Nontrivial: 226
+Translated Model
+  Constants: 197 scalars
+  Free parameters: 59 scalars
+  Parameter depending: 97 scalars
+  Time-varying variables: 74 scalars
+  Alias variables: 126 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {35, 1}
+  Sizes after manipulation of the nonlinear systems: {4, 1}
+  Number of numerical Jacobians: 2
+  Initialization problem
+    Number of mixed real/discrete systems of equations: 1
+    Sizes of nonlinear systems of equations: {2, 2, 35, 1}
+    Sizes after manipulation of the nonlinear systems: {1, 1, 4, 1}
+    Number of numerical Jacobians: 2
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

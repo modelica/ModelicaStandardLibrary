@@ -1,0 +1,28 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 07:15:41 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "BranchingPipes13.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 5
+   CPU-time for integration                : 1.04 seconds
+   CPU-time for one grid interval          : 0.209 milliseconds
+   CPU-time for initialization             : 0.002 seconds
+   Number of result points                 : 5004
+   Number of grid points                   : 5001
+   Number of accepted steps                : 356
+   Number of f-evaluations (dynamics)      : 725
+   Number of crossing function evaluations : 5356
+   Number of Jacobian-evaluations          : 97
+   Number of model time events             : 2
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 7.6e-10
+   Maximum integration stepsize            : 1.02
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)

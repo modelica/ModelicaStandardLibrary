@@ -4,7 +4,7 @@ model MutualInductor "Linear mutual inductor"
   parameter Real epsilon=1e-9 "Relative accuracy tolerance of matrix symmetry";
   parameter SI.Inductance L[m, m] "Mutual inductance matrix";
 initial equation
-  assert(abs(Modelica.Math.Matrices.det(L)) >= epsilon, "Mutual inductance matrix singular!", AssertionLevel.warning);
+  assert(Modelica.Math.Matrices.rcond(L) >= epsilon, "Mutual inductance matrix singular!", AssertionLevel.warning);
 equation
   assert(sum(abs(L - transpose(L))) < epsilon*sum(abs(L)),"Mutual inductance matrix is not symmetric");
   for j in 1:m loop

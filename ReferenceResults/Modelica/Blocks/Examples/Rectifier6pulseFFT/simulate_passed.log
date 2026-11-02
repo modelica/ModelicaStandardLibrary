@@ -1,0 +1,29 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 00:28:59 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "Rectifier6pulseFFT.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 0.25
+   CPU-time for integration                : 4.65 seconds
+   CPU-time for one grid interval          : 0.93 milliseconds
+   CPU-time for initialization             : 0.004 seconds
+   Number of result points                 : 9502
+   Number of grid points                   : 5001
+   Number of accepted steps                : 79617
+   Number of f-evaluations (dynamics)      : 110475
+   Number of crossing function evaluations : 85670
+   Number of Jacobian-evaluations          : 60069
+   Number of model time events             : 4201
+   Number of input time events             : 0
+   Number of state events                  : 150
+   Number of step events                   : 0
+   Minimum integration stepsize            : 5.69e-13
+   Maximum integration stepsize            : 0.000113
+   Maximum integration order               : 5
+Calling terminal section
+... FFT result computed at time = 0.23995 s stored on file: C:/Users/tbeu/Documents/Dymola/rectifier6pulseFFTresult.mat
+... "dsfinal.txt" creating (final states)

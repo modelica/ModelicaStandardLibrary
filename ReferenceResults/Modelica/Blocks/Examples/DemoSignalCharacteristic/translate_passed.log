@@ -1,0 +1,37 @@
+Translation of <a href="Modelica://Modelica.Blocks.Examples.DemoSignalCharacteristic">Modelica.Blocks.Examples.DemoSignalCharacteristic</a>
+The DAE has 53 scalar unknowns and 53 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 19
+  Variables: 125
+  Parameters: 75 (75 scalars)
+  Unknowns: 50 (53 scalars)
+  Differentiated variables: 5 scalars
+  Equations: 52
+  Nontrivial: 46
+Translated Model
+  Constants: 17 scalars
+  Free parameters: 19 scalars
+  Parameter depending: 40 scalars
+  Continuous time states: 5 scalars
+  Time-varying variables: 17 scalars
+  Alias variables: 35 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Blocks.Examples.DemoSignalCharacteristic#text$harmonic.mean1:x">harmonic.mean1.x</a>
+<a href="Modelica://Modelica.Blocks.Examples.DemoSignalCharacteristic#text$harmonic.mean2:x">harmonic.mean2.x</a>
+<a href="Modelica://Modelica.Blocks.Examples.DemoSignalCharacteristic#text$mean:x">mean.x</a>
+<a href="Modelica://Modelica.Blocks.Examples.DemoSignalCharacteristic#text$rectifiedMean.mean:x">rectifiedMean.mean.x</a>
+<a href="Modelica://Modelica.Blocks.Examples.DemoSignalCharacteristic#text$rootMeanSquare.mean:x">rootMeanSquare.mean.x</a>
+Finished

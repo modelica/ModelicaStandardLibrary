@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Wed May 20 10:37:41 2026)
+
+dymosim started
+... "ModelicaTest.Electrical.PowerConverters.HalfControlledBridge2mPulse" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 0.1
+   CPU-time for integration                : 0.019 seconds
+   CPU-time for one grid interval          : 0.038 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 736
+   Number of grid points                   : 501
+   Number of accepted steps                : 3291
+   Number of f-evaluations (dynamics)      : 5139
+   Number of crossing function evaluations : 4466
+   Number of Jacobian-evaluations          : 1959
+   Number of model time events             : 30
+   Number of input time events             : 0
+   Number of state events                  : 103
+   Number of step events                   : 0
+   Minimum integration stepsize            : 2.5e-17
+   Maximum integration stepsize            : 0.00041
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Electrical.PowerConverters.HalfControlledBridge2mPulse

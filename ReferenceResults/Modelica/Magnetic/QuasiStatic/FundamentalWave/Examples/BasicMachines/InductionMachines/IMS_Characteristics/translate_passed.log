@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Characteristics:
+The DAE has 3035 scalar unknowns and 3035 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 1462
+  Variables: 3411
+  Constants: 13 (13 scalars)
+  Parameters: 539 (571 scalars)
+  Unknowns: 2859 (3035 scalars)
+  Differentiated variables: 33 scalars
+  Equations: 999
+  Nontrivial: 846
+Translated Model
+  Constants: 1133 scalars
+  Free parameters: 71 scalars
+  Parameter depending: 217 scalars
+  Outputs: 1 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 558 scalars
+  Alias variables: 1640 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {69}
+  Sizes after manipulation of the linear systems: {14}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  resistor.plug_p.reference.gamma
+  speed.phi
+ 

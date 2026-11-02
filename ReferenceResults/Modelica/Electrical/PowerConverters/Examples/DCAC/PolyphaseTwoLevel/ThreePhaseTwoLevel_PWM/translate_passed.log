@@ -1,0 +1,44 @@
+Translation of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM">Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM</a>
+The DAE has 402 scalar unknowns and 402 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 56
+  Variables: 609
+  Constants: 28 (45 scalars)
+  Parameters: 243 (279 scalars)
+  Unknowns: 338 (402 scalars)
+  Differentiated variables: 7 scalars
+  Equations: 259
+  Nontrivial: 231
+Translated Model
+  Constants: 184 scalars
+  Free parameters: 54 scalars
+  Parameter depending: 109 scalars
+  Continuous time states: 7 scalars
+  Time-varying variables: 140 scalars
+  Alias variables: 239 scalars
+  Number of mixed real/discrete systems of equations: 3
+  Sizes of linear systems of equations: {11, 11, 11}
+  Sizes after manipulation of the linear systems: {4, 4, 4}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Number of mixed real/discrete systems of equations: 3
+    Sizes of linear systems of equations: {11, 11, 11}
+    Sizes after manipulation of the linear systems: {4, 4, 4}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM#diagram$:filter[1].x[1]">filter[1].x[1]</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM#diagram$:filter[1].x[2]">filter[1].x[2]</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM#diagram$:filter[2].x[1]">filter[2].x[1]</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM#diagram$:filter[2].x[2]">filter[2].x[2]</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM#text$harmonic.mean1:x">harmonic.mean1.x</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM#text$harmonic.mean2:x">harmonic.mean2.x</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM#diagram$:integrator.y">integrator.y</a>
+Finished

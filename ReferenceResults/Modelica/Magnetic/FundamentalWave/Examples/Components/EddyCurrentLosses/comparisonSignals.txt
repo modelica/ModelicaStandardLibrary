@@ -1,0 +1,5 @@
+time
+converter_e.singlePhaseElectroMagneticConverter[1].Phi.re
+converter_e.singlePhaseElectroMagneticConverter[2].Phi.im
+loss_m.Phi.im
+loss_m.Phi.re

@@ -1,0 +1,36 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.PowerConverters.HalfControlledBridge2mPulse">ModelicaTest.Electrical.PowerConverters.HalfControlledBridge2mPulse</a>
+The DAE has 470 scalar unknowns and 470 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 85
+  Variables: 675
+  Constants: 12 (12 scalars)
+  Parameters: 240 (280 scalars)
+  Unknowns: 423 (470 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 288
+  Nontrivial: 251
+Translated Model
+  Constants: 171 scalars
+  Free parameters: 61 scalars
+  Parameter depending: 126 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 117 scalars
+  Alias variables: 287 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {26}
+  Sizes after manipulation of the linear systems: {6}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.HalfControlledBridge2mPulse#text$meanCurrent:x">meanCurrent.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.HalfControlledBridge2mPulse#text$meanVoltage:x">meanVoltage.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.HalfControlledBridge2mPulse#text$rootMeanSquareVoltage.mean:x">rootMeanSquareVoltage.mean.x</a>
+Finished
