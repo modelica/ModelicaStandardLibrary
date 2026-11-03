@@ -210,5 +210,15 @@ This is a model of a complete inverter drive comprising:
 <p>Please note: Be patient, two switching devices cause many event iterations which cost performance.</p>
 <p>Note that due to the voltage drop the voltage at the machine can't reach the full voltage which means torque reduction.</p>
 <p>Default machine parameters are adapted to nominal phase voltage 400 V and nominal phase current 25 A.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "IMC InverterDrive",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = machineCurrent.I),
+          Curve(x = time, y = aimc.tauElectrical),
+          Curve(x = time, y = aimc.wMechanical)})})}));
 end IMC_InverterDrive;
