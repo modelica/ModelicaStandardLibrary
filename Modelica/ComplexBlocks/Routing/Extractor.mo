@@ -19,7 +19,8 @@ equation
   when {initial(),change(index)} then
 
     for i in 1:nin loop
-      k[i] = if index == i then Complex(1,0) else Complex(0,0);
+      k[i].re = if index == i then 1 else 0;
+      k[i].im = 0;
 
     end for;
 
