@@ -1,0 +1,29 @@
+﻿ = true
+Translation of Modelica.Math.FastFourierTransform.Examples.RealFFT1:
+The DAE has 245 scalar unknowns and 245 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 1
+  Variables: 18
+  Parameters: 12 (32 scalars)
+  Unknowns: 6 (245 scalars)
+  Equations: 1
+  Nontrivial: 1
+Translated Model
+  Constants: 9 scalars
+  Free parameters: 2 scalars
+  Parameter depending: 21 scalars
+  Outputs: 43 scalars
+  Time-varying variables: 245 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

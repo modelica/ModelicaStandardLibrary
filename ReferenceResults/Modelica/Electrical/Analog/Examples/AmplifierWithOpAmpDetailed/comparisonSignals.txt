@@ -1,0 +1,8 @@
+time
+opAmp.q_fp1
+opAmp.q_fr1
+opAmp.q_fr2
+opAmp.q_fr3
+opAmp.v_in
+opAmp.v_source
+opAmp.x

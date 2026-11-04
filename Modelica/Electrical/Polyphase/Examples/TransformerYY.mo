@@ -81,12 +81,12 @@ equation
 <p>Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load. </p>
 <h4>Note</h4>
 <p>
-From the <code>m</code> currents <code>m-1</code> have to be initialized with fixed = true, one of the <code>m</code> currents with fixed = false, 
+From the <code>m</code> currents <code>m-1</code> have to be initialized with fixed = true, one of the <code>m</code> currents with fixed = false,
 due to the fact that the star connection enforces sum of the currents = 0.
 </p>
 <p>
-Tools are expected to present a proper initialization section of the menu of <code>transformerL</code> which allows 
-to set the start values of the <code>m</code> currents and the fixed attributes individually, i.e. as an array. 
+Tools are expected to present a proper initialization section of the menu of <code>transformerL</code> which allows
+to set the start values of the <code>m</code> currents and the fixed attributes individually, i.e. as an array.
 Especially, a checkbox for the fixed attributes should be avoided.
 </p>
 <p>

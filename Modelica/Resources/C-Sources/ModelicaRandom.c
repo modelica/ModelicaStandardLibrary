@@ -1,6 +1,6 @@
 /* ModelicaRandom.c - External functions for Modelica.Math.Random library
 
-   Copyright (C) 2015-2024, Modelica Association and contributors
+   Copyright (C) 2015-2025, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -48,7 +48,7 @@
 #include <string.h>
 #include "ModelicaInternal.h"
 #include "ModelicaUtilities.h"
-#include "gconstructor.h"
+#include "g2constructor.h"
 
 /* The standard way to detect POSIX is to check _POSIX_VERSION,
  * which is defined in <unistd.h>
@@ -68,24 +68,24 @@ static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
 #define MUTEX_UNLOCK() pthread_mutex_unlock(&m)
 
 /* On Windows systems define a critical section using the single static variable "cs" */
-#elif defined(_WIN32) && defined(G_HAS_CONSTRUCTORS)
+#elif defined(_WIN32) && defined(G2_HAS_CONSTRUCTORS)
 #if !defined(WIN32_LEAN_AND_MEAN)
 #define WIN32_LEAN_AND_MEAN
 #endif
 #include <windows.h>
 static CRITICAL_SECTION cs;
-#ifdef G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(ModelicaRandom_initializeCS)
+#ifdef G2_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
+#pragma G2_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(ModelicaRandom_initializeCS))
 #endif
-G_DEFINE_CONSTRUCTOR(ModelicaRandom_initializeCS)
-static void ModelicaRandom_initializeCS(void) {
+G2_DEFINE_CONSTRUCTOR(G2_FUNCNAME(ModelicaRandom_initializeCS))
+static void G2_FUNCNAME(ModelicaRandom_initializeCS)(void) {
     InitializeCriticalSection(&cs);
 }
-#ifdef G_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
-#pragma G_DEFINE_DESTRUCTOR_PRAGMA_ARGS(ModelicaRandom_deleteCS)
+#ifdef G2_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
+#pragma G2_DEFINE_DESTRUCTOR_PRAGMA_ARGS(G2_FUNCNAME(ModelicaRandom_deleteCS))
 #endif
-G_DEFINE_DESTRUCTOR(ModelicaRandom_deleteCS)
-static void ModelicaRandom_deleteCS(void) {
+G2_DEFINE_DESTRUCTOR(G2_FUNCNAME(ModelicaRandom_deleteCS))
+static void G2_FUNCNAME(ModelicaRandom_deleteCS)(void) {
     DeleteCriticalSection(&cs);
 }
 #define MUTEX_LOCK() EnterCriticalSection(&cs)

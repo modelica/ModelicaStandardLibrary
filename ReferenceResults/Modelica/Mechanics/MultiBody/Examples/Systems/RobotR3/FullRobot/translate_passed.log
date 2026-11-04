@@ -1,0 +1,74 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.FullRobot:
+The DAE has 4933 scalar unknowns and 4933 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 478
+  Variables: 4418
+  Constants: 55 (55 scalars)
+  Parameters: 1338 (1979 scalars)
+  Unknowns: 3025 (4933 scalars)
+  Differentiated variables: 254 scalars
+  Equations: 2404
+  Nontrivial: 1767
+Translated Model
+  Constants: 2089 scalars
+  Free parameters: 547 scalars
+  Parameter depending: 823 scalars
+  Continuous time states: 36 scalars
+  Time-varying variables: 743 scalars
+  Alias variables: 2765 scalars
+  Number of mixed real/discrete systems of equations: 4
+  Sizes of linear systems of equations: {137, 4, 3, 4, 3, 4, 3, 3, 3, 3}
+  Sizes after manipulation of the linear systems: {6, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Number of mixed real/discrete systems of equations: 6
+    Sizes of linear systems of equations: {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  axis1.controller.PI.x
+  axis1.gear.spring.phi_rel
+  axis1.gear.spring.w_rel
+  axis1.motor.C.v
+  axis1.motor.La.i
+  axis2.controller.PI.x
+  axis2.gear.spring.phi_rel
+  axis2.gear.spring.w_rel
+  axis2.motor.C.v
+  axis2.motor.La.i
+  axis3.controller.PI.x
+  axis3.gear.spring.phi_rel
+  axis3.gear.spring.w_rel
+  axis3.motor.C.v
+  axis3.motor.La.i
+  axis4.controller.PI.x
+  axis4.motor.C.v
+  axis4.motor.La.i
+  axis5.controller.PI.x
+  axis5.motor.C.v
+  axis5.motor.La.i
+  axis6.controller.PI.x
+  axis6.motor.C.v
+  axis6.motor.La.i
+  mechanics.r1.phi
+  mechanics.r1.w
+  mechanics.r2.phi
+  mechanics.r2.w
+  mechanics.r3.phi
+  mechanics.r3.w
+  mechanics.r4.phi
+  mechanics.r4.w
+  mechanics.r5.phi
+  mechanics.r5.w
+  mechanics.r6.phi
+  mechanics.r6.w
+ 

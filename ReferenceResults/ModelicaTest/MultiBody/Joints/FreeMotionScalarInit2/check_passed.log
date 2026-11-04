@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 2353
+The model has the same number of unknowns and equations:
+  2297+4*(size(frame_a.x_label.lines, 1)+size(frame_a.y_label.lines, 1)+size(  frame_a.z_label.lines, 1)+size(frame_a1.x_label.lines, 1)+size(  frame_a1.y_label.lines, 1)+size(frame_a1.z_label.lines, 1))
+Check of <a href="Modelica://ModelicaTest.MultiBody.Joints.FreeMotionScalarInit2">ModelicaTest.MultiBody.Joints.FreeMotionScalarInit2</a> successful.
+

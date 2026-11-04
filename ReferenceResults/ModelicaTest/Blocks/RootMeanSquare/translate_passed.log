@@ -1,0 +1,35 @@
+﻿ = true
+Translation of ModelicaTest.Blocks.RootMeanSquare:
+The DAE has 16 scalar unknowns and 16 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 7
+  Variables: 33
+  Parameters: 18 (18 scalars)
+  Unknowns: 15 (16 scalars)
+  Differentiated variables: 2 scalars
+  Equations: 16
+  Nontrivial: 14
+Translated Model
+  Constants: 3 scalars
+  Free parameters: 9 scalars
+  Parameter depending: 6 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 5 scalars
+  Alias variables: 11 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  mean1.x
+  rootMeanSquare.mean.x
+ 

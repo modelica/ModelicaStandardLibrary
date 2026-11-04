@@ -1,0 +1,6 @@
+time
+armature.T
+core.T
+dcpm.la.i
+loadInertia.phi
+loadInertia.w

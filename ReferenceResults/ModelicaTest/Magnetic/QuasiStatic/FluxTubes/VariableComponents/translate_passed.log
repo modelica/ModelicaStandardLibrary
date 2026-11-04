@@ -1,0 +1,33 @@
+﻿ = true
+Translation of ModelicaTest.Magnetic.QuasiStatic.FluxTubes.VariableComponents:
+The DAE has 61 scalar unknowns and 61 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 34
+  Variables: 72
+  Parameters: 11 (11 scalars)
+  Unknowns: 61 (61 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 41
+  Nontrivial: 34
+Translated Model
+  Constants: 8 scalars
+  Free parameters: 11 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 22 scalars
+  Alias variables: 31 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {3, 3}
+  Sizes after manipulation of the linear systems: {0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  reluctance.port_p.reference.gamma
+ 

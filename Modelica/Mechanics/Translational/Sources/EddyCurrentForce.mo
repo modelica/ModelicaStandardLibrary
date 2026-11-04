@@ -37,7 +37,7 @@ equation
         Line(points={{0,0},{-4,-25},{-8,-41},{-12,-48},{-16,-50},{-20,-49},{-24,-46},{-28,-42},{-32,-38},{-36,-34},{-46,-25},{-56,-18},{-66,-12},{-76,-8}}, color={0,0,127}, smooth=Smooth.Bezier)}),
     Documentation(info="<html>
 <p>This is a simple model of a translational <strong>eddy current brake</strong>. The force versus speed characteristic is defined by Kloss' equation.</p>
-<p>The influence of excitation is either constant (<code>useExcitationInput=false</code>) or given by the optional input <code>excitation</code> (<code>useExcitationInput=true</code>). 
+<p>The influence of excitation is either constant (<code>useExcitationInput=false</code>) or given by the optional input <code>excitation</code> (<code>useExcitationInput=true</code>).
 Note that maximum force depends on square of excitation (magnetic field).</p>
 <p><strong>Thermal behaviour:</strong><br>
 The resistance of the braking fin is influenced by the actual temperature Theatport, which in turn shifts the speed v_nominal at which the (unchanged) maximum torque occurs.<br>

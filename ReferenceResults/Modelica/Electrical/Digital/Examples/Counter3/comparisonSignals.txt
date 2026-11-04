@@ -1,0 +1,7 @@
+time
+Counter.FF1.RS1.TD1.x
+Counter.FF1.RS2.TD1.x
+Counter.FF2.RS1.TD1.x
+Counter.FF2.RS2.TD1.x
+Counter.FF3.RS1.TD1.x
+Counter.FF3.RS2.TD1.x

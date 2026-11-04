@@ -1,0 +1,85 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestExamplesVariants.BranchingDynamicPipes_StandardWater:
+The DAE has 1897 scalar unknowns and 1897 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 170
+  Variables: 1604
+  Constants: 56 (56 scalars)
+  Parameters: 393 (499 scalars)
+  Unknowns: 1155 (1903 scalars)
+  Differentiated variables: 124 scalars
+  Equations: 645
+  Nontrivial: 457
+Translated Model
+  Constants: 679 scalars
+  Free parameters: 42 scalars
+  Parameter depending: 191 scalars
+  Continuous time states: 62 scalars
+  Time-varying variables: 608 scalars
+  Alias variables: 938 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+  Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  Sizes of nonlinear systems of equations: {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+  Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Number of mixed real/discrete systems of equations: 1
+    Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0, 0, 0}
+    Sizes of nonlinear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2, 357}
+    Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1, 1, 1, 1, 1, 52}
+    Number of numerical Jacobians: 1
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  pipe1.flowModel.m_flows[]
+  pipe1.mediums[1].h
+  pipe1.mediums[1].p
+  pipe1.mediums[2].h
+  pipe1.mediums[2].p
+  pipe1.mediums[3].h
+  pipe1.mediums[3].p
+  pipe1.mediums[4].h
+  pipe1.mediums[4].p
+  pipe1.mediums[5].h
+  pipe1.mediums[5].p
+  pipe2.flowModel.m_flows[]
+  pipe2.mediums[1].h
+  pipe2.mediums[1].p
+  pipe2.mediums[2].h
+  pipe2.mediums[2].p
+  pipe2.mediums[3].h
+  pipe2.mediums[3].p
+  pipe2.mediums[4].h
+  pipe2.mediums[4].p
+  pipe2.mediums[5].h
+  pipe2.mediums[5].p
+  pipe3.flowModel.m_flows[]
+  pipe3.mediums[1].h
+  pipe3.mediums[1].p
+  pipe3.mediums[2].h
+  pipe3.mediums[2].p
+  pipe3.mediums[3].h
+  pipe3.mediums[3].p
+  pipe3.mediums[4].h
+  pipe3.mediums[4].p
+  pipe3.mediums[5].h
+  pipe3.mediums[5].p
+  pipe4.flowModel.m_flows[]
+  pipe4.mediums[1].h
+  pipe4.mediums[1].p
+  pipe4.mediums[2].h
+  pipe4.mediums[2].p
+  pipe4.mediums[3].h
+  pipe4.mediums[3].p
+  pipe4.mediums[4].h
+  pipe4.mediums[4].p
+  pipe4.mediums[5].h
+  pipe4.mediums[5].p
+ 

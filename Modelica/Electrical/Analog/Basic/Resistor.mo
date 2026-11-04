@@ -4,7 +4,7 @@ model Resistor "Ideal linear electrical resistor"
     "Resistance at temperature T_ref";
   parameter SI.Temperature T_ref=300.15 "Reference temperature";
   parameter SI.LinearTemperatureCoefficient alpha=0
-    "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+    "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref)))";
 
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);

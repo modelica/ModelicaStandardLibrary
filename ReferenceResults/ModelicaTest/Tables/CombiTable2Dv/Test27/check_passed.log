@@ -1,0 +1,11 @@
+Check of <a href="Modelica://ModelicaTest.Tables.CombiTable2Dv.Test27">ModelicaTest.Tables.CombiTable2Dv.Test27</a>
+The model has the same number of unknowns and equations: 9
+The model could not be deduced to be symbolically well-posed.
+The model has
+  6+3*t_new.n
+scalar unknowns and
+  8+t_new.n
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  9
+Check of <a href="Modelica://ModelicaTest.Tables.CombiTable2Dv.Test27">ModelicaTest.Tables.CombiTable2Dv.Test27</a> successful.

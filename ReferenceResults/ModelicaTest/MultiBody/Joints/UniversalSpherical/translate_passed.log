@@ -1,0 +1,68 @@
+﻿ = true
+Translation of ModelicaTest.MultiBody.Joints.UniversalSpherical:
+The DAE has 5363 scalar unknowns and 5363 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 309
+  Variables: 2244
+  Constants: 5 (5 scalars)
+  Parameters: 527 (876 scalars)
+  Unknowns: 1712 (5363 scalars)
+  Differentiated variables: 88 scalars
+  Equations: 1526
+  Nontrivial: 1096
+Translated Model
+  Constants: 3499 scalars
+  Free parameters: 134 scalars
+  Parameter depending: 349 scalars
+  Outputs: 9 scalars
+  Continuous time states: 30 scalars
+  Time-varying variables: 435 scalars
+  Alias variables: 1827 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {22, 3, 29, 4, 4, 13, 11}
+  Sizes after manipulation of the linear systems: {10, 3, 8, 4, 4, 7, 5}
+  Sizes of nonlinear systems of equations: {3, 19, 41}
+  Sizes after manipulation of the nonlinear systems: {3, 7, 8}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {4, 4}
+    Sizes after manipulation of the linear systems: {4, 0}
+    Sizes of nonlinear systems of equations: {4, 1, 1, 4, 4}
+    Sizes after manipulation of the nonlinear systems: {4, 0, 0, 4, 4}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  bodyBox.body.w_a[]
+  bodyBox1.body.w_a[]
+  universal.phi_a
+  universal.phi_b
+  universal.w_a
+  universal.w_b
+ 
+Dynamically selected continuous time states
+There are 5 sets of dynamic state selection.
+From set 1 there are 5 states to be selected from:
+  bodyBox2.body.frame_a.r_0[]
+  bodyBox2.body.Q[]
+ 
+From set 2 there are 2 states to be selected from:
+  universalSpherical.rRod_0[]
+ 
+From set 3 there are 5 states to be selected from:
+  bodyBox2.body.w_a[]
+  bodyBox2.v_0[]
+  der(bodyBox2.body.Q[])
+ 
+From set 4 there are 6 states to be selected from:
+  bodyBox.body.Q[]
+  bodyBox1.body.Q[]
+ 
+From set 5 there are 2 states to be selected from:
+  bodyBox.v_0[]
+ 

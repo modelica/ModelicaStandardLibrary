@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 249
+The model has the same number of unknowns and equations:
+  247+max([size(timeTableTorqueInclination.columns, 1); size(timeTableTorqueInclination.offset,   1)])
+Check of <a href="Modelica://Modelica.Mechanics.Translational.Examples.Vehicle">Modelica.Mechanics.Translational.Examples.Vehicle</a> successful.
+

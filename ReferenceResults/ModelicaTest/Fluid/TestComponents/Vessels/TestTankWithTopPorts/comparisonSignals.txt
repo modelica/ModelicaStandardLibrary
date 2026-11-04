@@ -1,0 +1,11 @@
+time
+tank.level
+tank.medium.h
+tank.aboveLevel[1]
+tank.aboveLevel[2]
+tank.aboveLevel[3]
+tank.aboveLevel[4]
+tank.ports_m_flow_out[1]
+tank.ports_m_flow_out[2]
+tank.ports_m_flow_out[3]
+tank.ports_m_flow_out[4]

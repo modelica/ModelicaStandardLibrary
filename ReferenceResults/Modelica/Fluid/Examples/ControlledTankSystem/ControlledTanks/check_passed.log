@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 527
+The model has the same number of unknowns and equations:
+  512+2*(size(start.reset, 1)+size(stop.reset, 1)+size(shut.reset, 1))+max([1;   size(start.table.combiTimeTable.offset, 1)])+max([1; size(stop.table.combiTimeTable.offset,   1)])+max([1; size(shut.table.combiTimeTable.offset, 1)])
+Check of <a href="Modelica://Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks">Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks</a> successful.
+

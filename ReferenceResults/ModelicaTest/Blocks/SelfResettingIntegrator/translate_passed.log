@@ -1,0 +1,33 @@
+﻿ = true
+Translation of ModelicaTest.Blocks.SelfResettingIntegrator:
+The DAE has 8 scalar unknowns and 8 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 4
+  Variables: 15
+  Parameters: 7 (7 scalars)
+  Unknowns: 8 (8 scalars)
+  Differentiated variables: 1 scalars
+  Equations: 7
+  Nontrivial: 6
+Translated Model
+  Constants: 3 scalars
+  Free parameters: 4 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 2 scalars
+  Alias variables: 6 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  integrator.y
+ 

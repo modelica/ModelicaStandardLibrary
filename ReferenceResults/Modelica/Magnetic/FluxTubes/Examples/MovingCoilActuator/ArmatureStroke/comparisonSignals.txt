@@ -1,0 +1,10 @@
+time
+cActuator.armature.stopper_xMax.v_rel
+cActuator.l.i
+cActuator.x
+pmActuator.armature.stopper_xMax.v_rel
+pmActuator.coil.Phi
+pmActuator.coil.i
+pmActuator.g_mLeak2.port_p.Phi
+pmActuator.g_ma.port_p.Phi
+pmActuator.x

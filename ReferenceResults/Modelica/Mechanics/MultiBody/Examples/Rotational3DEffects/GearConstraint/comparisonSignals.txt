@@ -1,0 +1,5 @@
+time
+gearConstraint.actuatedRevolute_b.phi
+gearConstraint.actuatedRevolute_b.w
+inertia2.phi
+inertia2.w

@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper:
+The DAE has 1874 scalar unknowns and 1874 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 80
+  Variables: 882
+  Parameters: 178 (237 scalars)
+  Unknowns: 704 (1874 scalars)
+  Differentiated variables: 15 scalars
+  Equations: 649
+  Nontrivial: 432
+Translated Model
+  Constants: 1460 scalars
+  Free parameters: 49 scalars
+  Parameter depending: 128 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 90 scalars
+  Alias variables: 384 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {7}
+  Sizes after manipulation of the linear systems: {2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  prismatic.s
+  prismatic.v
+  revolute.phi
+  revolute.w
+ 

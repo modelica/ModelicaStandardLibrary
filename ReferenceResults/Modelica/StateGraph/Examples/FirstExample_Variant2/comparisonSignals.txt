@@ -1,0 +1,3 @@
+time
+transition1.enableFire
+transition2.enableFire

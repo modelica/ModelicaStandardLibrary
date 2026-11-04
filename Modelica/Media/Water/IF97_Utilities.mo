@@ -84,11 +84,10 @@ SCRIT and HCRIT are calculated from Helmholtz function for region 3.</p>
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -148,11 +147,10 @@ Critical point data for IF97 steam properties. SCRIT and HCRIT are calculated fr
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -181,11 +179,10 @@ email: hubertus@modelon.se
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -1717,7 +1714,6 @@ Authors: Hubertus Tummescheit, Jonas Eborn and Falko Jens Wagner<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -3855,11 +3851,10 @@ simultaneously optimize the functions and the directional derivatives because th
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -4354,7 +4349,6 @@ Authors: Hubertus Tummescheit and Jonas Eborn<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: October 2002</li>
@@ -5014,11 +5008,10 @@ email: hubertus@modelon.se
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -5669,11 +5662,10 @@ email: hubertus@modelon.se
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -5776,11 +5768,10 @@ one phase regions of IAPWS/IF97
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -6051,11 +6042,10 @@ in the two-phase region and on the phase boundaries.
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -6171,16 +6161,15 @@ white-space:nowrap;
   </li>
   <li>
     Code reorganization, enhanced documentation, additional functions:   <em>December, 2002</em>
-    by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
+    by <a href=\"https://github.com/hubertus65\">Hubertus Tummescheit</a> and moved to Modelica
     properties library.
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <p>
 In September 1997, the International Association for the Properties
@@ -8721,16 +8710,15 @@ properties library. The following documents are included
   </li>
   <li>
     Code reorganization, enhanced documentation, additional functions:   <em>December, 2002</em>
-    by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
+    by <a href=\"https://github.com/hubertus65\">Hubertus Tummescheit</a> and moved to Modelica
     properties library.
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 </html>", revisions="<html>
 <h4>Intermediate release notes during development</h4>

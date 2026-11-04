@@ -7309,9 +7309,9 @@ end Icons;
 
 annotation (
   DocumentationClass=true,
-  version="4.1.0",
-  versionDate="2024-01-12",
-  dateModified = "2024-01-12 19:40:00Z",
+  version="4.2.0 dev",
+  versionDate="20xx-xx-xx",
+  dateModified = "2025-05-23 15:00:00Z",
   revisionId="$Format:%h %ci$",
   Documentation(info="<html>
 <p>
@@ -7323,7 +7323,7 @@ It is based on the
 </p>
 
 <p>
-Copyright &copy; 2003-2024, Modelica Association and contributors
+Copyright &copy; 2003-2025, Modelica Association and contributors
 </p>
 
 <p>

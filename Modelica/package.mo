@@ -4,12 +4,13 @@ extends Modelica.Icons.Package;
 
 annotation (
 preferredView="info",
-version="4.1.0",
-versionDate="2024-01-12",
-dateModified = "2024-01-12 19:40:00Z",
+version="4.2.0 dev",
+versionDate="20xx-xx-xx",
+dateModified = "2025-05-23 15:00:00Z",
 revisionId="$Format:%h %ci$",
-uses(Complex(version="4.1.0"), ModelicaServices(version="4.1.0")),
+uses(Complex(version="4.2.0 dev"), ModelicaServices(version="4.2.0 dev")),
 conversion(
+ noneFromVersion="4.1.0",
  noneFromVersion="4.0.0",
  from(version={"3.0", "3.0.1", "3.1", "3.2", "3.2.1", "3.2.2", "3.2.3"}, script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_3.2.3_to_4.0.0.mos")),
 Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
@@ -65,8 +66,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><strong>1417</strong> component models and blocks,</li>
-<li><strong>512</strong> example models, and</li>
+<li><strong>1430</strong> component models and blocks,</li>
+<li><strong>534</strong> example models, and</li>
 <li><strong>1219</strong> functions</li>
 </ul>
 <p>
@@ -77,7 +78,7 @@ and it has been tested with Modelica tools from different vendors.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 1998-2024, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
+Copyright &copy; 1998-2025, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
 </p>
 
 <p>

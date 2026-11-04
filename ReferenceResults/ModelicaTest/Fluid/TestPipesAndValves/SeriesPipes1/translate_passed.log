@@ -1,0 +1,49 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestPipesAndValves.SeriesPipes1:
+The DAE has 512 scalar unknowns and 512 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 64
+  Variables: 913
+  Constants: 60 (60 scalars)
+  Parameters: 341 (346 scalars)
+  Unknowns: 512 (512 scalars)
+  Differentiated variables: 18 scalars
+  Equations: 372
+  Nontrivial: 294
+Translated Model
+  Constants: 339 scalars
+  Free parameters: 58 scalars
+  Parameter depending: 109 scalars
+  Continuous time states: 10 scalars
+  Time-varying variables: 132 scalars
+  Alias variables: 280 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2, 2, 2}
+  Sizes after manipulation of the linear systems: {0, 0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the linear systems: {0, 0, 0, 0, 0, 0}
+    Sizes of nonlinear systems of equations: {2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1, 1, 1}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  pipe1.mediums[1].h
+  pipe1.mediums[1].p
+  pipe2.mediums[1].h
+  pipe2.mediums[1].p
+  pipe2.mediums[2].h
+  pipe2.mediums[2].p
+  pipe3.mediums[1].h
+  pipe3.mediums[1].p
+  valve.filter.x[]
+ 

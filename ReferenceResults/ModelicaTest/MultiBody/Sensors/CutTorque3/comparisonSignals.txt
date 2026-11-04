@@ -1,0 +1,4 @@
+time
+cutTorque.torque[3]
+cutTorque.torque[2]
+cutTorque.torque[1]

@@ -11,7 +11,7 @@ partial model ChopperBuckBoost "Buck/boost converter example template"
   parameter Modelica.Units.SI.Resistance R=1e-3 "Resistance of inductor";
   parameter Modelica.Units.SI.Frequency fS=40e3 "Switching frequency";
   parameter Real idleDutyCycle=1 - VLV/VHV "Duty cycle for idle operation";
-  Modelica.Electrical.PowerConverters.DCDC.ChopperBuckBost dcdc
+  Modelica.Electrical.PowerConverters.DCDC.ChopperBuckBoost dcdc
     annotation (Placement(transformation(extent={{10,-8},{30,12}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltageLV(V=VLV)
     annotation (Placement(transformation(

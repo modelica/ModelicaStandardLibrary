@@ -1,0 +1,12 @@
+time
+// aimc.i_0_s
+aimc.idq_rr[1]
+aimc.idq_rr[2]
+aimc.idq_sr[1]
+aimc.idq_sr[2]
+aimc.is[1]
+aimc.is[2]
+inductor.inductor[1].i
+inductor.inductor[3].i
+loadInertia.phi
+loadInertia.w

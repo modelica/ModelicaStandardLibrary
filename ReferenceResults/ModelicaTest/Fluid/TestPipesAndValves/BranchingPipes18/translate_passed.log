@@ -1,0 +1,51 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.TestPipesAndValves.BranchingPipes18:
+The DAE has 575 scalar unknowns and 575 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 71
+  Variables: 1030
+  Constants: 62 (62 scalars)
+  Parameters: 373 (380 scalars)
+  Unknowns: 595 (575 scalars)
+  Differentiated variables: 19 scalars
+  Equations: 453
+  Nontrivial: 341
+Translated Model
+  Constants: 354 scalars
+  Free parameters: 78 scalars
+  Parameter depending: 112 scalars
+  Continuous time states: 9 scalars
+  Time-varying variables: 146 scalars
+  Alias variables: 327 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2, 2, 2}
+  Sizes after manipulation of the linear systems: {0, 0, 0, 0}
+  Sizes of nonlinear systems of equations: {6}
+  Sizes after manipulation of the nonlinear systems: {1}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {2, 2, 2, 2, 2, 2, 2, 2}
+    Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1, 1, 1, 1, 1}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  junctionIdeal.medium.h
+  junctionIdeal.medium.p
+  junctionVolume.medium.h
+  pipe1.mediums[1].h
+  pipe1.mediums[1].p
+  pipe2.mediums[1].h
+  pipe2.mediums[1].p
+  pipe3.mediums[1].h
+  pipe3.mediums[1].p
+ 
+Warning: Some variables are iteration variables of the initialization problem:
+but they are not given any explicit start values. Zero will be used.
+Iteration variables:
+der(junctionVolume.medium.h)

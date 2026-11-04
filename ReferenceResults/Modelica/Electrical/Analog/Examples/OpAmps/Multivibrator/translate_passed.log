@@ -1,0 +1,38 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator:
+The DAE has 55 scalar unknowns and 55 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 8
+  Variables: 84
+  Parameters: 29 (29 scalars)
+  Unknowns: 55 (55 scalars)
+  Differentiated variables: 1 scalars
+  Equations: 53
+  Nontrivial: 43
+Translated Model
+  Constants: 15 scalars
+  Free parameters: 13 scalars
+  Parameter depending: 13 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 15 scalars
+  Alias variables: 28 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {5}
+  Sizes after manipulation of the nonlinear systems: {1}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {5}
+    Sizes after manipulation of the nonlinear systems: {1}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  c.v
+ 

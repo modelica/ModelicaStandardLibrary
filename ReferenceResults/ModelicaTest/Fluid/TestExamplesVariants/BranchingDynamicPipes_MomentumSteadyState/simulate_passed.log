@@ -1,0 +1,44 @@
+Log-file of program ./dymosim
+(generated: Tue Oct 15 00:37:13 2024)
+
+dymosim started
+... "ModelicaTest.Fluid.TestExamplesVariants.BranchingDynamicPipes_MomentumSteadyState" simulating
+... "dsin.txt" loading (dymosim input file)
+Error: The following error was detected at time: 0
+
+Model error - power: (r1) ^ (n[2]) = (-0.17687) ^ (-1.25)
+
+The stack of functions is:
+Modelica.Media.Air.MoistAir.sublimationPressureIce
+saturationPressure_Unique3
+saturationPressure_Unique3(pipe2.mediums[2].T)
+
+Non-linear solver will silently attempt to handle this problem.
+Non-linear solver recovered after failed attempt number: 1
+
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 10
+   CPU-time for integration                : 4.41 seconds
+   CPU-time for one grid interval          : 0.882 milliseconds
+   CPU-time for initialization             : 0.034 seconds
+   Number of result points                 : 5011
+   Number of grid points                   : 5001
+   Number of accepted steps                : 359
+   Number of f-evaluations (dynamics)      : 825
+   Number of crossing function evaluations : 5391
+   Number of Jacobian-evaluations          : 175
+   Number of model time events             : 1
+   Number of input time events             : 0
+   Number of state events                  : 4
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.92e-07
+   Maximum integration stepsize            : 0.951
+   Maximum integration order               : 4
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Fluid.TestExamplesVariants.BranchingDynamicPipes_MomentumSteadyState

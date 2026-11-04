@@ -1,0 +1,28 @@
+Translation of <a href="Modelica://ModelicaTest.Media.TestOnly.R134a_setState_pTX_high_T">ModelicaTest.Media.TestOnly.R134a_setState_pTX_high_T</a>
+The DAE has 12 scalar unknowns and 12 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 2
+  Variables: 14
+  Parameters: 2 (2 scalars)
+  Unknowns: 12 (12 scalars)
+  Equations: 8
+  Nontrivial: 7
+Translated Model
+  Constants: 1 scalars
+  Free parameters: 2 scalars
+  Time-varying variables: 9 scalars
+  Alias variables: 2 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Finished

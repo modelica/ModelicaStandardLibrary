@@ -1,0 +1,53 @@
+﻿ = true
+Translation of Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor:
+The DAE has 371 scalar unknowns and 371 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 130
+  Variables: 508
+  Constants: 2 (2 scalars)
+  Parameters: 141 (141 scalars)
+  Unknowns: 365 (371 scalars)
+  Differentiated variables: 17 scalars
+  Equations: 299
+  Nontrivial: 250
+Translated Model
+  Constants: 81 scalars
+  Free parameters: 66 scalars
+  Parameter depending: 43 scalars
+  Outputs: 1 scalars
+  Continuous time states: 8 scalars
+  Time-varying variables: 127 scalars
+  Alias variables: 197 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {18, 10, 16}
+  Sizes after manipulation of the linear systems: {6, 0, 6}
+  Sizes of nonlinear systems of equations: {12}
+  Sizes after manipulation of the nonlinear systems: {3}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {8}
+    Sizes after manipulation of the nonlinear systems: {1}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  fundamentalWavePermabilitySensor.harmonicFlux.mean1.x
+  fundamentalWavePermabilitySensor.harmonicFlux.mean2.x
+  fundamentalWavePermabilitySensor.harmonicPotential.mean1.x
+  fundamentalWavePermabilitySensor.harmonicPotential.mean2.x
+  rootMeanSquare.mean1.x
+  rootMeanSquare.mean2.x
+  sourceQS.pin_p.reference.gamma
+ 
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There is one state to be selected from:
+  coil.i
+  coil.Phi
+  r_mLeak.port_p.Phi
+ 
