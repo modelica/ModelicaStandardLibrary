@@ -371,17 +371,17 @@ of the modeller. Increase nPorts to add an additional port.
             else
               ports[i].p = vessel_ps_static[i];
             end if;
-            s[i] = fluidLevel - portsData_height[i];
+            s[i]*unitHeight = fluidLevel - portsData_height[i];
 
           elseif inFlow[i] then
             // ports[i] is above fluidLevel and has inflow
             ports[i].p = vessel_ps_static[i];
-            s[i] = ports[i].m_flow*(unitHeight/unitMassFlow);
+            s[i]*unitMassFlow = ports[i].m_flow;
 
           else
             // ports[i] is above fluidLevel, preventing outflow
             ports[i].m_flow = 0;
-            s[i] = (ports[i].p - vessel_ps_static[i])/Medium.p_default*(portsData_height[i] - fluidLevel);
+            s[i]*unitHeight = (ports[i].p - vessel_ps_static[i])/Medium.p_default*(portsData_height[i] - fluidLevel);
           end if;
 
           ports[i].h_outflow  = medium.h;
