@@ -5463,8 +5463,8 @@ extends Modelica.Icons.ExamplesPackage;
           "Verify the pressure-flow relation near zero in both directions"
           extends Modelica.Icons.Example;
 
-          parameter Real a(unit="Pa.s2/m6")=1;
-          parameter Real b(unit="Pa.s/m3")=1;
+          parameter Real a(unit="Pa.s2/m6")=3;
+          parameter Real b(unit="Pa.s/m3")=5;
           parameter SI.Density rho=1;
           parameter SI.Pressure dp[7]={-1,-1e-6,-1e-18,0,1e-18,1e-6,1};
           SI.MassFlowRate m_flow[7];
