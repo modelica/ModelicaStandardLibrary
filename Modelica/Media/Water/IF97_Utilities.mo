@@ -915,6 +915,8 @@ SE-22370 Lund, Sweden<br>
           bpro.h := if p > plim then data.HCRIT else bpro.R_s*bpro.T*g.tau*g.gtau;
           bpro.s := g.R_s*(g.tau*g.gtau - g.g);
           bpro.cp := -bpro.R_s*g.tau*g.tau*g.gtautau;
+          bpro.cv := bpro.R_s*(-g.tau*g.tau*g.gtautau +
+            (g.gpi - g.tau*g.gtaupi)^2/g.gpipi);
           bpro.vt := bpro.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
           bpro.vp := bpro.R_s*bpro.T/(p*p)*g.pi*g.pi*g.gpipi;
           bpro.pt := -p/bpro.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
@@ -928,6 +930,9 @@ SE-22370 Lund, Sweden<br>
           bpro.cv := bpro.R_s*(-f.tau*f.tau*f.ftautau);
           bpro.pt := bpro.R_s*bpro.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
           bpro.pd := bpro.R_s*bpro.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+          bpro.cp := bpro.cv + bpro.T*bpro.pt^2/(bpro.d^2*bpro.pd);
+          bpro.vt := bpro.pt/(bpro.d^2*bpro.pd);
+          bpro.vp := -1/(bpro.d^2*bpro.pd);
         end if;
       end boilingcurve_p;
 
@@ -952,6 +957,8 @@ SE-22370 Lund, Sweden<br>
           bpro.h := if p > plim then data.HCRIT else bpro.R_s*bpro.T*g.tau*g.gtau;
           bpro.s := g.R_s*(g.tau*g.gtau - g.g);
           bpro.cp := -bpro.R_s*g.tau*g.tau*g.gtautau;
+          bpro.cv := bpro.R_s*(-g.tau*g.tau*g.gtautau +
+            (g.gpi - g.tau*g.gtaupi)^2/g.gpipi);
           bpro.vt := bpro.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
           bpro.vp := bpro.R_s*bpro.T/(p*p)*g.pi*g.pi*g.gpipi;
           bpro.pt := -p/bpro.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
@@ -965,6 +972,9 @@ SE-22370 Lund, Sweden<br>
           bpro.cv := bpro.R_s*(-f.tau*f.tau*f.ftautau);
           bpro.pt := bpro.R_s*bpro.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
           bpro.pd := bpro.R_s*bpro.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+          bpro.cp := bpro.cv + bpro.T*bpro.pt^2/(bpro.d^2*bpro.pd);
+          bpro.vt := bpro.pt/(bpro.d^2*bpro.pd);
+          bpro.vp := -1/(bpro.d^2*bpro.pd);
         end if;
       end dewcurve_p;
 
