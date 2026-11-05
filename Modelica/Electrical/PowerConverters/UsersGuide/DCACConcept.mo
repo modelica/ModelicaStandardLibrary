@@ -52,7 +52,7 @@ An overview about the relationships between the voltages is given in Tab. 2.
   <caption><strong>Fig. 2:</strong> Possible voltage space phasors </caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/PWM.png\">
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/Hexagon.png\">
     </td>
   </tr>
 </table>
@@ -61,23 +61,19 @@ An overview about the relationships between the voltages is given in Tab. 2.
 <caption><strong>Tab. 2:</strong> Relations between voltages of a three-phase inverter drive </caption>  
 <tr><td>RMS of grid line-to-line voltage</td>
     <td> V<sub>LL</sub></td></tr>
-<tr><td>Maximum of DC voltage</td>
+<tr><td>Maximum of DC voltage with ideal smoothing</td>
     <td> V<sub>DC</sub>=&radic;2 &sdot; V<sub>LL</sub></td></tr>
+<tr><td>Maximum of DC voltage (six-pulse) without smoothing</td>
+    <td> V<sub>DC</sub>=&radic;2 &sdot; V<sub>LL</sub> &sdot; 3/&pi;</td></tr>
 <tr><td>Considering (fictious) Y-connection of the connected machine</td>
     <td> </td></tr>
-<tr><td>Maximum length of space phasor</td>
+<tr><td>Half diagonal of hexagon</td>
     <td> |<u>V</u>|=2/3 &sdot; V<sub>DC</sub></td></tr>
-<tr><td>Inradius of the hexagon (see Fig. 2)</td>
+<tr><td>Inradius (see Fig. 2) = maximum contínuous space phasor</td>
     <td> V<sub>max</sub>=|<u>V</u>| &sdot; cos(&pi;/6)=1/&radic;3 &sdot; V<sub>DC</sub></td></tr>
 <tr><td>RMS of nominal phase voltage</td>
-    <td> V<sub>nom</sub>=1/&radic;2  &sdot; V<sub>max</sub>=1/&radic;6  &sdot; V<sub>DC</sub>=1/&radic;3  &sdot; V<sub>LL</sub></td></tr>
+    <td> V<sub>nom</sub>=1/&radic;2  &sdot; V<sub>max</sub>=1/&radic;6  &sdot; V<sub>DC</sub></td></tr>
 </table>
-
-<h4>Note:</h4>
-<p>
-Using a six pulse diode bridge to obtain DC voltage, the theoretical DC voltage is the average of this six pulse voltage.
-The DC voltage and all following voltages arelower by a factor of 3/&pi;. 
-</p>
 
 <p>
 There are 2 examples demonstrating that: 
