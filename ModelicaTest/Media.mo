@@ -1014,6 +1014,48 @@ is given to compare the approximation.
         experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.0001));
     end R134a_pTX_phX_all;
 
+    model WaterIF97_boundaryProperties
+      "Check complete saturation records on both sides of the region 3 boundary"
+      extends Modelica.Icons.Example;
+      package IF97 = Modelica.Media.Water.IF97_Utilities;
+      package Common = Modelica.Media.Common;
+      parameter SI.AbsolutePressure p[4]={1e5,1e7,2e7,2.2e7};
+      parameter Common.IF97PhaseBoundaryProperties liquid[4]=
+        {IF97.BaseIF97.Regions.boilingcurve_p(p[i]) for i in 1:4};
+      parameter Common.IF97PhaseBoundaryProperties vapor[4]=
+        {IF97.BaseIF97.Regions.dewcurve_p(p[i]) for i in 1:4};
+      parameter Common.PhaseBoundaryProperties liquidRef[4]=
+        {if liquid[i].region3boundary then Common.helmholtzToBoundaryProps(
+          IF97.BaseIF97.Basic.f3(liquid[i].d,liquid[i].T)) else
+          Common.gibbsToBoundaryProps(IF97.BaseIF97.Basic.g1(p[i],liquid[i].T))
+          for i in 1:4};
+      parameter Common.PhaseBoundaryProperties vaporRef[4]=
+        {if vapor[i].region3boundary then Common.helmholtzToBoundaryProps(
+          IF97.BaseIF97.Basic.f3(vapor[i].d,vapor[i].T)) else
+          Common.gibbsToBoundaryProps(IF97.BaseIF97.Basic.g2(p[i],vapor[i].T))
+          for i in 1:4};
+    initial equation
+      for i in 1:4 loop
+        assert(abs(liquid[i].cv-liquidRef[i].cv) < 1e-10*liquidRef[i].cv,
+          "Liquid cv differs from the Gibbs/Helmholtz reference");
+        assert(abs(vapor[i].cv-vaporRef[i].cv) < 1e-10*vaporRef[i].cv,
+          "Vapor cv differs from the Gibbs/Helmholtz reference");
+        assert(abs(liquid[i].cp-liquidRef[i].cp) < 1e-10*liquidRef[i].cp,
+          "Liquid cp differs from the Gibbs/Helmholtz reference");
+        assert(abs(vapor[i].cp-vaporRef[i].cp) < 1e-10*vaporRef[i].cp,
+          "Vapor cp differs from the Gibbs/Helmholtz reference");
+        assert(abs(liquid[i].vp*liquid[i].d^2*liquid[i].pd+1) < 1e-10,
+          "Liquid pressure derivative is inconsistent");
+        assert(abs(vapor[i].vp*vapor[i].d^2*vapor[i].pd+1) < 1e-10,
+          "Vapor pressure derivative is inconsistent");
+        assert(abs(liquid[i].vt*liquid[i].d^2*liquid[i].pd-liquid[i].pt)
+          < 1e-10*abs(liquid[i].pt), "Liquid temperature derivative is inconsistent");
+        assert(abs(vapor[i].vt*vapor[i].d^2*vapor[i].pd-vapor[i].pt)
+          < 1e-10*abs(vapor[i].pt), "Vapor temperature derivative is inconsistent");
+      end for;
+      annotation (experiment(StopTime=0));
+    end WaterIF97_boundaryProperties;
+
     model WaterIF97_dewEnthalpy "Test dewEnthalpy of WaterIF97"
       extends Modelica.Icons.Example;
       replaceable package Medium = Modelica.Media.Water.StandardWater "Medium model";
