@@ -254,7 +254,7 @@ end OpenTank;
         "Flow of kinetic and potential energy at device boundary";
 
         // Note: should use fluidLevel_start - portsData.height
-        Real[nPorts] s(each start = fluidLevel_max)
+        Real[nPorts] s(each start = fluidLevel_max/unitHeight)
         "Curve parameters for port flows vs. port pressures; for further details see, Modelica Tutorial: Ideal switching devices";
         Real[nPorts] ports_penetration
         "Penetration of port with fluid, depending on fluid level and port diameter";
