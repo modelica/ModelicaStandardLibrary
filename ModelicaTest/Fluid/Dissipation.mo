@@ -5459,6 +5459,34 @@ extends Modelica.Icons.ExamplesPackage;
               Tolerance=1e-005));
         end dp_pressureLossCoefficient_DPMFLOW;
 
+        model dp_volumeFlowRate_NearZero
+          "Verify the pressure-flow relation near zero in both directions"
+          extends Modelica.Icons.Example;
+
+          parameter Real a(unit="Pa.s2/m6")=3;
+          parameter Real b(unit="Pa.s/m3")=5;
+          parameter SI.Density rho=1;
+          parameter SI.Pressure dp[7]={-1,-1e-6,-1e-18,0,1e-18,1e-6,1};
+          SI.MassFlowRate m_flow[7];
+          SI.VolumeFlowRate V_flow[7];
+          SI.Pressure dp_check[7];
+
+        equation
+          for i in 1:7 loop
+            m_flow[i] =
+              Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW(
+                Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con(a=a,b=b),
+                Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_var(rho=rho),
+                dp[i]);
+            V_flow[i] = m_flow[i]/rho;
+            dp_check[i] = a*V_flow[i]*abs(V_flow[i]) + b*V_flow[i];
+            assert(abs(dp_check[i]-dp[i]) <= 1e-12*abs(dp[i]),
+              "The recovered pressure loss must agree with the input, including near zero");
+          end for;
+
+          annotation (experiment(StopTime=1));
+        end dp_volumeFlowRate_NearZero;
+
         model dp_volumeFlowRate_DPMFLOW
           "Verification of function dp_volumeFlowRate_DP and dp_volumeFlowRate_MFLOW"
           extends Modelica.Icons.Example;
