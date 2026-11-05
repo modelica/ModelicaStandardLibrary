@@ -199,8 +199,6 @@ erfc(0.5)  // = 0.4795001221869534
     extends Modelica.Icons.Function;
     input Real u "Input argument in the range -1 <= u <= 1";
     output Real y "= inverse of error function";
-  protected
-    constant Real eps = 0.1;
   algorithm
     if u >= 1 then
        y := Modelica.Constants.inf;
