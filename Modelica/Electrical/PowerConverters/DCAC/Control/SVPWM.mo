@@ -7,7 +7,7 @@ block SVPWM "Space vector pulse width modulation"
   import Modelica.Constants.pi;
   import Modelica.Math.atan2;
   constant Integer m=3 "Number of phases";
-  parameter Real uMax "Maximum length of space vector = half diagonal of hexagon";
+  parameter Real uMax "Maximum space phasor = half diagonal of hexagon";
   constant Boolean fire[6,m]=[true, false,false;
                               true, true, false;
                               false,true, false;
@@ -33,8 +33,8 @@ protected
   discrete SI.Time T0(start=startTime, fixed=true) "Start time of switching interval";
 algorithm
   when sampleTrigger then
-    //Limited relative reference signal
-    //Limit to maximum length of space phasor then to incircle of hexagon
+    //We need the reference signal w.r.t. to half diagonal to compare with
+    //space phasors left and right but limited to incircle
     uRef:=min(sqrt(u[1]^2 + u[2]^2)/uMax, cos(pi/6));
     //Determine angle of reference signal within (-pi, +pi]
     phiRef:=if uRef < small then 0 else atan2(u[2], u[1]);

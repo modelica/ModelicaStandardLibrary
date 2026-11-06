@@ -4,7 +4,7 @@ model ThreePhaseTwoLevel_PWM "Test of pulse width modulation methods"
   import Modelica.Constants.pi;
   parameter SI.Voltage V_LL=400 "RMS line-to-line voltage";
   parameter SI.Voltage V_DC=sqrt(2)*V_LL "Ideal DC volatge";
-  parameter SI.Voltage Vmax=2/3*V_DC "Max. output voltage";
+  parameter SI.Voltage Vmax=2/3*V_DC*cos(pi/6) "Max. output voltage";
   parameter SI.Frequency f_sw=2500 "Switching frequency";
   parameter SI.Voltage VNom=Vmax/sqrt(2) "Nominal RMS output voltage";
   parameter SI.Frequency fNom=50 "Nominal frequency";
