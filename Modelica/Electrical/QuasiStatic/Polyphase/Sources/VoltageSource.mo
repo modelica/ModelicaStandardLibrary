@@ -10,7 +10,7 @@ model VoltageSource "Constant polyphase AC voltage"
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
     "Phase shift of the source";
 equation
-  omega = 2*Modelica.Constants.pi*f;
+  plug_p.reference.gamma = 2*Modelica.Constants.pi*f*time "Avoid integration error in loops";
   v = {V[k]*exp(j*phi[k]) for k in 1:m};
   annotation (
     Icon(graphics={
