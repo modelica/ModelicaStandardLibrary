@@ -1,14 +1,9 @@
 within Modelica.Mechanics.MultiBody.Parts;
 model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
+  extends Interfaces.TwoFrames;
+
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Units.Conversions.to_unit1;
-
-  Interfaces.Frame_a frame_a
-    "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b
-    "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   parameter Boolean animation=true "= true, if animation shall be enabled";
   parameter SI.Position r[3](start={0,0,0})
@@ -70,7 +65,6 @@ model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
       enable=animation));
 
 protected
-  outer Modelica.Mechanics.MultiBody.World world;
   Visualizers.Advanced.Shape shape(
     shapeType=shapeType,
     color=color,

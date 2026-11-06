@@ -1,17 +1,12 @@
 within Modelica.Mechanics.MultiBody.Parts;
 model BodyBox
   "Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)"
+  extends Interfaces.TwoFrames;
 
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Math.Vectors.normalizeWithAssert;
   import Modelica.Units.Conversions.to_unit1;
 
-  Interfaces.Frame_a frame_a
-    "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b
-    "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
   parameter Boolean animation=true
     "= true, if animation shall be enabled (show box between frame_a and frame_b)";
   parameter SI.Position r[3](start={0.1,0,0})
@@ -149,8 +144,6 @@ model BodyBox
     specularCoefficient=specularCoefficient) annotation (Placement(
         transformation(extent={{-30,-20},{10,20}})));
 
-protected
-  outer Modelica.Mechanics.MultiBody.World world;
 equation
   r_0 = frame_a.r_0;
   v_0 = der(r_0);
