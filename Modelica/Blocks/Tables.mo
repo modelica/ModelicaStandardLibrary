@@ -157,6 +157,10 @@ extrapolation = 1: Hold the first or last value of the table,
                    this means to extrapolate linearly through the first/last
                    two table points.).
               = 3: Periodically repeat the table data (periodical function).
+                   Because no assumption can be made about the spacing of the
+                   samples -- defined in the first column -- the repetition period
+                   is table[end,1]-table[1,1]. See 'ContinuityPeriodicTableExtrapolation'
+                   in the examples.
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, the table value is returned,
@@ -428,6 +432,10 @@ extrapolation = 1: Hold the first or last value of the table,
                    this means to extrapolate linearly through the first/last
                    two table points.).
               = 3: Periodically repeat the table data (periodical function).
+                   Because no assumption can be made about the spacing of the
+                   samples -- defined in the first column -- the repetition period
+                   is table[end,1]-table[1,1]. See 'ContinuityPeriodicTableExtrapolation'
+                   in the examples.
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, the table value is returned,
@@ -635,6 +643,10 @@ extrapolation = 1: Hold the first or last values of the table,
                    this means to extrapolate linearly through the first/last
                    two table points.).
               = 3: Periodically repeat the table data (periodical function).
+                   Because no assumption can be made about the spacing of the
+                   samples, the repetition period is table[end,1]-table[2,1]
+                   and table[1,end]-table[1,2] for columns and rows respectively. 
+                   See 'ContinuityPeriodicTableExtrapolation' in the examples.
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one element</strong>, the table value is returned,
@@ -833,6 +845,10 @@ extrapolation = 1: Hold the first or last values of the table,
                    this means to extrapolate linearly through the first/last
                    two table points.).
               = 3: Periodically repeat the table data (periodical function).
+                   Because no assumption can be made about the spacing of the
+                   samples, the repetition period is table[end,1]-table[2,1]
+                   and table[1,end]-table[1,2] for columns and rows respectively. 
+                   See 'ContinuityPeriodicTableExtrapolation' in the examples.
               = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one element</strong>, the table value is returned,
