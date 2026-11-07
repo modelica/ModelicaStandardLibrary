@@ -144,10 +144,6 @@ model IMC_InverterDrive
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,40})));
-  Polyphase.Sensors.VoltageSensor voltageSensor
-    annotation (Placement(transformation(extent={{50,10},{70,-10}})));
-  Blocks.Math.Harmonic harmonic(f=50, k=1)
-    annotation (Placement(transformation(extent={{72,10},{92,30}})));
 initial equation
   inductor.i[1:2] = zeros(2);
   aimc.is[1:3] = zeros(3);
@@ -199,12 +195,6 @@ equation
     annotation (Line(points={{-80,20},{-80,10}}, color={0,0,255}));
   connect(gridCurrent.plug_n, sineVoltage.plug_p)
     annotation (Line(points={{-80,-10},{-80,-20}}, color={0,0,255}));
-  connect(voltageSensor.plug_p, terminalBox.plug_sp)
-    annotation (Line(points={{50,0},{50,-20},{36,-20}}, color={0,0,255}));
-  connect(voltageSensor.plug_n, terminalBox.plug_sn) annotation (Line(points={{
-          70,0},{70,-12},{24,-12},{24,-20}}, color={0,0,255}));
-  connect(harmonic.u, voltageSensor.v[1])
-    annotation (Line(points={{70,20},{60,20},{60,11.3333}}, color={0,0,127}));
   annotation (experiment(
       StopTime=1.5,
       Interval=5e-05,
