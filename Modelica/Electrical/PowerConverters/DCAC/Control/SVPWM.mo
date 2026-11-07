@@ -53,15 +53,15 @@ algorithm
     tb:=min(uRef*sin(phiSec)/sin(pi/m), 1);
     ta:=min(uRef*cos(phiSec) - tb*cos(pi/m), 1);
     t0:=max(1 - ta - tb, 0);
-    // take sector number into account: swapping for sectors 2,4,6
+    // take sector number into account: swapping for sectors 1,3,5
     if mod(ka, 2) == 0 then
-      // sectors 1,3,5
+      // sectors 2,4,6
       k1:=ka;
       k2:=kb;
       t1:=ta;
       t2:=tb;
     else
-      // sectors 2,4,6
+      // sectors 1,3,5
       k1:=kb;
       k2:=ka;
       t1:=tb;
