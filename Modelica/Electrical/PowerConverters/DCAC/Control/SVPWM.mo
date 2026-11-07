@@ -27,7 +27,7 @@ protected
   Integer ka(start=0, fixed=true), kb(start=0, fixed=true) "Switching patterns limiting the sector";
   discrete SI.Angle phiSec(start=0, fixed=true) "Angle of reference vector within sector within [0, pi/m)";
   discrete Real ta(start=0, fixed=true), tb(start=0, fixed=true), t0(start=1, fixed=true) "Relative time spans of vectors a, b, and 0";
-  // take sector number into account: swapping for sectors 1,3,5
+  // take sector number into account: swapping for sectors 2,4,6
   Integer k1(start=0, fixed=true), k2(start=0, fixed=true) "Switching patterns limiting the sector";
   discrete Real t1(start=0, fixed=true), t2(start=0, fixed=true) "Relative time spans of first and second active vector";
   discrete SI.Time T0(start=startTime, fixed=true) "Start time of switching interval";
@@ -53,19 +53,19 @@ algorithm
     tb:=min(uRef*sin(phiSec)/sin(pi/m), 1);
     ta:=min(uRef*cos(phiSec) - tb*cos(pi/m), 1);
     t0:=max(1 - ta - tb, 0);
-    // take sector number into account: swapping for sectors 1,3,5
+    // take sector number into account: swapping for sectors 2,4,6
     if mod(ka, 2) == 0 then
       // sectors 2,4,6
-      k1:=ka;
-      k2:=kb;
-      t1:=ta;
-      t2:=tb;
-    else
-      // sectors 1,3,5
       k1:=kb;
       k2:=ka;
       t1:=tb;
       t2:=ta;
+    else
+      // sectors 1,3,5
+      k1:=ka;
+      k2:=kb;
+      t1:=ta;
+      t2:=tb;
     end if;
     //Remember start time of switching interval
     T0:=time;
@@ -134,13 +134,23 @@ The relative time spans for averaging over one switching period are determined b
 <li>t<sub>a</sub> + t<sub>b</sub> + t<sub>0</sub> = 1</li>
 </ul>
 <p>
-For sectors 1,3,5 ta and tb as well as the vector indices ka and kb have to get swapped. 
-The results are t1 and t2 as well as k1 and k2, swapped for sector 1,3,5 and without swapping for sector 2,4,6.
+To obtain the positive fire signal, the switching time spans are distributed symmetrically.
+Depending on the sector, the following switching patterns are applied:
 </p>
-<p>
-To obtain the positive fire signal, the switching time spans are distributed symmetrically:
-t<sub>0</sub>/4 + t<sub>1</sub>/2 + t<sub>2</sub>/2 +t<sub>0</sub>/2 + t<sub>2</sub>/2 + t<sub>1</sub>/2 + t<sub>0</sub>/4
-</p>
+<table>
+<tr><td>sector 1</td><td>t<sub>0</sub>/4</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 100          </td><td> 110           </td><td> 111           </td><td> 110           </td><td> 100           </td><td> 000           </td></tr>
+<tr><td>sector 2</td><td>t<sub>0</sub>/4</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 010          </td><td> 110           </td><td> 111           </td><td> 110           </td><td> 010           </td><td> 000           </td></tr>
+<tr><td>sector 3</td><td>t<sub>0</sub>/4</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 010          </td><td> 011           </td><td> 111           </td><td> 011           </td><td> 010           </td><td> 000           </td></tr>
+<tr><td>sector 4</td><td>t<sub>0</sub>/4</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 001          </td><td> 011           </td><td> 111           </td><td> 011           </td><td> 001           </td><td> 000           </td></tr>
+<tr><td>sector 5</td><td>t<sub>0</sub>/4</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 001          </td><td> 101           </td><td> 111           </td><td> 101           </td><td> 001           </td><td> 000           </td></tr>
+<tr><td>sector 6</td><td>t<sub>0</sub>/4</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 100          </td><td> 101           </td><td> 111           </td><td> 101           </td><td> 100           </td><td> 000           </td></tr>
+</table>
 <p>
 The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
 </p>
