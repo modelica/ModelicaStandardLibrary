@@ -5,13 +5,14 @@ model IMC_InverterDrive
   import Modelica.Constants.pi;
   import Modelica.Electrical.Polyphase.Functions.factorY2DC;
   constant Integer m=3 "Number of phases";
-  parameter SI.Voltage VNominal=400
-    "Nominal RMS voltage per machine phase (D) = line-to-line at the grid";
-  parameter SI.Frequency fNominal=50 "Nominal frequency = grid frequency";
+  parameter SI.Frequency fGrid=50 "Grid frequency";
+  parameter SI.Voltage V_LL=400 "RMS line-to-line grid voltage";
+  parameter SI.Voltage V_DC=sqrt(2)*V_LL*3/pi "DC voltage (six-pulse) w/o voltage drop";
+  parameter SI.Voltage V_max=2/3*V_DC*cos(pi/6) "Maximum space vector (incircle of hexagon)";
+  parameter SI.Voltage VNominal=400 "Nominal RMS voltage per machine phase (D)";
+  parameter SI.Frequency fNominal=50 "Nominal frequency of machine";
   parameter SI.Resistance RGrid=10e-3 "Grid choke resistance";
   parameter SI.Inductance LGrid=250e-6 "Grid choke inductance";
-  parameter SI.Voltage VDC=factorY2DC(m)*VNominal/sqrt(3)
-    "Theoretical (average) DC voltage (w/o grid voltage drop)";
   parameter SI.Capacitance CDC=5e-3 "DC capacitor";
   parameter SI.Frequency fSwitch=2000 "Switching frequency";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
@@ -21,10 +22,10 @@ model IMC_InverterDrive
   Polyphase.Sources.SineVoltage sineVoltage(
     final m=m,
     final phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-    final f=fill(fNominal, m),
+    final f=fill(fGrid, m),
     final offset=zeros(m),
     final startTime=zeros(m),
-    final V=fill(VNominal*sqrt(2/3), m))
+    final V=fill(V_LL*sqrt(2/3), m))
   annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -60,7 +61,7 @@ model IMC_InverterDrive
   PowerConverters.ACDC.DiodeBridge2mPulse rectifier(RonDiode=1e-4, GoffDiode=
         1e-4)
     annotation (Placement(transformation(extent={{-68,60},{-48,80}})));
-  Analog.Basic.Capacitor capacitor(v(fixed=true, start=VDC), C=CDC)
+  Analog.Basic.Capacitor capacitor(v(fixed=true, start=V_DC),C=CDC)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -139,10 +140,14 @@ model IMC_InverterDrive
         origin={0,10})));
   PowerConverters.DCAC.Control.PWM pwm(
     pwmType=Modelica.Electrical.PowerConverters.Types.PWMType.SVPWM,
-                                       uMax=2/3*VDC, f=fSwitch)
+    uMax=V_max,                                      f=fSwitch)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,40})));
+  Polyphase.Sensors.VoltageSensor voltageSensor
+    annotation (Placement(transformation(extent={{50,10},{70,-10}})));
+  Blocks.Math.Harmonic harmonic(f=50, k=1)
+    annotation (Placement(transformation(extent={{72,10},{92,30}})));
 initial equation
   inductor.i[1:2] = zeros(2);
   aimc.is[1:3] = zeros(3);
@@ -194,6 +199,12 @@ equation
     annotation (Line(points={{-80,20},{-80,10}}, color={0,0,255}));
   connect(gridCurrent.plug_n, sineVoltage.plug_p)
     annotation (Line(points={{-80,-10},{-80,-20}}, color={0,0,255}));
+  connect(voltageSensor.plug_p, terminalBox.plug_sp)
+    annotation (Line(points={{50,0},{50,-20},{36,-20}}, color={0,0,255}));
+  connect(voltageSensor.plug_n, terminalBox.plug_sn) annotation (Line(points={{
+          70,0},{70,-12},{24,-12},{24,-20}}, color={0,0,255}));
+  connect(harmonic.u, voltageSensor.v[1])
+    annotation (Line(points={{70,20},{60,20},{60,11.3333}}, color={0,0,127}));
   annotation (experiment(
       StopTime=1.5,
       Interval=5e-05,
@@ -216,11 +227,21 @@ This is a model of a complete inverter drive comprising:
 <h4>Note:</h4>
 <p>
 Default machine parameters are adapted to nominal phase voltage 400 V (delta connection) and nominal phase current 25 A.<br>
-Be patient, two switching devices cause many event iterations which cost performance.<br>
-The average of the DC voltage with ripple and the voltage drop at the grid's choke cause 
-the DC voltage being noticeable lower than the theoretical (ideal) value (peak value of the grid line-to-line voltage).<br>
-Therefore the voltage at the machine's terminal will stay lower than the nominal voltage, even with space vector PWM.<br>
-Using an intersective PWM without additonal measures, the machine's voltage is even lower.
+Be patient, two switching devices cause many event iterations which cost performance.
+</p>
+<p>
+The DC voltage which shows a ripple with a frequency of six times the grid frequency. 
+The average is too low to reach the full nominal voltage at the machine, even with space vector PWM. 
+Additonally the voltage drop at the grid lowers the DC voltage. 
+The machine can't reach nominal speed and draws a higher current.<br>
+Using intersective PWM, the DC voltage is lower by a factor 3/&pi; than with SVPWM. 
+The machine's speed is even lower and the current consumption higher.<br>
+<strong>
+A comparison of results obtained with SVPWM and intersective PWM will show remarkable dofferences, 
+e.g. when looking at the rotor frequency (aimc.airGap.psi_mr[]).
+</strong><br>
+Additional measures like injection of third harmonic would imporve the result of intersective PWM.
+An active grid rectifier would lead to a nearly perfect result, since the DC voltage can be controlled.
 </p>
 </html>"));
 end IMC_InverterDrive;
