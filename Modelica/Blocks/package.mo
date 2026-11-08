@@ -1679,8 +1679,10 @@ The output is constant from the beginning.
 
   model ComparePulses "Compare Gaussian and rectangular pulse"
     extends Modelica.Icons.Example;
-    Modelica.Blocks.Sources.GaussianPulse gaussianPulse(duration=1,
-      period=4,                                                     startTime=2)
+    Modelica.Blocks.Sources.GaussianPulse gaussianPulse(
+      duration=1,
+      period=4,
+      startTime=2)
       annotation (Placement(transformation(extent={{-30,10},{-10,30}})));
     Modelica.Blocks.Continuous.Integrator integrator1
       annotation (Placement(transformation(extent={{10,10},{30,30}})));
