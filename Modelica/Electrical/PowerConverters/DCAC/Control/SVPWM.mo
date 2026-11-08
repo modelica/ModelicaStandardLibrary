@@ -43,6 +43,11 @@ algorithm
     // we do not get values at 2*pi since that will look odd.
     phiPos:=max(0, phiRef + (if phiRef < -2*pi*Modelica.Constants.eps then 2*pi else 0));
     //Determine sector and neighbour sector
+    /* NOTE: 
+    sector and vector indices are shifted by 1 compared to indices ka and kb
+    ka = number of left  vector - 1 = number of sector - 1
+    kb = number of right vector - 1 = ka + 1
+    */
     ka:=min(integer(phiPos/(pi/m)), 2*m-1); // The min guards against roundoff
     kb:=mod(ka+1, 2*m);
     //Determine angle within sector in the range of [0, pi/m)
@@ -54,7 +59,7 @@ algorithm
     ta:=min(uRef*cos(phiSec) - tb*cos(pi/m), 1);
     t0:=max(1 - ta - tb, 0);
     // take sector number into account: swapping for sectors 2,4,6
-    if mod(ka, 2) == 0 then
+    if mod(ka + 1, 2) == 0 then
       // sectors 2,4,6
       k1:=kb;
       k2:=ka;
