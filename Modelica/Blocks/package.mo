@@ -1708,8 +1708,9 @@ The output is constant from the beginning.
         Interval=0.001,
         Tolerance=1e-06), Documentation(info="<html>
 <p>
-Compare a single Gaussian pulse with a single rectangular pulse with the same amplitude and the same area under the curve.
-
+Compare a <a href=\"modelica:/Modelica.Blocks.Sources.GaussianPulse\">single Gaussian pulse</a> with
+a <a href=\"modelica:/Modelica.Blocks.Sources.Pulse\">single rectangular pulse</a> with the same
+amplitude and the same area under the curve.
 </p>
 </html>"));
   end ComparePulses;
