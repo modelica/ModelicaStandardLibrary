@@ -12,7 +12,7 @@ package Examples
   model PID_Controller
     "Demonstrates the usage of a Continuous.LimPID controller"
     extends Modelica.Icons.Example;
-    parameter SI.Angle driveAngle=1.570796326794897
+    parameter SI.Angle driveAngle=45/180*Modelica.Constants.pi
       "Reference distance to move";
     Modelica.Blocks.Continuous.LimPID PI(
       k=100,
