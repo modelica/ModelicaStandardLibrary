@@ -5,7 +5,7 @@ model CurrentSource "Constant AC current"
   parameter SI.Current I(start=1) "RMS current of the source";
   parameter SI.Angle phi(start=0) "Phase shift of the source";
 equation
-  omega = 2*Modelica.Constants.pi*f;
+  pin_p.reference.gamma = 2*Modelica.Constants.pi*f*time "Avoid integration error in loops";
   i = Complex(I*cos(phi), I*sin(phi));
   annotation (
     Icon(graphics={

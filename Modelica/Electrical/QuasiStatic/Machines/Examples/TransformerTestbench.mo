@@ -11,8 +11,7 @@ model TransformerTestbench "Transformer test bench"
   QuasiStatic.Polyphase.Sources.VoltageSource source(
     f=50,
     V=fill(100/sqrt(3), 3),
-    m=m,
-    gamma(fixed=true, start=0)) annotation (Placement(transformation(
+    m=m) annotation (Placement(transformation(
         origin={-90,0},
         extent={{-10,10},{10,-10}},
         rotation=270)));
