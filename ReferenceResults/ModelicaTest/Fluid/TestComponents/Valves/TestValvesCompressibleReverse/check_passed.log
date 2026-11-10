@@ -1,0 +1,11 @@
+Check of <a href="Modelica://ModelicaTest.Fluid.TestComponents.Valves.TestValvesCompressibleReverse">ModelicaTest.Fluid.TestComponents.Valves.TestValvesCompressibleReverse</a>
+The model has the same number of unknowns and equations: 284
+The model could not be deduced to be symbolically well-posed.
+The model has
+  284
+scalar unknowns and
+  255+2*SourceP1.nPorts+(if  not SourceP1.use_p_in then 1 else 0)+(if  not   SourceP1.use_T_in then 1 else 0)+(if  not SourceP1.use_X_in then 1 else 0)+2*  SourceP2.nPorts+(if  not SourceP2.use_p_in then 1 else 0)+(if  not   SourceP2.use_T_in then 1 else 0)+(if  not SourceP2.use_X_in then 1 else 0)+2*  SinkP1.nPorts+(if  not SinkP1.use_p_in then 1 else 0)+(if  not SinkP1.use_T_in   then 1 else 0)+(if  not SinkP1.use_X_in then 1 else 0)+2*SinkP2.nPorts+(if    not SinkP2.use_p_in then 1 else 0)+(if  not SinkP2.use_T_in then 1 else 0)+(  if  not SinkP2.use_X_in then 1 else 0)+2*SinkP3.nPorts+(if  not   SinkP3.use_p_in then 1 else 0)+(if  not SinkP3.use_T_in then 1 else 0)+(if    not SinkP3.use_X_in then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  284
+Check of <a href="Modelica://ModelicaTest.Fluid.TestComponents.Valves.TestValvesCompressibleReverse">ModelicaTest.Fluid.TestComponents.Valves.TestValvesCompressibleReverse</a> successful.

@@ -64,10 +64,11 @@ model FreeMotion
     "Orientation object from frame_a to frame_b at initial time";
 
 protected
-  Visualizers.Advanced.Arrow arrow(
-    r_head=r_rel_a,
+  Visualizers.Advanced.Vector arrow(
+    coordinates=r_rel_a,
     color=arrowColor,
     specularCoefficient=specularCoefficient,
+    quantity=Types.VectorQuantity.RelativePosition,
     r=frame_a.r_0,
     R=frame_a.R) if world.enableAnimation and animation;
 

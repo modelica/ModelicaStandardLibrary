@@ -1,0 +1,37 @@
+Translation of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel.SinglePhaseTwoLevel_R">Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel.SinglePhaseTwoLevel_R</a>
+The DAE has 171 scalar unknowns and 171 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 42
+  Variables: 312
+  Constants: 8 (8 scalars)
+  Parameters: 137 (137 scalars)
+  Unknowns: 167 (171 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 179
+  Nontrivial: 157
+Translated Model
+  Constants: 63 scalars
+  Free parameters: 48 scalars
+  Parameter depending: 46 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 58 scalars
+  Alias variables: 101 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {14}
+  Sizes after manipulation of the linear systems: {4}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel.SinglePhaseTwoLevel_R#text$fundamentalWaveCurrent.mean1:x">fundamentalWaveCurrent.mean1.x</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel.SinglePhaseTwoLevel_R#text$fundamentalWaveCurrent.mean2:x">fundamentalWaveCurrent.mean2.x</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel.SinglePhaseTwoLevel_R#text$fundamentalWaveVoltage.mean1:x">fundamentalWaveVoltage.mean1.x</a>
+<a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel.SinglePhaseTwoLevel_R#text$fundamentalWaveVoltage.mean2:x">fundamentalWaveVoltage.mean2.x</a>
+Finished

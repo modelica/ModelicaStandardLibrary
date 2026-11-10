@@ -1,0 +1,7 @@
+time
+friction.v_rel
+innerContactA.s_rel
+innerContactB.s_rel
+outerContactA.v_rel
+outerContactB.s_rel
+outerContactB.v_rel

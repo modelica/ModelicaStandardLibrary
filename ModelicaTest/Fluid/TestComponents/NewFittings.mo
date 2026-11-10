@@ -100,8 +100,7 @@ This model executes pressure loss calculations out of the <strong> Fluid.Dissipa
     model ThickEdgedOrifice
       extends Modelica.Icons.Example;
       parameter
-        Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry
-                                                                                geometry=
+        Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry geometry=
     Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Choices.circular(diameter=0.1, venaDiameter=0.01, venaLength=0.001) annotation (Placement(transformation(extent={{12,72},{32,92}})));
       extends ModelicaTest.Fluid.TestComponents.NewFittings.PartialFittingTest(
                                  redeclare model FittingComponent =

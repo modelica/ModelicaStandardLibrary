@@ -1,0 +1,11 @@
+Check of <a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLosslessLines">Modelica.Electrical.Analog.Examples.Lines.CompareLosslessLines</a>
+The model has the same number of unknowns and equations: 118
+The model could not be deduced to be symbolically well-posed.
+The model has
+  118
+scalar unknowns and
+  114+(if  not ri1.useHeatPort then 1 else 0)+(if  not ri2.useHeatPort then 1   else 0)+(if  not load2.useHeatPort then 1 else 0)+(if  not ri3.useHeatPort   then 1 else 0)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  118
+Check of <a href="Modelica://Modelica.Electrical.Analog.Examples.Lines.CompareLosslessLines">Modelica.Electrical.Analog.Examples.Lines.CompareLosslessLines</a> successful.

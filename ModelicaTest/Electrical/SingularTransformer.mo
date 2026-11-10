@@ -24,9 +24,9 @@ model SingularTransformer
   Modelica.Electrical.Analog.Basic.Ground ground2 annotation (Placement(
         transformation(extent={{68,0},{88,20}})));
   Modelica.Electrical.Analog.Basic.Transformer basicTransformer(
-    L1=L,
-    L2=L,
-    M=L,
+    final L1=L,
+    final L2=L,
+    final M=L,
     i1(fixed=true)) annotation (Placement(transformation(extent={{-10,32},{10,52}})));
 equation
   connect(sineVoltage1.n, ground1.p)

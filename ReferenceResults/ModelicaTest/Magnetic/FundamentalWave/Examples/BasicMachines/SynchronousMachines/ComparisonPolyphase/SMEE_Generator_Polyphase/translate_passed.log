@@ -1,0 +1,56 @@
+Translation of <a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase">ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase</a>
+The DAE has 2293 scalar unknowns and 2293 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 478
+  Variables: 2938
+  Constants: 9 (9 scalars)
+  Parameters: 782 (888 scalars)
+  Unknowns: 2147 (2293 scalars)
+  Differentiated variables: 42 scalars
+  Equations: 1196
+  Nontrivial: 957
+Translated Model
+  Constants: 906 scalars
+  Free parameters: 76 scalars
+  Parameter depending: 357 scalars
+  Continuous time states: 10 scalars
+  Time-varying variables: 411 scalars
+  Alias variables: 1440 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {21, 25, 15, 21, 8, 4, 15}
+  Sizes after manipulation of the linear systems: {7, 4, 2, 7, 0, 2, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {12, 2, 2}
+    Sizes after manipulation of the linear systems: {3, 2, 2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$constantSpeed3:phi">constantSpeed3.phi</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$constantSpeedM:phi">constantSpeedM.phi</a>
+Dynamically selected continuous time states
+There are 2 sets of dynamic state selection.
+From set 1 there are 4 states to be selected from:
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smeeM.excitation.electroMagneticConverter.Phi:re">smeeM.excitation.electroMagneticConverter.Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smeeM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smeeM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smeeM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smeeM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smeeM.stator.stray.port_p.Phi:im">smeeM.stator.stray.port_p.Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smeeM.stator.stray.port_p.Phi:re">smeeM.stator.stray.port_p.Phi.re</a>
+From set 2 there are 4 states to be selected from:
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smee3.excitation.electroMagneticConverter.Phi:re">smee3.excitation.electroMagneticConverter.Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smee3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smee3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smee3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smee3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smee3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:re">smee3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smee3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter.Phi:im">smee3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smee3.stator.stray.port_p.Phi:im">smee3.stator.stray.port_p.Phi.im</a>
+<a href="Modelica://ModelicaTest.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase#text$smee3.stator.stray.port_p.Phi:re">smee3.stator.stray.port_p.Phi.re</a>
+Finished

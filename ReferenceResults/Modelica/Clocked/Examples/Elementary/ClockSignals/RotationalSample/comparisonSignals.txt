@@ -1,0 +1,5 @@
+time
+sample_angle.y
+rotationalClock.angle
+rotationalClock.direction
+rotationalClock.direction_changed

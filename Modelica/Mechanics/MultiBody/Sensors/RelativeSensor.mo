@@ -136,11 +136,12 @@ protected
 protected
   outer Modelica.Mechanics.MultiBody.World world;
 
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector arrow(
     r=frame_a.r_0,
-    r_head=frame_b.r_0 - frame_a.r_0,
+    coordinates=frame_b.r_0 - frame_a.r_0,
+    quantity=Types.VectorQuantity.RelativePosition,
     color=arrowColor,
-    specularCoefficient) if world.enableAnimation and animation;
+    specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
 equation
   connect(relativePosition.frame_a, frame_a) annotation (Line(
       points={{-80,0},{-100,0}},
@@ -211,7 +212,7 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(frame_resolve, relativePosition.frame_resolve) annotation (Line(
-      points={{100,80},{50,80},{50,20},{-30,20},{-30,8.1},{-60,8.1}},
+      points={{100,80},{50,80},{50,20},{-30,20},{-30,8},{-60,8}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(frame_resolve, zeroForce3.frame_a) annotation (Line(
@@ -220,7 +221,7 @@ equation
       pattern=LinePattern.Dot));
   connect(relativeAngularVelocity.frame_resolve, frame_resolve) annotation (
       Line(
-      points={{70,-21.9},{70,-21.9},{70,20},{50,20},{50,80},{100,80}},
+      points={{70,-22},{70,-22},{70,20},{50,20},{50,80},{100,80}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(der2.y, transformVector_a_rel.r_in) annotation (Line(

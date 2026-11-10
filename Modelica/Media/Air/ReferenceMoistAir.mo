@@ -934,6 +934,7 @@ package ReferenceMoistAir
         Real cp;
         Real Eu;
         Real lambdad;
+        constant SI.ThermalConductivity lambda_ice=2.21 "Thermal conductivity of ice";
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Transport.coef coef;
 
       algorithm
@@ -991,7 +992,7 @@ package ReferenceMoistAir
             lambdad := 0.083232*sqrt(T/coef.M)/(coef.sigma^2*Omega)*Eu;
             lambda := ya*
               Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.lambda_dT(
-              da, T) + yd*lambdad + yf*2.21;
+              da, T) + yd*lambdad + yf*lambda_ice;
           else
             dd :=
               Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.rho_pT(pd,
@@ -1859,7 +1860,7 @@ package ReferenceMoistAir
         rho := max(p/(g.R_s*T*g.pi*g.gpi), 1e-9);
         h_der := (1/rho - T*vt)*p_der - g.R_s*g.tau*g.tau*g.gtautau*T_der;
       end h_pT_der;
-  annotation (Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This is a makeshift package avoiding the region validity checks of the IF97 utility functions
 <a href=\"modelica:/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2\">BaseIF97.Basic.g2</a>,
@@ -2820,7 +2821,7 @@ for region 2.
           if (T >= 773.15) then
             cp := X[1]*
               Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(pd,
-              T) + X[2]*Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,
+              T) + (1 - X[1])*Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,
               T) + Modelica.Media.Air.ReferenceMoistAir.Utilities.cp_dis_pTX(
                   p,
                   T,
@@ -2828,7 +2829,7 @@ for region 2.
           else
             cp := X[1]*
               Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.cp_pT(pd,
-              T) + X[2]*Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,
+              T) + (1 - X[1])*Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(pl,
               T);
           end if;
         else
@@ -2866,7 +2867,7 @@ for region 2.
         if ((xw <= xws) or (xws == -1)) then
           cv := X[1]*
             Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.cv_pT(pd, T)
-             + X[2]*Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT(pl, T);
+             + (1 - X[1])*Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT(pl, T);
         else
           cv := -1;
         end if;
@@ -2952,7 +2953,7 @@ for region 2.
       if (useDissociation == false) then
         u := 0;
       else
-        massFraction := {X[1],X[2]*Xi_Air[1],X[2]*Xi_Air[2],X[2]*Xi_Air[3]};
+        massFraction := {X[1],(1 - X[1])*Xi_Air[1],(1 - X[1])*Xi_Air[2],(1 - X[1])*Xi_Air[3]};
         for i in 1:4 loop
           invMMX[i] := 1/MMX[i];
         end for;
@@ -3113,7 +3114,7 @@ for region 2.
       if (useDissociation == false) then
         u := 0;
       else
-        massFraction := {X[1],X[2]*Xi_Air[1],X[2]*Xi_Air[2],X[2]*Xi_Air[3]};
+        massFraction := {X[1],(1 - X[1])*Xi_Air[1],(1 - X[1])*Xi_Air[2],(1 - X[1])*Xi_Air[3]};
         for i in 1:4 loop
           invMMX[i] := 1/MMX[i];
         end for;
@@ -3189,7 +3190,7 @@ for region 2.
       if (useDissociation == false) then
         u := 0;
       else
-        massFraction := {X[1],X[2]*Xi_Air[1],X[2]*Xi_Air[2],X[2]*Xi_Air[3]};
+        massFraction := {X[1],(1 - X[1])*Xi_Air[1],(1 - X[1])*Xi_Air[2],(1 - X[1])*Xi_Air[3]};
         for i in 1:4 loop
           invMMX[i] := 1/MMX[i];
         end for;
@@ -3549,9 +3550,9 @@ for region 2.
         //u := 0;
         u_der := 0;
       else
-        massFraction := {X[1],X[2]*Xi_Air[1],X[2]*Xi_Air[2],X[2]*Xi_Air[3]};
-        massFraction_der := {X_der[1],X_der[2]*Xi_Air[1],X_der[2]*Xi_Air[2],
-          X_der[2]*Xi_Air[3]};
+        massFraction := {X[1],(1 - X[1])*Xi_Air[1],(1 - X[1])*Xi_Air[2],(1 - X[1])*Xi_Air[3]};
+        massFraction_der := {X_der[1],-X_der[1]*Xi_Air[1],-X_der[1]*Xi_Air[2],
+          -X_der[1]*Xi_Air[3]};
         for i in 1:4 loop
           invMMX[i] := 1/MMX[i];
         end for;
@@ -4152,7 +4153,7 @@ Some parts of this library refer to the ThermoFluid library developed at Lund Un
 </p>
 
 <p>
-Copyright &copy; 2013-2020, Modelica Association and contributors
+Copyright &copy; 2013-2025, Modelica Association and contributors
 </p>
 </html>"));
 end ReferenceMoistAir;

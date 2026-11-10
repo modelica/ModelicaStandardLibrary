@@ -84,11 +84,10 @@ SCRIT and HCRIT are calculated from Helmholtz function for region 3.</p>
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -148,11 +147,10 @@ Critical point data for IF97 steam properties. SCRIT and HCRIT are calculated fr
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -181,11 +179,10 @@ email: hubertus@modelon.se
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -229,7 +226,7 @@ email: hubertus@modelon.se
           "IF97 medium function boundary23ofp called with too low pressure\n"
            + "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
           " Pa (triple point pressure)");
-        t := n[4] + ((pi - n[5])/n[3])^0.5;
+        t := n[4] + sqrt((pi - n[5])/n[3]);
       end boundary23ofp;
 
       function hlowerofp5
@@ -423,7 +420,7 @@ email: hubertus@modelon.se
           "IF97 medium function hlowerofp2 called with too low pressure\n" +
           "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
           " Pa (triple point pressure)");
-        q1 := 572.54459862746 + 31.3220101646784*(-13.91883977887 + pi)^0.5;
+        q1 := 572.54459862746 + 31.3220101646784*sqrt(-13.91883977887 + pi);
         q2 := -0.5 + 540./q1;
         o[1] := q1*q1;
         o[2] := o[1]*o[1];
@@ -514,7 +511,7 @@ email: hubertus@modelon.se
           "IF97 medium function slowerofp2 called with too low pressure\n" +
           "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
           " Pa (triple point pressure)");
-        q1 := 572.54459862746 + 31.3220101646784*(-13.91883977887 + pi)^0.5;
+        q1 := 572.54459862746 + 31.3220101646784*sqrt(-13.91883977887 + pi);
         q2 := -0.5 + 540.0/q1;
         o[1] := pi*pi;
         o[2] := o[1]*pi;
@@ -1717,7 +1714,6 @@ Authors: Hubertus Tummescheit, Jonas Eborn and Falko Jens Wagner<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -3113,8 +3109,8 @@ email: hubertus@modelon.se
       function tsat_der "Derivative function for tsat"
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
-        input Real der_p(unit="Pa/s") "Pressure derivative";
-        output Real der_tsat(unit="K/s") "Temperature derivative";
+        input SI.PressureSlope der_p "Pressure derivative";
+        output SI.TemperatureSlope der_tsat "Temperature derivative";
       protected
         Real dtp;
       algorithm
@@ -3143,9 +3139,9 @@ email: hubertus@modelon.se
         o[7] := 14.9151086135300*o[6];
         o[8] := 405113.40542057 + o[5] + o[7];
         p_sat := 16.0e6*o[8]*o[8]*o[8]*o[8]*1/(3.2325550322333e6 -
-          12020.8247024700*o[4] + 17.0738469400920*o[6] + (-4.0*(-724213.16703206
+          12020.8247024700*o[4] + 17.0738469400920*o[6] + sqrt(-4.0*(-724213.16703206
            + 1167.05214527670*o[4] + o[6])*o[8] + (-3.2325550322333e6 +
-          12020.8247024700*o[4] - 17.0738469400920*o[6])^2.0)^0.5)^4.0;
+          12020.8247024700*o[4] - 17.0738469400920*o[6])^2.0))^4.0;
         annotation (derivative=psat_der);
       end psat;
 
@@ -3201,8 +3197,8 @@ email: hubertus@modelon.se
       function psat_der "Derivative function for psat"
         extends Modelica.Icons.Function;
         input SI.Temperature T "Temperature (K)";
-        input Real der_T(unit="K/s") "Temperature derivative";
-        output Real der_psat(unit="Pa/s") "Pressure";
+        input SI.TemperatureSlope der_T "Temperature derivative";
+        output SI.PressureSlope der_psat "Pressure derivative";
       protected
         Real dpt;
       algorithm
@@ -3855,11 +3851,10 @@ simultaneously optimize the functions and the directional derivatives because th
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -4093,7 +4088,7 @@ Ordinary Water Substance<br>
         deltam1 := delta - 1.0;
         tau := tstar/T;
         taum1 := tau - 1.0;
-        Psi0 := 1/(n0 + (n1 + (n2 + n3*tau)*tau)*tau)/(tau^0.5);
+        Psi0 := 1/(n0 + (n1 + (n2 + n3*tau)*tau)*tau)/(sqrt(tau));
         Psi1 := 0.0;
         tfun := 1.0;
         for i in 1:6 loop
@@ -4354,7 +4349,6 @@ Authors: Hubertus Tummescheit and Jonas Eborn<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: October 2002</li>
@@ -5014,11 +5008,10 @@ email: hubertus@modelon.se
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -5669,11 +5662,10 @@ email: hubertus@modelon.se
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -5776,11 +5768,10 @@ one phase regions of IAPWS/IF97
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -6051,11 +6042,10 @@ in the two-phase region and on the phase boundaries.
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -6171,16 +6161,15 @@ white-space:nowrap;
   </li>
   <li>
     Code reorganization, enhanced documentation, additional functions:   <em>December, 2002</em>
-    by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
+    by <a href=\"https://github.com/hubertus65\">Hubertus Tummescheit</a> and moved to Modelica
     properties library.
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 <p>
 In September 1997, the International Association for the Properties
@@ -8721,16 +8710,15 @@ properties library. The following documents are included
   </li>
   <li>
     Code reorganization, enhanced documentation, additional functions:   <em>December, 2002</em>
-    by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
+    by <a href=\"https://github.com/hubertus65\">Hubertus Tummescheit</a> and moved to Modelica
     properties library.
   </li>
 </ul>
 <address>
-Author: Hubertus Tummescheit,<br>
+Author: Hubertus Tummescheit, previously at<br>
 Modelon AB<br>
 Ideon Science Park<br>
 SE-22370 Lund, Sweden<br>
-email: hubertus@modelon.se
 </address>
 </html>", revisions="<html>
 <h4>Intermediate release notes during development</h4>

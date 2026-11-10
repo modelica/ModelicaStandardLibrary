@@ -90,8 +90,7 @@ equation
   connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
       points={{20,-20},{40,-20}}));
   connect(dcpm.pin_an, ground.p)
-    annotation (Line(points={{4,-10},{4,0},{-8,0}},
-                                                   color={0,0,255}));
+    annotation (Line(points={{4,-10},{4,0},{-8,0}}, color={0,0,255}));
   connect(signalVoltage.p, currentSensor.p)
     annotation (Line(points={{20,30},{20,20}}, color={0,0,255}));
   connect(currentSensor.n, dcpm.pin_ap)

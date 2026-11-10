@@ -940,7 +940,7 @@ This also allows for taking into account friction losses with respect to the act
 
             // Assumptions
             parameter Boolean allowFlowReversal=system.allowFlowReversal
-		  "= true, if flow reversal is enabled, otherwise restrict flow to design direction (states[1] -> states[n+1])"
+          "= true, if flow reversal is enabled, otherwise restrict flow to design direction (states[1] -> states[n+1])"
               annotation(Dialog(tab="Internal interface",enable=false,group="Assumptions"), Evaluate=true);
             parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
           "Formulation of momentum balance"

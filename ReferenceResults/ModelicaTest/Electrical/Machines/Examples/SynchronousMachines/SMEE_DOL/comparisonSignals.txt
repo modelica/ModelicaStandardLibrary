@@ -1,0 +1,10 @@
+time
+smee.is[1]
+smee.is[2]
+smee.idq_dr[1]
+smee.idq_rr[2]
+smee.idq_sr[1]
+smee.idq_sr[2]
+smee.inertiaRotor.phi
+smee.inertiaRotor.w
+smee.lesigma.i

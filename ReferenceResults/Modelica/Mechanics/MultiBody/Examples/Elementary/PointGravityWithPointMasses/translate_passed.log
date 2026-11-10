@@ -1,0 +1,41 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses:
+The DAE has 1588 scalar unknowns and 1588 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 62
+  Variables: 709
+  Parameters: 120 (126 scalars)
+  Unknowns: 589 (1588 scalars)
+  Differentiated variables: 24 scalars
+  Equations: 544
+  Nontrivial: 363
+Translated Model
+  Constants: 1245 scalars
+  Free parameters: 23 scalars
+  Parameter depending: 86 scalars
+  Continuous time states: 24 scalars
+  Time-varying variables: 65 scalars
+  Alias variables: 295 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  body1.r_0[]
+  body1.v_0[]
+  body2.r_0[]
+  body2.v_0[]
+  body3.r_0[]
+  body3.v_0[]
+  body4.r_0[]
+  body4.v_0[]
+ 

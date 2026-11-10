@@ -1,0 +1,42 @@
+﻿ = true
+Translation of Modelica.Mechanics.Translational.Examples.HeatLosses:
+The DAE has 169 scalar unknowns and 169 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 20
+  Variables: 261
+  Constants: 21 (21 scalars)
+  Parameters: 71 (73 scalars)
+  Unknowns: 169 (169 scalars)
+  Differentiated variables: 20 scalars
+  Equations: 157
+  Nontrivial: 138
+Translated Model
+  Constants: 47 scalars
+  Free parameters: 52 scalars
+  Parameter depending: 6 scalars
+  Continuous time states: 8 scalars
+  Time-varying variables: 76 scalars
+  Alias variables: 82 scalars
+  Number of mixed real/discrete systems of equations: 3
+  Sizes of linear systems of equations: {4, 3, 4}
+  Sizes after manipulation of the linear systems: {0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  damper.s_rel
+  damper.v_rel
+  massWithStopAndFriction.s
+  massWithStopAndFriction.v
+  springDamper.s_rel
+  springDamper.v_rel
+  springDamper1.s_rel
+  springDamper1.v_rel
+ 

@@ -1,0 +1,4 @@
+time
+der_.c.v
+der_.opAmp.out.v
+der_.opAmp.out.i

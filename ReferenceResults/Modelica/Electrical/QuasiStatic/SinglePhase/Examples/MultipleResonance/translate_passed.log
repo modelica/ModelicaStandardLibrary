@@ -1,0 +1,33 @@
+Translation of <a href="Modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance">Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance</a>
+The DAE has 199 scalar unknowns and 199 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 84
+  Variables: 237
+  Parameters: 38 (38 scalars)
+  Unknowns: 199 (199 scalars)
+  Differentiated variables: 7 scalars
+  Equations: 145
+  Nontrivial: 125
+Translated Model
+  Constants: 21 scalars
+  Free parameters: 19 scalars
+  Parameter depending: 20 scalars
+  Continuous time states: 1 scalars
+  Time-varying variables: 80 scalars
+  Alias variables: 97 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {16}
+  Sizes after manipulation of the linear systems: {4}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance#text$voltageSource.pin_p.reference:gamma">voltageSource.pin_p.reference.gamma</a>
+Finished

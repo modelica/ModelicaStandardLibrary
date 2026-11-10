@@ -2,11 +2,7 @@ time
 inductor.i
 meanCurrent.y
 meanVoltage.y
-hbridge.dc_n1.v
-hbridge.dc_n1.i
-hbridge.dc_p1.v
-hbridge.dc_p1.i
-hbridge.dc_n2.v
-hbridge.dc_n2.i
-hbridge.dc_p2.v
-hbridge.dc_p2.i
+hbridge.vDC1
+hbridge.iDC1
+hbridge.vDC2
+hbridge.iDC2

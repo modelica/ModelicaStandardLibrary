@@ -4,6 +4,7 @@
 # Explicitly declare text files we want to always be normalized and converted
 # to native line endings on checkout.
 *.c text
+*.cmake text
 *.csv text
 *.h text
 *.htm* text
@@ -46,3 +47,5 @@ Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinder.vsdx export-i
 Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Toroid.vsdx export-ignore
 Modelica/Resources/Reference export-ignore
 ModelicaTest/Resources/Reference export-ignore
+
+*.mo linguist-language=Modelica

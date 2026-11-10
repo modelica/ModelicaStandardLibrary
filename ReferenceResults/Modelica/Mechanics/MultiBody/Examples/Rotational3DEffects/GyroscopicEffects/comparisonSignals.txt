@@ -1,0 +1,11 @@
+time
+bodyCylinder2.body.w_a[1]
+bodyCylinder2.body.w_a[2]
+bodyCylinder2.body.w_a[3]
+bodyCylinder3.body.w_a[1]
+bodyCylinder3.body.w_a[2]
+bodyCylinder3.body.w_a[3]
+revolute.phi
+revolute.w
+rotor1D.phi
+rotor1D.w

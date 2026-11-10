@@ -1,0 +1,82 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 07:45:41 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+
+... Results of Modelica.Math.Nonlinear.Examples.quadratureLobatto1:
+Function 1 ( integral(sin(x)*dx) from x=0 to x=1): 
+Analytical integral value = 0.4596976941318602
+Numerical integral value  = 0.4596976941318209
+Absolute difference       = 4e-14
+
+Function 2 (integral(sin(5*x)*dx) from x=0 to x=13): 
+Analytical integral value = 0.3124907702476344
+Numerical integral value  = 0.3124907702520362
+Absolute difference       = 4e-12
+
+Function 3 (Elliptic integral from x=0 to pi/2): 
+Analytical integral value = 1.8540746773013719
+Numerical integral value  = 1.8540746773012193
+Absolute difference       = 2e-13
+
+... Results of Modelica.Math.Nonlinear.Examples.quadratureLobatto2:
+Function 1 (integral(sin(x)*dx)): 
+Numerical integral value  = 0.4596976941318209
+
+Function 2 (integral(sin(w*x)*dx)): 
+Numerical integral value  = 0.3124907702520362
+
+Function 3 (Elliptic integral): 
+Numerical integral value  = 1.8540746773012193
+
+... Results of Modelica.Math.Nonlinear.Examples.solveNonlinearEquations1:
+Solve 3 nonlinear equations with relative tolerance = 1e-13
+
+Function 1 (u^2 - 1 = 0): 
+Analytical zero     = 1.0000000000000000
+Numerical zero      = 1.0000000000000000
+Absolute difference = 0e+00
+
+Function 2 (3*u - sin(3*u) - 1 = 0): 
+Analytical zero     = 0.6448544035840081
+Numerical zero      = 0.6448544035840081
+Absolute difference = 0e+00
+
+Function 3 (5 + log(u) - u = 0): 
+Analytical zero     = 6.9368474072202186
+Numerical zero      = 6.9368474072202186
+Absolute difference = 0e+00
+
+... Results of Modelica.Math.Nonlinear.Examples.solveNonlinearEquations2:
+Solve 3 nonlinear equations with relative tolerance = 1e-13
+
+Function 1 (u^2 - 1): 
+Numerical zero = 1.0000000000000000
+
+Function 2 (3*u - sin(w*u) - 1): 
+Numerical zero = 0.6448544035840081
+
+Function 3 (p[1] + log(p[2]*u) - m*u): 
+Numerical zero = 6.9368474072202186
+... "TestNonlinear.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 0
+   CPU-time for integration                : 0.001 seconds
+   CPU-time for initialization             : 0.011 seconds
+   Number of result points                 : 2
+   Number of grid points                   : 1
+   Number of accepted steps                : 0
+   Number of f-evaluations (dynamics)      : 0
+   Number of Jacobian-evaluations          : 0
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 0
+   Maximum integration stepsize            : 0
+   Maximum integration order               : 0
+Calling terminal section
+... "dsfinal.txt" creating (final states)

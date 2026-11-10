@@ -1,0 +1,10 @@
+time
+meanCurrent.x
+meanVoltage.x
+rootMeanSquareVoltage.mean.x
+idealthyristor.off
+meanCurrent.y
+meanVoltage.y
+pulse2.twoPulse.timerNegative[1].entryTime
+pulse2.twoPulse.timerPositive[1].entryTime
+rootMeanSquareVoltage.mean.y

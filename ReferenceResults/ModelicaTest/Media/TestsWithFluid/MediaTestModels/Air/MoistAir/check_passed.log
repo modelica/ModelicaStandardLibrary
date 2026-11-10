@@ -1,0 +1,11 @@
+Check of <a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.Air.MoistAir">ModelicaTest.Media.TestsWithFluid.MediaTestModels.Air.MoistAir</a>
+The model has the same number of unknowns and equations: 186
+The model could not be deduced to be symbolically well-posed.
+The model has
+  154+16*volume.nPorts
+scalar unknowns and
+  138+(if  not volume.use_portsData then 4*volume.nPorts else 0)+15*volume.nPorts+3  *fixedMassFlowRate.nPorts+(if  not fixedMassFlowRate.use_m_flow_in then 1   else 0)+(if  not fixedMassFlowRate.use_T_in then 1 else 0)+2*(if  not   fixedMassFlowRate.use_X_in then 1 else 0)+3*ambient.nPorts
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  186
+Check of <a href="Modelica://ModelicaTest.Media.TestsWithFluid.MediaTestModels.Air.MoistAir">ModelicaTest.Media.TestsWithFluid.MediaTestModels.Air.MoistAir</a> successful.

@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Tue Jun  2 12:07:52 2026)
+
+dymosim started
+... "Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 1.5
+   CPU-time for integration                : 0.144 seconds
+   CPU-time for one grid interval          : 0.0096 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 15003
+   Number of grid points                   : 15001
+   Number of accepted steps                : 2540
+   Number of f-evaluations (dynamics)      : 5079
+   Number of crossing function evaluations : 17540
+   Number of Jacobian-evaluations          : 61
+   Number of model time events             : 2
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.11e-08
+   Maximum integration stepsize            : 0.00241
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter

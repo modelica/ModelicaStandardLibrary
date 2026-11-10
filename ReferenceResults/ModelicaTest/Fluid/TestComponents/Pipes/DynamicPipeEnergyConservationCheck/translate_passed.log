@@ -1,0 +1,37 @@
+Translation of <a href="Modelica://ModelicaTest.Fluid.TestComponents.Pipes.DynamicPipeEnergyConservationCheck">ModelicaTest.Fluid.TestComponents.Pipes.DynamicPipeEnergyConservationCheck</a>
+The DAE has 3720 scalar unknowns and 3720 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 412
+  Variables: 4153
+  Constants: 56 (56 scalars)
+  Parameters: 1193 (1325 scalars)
+  Unknowns: 2904 (3720 scalars)
+  Differentiated variables: 36 scalars
+  Equations: 1872
+  Nontrivial: 1392
+Translated Model
+  Constants: 1553 scalars
+  Free parameters: 198 scalars
+  Parameter depending: 1262 scalars
+  Alias variables: 2088 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Number of mixed real/discrete systems of equations: 12
+    Sizes of linear systems of equations: {21, 11, 16, 21, 11, 16, 21, 11, 16, 21, 11, 16}
+    Sizes after manipulation of the linear systems: {4, 2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3}
+    Sizes of nonlinear systems of equations: {11, 16, 21, 11, 16, 21, 11, 16, 21, 11, 16, 21}
+    Sizes after manipulation of the nonlinear systems: {2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3, 4}
+    Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Finished

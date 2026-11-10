@@ -136,10 +136,11 @@ protected
 protected
   outer Modelica.Mechanics.MultiBody.World world;
 
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
-    r_head=frame_a.r_0,
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector arrow(
+    coordinates=frame_a.r_0,
+    quantity=Types.VectorQuantity.RelativePosition,
     color=arrowColor,
-    specularCoefficient) if world.enableAnimation and animation;
+    specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
 
 protected
   AbsoluteVelocity absoluteVelocity(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world) if get_a

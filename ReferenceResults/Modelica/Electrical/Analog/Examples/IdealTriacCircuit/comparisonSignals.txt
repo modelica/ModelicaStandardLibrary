@@ -1,0 +1,4 @@
+time
+idealTriac.capacitor.v
+idealTriac.idealThyristor.off
+idealTriac.idealThyristor1.off

@@ -1,0 +1,7 @@
+time
+planar.phi
+planar.s_x
+planar.s_y
+planar.v_x
+planar.v_y
+planar.w

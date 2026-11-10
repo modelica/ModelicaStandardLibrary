@@ -5,15 +5,13 @@ function numberOfSymmetricBaseSystems
   input Integer m=3 "Number of phases";
   output Integer n "Number of symmetric base systems";
 algorithm
-  // Init number of base systems
-  n := 1;
   if mod(m, 2) == 0 then
     // Even number of phases
     if m == 2 then
       // Special case two phase machine
       n := 1;
     else
-      n := n*2*numberOfSymmetricBaseSystems(integer(m/2));
+      n := 2*numberOfSymmetricBaseSystems(integer(m/2));
     end if;
   else
     // Odd number of phases

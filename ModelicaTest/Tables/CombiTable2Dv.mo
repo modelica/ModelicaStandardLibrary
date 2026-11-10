@@ -656,19 +656,15 @@ double mydummyfunc(double dummy_in) {
                   extent={{20,30},{45,15}}),
                 Text(
                   textString="1L",
-                  fillPattern=FillPattern.Solid,
                   extent={{25,35},{40,30}}),
                 Text(
                   textString="1R",
-                  fillPattern=FillPattern.Solid,
                   extent={{25,15},{40,10}}),
                 Text(
                   textString="2L",
-                  fillPattern=FillPattern.Solid,
                   extent={{10,25},{25,20}}),
                 Text(
                   textString="2R",
-                  fillPattern=FillPattern.Solid,
                   extent={{40,25},{55,20}})}),
       experiment(StartTime=0, StopTime=1));
   end Test22;
@@ -1003,7 +999,7 @@ double mydummyfunc(double dummy_in) {
                -70})));
     Modelica.Blocks.Continuous.Der der3
       annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={30,-70})));
-   equation
+  equation
     connect(combiTable2Dv.y[2], der2.u)
       annotation (Line(points={{44,40},{72,40},{72,30},{78,30}},
                                                  color={0,0,127}));
@@ -1038,5 +1034,5 @@ double mydummyfunc(double dummy_in) {
       experiment(
         StartTime=-1,
         StopTime=4));
-   end OneSidedDerivative2D;
+  end OneSidedDerivative2D;
 end CombiTable2Dv;

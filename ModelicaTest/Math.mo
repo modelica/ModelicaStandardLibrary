@@ -762,7 +762,7 @@ extends Modelica.Icons.ExamplesPackage;
 
   model TestMatricesExamplesSolveLinearEquations
     extends Modelica.Icons.Example;
-    equation
+  equation
       Modelica.Math.Matrices.Examples.solveLinearEquations();
     annotation (experiment(StopTime=0));
   end TestMatricesExamplesSolveLinearEquations;
@@ -828,15 +828,38 @@ extends Modelica.Icons.ExamplesPackage;
     Real x, y, xIntegrated;
     Integer i;
     parameter Real p=1 "So that the variable is integrated";
-    initial equation
+  initial equation
     xIntegrated=x;
-    equation
+  equation
     (x,i)=Modelica.Math.Vectors.interpolate(tabx, taby, time);
     y=der(x);
     der(xIntegrated)=p*y;
     assert(abs(x-xIntegrated)<0.1, "Automatically generated derivative should integrate correctly.");
     annotation (experiment(StopTime=5));
   end TestInterpolateTimeVarying;
+
+  model TestErf "Test error function"
+    extends Modelica.Icons.Example;
+    import Modelica.Math.Special;
+    Real x=time;
+    Real y1=Special.erf(x);
+    Real y1i "integral(der(y1)) == y1 ?";
+    Real y2=Special.erfc(x);
+    Real y2i "integral(der(y1)) == y1 ?";
+  initial equation
+    y1i=y1;
+    y2i=y2;
+  equation
+    der(y1i)=der(y1);
+    der(y2i)=der(y2);
+    assert(abs(y1 - y1i)<1e-7, "The derivative function for erf is not correct");
+    assert(abs(y2 - y2i)<1e-7, "The derivative function for erfc is not correct");
+    annotation (experiment(
+        StartTime=-10,
+        StopTime=10,
+        Interval=0.0001,
+        Tolerance=1e-09));
+  end TestErf;
 
   package Random
     function randomNumbers

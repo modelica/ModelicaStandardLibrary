@@ -21,7 +21,7 @@ package Continuous "Library of continuous control blocks with internal states"
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
-    extends Interfaces.SISO(y(start=y_start));
+    extends Interfaces.SISO;
     Modelica.Blocks.Interfaces.BooleanInput reset if use_reset "Optional connector of reset signal" annotation(Placement(
       transformation(
         extent={{-20,-20},{20,20}},
@@ -144,7 +144,7 @@ port has a rising edge.
       annotation (Dialog(group="Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-    extends Interfaces.SISO(y(start=y_start));
+    extends Interfaces.SISO;
     Modelica.Blocks.Interfaces.BooleanInput reset if use_reset "Optional connector of reset signal" annotation(Placement(
       transformation(
         extent={{-20,-20},{20,20}},

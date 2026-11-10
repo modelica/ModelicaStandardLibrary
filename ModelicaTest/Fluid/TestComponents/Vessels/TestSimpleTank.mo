@@ -10,10 +10,10 @@ model TestSimpleTank
     height=1,
     nPorts=2,
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1,
-        height=0),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
+        height=0.001),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
         0.1, height=1)},
     crossArea=1,
-    level_start=0)
+    level_start=0.001)
     annotation (Placement(transformation(extent={{0,0},{40,40}})));
 
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)

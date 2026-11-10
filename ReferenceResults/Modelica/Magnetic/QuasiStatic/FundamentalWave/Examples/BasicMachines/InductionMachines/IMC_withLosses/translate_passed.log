@@ -1,0 +1,38 @@
+Translation of <a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses">Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses</a>
+The DAE has 2685 scalar unknowns and 2685 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 1321
+  Variables: 3066
+  Constants: 12 (12 scalars)
+  Parameters: 504 (665 scalars)
+  Unknowns: 2550 (2685 scalars)
+  Differentiated variables: 32 scalars
+  Equations: 890
+  Nontrivial: 744
+Translated Model
+  Constants: 951 scalars
+  Free parameters: 143 scalars
+  Parameter depending: 263 scalars
+  Outputs: 13 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 478 scalars
+  Alias variables: 1527 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {62, 7}
+  Sizes after manipulation of the linear systems: {16, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses#text$imcQS.rotorCage.port_p.reference:gamma">imcQS.rotorCage.port_p.reference.gamma</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses#text$loadInertiaQS:w">loadInertiaQS.w</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses#text$PIQS:x">PIQS.x</a>
+<a href="Modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses#text$powerSensorQS.flange_a:phi">powerSensorQS.flange_a.phi</a>
+Finished

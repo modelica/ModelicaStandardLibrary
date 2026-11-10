@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 56
+The model has the same number of unknowns and equations:
+  50+6*max([size(kinematicPTP.q_begin, 1); size(kinematicPTP.q_end, 1); size(  kinematicPTP.qd_max, 1); size(kinematicPTP.qdd_max, 1)])
+Check of <a href="Modelica://Modelica.Clocked.Examples.CascadeControlledDrive.Continuous">Modelica.Clocked.Examples.CascadeControlledDrive.Continuous</a> successful.
+

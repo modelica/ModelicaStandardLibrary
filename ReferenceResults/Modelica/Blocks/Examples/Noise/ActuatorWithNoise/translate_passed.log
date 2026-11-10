@@ -1,0 +1,51 @@
+Translation of <a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise">Modelica.Blocks.Examples.Noise.ActuatorWithNoise</a>
+The DAE has 814 scalar unknowns and 814 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 123
+  Variables: 1123
+  Constants: 17 (17 scalars)
+  Parameters: 387 (465 scalars)
+  Unknowns: 719 (814 scalars)
+  Differentiated variables: 38 scalars
+  Equations: 501
+  Nontrivial: 400
+Translated Model
+  Constants: 429 scalars
+  Free parameters: 92 scalars
+  Parameter depending: 162 scalars
+  Continuous time states: 11 scalars
+  Time-varying variables: 172 scalars
+  Alias variables: 441 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: {17, 2, 11, 3}
+  Sizes after manipulation of the linear systems: {3, 2, 2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#text$controller.position_PI:x">controller.position_PI.x</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#text$controller.positionToSpeed:x">controller.positionToSpeed.x</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#text$controller.speed_PI:x">controller.speed_PI.x</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#text$elastoGap:s_rel">elastoGap.s_rel</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#text$elastoGap:v_rel">elastoGap.v_rel</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#text$gearbox:phi_rel">gearbox.phi_rel</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#text$gearbox:w_rel">gearbox.w_rel</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#text$rodMass:s">rodMass.s</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#text$rodMass:v">rodMass.v</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#diagram$:slewRateLimiter.y">slewRateLimiter.y</a>
+Dynamically selected continuous time states
+There is one set of dynamic state selection.
+There is one state to be selected from:
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#diagram$controller:busdelay.y">controller.busdelay.y</a>
+<a href="Modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise#text$motor.smpm:idq_sr">motor.smpm.idq_sr[]</a>
+Finished

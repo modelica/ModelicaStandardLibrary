@@ -7,7 +7,7 @@ model Admittance "Single-phase linear admittance"
   import Modelica.ComplexMath.conj;
   parameter SI.ComplexAdmittance Y_ref(re(start=1),im(start=0)) "Complex admittance G_ref + j*B_ref";
   parameter SI.Temperature T_ref=293.15 "Reference temperature";
-  parameter SI.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+  parameter SI.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)))";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
   parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));

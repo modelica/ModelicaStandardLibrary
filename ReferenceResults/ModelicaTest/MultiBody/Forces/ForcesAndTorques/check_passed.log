@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 3261
+The model has the same number of unknowns and equations:
+  3233+4*(size(world.x_label.lines, 1)+size(world.y_label.lines, 1)+size(  world.z_label.lines, 1))
+Check of <a href="Modelica://ModelicaTest.MultiBody.Forces.ForcesAndTorques">ModelicaTest.MultiBody.Forces.ForcesAndTorques</a> successful.
+

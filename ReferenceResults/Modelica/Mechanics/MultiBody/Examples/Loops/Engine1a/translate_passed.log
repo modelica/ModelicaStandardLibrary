@@ -1,0 +1,35 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a:
+The DAE has 3036 scalar unknowns and 3036 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 151
+  Variables: 1598
+  Parameters: 544 (1070 scalars)
+  Unknowns: 1054 (3036 scalars)
+  Differentiated variables: 99 scalars
+  Equations: 918
+  Nontrivial: 595
+Translated Model
+  Constants: 2613 scalars
+  Free parameters: 106 scalars
+  Parameter depending: 544 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 188 scalars
+  Alias variables: 655 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {2, 2, 41}
+  Sizes after manipulation of the linear systems: {2, 2, 4}
+  Sizes of nonlinear systems of equations: {1}
+  Sizes after manipulation of the nonlinear systems: {0}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  inertia.phi
+  inertia.w
+ 

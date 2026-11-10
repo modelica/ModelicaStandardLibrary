@@ -1,0 +1,11 @@
+time
+bodyOfConstraint.r_0[1]
+bodyOfConstraint.r_0[2]
+bodyOfConstraint.r_0[3]
+bodyOfConstraint.v_0[1]
+bodyOfConstraint.v_0[2]
+bodyOfConstraint.v_0[3]
+jointPrismatic_x.s
+jointPrismatic_x.v
+jointPrismatic_y.s
+jointPrismatic_y.v

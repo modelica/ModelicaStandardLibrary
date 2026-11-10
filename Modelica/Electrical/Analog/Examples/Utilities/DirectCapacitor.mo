@@ -45,11 +45,9 @@ equation
   connect(currentSource.p, ground.p)
     annotation (Line(points={{-40,-10},{-20,-10}}, color={0,0,255}));
   connect(ground.p, capacitor.n)
-    annotation (Line(points={{-20,-10},{0,-10}},
-                                                   color={0,0,255}));
+    annotation (Line(points={{-20,-10},{0,-10}}, color={0,0,255}));
   connect(currentSource.n, capacitor.p)
-    annotation (Line(points={{-40,10},{0,10}},
-                                                 color={0,0,255}));
+    annotation (Line(points={{-40,10},{0,10}}, color={0,0,255}));
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics={Text(

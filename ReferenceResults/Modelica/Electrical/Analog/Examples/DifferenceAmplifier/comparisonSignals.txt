@@ -1,0 +1,10 @@
+time
+C1.v
+C2.v
+C3.v
+C4.v
+C5.v
+Transistor1.Tr.C.v
+Transistor1.ct.v
+Transistor2.Tr.C.v
+Transistor2.ct.v

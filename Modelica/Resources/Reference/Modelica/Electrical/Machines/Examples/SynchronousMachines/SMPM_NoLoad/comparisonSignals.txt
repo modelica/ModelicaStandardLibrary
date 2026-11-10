@@ -1,4 +1,4 @@
 time
-toPolar.y[1]
-toPolar.y[2]
+toSpacePhasor.y[1]
+toSpacePhasor.y[2]
 hallSensor.y

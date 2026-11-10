@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 110
+The model has the same number of unknowns and equations:
+  92+2*size(transferFunction.a, 1)+size(stateSpace.B, 2)+size(stateSpace.C, 1)+  size(stateSpace.A, 1)+8*integer(lowpassButterworth.n/2)+criticalDamping.n
+Check of <a href="Modelica://ModelicaTest.Blocks.Continuous_SteadyState">ModelicaTest.Blocks.Continuous_SteadyState</a> successful.
+

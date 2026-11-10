@@ -64,7 +64,9 @@ model SMPM_Braking
         origin={-10,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  PowerConverters.ACDC.DiodeBridge2mPulse diodeBridge2mPulse(m=m) annotation (
+  PowerConverters.ACDC.DiodeBridge2mPulse diodeBridge2mPulse(m=m,
+    RonDiode=1e-4,
+    GoffDiode=1e-4)                                               annotation (
       Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,

@@ -31,9 +31,9 @@ model OLine "Lossy Transmission Line"
       start=1) "Length of line";
   parameter Integer N(final min=1, start=1) "Number of lumped segments";
   parameter SI.LinearTemperatureCoefficient alpha_R=0
-    "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
+    "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref)))";
   parameter SI.LinearTemperatureCoefficient alpha_G=0
-    "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+    "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref)))";
   parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
     annotation (
     Evaluate=true,
@@ -46,6 +46,15 @@ model OLine "Lossy Transmission Line"
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
     annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
         iconTransformation(extent={{-110,-110},{-90,-90}})));
+  output SI.Voltage v[N]=G.v "Voltages at the connections of the elements";
+  output SI.Current i[N+1]=R.i "Currents at the connections of the elements";
+  /*
+  The components R[N+1], L[N+1], C[N] and G[N] have been protected in the previous release(s)
+  to avoid excessive size of simulation results.
+  Voltages and currents at the connections are now mirrored to alias variables
+  to be able to initialize and to track travelling waves along the line.
+  */
+protected
   Modelica.Electrical.Analog.Basic.Resistor R[N + 1](
     R=rm,
     T_ref=fill(T_ref, N + 1),
@@ -60,7 +69,6 @@ model OLine "Lossy Transmission Line"
     alpha=fill(alpha_G, N),
     useHeatPort=fill(useHeatPort, N),
     T=fill(T, N));
-protected
   parameter SI.Resistance rm[N + 1]=
   {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};
   parameter SI.Inductance lm[N + 1]=

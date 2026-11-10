@@ -1,0 +1,130 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 07:13:48 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+Error: The following error was detected at time: 0
+  IF97 medium function tsat called with too low pressure
+p = -4.57677e+06 Pa <= 611.657 Pa (triple point pressure)
+  Failed condition: p > 611.657
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.T_props_ph(
+pipe1.port_b.p, 
+pipe2.state_a.h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe1.port_b.p, pipe2.state_a.h, 0, 0))
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  IF97 medium function tsat called with too low pressure
+p = -975097 Pa <= 611.657 Pa (triple point pressure)
+  Failed condition: p > 611.657
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.T_props_ph(
+pipe1.port_b.p, 
+pipe2.state_a.h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe1.port_b.p, pipe2.state_a.h, 0, 0))
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  IF97 medium function tsat called with too low pressure
+p = -601617 Pa <= 611.657 Pa (triple point pressure)
+  Failed condition: p > 611.657
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.T_props_ph(
+pipe1.port_b.p, 
+pipe2.state_a.h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe1.port_b.p, pipe2.state_a.h, 0, 0))
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  IF97 medium function tsat called with too low pressure
+p = -601617 Pa <= 611.657 Pa (triple point pressure)
+  Failed condition: p > 611.657
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.T_props_ph(
+pipe1.port_b.p, 
+pipe2.state_a.h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe1.port_b.p, pipe2.state_a.h, 0, 0))
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  IF97 medium function tsat called with too low pressure
+p = -216194 Pa <= 611.657 Pa (triple point pressure)
+  Failed condition: p > 611.657
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.T_props_ph(
+pipe1.port_b.p, 
+pipe2.state_a.h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe1.port_b.p, pipe2.state_a.h, 0, 0))
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 0
+  IF97 medium function tsat called with too low pressure
+p = -18200.4 Pa <= 611.657 Pa (triple point pressure)
+  Failed condition: p > 611.657
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.T_props_ph(
+pipe1.port_b.p, 
+pipe2.state_a.h, 
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe1.port_b.p, pipe2.state_a.h, 0, 0))
+Non-linear solver will attempt to handle this problem.
+
+... "BranchingPipes1.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 5
+   CPU-time for integration                : 3.02 seconds
+   CPU-time for one grid interval          : 0.302 milliseconds
+   CPU-time for initialization             : 0.017 seconds
+   Number of result points                 : 10004
+   Number of grid points                   : 10001
+   Number of accepted steps                : 426
+   Number of f-evaluations (dynamics)      : 882
+   Number of crossing function evaluations : 10426
+   Number of Jacobian-evaluations          : 89
+   Number of model time events             : 2
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.07e-10
+   Maximum integration stepsize            : 0.286
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
