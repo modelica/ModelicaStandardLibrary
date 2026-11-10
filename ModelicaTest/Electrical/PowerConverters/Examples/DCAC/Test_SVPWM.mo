@@ -3,15 +3,17 @@ model Test_SVPWM "Test sequence of SVPWM"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Real epsilon=1e-6 "Comparison threshold";
+  parameter Real amplitude=1.001;
+  parameter Real uMax=2/sqrt(3);
   parameter Integer comparison[24]=
     {1,3,3,1, 2,3,3,2, 2,6,6,2, 4,6,6,4, 4,5,5,4, 1,5,5,1};
   Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM
-    svPWM(f=6, uMax=0.999*2/sqrt(3))
+    svPWM(f=6, uMax=uMax)
      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-  Modelica.Blocks.Sources.Cosine cosine(amplitude=1, f=1,
+  Modelica.Blocks.Sources.Cosine cosine(amplitude=amplitude, f=1,
     phase=pi/6)
     annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
-  Modelica.Blocks.Sources.Sine sine(amplitude=1, f=1,
+  Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, f=1,
     phase=pi/6)
     annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
   Modelica.Blocks.Math.BooleanToReal booleanToReal[3]
@@ -42,7 +44,7 @@ equation
     Documentation(info="<html>
 <p>
 The space phasor rotatets once per seconf, startin at &pi;6, and is sampled 6 times per second, just in the middle of the sextant. 
-Converting the positive fire signal to a real (.e. no.1 with weight <sup>o</sup>, no.2 with weight 2<sup>1</sup>, no.3 with weight 2<sup>2</sup>),
+Converting the positive fire signal to a real (i.e. no.1 with weight 2<sup>o</sup>, no.2 with weight 2<sup>1</sup>, no.3 with weight 2<sup>2</sup>),
  we should get the following sequence:<br>
 0-1-3-7-3-1-0<br>
 0-2-3-7-3-2-0<br>
