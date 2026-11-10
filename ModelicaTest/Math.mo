@@ -869,8 +869,8 @@ extends Modelica.Icons.ExamplesPackage;
             color={28,108,200},
             arrow={Arrow.None,Arrow.Filled})}),
       Documentation(info="<html>
-Test-case for improved <a href=\"https://github.com/modelica/ModelicaStandardLibrary/pull/4808\">Lobatto<a>.
-Based on <a href=\"https://github.com/modelica/ModelicaStandardLibrary/pull/4800#issuecomment-5585462945\">magnetic test-case<a>, but without magnetic parameters.
+Test-case for improved <a href=\"https://github.com/modelica/ModelicaStandardLibrary/pull/4808\">Lobatto</a>.
+Based on <a href=\"https://github.com/modelica/ModelicaStandardLibrary/pull/4800#issuecomment-5585462945\">magnetic test-case</a>, but without magnetic parameters.
 </html>"));
   end TestMovingIntegralSinusoidal;
 
