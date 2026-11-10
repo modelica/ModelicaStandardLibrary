@@ -116,7 +116,7 @@ model SMPM_MTPA "Test example: PermanentMagnetSynchronousMachine, investigating 
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-40,40})));
-  Modelica.ComplexBlocks.Sources.ComplexRotatingPhasor rotSource(magnitude=100, w=2*pi) annotation (Placement(transformation(
+  Modelica.ComplexBlocks.Sources.ComplexRotatingPhasor rotSource(magnitude=100, w=2*pi*1'Hz') annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-70,30})));

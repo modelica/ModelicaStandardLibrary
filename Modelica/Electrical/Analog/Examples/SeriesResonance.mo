@@ -14,9 +14,9 @@ model SeriesResonance "Series resonance circuit"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={40,50})));
-  Basic.Inductor inductor1(i(fixed=true), L=0.1/(2*pi))
+  Basic.Inductor inductor1(i(fixed=true), L=0.1'H'/(2*pi))
     annotation (Placement(transformation(extent={{-30,60},{-10,80}})));
-  Basic.Capacitor capacitor1(v(fixed=true), C=0.001/(2*pi))
+  Basic.Capacitor capacitor1(v(fixed=true), C=0.001'F'/(2*pi))
     annotation (Placement(transformation(extent={{10,60},{30,80}})));
   Sensors.CurrentSensor currentSensor1
     annotation (Placement(transformation(extent={{10,20},{-10,40}})));
@@ -38,9 +38,9 @@ model SeriesResonance "Series resonance circuit"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={40,-50})));
-  Basic.Inductor inductor2(i(fixed=true), L=0.1/(2*pi))
+  Basic.Inductor inductor2(i(fixed=true), L=0.1'H'/(2*pi))
     annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
-  Basic.Capacitor capacitor2(v(fixed=true), C=0.001/(2*pi))
+  Basic.Capacitor capacitor2(v(fixed=true), C=0.001'F'/(2*pi))
     annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
   Sensors.CurrentSensor currentSensor2
     annotation (Placement(transformation(extent={{10,-80},{-10,-60}})));
