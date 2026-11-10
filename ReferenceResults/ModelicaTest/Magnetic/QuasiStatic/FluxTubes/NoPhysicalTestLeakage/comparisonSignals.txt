@@ -1,0 +1,3 @@
+time
+constantSource1.port_p.reference.gamma
+quarterHollowSphere.port_p.reference.gamma

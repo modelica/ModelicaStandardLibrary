@@ -1,0 +1,40 @@
+﻿ = true
+Translation of Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder:
+The DAE has 61 scalar unknowns and 61 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 13
+  Variables: 125
+  Constants: 2 (2 scalars)
+  Parameters: 62 (69 scalars)
+  Unknowns: 61 (61 scalars)
+  Differentiated variables: 8 scalars
+  Equations: 59
+  Nontrivial: 53
+Translated Model
+  Constants: 22 scalars
+  Free parameters: 34 scalars
+  Parameter depending: 18 scalars
+  Outputs: 5 scalars
+  Continuous time states: 5 scalars
+  Time-varying variables: 29 scalars
+  Alias variables: 29 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  cylinder1.H
+  cylinder1.m
+  cylinder2.H
+  springDamper.s_rel
+  springDamper.v_rel
+ 

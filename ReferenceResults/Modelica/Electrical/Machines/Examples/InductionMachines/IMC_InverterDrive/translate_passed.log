@@ -1,0 +1,47 @@
+Translation of <a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive">Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive</a>
+The DAE has 1067 scalar unknowns and 1067 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 120
+  Variables: 1465
+  Constants: 47 (64 scalars)
+  Parameters: 490 (618 scalars)
+  Unknowns: 928 (1067 scalars)
+  Differentiated variables: 29 scalars
+  Equations: 599
+  Nontrivial: 502
+Translated Model
+  Constants: 451 scalars
+  Free parameters: 58 scalars
+  Parameter depending: 260 scalars
+  Continuous time states: 11 scalars
+  Time-varying variables: 279 scalars
+  Alias variables: 701 scalars
+  Number of mixed real/discrete systems of equations: 6
+  Sizes of linear systems of equations: {6, 6, 6, 6, 5, 11, 11, 11, 14, 2, 2}
+  Sizes after manipulation of the linear systems: {2, 2, 2, 2, 3, 4, 4, 4, 4, 0, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$aimc:i_0_s">aimc.i_0_s</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$aimc:idq_rr">aimc.idq_rr[1]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$aimc:idq_rr">aimc.idq_rr[2]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$aimc:idq_sr">aimc.idq_sr[1]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$aimc:idq_sr">aimc.idq_sr[2]</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$capacitor:v">capacitor.v</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$inductor.inductor:i">inductor.inductor[2].i</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$inductor.inductor:i">inductor.inductor[3].i</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$loadInertia:phi">loadInertia.phi</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$loadInertia:w">loadInertia.w</a>
+<a href="Modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive#text$vfController:x">vfController.x</a>
+Finished

@@ -1,0 +1,5 @@
+Check of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses">Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses</a>
+The model has the same number of unknowns and equations: 877
+The model has the same number of unknowns and equations:
+  873+size(combiTable1Ds.columns, 1)
+Check of <a href="Modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses">Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses</a> successful.

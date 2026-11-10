@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 581
+The model has the same number of unknowns and equations:
+  578+currentQuasiRMSSensor.ToSpacePhasor1.m
+Check of <a href="Modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Inverter">Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Inverter</a> successful.
+

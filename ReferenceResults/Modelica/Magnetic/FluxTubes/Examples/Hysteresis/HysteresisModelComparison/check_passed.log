@@ -1,0 +1,5 @@
+The model has the same number of unknowns and equations: 404
+The model has the same number of unknowns and equations:
+  200+2*(size(tellinenTable.tabris.columns, 1)+size(tellinenTable.tabfal.columns, 1)  +preisachEverett.Count)
+Check of <a href="Modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison">Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison</a> successful.
+

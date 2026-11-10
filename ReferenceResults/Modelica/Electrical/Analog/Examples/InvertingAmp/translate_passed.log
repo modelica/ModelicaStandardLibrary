@@ -1,0 +1,30 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.InvertingAmp:
+The DAE has 60 scalar unknowns and 60 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 11
+  Variables: 99
+  Constants: 1 (1 scalars)
+  Parameters: 38 (38 scalars)
+  Unknowns: 60 (60 scalars)
+  Equations: 54
+  Nontrivial: 38
+Translated Model
+  Constants: 23 scalars
+  Free parameters: 11 scalars
+  Parameter depending: 27 scalars
+  Time-varying variables: 11 scalars
+  Alias variables: 27 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {6}
+  Sizes after manipulation of the nonlinear systems: {2}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

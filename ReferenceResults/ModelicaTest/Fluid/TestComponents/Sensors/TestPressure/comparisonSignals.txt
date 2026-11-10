@@ -1,0 +1,7 @@
+time
+pressure1.p
+pressure2.p
+relativePressure.p_rel
+simpleGenericOrifice.port_b.m_flow
+simpleGenericOrifice.port_b.p
+simpleGenericOrifice.port_b.h_outflow

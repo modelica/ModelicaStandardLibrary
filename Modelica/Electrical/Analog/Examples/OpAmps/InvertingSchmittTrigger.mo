@@ -10,7 +10,7 @@ model InvertingSchmittTrigger "Inverting Schmitt trigger with hysteresis"
   parameter SI.Resistance R1=1000 "Arbitrary resistance";
   parameter SI.Resistance R2=(1 - k)/k*R1
     "Calculated resistance to reach hysteresis voltage";
-  Modelica.Electrical.Analog.Ideal.ImprovedOpAmpLimited opAmp(Vps=Vps, Vns=Vns)
+  Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp(Vps=Vps, Vns=Vns)
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));

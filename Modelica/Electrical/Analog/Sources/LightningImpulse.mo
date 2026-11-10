@@ -82,8 +82,8 @@ The parameters of the trajectory are defined by:
 </ul>
 <h4>Explanations</h4>
 <p>
-According to Fig. 1, a straight line between 0.1 and 0.9 of the amplitude is drawn. 
-The virtual start of the trajectory is defined by the intersection of this straight line and the abscissa. 
+According to Fig. 1, a straight line between 0.1 and 0.9 of the amplitude is drawn.
+The virtual start of the trajectory is defined by the intersection of this straight line and the abscissa.
 The rise time <code>T1</code> is defined as the time span between the virtual start of the trajectory and the point in time when the straight line reaches the amplitude.
 The decay time to half value <code>T2</code> is defined as the time span between the virtual start and the point in time when the output falls below 0.5 of the amplitude.
 </p>

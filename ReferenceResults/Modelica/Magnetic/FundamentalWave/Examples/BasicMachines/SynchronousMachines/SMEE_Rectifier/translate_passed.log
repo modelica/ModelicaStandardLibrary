@@ -1,0 +1,48 @@
+﻿ = true
+Translation of Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Rectifier:
+The DAE has 958 scalar unknowns and 958 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 220
+  Variables: 1370
+  Constants: 17 (17 scalars)
+  Parameters: 436 (466 scalars)
+  Unknowns: 917 (958 scalars)
+  Differentiated variables: 25 scalars
+  Equations: 596
+  Nontrivial: 502
+Translated Model
+  Constants: 378 scalars
+  Free parameters: 90 scalars
+  Parameter depending: 182 scalars
+  Continuous time states: 12 scalars
+  Time-varying variables: 228 scalars
+  Alias variables: 563 scalars
+  Number of mixed real/discrete systems of equations: 3
+  Sizes of linear systems of equations: {17, 8, 6, 6, 6, 4}
+  Sizes after manipulation of the linear systems: {2, 2, 2, 2, 2, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  capacitor1.v
+  capacitor2.v
+  filter.x[]
+  smee.excitation.electroMagneticConverter.Phi.re
+  smee.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+  smee.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+  smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+  smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+  speed.phi
+  speed.w
+  voltageController.I.y
+ 

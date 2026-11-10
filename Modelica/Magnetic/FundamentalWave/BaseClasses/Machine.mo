@@ -15,6 +15,8 @@ partial model Machine "Base model of machines"
   parameter Integer p(min=1, start=2) "Number of pole pairs (Integer)";
   parameter SI.Frequency fsNominal(start=50)
     "Nominal frequency";
+  parameter Boolean useZeroSystem=true "= true, if zero current is explicitely computed"
+    annotation(Evaluate=true);
   parameter SI.Temperature TsOperational(start=293.15)
     "Operational temperature of stator resistance" annotation (Dialog(group=
          "Operational temperatures", enable=not useThermalPort));
@@ -116,6 +118,7 @@ partial model Machine "Base model of machines"
     final TRef=TsRef,
     final Lsigma=Lssigma,
     final ratioCommonLeakage=ratioCommonStatorLeakage,
+    final useZeroSystem=useZeroSystem,
     final effectiveTurns=effectiveStatorTurns,
     final TOperational=TsOperational,
     final GcRef=statorCoreParameters.GcRef,

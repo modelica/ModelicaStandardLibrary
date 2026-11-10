@@ -1,0 +1,37 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.SimpleTriacCircuit:
+The DAE has 89 scalar unknowns and 89 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 13
+  Variables: 188
+  Constants: 4 (4 scalars)
+  Parameters: 95 (95 scalars)
+  Unknowns: 89 (89 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 80
+  Nontrivial: 69
+Translated Model
+  Constants: 16 scalars
+  Free parameters: 42 scalars
+  Parameter depending: 48 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 39 scalars
+  Alias variables: 43 scalars
+  Number of mixed real/discrete systems of equations: 1
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {12}
+  Sizes after manipulation of the nonlinear systems: {4}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  L.i
+  simpleTriac.thyristor.vControl
+  simpleTriac.thyristor1.vControl
+ 

@@ -1,0 +1,29 @@
+﻿ = true
+Translation of ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.General.kc_approxForcedConvection_KC:
+The DAE has 75 scalar unknowns and 75 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 14
+  Variables: 82
+  Parameters: 17 (21 scalars)
+  Unknowns: 65 (75 scalars)
+  Equations: 65
+  Nontrivial: 47
+Translated Model
+  Constants: 7 scalars
+  Free parameters: 20 scalars
+  Parameter depending: 42 scalars
+  Time-varying variables: 19 scalars
+  Alias variables: 8 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {1, 1, 1, 1, 1, 1}
+  Sizes after manipulation of the nonlinear systems: {1, 1, 1, 1, 1, 1}
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

@@ -1,0 +1,34 @@
+Log-file of program ./dymosim
+(generated: Mon Oct 28 23:52:49 2024)
+
+dymosim started
+... "Modelica.Blocks.Examples.DemonstrateSignalExtrema" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 1.5
+  WARNING: You have many time events. This is probably due to fast sampling.
+  Enable logging of event in Simulation/Setup/Debug/Events during simulation
+   CPU-time for integration                : 0.169 seconds
+   CPU-time for one grid interval          : 0.00113 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 150150
+   Number of grid points                   : 150001
+   Number of accepted steps                : 3309
+   Number of f-evaluations (dynamics)      : 6293
+   Number of crossing function evaluations : 168273
+   Number of Jacobian-evaluations          : 593
+   Number of model time events             : 15000
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 7.96e-10
+   Maximum integration stepsize            : 0.00102
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Blocks.Examples.DemonstrateSignalExtrema

@@ -1,0 +1,62 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 00:42:55 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "HeatingPNP_NORGate.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+ERROR: Failed to solve nonlinear system using Newton solver.
+  Time: 58.00104788307404
+  Tag: simulation.nonlinear[1]
+
+  Common causes:
+   * The system of equations has no solution - the residual will be above zero.
+     - In some cases the event-logic can cause this.
+   * Starting values are too far from the solution.
+     - In rare cases this could occur at events.
+   * The equations are too discontinuous for the nonlinear solver - the residual will have knees.
+     - Likely caused by over-using noEvent.
+
+  To get more information consider the options:
+   * Simulation/Setup/Translation/Generate listing of translated Modelica code in dsmodel.mof
+   * Simulation/Setup/Translation/List non-linear iteration variables
+   * The options under the group Simulation/Setup/Debug/Nonlinear solver diagnostics
+
+  Jacobian inverse norm estimate: 9.64377e+08
+  Condition number estimate: 1.34594e+09
+  1-norm of the residual = 70.0504
+  The estimates indicate that the Jacobian is close to singular, suggesting that there is no solution.
+
+  Last value of the solution:
+    T2.vt_t = 0.0255607
+    T2.veb = 5.74869E-08
+    T1.vt_t = 0.0198524
+    T1.veb = 0.883807
+    RI.p.v = 0.180131
+  Last value of the residual:
+    { -60.8828, -6.97834E-08, -8.46364, -0.703926, -2.43589E-11 }
+ 
+Solver will attempt to handle this problem.
+
+Integration terminated successfully at T = 200
+   CPU-time for integration                : 0.166 seconds
+   CPU-time for one grid interval          : 0.0332 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 5041
+   Number of grid points                   : 5001
+   Number of accepted steps                : 714
+   Number of f-evaluations (dynamics)      : 1117
+   Number of crossing function evaluations : 5736
+   Number of Jacobian-evaluations          : 494
+   Number of model time events             : 21
+   Number of input time events             : 0
+   Number of state events                  : 5
+   Number of step events                   : 0
+   Minimum integration stepsize            : 4e-05
+   Maximum integration stepsize            : 19
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)

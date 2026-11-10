@@ -1,0 +1,16 @@
+time
+damper.s_rel
+elastoGap.s_rel
+elastoGap.v_rel
+position.s
+position.v
+position1.s
+position1.v
+position2.s
+position2.v
+relativeStates.s_rel
+relativeStates.v_rel
+slidingMass.s
+slidingMass.v
+springDamper.s_rel
+springDamper.v_rel

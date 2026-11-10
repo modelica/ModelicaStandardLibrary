@@ -1,0 +1,58 @@
+﻿ = true
+Translation of Modelica.Mechanics.MultiBody.Examples.Elementary.HeatLosses:
+The DAE has 3001 scalar unknowns and 3001 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 121
+  Variables: 1435
+  Parameters: 300 (435 scalars)
+  Unknowns: 1135 (3001 scalars)
+  Differentiated variables: 42 scalars
+  Equations: 1043
+  Nontrivial: 687
+Translated Model
+  Constants: 1996 scalars
+  Free parameters: 102 scalars
+  Parameter depending: 224 scalars
+  Continuous time states: 37 scalars
+  Time-varying variables: 392 scalars
+  Alias variables: 722 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {4, 4, 4, 3, 3, 3, 3, 3, 3}
+  Sizes after manipulation of the linear systems: {4, 4, 4, 3, 3, 3, 3, 3, 3}
+  Sizes of nonlinear systems of equations: {4, 4, 4}
+  Sizes after manipulation of the nonlinear systems: {4, 4, 4}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {4, 4, 4}
+    Sizes after manipulation of the nonlinear systems: {4, 4, 4}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  body1.frame_a.r_0[]
+  body1.v_0[]
+  body1.w_a[]
+  body2.frame_a.r_0[]
+  body2.v_0[]
+  body2.w_a[]
+  body3.frame_a.r_0[]
+  body3.v_0[]
+  body3.w_a[]
+  springDamperSeries.s_damper
+ 
+Dynamically selected continuous time states
+There are 3 sets of dynamic state selection.
+From set 1 there are 3 states to be selected from:
+  body3.Q[]
+ 
+From set 2 there are 3 states to be selected from:
+  body2.Q[]
+ 
+From set 3 there are 3 states to be selected from:
+  body1.Q[]
+ 

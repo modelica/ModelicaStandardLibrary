@@ -1,0 +1,3 @@
+time
+armature.T
+loadInertia.w

@@ -1,0 +1,30 @@
+﻿ = true
+Translation of Modelica.Electrical.Analog.Examples.CharacteristicThyristors:
+The DAE has 98 scalar unknowns and 98 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 17
+  Variables: 188
+  Constants: 8 (8 scalars)
+  Parameters: 82 (100 scalars)
+  Unknowns: 98 (98 scalars)
+  Equations: 98
+  Nontrivial: 87
+Translated Model
+  Constants: 32 scalars
+  Free parameters: 49 scalars
+  Parameter depending: 37 scalars
+  Time-varying variables: 38 scalars
+  Alias variables: 50 scalars
+  Number of mixed real/discrete systems of equations: 4
+  Sizes of linear systems of equations: {4, 4, 4, 4}
+  Sizes after manipulation of the linear systems: {0, 0, 0, 0}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states

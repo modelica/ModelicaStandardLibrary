@@ -1,0 +1,11 @@
+The model has the same number of unknowns and equations: 160
+The model could not be deduced to be symbolically well-posed.
+The model has
+  133+9*n
+scalar unknowns and
+  121+13*n
+scalar equations.
+However, exploiting the given bindings parameters gives the same number of unknowns and equations:
+  160
+Check of <a href="Modelica://ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.StraightPipe.kc_overall_KC">ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.StraightPipe.kc_overall_KC</a> successful.
+

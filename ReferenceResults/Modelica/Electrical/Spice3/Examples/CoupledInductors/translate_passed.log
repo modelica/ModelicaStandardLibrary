@@ -1,0 +1,38 @@
+﻿ = true
+Translation of Modelica.Electrical.Spice3.Examples.CoupledInductors:
+The DAE has 103 scalar unknowns and 103 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 16
+  Variables: 131
+  Parameters: 28 (28 scalars)
+  Unknowns: 103 (103 scalars)
+  Differentiated variables: 5 scalars
+  Equations: 94
+  Nontrivial: 76
+Translated Model
+  Constants: 14 scalars
+  Free parameters: 23 scalars
+  Parameter depending: 3 scalars
+  Continuous time states: 5 scalars
+  Time-varying variables: 26 scalars
+  Alias variables: 65 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {12}
+  Sizes after manipulation of the linear systems: {3}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  C1.vinternal
+  C2.vinternal
+  L1.iinternal
+  L2.iinternal
+  L3.iinternal
+ 

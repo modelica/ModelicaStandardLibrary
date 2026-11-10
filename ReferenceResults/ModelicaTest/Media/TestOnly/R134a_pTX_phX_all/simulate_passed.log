@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Thu Apr 17 01:00:52 2025)
+
+dymosim started
+... "ModelicaTest.Media.TestOnly.R134a_pTX_phX_all" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 1
+   CPU-time for integration                : 1.27 seconds
+   CPU-time for one grid interval          : 0.127 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 10073
+   Number of grid points                   : 10001
+   Number of accepted steps                : 566
+   Number of f-evaluations (dynamics)      : 566
+   Number of crossing function evaluations : 10864
+   Number of Jacobian-evaluations          : 537
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 44
+   Number of step events                   : 0
+   Minimum integration stepsize            : 2.26e-09
+   Maximum integration stepsize            : 0.0522
+   Maximum integration order               : 1
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Media.TestOnly.R134a_pTX_phX_all

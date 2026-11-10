@@ -11,7 +11,7 @@ model IMC_DOL_CommonLeakage
   parameter SI.Time tOn=0.1 "Start time of machine";
   parameter SI.Torque T_Load=161.4 "Nominal load torque";
   parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
-       1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter SI.Inertia J_Load=0.29 "Load inertia";
   Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
         transformation(
@@ -262,9 +262,9 @@ equation
 <p>
 At start time tStart voltages are supplied to the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">polyphase induction machines with squirrel cage</a>.
-The machines starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed. 
-Three equivalent machines with different parameter <code>ratioCommonLeakage</code> are compared. 
-Note that due to the mode of operation, the behaviour of all three machines is identical. 
+The machines starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.
+Three equivalent machines with different parameter <code>ratioCommonLeakage</code> are compared.
+Note that due to the mode of operation, the behaviour of all three machines is identical.
 Only when fed by switching power electronics, parameter <code>ratioCommonLeakage</code> is essential.
 </p>
 </html>"),

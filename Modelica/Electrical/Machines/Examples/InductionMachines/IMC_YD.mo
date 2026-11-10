@@ -10,12 +10,13 @@ model IMC_YD
   parameter SI.Time tStart2=2.0 "Start time from Y to D";
   parameter SI.Torque TLoad=161.4 "Nominal load torque";
   parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
-       1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+       Modelica.Units.Conversions.from_rpm(1440.45) "Nominal load speed";
   parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Machines.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
     p=aimcData.p,
     fsNominal=aimcData.fsNominal,
+    useZeroSystem=false,
     Rs=aimcData.Rs,
     TsRef=aimcData.TsRef,
     alpha20s(displayUnit="1/K") = aimcData.alpha20s,

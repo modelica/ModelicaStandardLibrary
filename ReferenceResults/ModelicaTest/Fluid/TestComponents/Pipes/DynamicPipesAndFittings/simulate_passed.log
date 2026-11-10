@@ -1,0 +1,237 @@
+Log-file of program ./dymosim
+(generated: Tue May  5 03:10:22 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "DynamicPipesAndFittings.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Error: The following error was detected at time: 8.027806769495709E-13
+  Error in region computation of IF97 steam tables(p = 100000, h = -138535)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe6.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 8.027806769495709E-13
+  Error in region computation of IF97 steam tables(p = 100000, h = -138535)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe6.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 8.027806769495709E-13
+  Error in region computation of IF97 steam tables(p = 100000, h = -54820.9)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe6.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 8.027806769495709E-13
+  Error in region computation of IF97 steam tables(p = 100000, h = -12991.8)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[1].p, pipe8.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 8.027806769495709E-13
+  Error in region computation of IF97 steam tables(p = 100000, h = -12991.8)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[1].p, pipe8.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 8.027806769495709E-13
+  Error in region computation of IF97 steam tables(p = 100000, h = -54820.9)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[1].p, pipe7.state_b.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 2.408342030848713E-12
+  Error in region computation of IF97 steam tables(p = 100000, h = -305964)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe6.state_a.h, 0, 0)
+First evaluation failed for non-linear solver.
+
+Error: The following error was detected at time: 2.408342030848713E-12
+  Error in region computation of IF97 steam tables(p = 100000, h = -305964)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe6.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 2.408342030848713E-12
+  Error in region computation of IF97 steam tables(p = 100000, h = -305964)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe6.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+
+ERROR: Failed to solve nonlinear system using Newton solver.
+  Time: 2.408342030848713E-12
+  Tag: simulation.nonlinear[1]
+
+  Common causes:
+   * The system of equations has no solution - the residual will be above zero.
+     - In some cases the event-logic can cause this.
+   * Starting values are too far from the solution.
+     - In rare cases this could occur at events.
+   * The equations are too discontinuous for the nonlinear solver - the residual will have knees.
+     - Likely caused by over-using noEvent.
+
+  To get more information consider the options:
+   * Simulation/Setup/Translation/Generate listing of translated Modelica code in dsmodel.mof
+   * Simulation/Setup/Translation/List non-linear iteration variables
+   * The options under the group Simulation/Setup/Debug/Nonlinear solver diagnostics
+
+  Jacobian inverse norm estimate: 528894
+  Condition number estimate: 1
+  Failed to evaluate any residual. Try to give better start-values.
+  The residual is large, using better start values can be a solution.
+
+  Last value of the solution:
+    pipe8.state_b.h = -222098
+    pipe6.state_a.h = -305964
+ 
+Solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 1.031573169880199E-10
+  Error in region computation of IF97 steam tables(p = 100000, h = -54877)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[1].p, pipe8.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 1.031573169880199E-10
+  Error in region computation of IF97 steam tables(p = 100000, h = -54877)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[1].p, pipe8.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 1.031573169880199E-10
+  Error in region computation of IF97 steam tables(p = 100000, h = -54877)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[1].p, pipe8.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 4.932685869516639E-09
+  Error in region computation of IF97 steam tables(p = 100000, h = -305964)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe6.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 4.932685869516639E-09
+  Error in region computation of IF97 steam tables(p = 100000, h = -305964)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe6.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 4.932685869516639E-09
+  Error in region computation of IF97 steam tables(p = 100000, h = -305964)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe6.state_a.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 2.008755460276967E-06
+  Error in region computation of IF97 steam tables(p = 104604, h = -96597.5)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe8.state_b.h, 0, 0)
+First evaluation failed for non-linear solver.
+
+Error: The following error was detected at time: 2.008755460276967E-06
+  Error in region computation of IF97 steam tables(p = 104604, h = -96597.5)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe8.state_b.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+Error: The following error was detected at time: 2.008755460276967E-06
+  Error in region computation of IF97 steam tables(p = 104604, h = -96597.5)
+  Failed condition: false
+
+The stack of functions is:
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph
+Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph(pipe5.mediums[5].p, pipe8.state_b.h, 0, 0)
+Non-linear solver will attempt to handle this problem.
+
+
+ERROR: Failed to solve nonlinear system using Newton solver.
+  Time: 2.008755460276967E-06
+  Tag: simulation.nonlinear[1]
+
+  For debugging help refer to the first error message of this type.
+
+  Jacobian inverse norm estimate: 861392
+  Condition number estimate: 1.62865
+  Failed to evaluate any residual. Try to give better start-values.
+  The residual is large, using better start values can be a solution.
+
+  Last value of the solution:
+    pipe8.state_b.h = -96597.5
+    pipe6.state_a.h = 359026
+ 
+Solver will attempt to handle this problem.
+
+Integration terminated successfully at T = 20
+   CPU-time for integration                : 5.82 seconds
+   CPU-time for one grid interval          : 1.16 milliseconds
+   CPU-time for initialization             : 0.005 seconds
+   Number of result points                 : 5004
+   Number of grid points                   : 5001
+   Number of accepted steps                : 666
+   Number of f-evaluations (dynamics)      : 1439
+   Number of crossing function evaluations : 5666
+   Number of Jacobian-evaluations          : 109
+   Number of model time events             : 2
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 4.01e-13
+   Maximum integration stepsize            : 4.5
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)

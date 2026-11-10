@@ -1,0 +1,42 @@
+﻿ = true
+Translation of Modelica.Electrical.Spice3.Examples.Spice3BenchmarkDifferentialPair:
+The DAE has 157 scalar unknowns and 157 scalar equations.
+ 
+Statistics
+ 
+Original Model
+  Number of components: 28
+  Variables: 695
+  Constants: 8 (8 scalars)
+  Parameters: 530 (530 scalars)
+  Unknowns: 157 (157 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 112
+  Nontrivial: 95
+Translated Model
+  Constants: 531 scalars
+  Free parameters: 25 scalars
+  Parameter depending: 6 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 71 scalars
+  Alias variables: 62 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: {52}
+  Sizes after manipulation of the nonlinear systems: {10}
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of nonlinear systems of equations: {47}
+    Sizes after manipulation of the nonlinear systems: {7}
+    Number of numerical Jacobians: 0
+ 
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+  Q1.vbc
+  Q1.vbe
+  Q2.vbc
+  Q2.vbe
+ 

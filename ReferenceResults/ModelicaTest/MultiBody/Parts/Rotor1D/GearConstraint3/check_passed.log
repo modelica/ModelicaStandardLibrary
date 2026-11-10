@@ -1,0 +1,11 @@
+Check of <a href="Modelica://ModelicaTest.MultiBody.Parts.Rotor1D.GearConstraint3">ModelicaTest.MultiBody.Parts.Rotor1D.GearConstraint3</a>
+The model has the same number of unknowns and equations: 2685
+The model could not be deduced to be symbolically well-posed.
+The model has
+  2657+4*(size(world.x_label.lines, 1)+size(world.y_label.lines, 1)+size(  world.z_label.lines, 1))
+scalar unknowns and
+  2614+(if  not gearConstraint.idealGear.useSupport then 1 else 0)+(if  not   torque1.useSupport then 1 else 0)+(if  not torque2.useSupport then 1 else 0)+(  if  not torque3.useSupport then 1 else 0)+(if  not Connections.isRoot(  bodyBox1.body.frame_a.R) then 13 else 22)+(if  not Connections.isRoot(  bodyBox2.body.frame_a.R) then 13 else 22)+(if  not Connections.isRoot(  bodyBox3.body.frame_a.R) then 13 else 22)+4*size(world.x_label.lines, 1)+4*  size(world.y_label.lines, 1)+4*size(world.z_label.lines, 1)
+scalar equations.
+However, exploiting the given numerical settings of parameters gives the same number of unknowns and equations:
+  2685
+Check of <a href="Modelica://ModelicaTest.MultiBody.Parts.Rotor1D.GearConstraint3">ModelicaTest.MultiBody.Parts.Rotor1D.GearConstraint3</a> successful.

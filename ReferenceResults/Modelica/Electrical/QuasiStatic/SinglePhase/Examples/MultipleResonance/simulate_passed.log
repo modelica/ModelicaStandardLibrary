@@ -1,0 +1,31 @@
+Log-file of program ./dymosim
+(generated: Mon Oct 28 23:55:09 2024)
+
+dymosim started
+... "Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 1
+   CPU-time for integration                : 0.041 seconds
+   CPU-time for one grid interval          : 0.0041 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 10002
+   Number of grid points                   : 10001
+   Number of accepted steps                : 70
+   Number of f-evaluations (dynamics)      : 107
+   Number of Jacobian-evaluations          : 41
+   Number of model time events             : 1
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.59e-14
+   Maximum integration stepsize            : 0.07
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Electrical.QuasiStatic.SinglePhase.Examples.MultipleResonance
