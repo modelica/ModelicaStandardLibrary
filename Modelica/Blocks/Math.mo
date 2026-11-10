@@ -997,6 +997,65 @@ y = u1 * u2;
           Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}})}));
   end Product;
 
+  block ScalarProduct "Output scalar product of the two inputs with dimension n"
+    extends Modelica.Blocks.Interfaces.MI2SO;
+
+  equation
+    y = u1 * u2;
+    annotation (
+      Documentation(
+        info = "<html>
+<p>This blocks computes the output <strong>y</strong> as <em>scalar product</em> of the two input vectors <strong>u1</strong> and <strong>u2</strong>: </p>
+<blockquote><pre>
+y = u1 * u2;
+</pre></blockquote>
+<p>As example, for three-dimensional input vectors the equation would be: </p>
+<blockquote><pre>
+y = u1[1]*u2[1] + u1[2]*u2[2] + u1[3]*u2[3];
+</pre></blockquote>
+The output <strong>y</strong> is scalar.
+</html>"),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-100,60},{-40,60},{-30,40}}, color={0,0,127}),
+          Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,127}),
+          Line(points={{50,0},{100,0}}, color={0,0,127}),
+          Line(points={{-30,0},{30,0}}),
+          Line(points={{-15,25.99},{15,-25.99}}),
+          Line(points={{-15,-25.99},{15,25.99}}),
+          Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}})}),
+      Diagram(
+        coordinateSystem(
+          preserveAspectRatio = true,
+          extent = {
+            {-100, -100},
+            {100, 100}}),
+        graphics = {
+          Line(
+            points = {
+              {-100, 60},
+              {-40, 60},
+              {-30, 40}},
+            color = {0, 0, 255}),
+          Line(
+            points = {{-100, -60}, {-40, -60}, {-30, -40}},
+            color = {0, 0, 255}),
+          Line(points = {{50, 0}, {100, 0}}, color = {0, 0, 255}),
+          Line(points = {{-30, 0}, {30, 0}}),
+          Line(
+            points = {
+              {-15, 25.99},
+              {15, -25.99}}),
+          Line(
+            points = {
+              {-15, -25.99},
+              {15, 25.99}}),
+          Ellipse(
+            extent = {{-50, 50}, {50, -50}},
+            lineColor = {0, 0, 255})}));
+  end ScalarProduct;
+
   block Division "Output first input divided by second input"
     extends Interfaces.SI2SO;
 
@@ -1032,6 +1091,77 @@ y = u1 / u2;
               100,100}}), graphics={         Line(points={{50,0},{100,0}},
             color={0,0,255})}));
   end Division;
+
+  block NormalizeVector "Normalizes a vector"
+    extends Modelica.Blocks.Interfaces.MIMOs(n = 3);
+
+    parameter Real eps(min = 0.0) = 100 * Modelica.Constants.eps
+      "if |v| < eps then result = y0";
+    parameter Real y0[n] = {1, 0, 0}
+      "Output vector if length(u) < eps";
+
+  equation
+    y = noEvent(Modelica.Math.Vectors.normalize(u, eps));
+
+    annotation (
+      Icon(
+        graphics = {
+          Line(
+            points = {{-42.1048, -27.0405}, {34, -28}, {34, -28}, {14, -18}, {14, -18}, {14, -38}, {14, -38}, {34, -28}, {34, -28}},
+            color = {0, 86, 134},
+            rotation = 55,
+            origin = {-14, 50},
+            visible = true,
+            pattern = LinePattern.Dash,
+            thickness = 0.5,
+            smooth = Smooth.Bezier),
+          Line(
+            points = {
+              {-46.5285, -27.6965},
+              {-46.5285, -27.6965},
+              {33.92, -27.5215},
+              {33.92, -27.5215},
+              {14, -18},
+              {14, -18},
+              {14, -38},
+              {14, -38},
+              {33.92, -27.5215},
+              {33.92, -27.5215}},
+            color = {0, 86, 134},
+            rotation = 55,
+            origin = {-58, -12},
+            pattern = LinePattern.Solid,
+            thickness = 0.5,
+            smooth = Smooth.Bezier),
+          Line(points = {{-62, -74}, {-62, 58}}, color = {200, 200, 200}),
+          Polygon(
+            points = [-62.0, 72.0; -62.0, 72.0; -66.0, 56.0; -66.0, 56.0; -58.0, 56.0; -58.0, 56.0; -62.0, 72.0; -62.0, 72.0],
+            lineColor = {200, 200, 200},
+            fillColor = {200, 200, 200},
+            fillPattern = FillPattern.Solid,
+            pattern = LinePattern.None,
+            smooth = Smooth.Bezier),
+          Line(points = {{-68, -66}, {58, -66}}, color = {200, 200, 200}),
+          Polygon(
+            points = {{0, 8}, {0, 8}, {-4, -8}, {-4, -8}, {4, -8}, {4, -8}, {0, 8}, {0, 8}},
+            lineColor = {200, 200, 200},
+            fillColor = {200, 200, 200},
+            fillPattern = FillPattern.Solid,
+            pattern = LinePattern.None,
+            smooth = Smooth.Bezier,
+            origin = {58, -66},
+            rotation = 270),
+          Line(points = {{-16,-70},{-16,-62}}, color = {200, 200, 200}),
+          Line(
+            points = {{0, -4}, {0, 4}},
+            color = {200, 200, 200},
+            origin = {-62, 0},
+            rotation = 90)}),
+      Documentation(
+        info = "<html>
+<p>This block normalizes an input vector <em>u</em> using the <a href=\"modelica://Modelica.Math.Vectors.normalize\">normalize</a> function.</p>
+</html>"));
+  end NormalizeVector;
 
   block Abs "Output the absolute value of the input"
     extends Interfaces.SISO;

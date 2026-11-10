@@ -460,6 +460,52 @@ u1, else it is set equal to u3.</p>
             extent={{2,-6},{18,8}})}));
   end LogicalSwitch;
 
+  block IntegerSwitch "Switch between two Integer signals"
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
+    Blocks.Interfaces.IntegerInput u1 "First input signal"
+      annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+    Blocks.Interfaces.BooleanInput u2 "Boolean condition to select between u1 and u3"
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+    Blocks.Interfaces.IntegerInput u3 "Second input signal"
+      annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
+    Blocks.Interfaces.IntegerOutput y "Output signal"
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+
+  equation
+    y = if u2 then u1 else u3;
+    annotation (
+      Documentation(info="<html>
+<p>The IntegerSwitch switches, depending on the
+Boolean u2 connector (the middle connector),
+between the two possible input signals
+u1 (upper connector) and u3 (lower connector).</p>
+<p>If u2 is true, connector y is set equal to
+u1, else it is set equal to u3.</p>
+</html>"),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{12,0},{100,0}},
+            color={255,127,0}),
+          Line(points={{-100,0},{-40,0}},
+            color={255,0,255}),
+          Line(points={{-100,-80},{-40,-80},{-40,-80}},
+            color={255,127,0}),
+          Line(points={{-40,12},{-40,-12}},
+            color={255,0,255}),
+          Line(points={{-100,80},{-38,80}},
+            color={255,127,0}),
+          Line(points=DynamicSelect({{-38,80},{6,2}}, if u2 then {{-38,80},{6,2}} else {{-38,-80},{6,2}}),
+            color={255,127,0},
+            thickness=1,
+            smooth=Smooth.Bezier),
+          Ellipse(lineColor={255,127,0},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-2,-8},{14,8}},
+            fillColor={244,125,35})}));
+  end IntegerSwitch;
+
   block Switch "Switch between two Real signals"
     extends Modelica.Blocks.Icons.PartialBooleanBlock;
     Blocks.Interfaces.RealInput u1 "Connector of first Real input signal"
