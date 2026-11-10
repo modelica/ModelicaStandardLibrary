@@ -103,9 +103,9 @@ model IMC_InverterDrive
   parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData(
     Rs=0.03*16,
     Rr=0.04*16,
-    Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*aimcData.fsNominal)*16,
-    Lm=3*sqrt(1 - 0.0667)/(2*pi*aimcData.fsNominal)*16,
-    Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*aimcData.fsNominal)*16) "Induction machine data"
+    Lssigma=3'Ohm'*(1 - sqrt(1 - 0.0667))/(2*pi*aimcData.fsNominal)*16,
+    Lm=3'Ohm'*sqrt(1 - 0.0667)/(2*pi*aimcData.fsNominal)*16,
+    Lrsigma=3'Ohm'*(1 - sqrt(1 - 0.0667))/(2*pi*aimcData.fsNominal)*16) "Induction machine data"
     annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
   Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
     annotation (Placement(transformation(extent={{50,-40},{70,-20}})));

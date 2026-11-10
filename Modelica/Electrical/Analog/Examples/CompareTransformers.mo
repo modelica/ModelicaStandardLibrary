@@ -10,15 +10,15 @@ model CompareTransformers
   parameter Real n=2 "Turns ratio primary:secondary voltage";
   parameter SI.Resistance R1=0.01
     "Primary resistance w.r.t. primary side";
-  parameter SI.Inductance L1sigma=0.05/(2*pi*f)
+  parameter SI.Inductance L1sigma=0.05'Ohm'/(2*pi*f)
     "Primary leakage inductance w.r.t. primary side";
-  parameter SI.Inductance Lm1= 10./(2*pi*f)
+  parameter SI.Inductance Lm1= 10'Ohm'/(2*pi*f)
     "Magnetizing inductance w.r.t. primary side";
-  parameter SI.Inductance L2sigma=0.05/(2*pi*f)/n^2
+  parameter SI.Inductance L2sigma=0.05'Ohm'/(2*pi*f)/n^2
     "Secondary leakage inductance w.r.t. secondary side";
-  parameter SI.Resistance R2=0.01/n^2
+  parameter SI.Resistance R2=0.01'Ohm'/n^2
     "Secondary resistance w.r.t. secondary side";
-  parameter SI.Resistance RL=1/n^2 "Load resistance";
+  parameter SI.Resistance RL=1'Ohm'/n^2 "Load resistance";
   final parameter SI.Inductance L1=L1sigma + M*n
     "Primary no-load inductance";
   final parameter SI.Inductance L2=L2sigma + M/n

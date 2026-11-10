@@ -130,14 +130,14 @@ public
     Jr=0.12,
     Rs=0.56,
     alpha20s(displayUnit="1/K")=Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-    Lssigma=1.52/(2*pi*fNominal),
+    Lssigma=1.52'Ohm'/(2*pi*fNominal),
     frictionParameters(PRef=180, wRef=wNominal),
     strayLoadParameters(
       PRef=0.005*sqrt(3)*VNominal*INominal*pfNominal,
       IRef=INominal/sqrt(3),
       wRef=wNominal),
-    Lm=66.4/(2*pi*fNominal),
-    Lrsigma=2.31/(2*pi*fNominal),
+    Lm=66.4'Ohm'/(2*pi*fNominal),
+    Lrsigma=2.31'Ohm'/(2*pi*fNominal),
     Rr=0.42,
     alpha20r(displayUnit="1/K")=Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium)   "Induction machine data"
     annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
