@@ -458,7 +458,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
 
         annotation (Documentation(info="<html>
 <p>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar\"> kc_evenGapLaminar</a> and
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar\"> kc_evenGapLaminar</a> and
 <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_KC\"> kc_evenGapLaminar_KC</a>.</p>
 </html>"));
       end kc_evenGapLaminar_IN_var;
@@ -624,8 +624,8 @@ This record is used as <strong>input record</strong> for the heat transfer funct
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
 
         annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall\"> kc_evenGapOverall</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_KC\"> kc_evenGapOverall_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall\"> kc_evenGapOverall</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_KC\"> kc_evenGapOverall_KC</a>.
 </html>"));
       end kc_evenGapOverall_IN_var;
 
@@ -768,7 +768,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
         annotation (Documentation(info="<html>
 <p>
 This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent\"> kc_evenGapTurbulent</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_KC\"> kc_evenGapTurbulent_KC</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_KC\"> kc_evenGapTurbulent_KC</a>.
 </p>
 </html>"));
       end kc_evenGapTurbulent_IN_con;
@@ -782,7 +782,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
         annotation (Documentation(info="<html>
 <p>
 This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent\"> kc_evenGapTurbulent</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_KC\"> kc_evenGapTurbulent_KC</a>.
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_KC\"> kc_evenGapTurbulent_KC</a>.
 </p>
 </html>"));
       end kc_evenGapTurbulent_IN_var;
@@ -956,8 +956,8 @@ Approximate calculation of the mean convective heat transfer coefficient <strong
       annotation (Dialog(group="Generic variables",enable=target == Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Rough));
 
       annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection\"> kc_approxForcedConvection</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection\"> kc_approxForcedConvection</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC</a>.
 </html>", revisions="<html>
 2016-06-06 Stefan Wischhusen: Corrected enable in dialog.
 </html>"));
@@ -976,8 +976,8 @@ This record is used as <strong>input record</strong> for the heat transfer funct
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
 
       annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection\"> kc_approxForcedConvection</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection\"> kc_approxForcedConvection</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC</a>.
 </html>"));
       end kc_approxForcedConvection_IN_var;
     annotation (preferredView="info", Documentation(info="<html>
@@ -1177,8 +1177,8 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
               enable= geometry == 1));
 
         annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube\"> kc_flatTube</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC\"> kc_flatTube_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube\"> kc_flatTube</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC\"> kc_flatTube_KC</a>.
 </html>"));
 
       end kc_flatTube_IN_con;
@@ -1459,8 +1459,8 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
         SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="Heat exchanger"));
 
         annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube\"> kc_roundTube</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_KC\"> kc_roundTube_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube\"> kc_roundTube</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_KC\"> kc_roundTube_KC</a>.
 </html>"));
 
       end kc_roundTube_IN_con;
@@ -1477,8 +1477,8 @@ This record is used as <strong>input record</strong> for the heat transfer funct
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
 
         annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube\"> kc_roundTube</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_KC\"> kc_roundTube_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube\"> kc_roundTube</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_KC\"> kc_roundTube_KC</a>.
 </html>"));
 
       end kc_roundTube_IN_var;
@@ -1634,8 +1634,8 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con;
 
       annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar\"> kc_laminar</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar\"> kc_laminar</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
 </html>"));
       end kc_laminar_IN_con;
 
@@ -1646,8 +1646,8 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_var;
 
       annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar\"> kc_laminar</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar\"> kc_laminar</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
 </html>"));
       end kc_laminar_IN_var;
 
@@ -1778,8 +1778,8 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.HelicalPipe;
 
       annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall\"> kc_overall</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC\"> kc_overall_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall\"> kc_overall</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
       end kc_overall_IN_con;
 
@@ -1794,8 +1794,8 @@ This record is used as <strong>input record</strong> for the heat transfer funct
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
 
       annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall\"> kc_overall</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC\"> kc_overall_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall\"> kc_overall</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
       end kc_overall_IN_var;
 
@@ -1929,8 +1929,8 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con;
 
       annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent\">  kc_turbulent</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\">  kc_turbulent_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent\">  kc_turbulent</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
       end kc_turbulent_IN_con;
 
@@ -1941,8 +1941,8 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_var;
 
       annotation (Documentation(info="<html>
-This record is used as <strong>input record</strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent\">  kc_turbulent</a> and
-<a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\">  kc_turbulent_KC</a>.
+This record is used as <strong>input record</strong> for the heat transfer function <a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent\">  kc_turbulent</a> and
+<a href=\"modelica:/Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
       end kc_turbulent_IN_var;
     annotation (preferredView="info", Documentation(info="<html>

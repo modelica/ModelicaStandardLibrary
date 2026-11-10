@@ -2129,7 +2129,7 @@ This version is a major improvement:
      Furthermore, all file references are changed to URIs as introduced in
      Modelica 3.1 (e.g., a file with the file name
      \"Modelica/Resources/Images/xxx\" is referenced as
-     \"modelica:/Modelica/Resources/Images/xxx\").</li>
+     \"modelica://Modelica/Resources/Images/xxx\").</li>
 
 <li> All physical models that dissipate heat (such as electrical elements,
      electrical machines, bearings, dampers, etc.), have now an optional heat port
@@ -2960,7 +2960,7 @@ The following trac tickets have been fixed:
 
 <tr><td>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/218\">#218</a></td>
-    <td>Replace `Modelica://`-URIs by `modelica:/`-URIs</td>
+    <td>Replace `Modelica://`-URIs by `modelica://`-URIs</td>
 </tr>
 
 <tr><td>

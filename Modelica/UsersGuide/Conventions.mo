@@ -1473,7 +1473,7 @@ The authors would like to thank following persons for their support ...
       <td>1.0.5</td>
       <td>2010-03-11</td>
       <td>D. Winkler</td>
-      <td>Updated image links guide to new 'modelica:/' URIs, added contact details</td>
+      <td>Updated image links guide to new 'modelica://' URIs, added contact details</td>
     </tr>
     <tr>
       <td>1.0.4</td>

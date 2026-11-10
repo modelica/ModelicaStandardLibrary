@@ -45,7 +45,7 @@ equation
 </html>",
       info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a>
+This sensor determines the continuous quasi <a href=\"modelica:/Modelica.Blocks.Math.RootMeanSquare\">RMS</a>
 value of a polyphase voltage system, by averaging the phase RMS voltage phasors <code>v</code>.
 </p>
 <pre>
