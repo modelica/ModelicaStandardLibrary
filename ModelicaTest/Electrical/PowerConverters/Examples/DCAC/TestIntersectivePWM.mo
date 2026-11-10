@@ -13,16 +13,16 @@ model TestIntersectivePWM "Test timing of intersectivePWM"
             annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Sources.Cosine cosine(amplitude=1, f=1)
     annotation (Placement(transformation(extent={{-50,10},{-30,30}})));
-  Modelica.Blocks.Sources.Sine sine(amplitude=1, f=2)
+  Modelica.Blocks.Sources.Sine sine(amplitude=1, f=1)
     annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
 equation
   when time>tStart then
     assert(abs(carrier[1] - 0.0)<epsilon,
-      "Timing of ItersectivePWM is wrong");
+      "Timing of carrier 1 of ItersectivePWM is wrong");
     assert(abs(carrier[2] + 2/3)<epsilon,
-      "Timing of ItersectivePWM is wrong");
+      "Timing of carrier 2 of ItersectivePWM is wrong");
     assert(abs(carrier[3] - 2/3)<epsilon,
-      "Timing of ItersectivePWM is wrong");
+      "Timing of carrier 3 of ItersectivePWM is wrong");
   end when;
   connect(cosine.y, intersectivePWM.u[1]) annotation (Line(points={{-29,20},{-20,
           20},{-20,-0.5},{-12,-0.5}}, color={0,0,127}));

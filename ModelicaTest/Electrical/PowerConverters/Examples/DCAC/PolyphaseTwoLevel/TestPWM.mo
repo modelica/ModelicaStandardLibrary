@@ -83,8 +83,8 @@ model TestPWM "Test pwm result: rms of base harmonic"
         origin={40,-20})));
 equation
   when terminal() then
-    assert(abs(h01V1.y_rms - VNom)<epsilon, "rms of svpwm wrong");
-    assert(abs(h01V2.y_rms - VNom*sqrt(3)/2)<epsilon, "rms of svpwm wrong");
+    assert(abs(h01V1.y_rms - VNom)<epsilon, "rms of svPWM wrong");
+    assert(abs(h01V2.y_rms - VNom*sqrt(3)/2)<epsilon, "rms of intersectivePWM wrong");
   end when;
   connect(svPWM.fire_p, multiPhase2Level1.fire_p)
     annotation (Line(points={{-6,61},{-6,68}}, color={255,0,255}));
