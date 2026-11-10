@@ -6,7 +6,7 @@ model Test_SVPWM "Test sequence of SVPWM"
   parameter Integer comparison[24]=
     {1,3,3,1, 2,3,3,2, 2,6,6,2, 4,6,6,4, 4,5,5,4, 1,5,5,1};
   Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM
-    svPWM(f=6, uMax=1*2/sqrt(3))
+    svPWM(f=6, uMax=0.999*2/sqrt(3))
      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Modelica.Blocks.Sources.Cosine cosine(amplitude=1, f=1,
     phase=pi/6)
