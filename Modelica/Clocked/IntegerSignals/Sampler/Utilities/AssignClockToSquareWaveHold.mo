@@ -11,9 +11,12 @@ block AssignClockToSquareWaveHold
         iconTransformation(extent={{100,-10},{120,10}})));
 protected
   Boolean y2(start=y_start);
+  Integer uu;
 equation
-  // dummy condition to relate clock of u with y2
-  y2 = if u > 0 then not previous(y2) else not previous(y2);
+  when Clock() then
+     uu = u "Dummy assignment to relate clock of u with y2";
+     y2 = not previous(y2);
+  end when;
   y = hold(y2);
   annotation (
     defaultComponentName="clockToSquareWave",
