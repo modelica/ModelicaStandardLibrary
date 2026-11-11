@@ -2,3 +2,7 @@ QuadraticCoreAirgap
 ToroidalCoreAirgap
 ToroidalCoreQuadraticCrossSection
 SaturatedInductor
+ShowMaterial
+CompareModels
+EIcore
+CompareCharacteristics
