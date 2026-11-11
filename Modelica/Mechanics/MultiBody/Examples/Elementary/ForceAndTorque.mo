@@ -74,7 +74,7 @@ equation
     Documentation(info="<html>
 <p>
 In this example the usage of the general force element
-\"<a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a>\"
+\"<a href=\"modelica:/Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a>\"
 is shown. A \"ForceAndTorque\" element is connected
 between a body and a fixed point in the world system. The force and torque
 is defined by the \"Constant\" block. The two vectors are resolved in the
@@ -91,6 +91,6 @@ are proportional to the lengths of the force and torque vectors
 (constant scaling factors are defined as parameters in the
 forceAndTorque component):
 </p>
-<div><img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceAndTorque.png\"></div>
+<div><img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceAndTorque.png\"></div>
 </html>"), experiment(StopTime=1.01));
 end ForceAndTorque;

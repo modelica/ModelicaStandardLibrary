@@ -91,7 +91,7 @@ equation
 
 <p>
 General information about controllers is summarized in
-<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">Control</a>.
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.ACDC.Control\">Control</a>.
 </p>
 </html>"));
 end VoltageCenterTap2mPulse;

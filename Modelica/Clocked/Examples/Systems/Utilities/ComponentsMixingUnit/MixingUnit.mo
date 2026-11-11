@@ -72,6 +72,6 @@ equation
         Line(points={{-86,-72},{-86,-114}}),
         Line(points={{-66,-72},{-66,-114}})}),
     Documentation(info="<html>
-See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">ControlledMixingUnit</a>.
+See description in <a href=\"modelica:/Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">ControlledMixingUnit</a>.
 </html>"));
 end MixingUnit;

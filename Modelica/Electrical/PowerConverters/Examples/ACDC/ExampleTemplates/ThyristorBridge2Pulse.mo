@@ -75,7 +75,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>Template of
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse\">
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse\">
 two pulse bridge rectifiers</a>; load is not yet included.</p>
 </html>"));
 end ThyristorBridge2Pulse;

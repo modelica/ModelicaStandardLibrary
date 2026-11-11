@@ -251,7 +251,7 @@ default animation):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSP.png\" alt=\"model Joints.Assemblies.JointUSP\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSP.png\" alt=\"model Joints.Assemblies.JointUSP\">
 </div>
 
 <p>

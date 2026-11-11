@@ -273,10 +273,10 @@ equation
 <p>
 
 An ideal frequency inverter is modeled by using
-<a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>s
-and <a href=\"modelica://Modelica.Electrical.Polyphase.Sources.SignalVoltage\">SignalVoltages</a>s.
+<a href=\"modelica:/Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>s
+and <a href=\"modelica:/Modelica.Electrical.Polyphase.Sources.SignalVoltage\">SignalVoltages</a>s.
 Frequency is raised by a ramp, causing the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">permanent magnet synchronous machines</a> to start,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">permanent magnet synchronous machines</a> to start,
 and accelerate the inertias. Two equivalent machines with different numbers of phases are compared and their equal behavior is demonstrated.</p>
 
 <p>At time tStep a load step is applied. Simulate for 1.5 seconds and plot (versus time):</p>

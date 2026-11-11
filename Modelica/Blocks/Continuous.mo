@@ -75,7 +75,7 @@ y = - u
 <p>
 It might be difficult to initialize the integrator in steady state.
 This is discussed in the description of package
-<a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
+<a href=\"modelica:/Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
 <p>
@@ -206,7 +206,7 @@ the integral away from the bounds.
 <p>
 It might be difficult to initialize the integrator in steady state.
 This is discussed in the description of package
-<a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
+<a href=\"modelica:/Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
 <p>
@@ -570,7 +570,7 @@ Example:
 It might be difficult to initialize the PI component in steady state
 due to the integrator part.
 This is discussed in the description of package
-<a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
+<a href=\"modelica:/Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
 </html>"), Icon(coordinateSystem(
@@ -698,7 +698,7 @@ block LimPID.
 The PID block can be initialized in different
 ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
-<a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>.
+<a href=\"modelica:/Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>.
 </p>
 
 <p>
@@ -969,7 +969,7 @@ Via parameter <strong>controllerType</strong> either <strong>P</strong>, <strong
 or <strong>PID</strong> can be selected. If, e.g., PI is selected, all components belonging to the
 D-part are removed from the block (via conditional declarations).
 The example model
-<a href=\"modelica://Modelica.Blocks.Examples.PID_Controller\">Modelica.Blocks.Examples.PID_Controller</a>
+<a href=\"modelica:/Modelica.Blocks.Examples.PID_Controller\">Modelica.Blocks.Examples.PID_Controller</a>
 demonstrates the usage of this controller.
 Several practical aspects of PID controller design are incorporated
 according to chapter 3 of the book:
@@ -1042,7 +1042,7 @@ together) and using the following strategy:
 This block can be initialized in different
 ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
-<a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>.
+<a href=\"modelica:/Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>.
 </p>
 
 <p>
@@ -1482,7 +1482,7 @@ different orders are shown in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/Butterworth.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Continuous/Butterworth.png\"
      alt=\"Butterworth.png\">
 </div>
 
@@ -1607,12 +1607,12 @@ y = ------------- * u
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNormalized.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNormalized.png\"
      alt=\"CriticalDampingNormalized.png\">
 </div>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNonNormalized.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNonNormalized.png\"
      alt=\"CriticalDampingNonNormalized.png\">
 </div>
 
@@ -1852,7 +1852,7 @@ are shown in the next figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/LowPassOrder4Filters.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Continuous/LowPassOrder4Filters.png\"
      alt=\"LowPassOrder4Filters.png\">
 </blockquote>
 
@@ -1862,7 +1862,7 @@ starting from a steady state initial filter with initial input = 0.2:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/LowPassOrder4FiltersStepResponse.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Continuous/LowPassOrder4FiltersStepResponse.png\"
      alt=\"LowPassOrder4FiltersStepResponse.png\">
 </blockquote>
 
@@ -1883,7 +1883,7 @@ are shown in the next figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/HighPassOrder4Filters.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Continuous/HighPassOrder4Filters.png\"
      alt=\"HighPassOrder4Filters.png\">
 </blockquote>
 
@@ -1892,7 +1892,7 @@ The corresponding step responses of these high pass filters are
 shown in the next figure:
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/HighPassOrder4FiltersStepResponse.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Continuous/HighPassOrder4FiltersStepResponse.png\"
      alt=\"HighPassOrder4FiltersStepResponse.png\">
 </blockquote>
 
@@ -1913,12 +1913,12 @@ CriticalDamping filters of order 1,2,3:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNormalized.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNormalized.png\"
      alt=\"CriticalDampingNormalized.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNonNormalized.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNonNormalized.png\"
      alt=\"CriticalDampingNonNormalized.png\">
 </blockquote>
 
@@ -4459,7 +4459,7 @@ described by differential equations.
 All blocks of this package can be initialized in different
 ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
-<a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>:
+<a href=\"modelica:/Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>:
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">

@@ -29,7 +29,7 @@ Notice that a clocked variable has <em>only a value when the corresponding clock
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clockSignals.png\" alt=\"Clock variables and clocked variables\">
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/Clocks/clockSignals.png\" alt=\"Clock variables and clocked variables\">
 </div>
 
 <h4>Clock blocks and connectors</h4>
@@ -41,16 +41,16 @@ graphical modeling thanks to the clock blocks and connectors it provides.
 </p>
 <p>
 Similarly to RealInput, RealOutput etc., clock input and output connectors, called ClockInput and ClockOutput, are defined in sublibrary
-<a href=\"modelica://Modelica.Clocked.ClockSignals.Interfaces\">ClockSignal.Interfaces</a>
+<a href=\"modelica:/Modelica.Clocked.ClockSignals.Interfaces\">ClockSignal.Interfaces</a>
 in order to propagate clocks via connections.
 </p>
 <p>
 A clock signal can be generated with one of the blocks of sublibrary
-<a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks\">ClockSignals.Clocks</a>:
+<a href=\"modelica:/Modelica.Clocked.ClockSignals.Clocks\">ClockSignals.Clocks</a>:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clocks.png\" alt=\"Sublibrary ClockSignals.Clocks\">
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/Clocks/clocks.png\" alt=\"Sublibrary ClockSignals.Clocks\">
 </div>
 
 <p>
@@ -61,7 +61,7 @@ by default visualized with dotted grey lines.
 <h4>Derived clocks (sub/super/shift-sampling)</h4>
 <p>
 With the blocks of sublibrary
-<a href=\"modelica://Modelica.Clocked.ClockSignals.Sampler\">ClockSignals.Sampler</a>
+<a href=\"modelica:/Modelica.Clocked.ClockSignals.Sampler\">ClockSignals.Sampler</a>
 a clock signal can be sub-sampled, super-sampled, or shift-sampled to generate
 a new clock signal. For example, with the following model, a periodic clock signal of 0.1 s
 is sub-sampled with a factor 3 and therefore a clock signal with a period of 0.3 s
@@ -69,8 +69,8 @@ is generated:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/subSampledClockExample.png\" alt=\"Sub-sample example model\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/subSampledClockResult.png\" alt=\"Sub-sample example plot\">
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/Clocks/subSampledClockExample.png\" alt=\"Sub-sample example model\"><br>
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/Clocks/subSampledClockResult.png\" alt=\"Sub-sample example plot\">
 </div>
 
 <p>
@@ -132,7 +132,7 @@ The possible integration methods are tool dependent. It is expected that
 at least the solvers \"External\" (= use the integrator selected in the
 simulation environment) and \"ExplicitEuler\" (= explicit Euler method)
 are supported by every tool. For an example, see
-<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
+<a href=\"modelica:/Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 </p>
 </html>"));
 end Clocks;

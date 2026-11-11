@@ -130,7 +130,7 @@ following figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce1.png\">
 </div>
 
 <p>
@@ -138,7 +138,7 @@ This leads to the following animation
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce2.png\">
 </div>
 </html>"));
 end WorldForce;

@@ -383,7 +383,7 @@ readRealParameter(\"test.txt\", \"w_rel0\")
     extends Modelica.Icons.Example;
 
     parameter String file = Modelica.Utilities.Files.loadResource(
-    "modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt")
+    "modelica:/Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt")
       "File on which data is present"
           annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Open text file to read parameters of the form \"name = value\"")));
@@ -428,7 +428,7 @@ from a file.
     annotation (preferredView="text", experiment(StopTime=0.1), Documentation(info="<html>
 <p>
 Example model that shows how to write a Real matrix in MATLAB MAT format on file
-using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>.
+using function <a href=\"modelica:/Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>.
 </p>
 </html>"));
   end WriteRealMatrixToFile;
@@ -437,15 +437,15 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
     "Demonstrate usage of function Streams.readRealMatrix"
     import Modelica.Utilities.Streams.print;
     extends Modelica.Icons.Example;
-    parameter String file = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of matrix"
+    parameter String file = Modelica.Utilities.Files.loadResource("modelica:/Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of matrix"
       annotation(Dialog(loadSelector(filter="MATLAB MAT files (*.mat)", caption="Open MATLAB MAT file")));
     parameter String matrixName = "Matrix_A" "Matrix name in file";
     final parameter Integer dim[2] = Modelica.Utilities.Streams.readMatrixSize(file,matrixName) "Dimension of matrix";
     final parameter Real A[:,:] = Modelica.Utilities.Streams.readRealMatrix(file,matrixName,dim[1],dim[2]) "Matrix data";
 
-    final parameter String file1 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of check matrix 1";
-    final parameter String file2 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat") "File name of check matrix 2";
-    final parameter String file3 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v7.mat") "File name of check matrix 3";
+    final parameter String file1 = Modelica.Utilities.Files.loadResource("modelica:/Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of check matrix 1";
+    final parameter String file2 = Modelica.Utilities.Files.loadResource("modelica:/Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat") "File name of check matrix 2";
+    final parameter String file3 = Modelica.Utilities.Files.loadResource("modelica:/Modelica/Resources/Data/Utilities/Test_RealMatrix_v7.mat") "File name of check matrix 3";
     final parameter String matrixName1 = "Matrix_A" "Names of check matrices";
     final parameter Integer dim1[2] = Modelica.Utilities.Streams.readMatrixSize(file1,matrixName1) "Dimension of check matrix 1";
     final parameter Integer dim2[2] = Modelica.Utilities.Streams.readMatrixSize(file2,matrixName1) "Dimension of check matrix 2";
@@ -472,8 +472,8 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
 <p>
 Example model that shows how to read a Real matrix in MATLAB MAT format from file
 using functions
-<a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a> and
-<a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>.
+<a href=\"modelica:/Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a> and
+<a href=\"modelica:/Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>.
 </p>
 
 <p>
@@ -489,27 +489,27 @@ use the functions of package Modelica.Utilities. In particular
 the following examples are present.
 </p>
 <ul>
-<li> Function <a href=\"modelica://Modelica.Utilities.Examples.calculator\">calculator</a>
+<li> Function <a href=\"modelica:/Modelica.Utilities.Examples.calculator\">calculator</a>
      is an interpreter to evaluate
      expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
      For example: calculator(\"1.5*sin(pi/6)\");<br>&nbsp;</li>
-<li> Function <a href=\"modelica://Modelica.Utilities.Examples.expression\">expression</a>
+<li> Function <a href=\"modelica:/Modelica.Utilities.Examples.expression\">expression</a>
      is the basic function used in \"calculator\" to evaluate an expression.
      It is useful if the expression interpreter is used in a larger
      scan operation (such as readRealParameter below).<br>&nbsp;</li>
-<li> Function <a href=\"modelica://Modelica.Utilities.Examples.readRealParameter\">readRealParameter</a>
+<li> Function <a href=\"modelica:/Modelica.Utilities.Examples.readRealParameter\">readRealParameter</a>
      reads the value of a parameter
      from file, given the file and the parameter name. The value
      on file is interpreted with the Examples.expression function
      and can therefore be an expression.<br>&nbsp;</li>
-<li> Model <a href=\"modelica://Modelica.Utilities.Examples.readRealParameterModel\">readRealParameterModel</a>
+<li> Model <a href=\"modelica:/Modelica.Utilities.Examples.readRealParameterModel\">readRealParameterModel</a>
      is a test model to demonstrate the usage of \"readRealParameter\". The model
-     contains 3 parameters that are read from file <a href=\"modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt\">Examples_readRealParameters.txt</a>.<br>&nbsp;
+     contains 3 parameters that are read from file <a href=\"modelica:/Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt\">Examples_readRealParameters.txt</a>.<br>&nbsp;
      </li>
-<li> Model <a href=\"modelica://Modelica.Utilities.Examples.WriteRealMatrixToFile\">WriteRealMatrixToFile</a>
+<li> Model <a href=\"modelica:/Modelica.Utilities.Examples.WriteRealMatrixToFile\">WriteRealMatrixToFile</a>
      demonstrates the usage of function \"Streams.writeReaMatrix\" to store a matrix in various MATLAB MAT formats on file.<br>&nbsp;
      </li>
-<li> Model <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">ReadRealMatrixFromFile</a>
+<li> Model <a href=\"modelica:/Modelica.Utilities.Examples.ReadRealMatrixFromFile\">ReadRealMatrixFromFile</a>
      demonstrates the usage of functions \"Streams.readMatrixSize\" and \"Streams.readRealMatrix\"
      to read a matrix in various MATLAB MAT formats from file.
      </li>

@@ -59,12 +59,12 @@ package Pipes "Devices for conveying fluid"
   Documentation(info="<html>
 <p>Model of a straight pipe with constant cross section and with steady-state mass, momentum and energy balances, i.e., the model does not store mass or energy.
 There exist two thermodynamic states, one at each fluid port. The momentum balance is formulated for the two states, taking into account
-momentum flows, friction and gravity. The same result can be obtained by using <a href=\"modelica://Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> with
+momentum flows, friction and gravity. The same result can be obtained by using <a href=\"modelica:/Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> with
 steady-state dynamic settings. The intended use is to provide simple connections of vessels or other devices with storage, as it is done in:
 </p>
 <ul>
-<li><a href=\"modelica://Modelica.Fluid.Examples.Tanks.EmptyTanks\">Examples.Tanks.EmptyTanks</a></li>
-<li><a href=\"modelica://Modelica.Fluid.Examples.InverseParameterization\">Examples.InverseParameterization</a></li>
+<li><a href=\"modelica:/Modelica.Fluid.Examples.Tanks.EmptyTanks\">Examples.Tanks.EmptyTanks</a></li>
+<li><a href=\"modelica:/Modelica.Fluid.Examples.InverseParameterization\">Examples.InverseParameterization</a></li>
 </ul>
 <h4>Numerical Issues</h4>
 <p>
@@ -149,17 +149,17 @@ or other flow models without storage, are directly connected.
       annotation (Line(points={{0,55},{0,54},{-34,54},{-34,38.7}}, color={191,0,0}));
     annotation (defaultComponentName="pipe",
   Documentation(info="<html>
-<p>Model of a straight pipe with distributed mass, energy and momentum balances. It provides the complete balance equations for one-dimensional fluid flow as formulated in <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>.</p>
+<p>Model of a straight pipe with distributed mass, energy and momentum balances. It provides the complete balance equations for one-dimensional fluid flow as formulated in <a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>.</p>
 <p>This generic model offers a large number of combinations of possible parameter settings. In order to reduce model complexity, consider defining and/or using a tailored model for the application at hand, such as
-<a href=\"modelica://Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation\">HeatExchanger</a>.</p>
+<a href=\"modelica:/Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation\">HeatExchanger</a>.</p>
 <p>DynamicPipe treats the partial differential equations with the finite volume method and a staggered grid scheme for momentum balances. The pipe is split into nNodes equally spaced segments along the flow path. The default value is nNodes=2. This results in two lumped mass and energy balances and one lumped momentum balance across the dynamic pipe.</p>
 <p>Note that this generally leads to high-index DAEs for pressure states if dynamic pipes are directly connected to each other, or generally to models with storage exposing a thermodynamic state through the port. This may not be valid if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The <code><strong>modelStructure</strong></code> can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition.</p>
-<p>The default <code><strong>modelStructure</strong></code> is <code>av_vb</code> (see Advanced tab). The simplest possible alternative symmetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. Depending on the configured model structure, the first and the last pipe segment, or the flow path length of the first and the last momentum balance, are of half size. See the documentation of the base class <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations.</p>
-<p>The <code><strong>HeatTransfer</strong></code> component specifies the source term <code>Qb_flows</code> of the energy balance. The default component uses a constant coefficient for the heat transfer between the bulk flow and the segment boundaries exposed through the <code>heatPorts</code>. The <code>HeatTransfer</code> model is replaceable and can be exchanged with any model extended from <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>.</p>
+<p>The default <code><strong>modelStructure</strong></code> is <code>av_vb</code> (see Advanced tab). The simplest possible alternative symmetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. Depending on the configured model structure, the first and the last pipe segment, or the flow path length of the first and the last momentum balance, are of half size. See the documentation of the base class <a href=\"modelica:/Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations.</p>
+<p>The <code><strong>HeatTransfer</strong></code> component specifies the source term <code>Qb_flows</code> of the energy balance. The default component uses a constant coefficient for the heat transfer between the bulk flow and the segment boundaries exposed through the <code>heatPorts</code>. The <code>HeatTransfer</code> model is replaceable and can be exchanged with any model extended from <a href=\"modelica:/Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>.</p>
 <p>The intended use is for complex networks of pipes and other flow devices, like valves. See, e.g.,</p>
 <ul>
-<li><a href=\"modelica://Modelica.Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>, or</li>
-<li><a href=\"modelica://Modelica.Fluid.Examples.IncompressibleFluidNetwork\">Examples.IncompressibleFluidNetwork</a>.</li>
+<li><a href=\"modelica:/Modelica.Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>, or</li>
+<li><a href=\"modelica:/Modelica.Fluid.Examples.IncompressibleFluidNetwork\">Examples.IncompressibleFluidNetwork</a>.</li>
 </ul>
 </html>"),
   Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
@@ -600,7 +600,7 @@ The default value is nNodes=2.
 </p>
 <h4>Mass and Energy balances</h4>
 <p>
-The mass and energy balances are inherited from <a href=\"modelica://Modelica.Fluid.Interfaces.PartialDistributedVolume\">Interfaces.PartialDistributedVolume</a>.
+The mass and energy balances are inherited from <a href=\"modelica:/Modelica.Fluid.Interfaces.PartialDistributedVolume\">Interfaces.PartialDistributedVolume</a>.
 One total mass and one energy balance is formed across each segment according to the finite volume approach.
 Substance mass balances are added if the medium contains more than one component.
 </p>
@@ -616,8 +616,8 @@ Moreover it needs to define two vectors of source terms for the distributed ener
 <h4>Momentum balance</h4>
 <p>
 The momentum balance is determined by the <strong><code>FlowModel</code></strong> component, which can be replaced with any model extended from
-<a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel\">BaseClasses.FlowModels.PartialStaggeredFlowModel</a>.
-The default setting is <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow\">DetailedPipeFlow</a>.
+<a href=\"modelica:/Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel\">BaseClasses.FlowModels.PartialStaggeredFlowModel</a>.
+The default setting is <a href=\"modelica:/Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow\">DetailedPipeFlow</a>.
 </p>
 <p>
 This considers
@@ -1054,7 +1054,7 @@ The geometry is specified with the <code>pathLengths[n-1]</code> between the dev
 with the <code>crossAreas[n]</code> and the <code>roughnesses[n]</code> of the device segments.
 Moreover the fluid flow is characterized for different types of devices by the characteristic <code>dimensions[n]</code>
 and the average velocities <code>vs[n]</code> of fluid flow in the device segments.
-See <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
+See <a href=\"modelica:/Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
 for example definitions.
 </p>
 <p>
@@ -1270,7 +1270,7 @@ and due to <strong>gravity</strong>.
 Correlations of different complexity and validity can be
 selected via the replaceable package <strong>WallFriction</strong> (see parameter menu below).
 The details of the pipe wall friction model are described in the
-<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
+<a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 Basically, different variants of the equation
 </p>
 
@@ -1375,7 +1375,7 @@ specified <code>dp_nominal</code> and <code>m_flow_nominal</code>.
 It takes into account the fluid density of each flow segment and
 obtains appropriate <code>pathLengths_nominal</code> values
 for an inverse parameterization of the
-<a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow\">
+<a href=\"modelica:/Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow\">
           TurbulentPipeFlow</a>
 model. Per default the upstream and downstream densities are averaged with the setting <code>useUpstreamScheme = false</code>,
 in order to avoid discontinuous <code>pathLengths_nominal</code> values in the case of flow reversal.
@@ -1471,7 +1471,7 @@ The turbulent pressure loss correlation might be useful to optimize models that 
 <p>
 This component defines the complete regime of wall friction.
 The details are described in the
-<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
+<a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 The functional relationship of the friction loss factor &lambda; is
 displayed in the next figure. Function massFlowRate_dp() defines the \"red curve\"
 (\"Swamee and Jain\"), where as function pressureLoss_m_flow() defines the
@@ -1482,7 +1482,7 @@ solving a non-linear equation.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
 </div>
 
@@ -1493,7 +1493,7 @@ shown next, the change of elevation with the path from a to b has the opposite
 sign of the change of density.</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-a.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-a.png\"
      alt=\"PipeFrictionStaticHead_case-a.png\">
 </div>
 
@@ -1502,7 +1502,7 @@ In the case illustrated second, the change of elevation with the path from a to
 b has the same sign of the change of density.</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-b.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-b.png\"
      alt=\"PipeFrictionStaticHead_case-b.png\">
 </div>
 </html>"), Diagram(coordinateSystem(
@@ -1556,7 +1556,7 @@ The geometry is specified in the interface with the <code>surfaceAreas[n]</code>
 and the lengths[n] along the flow path.
 Moreover the fluid flow is characterized for different types of devices by the characteristic <code>dimensions[n+1]</code>
 and the average velocities <code>vs[n+1]</code> of fluid flow.
-See <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
+See <a href=\"modelica:/Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
 for example definitions.
 </p>
 </html>"),Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
@@ -1730,7 +1730,7 @@ The following table gives examples for the characteristic dimension D and the ve
 with
   m_flow = v*&rho;*A
 </pre></blockquote>
-See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">
+See also <a href=\"modelica:/Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">
           Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>.
 </html>"));
       end ReynoldsNumber_m_flow;
@@ -2140,7 +2140,7 @@ systems of equations can still further be reduced.
 </p>
 
 <p>
-In <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a> the complete friction regime is illustrated.
+In <a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a> the complete friction regime is illustrated.
 This component describes only the <strong>Hagen-Poiseuille</strong> equation.
 </p>
 <br>
@@ -2378,7 +2378,7 @@ This relationship is only valid for large Reynolds numbers.
 </p>
 
 <p>
-In <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a> the complete friction regime is illustrated.
+In <a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a> the complete friction regime is illustrated.
 This component describes only the asymptotic behaviour for large
 Reynolds numbers, i.e., the values at the right ordinate where
 &lambda; is constant.
@@ -3310,7 +3310,7 @@ identical to laminar wall friction.
 <p>
 This component defines the complete regime of wall friction.
 The details are described in the
-<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
+<a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 The functional relationship of the friction loss factor &lambda; is
 displayed in the next figure. Function massFlowRate_dp() defines the \"red curve\"
 (\"Swamee and Jain\"), where as function pressureLoss_m_flow() defines the
@@ -3321,7 +3321,7 @@ solving a non-linear equation.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
 </div>
 
@@ -3332,7 +3332,7 @@ shown next, the change of elevation with the path from a to b has the opposite
 sign of the change of density.</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-a.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-a.png\"
      alt=\"PipeFrictionStaticHead_case-a.png\">
 </div>
 
@@ -3341,7 +3341,7 @@ In the case illustrated second, the change of elevation with the path from a to
 b has the same sign of the change of density.</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-b.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-b.png\"
      alt=\"PipeFrictionStaticHead_case-b.png\">
 </div>
 
@@ -3354,7 +3354,7 @@ pressure losses due to <strong>wall friction</strong> in a pipe.
 Every correlation is defined by a package that is derived
 by inheritance from the package WallFriction.PartialWallFriction.
 The details of the underlying pipe wall friction model are described in the
-<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
+<a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 Basically, different variants of the equation
 </p>
 
@@ -3368,7 +3368,7 @@ in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
 </div>
 

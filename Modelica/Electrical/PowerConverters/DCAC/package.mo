@@ -4,7 +4,7 @@ package DCAC "DC to AC converters"
   annotation (Documentation(info="<html>
 <p>
 General information about DC/AC converters can be found at the
-<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept\">DC/AC converter concept</a>
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept\">DC/AC converter concept</a>
 </p>
 </html>"));
 end DCAC;

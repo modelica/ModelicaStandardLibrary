@@ -52,7 +52,7 @@ equation
               {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, smooth = Smooth.Bezier)}),
       Documentation(info="<html>
 <p>
-The <a href=\"modelica://Modelica.Electrical.Machines.Sensors.SinCosResolver\">sin-cos-resolver</a> provides four tracks:
+The <a href=\"modelica:/Modelica.Electrical.Machines.Sensors.SinCosResolver\">sin-cos-resolver</a> provides four tracks:
 </p>
 <ul>
 <li>cosine</li>
@@ -73,7 +73,7 @@ The resulting angle is continuous, i.e. differentiating the angle results in 2*&
 If desired, the angle can be wrapped to the interval ]-&pi;, +&pi;].
 </p>
 <p>
-If the <a href=\"modelica://Modelica.Electrical.Machines.Sensors.SinCosResolver\">sin-cos-resolver</a> provides one period of the tracks during a rotation of 2&pi;/p,
+If the <a href=\"modelica:/Modelica.Electrical.Machines.Sensors.SinCosResolver\">sin-cos-resolver</a> provides one period of the tracks during a rotation of 2&pi;/p,
 the result is the angle with respect to one pole pair and can be directly used for field oriented control.
 </p>
 </html>"));

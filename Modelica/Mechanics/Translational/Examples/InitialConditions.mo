@@ -94,7 +94,7 @@ combination). In this case the system is not at rest.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/InitialConditions.png\" alt=\"Initial conditions\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/Examples/InitialConditions.png\" alt=\"Initial conditions\">
 </blockquote>
 </html>"),
     experiment(StopTime=5.0, Interval=0.001),

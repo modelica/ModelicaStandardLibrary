@@ -60,7 +60,7 @@ equation
         LossPower = D.i*(D.v - S.v);
         annotation (defaultComponentName="nMOS",
           Documentation(info="<html>
-<p>The NMOS model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
+<p>The NMOS model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
 <br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
 </p>
@@ -86,7 +86,7 @@ m       m      A/V^2        V       -      -        m        m
 12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
 20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
 </pre></blockquote>
-<p><strong>References:</strong> [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
+<p><strong>References:</strong> [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
 </html>",revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>

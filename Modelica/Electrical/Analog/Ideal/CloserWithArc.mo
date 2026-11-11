@@ -15,10 +15,10 @@ equation
         Line(points={{40,40},{32,14},{48,22},{40,0}}, color={255,0,0})}),
     Documentation(info="<html>
 <p>
-This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
+This model is an extension to the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
 <p>
-For details of the arc effect, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc\">IdealSwitchWithArc</a>.
+For details of the arc effect, see partial model <a href=\"modelica:/Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc\">IdealSwitchWithArc</a>.
 </p>
 </html>",
         revisions="<html>

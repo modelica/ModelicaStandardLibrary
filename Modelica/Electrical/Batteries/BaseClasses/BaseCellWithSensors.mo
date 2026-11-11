@@ -79,7 +79,7 @@ equation
     annotation (Line(points={{0,-50},{0,-40},{-20,-40}}, color={191,0,0}));
   annotation (Documentation(info="<html>
 <p>
-This is a single <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">cell[Np=1, Ns=1]</a> with measurement.
+This is a single <a href=\"modelica:/Modelica.Electrical.Batteries.BatteryStacks.CellStack\">cell[Np=1, Ns=1]</a> with measurement.
 </p>
 </html>"));
 end BaseCellWithSensors;

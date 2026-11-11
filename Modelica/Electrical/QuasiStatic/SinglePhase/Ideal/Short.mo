@@ -20,7 +20,7 @@ This model is a simple short cut branch considering the complex voltage <em><u>v
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle\">Idle</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle\">Idle</a>
 </p>
 </html>"));
 end Short;

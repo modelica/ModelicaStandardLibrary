@@ -69,7 +69,7 @@ One device connected to the coupling is turning clockwise (looking at the shaft 
 the other device connected to the coupling is turning counter-clockwise (looking at the shaft end).
 The torque at <code>flange_b</code> has the same magnitude as the torque at <code>flange_a</code> but opposite sign.
 This is achieved by using an
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.IdealGear\">ideal gear</a> with <code>ratio = -1</code>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Components.IdealGear\">ideal gear</a> with <code>ratio = -1</code>.
 </p>
 <p>
 Variable <code>w</code> represents the angular velocity of <code>flange_a</code>
@@ -77,7 +77,7 @@ and <code>tau</code> represents the torque transferred from <code>flange_a</code
 </p>
 <p>
 This behaviour is essential when coupling electric machines. The usage is demonstrated
-in the example <a href=\"modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive\">Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive</a>.
+in the example <a href=\"modelica:/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive\">Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive</a>.
 </p>
 </html>"));
 end Coupling;

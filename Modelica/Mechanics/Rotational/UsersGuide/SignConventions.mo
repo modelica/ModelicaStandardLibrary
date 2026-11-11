@@ -13,7 +13,7 @@ at hand of the following figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive2.png\" alt=\"drive2\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive2.png\" alt=\"drive2\">
 </div>
 
 <p>
@@ -37,7 +37,7 @@ vector direction displayed according to this rule:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive3.png\" alt=\"drive3\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive3.png\" alt=\"drive3\">
 </div>
 <p>
 The cut-torques <code>J2.flange_a.tau</code>, <code>J4.flange_a.tau</code> and <code>J6.flange_b.tau</code>
@@ -50,7 +50,7 @@ cases are shown in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive4.png\" alt=\"drive4\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive4.png\" alt=\"drive4\">
 </div>
 
 <p>

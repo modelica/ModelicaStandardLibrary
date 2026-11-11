@@ -33,7 +33,7 @@ y = <strong>acos</strong>(uInternal);
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/acos.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/acos.png\"
      alt=\"acos.png\">
 </div>
 

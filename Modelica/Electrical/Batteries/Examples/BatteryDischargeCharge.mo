@@ -117,7 +117,7 @@ equation
 <li><code>battery2</code> is a battery OCV dependency on SOC is specified by a table, with self-discharge and including RC-elements.</li>
 </ul>
 <p>
-Two <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">parameter records</a> <code>cellData1</code> and <code>cellData2</code> are used to parameterize the battery models.
+Two <a href=\"modelica:/Modelica.Electrical.Batteries.ParameterRecords.CellData\">parameter records</a> <code>cellData1</code> and <code>cellData2</code> are used to parameterize the battery models.
 </p>
 <p>
 First the batteries are discharged with 7 current pulses of 50 A for 1 minute, and breaks between the pulses of 1 minute, ending at SOC = 5 %.<br>

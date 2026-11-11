@@ -236,9 +236,9 @@ equation
   annotation (
     experiment(StopTime=2),
     __Dymola_Commands(
-      file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/Run.mos"
+      file="modelica:/Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/Run.mos"
         "Simulate",
-      file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos"
+      file="modelica:/Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos"
         "Plot result of axis 3 + animate"),
     Documentation(info="<html>
 <p>
@@ -257,7 +257,7 @@ For current settings, the termination condition should indeed be fulfilled right
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/RobotR3/r3_fullRobot.png\" alt=\"model Examples.Systems.RobotR3.FullRobot\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/RobotR3/r3_fullRobot.png\" alt=\"model Examples.Systems.RobotR3.FullRobot\">
 </div>
 </html>"));
 end FullRobot;

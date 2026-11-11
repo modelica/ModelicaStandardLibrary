@@ -24,7 +24,7 @@ equation
         textString = "change()")}),
     Documentation(info="<html><p>
 This block is a synchronous version of
-<a href=\"modelica://Modelica.Blocks.Math.IntegerChange\">Modelica.Blocks.Math.IntegerChange</a>.
+<a href=\"modelica:/Modelica.Blocks.Math.IntegerChange\">Modelica.Blocks.Math.IntegerChange</a>.
 It uses <code>previous</code> instead of the implicit <code>pre</code> of
 <code>change</code> to set the Boolean output <code>y</code> to
 <code>true</code> when the integer input <code>u</code> changed. Thus, it's

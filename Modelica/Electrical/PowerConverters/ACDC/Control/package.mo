@@ -4,7 +4,7 @@ package Control "Control components for rectifiers"
   annotation (Documentation(info="<html>
 <p>
 A generic controller with signal input and <code>2*m</code> firing signals is provided in
-<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse\">Signal2mPulse</a>,
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse\">Signal2mPulse</a>,
 where <code>m</code> is the arbitrary number of phases.
 Additional topology specific controllers with electrical connectors are also included.
 </p>
@@ -13,7 +13,7 @@ Additional topology specific controllers with electrical connectors are also inc
 
 <p>
 Each controller is equipped with an optional
-<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Filter\">filter</a>
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.ACDC.Control.Filter\">filter</a>
 to filter the input voltages. By default the filter is enabled.
 </p>
 

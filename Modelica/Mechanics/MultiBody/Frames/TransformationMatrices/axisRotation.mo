@@ -21,7 +21,7 @@ T = TransformationMatrices.<strong>axisRotation</strong>(axis, angle);
 <h4>Description</h4>
 <p>
 This function returns
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate along unit axis <strong>axis</strong>
 from frame 1 into frame 2 with angle <strong>angle</strong>.
 For example, TransformationMatrices.axisRotation(2, phi) returns the same orientation object as with the call
@@ -30,8 +30,8 @@ TransformationMatrices.planarRotation({0,1,0}, phi)
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation\">planarRotation</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.axisRotation\">Frames.axisRotation</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation\">planarRotation</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.axisRotation\">Frames.axisRotation</a>.
 </p>
 </html>"));
 end axisRotation;

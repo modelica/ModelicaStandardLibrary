@@ -14,7 +14,7 @@ record M330_50A "M330-50A"
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M330-50A.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M330-50A.png\">
    </td>
   </tr>
 </table>

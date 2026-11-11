@@ -51,7 +51,7 @@ equation
                 textString="a"),Text(
                 extent={{-150,-110},{150,-140}},
                 textString="J=%J"),Bitmap(extent={{-58,-42},{98,48}},
-            fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/InverseInertia.png"),
+            fileName="modelica:/Modelica/Resources/Images/Mechanics/Rotational/InverseInertia.png"),
           Text( extent={{-90,-64},{-6,-94}},
                 horizontalAlignment=TextAlignment.Left,
           textString="tau")}), Documentation(info="<html>
@@ -65,7 +65,7 @@ the output torque <code>tau</code> is returned.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia\">DirectInertia</a>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia\">DirectInertia</a>.
 </p>
 </html>"));
 end InverseInertia;

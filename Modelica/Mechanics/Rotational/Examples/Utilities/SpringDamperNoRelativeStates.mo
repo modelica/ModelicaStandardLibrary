@@ -30,7 +30,7 @@ to describe a coupling of the element with the housing via a spring/damper.
 </p>
 
 <p>
-This is the same element as <a href=\"modelica://Modelica.Mechanics.Rotational.Components.SpringDamper\">Rotational.Components.SpringDamper</a>
+This is the same element as <a href=\"modelica:/Modelica.Mechanics.Rotational.Components.SpringDamper\">Rotational.Components.SpringDamper</a>
 but with the only difference, that the relative quantities are not used as states. If the relative
 states are potentially used as states, \"a_rel = der(w_rel)\" is present, and then exporting this model
 as FMU requires to also have the accelerations in the flanges as inputs, which is usually not

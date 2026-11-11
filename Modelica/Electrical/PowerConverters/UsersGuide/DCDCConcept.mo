@@ -13,14 +13,14 @@ class DCDCConcept "DC/DC converter concept"
 <h4>Control</h4>
 
 <p>A pulse width modulation (PWM)
-<a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control\">controller</a>
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.DCDC.Control\">controller</a>
 is provided.
 </p>
 
 <h4>Examples</h4>
 
 <p>Some examples are provided at
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCDC\">Examples.DCDC</a>.
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.Examples.DCDC\">Examples.DCDC</a>.
 </p>
 </html>"));
 end DCDCConcept;

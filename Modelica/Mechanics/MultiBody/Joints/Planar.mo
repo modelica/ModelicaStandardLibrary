@@ -171,7 +171,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Planar.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Planar.png\">
 </div>
 </html>"),
          Icon(coordinateSystem(

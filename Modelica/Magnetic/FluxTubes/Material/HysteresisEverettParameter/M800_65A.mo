@@ -14,7 +14,7 @@ record M800_65A "M800-65A"
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M800-65A.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M800-65A.png\">
    </td>
   </tr>
 </table>

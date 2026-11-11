@@ -10,7 +10,7 @@ mechanical</strong> systems, including different types of gearboxes,
 shafts with inertia, external torques, spring/damper elements,
 frictional elements, backlash, elements to measure angle, angular velocity,
 angular acceleration and the cut-torque of a flange. In sublibrary
-<strong><a href=\"modelica://Modelica.Mechanics.Rotational.Examples\">Examples</a></strong>
+<strong><a href=\"modelica:/Modelica.Mechanics.Rotational.Examples\">Examples</a></strong>
 several examples are present to demonstrate the usage of
 the elements. Just open the corresponding example model and simulate
 the model according to the provided description.
@@ -31,7 +31,7 @@ systems are available in the simulation tool, the simulation of
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive1.png\" alt=\"drive1\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive1.png\" alt=\"drive1\">
 </div>
 
 <p>
@@ -64,8 +64,8 @@ together, see figure below.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveConnections1.png\" alt=\"driveConnections1\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveConnections2.png\" alt=\"driveConnections2\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveConnections1.png\" alt=\"driveConnections1\"><br>
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveConnections2.png\" alt=\"driveConnections2\">
 </div>
 </html>"));
 

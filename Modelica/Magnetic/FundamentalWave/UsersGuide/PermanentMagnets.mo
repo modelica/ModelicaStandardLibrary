@@ -31,14 +31,14 @@ the permanent magnet can be characterized by its open-circuit mmf<sub>0</sub> (2
   <caption><strong>Fig. 1:</strong> Magnetic characteristic and </caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/PermanentMagnets/PM.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/PermanentMagnets/PM.png\">
     </td>
   </tr>
 </table>
 
 <p>
-In <a href=\"modelica://Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> this open-circuit mmf<sub>0</sub> is modeled as a constant equivalent excitation current source, 
-in <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> as a constant magnetic potential difference. 
+In <a href=\"modelica:/Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> this open-circuit mmf<sub>0</sub> is modeled as a constant equivalent excitation current source, 
+in <a href=\"modelica:/Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> as a constant magnetic potential difference. 
 In both models, the permanent magnet's inner magnetic resistance R<sub>i</sub> is assumed to be comprised in the d-axis inductance L<sub>d</sub>.
 </p>
 

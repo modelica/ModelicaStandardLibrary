@@ -29,7 +29,7 @@ to describe a coupling of the element with the housing via a spring/damper.
 
 <p>
 See also the discussion
-<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
 </html>"),

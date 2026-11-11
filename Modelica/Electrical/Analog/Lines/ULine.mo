@@ -74,7 +74,7 @@ equation
 <br>To get a symmetrical line model, the first resistor is cut into two parts (R1 and R_Nplus1). These two new resistors have the half of the resistance of the original resistor.
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/ULine.png\"
      alt=\"ULine.png\">
 </blockquote>
 <p>
@@ -84,7 +84,7 @@ The capacitances are calculated with: C=c*length/N.
 </p>
 <p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the ULine becomes temperature sensitive due to their resistors which resistances are calculated by <code>R_actual= R*(1 + alpha*(heatPort.T - T_ref))</code>.</p>
 <p>Note, this is different compared with the lumped line model of SPICE.</p>
-<p><strong>References:</strong> [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
+<p><strong>References:</strong> [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
 </html>",    revisions="<html>
 <dl>
 <dt><em>2016</em></dt>

@@ -57,7 +57,7 @@ connect(sum2.y, assignClock1.u[2]) annotation (Line(
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized</a>.
+<a href=\"modelica:/Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized</a>.
 </p>
 </html>"));
 end AssignClockVectorized;

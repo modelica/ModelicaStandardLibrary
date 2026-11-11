@@ -90,7 +90,7 @@ equation
           textString="%name")}),
     Documentation(info="<html>
 <p>
-The analog single-phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in the winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
+The analog single-phase winding has an effective number of turns, <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in the winding is <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
 </p>
 
 <p>
@@ -98,22 +98,22 @@ The total complex magnetic potential difference of the single-phase winding is d
 </p>
 
 <p>
-&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Components/singlephaseconverter_vm.png\">
+&nbsp;&nbsp;<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Components/singlephaseconverter_vm.png\">
 </p>
 
 <p>
 where
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png\">
-is the reference angle of the electrical and magnetic system, respectively. The induced voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v.png\"> is identical to zero.
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png\">
+is the reference angle of the electrical and magnetic system, respectively. The induced voltage <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/v.png\"> is identical to zero.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">
 Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">
 Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter</a>,
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">
 PolyphaseElectroMagneticConverter</a>
 </p>
 

@@ -4,7 +4,7 @@ package ACDC "AC to DC converters"
   annotation (Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 </html>"));
 end ACDC;

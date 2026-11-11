@@ -23,7 +23,7 @@ algorithm
   annotation(Inline=true, Documentation(info="<html>
 <p>
 This is a derivative of function
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.resolveRelative\">resolveRelative</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.resolveRelative\">resolveRelative</a>.
 </p>
 </html>"));
 end resolveRelative_der;

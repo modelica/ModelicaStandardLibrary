@@ -37,8 +37,8 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>
 </p>
 
 </html>",

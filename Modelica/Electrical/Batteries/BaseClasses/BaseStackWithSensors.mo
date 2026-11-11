@@ -107,7 +107,7 @@ equation
           fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>
 <p>
-This is a stack of <code>Ns</code> x <code>Np</code> <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacksWithSensors.Cell\">cell[Np=1, Ns=1]</a> with measurement, arranged in a matrix.
+This is a stack of <code>Ns</code> x <code>Np</code> <a href=\"modelica:/Modelica.Electrical.Batteries.BatteryStacksWithSensors.Cell\">cell[Np=1, Ns=1]</a> with measurement, arranged in a matrix.
 </p>
 </html>"));
 end BaseStackWithSensors;

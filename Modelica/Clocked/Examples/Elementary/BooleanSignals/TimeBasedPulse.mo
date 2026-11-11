@@ -26,7 +26,7 @@ equation
   Documentation(info="<html>
 <p>
 Example for block
-<a href=\"modelica://Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse\">Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse</a>.
+<a href=\"modelica:/Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse\">Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse</a>.
 </p>
 </html>"));
 end TimeBasedPulse;

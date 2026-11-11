@@ -101,7 +101,7 @@ A plot of the resulting FFT is shown in the next image:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/FastFourierTransform/FFT1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/FastFourierTransform/FFT1.png\">
 </blockquote>
 
 <p>
@@ -179,7 +179,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
 </html>",
       info="<html>
 <p>
-This is the same example as <a href=\"modelica://Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>
+This is the same example as <a href=\"modelica:/Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>
 with the only difference that just the amplitudes of the FFT are stored on file (but not the phases).
 </p>
 </html>"));
@@ -282,9 +282,9 @@ results in the following output:
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>,
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">realFFT</a>,
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">realFFTwriteToFile</a>
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>,
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFT\">realFFT</a>,
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTwriteToFile\">realFFTwriteToFile</a>
 </p>
 </html>"));
   end realFFTinfo;
@@ -400,9 +400,9 @@ ns = 5760
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTinfo\">realFFTinfo</a>,
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">realFFT</a>,
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">realFFTwriteToFile</a>
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTinfo\">realFFTinfo</a>,
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFT\">realFFT</a>,
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTwriteToFile\">realFFTwriteToFile</a>
 </p>
 </html>"));
   end realFFTsamplePoints;
@@ -468,7 +468,7 @@ ns = 5760
 The input argument of this function is a Real vector u. size(u,1) <strong>must</strong> be even. An efficient computation
 is performed, if size(u,1) = 2^a*3^b*5^c (a,b,c Integer &ge; 0).
 An appropriate length of vector u can be computed with function
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>.
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>.
 Function <strong>realFFT</strong> computes a real FFT (Fast Fourier Transform) of u and returns the result
 in form of the outputs amplitudes and phases. Argument info provides additional information:
 </p>
@@ -522,15 +522,15 @@ amplitudes[i] is the amplitude of a sine-function at the i-th frequency.
 </blockquote>
 
 <p>
-See also <a href=\"modelica://Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>
+See also <a href=\"modelica:/Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>
 which is a complete example where an FFT is computed during simulation and stored on file.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTinfo\">realFFTinfo</a>,
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>,
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">realFFTwriteToFile</a>
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTinfo\">realFFTinfo</a>,
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>,
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTwriteToFile\">realFFTwriteToFile</a>
 </p>
 </html>"));
   end realFFT;
@@ -597,7 +597,7 @@ no phases will be stored on file. Otherwise, phases must have the same dimension
 vector. The frequency vector f is constructed within the function from the dimension of the
 amplitudes vector and the information that amplitudes[end] is at frequency <strong>f_max</strong>.
 The <strong>format</strong> argument defines the file format (for details see
-<a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>).
+<a href=\"modelica:/Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>).
 Argument <strong>t_computed</strong> is the actual time instant when the FFT was computed.
 It is used in the print message after the result was stored on file.
 </p>
@@ -616,14 +616,14 @@ The matrix on file has the following structure:
 
 <p>
 See detailed example model:
-<a href=\"modelica://Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>.
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTinfo\">realFFTinfo</a>,
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>,
-<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">realFFT</a>
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTinfo\">realFFTinfo</a>,
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>,
+<a href=\"modelica:/Modelica.Math.FastFourierTransform.realFFT\">realFFT</a>
 </p>
 </html>"));
   end realFFTwriteToFile;
@@ -642,7 +642,7 @@ See detailed example model:
     protected
       Real work[3*size(u,1) + 2*(div(size(u,1),2)+1)];
       external "C" info = ModelicaFFT_kiss_fftr(u, size(u,1), work, size(work,1), amplitudes, phases)
-                   annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaFFT.h\"", Library="ModelicaExternalC");
+                   annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaFFT.h\"", Library="ModelicaExternalC");
       annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
@@ -794,7 +794,7 @@ annotation (Documentation(info="<html>
 This package provides functions to compute the Fast Fourier Transform (FFT).</p>
 
 <p>
-For an example see <a href=\"modelica://Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>
+For an example see <a href=\"modelica:/Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>
 where the following signal is computed during simulation
 </p>
 
@@ -808,7 +808,7 @@ resulting in:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/FastFourierTransform/FFT1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/FastFourierTransform/FFT1.png\">
 </blockquote>
 
 <h4>References</h4>

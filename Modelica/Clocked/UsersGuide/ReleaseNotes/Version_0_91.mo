@@ -13,7 +13,7 @@ Changes with respect to version 0.9:
      (nearly all elements of the library are documented now).</li>
 <li> Simple examples have been added for many
      blocks of the library in the new package
-     <a href=\"modelica://Modelica.Clocked.Examples.Elementary\">Examples.Elementary</a>.
+     <a href=\"modelica:/Modelica.Clocked.Examples.Elementary\">Examples.Elementary</a>.
      These blocks have been used to generate the figures in the documentation of
      many blocks. Furthermore, they are used for testing these blocks.</li>
 </ul>

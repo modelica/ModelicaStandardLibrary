@@ -83,10 +83,10 @@ equation
           rotation=-90)}),
     Documentation(info="<html>
 <p>
-This block for Integer signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SubSample\">RealSignals.Sampler.SubSample</a>).
+This block for Integer signals works similarly as the corresponding block for Real signals (see <a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.SubSample\">RealSignals.Sampler.SubSample</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.IntegerSignals.SubSample\">example</a> for this Integer block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.IntegerSignals.SubSample\">example</a> for this Integer block.
 </p>
 </html>"));
 end SubSample;

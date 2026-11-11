@@ -139,7 +139,7 @@ equation
   annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
         info="<html>
 <p>
-This example demonstrates how to use a <a href=\"modelica://Modelica.Electrical.Machines.Utilities.Coupling\">coupling</a>
+This example demonstrates how to use a <a href=\"modelica:/Modelica.Electrical.Machines.Utilities.Coupling\">coupling</a>
 to implement a drive consisting if two permanent magnet DC machines.
 Note that <code>dcpm1</code> is turning in the positive direction, whereas <code>dcpm2</code> is turning in the opposite direction.
 This is evident by comparing <code>speedSensor1.w</code> and <code>speedSensor2.w</code>.

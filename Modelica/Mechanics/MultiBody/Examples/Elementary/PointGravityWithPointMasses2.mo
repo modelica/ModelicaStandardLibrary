@@ -279,6 +279,6 @@ The two systems should move exactly in the same way. The system with the PointMa
 object visualizes the point masses in \"red\", whereas the \"referenceSystem\" shows
 its bodies in \"blue\".
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png\">
 </p></html>"));
 end PointGravityWithPointMasses2;

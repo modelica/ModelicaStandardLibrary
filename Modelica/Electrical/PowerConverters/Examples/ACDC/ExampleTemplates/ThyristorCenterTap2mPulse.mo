@@ -97,7 +97,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>Template of
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">
 center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
 end ThyristorCenterTap2mPulse;

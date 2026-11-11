@@ -36,8 +36,8 @@ Optionally, residues are returned as well if <code>withResidues=true</code>.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.smallRotation\">Frames.smallRotation</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotation\">Quaternions.smallRotation</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.smallRotation\">Frames.smallRotation</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotation\">Quaternions.smallRotation</a>.
 </p>
 </html>"));
 end smallRotation;

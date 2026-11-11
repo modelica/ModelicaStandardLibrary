@@ -11,7 +11,7 @@ record M330_50A "M330-50A (1.0809) @ 50Hz complete core"
     preferredView="info",
     Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Sample: complete core after machining and packet assembling<br>

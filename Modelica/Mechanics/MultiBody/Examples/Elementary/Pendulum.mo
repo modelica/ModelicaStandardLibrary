@@ -32,7 +32,7 @@ default animation is defined that shows the structure of the
 assembled system.
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Pendulum.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Pendulum.png\"
 alt=\"model Examples.Elementary.Pendulum\">
 </blockquote>
 </html>"));

@@ -16,7 +16,7 @@ equation
   annotation (Documentation(info="<html>
 <p>
 Demonstrate usage of component
-<a href=\"modelica://Modelica.Mechanics.Translational.Sources.Accelerate\">Sources.Accelerate</a>
+<a href=\"modelica:/Modelica.Mechanics.Translational.Sources.Accelerate\">Sources.Accelerate</a>
 by moving a mass with a predefined acceleration.
 </p>
 </html>"),

@@ -32,7 +32,7 @@ y = <strong>exp</strong>(uInternal);
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/exp.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/exp.png\"
      alt=\"exp.png\">
 </div>
 

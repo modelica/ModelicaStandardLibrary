@@ -19,7 +19,7 @@ equation
 Measures the <em>relative angle</em> between two flanges
 in an ideal way and provides the result as output signal <code>phi_rel</code>
 (to be further processed with blocks of the
-<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
+<a href=\"modelica:/Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
 </html>"),
        Icon(

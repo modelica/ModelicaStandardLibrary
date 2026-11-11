@@ -19,7 +19,7 @@ equation
         textString="%name",
         textColor={0,0,255})}), Documentation(info="<html>
 <p>
-Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> for utilisation of this partial model.
+Please refer to the description of  the sub-package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> for utilisation of this partial model.
 </p>
 </html>"));
 end Leakage;

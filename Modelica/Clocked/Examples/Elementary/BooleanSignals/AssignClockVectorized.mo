@@ -56,7 +56,7 @@ connect(assignClock1.y[2], unitDelay2.u) annotation (Line(
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized</a>.
+<a href=\"modelica:/Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized</a>.
 </p>
 </html>"));
 end AssignClockVectorized;

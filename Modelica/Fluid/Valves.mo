@@ -62,7 +62,7 @@ Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incomp
 
 <p>
 The parameters of this model are explained in detail in
-<a href=\"modelica://Modelica.Fluid.Valves.BaseClasses.PartialValve\">PartialValve</a>
+<a href=\"modelica:/Modelica.Fluid.Valves.BaseClasses.PartialValve\">PartialValve</a>
 (the base model for valves).
 </p>
 
@@ -77,7 +77,7 @@ If <code>checkValve</code> is false, the valve supports reverse flow, with a sym
 <p>
 The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
-<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
+<a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
 </html>",
@@ -162,7 +162,7 @@ explained in detail in the
 
 <p>
 The parameters of this model are explained in detail in
-<a href=\"modelica://Modelica.Fluid.Valves.BaseClasses.PartialValve\">PartialValve</a>
+<a href=\"modelica:/Modelica.Fluid.Valves.BaseClasses.PartialValve\">PartialValve</a>
 (the base model for valves).
 </p>
 
@@ -174,7 +174,7 @@ The parameters of this model are explained in detail in
 <p>
 The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
-<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
+<a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
 </html>",
@@ -271,7 +271,7 @@ explained in detail in the
 
 <p>
 The parameters of this model are explained in detail in
-<a href=\"modelica://Modelica.Fluid.Valves.BaseClasses.PartialValve\">PartialValve</a>
+<a href=\"modelica:/Modelica.Fluid.Valves.BaseClasses.PartialValve\">PartialValve</a>
 (the base model for valves).
 </p>
 
@@ -283,7 +283,7 @@ The parameters of this model are explained in detail in
 <p>
 The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
-<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
+<a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
 </html>",
@@ -464,7 +464,7 @@ it is open.
             fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
-This model is similar to <a href=\"modelica://Modelica.Fluid.Valves.ValveDiscrete\">ValveDiscrete</a>,
+This model is similar to <a href=\"modelica:/Modelica.Fluid.Valves.ValveDiscrete\">ValveDiscrete</a>,
 except that the valve opens gradually with an opening time <code>Topen</code> and closes gradually with
 a closing time <code>Tclose</code> instead of doing so abruptly. This can help to avoid unrealistic phenomena such
 as reversing flows when accurate fluid models with small compressiblity are employed.
@@ -714,16 +714,16 @@ from inlet to outlet are neglected in the energy balance.</p>
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Valves/BaseClasses/ValveCharacteristics1a.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Valves/BaseClasses/ValveCharacteristics1a.png\"
      alt=\"ValveCharacteristics1a.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Valves/BaseClasses/ValveCharacteristics1b.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Valves/BaseClasses/ValveCharacteristics1b.png\"
      alt=\"Components/ValveCharacteristics1b.png\">
 </blockquote>
 
 <p>
 The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
-<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
+<a href=\"modelica:/Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
 <p>
@@ -739,7 +739,7 @@ a step input of opening. The icon of a valve changes in the following way
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Valves/BaseClasses/FilteredValveIcon.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Valves/BaseClasses/FilteredValveIcon.png\"
      alt=\"FilteredValveIcon.png\">
 </blockquote>
 
@@ -758,7 +758,7 @@ filteredOpening = <strong>true</strong>, riseTime = 1 s, and leakageOpening = 0.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Valves/BaseClasses/ValveFilteredOpening.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Valves/BaseClasses/ValveFilteredOpening.png\"
      alt=\"ValveFilteredOpening.png\">
 </blockquote>
 

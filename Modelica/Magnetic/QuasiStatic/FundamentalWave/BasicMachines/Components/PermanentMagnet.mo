@@ -35,7 +35,7 @@ equation
   annotation (defaultComponentName="magnet",
     Documentation(info="<html>
 <p>Permanent magnet model with magnetic, mechanical and thermal connector including losses. The PM model is source  of constant magnetic potential difference. The PM loss is calculated by
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses\">PermanentMagnetLosses</a>.
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses\">PermanentMagnetLosses</a>.
 </p>
 </html>"),
      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},

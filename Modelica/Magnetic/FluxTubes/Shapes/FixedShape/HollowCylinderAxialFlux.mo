@@ -7,7 +7,7 @@ model HollowCylinderAxialFlux
 
   parameter SI.Length l=0.01 "Axial length (in direction of flux)"
     annotation (Dialog(group="Fixed geometry", groupImage=
-          "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinderAxialFlux.png"));
+          "modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinderAxialFlux.png"));
   parameter SI.Radius r_i=0
     "Inner radius of hollow cylinder (zero for cylinder)"
     annotation (Dialog(group="Fixed geometry"));
@@ -21,7 +21,7 @@ equation
 
   annotation (defaultComponentName="cylinder", Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica:/Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 
 <p>

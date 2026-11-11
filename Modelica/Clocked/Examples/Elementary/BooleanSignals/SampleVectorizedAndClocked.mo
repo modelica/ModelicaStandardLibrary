@@ -28,7 +28,7 @@ equation
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked</a>.
+<a href=\"modelica:/Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked</a>.
 </p>
 </html>"));
 end SampleVectorizedAndClocked;

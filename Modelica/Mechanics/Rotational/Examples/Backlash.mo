@@ -67,8 +67,8 @@ This model demonstrates the effect of a backlash on eigenfrequency, and
 also that the damping torque does not lead to unphysical pulling torques
 (since the ElastoBacklash model takes care of it).
 Furthermore, it shows the differences of the
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.ElastoBacklash\">ElastoBacklash</a> and
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.ElastoBacklash2\">ElastoBacklash2</a> components
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Components.ElastoBacklash\">ElastoBacklash</a> and
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Components.ElastoBacklash2\">ElastoBacklash2</a> components
 (the ElastoBacklash2 component generates events when contact occurs and the torque changes discontinuously).
 </p>
 </html>"),

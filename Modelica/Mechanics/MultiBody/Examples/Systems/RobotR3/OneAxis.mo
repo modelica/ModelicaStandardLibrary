@@ -63,6 +63,6 @@ The mechanical structure is replaced by a simple
 load inertia.
 </p>
 </html>"),    experiment(StopTime=1.6),
-    __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
+    __Dymola_Commands(file="modelica:/Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
         "Plot result"));
 end OneAxis;

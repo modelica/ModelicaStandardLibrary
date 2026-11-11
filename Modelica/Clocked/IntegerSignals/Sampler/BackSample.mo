@@ -67,10 +67,10 @@ equation
           textString="y_start=%y_start")}),
     Documentation(info="<html>
 <p>
-This block for Integer signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.BackSample\">RealSignals.Sampler.BackSample</a>).
+This block for Integer signals works similarly as the corresponding block for Real signals (see <a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.BackSample\">RealSignals.Sampler.BackSample</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.IntegerSignals.BackSample\">example</a> for this Integer block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.IntegerSignals.BackSample\">example</a> for this Integer block.
 </p>
 </html>"));
 end BackSample;

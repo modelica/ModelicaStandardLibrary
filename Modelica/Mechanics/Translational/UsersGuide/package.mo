@@ -8,12 +8,12 @@ More details are given in the following sub-sections:
 </p>
 
 <ul>
-<li> <a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.Overview\">Overview</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors\">Flange Connectors</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.SupportForces\">Support Forces</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.SignConventions\">Sign Conventions</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.UserDefinedComponents\">User Defined Components</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.StateSelection\">State Selection</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Translational.UsersGuide.Overview\">Overview</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors\">Flange Connectors</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Translational.UsersGuide.SupportForces\">Support Forces</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Translational.UsersGuide.SignConventions\">Sign Conventions</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Translational.UsersGuide.UserDefinedComponents\">User Defined Components</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Translational.UsersGuide.StateSelection\">State Selection</a></li>
 </ul>
 </html>"));
 end UsersGuide;

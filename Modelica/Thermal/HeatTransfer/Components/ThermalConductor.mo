@@ -31,7 +31,7 @@ equation
     Documentation(info="<html>
 <p>
 This is a model for transport of heat without storing it; see also:
-<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ThermalResistor\">ThermalResistor</a>.
+<a href=\"modelica:/Modelica.Thermal.HeatTransfer.Components.ThermalResistor\">ThermalResistor</a>.
 It may be used for complicated geometries where
 the thermal conductance G (= inverse of thermal resistance)
 is determined by measurements and is assumed to be constant

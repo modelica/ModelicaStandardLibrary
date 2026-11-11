@@ -45,7 +45,7 @@ The dependency of the permanent magnet loss torque on the angular velocity is mo
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters\">Permanent magnet loss parameters</a>
+<a href=\"modelica:/Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters\">Permanent magnet loss parameters</a>
 </p>
 <p>
 If it is desired to neglect permanent magnet losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).

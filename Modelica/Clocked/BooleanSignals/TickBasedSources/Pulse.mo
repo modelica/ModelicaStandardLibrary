@@ -152,7 +152,7 @@ Diagram(coordinateSystem(
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
-<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.BooleanPulse\">Modelica.Blocks.Sources.BooleanPulse</a>,
+<p>The block is similar to the block in <a href=\"modelica:/Modelica.Blocks.Sources.BooleanPulse\">Modelica.Blocks.Sources.BooleanPulse</a>,
 but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).
 </p>
 <p>
@@ -160,11 +160,11 @@ The Boolean output y is a pulse signal:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/BooleanSignals/TickBasedSources_Pulse.png\" alt=\"TickBasedSources_Pulse.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/BooleanSignals/TickBasedSources_Pulse.png\" alt=\"TickBasedSources_Pulse.png\">
 </div>
 <h4>Example</h4>
 <p>
-See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse</a>.
+See model <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse</a>.
 </p>
 </html>"));
 end Pulse;

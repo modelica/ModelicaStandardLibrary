@@ -51,7 +51,7 @@ equation
 <p>
 Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent)
 with a default phase shift determined by
-<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </html>"));
 end SineCurrent;

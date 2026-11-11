@@ -394,7 +394,7 @@ this block is usually identically to <strong>false</strong>, because the output
 may only be <strong>true</strong> at an event instant, but not during
 continuous integration. In order to check that this component is
 actually working as expected, one should connect its output to, e.g.,
-component <em><a href=\"modelica://Modelica.Blocks.Discrete.TriggeredSampler\">Modelica.Blocks.Discrete.TriggeredSampler</a></em>.
+component <em><a href=\"modelica:/Modelica.Blocks.Discrete.TriggeredSampler\">Modelica.Blocks.Discrete.TriggeredSampler</a></em>.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -609,7 +609,7 @@ output signal <strong>y</strong>:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/Hysteresis.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Logical/Hysteresis.png\"
      alt=\"Hysteresis.png\">
 </div>
 
@@ -733,7 +733,7 @@ input signal <strong>u</strong>.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/TriggeredTrapezoid.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Logical/TriggeredTrapezoid.png\"
      alt=\"TriggeredTrapezoid.png\">
 </div>
 
@@ -795,7 +795,7 @@ When the input becomes <strong>false</strong>, the timer stops and the output is
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/Timer.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Logical/Timer.png\"
      alt=\"Timer.png\">
 </div>
 
@@ -952,7 +952,7 @@ either abort with an error (if <strong>assertionLevel</strong> is set to
 <strong>assertionLevel</strong> is set to <strong>warning</strong>).
 The <strong>message</strong> will be reported in either case.
 For further information, refer to the documentation of
-<a href=\"modelica://ModelicaReference.Operators.'assert()'\">ModelicaReference.Operators.'assert()'</a>
+<a href=\"modelica:/ModelicaReference.Operators.'assert()'\">ModelicaReference.Operators.'assert()'</a>
 &ndash; an operator which this block is based on.
 </p>
 <p>
@@ -1016,7 +1016,7 @@ network built with package Logical is shown in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/LogicalNetwork1.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Logical/LogicalNetwork1.png\"
      alt=\"LogicalNetwork1.png\">
 </div>
 

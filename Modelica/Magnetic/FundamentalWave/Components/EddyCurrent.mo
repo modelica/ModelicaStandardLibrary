@@ -33,11 +33,11 @@ equation
               textString="%name")}),Documentation(info="<html>
 <p>
 The eddy current loss model with respect to fundamental wave effects is designed in accordance to
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a>.
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a>.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/eddycurrent.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/eddycurrent.png\"
      alt=\"eddycurrent.png\">
 </blockquote>
 
@@ -45,7 +45,7 @@ The eddy current loss model with respect to fundamental wave effects is designed
   <caption>Fig. 1: equivalent models of eddy current losses</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/eddycurrent_electric.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/eddycurrent_electric.png\"
            alt=\"eddycurrent_electric.png\">
     </td>
   </tr>
@@ -53,33 +53,33 @@ The eddy current loss model with respect to fundamental wave effects is designed
 
 <p>Due to the nature of eddy current losses, which can be represented by symmetric
 conductors in an equivalent electric circuit (Fig. 1), the respective
-number of phases <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\" alt=\"m\"> has to be taken into account.
-Assume that the <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\" alt=\"m\"> conductances
-of the equivalent circuit are <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/Gc.png\" alt=\"G_c\">,
+number of phases <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\" alt=\"m\"> has to be taken into account.
+Assume that the <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\" alt=\"m\"> conductances
+of the equivalent circuit are <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/Gc.png\" alt=\"G_c\">,
 the conductance for the eddy current loss model is determined by</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/GGc.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/GGc.png\"
      alt=\"GGc\">
 </blockquote>
 
 <p>
-where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/N.png\" alt=\"N\"> is the number of turns of the symmetric electromagnetic coupling.
+where <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/N.png\" alt=\"N\"> is the number of turns of the symmetric electromagnetic coupling.
 </p>
 
-<p>For such an <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\" alt=\"m\"> phase system
+<p>For such an <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\" alt=\"m\"> phase system
 the relationship between the voltage and current <a href=\"https://www.haumer.at/refimg/SpacePhasors.pdf\">space phasors</a>
 and the magnetic flux and magnetic potential difference phasor is
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/vPhi.png\" alt=\"vPhi\">,<br>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/iV_m.png\" alt=\"iV_m\">,
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/vPhi.png\" alt=\"vPhi\">,<br>
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/iV_m.png\" alt=\"iV_m\">,
 </blockquote>
 
 <p>
-where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v_k.png\" alt=\"v_k\">
-and <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\" alt=\"i_k\">
+where <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/v_k.png\" alt=\"v_k\">
+and <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\" alt=\"i_k\">
 are the phase voltages and currents, respectively.
 </p>
 
@@ -87,7 +87,7 @@ are the phase voltages and currents, respectively.
 The dissipated loss power
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/lossPower.png\" alt=\"lossPower\">
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/lossPower.png\" alt=\"lossPower\">
 </blockquote>
 <p>
 can be determined for the <a href=\"https://www.haumer.at/refimg/SpacePhasors.pdf\">space phasor</a>
@@ -95,7 +95,7 @@ relationship of the voltage and current space phasor.
 </p>
 <h4>See also</h4>
 
-<p><a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a></p>
+<p><a href=\"modelica:/Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a></p>
 
 </html>"));
 end EddyCurrent;

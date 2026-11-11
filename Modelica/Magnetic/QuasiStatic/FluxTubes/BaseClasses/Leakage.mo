@@ -20,7 +20,7 @@ equation
         textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Please refer to the description of the subpackage
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a>
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a>
 for utilisation of this partial model.
 </p>
 </html>"));

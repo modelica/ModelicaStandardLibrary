@@ -148,7 +148,7 @@ equation
         extent={{-150,-100},{150,100}},
         grid={1,1})), Documentation(info="<html>
 <p>
-This is a model of a three-phase transformer and rectifier unit using the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis\">Transformer3PhaseYyWithHysteresis</a> model. Use the following simulation settings:
+This is a model of a three-phase transformer and rectifier unit using the <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis\">Transformer3PhaseYyWithHysteresis</a> model. Use the following simulation settings:
 </p>
 
 <ul>
@@ -165,7 +165,7 @@ An example simulation shows the transformer inrush currents due to an initially 
 <caption><strong>Fig. 1:</strong> Transformer inrush currents due to initial magnetization of the magnetic core; (a) transformer primary currents; (b)  transformer secondary currents; (c) flux densities of the transformer legs; (d) B(H) hysteresis loops of transformer leg one.; (e) instantaneous static hysteresis, eddy current and copper losses of the transformer; (f) approximated average static hysteresis, eddy current and copper losses of the transformer</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/ThreePhaseTransformerWithRectifier/plot01.png\" hspace=\"10\" vspace=\"10\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/ThreePhaseTransformerWithRectifier/plot01.png\" hspace=\"10\" vspace=\"10\">
     </td>
   </tr>
 </table>

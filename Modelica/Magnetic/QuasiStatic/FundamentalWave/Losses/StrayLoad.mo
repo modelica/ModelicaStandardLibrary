@@ -35,7 +35,7 @@ but without scaling them to zero at no-load current.
 </p>
 <p>
 For an estimation of dependency on varying angular velocity see:
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.References\">[Lang1984]</a>
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.References\">[Lang1984]</a>
 </p>
 <p>
 The stray load losses are modeled such way that they do not cause a voltage drop in the electric circuit.
@@ -53,7 +53,7 @@ The dependency of the stray load torque on the angular velocity is modeled by th
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.StrayLoadParameters\">StrayLoad parameters</a>
+<a href=\"modelica:/Modelica.Electrical.Machines.Losses.StrayLoadParameters\">StrayLoad parameters</a>
 </p>
 <p>
 If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).

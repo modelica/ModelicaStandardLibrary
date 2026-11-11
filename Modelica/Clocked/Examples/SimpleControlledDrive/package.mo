@@ -8,7 +8,7 @@ This package shows the same example in different variants.
 </p>
 
 <p>
-Model <a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive.Continuous\">SimpleControlledDrive.Continuous</a>
+Model <a href=\"modelica:/Modelica.Clocked.Examples.SimpleControlledDrive.Continuous\">SimpleControlledDrive.Continuous</a>
 is the <strong>continuous-time</strong> model from which the sampled-data versions are derived.
 The model consists of a reference controller (\"ramp\"), a feedback controller
 (\"feedback\" and \"PI\") and a plant (\"torque\", \"load\" and \"speed\").

@@ -45,7 +45,7 @@ Definition of relationship between pressure drop and volume flow rate:
 <li>-V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent, i.e., quadratic dependency of pressure drop on volume flow.</li>
 </ul>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Thermal/FluidHeatFlow/BaseClasses/SimpleFriction.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Thermal/FluidHeatFlow/BaseClasses/SimpleFriction.png\"
      alt=\"SimpleFriction.png\">
 </div>
 <p>

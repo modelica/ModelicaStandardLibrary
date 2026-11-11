@@ -20,8 +20,8 @@ This function returns rotation angles valid for a small rotation of x-y-z sequen
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.smallRotation\">Frames.smallRotation</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.smallRotation\">TransformationMatrices.smallRotation</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.smallRotation\">Frames.smallRotation</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.smallRotation\">TransformationMatrices.smallRotation</a>.
 </p>
 </html>"));
 end smallRotation;

@@ -120,7 +120,7 @@ internal combustion engine. This system has the following properties:</p>
 The complete system is shown in the figure below (diagram-layer):
 </p>
 <img
-  src=\"modelica://Modelica/Resources/Images/Clocked/Examples/EngineThrottleControl_Model.png\"
+  src=\"modelica:/Modelica/Resources/Images/Clocked/Examples/EngineThrottleControl_Model.png\"
   alt=\"EngineThrottleControl_Model.png\">
 <p>
 Block <code>speedControl</code> is the discrete control system. The boundaries
@@ -134,17 +134,17 @@ crankshaft in sync with the engine's internal throttle-cycle. The following diag
 illustrates the engine's respective internal setup:
 </p>
 <img
-  src=\"modelica://Modelica/Resources/Images/Clocked/Examples/Engine_Model.png\"
+  src=\"modelica:/Modelica/Resources/Images/Clocked/Examples/Engine_Model.png\"
   alt=\"Engine_Model.png\">
 <p>
 The <code>crankshaftPositionEvent</code>-clock is the event-clock synchronizing the
 engine's internal throttle-cycle and external control. It produces a clock tick for
 every half-rotation and is implemented as
-<a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock\">RotationalClock</a>.
+<a href=\"modelica:/Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock\">RotationalClock</a>.
 </p><p>The following diagram illustrates the logic of such a rotational clock:
 </p>
 <img
-  src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalClock_Model.png\"
+  src=\"modelica:/Modelica/Resources/Images/Clocked/Examples/RotationalClock_Model.png\"
   alt=\"RotationalClock_Model.png\">
 <p>
 It accounts the angular of the last time a rotation has been

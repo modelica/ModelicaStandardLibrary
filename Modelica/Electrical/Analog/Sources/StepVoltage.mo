@@ -17,7 +17,7 @@ model StepVoltage "Step voltage source"
         info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/StepVoltage.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Sources/StepVoltage.png\"
      alt=\"StepVoltage.png\">
 </div>
 </html>"));

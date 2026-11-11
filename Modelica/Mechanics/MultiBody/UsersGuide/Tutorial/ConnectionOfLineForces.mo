@@ -4,7 +4,7 @@ class ConnectionOfLineForces "Connection of LineForces"
   annotation (Documentation(info="<html>
 <p>
 Line force elements, such as a
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Spring\">Spring</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Forces.Spring\">Spring</a>,
 are usually connected between two parts. In fact, this is the only possibility
 in most multi-body programs. In an equation based system like Modelica, more
 general connections are possible. In particular
@@ -13,11 +13,11 @@ in <strong>series</strong> without having a body with mass at the
 connection point. This is advantageous since stiff systems can be avoided, say, due to
 a stiff spring and a small mass at the connection point.
 For an example, see model
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings\">ThreeSprings</a>:
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings\">ThreeSprings</a>:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings.png\">
 </div>
 
 <p>
@@ -43,7 +43,7 @@ This is shown in the next figure, where this option is selected for spring3.fram
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ThreeSpringsDiagramLayer.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ThreeSpringsDiagramLayer.png\">
 </div>
 
 <p>
@@ -65,7 +65,7 @@ A typical example is shown in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ThreeSprings2DiagramLayer.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ThreeSprings2DiagramLayer.png\">
 </div>
 
 <p>

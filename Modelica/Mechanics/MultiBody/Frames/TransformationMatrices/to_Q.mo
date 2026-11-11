@@ -19,15 +19,15 @@ Q = TransformationMatrices.<strong>to_Q</strong>(T, Q_guess);
 
 <h4>Description</h4>
 <p>
-This function returns a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternion object</a>&nbsp;Q
-computed from a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+This function returns a <a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternion object</a>&nbsp;Q
+computed from a <a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 and depending on the initial guess Q_guess.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_Q\">from_Q</a>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_Q\">Frames.to_Q</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_Q\">from_Q</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.to_Q\">Frames.to_Q</a>.
 </p>
 </html>"));
 end to_Q;

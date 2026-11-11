@@ -136,7 +136,7 @@ frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled. The method is described in
-(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
+(see also a short sketch in <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
@@ -168,7 +168,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 
 <p>
 See also the discussion
-<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
 </html>"));

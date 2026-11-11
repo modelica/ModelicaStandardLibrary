@@ -23,7 +23,7 @@ model IM_SquirrelCage
   parameter SI.Inductance Lm(start=3*ZsRef*sqrt(1 - 0.0667)/(2*pi
         *fsNominal)) "Stator main field inductance" annotation (Dialog(
         tab="Nominal resistances and inductances", groupImage=
-          "modelica://Modelica/Resources/Images/Electrical/Machines/IMC.png"));
+          "modelica:/Modelica/Resources/Images/Electrical/Machines/IMC.png"));
   parameter SI.Inductance Lrsigma(start=3*ZsRef*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal))
     "Rotor leakage inductance of equivalent m phase winding w.r.t. stator side"
@@ -80,7 +80,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code>-phas
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">IM_SlipRing</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">IM_SlipRing</a>,
 </p>
 </html>"));
 end IM_SquirrelCage;

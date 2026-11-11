@@ -65,7 +65,7 @@ into your model and specify the seed.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -76,7 +76,7 @@ into your model and specify the seed.
 </table>
 </html>",   info="<html>
 <p>
-When using one of the blocks of sublibrary <a href=\"modelica://Modelica.Blocks.Noise\">Noise</a>,
+When using one of the blocks of sublibrary <a href=\"modelica:/Modelica.Blocks.Noise\">Noise</a>,
 on the same or a higher hierarchical level, Noise.GlobalSeed
 must be dragged resulting in a declaration
 </p>
@@ -95,7 +95,7 @@ hierarchical level. The following options can be selected:
 <tr><th>Icon</th>
     <th>Description</th></tr>
 
-<tr><td> <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/GlobalSeed_FixedSeed.png\"> </td>
+<tr><td> <img src=\"modelica:/Modelica/Resources/Images/Blocks/Noise/GlobalSeed_FixedSeed.png\"> </td>
     <td> <strong>useAutomaticSeed=false</strong> (= default):<br>
          A fixed global seed is defined with Integer parameter fixedSeed. The value of fixedSeed
          is displayed in the icon. By default all Noise blocks use fixedSeed for initialization of their
@@ -108,7 +108,7 @@ hierarchical level. The following options can be selected:
          fixedSeed is changed from the environment for every simulation, in order to
          produce different noise at every simulation run.</td></tr>
 
-<tr><td> <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/GlobalSeed_AutomaticSeed.png\"> </td>
+<tr><td> <img src=\"modelica:/Modelica/Resources/Images/Blocks/Noise/GlobalSeed_AutomaticSeed.png\"> </td>
     <td> <strong>useAutomaticSeed=true</strong>:<br>
          An automatic global seed is computed by using the ID of the process in which the
          simulation takes place and the current local time. As a result, the global seed
@@ -117,7 +117,7 @@ hierarchical level. The following options can be selected:
          with minimal effort (just performing many simulation runs) where
          every simulation run uses a different noise.</td></tr>
 
-<tr><td> <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/GlobalSeed_NoNoise.png\"> </td>
+<tr><td> <img src=\"modelica:/Modelica/Resources/Images/Blocks/Noise/GlobalSeed_NoNoise.png\"> </td>
     <td> <strong>enableNoise=false</strong>:<br>
          The noise in all Noise instances is switched off and the blocks output a constant
          signal all the time (usually zero). This option is useful, if a model shall be
@@ -127,23 +127,23 @@ hierarchical level. The following options can be selected:
 
 <p>
 Additionally, the globalSeed instance calls function
-<a href=\"modelica://Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>
+<a href=\"modelica:/Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>
 to initialize the impure random number generators
-(<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom</a> and
-<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandomInteger\">impureRandomInteger</a>).
+(<a href=\"modelica:/Modelica.Math.Random.Utilities.impureRandom\">impureRandom</a> and
+<a href=\"modelica:/Modelica.Math.Random.Utilities.impureRandomInteger\">impureRandomInteger</a>).
 The return value of this function is stored in parameter <strong>id_impure</strong>. Whenever one of the impure
 random number generators need to be called, \"globalSeed.id_impure\" has to be given as input argument.
 </p>
 
 <p>
 Note, the usage of this block is demonstrated with examples
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.AutomaticSeed\">AutomaticSeed</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.Noise.ImpureGenerator\">ImpureGenerator</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.AutomaticSeed\">AutomaticSeed</a> and
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise.ImpureGenerator\">ImpureGenerator</a>.
 </p>
 
 <p>
 Please note that only one globalSeed instance may be defined in the model due to the initialization
-of the impure random number generators with <a href=\"modelica://Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>!
+of the impure random number generators with <a href=\"modelica:/Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>!
 So, the block will usually reside on the top level of the model.
 </p>
 </html>"));
@@ -185,13 +185,13 @@ So, the block will usually reside on the top level of the model.
       Documentation(info="<html>
 <p>
 A summary of the common properties of the noise blocks is provided in the documentation of package
-<a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
+<a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a>.
 This UniformNoise block generates reproducible, random noise at its output according to a uniform distribution.
 This means that random values are uniformly distributed within the range defined by parameters
-y_min and y_max (see example <a href=\"modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">Noise.UniformNoiseProperties</a>).
+y_min and y_max (see example <a href=\"modelica:/Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">Noise.UniformNoiseProperties</a>).
 By default, two or more instances produce different, uncorrelated noise at the same time instant.
 The block can only be used if on the same or a higher hierarchical level,
-model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>
+model <a href=\"modelica:/Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
@@ -203,7 +203,7 @@ is dragged to provide global settings for all instances.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -246,13 +246,13 @@ is dragged to provide global settings for all instances.
       Documentation(info="<html>
 <p>
 A summary of the common properties of the noise blocks is provided in the documentation of package
-<a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
+<a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a>.
 This NormalNoise block generates reproducible, random noise at its output according to a normal distribution.
 This means that random values are normally distributed with expectation value mu and standard deviation sigma.
-(see example <a href=\"modelica://Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">Examples.Noise.NormalNoiseProperties</a>).
+(see example <a href=\"modelica:/Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">Examples.Noise.NormalNoiseProperties</a>).
 By default, two or more instances produce different, uncorrelated noise at the same time instant.
 The block can only be used if on the same or a higher hierarchical level,
-model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>
+model <a href=\"modelica:/Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
@@ -264,7 +264,7 @@ is dragged to provide global settings for all instances.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -324,7 +324,7 @@ is dragged to provide global settings for all instances.
       Documentation(info="<html>
 <p>
 A summary of the common properties of the noise blocks is provided in the documentation of package
-<a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
+<a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a>.
 This TruncatedNormalNoise block generates reproducible, random noise at its output according to a truncated normal distribution.
 This means that normally distributed random values are truncated to the band y_min ... y_max.
 Measurement noise has often this distribution form.
@@ -337,10 +337,10 @@ standard deviation = (y_max - y_min)/6 (= 99.7 % of the non-truncated normal dis
 </p></blockquote>
 
 <p>
-For an example see <a href=\"modelica://Modelica.Blocks.Examples.Noise.Distributions\">Examples.Noise.Distributions</a>.
+For an example see <a href=\"modelica:/Modelica.Blocks.Examples.Noise.Distributions\">Examples.Noise.Distributions</a>.
 By default, two or more instances produce different, uncorrelated noise at the same time instant.
 The block can only be used if on the same or a higher hierarchical level,
-model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>
+model <a href=\"modelica:/Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
@@ -352,7 +352,7 @@ is dragged to provide global settings for all instances.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -398,7 +398,7 @@ is dragged to provide global settings for all instances.
                 Documentation(info="<html>
 <p>
 A summary of the common properties of the noise blocks is provided in the documentation of package
-<a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
+<a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a>.
 This BandLimitedWhiteNoise block generates reproducible, random noise at its output according to a
 band-limited white noise distribution. This is performed by using a normal distribution with mu=0 and
 sigma = sqrt(noisePower/samplePeriod).
@@ -454,7 +454,7 @@ frequency bandwidth 1/samplePeriod: <code>signal power = signal variance = noise
 </p>
 
 <p>
-Example <a href=\"modelica://Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence\">Examples.Noise.DrydenContinuousTurbulence</a>
+Example <a href=\"modelica:/Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence\">Examples.Noise.DrydenContinuousTurbulence</a>
 demonstrates how to utilize this block to model wind gust.
 </p>
 </html>"));
@@ -470,14 +470,14 @@ of a control system and re-simulating, it is important that the noise does not c
 otherwise it is hard to determine whether the changed control system or the differently
 computed noise has changed the behaviour of the controlled system).
 Many examples how to use the Noise blocks are provided in sublibrary
-<a href=\"modelica://Modelica.Blocks.Examples.Noise\">Blocks.Examples.Noise</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.Noise\">Blocks.Examples.Noise</a>.
 </p>
 
 <h4>Global Options</h4>
 
 <p>
 When using one of the blocks of this sublibrary, on the same or a higher level,
-block <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
+block <a href=\"modelica:/Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
 must be dragged resulting in a declaration
 </p>
 
@@ -489,7 +489,7 @@ must be dragged resulting in a declaration
 This block is used to define global options that hold for all Noise block
 instances (such as a global seed for initializing the random number generators,
 and a flag to switch off noise). Furthermore, the impure random number generator
-<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom</a> is initialized here.
+<a href=\"modelica:/Modelica.Math.Random.Utilities.impureRandom\">impureRandom</a> is initialized here.
 </p>
 
 <p>
@@ -522,12 +522,12 @@ When using a noise block of this package, at a minimum the following parameters 
 </blockquote>
 
 <p>
-As a simple demonstration, see example <a href=\"modelica://Modelica.Blocks.Examples.Noise.UniformNoise\">Blocks.Examples.Noise.UniformNoise</a>.
+As a simple demonstration, see example <a href=\"modelica:/Modelica.Blocks.Examples.Noise.UniformNoise\">Blocks.Examples.Noise.UniformNoise</a>.
 In the next diagram, a simulation result is shown for samplePeriod=0.02 s and uniform distribution with
 y_min=-1, y_max=3:
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/UniformNoise.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Examples/Noise/UniformNoise.png\">
 </blockquote>
 
 <h4>Advanced tab: General settings</h4>
@@ -619,7 +619,7 @@ numbers in the range 0.0 .. 1.0 (and these random numbers are transformed
 afterwards, see below). This sublibrary uses the xorshift random number generation
 suite developed in 2014 by Sebastiano Vigna (for details see
 <a href=\"http://xorshift.di.unimi.it\">http://xorshift.di.unimi.it</a> and
-<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>).
+<a href=\"modelica:/Modelica.Math.Random.Generators\">Math.Random.Generators</a>).
 These random number generators have excellent
 statistical properties, produce quickly statistically relevant random numbers, even if
 starting from a bad initial seed, and have a reasonable length of the internal state
@@ -631,7 +631,7 @@ The random number generator with a length of 33 Integer is used from the impure 
 generator. It is suited even for massively parallel simulations where every simulation
 computes a large number of random values. More details of the random number
 generators are described in the documentation of package
-<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 
 <h4>Distributions</h4>
@@ -645,7 +645,7 @@ compared with its truncated version:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
 </blockquote>
 
 <p>
@@ -653,7 +653,7 @@ The corresponding inverse cumulative distribution functions are shown in the nex
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png\">
 </blockquote>
 
 <p>
@@ -666,7 +666,7 @@ when modeling noise that is known to be in a particular range, say &plusmn; 0.1 
 then with the TruncatedNormal distribution it is guaranteed that random values are only
 generated in this band). More details of truncated
 distributions are given in the documentation of package
-<a href=\"modelica://Modelica.Math.Distributions\">Math.Distributions</a>.
+<a href=\"modelica:/Modelica.Math.Distributions\">Math.Distributions</a>.
 </p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -677,7 +677,7 @@ distributions are given in the documentation of package
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>

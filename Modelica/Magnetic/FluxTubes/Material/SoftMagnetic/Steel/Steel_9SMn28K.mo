@@ -10,7 +10,7 @@ record Steel_9SMn28K "9SMn28K (1.0715)"
   annotation (defaultComponentPrefixes="parameter",
     Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
 end Steel_9SMn28K;

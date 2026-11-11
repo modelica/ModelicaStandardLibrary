@@ -20,7 +20,7 @@ record FrictionParameters "Parameter record for friction losses"
     "Torque corresponding with linear angular velocity range";
   annotation (defaultComponentPrefixes="parameter ", Documentation(info="<html>
 <p>
-Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.Friction\">Friction</a> losses.
+Parameter record for <a href=\"modelica:/Modelica.Electrical.Machines.Losses.Friction\">Friction</a> losses.
 </p>
 </html>"));
 end FrictionParameters;

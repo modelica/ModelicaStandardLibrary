@@ -40,19 +40,19 @@ equation
   annotation (experiment(StopTime=0.5), Documentation(info="<html>
 <p>
 This is the same model as
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
 The only difference is that the central part of
 the planar kinematic loop has been replaced by the
 assembly joint \"Modelica.Mechanics.MultiBody.Joints.Assemblies.<strong>JointRRP</strong>\".
 The advantage of using JointRRP is, that the
 non-linear algebraic equation of this loop is solved analytically, and
 not numerically as in
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
 </p>
 <p>
 An animation of this example is shown in the figure below.
 </p><div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
 </div>
 </html>"));
 end Engine1b_analytic;

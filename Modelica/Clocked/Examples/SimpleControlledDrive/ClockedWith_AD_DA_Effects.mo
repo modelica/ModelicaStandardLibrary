@@ -100,7 +100,7 @@ connect(periodicClock.y, assignClock1.clock) annotation (Line(
     Documentation(info="<html>
 <p>
 This is the same model as
-<a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController\">ClockedWithDiscreteController</a>.
+<a href=\"modelica:/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController\">ClockedWithDiscreteController</a>.
 The only difference is that real world effects like limitation, value discretization, noise
 and computing time are taken into account.
 </p>

@@ -620,9 +620,9 @@ This library provides models and functions to test components of
 All test models in this package define more equations during initialization,
 as necessary. These test models are especially provided for tool vendors
 to improve their tools so that models with consistently overdetermined initialization
-(= models in subpackage <a href=\"modelica://ModelicaTestOverdetermined.ConsistentInitialization\">ConsistentInitialization</a>)
+(= models in subpackage <a href=\"modelica:/ModelicaTestOverdetermined.ConsistentInitialization\">ConsistentInitialization</a>)
 can be handled automatically and models with inconsistently overdetermined initialization
-(= models in subpackage <a href=\"modelica://ModelicaTestOverdetermined.InconsistentInitialization\">InconsistentInitialization</a>)
+(= models in subpackage <a href=\"modelica:/ModelicaTestOverdetermined.InconsistentInitialization\">InconsistentInitialization</a>)
 fail during translation but give useful error messages.
 </p>
 

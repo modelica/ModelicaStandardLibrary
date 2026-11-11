@@ -137,7 +137,7 @@ equation
 Since a long time, Modelica is used to model advanced nonlinear control systems.
 Especially, Modelica allows a semi-automatic treatment of inverse nonlinear
 plant models. In the fundamental article (Looye et.al. 2005, see
-<a href=\"modelica://Modelica.Clocked.UsersGuide.Literature\">Literature</a> or
+<a href=\"modelica:/Modelica.Clocked.UsersGuide.Literature\">Literature</a> or
 <a href=\"https://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Download</a>)
 this approach is described and several controller structures are presented to
 utilize an inverse plant model in the controller. This approach is attractive
@@ -178,11 +178,11 @@ its temperature T(t) in [K].
 The concentration c(t) is the signal to be primarily controlled
 and the temperature T(t) is the signal that is measured.
 These equations are collected together in input/output block
-<a href=\"modelica://Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit\">Utilities.ComponentsMixingUnit.MixingUnit</a>.
+<a href=\"modelica:/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit\">Utilities.ComponentsMixingUnit.MixingUnit</a>.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_PlantModel.png\" alt=\"ControlledMixingUnit_PlantModel.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_PlantModel.png\" alt=\"ControlledMixingUnit_PlantModel.png\">
 </div>
 
 <p>
@@ -199,14 +199,14 @@ input from the filter states. The minimum needed filter order is determined
 by first inverting the continuous-time plant model from the variable
 to be primarily controlled (here: \"c\") to the actuator input
 (here: \"T_c\"). This is performed with the help of block
-<a href=\"modelica://Modelica.Blocks.Math.InverseBlockConstraints\">Modelica.Blocks.Math.InverseBlockConstraints</a>
+<a href=\"modelica:/Modelica.Blocks.Math.InverseBlockConstraints\">Modelica.Blocks.Math.InverseBlockConstraints</a>
 that allows connecting an external input to an output
 in the pre-filter design block
-<a href=\"modelica://Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.FilterOrder\">Utilities.ComponentsMixingUnit.FilterOrder</a>:
+<a href=\"modelica:/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.FilterOrder\">Utilities.ComponentsMixingUnit.FilterOrder</a>:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_FilterDesign.png\" alt=\"ControlledMixingUnit_FilterDesign.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_FilterDesign.png\" alt=\"ControlledMixingUnit_FilterDesign.png\">
 </div>
 
 <p>
@@ -217,7 +217,7 @@ has to differentiate the model, but this requires the
 <strong>second derivative</strong> of the external input c_ref and this derivative
 is not available. The conclusion is that a low pass filter of at
 least second order has to be connected between c_ref and c, for example
-<a href=\"modelica://Modelica.Blocks.Continuous.Filter\">Modelica.Blocks.Continuous.Filter</a>. Only filter types should be used that do not have \"vibrations\" in the time domain for
+<a href=\"modelica:/Modelica.Blocks.Continuous.Filter\">Modelica.Blocks.Continuous.Filter</a>. Only filter types should be used that do not have \"vibrations\" in the time domain for
 a step input. Therefore, parameter <strong>analogFilter</strong> of the component should be
 selected as <strong>CriticalDamping</strong> (= only real poles), or
 <strong>Bessel</strong> (= nearly no vibrations, but steeper frequency response as
@@ -235,7 +235,7 @@ well as in the following figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Controller.png\" alt=\"ControlledMixingUnit_Controller.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Controller.png\" alt=\"ControlledMixingUnit_Controller.png\">
 </div>
 
 <p>
@@ -273,7 +273,7 @@ still results in a reasonable control behavior as shown in the next two figures:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Result.png\" alt=\"ControlledMixingUnit_Result.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Result.png\" alt=\"ControlledMixingUnit_Result.png\">
 </div>
 
 <p>

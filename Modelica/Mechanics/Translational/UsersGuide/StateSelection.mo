@@ -6,7 +6,7 @@ class StateSelection "State Selection"
 <p>
 Only a few components of the Translational library use the der(&hellip;) operator
 and are therefore candidates to have states. Most important, component
-<a href=\"modelica://Modelica.Mechanics.Translational.Components.Mass\">Mass</a>
+<a href=\"modelica:/Modelica.Mechanics.Translational.Components.Mass\">Mass</a>
 defines the absolute position and the absolute velocity of this
 component as candidate for states. In the &quot;Advanced&quot; menu the built-in StateSelect
 enumeration can be set to define the priority to use these variables as states.
@@ -65,9 +65,9 @@ At the time of the library design, there was not yet a possibility to provide th
 In order to reduce this effect, it is advisable to not use absolute positions, but
 relative positions as states. A user can define relative variables as states
 explicitly with component
-<a href=\"modelica://Modelica.Mechanics.Translational.Components.RelativeStates\">RelativeStates</a>.
+<a href=\"modelica:/Modelica.Mechanics.Translational.Components.RelativeStates\">RelativeStates</a>.
 Furthermore, all compliant components, such as
-<a href=\"modelica://Modelica.Mechanics.Translational.Components.SpringDamper\">SpringDamper</a> are
+<a href=\"modelica:/Modelica.Mechanics.Translational.Components.SpringDamper\">SpringDamper</a> are
 defining the relative position and the relative velocity as preferred states.
 Therefore, a tool will select in most cases relative positions as states.
 </p>

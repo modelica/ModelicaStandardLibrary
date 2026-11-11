@@ -22,7 +22,7 @@ The partial two port model consists of a positive and a negative magnetic port. 
 </p>
 <p>
 This interface model contains an extended set of (output) variables compared to
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortElementary\">TwoPortElementary</a>.
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortElementary\">TwoPortElementary</a>.
 </p>
 </html>"));
 end TwoPortExtended;

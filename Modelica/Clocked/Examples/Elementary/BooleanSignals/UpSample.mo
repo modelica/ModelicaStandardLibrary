@@ -38,7 +38,7 @@ connect(upSample2.y, and1.u2) annotation (Line(
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"modelica:/Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
 end UpSample;

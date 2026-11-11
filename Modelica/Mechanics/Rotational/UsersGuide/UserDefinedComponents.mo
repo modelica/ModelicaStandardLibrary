@@ -10,21 +10,21 @@ elements of this package.
 It is convenient to define a new
 component by inheritance from one of the following base classes,
 which are defined in sublibrary Interfaces:
-<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces\">Interfaces</a>:
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces\">Interfaces</a>:
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption>List of common base classes for 1-dimensional rotational components</caption>
   <tr><th>Name</th><th>Description</th></tr>
   <tr>
-    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
+    <td><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
     </td>
     <td> Compliant connection of two rotational 1-dim. flanges
          (used for force laws such as a spring or a damper).
     </td>
   </tr>
   <tr>
-    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
+    <td><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
     </td>
     <td> Same as &quot;PartialCompliant&quot;, but relative angle and relative speed are
          defined as preferred states. Use this partial model if the force law
@@ -35,32 +35,32 @@ which are defined in sublibrary Interfaces:
     </td>
   </tr>
   <tr>
-    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
+    <td><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
     </td>
     <td> Partial model for a 1-dim. rotational gear consisting of the flange of
          an input shaft, the flange of an output shaft and the support.
     </td>
   </tr>
   <tr>
-    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
+    <td><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
     </td>
     <td> Partial model of a torque acting at the flange (accelerates the flange).
     </td>
   </tr>
   <tr>
-    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
+    <td><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
     </td>
     <td> General connection of two rotational 1-dim. flanges.
     </td>
   </tr>
   <tr>
-    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
+    <td><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
     </td>
     <td> Measure absolute flange variables.
     </td>
   </tr>
   <tr>
-    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
+    <td><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
     </td>
     <td> Measure relative flange variables.
     </td>
@@ -87,7 +87,7 @@ for an inertia component and a planetary gearbox:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveAxis.png\" alt=\"driveAxis\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveAxis.png\" alt=\"driveAxis\">
 </div>
 
 <p>
@@ -105,7 +105,7 @@ component. But this is not the case, as shown in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/inertias.png\" alt=\"inertias\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/inertias.png\" alt=\"inertias\">
 </div>
 
 <p>
@@ -122,7 +122,7 @@ the left figure it seems to be that the angular velocity vector of
 left to right as shown in the right part of the figure, where the
 local coordinate systems are drawn such that they are aligned.
 Note, that the simple rule stated in section
-<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign conventions</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign conventions</a>
 also determines that
 the angular velocity of <code>J2</code> in the left part of the
 figure is directed from left to right.
@@ -134,7 +134,7 @@ are expressed correctly. The selection of the coordinate system
 is arbitrary and has no influence on the usage of the component.
 Especially, the actual direction of, e.g., a cut-torque is most
 easily determined by the rule of section
-<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign conventions</a>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign conventions</a>.
 A more strict determination
 by aligning coordinate systems and then using the vector direction
 of the local coordinate systems, often requires a re-drawing of the

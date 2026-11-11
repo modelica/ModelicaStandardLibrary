@@ -71,7 +71,7 @@ of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Special/erf.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Special/erf.png\">
 </blockquote>
 
 <p>
@@ -87,9 +87,9 @@ erf(0.5)  // = 0.520499877813047
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Special.erfc\">erfc</a>,
-<a href=\"modelica://Modelica.Math.Special.erfInv\">erfInv</a>,
-<a href=\"modelica://Modelica.Math.Special.erfcInv\">erfcInv</a>.
+<a href=\"modelica:/Modelica.Math.Special.erfc\">erfc</a>,
+<a href=\"modelica:/Modelica.Math.Special.erfInv\">erfInv</a>,
+<a href=\"modelica:/Modelica.Math.Special.erfcInv\">erfcInv</a>.
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -100,7 +100,7 @@ erf(0.5)  // = 0.520499877813047
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -154,7 +154,7 @@ of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Special/erfc.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Special/erfc.png\">
 </blockquote>
 
 <p>
@@ -172,9 +172,9 @@ erfc(0.5)  // = 0.4795001221869534
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Special.erf\">erf</a>,
-<a href=\"modelica://Modelica.Math.Special.erfInv\">erfInv</a>,
-<a href=\"modelica://Modelica.Math.Special.erfcInv\">erfcInv</a>.
+<a href=\"modelica:/Modelica.Math.Special.erf\">erf</a>,
+<a href=\"modelica:/Modelica.Math.Special.erfInv\">erfInv</a>,
+<a href=\"modelica:/Modelica.Math.Special.erfcInv\">erfcInv</a>.
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -185,7 +185,7 @@ erfc(0.5)  // = 0.4795001221869534
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -242,7 +242,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Special/erfInv.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Special/erfInv.png\">
 </blockquote>
 
 <p>
@@ -259,9 +259,9 @@ erfInv(0.9999999999) // = 4.572824958544925
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Special.erf\">erf</a>,
-<a href=\"modelica://Modelica.Math.Special.erfc\">erfc</a>,
-<a href=\"modelica://Modelica.Math.Special.erfcInv\">erfcInv</a>.
+<a href=\"modelica:/Modelica.Math.Special.erf\">erf</a>,
+<a href=\"modelica:/Modelica.Math.Special.erfc\">erfc</a>,
+<a href=\"modelica:/Modelica.Math.Special.erfcInv\">erfcInv</a>.
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -272,7 +272,7 @@ erfInv(0.9999999999) // = 4.572824958544925
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -335,7 +335,7 @@ Plot of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Special/erfcInv.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Special/erfcInv.png\">
 </blockquote>
 
 <p>
@@ -351,9 +351,9 @@ erfInv(1.999999)   // = -3.4589107372909473
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Special.erf\">erf</a>,
-<a href=\"modelica://Modelica.Math.Special.erfc\">erfc</a>,
-<a href=\"modelica://Modelica.Math.Special.erfInv\">erfInv</a>.
+<a href=\"modelica:/Modelica.Math.Special.erf\">erf</a>,
+<a href=\"modelica:/Modelica.Math.Special.erfc\">erfc</a>,
+<a href=\"modelica:/Modelica.Math.Special.erfInv\">erfInv</a>.
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -364,7 +364,7 @@ erfInv(1.999999)   // = -3.4589107372909473
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -409,7 +409,7 @@ erfInv(1.999999)   // = -3.4589107372909473
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -432,7 +432,7 @@ of the function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Special/sinc.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Special/sinc.png\">
 </blockquote>
 
 <p>
@@ -474,7 +474,7 @@ Evaluate a polynomial using Horner's scheme.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -594,7 +594,7 @@ Utility function in order to compute part of erf(..) and erfc(..).
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -849,7 +849,7 @@ Utility function in order to compute erfInv(..) and erfcInv(..).
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -875,7 +875,7 @@ by the user.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -902,7 +902,7 @@ cannot be expressed analytically.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>

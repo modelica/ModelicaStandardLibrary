@@ -66,7 +66,7 @@ equation
 This component generates a periodic clock that starts ticking when
 the simulation starts. The <strong>period</strong> is defined as the product
 of a resolution, defined with enumeration
-<a href=\"modelica://Modelica.Clocked.Types.Resolution\">Resolution</a>,
+<a href=\"modelica:/Modelica.Clocked.Types.Resolution\">Resolution</a>,
 and Integer parameter <strong>factor</strong>. Internally, the period is
 represented as a rational number. All clocks with rational number definitions
 are exactly time synchronized to each other.
@@ -86,7 +86,7 @@ Clocks.PeriodicExactClock periodicClock(factor=10,
 
 <p>
 For an introduction to clocks see
-<a href=\"modelica://Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
+<a href=\"modelica:/Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
 </p>
 
 <p>
@@ -96,7 +96,7 @@ to the current clock tick. This is performed by setting parameter <strong>useSol
 = <strong>true</strong> and defining the integration method as String with
 parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>.
 For an example, see
-<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
+<a href=\"modelica:/Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 </p>
 </html>"));
 end PeriodicExactClock;

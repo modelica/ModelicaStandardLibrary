@@ -37,7 +37,7 @@ model Transformer3PhaseYyWithHysteresis
     "Temperature coefficient of secondary turns" annotation(Dialog(tab="Electrical", group="Secondary winding"));
 
   parameter SI.Length l1(displayUnit="mm") = 40e-3
-    "Mean length l1 of core" annotation (Dialog(tab="Core", group="Geometry", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png"));
+    "Mean length l1 of core" annotation (Dialog(tab="Core", group="Geometry", groupImage="modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png"));
   parameter SI.Length l2(displayUnit="mm") = 60e-3
     "Mean length l2 of core" annotation (Dialog(tab="Core", group="Geometry"));
   parameter SI.Length a(displayUnit="mm") = 15e-3 "Height of core" annotation (Dialog(tab="Core", group="Geometry"));
@@ -421,14 +421,14 @@ equation
           pattern=LinePattern.None)}),
     Documentation(info="<html>
 <p>
-Simple model of a three-phase transformer with primary and a secondary windings and a magnetic E-I shaped core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this model considers static and dynamic hysteresis as well as initial flux.
+Simple model of a three-phase transformer with primary and a secondary windings and a magnetic E-I shaped core. The core is modeled with <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this model considers static and dynamic hysteresis as well as initial flux.
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
   <caption><strong>Fig. 1:</strong> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png\">
    </td>
   </tr>
 </table>

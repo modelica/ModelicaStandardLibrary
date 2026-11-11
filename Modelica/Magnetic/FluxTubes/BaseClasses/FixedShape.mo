@@ -39,7 +39,7 @@ equation
 
   annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> for utilisation of this partial model.
+Please refer to the description of  the sub-package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> for utilisation of this partial model.
 </p>
 </html>"));
 end FixedShape;

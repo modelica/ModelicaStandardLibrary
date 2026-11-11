@@ -10,7 +10,7 @@ model Cell "Cell with measurement"
       T=T));
  annotation (Documentation(info="<html>
 <p>
-This is a single <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">cell[Np=1, Ns=1]</a> with measurement.
+This is a single <a href=\"modelica:/Modelica.Electrical.Batteries.BatteryStacks.CellStack\">cell[Np=1, Ns=1]</a> with measurement.
 </p>
 </html>"));
 end Cell;

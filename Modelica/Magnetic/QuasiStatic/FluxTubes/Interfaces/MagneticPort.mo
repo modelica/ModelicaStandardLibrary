@@ -12,9 +12,9 @@ is the complex magnetic flux <code>Phi</code>.</p>
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.MagneticPort\">Magnetic.FluxTubes.Interfaces.MagneticPort</a>
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Interfaces.MagneticPort\">Magnetic.FluxTubes.Interfaces.MagneticPort</a>
 </p>
 
 </html>"));

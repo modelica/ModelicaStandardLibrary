@@ -54,12 +54,12 @@ equation
     Documentation(info="<html>
 <p>
 Star (wye) connection of a polyphase circuit consisting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>). The potentials at the star points are all equal.
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>). The potentials at the star points are all equal.
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Star\">Star</a>,
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Delta\">Delta</a>,
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a>
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.Star\">Star</a>,
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.Delta\">Delta</a>,
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a>
 </p></html>"));
 end MultiStar;

@@ -9,33 +9,33 @@ package IdealGases "Data and models of ideal gases (single, fixed and dynamic mi
   report TP-2002-211556</p>
 </blockquote>
 <p>Medium models for some of these gases are available in package
-<a href=\"modelica://Modelica.Media.IdealGases.SingleGases\">IdealGases.SingleGases</a>
-and some examples for mixtures are available in package <a href=\"modelica://Modelica.Media.IdealGases.MixtureGases\">IdealGases.MixtureGases</a>
+<a href=\"modelica:/Modelica.Media.IdealGases.SingleGases\">IdealGases.SingleGases</a>
+and some examples for mixtures are available in package <a href=\"modelica:/Modelica.Media.IdealGases.MixtureGases\">IdealGases.MixtureGases</a>
 </p>
 <h4>Using and Adapting Medium Models</h4>
 <p>
 The data records allow computing the ideal gas specific enthalpy, specific entropy and heat capacity of the substances listed below. From them, even the Gibbs energy and equilibrium constants for reactions can be computed. Critical data that is needed for computing the viscosity and thermal conductivity is not included. In order to add mixtures or single substance medium packages that are
 subtypes of
-<a href=\"modelica://Modelica.Media.Interfaces.PartialMedium\">Interfaces.PartialMedium</a>
+<a href=\"modelica:/Modelica.Media.Interfaces.PartialMedium\">Interfaces.PartialMedium</a>
 (i.e., can be utilized at all places where PartialMedium is defined),
 a few additional steps have to be performed:
 </p>
 <ol>
 <li>
 All single gas media need to define a constant instance of record
-<a href=\"modelica://Modelica.Media.Interfaces.PartialMedium.FluidConstants\">IdealGases.Common.SingleGasNasa.FluidConstants</a>.
+<a href=\"modelica:/Modelica.Media.Interfaces.PartialMedium.FluidConstants\">IdealGases.Common.SingleGasNasa.FluidConstants</a>.
 For 38 ideal gases such records are provided in package
-<a href=\"modelica://Modelica.Media.IdealGases.Common.FluidData\">IdealGases.Common.FluidData</a>.
+<a href=\"modelica:/Modelica.Media.IdealGases.Common.FluidData\">IdealGases.Common.FluidData</a>.
 For the other gases, such a record instance has to be provided by the user, e.g., by getting
 the data from a commercial or public data base. A public source of the needed data is for example the <a href=\"http://webbook.nist.gov/chemistry/\">NIST Chemistry WebBook</a>.</li>
 
 <li>When the data is available, and a user has an instance of a
-<a href=\"modelica://Modelica.Media.Interfaces.PartialMedium.FluidConstants\">FluidConstants</a> record filled with data, a medium package has to be written. Note that only the dipole moment, the acentric factor and critical data are necessary for the viscosity and thermal conductivity functions.</li>
+<a href=\"modelica:/Modelica.Media.Interfaces.PartialMedium.FluidConstants\">FluidConstants</a> record filled with data, a medium package has to be written. Note that only the dipole moment, the acentric factor and critical data are necessary for the viscosity and thermal conductivity functions.</li>
 <li><ul>
 <li>For single components, a new package following the pattern in
-<a href=\"modelica://Modelica.Media.IdealGases.SingleGases\">IdealGases.SingleGases</a> has to be created, pointing both to a data record for cp and to a user-defined fluidConstants record.</li>
+<a href=\"modelica:/Modelica.Media.IdealGases.SingleGases\">IdealGases.SingleGases</a> has to be created, pointing both to a data record for cp and to a user-defined fluidConstants record.</li>
 <li>For mixtures of several components, a new package following the pattern in
-<a href=\"modelica://Modelica.Media.IdealGases.MixtureGases\">IdealGases.MixtureGases</a> has to be created, building an array of data records for cp and an array of (partly) user-defined fluidConstants records.</li>
+<a href=\"modelica:/Modelica.Media.IdealGases.MixtureGases\">IdealGases.MixtureGases</a> has to be created, building an array of data records for cp and an array of (partly) user-defined fluidConstants records.</li>
 </ul></li>
 </ol>
 <p>Note that many properties can computed for the full set of 1241 gases listed below, but due to the missing viscosity and thermal conductivity functions, no fully Modelica.Media-compliant media can be defined.</p>

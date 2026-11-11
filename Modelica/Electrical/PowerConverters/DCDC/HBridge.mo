@@ -134,13 +134,13 @@ The H bridge is a four quadrant DC/DC converter. It consists of two single-phase
   <caption><strong>Fig. 1:</strong> H bridge</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/Hbridge.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Electrical/PowerConverters/Hbridge.png\">
     </td>
   </tr>
 </table>
 
 <p>If the firing inputs <code>fire_p</code> and <code>fire_n</code> are inverse, the two legs are controlled symmetrically so that full positive or negative output voltage can be generated.
-See examples <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge\">DCDC.HBridge</a>.
+See examples <a href=\"modelica:/Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge\">DCDC.HBridge</a>.
 </p>
 
 <h4>Note</h4>

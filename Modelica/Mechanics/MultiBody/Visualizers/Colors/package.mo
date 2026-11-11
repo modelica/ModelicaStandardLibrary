@@ -19,7 +19,7 @@ Real color[3](each min=0, each max=255);
 
 <p>
 This definition is also available as type
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.RealColor\">Modelica.Mechanics.MultiBody.Types.RealColor</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Types.RealColor\">Modelica.Mechanics.MultiBody.Types.RealColor</a>.
 </p>
 </html>"));
 end Colors;

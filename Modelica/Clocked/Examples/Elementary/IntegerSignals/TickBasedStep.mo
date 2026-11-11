@@ -26,7 +26,7 @@ connect(step.y, assignClock1.u) annotation (Line(
   Documentation(info="<html>
 <p>
 Example for block
-<a href=\"modelica://Modelica.Clocked.IntegerSignals.TickBasedSources.Step\">Modelica.Clocked.IntegerSignals.TickBasedSources.Step</a>.
+<a href=\"modelica:/Modelica.Clocked.IntegerSignals.TickBasedSources.Step\">Modelica.Clocked.IntegerSignals.TickBasedSources.Step</a>.
 </p>
 </html>"));
 end TickBasedStep;

@@ -9,10 +9,10 @@ This library provides battery models, based on the electrical behaviour at the t
 <h4>Battery characteristics</h4>
 <p>
 All battery models rely on existing components like voltage source, resistor and capacitor models provided in the
-<a href=\"modelica://Modelica.Electrical.Analog\">Analog</a> package of the Modelica Standard Library.<br>
-Explore the <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> of the battery models as well as
-<a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
-Both are based on the <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.References\">references</a>.
+<a href=\"modelica:/Modelica.Electrical.Analog\">Analog</a> package of the Modelica Standard Library.<br>
+Explore the <a href=\"modelica:/Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> of the battery models as well as
+<a href=\"modelica:/Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
+Both are based on the <a href=\"modelica:/Modelica.Electrical.Batteries.UsersGuide.References\">references</a>.
 </p>
 <p>
 Each battery is equipped with an optional heat port which can be enabled by the parameter <code>useHeatPort</code>;

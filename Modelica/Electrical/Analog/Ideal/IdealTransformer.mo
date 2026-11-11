@@ -49,7 +49,7 @@ Due to this equations, the DC offset of secondary voltages and currents decremen
 </p>
 <p>
 Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
-compared with the <a href=\"modelica://Modelica.Electrical.Analog.Basic.Transformer\">basic transformer</a>
+compared with the <a href=\"modelica:/Modelica.Electrical.Analog.Basic.Transformer\">basic transformer</a>
 the following parameter conversion can be applied (which leads to identical results):
 </p>
 <blockquote><pre>

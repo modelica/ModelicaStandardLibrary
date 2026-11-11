@@ -14,7 +14,7 @@ This happens in the zero inductance:
 </p>
 <p>
 This is equivalent to the zero inductor used in the 
-<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine\">machine model of <code>Modelica.Electrical.Machines</code></a> after applying 
+<a href=\"modelica:/Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine\">machine model of <code>Modelica.Electrical.Machines</code></a> after applying 
 space phasor transformation.
 </p>
 <p>

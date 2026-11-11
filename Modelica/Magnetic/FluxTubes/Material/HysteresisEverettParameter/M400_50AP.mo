@@ -14,7 +14,7 @@ record M400_50AP "M400-50AP"
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M400-50AP.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M400-50AP.png\">
    </td>
   </tr>
 </table>

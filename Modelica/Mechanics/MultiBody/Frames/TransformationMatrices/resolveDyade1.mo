@@ -18,13 +18,13 @@ D1 = TransformationMatrices.<strong>resolveDyade1</strong>(T, D2);
 <p>
 This function returns the second order tensor&nbsp;D
 resolved in frame&nbsp;1 (= D1) from its representation in frame&nbsp;2 (= D2) using the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.resolveDyade1\">Frames.resolveDyade1</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.resolveDyade1\">Frames.resolveDyade1</a>.
 </p>
 </html>"));
 end resolveDyade1;

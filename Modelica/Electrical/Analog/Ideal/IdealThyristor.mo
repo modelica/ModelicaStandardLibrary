@@ -14,7 +14,7 @@ equation
   annotation (defaultComponentName="thyristor",
     Documentation(info="<html>
 <p>
-This is an ideal thyristor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
+This is an ideal thyristor, for details see partial model <a href=\"modelica:/Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
 The thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
 If fire gets false, the current has to fall below Vknee*Goff, then the thyristor gets locking.</p>
 </html>",

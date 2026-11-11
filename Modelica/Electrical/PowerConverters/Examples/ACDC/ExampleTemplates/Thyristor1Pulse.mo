@@ -69,7 +69,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>Template of
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse\">
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse\">
 single pulse rectifiers</a>; load is not yet included.</p>
 </html>"));
 end Thyristor1Pulse;

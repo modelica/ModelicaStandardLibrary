@@ -11,15 +11,15 @@ drive trains with frictional losses. A typical, simple example is shown
 in the next figure:
 </p>
 
-<div><img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveExample.png\"></div>
+<div><img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/driveExample.png\"></div>
 
 <p>
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational.UsersGuide</a>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide\">Rotational.UsersGuide</a>
      discusses the most important aspects how to use this library.</li>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.Examples\">Rotational.Examples</a>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.Examples\">Rotational.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 
@@ -40,7 +40,7 @@ it must be connected, and if it is not enabled, it must not be connected.
 Independently, whether the heatPort is enabled or not,
 the dissipated power is available from the new variable \"<strong>lossPower</strong>\" (which is
 positive if heat is flowing out of the heatPort). For an example, see
-<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.HeatLosses\">Examples.HeatLosses</a>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Examples.HeatLosses\">Examples.HeatLosses</a>.
 </p>
 
 <p>

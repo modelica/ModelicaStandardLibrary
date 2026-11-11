@@ -24,7 +24,7 @@ equation
         Rectangle(extent={{52,30},{62,-32}}, lineColor={28,108,200})}),
       Documentation(info="<html>
 <p>
-For a short explanation of the zero system see <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ZeroSystem\">the User&apos;s Guide of the FundamentalWave library</a>.
+For a short explanation of the zero system see <a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide.ZeroSystem\">the User&apos;s Guide of the FundamentalWave library</a>.
 </p>
 </html>"));
 end ZeroImpedance;

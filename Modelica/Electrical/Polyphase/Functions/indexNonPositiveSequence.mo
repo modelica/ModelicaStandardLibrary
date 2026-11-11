@@ -27,7 +27,7 @@ This function determines the indices of non-positive sequence of the symmetrical
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+<a href=\"modelica:/Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
 end indexNonPositiveSequence;

@@ -23,7 +23,7 @@ equation
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.SampleClocked\">Modelica.Clocked.IntegerSignals.Sampler.SampleClocked</a>.
+<a href=\"modelica:/Modelica.Clocked.IntegerSignals.Sampler.SampleClocked\">Modelica.Clocked.IntegerSignals.Sampler.SampleClocked</a>.
 </p>
 </html>"));
 end SampleClocked;

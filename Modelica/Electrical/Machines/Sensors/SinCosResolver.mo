@@ -57,7 +57,7 @@ Thus the sine and cosine signals have <code>p</code> periods per mechanical revo
 Adding an <code>offset</code> &gt; <code>amplitude</code>, the loss of one track can be determined.
 Subtracting the negated signal from the signal, the offset is removed and a cosine and a sine with doubled amplitude are accessible.
 From this signal, the angle within one pole pair of a machine can be determined for field oriented control.
-Block <a href=\"modelica://Modelica.Electrical.Machines.Utilities.SinCosEvaluation\">SinCosEvaluation</a> can be used.
+Block <a href=\"modelica:/Modelica.Electrical.Machines.Utilities.SinCosEvaluation\">SinCosEvaluation</a> can be used.
 </p>
 <p>
 This model can be used to export FMUs of drives to develop control strategies in other environments.

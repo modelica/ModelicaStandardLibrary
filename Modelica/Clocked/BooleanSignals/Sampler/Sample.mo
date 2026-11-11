@@ -19,11 +19,11 @@ equation
           textString="%name")}),
     Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">RealSignals.Sampler.Sample</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.Sample\">RealSignals.Sampler.Sample</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block examples there exist two elementary examples, <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.Sample1\">Sample1</a> and
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.Sample2\">Sample2</a>, for this Boolean block.
+Analog to the corresponding Real signal block examples there exist two elementary examples, <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.BooleanSignals.Sample1\">Sample1</a> and
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.BooleanSignals.Sample2\">Sample2</a>, for this Boolean block.
 </p>
 </html>"));
 end Sample;

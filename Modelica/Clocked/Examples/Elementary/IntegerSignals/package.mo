@@ -6,7 +6,7 @@ annotation (Documentation(info="<html>
 <p>
 This package contains models that have been used to produce
 the figures in the documentation of the
-<a href=\"modelica://Modelica.Clocked.IntegerSignals\">Modelica.Clocked.IntegerSignals</a>
+<a href=\"modelica:/Modelica.Clocked.IntegerSignals\">Modelica.Clocked.IntegerSignals</a>
 sub-library.
 </p>
 </html>"));

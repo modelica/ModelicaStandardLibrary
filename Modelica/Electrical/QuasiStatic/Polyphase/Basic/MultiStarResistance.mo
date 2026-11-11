@@ -55,7 +55,7 @@ equation
     Documentation(info="<html>
 <p>
 Multi star points are connected by resistors. This model is required to operate polyphase systems with even phase numbers to avoid ideal connections of start points of base systems; see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>.
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>.
 </p>
 </html>"));
 end MultiStarResistance;

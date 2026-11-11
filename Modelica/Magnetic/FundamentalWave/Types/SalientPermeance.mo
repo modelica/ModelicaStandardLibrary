@@ -6,12 +6,12 @@ record SalientPermeance = Salient (redeclare SI.Permeance d,
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>
 </p>
 
 </html>"));

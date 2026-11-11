@@ -121,19 +121,19 @@ equation
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
-<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.BooleanStep\">Modelica.Blocks.Sources.BooleanStep</a>,
+<p>The block is similar to the block in <a href=\"modelica:/Modelica.Blocks.Sources.BooleanStep\">Modelica.Blocks.Sources.BooleanStep</a>,
 but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
 <p>
 The Boolean output y is a step signal:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanStep.png\" alt=\"BooleanStep.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Sources/BooleanStep.png\" alt=\"BooleanStep.png\">
 </div>
 
 <h4>Example</h4>
 <p>
-See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep</a>.
+See model <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep</a>.
 <br>
 </p>
 </html>"));

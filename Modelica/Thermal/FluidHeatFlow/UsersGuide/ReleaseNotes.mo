@@ -6,8 +6,8 @@ class ReleaseNotes "Release Notes"
   <h5>4.0.0, 2020-06-04</h5>
   <ul>
   <li>Move models of package Interfaces.Partials to
-      <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces\">Interfaces</a> and
-      <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.BaseClasses\">BaseClasses</a>, see
+      <a href=\"modelica:/Modelica.Thermal.FluidHeatFlow.Interfaces\">Interfaces</a> and
+      <a href=\"modelica:/Modelica.Thermal.FluidHeatFlow.BaseClasses\">BaseClasses</a>, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a></li>
   </ul>
 

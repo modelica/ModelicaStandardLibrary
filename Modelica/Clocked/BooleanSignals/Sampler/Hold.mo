@@ -62,12 +62,12 @@ equation
           textColor={0,0,255})}),
     Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Hold\">RealSignals.Sampler.Hold</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.Hold\">RealSignals.Sampler.Hold</a>).
 </p>
 
 <p>
 Analog to the corresponding Real signal block example there exists an elementary
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.Hold\">example</a> for this Boolean block.
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.BooleanSignals.Hold\">example</a> for this Boolean block.
 </p>
 
 </html>"));

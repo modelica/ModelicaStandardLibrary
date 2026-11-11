@@ -62,13 +62,13 @@ name of the variable value that is displayed is also shown below the icon):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/Show/RealValue.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Interaction/Show/RealValue.png\"
      alt=\"RealValue.png\">
 </div>
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
 </p>
 </html>"));
     end RealValue;
@@ -126,13 +126,13 @@ name of the variable value that is displayed is also shown below the icon):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/Show/IntegerValue.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Interaction/Show/IntegerValue.png\"
      alt=\"IntegerValue.png\">
 </div>
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 </html>"));
     end IntegerValue;
@@ -189,13 +189,13 @@ name of the variable value that is displayed is also shown below the icon):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/Show/BooleanValue.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Interaction/Show/BooleanValue.png\"
      alt=\"BooleanValue.png\">
 </div>
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 </html>"));
     end BooleanValue;

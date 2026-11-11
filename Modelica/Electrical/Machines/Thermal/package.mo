@@ -15,7 +15,7 @@ If <code>useThermalPort == true</code>, a thermal model or machine-specific ther
 On the other hand, all losses are dissipated to this internal or external thermal ambience.
 </p>
 <p>
-The machine specific thermal connector contains <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heatPort</a>s
+The machine specific thermal connector contains <a href=\"modelica:/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heatPort</a>s
 for all relevant loss sources of the machine type, although some of the loss sources are not yet implemented;
 these heatPorts are left unconnected inside the machine, i.e., the HeatFlowRate is zero,
 but they have to be connected to a constant temperature source in the internal or external thermal ambience.
@@ -25,7 +25,7 @@ or temperatures prescribed via signal inputs (<code>useTemperatureInputs == true
 <h4>Loss sources</h4>
 <p>
 Up to now, only Ohmic losses in stator and rotor windings are implemented.
-They are modeled as <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">linearly temperature dependent resistors</a>:
+They are modeled as <a href=\"modelica:/Modelica.Electrical.Analog.Basic.Resistor\">linearly temperature dependent resistors</a>:
 </p>
 <blockquote><pre>
 ROperational = RRef * (1 + alphaRef * (TOperational - TRef))
@@ -49,8 +49,8 @@ alphaRef = -------------------------------
             1 + alpha20 * (TRef - 293.15)
 </pre></blockquote>
 <p>
-For this reason, the function <a href=\"modelica://Modelica.Electrical.Machines.Thermal.convertAlpha\">convertAlpha</a> is provided.
-In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constants\">Constants</a> linear temperature coefficients at 20&deg;C for commonly used materials are defined.
+For this reason, the function <a href=\"modelica:/Modelica.Electrical.Machines.Thermal.convertAlpha\">convertAlpha</a> is provided.
+In sub-package <a href=\"modelica:/Modelica.Electrical.Machines.Thermal.Constants\">Constants</a> linear temperature coefficients at 20&deg;C for commonly used materials are defined.
 </p>
 <h4>Backwards compatibility</h4>
 <ul>
@@ -61,7 +61,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li>The default / start values of all nominal temperatures are set to 20&deg;C.</li>
 </ul>
 <h4>Machine specific thermalPorts</h4>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage\">Induction machine with squirrel cage</a></h5>
+<h5><a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage\">Induction machine with squirrel cage</a></h5>
 <ul>
 <li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPortRotorWinding</code>: heatPort for the rotor cage</li>
@@ -70,7 +70,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
 <li><code>heatPortFriction</code>: friction losses</li>
 </ul>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SlipRing\">Induction machine with slipring rotor</a></h5>
+<h5><a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SlipRing\">Induction machine with slipring rotor</a></h5>
 <ul>
 <li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPortRotorWinding[m]</code>: m=3 heatPorts for the m=3 rotor phases</li>
@@ -80,7 +80,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
 <li><code>heatPortFriction</code>: friction losses</li>
 </ul>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">Synchronous machine with permanent magnets</a></h5>
+<h5><a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">Synchronous machine with permanent magnets</a></h5>
 <ul>
 <li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPortRotorWinding</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
@@ -90,7 +90,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
 <li><code>heatPortFriction</code>: friction losses</li>
 </ul>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">Synchronous machine with electrical excitation</a></h5>
+<h5><a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">Synchronous machine with electrical excitation</a></h5>
 <ul>
 <li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPortRotorWinding</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
@@ -101,7 +101,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
 <li><code>heatPortFriction</code>: friction losses</li>
 </ul>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">Synchronous machine with reluctance rotor</a></h5>
+<h5><a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">Synchronous machine with reluctance rotor</a></h5>
 <ul>
 <li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPortRotorWinding</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
@@ -110,7 +110,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
 <li><code>heatPortFriction</code>: friction losses</li>
 </ul>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet\">DC machine with permanent magnets</a></h5>
+<h5><a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet\">DC machine with permanent magnets</a></h5>
 <ul>
 <li><code>heatPortArmature</code>: armature losses</li>
 <li><code>heatPortPermanentMagnet</code>: permanent magnet losses (not yet connected/implemented)</li>
@@ -119,7 +119,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
 <li><code>heatPortFriction</code>: friction losses</li>
 </ul>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited\">DC machine with electrical (shunt) excitation</a></h5>
+<h5><a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited\">DC machine with electrical (shunt) excitation</a></h5>
 <ul>
 <li><code>heatPortArmature</code>: armature losses</li>
 <li><code>heatPortExcitation</code>: electrical (shunt) excitation</li>
@@ -128,7 +128,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
 <li><code>heatPortFriction</code>: friction losses</li>
 </ul>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited\">DC machine with serial excitation</a></h5>
+<h5><a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited\">DC machine with serial excitation</a></h5>
 <ul>
 <li><code>heatPortArmature</code>: armature losses</li>
 <li><code>heatPortSeriesExcitation</code>: electrical series excitation</li>
@@ -137,7 +137,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
 <li><code>heatPortFriction</code>: friction losses</li>
 </ul>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.Transformers\">Transformers</a></h5>
+<h5><a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.Transformers\">Transformers</a></h5>
 <ul>
 <li><code>heatPort1[m]</code>: m=3 heatPorts for the m=3 primary phases</li>
 <li><code>heatPort2[m]</code>: m=3 heatPorts for the m=3 secondary phases</li>

@@ -11,7 +11,7 @@ block PulseSeries "Series of pulses"
   parameter SI.Time Tp2=Tp1 "Pause between pulses of 2nd series";
   parameter SI.Time Tp "Pause (in addition to TP1) between the two series"
     annotation(Dialog(groupImage=
-      "modelica://Modelica/Resources/Images/Electrical/Batteries/Utilities/PulseSeries.png"));
+      "modelica:/Modelica/Resources/Images/Electrical/Batteries/Utilities/PulseSeries.png"));
   extends Modelica.Blocks.Interfaces.SignalSource;
 protected
   parameter SI.Time Tstart1[n1]={startTime + (k-1)*(T1 + Tp1) for k in 1:n1};
@@ -46,7 +46,7 @@ Then, after the pause duration&nbsp;<code>Tp1 + Tp</code>, a series of <code>n2<
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Batteries/Utilities/PulseSeries.png\" alt=\"PulseSeries.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Batteries/Utilities/PulseSeries.png\" alt=\"PulseSeries.png\">
 </p>
 </html>"));
 end PulseSeries;

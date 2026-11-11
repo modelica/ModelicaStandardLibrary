@@ -21,7 +21,7 @@ record BaseData "Base Data Record"
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_BaseData.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_BaseData.png\">
    </td>
   </tr>
 </table>

@@ -19,13 +19,13 @@ v1 = Quaternions.<strong>multipleResolve1</strong>(Q, v2);
 <p>
 This function returns vectors&nbsp;v resolved in frame&nbsp;1 (=v1) from vectors&nbsp;v
 resolved in frame&nbsp;2 (=v2) using the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve1\">TransformationMatrices.multipleResolve1</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve1\">TransformationMatrices.multipleResolve1</a>.
 </p>
 </html>"));
 end multipleResolve1;

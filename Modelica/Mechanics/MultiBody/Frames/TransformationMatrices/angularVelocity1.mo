@@ -38,7 +38,7 @@ w = TransformationMatrices.<strong>angularVelocity1</strong>(T, der_T);
 <p>
 This function returns the angular velocity&nbsp;w of frame&nbsp;2 with
 respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
 and from its first time derivative der_T:
 </p>
@@ -48,8 +48,8 @@ w = vec( der(transpose(T)) * T ).
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.angularVelocity1\">Frames.angularVelocity1</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1\">Quaternions.angularVelocity1</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.angularVelocity1\">Frames.angularVelocity1</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity1\">Quaternions.angularVelocity1</a>.
 </p>
 </html>"));
 end angularVelocity1;

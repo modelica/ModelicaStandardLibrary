@@ -110,7 +110,7 @@ equation
 Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a three-phase system.
 </p>
 <p>
-For more information see [<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.References\">M&uuml;hl2017</a>].
+For more information see [<a href=\"modelica:/Modelica.Electrical.Polyphase.UsersGuide.References\">M&uuml;hl2017</a>].
 </p>
 </html>"));
 end ReactivePowerSensor;

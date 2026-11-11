@@ -23,7 +23,7 @@ In a series of papers and dissertations
 Prof. Hiller and his group in Duisburg, Germany,
 have developed systematic methods to handle mechanical
 loops analytically, see also
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">MultiBody.UsersGuide.Literature</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Literature\">MultiBody.UsersGuide.Literature</a>.
 The \"characteristic pair of joints\" method
 basically cuts a loop at two joints and uses geometric
 invariants to reduce the number of algebraic
@@ -41,7 +41,7 @@ method is usually manually applied which requires know-how and experience.
 In the MultiBody library, the \"characteristic pair of
 joints\" method is supported in a restricted form such that it can be applied
 also by non-specialists. The idea is to provide aggregations of joints in package
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Joints.Assemblies\">
 MultiBody.Joints.Assemblies</a>
 as one object that either have <strong>6</strong> degrees of freedom or
 <strong>3</strong> degrees of freedom (for usage in planar loops).
@@ -52,7 +52,7 @@ the figure below.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png\">
 </blockquote>
 
 <p>
@@ -61,12 +61,12 @@ joints and one prismatic joint.
 In the figure below, the five revolute joints
 and the prismatic joint are collected together in an assembly object
 called \"jointSSP\" from
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">
 MultiBody.Joints.Assemblies.JointSSP</a>.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png\">
 </blockquote>
 
 <p>
@@ -180,7 +180,7 @@ MacPherson suspension in the next figure has three frame connectors.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png\">
 </blockquote>
 
 <p>
@@ -219,11 +219,11 @@ of one cylinder with elementary joints.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
 </blockquote>
 
 <p>
@@ -233,14 +233,14 @@ revolute and one prismatic joint, as can be seen in next figure.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png\">
 </blockquote>
 
 <p>
 Since 6
 cylinders are connected together, 6 coupled loops with 6 JointRRP objects are
 present. This model is available as
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic\">
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic\">
 MultiBody.Examples.Loops.EngineV6_analytic</a>.
 </p>
 <p>
@@ -249,7 +249,7 @@ shown in the next figure
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
 </blockquote>
 <p>
 It can be seen that the revolute joint

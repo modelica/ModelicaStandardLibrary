@@ -33,7 +33,7 @@ model IM_SlipRing "Induction machine with slip ring rotor"
   parameter SI.Inductance Lm(start=3*ZsRef*sqrt(1 - 0.0667)/(2*pi
         *fsNominal)) "Stator main field inductance per phase" annotation (
      Dialog(tab="Nominal resistances and inductances", groupImage=
-          "modelica://Modelica/Resources/Images/Electrical/Machines/IMS.png"));
+          "modelica:/Modelica/Resources/Images/Electrical/Machines/IMS.png"));
   parameter SI.Inductance Lrsigma(start=3*ZsRef*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal))
     "Rotor leakage inductance per phase w.r.t. rotor side"
@@ -159,11 +159,11 @@ Resistances and stray inductances of the machine always refer to either stator o
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">
 IM_SquirrelCage</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">
 Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">
 Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage</a>,
 </p>
 </html>"));

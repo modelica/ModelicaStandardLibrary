@@ -50,9 +50,9 @@ Source of magnetomotive force with complex signal input.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">ConstantMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">ConstantMagneticPotentialDifference</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
 </p>
 
 </html>"));

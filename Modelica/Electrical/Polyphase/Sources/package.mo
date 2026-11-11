@@ -10,15 +10,15 @@ This package contains time-dependent and controlled polyphase voltage and curren
 <li>SignalVoltage: fed by Modelica.Blocks.Sources arbitrary waveforms of voltages are possible</li>
 <li>ConstantVoltage: constant polyphase voltages</li>
 <li>SineVoltage : phase shift between consecutive voltages by default given by
-<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>CosineVoltage : phase shift between consecutive voltages by default given by
-<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>SignalCurrent: fed by Modelica.Blocks.Sources arbitrary waveforms of currents are possible</li>
 <li>ConstantCurrent: constant polyphase currents</li>
 <li>SineCurrent : phase shift between consecutive currents by default given by
-<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>CosineCurrent : phase shift between consecutive currents by default given by
-<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 </ul>
 </html>",
         revisions="<html>

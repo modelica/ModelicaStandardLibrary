@@ -6,10 +6,10 @@ package UsersGuide "User's Guide"
 <p>
 This library contains components for modelling of electromagnetic fundamental wave
 models for the application in polyphase
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines\">electric machines</a>.
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines\">electric machines</a>.
 The number of phases is not restricted to three. DC machines are (currently) not included
 in this library. The FundamentalWave library is an alternative approach to the
-<a href=\"modelica://Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> library.
+<a href=\"modelica:/Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> library.
 A great advantage of this library is the strict object orientation of the electrical and
 magnetic components that the electric machines models are composed of.
 From a didactic point of view this library is very beneficial for students in the
@@ -17,7 +17,7 @@ field of electrical engineering.
 </p>
 
 <p>
-For more details see the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Concept\">concept.</a>
+For more details see the <a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide.Concept\">concept.</a>
 </p>
 
 <h5>Note</h5>

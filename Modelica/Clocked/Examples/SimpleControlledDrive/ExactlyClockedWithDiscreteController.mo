@@ -85,7 +85,7 @@ connect(periodicClock.y, sample2.clock) annotation (Line(
     Documentation(info="<html>
 <p>
 This is the same model as
-<a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController\">ClockedWithDiscreteController</a>.
+<a href=\"modelica:/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController\">ClockedWithDiscreteController</a>.
 The only difference is that the clock is defined with an exact periodic clock and not with
 a Real periodic clock.
 </p>

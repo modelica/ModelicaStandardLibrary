@@ -18,8 +18,8 @@ This is a simple idle running branch.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a>
 </p>
 
 </html>"));

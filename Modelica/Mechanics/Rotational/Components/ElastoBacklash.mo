@@ -172,7 +172,7 @@ is always limited by the absolute value of the spring torque: |tau_d| &le; |tau_
 
 <p>
 In the next figure, a typical simulation with the ElastoBacklash model is shown
-(<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Backlash\">Examples.Backlash</a>)
+(<a href=\"modelica:/Modelica.Mechanics.Rotational.Examples.Backlash\">Examples.Backlash</a>)
 where the different effects are visualized:
 </p>
 
@@ -187,12 +187,12 @@ where the different effects are visualized:
 </ol>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/Components/elastoBacklash.png\" alt=\"Results of simulation with the ElastoBacklash model\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/Components/elastoBacklash.png\" alt=\"Results of simulation with the ElastoBacklash model\">
 </div>
 
 <p>
 See also the discussion
-<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
 </html>"),

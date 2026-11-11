@@ -10,7 +10,7 @@ record VacoferS2 "VACOFER S2 (99.95% Fe)"
   annotation (defaultComponentPrefixes="parameter",
     Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <dl>
 <dt>Source of B(H) characteristics:</dt>

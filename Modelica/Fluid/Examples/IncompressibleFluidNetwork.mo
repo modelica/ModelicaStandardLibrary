@@ -246,7 +246,7 @@ When configuring <strong>pipeModelStructure=a_v_b</strong>, the flow models at t
 A common work-around is to introduce \"mixing volumes\" in critical connections.
 </p><p>
 Here the problem is treated alternatively with the default <strong>pipeModelStructure=av_vb</strong> of the
-<a href=\"modelica://Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> model.
+<a href=\"modelica:/Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> model.
 Each pipe exposes the states of the outer fluid segments to the respective fluid ports.
 Consequently the pressures of all connected pipe segments get lumped together into one mass balance spanning the whole connection set.
 Overall this treatment as high-index DAE results in the reduction to 9 pressure states, preventing algebraic loops in connections.
@@ -272,12 +272,12 @@ from each other, despite of pressures being lumped together. The following simul
 <p>
 The fluid temperatures in the pipes of interest are exposed through heatPorts.
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/IncompressibleFluidNetwork.png\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/IncompressibleFluidNetwork.png\" border=\"1\"
      alt=\"IncompressibleFluidNetwork.png\">
 </html>"),
     experiment(StopTime=200),
     __Dymola_Commands(file=
-          "modelica://Modelica/Resources/Scripts/Dymola/Fluid/IncompressibleFluidNetwork/plotResults.mos"
+          "modelica:/Modelica/Resources/Scripts/Dymola/Fluid/IncompressibleFluidNetwork/plotResults.mos"
         "plotResults"),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{120,
             100}})),

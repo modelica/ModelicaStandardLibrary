@@ -28,7 +28,7 @@ model SM_PermanentMagnet
   parameter SI.Inductance Lmd(start=0.3*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance per phase, d-axis" annotation (Dialog(
         tab="Nominal resistances and inductances", groupImage=
-          "modelica://Modelica/Resources/Images/Electrical/Machines/SMPM.png"));
+          "modelica:/Modelica/Resources/Images/Electrical/Machines/SMPM.png"));
   parameter SI.Inductance Lmq(start=0.3*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance per phase, q-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -186,15 +186,15 @@ Resistances and stray inductances of the machine refer to an <code>m</code>-phas
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
 SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">
 SM_ReluctanceRotor</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">
 Magnetic.FundamentalWave.BasicMachines.SM_PermanentMagnet</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
 Magnetic.FundamentalWave.BasicMachines.SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">
 Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
 </p>
 </html>"));

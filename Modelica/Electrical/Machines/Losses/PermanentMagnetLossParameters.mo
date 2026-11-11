@@ -22,7 +22,7 @@ record PermanentMagnetLossParameters
     "Reference permanent magnet loss torque at reference angular velocity and reference current";
   annotation (defaultComponentPrefixes="parameter ", Documentation(info="<html>
 <p>
-Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses\">permanent magnet losses</a>.
+Parameter record for <a href=\"modelica:/Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses\">permanent magnet losses</a>.
 </p>
 </html>"));
 end PermanentMagnetLossParameters;

@@ -22,7 +22,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <p>
 Based on an original idea of Michael Beuschel this library was developed
-[<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Beuschel00</a>].
+[<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Beuschel00</a>].
 The authors of the FundamentalWave library would like to thank Michael Beuschel
 for contributing his source code to this library.
 </p>

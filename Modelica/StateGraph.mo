@@ -31,7 +31,7 @@ The basic elements of StateGraphs are <strong>steps</strong> and <strong>transit
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition1.png\">
 </div>
 
 <p>
@@ -59,7 +59,7 @@ the above figure, results in the following menu:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition2.png\">
 </div>
 
 <p>
@@ -99,7 +99,7 @@ figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition3.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition3.png\">
 </div>
 
 <p>
@@ -128,7 +128,7 @@ form, as shown in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition4.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition4.png\">
 </div>
 
 <p>
@@ -267,7 +267,7 @@ An example for both components is given in the next figure.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/Parallel1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/Parallel1.png\">
 </div>
 
 <p>
@@ -298,7 +298,7 @@ corresponding parameter menu. E.g. in a \"Parallel\" component:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/Parallel2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/Parallel2.png\">
 </div>
 
 <p>
@@ -308,7 +308,7 @@ the vector index to which the component shall be connected:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/Parallel3.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/Parallel3.png\">
 </div>
 
 <h4>CompositeSteps, Suspend and Resume Port</h4>
@@ -319,7 +319,7 @@ An example is given in the next figure (from Examples.ControlledTanks):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/CompositeStep1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/CompositeStep1.png\">
 </div>
 
 <p>
@@ -371,7 +371,7 @@ In this section a more realistic, still simple, application example
 is given, to demonstrate various features of the StateGraph library.
 This example shows the control of a two tank system from the master thesis
 of Isolde Dressler
-(<a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">see literature</a>).
+(<a href=\"modelica:/Modelica.StateGraph.UsersGuide.Literature\">see literature</a>).
 </p>
 <p>
 In the following figure the top level of the model is shown.
@@ -379,7 +379,7 @@ This model is available as StateGraph.Examples.ControlledTanks.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks1.png\">
 </div>
 
 <p>
@@ -435,7 +435,7 @@ the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks2.png\">
 </div>
 
 <p>
@@ -731,7 +731,7 @@ email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
 <ul>
 <li> The development of this library was strongly motivated by the
      master thesis of Isolde Dressler
-     (<a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">see literature</a>),
+     (<a href=\"modelica:/Modelica.StateGraph.UsersGuide.Literature\">see literature</a>),
      in which
      a compiler from JGrafchart to Modelica was designed and
      implemented. This project was supervised by Karl-Erik &Aring;rz&eacute;n
@@ -747,7 +747,7 @@ email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
      finite state machines with equations is based on
      (Elmqvist, Mattsson and Otter, 2001),
      which in turn uses ideas from (Mosterman, Otter and Elmqvist, 1998),
-     see <a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">literature</a></li>
+     see <a href=\"modelica:/Modelica.StateGraph.UsersGuide.Literature\">literature</a></li>
 </ul>
 </html>"));
 
@@ -762,22 +762,22 @@ way. This package contains the <strong>User's Guide</strong> for
 the library and has the following content:
 </p>
 <ol>
-<li><a href=\"modelica://Modelica.StateGraph.UsersGuide.OverView\">Overview of library</a>
+<li><a href=\"modelica:/Modelica.StateGraph.UsersGuide.OverView\">Overview of library</a>
      gives an overview of the library.</li>
-<li> <a href=\"modelica://Modelica.StateGraph.UsersGuide.FirstExample\">A first example</a>
+<li> <a href=\"modelica:/Modelica.StateGraph.UsersGuide.FirstExample\">A first example</a>
      demonstrates at hand of a first example how to use this library.</li>
-<li> <a href=\"modelica://Modelica.StateGraph.UsersGuide.ApplicationExample\">An
+<li> <a href=\"modelica:/Modelica.StateGraph.UsersGuide.ApplicationExample\">An
      application example</a> demonstrates varies features at hand of the
      control of a two tank system.</li>
-<li> <a href=\"modelica://Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2\">Comparison
+<li> <a href=\"modelica:/Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2\">Comparison
      with StateGraph2</a> compares Modelica.StateGraph with the much improved version
      Modelica_StateGraph2.</li>
-<li><a href=\"modelica://Modelica.StateGraph.UsersGuide.ReleaseNotes\">Release Notes</a>
+<li><a href=\"modelica:/Modelica.StateGraph.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the differences between different versions of this library.</li>
-<li><a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>
+<li><a href=\"modelica:/Modelica.StateGraph.UsersGuide.Literature\">Literature</a>
     provides references that have been used to design and implement this
     library.</li>
-<li><a href=\"modelica://Modelica.StateGraph.UsersGuide.Contact\">Contact</a>
+<li><a href=\"modelica:/Modelica.StateGraph.UsersGuide.Contact\">Contact</a>
     provides information about the authors of the library as well as
     acknowledgments.</li>
 </ol>
@@ -1213,7 +1213,7 @@ according to their setting before leaving the \"compositeStep\" via its
 <p>
 With this example the controller of a tank filling/emptying system
 is demonstrated. This example is from Dressler (2004),
-see <a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>.
+see <a href=\"modelica:/Modelica.StateGraph.UsersGuide.Literature\">Literature</a>.
 The basic operation is to fill and empty the two tanks:
 </p>
 <ol>
@@ -2733,7 +2733,7 @@ Note, there is a much improved version of this library called
 Modelica tool, you can download it from
 <a href=\"https://github.com/modelica/Modelica_StateGraph2\">https://github.com/modelica/Modelica_StateGraph2</a>.
 In the
-<a href=\"modelica://Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2\">Users Guide</a>
+<a href=\"modelica:/Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2\">Users Guide</a>
 a detailed comparison is given. It is highly recommended to use Modelica_StateGraph2 instead
 of Modelica.StateGraph.
 </p>
@@ -2754,9 +2754,9 @@ some deficiencies of StateCharts.
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"modelica://Modelica.StateGraph.UsersGuide\">StateGraph.UsersGuide</a>
+<li> <a href=\"modelica:/Modelica.StateGraph.UsersGuide\">StateGraph.UsersGuide</a>
      discusses the most important aspects how to use this library.</li>
-<li> <a href=\"modelica://Modelica.StateGraph.Examples\">StateGraph.Examples</a>
+<li> <a href=\"modelica:/Modelica.StateGraph.Examples\">StateGraph.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
@@ -2767,9 +2767,9 @@ top-level part of the tank controller as a StateGraph is shown:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks1_small.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks1_small.png\">
 
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks2_small.png\">
+<img src=\"modelica:/Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks2_small.png\">
 </div>
 
 <p>

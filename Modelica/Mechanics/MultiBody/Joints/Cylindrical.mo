@@ -109,7 +109,7 @@ vector \"n\" defining the cylinder axis
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Cylindrical.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Cylindrical.png\">
 </div>
 </html>"),
          Icon(coordinateSystem(

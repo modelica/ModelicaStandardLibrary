@@ -129,7 +129,7 @@ The user chooses a model with <strong>three</strong> inductors, that means the p
 
 <div>
 <img
- src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/M_Transformer-eq.png\"
+ src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Basic/M_Transformer-eq.png\"
  alt=\"L_m\">
 </div>
 

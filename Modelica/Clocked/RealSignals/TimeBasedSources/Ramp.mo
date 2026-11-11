@@ -139,18 +139,18 @@ equation
       extent={{-2,-21},{37,-33}},
       textString="duration")}),
 Documentation(info="<html>
-<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.Ramp\">Modelica.Blocks.Sources.Ramp</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
+<p>The block is similar to the block in <a href=\"modelica:/Modelica.Blocks.Sources.Ramp\">Modelica.Blocks.Sources.Ramp</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
 <p>
 The Real output y is a ramp signal:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png\" alt=\"Ramp.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Sources/Ramp.png\" alt=\"Ramp.png\">
 </div>
 
 <h4>Example</h4>
 <p>
-See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRamp\">Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRamp</a>.
+See model <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRamp\">Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRamp</a>.
 <br>
 </p>
 </html>"));

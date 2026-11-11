@@ -10,7 +10,7 @@ mechanical</strong> systems, including different types of masses,
 external forces, spring/damper elements,
 frictional elements, elastogaps, elements to measure position, velocity,
 acceleration or the cut-force of a flange. In sublibrary
-<strong><a href=\"modelica://Modelica.Mechanics.Translational.Examples\">Examples</a></strong>
+<strong><a href=\"modelica:/Modelica.Mechanics.Translational.Examples\">Examples</a></strong>
 several examples are present to demonstrate the usage of
 the elements. Just open the corresponding example model and simulate
 the model according to the provided description.
@@ -30,7 +30,7 @@ systems are available in the simulation tool, the simulation of
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive1.png\" alt=\"drive1\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive1.png\" alt=\"drive1\">
 </div>
 
 <p>
@@ -61,8 +61,8 @@ together, see figure below.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/driveConnections1.png\" alt=\"driveConnections1\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/driveConnections2.png\" alt=\"driveConnections2\"><br>
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/UsersGuide/driveConnections1.png\" alt=\"driveConnections1\"><br>
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/UsersGuide/driveConnections2.png\" alt=\"driveConnections2\"><br>
 </div>
 </html>"));
 

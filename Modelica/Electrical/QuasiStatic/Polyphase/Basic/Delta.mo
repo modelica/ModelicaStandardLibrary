@@ -37,8 +37,8 @@ Delta (polygon) connection of a polyphase circuit.
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star\">Star</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar\">MultiStar</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta\">MultiDelta</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star\">Star</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar\">MultiStar</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta\">MultiDelta</a>
 </p></html>"));
 end Delta;

@@ -79,7 +79,7 @@ equation
 This is a third version of the \"four-bar\" mechanism, see figure:
 </p>
 
-<div><img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar_analytic.png\" alt=\"model Examples.Loops.Fourbar_analytic\"></div>
+<div><img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar_analytic.png\" alt=\"model Examples.Loops.Fourbar_analytic\"></div>
 
 <p>
 In this case
@@ -91,7 +91,7 @@ Since JointSSP solves the non-linear constraint equation internally
 analytically, no non-linear equation appears any more and a Modelica
 translator can transform the system into state space
 form without solving a system of equations. For more details, see
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
 MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 </html>"));

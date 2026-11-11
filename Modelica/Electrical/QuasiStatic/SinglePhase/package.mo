@@ -9,11 +9,11 @@ package SinglePhase "Single-phase AC components"
             100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
 <p>This package hosts models for quasi-static single-phase circuits.
 Quasi-static theory for single-phase circuits can be found in the
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase\">Polyphase</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase\">Polyphase</a>
 
 </html>"));
 end SinglePhase;

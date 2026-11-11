@@ -142,18 +142,18 @@ equation
          fillColor={255,255,255},
          fillPattern=FillPattern.Solid)}),
    Documentation(info="<html>
-<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.IntegerStep\">Modelica.Blocks.Sources.IntegerStep</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
+<p>The block is similar to the block in <a href=\"modelica:/Modelica.Blocks.Sources.IntegerStep\">Modelica.Blocks.Sources.IntegerStep</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
 <p>
 The Integer output y is a step signal:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/IntegerStep.png\" alt=\"IntegerStep.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Sources/IntegerStep.png\" alt=\"IntegerStep.png\">
 </div>
 
 <h4>Example</h4>
 <p>
-See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.IntegerSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.IntgerSignals.TimeBasedStep</a>.
+See model <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.IntegerSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.IntgerSignals.TimeBasedStep</a>.
 <br>
 </p>
 </html>"));

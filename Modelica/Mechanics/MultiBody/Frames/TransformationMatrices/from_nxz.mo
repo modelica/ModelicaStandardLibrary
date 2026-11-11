@@ -48,7 +48,7 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_nxz\">Frames.from_nxz</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.from_nxz\">Frames.from_nxz</a>.
 </p>
 </html>"));
 end from_nxz;
