@@ -131,8 +131,11 @@ y = --- * u
 </pre></blockquote>
 <p>
 that is, the output signal y is the input signal u of the
-previous sample instant. Before the second sample instant,
+previous sample instant. Before the first sample instant,
 the output y is identical to parameter yStart.
+
+<strong>The block assumes that the input is sampled.</strong>
+If the input is continuous it will only sample and not create a delay.
 </p>
 
 </html>"), Icon(
