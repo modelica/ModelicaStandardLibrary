@@ -821,6 +821,59 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (experiment(StopTime=5));
   end TestInterpolateParametric;
 
+  model TestMovingIntegralSinusoidal "To test updated Modelica.Math.Nonlinear.quadratureLobatto"
+    extends Modelica.Icons.Example;
+    import Modelica.Units.SI;
+    import Modelica.Constants.pi;
+    import Modelica.Math.Nonlinear.quadratureLobatto;
+    import funB = Modelica.Math.sin "Sinusoidal flux density distribution";
+    parameter SI.Angle beta(
+      final min=0,
+      final max=pi) = pi "Coil width";
+    SI.Angle pos=2*pi*time/Tend "Rotor position";
+    Real psi=quadratureLobatto(
+        function funB(),
+        pos + pi/2 - beta/2,
+        pos + pi/2 + beta/2) "Flux linkage (Lobatto)";
+    Real psiAnalytic = (cos(pos + (pi - beta)/2) - cos(pos + (pi + beta)/2));
+  protected
+    constant SI.Time Tend=1 "Stop time of simulation";
+  equation
+    assert(abs(psi-psiAnalytic)<1e-9, "Check of integral");
+    annotation (
+      experiment(
+        StopTime=1,
+        Interval=0.001,
+        Tolerance=1e-06),
+      Diagram(graphics={
+          Ellipse(extent={{-72,2},{-68,-2}}, lineColor={28,108,200}),
+          Ellipse(extent={{-12,2},{-8,-2}}, lineColor={28,108,200}),
+          Text(
+            extent={{-56,0},{-24,-10}},
+            textColor={28,108,200},
+            textString="beta"),
+          Line(
+            points={{-70,-10},{-10,-10}},
+            color={28,108,200},
+            arrow={Arrow.Open,Arrow.Open}),
+          Line(
+            points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,74.6},{-43.8,
+                79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,59.4},{-14.9,44.1},
+                {-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,-64.2},{29.3,-73.1},{
+                35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},{57.5,-61.9},{63.9,
+                -47.2},{72,-24.8},{80,0}},
+            smooth=Smooth.Bezier,
+            pattern=LinePattern.Dash),
+          Line(
+            points={{-66,40},{-80,40}},
+            color={28,108,200},
+            arrow={Arrow.None,Arrow.Filled})}),
+      Documentation(info="<html>
+Test-case for improved <a href=\"https://github.com/modelica/ModelicaStandardLibrary/pull/4808\">Lobatto</a>.
+Based on <a href=\"https://github.com/modelica/ModelicaStandardLibrary/pull/4800#issuecomment-5585462945\">magnetic test-case</a>, but without magnetic parameters.
+</html>"));
+  end TestMovingIntegralSinusoidal;
+
   model TestInterpolateTimeVarying "To test smoothOrder in Modelica.Math.Vectors.interpolate"
     extends Modelica.Icons.Example;
     Real tabx[:]={0,1,2,3,4,5}+0.1*time*ones(6);
