@@ -420,7 +420,7 @@ reached with different precisions. This is summarized in the following table:
       Td=0.0001)
                 annotation (Placement(transformation(extent={{10,-10},{30,10}})));
     Modelica.Blocks.Continuous.Integrator positionSmoothed(
-      k=1,
+      k = Modelica.Constants.one,
       initType=Modelica.Blocks.Types.Init.InitialOutput,
       y_start=positionStep.offset)
       annotation (Placement(transformation(extent={{50,-10},{70,10}})));
@@ -460,7 +460,7 @@ A position controlled drive with limited velocity and limited acceleration (i.e.
     extends Modelica.Icons.Example;
 
     Continuous.FirstOrder firstOrder1(
-      k=1,
+      k = Modelica.Constants.one,
       T=0.3,
       initType=Modelica.Blocks.Types.Init.SteadyState)
       annotation (Placement(transformation(extent={{20,20},{0,40}})));
@@ -472,7 +472,7 @@ A position controlled drive with limited velocity and limited acceleration (i.e.
     Math.InverseBlockConstraints inverseBlockConstraints
       annotation (Placement(transformation(extent={{-10,20},{30,40}})));
     Continuous.FirstOrder firstOrder2(
-      k=1,
+      k = Modelica.Constants.one,
       T=0.3,
       initType=Modelica.Blocks.Types.Init.SteadyState)
       annotation (Placement(transformation(extent={{20,-20},{0,0}})));
