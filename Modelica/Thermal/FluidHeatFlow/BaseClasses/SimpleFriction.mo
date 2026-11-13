@@ -24,8 +24,8 @@ protected
 initial algorithm
   assert(V_flowNominal>V_flowLaminar,
     "SimpleFriction: V_flowNominal has to be > V_flowLaminar!");
-  assert(dpNominal>=dpNomMin,
-    "SimpleFriction: dpNominal has to be > dpLaminar/V_flowLaminar*V_flowNominal!");
+  assert(dpNominal>=dpNomMin*(1 - 100*Modelica.Constants.eps),
+    "SimpleFriction: dpNominal has to be >= dpLaminar/V_flowLaminar*V_flowNominal!");
   k:=(dpNominal - dpNomMin)/(V_flowNominal - V_flowLaminar)^2;
 equation
   if volumeFlow > +V_flowLaminar then
