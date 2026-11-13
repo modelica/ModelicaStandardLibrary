@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Wed Jul  8 14:51:33 2026)
+(generated: Wed Nov 11 18:07:54 2026)
 
 dymosim started
 ... "ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive" simulating
@@ -10,20 +10,20 @@ Integration started at T = 0 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
 
 Integration terminated successfully at T = 0.95
-   CPU-time for integration                : 15.6 seconds
-   CPU-time for one grid interval          : 0.823 milliseconds
-   CPU-time for initialization             : 0 seconds
-   Number of result points                 : 45369
+   CPU-time for integration                : 31.3 seconds
+   CPU-time for one grid interval          : 1.65 milliseconds
+   CPU-time for initialization             : 0.00312 seconds
+   Number of result points                 : 45205
    Number of grid points                   : 19001
-   Number of accepted steps                : 270240
-   Number of f-evaluations (dynamics)      : 374539
-   Number of crossing function evaluations : 306266
-   Number of Jacobian-evaluations          : 197992
+   Number of accepted steps                : 266580
+   Number of f-evaluations (dynamics)      : 382985
+   Number of crossing function evaluations : 302163
+   Number of Jacobian-evaluations          : 191035
    Number of model time events             : 13296
    Number of input time events             : 0
-   Number of state events                  : 839
+   Number of state events                  : 763
    Number of step events                   : 0
-   Minimum integration stepsize            : 3.94e-14
+   Minimum integration stepsize            : 2.27e-14
    Maximum integration stepsize            : 0.000102
    Maximum integration order               : 5
 Calling terminal section

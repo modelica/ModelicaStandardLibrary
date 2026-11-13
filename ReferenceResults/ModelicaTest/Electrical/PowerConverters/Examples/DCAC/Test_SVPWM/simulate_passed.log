@@ -1,0 +1,34 @@
+Log-file of program ./dymosim
+(generated: Wed Nov 11 18:08:23 2026)
+
+dymosim started
+... "ModelicaTest.Electrical.PowerConverters.Examples.DCAC.Test_SVPWM" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 1
+  WARNING: You have many time events. This is probably due to fast sampling.
+  Enable logging of event in Simulation/Setup/Debug/Events during simulation
+   CPU-time for integration                : 0.00957 seconds
+   CPU-time for one grid interval          : 0.00957 milliseconds
+   CPU-time for initialization             : 9.7e-05 seconds
+   Number of result points                 : 1083
+   Number of grid points                   : 1001
+   Number of accepted steps                : 393
+   Number of f-evaluations (dynamics)      : 393
+   Number of crossing function evaluations : 1457
+   Number of Jacobian-evaluations          : 369
+   Number of model time events             : 48
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 3.33e-07
+   Maximum integration stepsize            : 0.0328
+   Maximum integration order               : 1
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Electrical.PowerConverters.Examples.DCAC.Test_SVPWM
