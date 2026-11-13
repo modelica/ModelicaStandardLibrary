@@ -32,5 +32,8 @@ equation
 <p>
 Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
 </p>
+<p>
+For demonstration and hints regarding initialization see <a href=\"modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization\">Examples.PolyphaseInitialization</a>.
+</p>
 </html>"));
 end Capacitor;
