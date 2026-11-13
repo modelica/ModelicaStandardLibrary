@@ -18,9 +18,12 @@ algorithm
                -phi3,     1,    phi1;
                 phi2, -phi1,       1 ];
   */
-  phi := if withResidues then {R.T[2, 3],-R.T[1, 3],R.T[1, 2],R.T[1, 1] - 1,R.
-     T[2, 2] - 1,R.T[1, 1]*R.T[2, 2] - R.T[2, 1]*R.T[1, 2] - 1} else {R.T[2,
-    3],-R.T[1, 3],R.T[1, 2]};
+  if withResidues then
+    phi := {R.T[2, 3],-R.T[1, 3],R.T[1, 2],R.T[1, 1] - 1,R.T[2, 2] - 1,
+      R.T[1, 1]*R.T[2, 2] - R.T[2, 1]*R.T[1, 2] - 1};
+  else
+    phi := {R.T[2, 3],-R.T[1, 3],R.T[1, 2]};
+  end if;
   annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
