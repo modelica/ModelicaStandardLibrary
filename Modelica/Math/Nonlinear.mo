@@ -851,9 +851,15 @@ i.e. dividing the interval [a, b] into sub-intervals and apply the Newton-Cotes 
     // Check that f(u_min) and f(u_max) have different sign
     fa := f(u_min);
     fb := f(u_max);
-    fc := fb;
     if fa > 0.0 and fb > 0.0 or fa < 0.0 and fb < 0.0 then
-      error(
+      // At first work see if we can work around the issue.
+      // Only do if it fails to reduce the risk of regressions
+      a:=a-(u_max-u_min)*1e-10;
+      b:=b+(u_max-u_min)*1e-10;
+      fa := f(a);
+      fb := f(b);
+      if fa > 0.0 and fb > 0.0 or fa < 0.0 and fb < 0.0 then
+        error(
         "The arguments u_min and u_max provided in the function call\n"+
         "    solveOneNonlinearEquation(f,u_min,u_max)\n" +
         "do not bracket the root of the single non-linear equation 0=f(u):\n" +
@@ -861,7 +867,10 @@ i.e. dividing the interval [a, b] into sub-intervals and apply the Newton-Cotes 
          + "\n" + "  fa = f(u_min) = " + String(fa) + "\n" +
         "  fb = f(u_max) = " + String(fb) + "\n" +
         "fa and fb must have opposite sign which is not the case");
+      end if;
     end if;
+
+    fc := fb;
 
     // Initialize variables
     c := a;
