@@ -26,8 +26,8 @@ model TestPWM "Test pwm result: rms of base harmonic"
         origin={-90,0})));
   Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level multiPhase2Level1
     annotation (Placement(transformation(extent={{-10,70},{10,90}})));
-  Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM svPWM(
-    uMax=Vmax, f=f_sw)
+  Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM svPWM(uMax=2/3*V_DC,
+               f=f_sw)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,50})));
