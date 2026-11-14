@@ -32,7 +32,6 @@ equation
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
-        Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
         Text(
           extent={{-50,-14},{50,-54}},
           textColor={64,64,64},
