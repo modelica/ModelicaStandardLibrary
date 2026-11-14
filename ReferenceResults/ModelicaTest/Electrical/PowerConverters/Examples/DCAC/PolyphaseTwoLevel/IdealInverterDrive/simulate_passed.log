@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Wed Nov 11 18:08:02 2026)
+
+dymosim started
+... "ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 0.5
+   CPU-time for integration                : 17.5 seconds
+   CPU-time for one grid interval          : 35.1 milliseconds
+   CPU-time for initialization             : 0.000248 seconds
+   Number of result points                 : 13856
+   Number of grid points                   : 501
+   Number of accepted steps                : 157501
+   Number of f-evaluations (dynamics)      : 209710
+   Number of crossing function evaluations : 165547
+   Number of Jacobian-evaluations          : 117981
+   Number of model time events             : 6750
+   Number of input time events             : 0
+   Number of state events                  : 203
+   Number of step events                   : 0
+   Minimum integration stepsize            : 8.59e-13
+   Maximum integration stepsize            : 5.57e-05
+   Maximum integration order               : 4
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive

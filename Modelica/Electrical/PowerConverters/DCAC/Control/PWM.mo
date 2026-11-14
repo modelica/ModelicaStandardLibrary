@@ -19,7 +19,8 @@ block PWM "Pulse width modulation"
   PowerConverters.DCAC.Control.SVPWM svPWM(
     f=f,
     startTime=startTime,
-    uMax=uMax) if pwmType == PowerConverters.Types.PWMType.SVPWM
+    uMax=uMax/(sqrt(3)/2))
+               if pwmType == PowerConverters.Types.PWMType.SVPWM
     annotation (Placement(transformation(extent={{-10,30},{10,50}})));
   PowerConverters.DCAC.Control.IntersectivePWM intersectivePWM(
     f=f,

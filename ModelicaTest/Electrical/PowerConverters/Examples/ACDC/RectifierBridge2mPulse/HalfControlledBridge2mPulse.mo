@@ -1,4 +1,4 @@
-within ModelicaTest.Electrical.PowerConverters;
+within ModelicaTest.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse;
 model HalfControlledBridge2mPulse
   "2*m pulse half controlled rectifier bridge with resistive load"
   import Modelica_Electrical_PowerConverters =

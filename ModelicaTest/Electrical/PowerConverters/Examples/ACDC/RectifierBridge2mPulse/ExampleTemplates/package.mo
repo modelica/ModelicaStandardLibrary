@@ -1,0 +1,3 @@
+within ModelicaTest.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse;
+package ExampleTemplates
+end ExampleTemplates;

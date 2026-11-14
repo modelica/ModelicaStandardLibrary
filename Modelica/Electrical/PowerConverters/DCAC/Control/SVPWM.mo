@@ -7,7 +7,7 @@ block SVPWM "Space vector pulse width modulation"
   import Modelica.Constants.pi;
   import Modelica.Math.atan2;
   constant Integer m=3 "Number of phases";
-  parameter Real uMax "Maximum length of space vector = half diagonal of hexagon";
+  parameter Real uMax "Maximum space phasor = half diagonal of hexagon";
   constant Boolean fire[6,m]=[true, false,false;
                               true, true, false;
                               false,true, false;
@@ -27,11 +27,15 @@ protected
   Integer ka(start=0, fixed=true), kb(start=0, fixed=true) "Switching patterns limiting the sector";
   discrete SI.Angle phiSec(start=0, fixed=true) "Angle of reference vector within sector within [0, pi/m)";
   discrete Real ta(start=0, fixed=true), tb(start=0, fixed=true), t0(start=1, fixed=true) "Relative time spans of vectors a, b, and 0";
+  // take sector number into account: swapping for sectors 2,4,6
+  Integer k1(start=0, fixed=true), k2(start=0, fixed=true) "Switching patterns limiting the sector";
+  discrete Real t1(start=0, fixed=true), t2(start=0, fixed=true) "Relative time spans of first and second active vector";
   discrete SI.Time T0(start=startTime, fixed=true) "Start time of switching interval";
 algorithm
   when sampleTrigger then
-    //Limited relative reference signal
-    uRef:=min(sqrt(u[1]^2 + u[2]^2)/(2/3*uMax), cos(pi/6));
+    //We need the reference signal w.r.t. to half diagonal to compare with
+    //space phasors left and right but limited to incircle
+    uRef:=min(sqrt(u[1]^2 + u[2]^2)/uMax, cos(pi/6));
     //Determine angle of reference signal within (-pi, +pi]
     phiRef:=if uRef < small then 0 else atan2(u[2], u[1]);
     //Shift angle to [0, 2*pi)
@@ -39,6 +43,11 @@ algorithm
     // we do not get values at 2*pi since that will look odd.
     phiPos:=max(0, phiRef + (if phiRef < -2*pi*Modelica.Constants.eps then 2*pi else 0));
     //Determine sector and neighbour sector
+    /* NOTE: 
+    sector and vector indices are shifted by 1 compared to indices ka and kb
+    ka = number of left  vector - 1 = number of sector - 1
+    kb = number of right vector - 1 = ka + 1
+    */
     ka:=min(integer(phiPos/(pi/m)), 2*m-1); // The min guards against roundoff
     kb:=mod(ka+1, 2*m);
     //Determine angle within sector in the range of [0, pi/m)
@@ -49,25 +58,39 @@ algorithm
     tb:=min(uRef*sin(phiSec)/sin(pi/m), 1);
     ta:=min(uRef*cos(phiSec) - tb*cos(pi/m), 1);
     t0:=max(1 - ta - tb, 0);
+    // take sector number into account: swapping for sectors 2,4,6
+    if mod(ka + 1, 2) == 0 then
+      // sectors 2,4,6
+      k1:=kb;
+      k2:=ka;
+      t1:=tb;
+      t2:=ta;
+    else
+      // sectors 1,3,5
+      k1:=ka;
+      k2:=kb;
+      t1:=ta;
+      t2:=tb;
+    end if;
     //Remember start time of switching interval
     T0:=time;
   end when;
 equation
-  //Distribute switching patterns t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + ta/2 + t0/4
+  //Distribute switching patterns t0/4 + t1/2 + t2/2 + t0/2 + t2/2 + t1/2 + t0/4
   if time<startTime then
     fire_p= fill(true, m);
   elseif time < T0 + samplePeriod * (t0/4) then
     fire_p= fill(false, m);
-  elseif time < T0 + samplePeriod * (t0/4 + ta/2) then
-    fire_p= fire[ka + 1, :];
-  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2) then
-    fire_p= fire[kb + 1, :];
-  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2 + t0/2) then
+  elseif time < T0 + samplePeriod * (t0/4 + t1/2) then
+    fire_p= fire[k1 + 1, :];
+  elseif time < T0 + samplePeriod * (t0/4 + t1/2 + t2/2) then
+    fire_p= fire[k2 + 1, :];
+  elseif time < T0 + samplePeriod * (t0/4 + t1/2 + t2/2 + t0/2) then
     fire_p= fill(true, m);
-  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2 + t0/2 + tb/2) then
-    fire_p= fire[kb + 1, :];
-  elseif time < T0 + samplePeriod * (t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + ta/2) then
-    fire_p= fire[ka + 1, :];
+  elseif time < T0 + samplePeriod * (t0/4 + t1/2 + t2/2 + t0/2 + t2/2) then
+    fire_p= fire[k2 + 1, :];
+  elseif time < T0 + samplePeriod * (t0/4 + t1/2 + t2/2 + t0/2 + t2/2 + t1/2) then
+    fire_p= fire[k1 + 1, :];
   else
     fire_p= fill(false, m);
   end if;
@@ -116,9 +139,23 @@ The relative time spans for averaging over one switching period are determined b
 <li>t<sub>a</sub> + t<sub>b</sub> + t<sub>0</sub> = 1</li>
 </ul>
 <p>
-To obtain the positive fire signal, the switching time spans are distributed symmetrically:
-t<sub>0</sub>/4 + t<sub>a</sub>/2 + t<sub>b</sub>/2 +t<sub>0</sub>/2 + t<sub>b</sub>/2 + t<sub>a</sub>/2 + t<sub>0</sub>/4
+To obtain the positive fire signal, the switching time spans are distributed symmetrically.
+Depending on the sector, the following switching patterns are applied:
 </p>
+<table>
+<tr><td>sector 1</td><td>t<sub>0</sub>/4</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 100          </td><td> 110           </td><td> 111           </td><td> 110           </td><td> 100           </td><td> 000           </td></tr>
+<tr><td>sector 2</td><td>t<sub>0</sub>/4</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 010          </td><td> 110           </td><td> 111           </td><td> 110           </td><td> 010           </td><td> 000           </td></tr>
+<tr><td>sector 3</td><td>t<sub>0</sub>/4</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 010          </td><td> 011           </td><td> 111           </td><td> 011           </td><td> 010           </td><td> 000           </td></tr>
+<tr><td>sector 4</td><td>t<sub>0</sub>/4</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 001          </td><td> 011           </td><td> 111           </td><td> 011           </td><td> 001           </td><td> 000           </td></tr>
+<tr><td>sector 5</td><td>t<sub>0</sub>/4</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 001          </td><td> 101           </td><td> 111           </td><td> 101           </td><td> 001           </td><td> 000           </td></tr>
+<tr><td>sector 6</td><td>t<sub>0</sub>/4</td><td>t<sub>b</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>0</sub>/2</td><td>t<sub>a</sub>/2</td><td>t<sub>b</sub>/2</td><td>t<sub>0</sub>/4</td></tr>
+<tr><td>        </td><td> 000            </td><td> 100          </td><td> 101           </td><td> 111           </td><td> 101           </td><td> 100           </td><td> 000           </td></tr>
+</table>
 <p>
 The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
 </p>

@@ -1,0 +1,50 @@
+[ResultCreationLog]
+modelName = "ModelicaTest.Electrical.PowerConverters.Examples.DCAC.Test_SVPWM"
+
+// Test info
+generationTool = Dymola Version 2025x Refresh 1, 2025-04-11
+generationDateAndTime = 2026-11-14 15:13:11
+gitURL = https://github.com/Modelica/ModelicaStandardLibrary
+gitRevision = 8a37b71b
+testPC = c397175f8287
+testOS = Linux [Version #20-Ubuntu SMP PREEMPT Mon Oct 19 22:41:16 UTC 2026]
+testUser = resimuser
+testDescription = Testing Pull Request PR_4812
+compiler = gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+
+// Experiment settings (standardized annotation)
+StartTime = 0.0    // from experiment annotation
+StopTime = 1.0    // from experiment annotation
+Interval = 0.001    // from experiment annotation
+Tolerance = 1e-06    // from experiment annotation
+
+// Experiment settings (tool specific)
+// The following lines can be used as mos-script in Dymola
+clearFlags();
+openModel("/opt/dymola-2025xRefresh1-x86_64/Modelica/Library/ModelicaServices 4.1.0/package.mo",true, false);
+openModel("/home/runner/work/MSL_CI/MSL_CI/Complex.mo",true, false);
+openModel("/home/runner/work/MSL_CI/MSL_CI/Modelica/package.mo",true,false);
+openModel("/home/runner/work/MSL_CI/MSL_CI/ModelicaTest/package.mo",true,true);Advanced.PlaceDymolaSourceFirst := 2;
+Advanced.StoreProtectedVariables := true;
+Advanced.UI.DemandLoadClassesGUI := false;
+SetDymolaCompiler("vs", {"CCompiler=MSVC","MSVCDir=."});
+experimentSetupOutput(
+    textual=false,
+    doublePrecision=false,
+    states=true,
+    derivatives=true,
+    inputs=true,
+    outputs=true,
+    auxiliaries=true,
+    equidistant=true,
+    events=true,
+    onlyStopTime=false,
+    debug=false);
+simulateModel(
+    problem="ModelicaTest.Electrical.PowerConverters.Examples.DCAC.Test_SVPWM",
+    startTime=0.0,
+    stopTime=1.0,
+    method="Dassl",
+    tolerance=1e-06,
+    resultFile="result",
+    outputInterval=0.001);
