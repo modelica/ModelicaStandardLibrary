@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Wed Nov 11 18:08:23 2026)
+(generated: Sat Nov 14 15:13:11 2026)
 
 dymosim started
 ... "ModelicaTest.Electrical.PowerConverters.Examples.DCAC.Test_SVPWM" simulating
@@ -12,9 +12,9 @@ Integration started at T = 0 using integration method DASSL
 Integration terminated successfully at T = 1
   WARNING: You have many time events. This is probably due to fast sampling.
   Enable logging of event in Simulation/Setup/Debug/Events during simulation
-   CPU-time for integration                : 0.00957 seconds
-   CPU-time for one grid interval          : 0.00957 milliseconds
-   CPU-time for initialization             : 9.7e-05 seconds
+   CPU-time for integration                : 0.00656 seconds
+   CPU-time for one grid interval          : 0.00656 milliseconds
+   CPU-time for initialization             : 6.5e-05 seconds
    Number of result points                 : 1083
    Number of grid points                   : 1001
    Number of accepted steps                : 393
