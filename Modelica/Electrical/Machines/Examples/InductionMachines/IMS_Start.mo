@@ -135,5 +135,15 @@ using a starting resistance. At time tStart2 external rotor resistance is shorte
 </ul>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "IMS Start",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = aims.tauElectrical),
+          Curve(x = time, y = aims.wMechanical)})})}));
 end IMS_Start;

@@ -101,6 +101,16 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 <li>Dy ... Load current in two   primary phases.</li>
 <li>Dz ... Load current in three primary phases.</li>
 </ul>
-</html>"),
+</html>",
+figures = {
+  Figure(
+        title = "Transformer AsymmetricalLoad",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = transformer.i1[1]),
+          Curve(x = time, y = transformer.i1[2]),
+          Curve(x = time, y = transformer.i1[3])})})}),
      experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6));
 end AsymmetricalLoad;

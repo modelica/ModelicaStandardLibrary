@@ -30,6 +30,16 @@ The current controller is parameterized according to the absolute optimum.
 Further reading:
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
-</html>"),
+</html>",
+figures = {
+  Figure(
+        title = "CurrentControlled DCPM",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentController.u),
+          Curve(x = time, y = currentController.u_m),
+          Curve(x = time, y = currentController.y)})})}),
     Diagram(coordinateSystem(extent={{-200,-100},{100,100}})));
 end CurrentControlledDCPM;

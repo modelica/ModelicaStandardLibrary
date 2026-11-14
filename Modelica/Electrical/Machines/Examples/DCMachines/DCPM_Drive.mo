@@ -158,5 +158,16 @@ which is the case after accelerating the whole drive when angular velocity settl
 An additional energy storage between the battery and the inverters (like a large capacitor or a super capacitor) would help to avoid such situations
 and to smooth possible current spikes.
 </p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+        title = "DCPM Drive",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = dcpm1.ia),
+          Curve(x = time, y = dcpm2.ia),
+          Curve(x = time, y = dcpm1.va),
+          Curve(x = time, y = dcpm2.va)})})}));
 end DCPM_Drive;

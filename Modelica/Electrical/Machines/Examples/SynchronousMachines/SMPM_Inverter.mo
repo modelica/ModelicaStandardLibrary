@@ -138,5 +138,15 @@ and accelerating inertias. At time tStep a load step is applied.</p>
 
 <p>
 In practice it is nearly impossible to drive a PMSMD without current controller.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMPM Inverter",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = smpm.tauElectrical),
+          Curve(x = time, y = smpm.wMechanical)})})}));
 end SMPM_Inverter;

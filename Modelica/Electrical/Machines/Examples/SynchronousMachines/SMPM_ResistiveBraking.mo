@@ -176,5 +176,15 @@ The total braking resistance (sum of all stages) has to be adapted to the angula
 Plot tauElectrical and tauShaft versus wMechanical.
 </p>
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMPM ResistiveBraking",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = smpm.tauElectrical),
+          Curve(x = time, y = smpm.wMechanical)})})}));
 end SMPM_ResistiveBraking;

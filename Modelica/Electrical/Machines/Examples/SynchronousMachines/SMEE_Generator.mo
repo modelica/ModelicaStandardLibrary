@@ -173,5 +173,15 @@ rotor angle is very slowly increased. This allows to see several characteristics
 </ul>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMEE Generator",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = rotorDisplacementAngle.rotorDisplacementAngle, y = electricalPowerSensor.P),
+          Curve(x = rotorDisplacementAngle.rotorDisplacementAngle, y = electricalPowerSensor.Q)},
+        x = Axis(min = -180, max = 180, unit = "deg"))})}));
 end SMEE_Generator;

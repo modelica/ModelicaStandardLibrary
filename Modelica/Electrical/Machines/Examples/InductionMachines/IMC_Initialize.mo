@@ -110,5 +110,15 @@ at time tStart a load torque step is applied.</p>
 </ul>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "IMC Initialize",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = aimc.tauElectrical),
+          Curve(x = time, y = aimc.wMechanical)})})}));
 end IMC_Initialize;
