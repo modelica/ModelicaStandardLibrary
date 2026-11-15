@@ -3,10 +3,24 @@ model Test_SVPWM "Test sequence of SVPWM"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Real epsilon=1e-6 "Comparison threshold";
-  parameter Real amplitude=1.001;
+  parameter Real amplitude=2/3;
   parameter Real uMax=2/sqrt(3);
-  parameter Integer comparison[24]=
-    {1,3,3,1, 2,3,3,2, 2,6,6,2, 4,6,6,4, 4,5,5,4, 1,5,5,1};
+  parameter Integer N=6*12;
+  parameter Real v0={0,0,0}*{2^0,2^1,2^2};
+  parameter Real v1={1,0,0}*{2^0,2^1,2^2};
+  parameter Real v2={1,1,0}*{2^0,2^1,2^2};
+  parameter Real v3={0,1,0}*{2^0,2^1,2^2};
+  parameter Real v4={0,1,1}*{2^0,2^1,2^2};
+  parameter Real v5={0,0,1}*{2^0,2^1,2^2};
+  parameter Real v6={1,0,1}*{2^0,2^1,2^2};
+  parameter Real v7={1,1,1}*{2^0,2^1,2^2};
+  parameter Real comparison[N]={
+    v0,v1,v1,v2,v2,v7,v7,v2,v2,v1,v1,v0,
+    v0,v3,v3,v2,v2,v7,v7,v2,v2,v3,v3,v0,
+    v0,v3,v3,v4,v4,v7,v7,v4,v4,v3,v3,v0,
+    v0,v5,v5,v4,v4,v7,v7,v4,v4,v5,v5,v0,
+    v0,v5,v5,v6,v6,v7,v7,v6,v6,v5,v5,v0,
+    v0,v1,v1,v6,v6,v7,v7,v6,v6,v1,v1,v0};
   Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM
     svPWM(f=6, uMax=uMax)
      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
@@ -18,13 +32,13 @@ model Test_SVPWM "Test sequence of SVPWM"
     annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
   Modelica.Blocks.Math.BooleanToReal booleanToReal[3]
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-  Modelica.Blocks.Math.Sum sum1(nin=3, k={1,2,4})
+  Modelica.Blocks.Math.Sum sum1(nin=3, k={2^0,2^1,2^2})
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-  Integer k(start=0, fixed=true);
+  Integer k(start=-1, fixed=true);
 algorithm
-  when sample(0.5/24., 1./24.) then
-    k:=pre(k) + 1;
-    assert(abs(sum1.y - comparison[k])<epsilon, "Switching sequence wrong");
+  when sample(0.5/N, 1./N) then
+    k:=mod(pre(k) + 1, N);
+    assert(abs(sum1.y - comparison[k + 1])<epsilon, "Switching sequence wrong");
   end when;
 equation
   connect(svPWM.fire_p, booleanToReal.u) annotation (Line(points={{-19,6},{-10,6},
@@ -36,7 +50,7 @@ equation
   connect(sine.y, svPWM.u[2]) annotation (Line(points={{-59,-20},{-50,-20},{-50,
           0.5},{-42,0.5}}, color={0,0,127}));
   annotation (experiment(
-      StopTime=1.0,
+      StopTime=2.0,
       Interval=0.001,
       Tolerance=1e-06), TestCase(shouldPass = true,
     __ModelicaAssociation(Comparison(timeWindows={TimeWindow(0, 1.0)}))),
@@ -53,9 +67,8 @@ Converting the positive fire signal to a real (i.e. no.1 with weight 2<sup>o</su
 0-4-5-7-5-4-0<br>
 0-1-5-7-5-1-0<br>
 The exact time spans are deduced from the signal amplitude and the maximum space phasor. 
-For maximum space phasor = signal amplitude &sdot; 2/&radic;3 the zero vectors (0 and 7) are omitted completely,
-and the time spans for the two active vectors are equal. Note that the time spans are segmented into 2 equal parts, 
-in the middle of each sequence the two parts of the second active vector falls together due to the missing zero vector,
+For maximum space phasor = 2/3 &sdot; signal amplitude &sdot; 2/&radic;3 and the time spans of 
+the two active vectors and the zero vectors are nearly equal.
 </p>
 </html>"));
 end Test_SVPWM;
