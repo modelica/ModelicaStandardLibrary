@@ -10,7 +10,7 @@ record M350_50A "M350-50A (1.0810) @ 50Hz"
   annotation (defaultComponentPrefixes="parameter",
     Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Sample: sheet strip<br>

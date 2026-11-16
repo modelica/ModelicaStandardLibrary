@@ -13,7 +13,7 @@ algorithm
   // Alternative implementation due to https://trac.openmodelica.org/OpenModelica/ticket/4496
   y :=sum({sqrt(u[k].re^2 + u[k].im^2) for k in 1:m})/m;
   annotation (Inline=true, Documentation(info="<html>
-  This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a polyphase system,
+  This function determines the continuous quasi <a href=\"modelica:/Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a polyphase system,
   represented by m quasi-static time domain phasors.
 </html>"));
 end quasiRMS;

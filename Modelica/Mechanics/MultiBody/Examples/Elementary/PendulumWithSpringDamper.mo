@@ -82,7 +82,7 @@ A 3-dim. spring and a 3-dim. damper are connected between the body
 and a point fixed in the world frame:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PendulumWithSpringDamper.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PendulumWithSpringDamper.png\"
 alt=\"model Examples.Elementary.PendulumWithSpringDamper\">
 </html>"));
 end PendulumWithSpringDamper;

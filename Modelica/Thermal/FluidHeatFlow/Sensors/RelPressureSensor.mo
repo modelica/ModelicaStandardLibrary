@@ -13,7 +13,7 @@ equation
 annotation (
     Documentation(info="<html>
 <p>The RelPressureSensor measures the pressure drop between flowPort_a and flowPort_b.</p>
-<p>Thermodynamic equations are defined by <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensorBase\">Interfaces.RelativeSensorBase</a>.</p>
+<p>Thermodynamic equations are defined by <a href=\"modelica:/Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensorBase\">Interfaces.RelativeSensorBase</a>.</p>
 </html>"),
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Text(

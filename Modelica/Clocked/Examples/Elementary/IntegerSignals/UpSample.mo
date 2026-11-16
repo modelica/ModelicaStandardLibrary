@@ -39,7 +39,7 @@ connect(upSample2.y, sum.u[2]) annotation (Line(
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"modelica:/Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
 end UpSample;

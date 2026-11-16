@@ -31,7 +31,7 @@ equation
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"modelica://Modelica.Clocked.ClockSignals.Sampler.ShiftSample\">Modelica.Clocked.ClockSignals.Sampler.ShiftSample</a>.
+<a href=\"modelica:/Modelica.Clocked.ClockSignals.Sampler.ShiftSample\">Modelica.Clocked.ClockSignals.Sampler.ShiftSample</a>.
 </p>
 </html>"));
 end ShiftSample;

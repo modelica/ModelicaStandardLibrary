@@ -40,7 +40,7 @@ equation
           textString="dT"),     Text(
                 extent={{-150,-110},{150,-140}},
           textString="C=%C"),      Bitmap(extent={{-58,-42},{98,48}},
-            fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/InverseCapacity.png"),
+            fileName="modelica:/Modelica/Resources/Images/Thermal/HeatTransfer/InverseCapacity.png"),
           Text( extent={{-90,-64},{-6,-94}},
                 horizontalAlignment=TextAlignment.Left,
           textString="Q_flow")}));

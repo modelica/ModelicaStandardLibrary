@@ -15,7 +15,7 @@ Several elements of this library model <strong>Coulomb friction</strong> with th
 
 <p>
 The friction equations are defined in base model
-<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialFriction\">Interfaces.PartialFriction</a>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialFriction\">Interfaces.PartialFriction</a>.
 In the following, there are given explanations.
 </p>
 
@@ -142,7 +142,7 @@ mode = if (pre(mode) == Forward  or startFor)  and v&gt;0 then Forward  elseif
 
 <p>
 The above approach to model a simplified friction element is slightly generalized in model
-<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialFriction\">Interfaces.PartialFriction</a>:
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.PartialFriction\">Interfaces.PartialFriction</a>:
 </p>
 
 <ul>

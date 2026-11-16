@@ -267,7 +267,7 @@ and the point mass in the middle of the rod by a light blue sphere:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/SphericalSpherical.png\" alt=\"model Joints.SphericalSpherical\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/SphericalSpherical.png\" alt=\"model Joints.SphericalSpherical\">
 </div>
 
 <p>

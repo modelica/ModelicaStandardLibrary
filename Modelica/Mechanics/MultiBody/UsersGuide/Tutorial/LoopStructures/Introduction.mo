@@ -7,12 +7,12 @@ class Introduction "Introduction"
 In principal, no special action is needed, if
 loop structures occur (contrary to the ModelicaAdditions.MultiBody library).
 An example is presented in the figure below. It is available as
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1\">
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1\">
 MultiBody.Examples.Loops.Fourbar1</a>
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1a.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1a.png\">
 </blockquote>
 
 <p>
@@ -25,7 +25,7 @@ red box on the lower right side.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1b.png\" width=\"300\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1b.png\" width=\"300\">
 </blockquote>
 
 <p>
@@ -62,7 +62,7 @@ In many mechanisms it is possible to solve the non-linear algebraic
 equations analytically. For a certain class of systems this can
 be performed also with the MultiBody library. This technique
 is described in section
-\"<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>\".
+\"<a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>\".
 </p>
 </html>"));
 end Introduction;

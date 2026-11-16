@@ -37,6 +37,6 @@ equation
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sensors.MagneticFluxSensor\">MagneticFluxSensor</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Sensors.MagneticFluxSensor\">MagneticFluxSensor</a>
 </p></html>"));
 end MagneticPotentialDifferenceSensor;

@@ -6,12 +6,12 @@ class PlanarLoops "Planar loops"
 <p>
 In the figure below, the model of a V6 engine is
 shown that has a simple combustion model. It is available as
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6\">
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6\">
 MultiBody.Examples.Loops.EngineV6</a>.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
 </div>
 
 <p>
@@ -22,7 +22,7 @@ above.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
 </div>
 
 <p>
@@ -35,7 +35,7 @@ loops that have together 1 degree of freedom.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
 </div>
 
 <p>
@@ -56,7 +56,7 @@ on pure structural information cannot distinguish these two cases.
 The usual remedy is to remove superfluous constraints,
 e.g., along the axis of rotation of <strong>one</strong> revolute joint. Since this is
 not easy for an inexperienced modeler, the special joint:
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint\">
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint\">
 RevolutePlanarLoopConstraint</a> is provided that removes these constraints.
 Exactly one revolute joint in a every planar loop must be replaced by this
 joint type. In the engine example, this special joint is used for
@@ -88,7 +88,7 @@ Both cases are discussed in the error message.
 Note, that the non-linear algebraic equations occurring
 in planar loops can be solved analytically in most cases and therefore it is
 highly recommended to use the techniques discussed in section
-\"<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>\"
+\"<a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>\"
 for such systems.
 </p>
 </html>"));

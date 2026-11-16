@@ -25,7 +25,7 @@ If this model is used, the loss power has to be provided by an equation in the m
 
 <p>
 Note, this partial model is used in cases, where heatPort.T (that is the device temperature) is not utilized in the model. If this is desired, inherit instead from partial model
-<a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">PartialElementaryConditionalHeatPort</a>.
+<a href=\"modelica:/Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">PartialElementaryConditionalHeatPort</a>.
 </p>
 </html>"));
 end PartialElementaryConditionalHeatPortWithoutT;

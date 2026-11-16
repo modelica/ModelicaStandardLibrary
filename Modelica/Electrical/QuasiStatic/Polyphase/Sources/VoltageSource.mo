@@ -23,17 +23,17 @@ equation
 <p>
 This model describes <em>m</em> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts
 (defaults are
-<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">single-phase VoltageSources</a> are used.
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
+<em>m</em> <a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">single-phase VoltageSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource\">CurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource\">CurrentSource</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
 </p>
 </html>"));
 end VoltageSource;

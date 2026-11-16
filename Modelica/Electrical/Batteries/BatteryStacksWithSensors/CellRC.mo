@@ -11,7 +11,7 @@ model CellRC "Cell with measurement"
   extends Modelica.Electrical.Batteries.Icons.TransientModel;
   annotation (Documentation(info="<html>
 <p>
-This is a single transient <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellRCStack\">cellRC[Np=1, Ns=1]</a> (with RC-elements) with measurement.
+This is a single transient <a href=\"modelica:/Modelica.Electrical.Batteries.BatteryStacks.CellRCStack\">cellRC[Np=1, Ns=1]</a> (with RC-elements) with measurement.
 </p>
 </html>"));
 end CellRC;

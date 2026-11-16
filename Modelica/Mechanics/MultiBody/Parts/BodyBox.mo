@@ -187,13 +187,13 @@ the animation may be switched off via parameter animation = <strong>false</stron
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/BodyBox.png\" alt=\"Parts.BodyBox\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Parts/BodyBox.png\" alt=\"Parts.BodyBox\">
 </div>
 
 <p>
 A BodyBox component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</p>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</p>
 </html>"),
          Icon(coordinateSystem(
         preserveAspectRatio=true,

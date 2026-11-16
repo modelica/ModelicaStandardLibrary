@@ -6,7 +6,7 @@ class StateSelection "State Selection"
 <p>
 Only a few components of the Rotational library use the der(&hellip;) operator
 and are therefore candidates to have states. Most important, component
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Inertia</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Components.Inertia\">Inertia</a>
 defines the absolute rotation angle and the absolute angular velocity of this
 component as candidate for states. In the &quot;Advanced&quot; menu the built-in StateSelect
 enumeration can be set to define the priority to use these variables as states.
@@ -68,9 +68,9 @@ At the time of the library design, there was not yet a possibility to provide th
 In order to reduce this effect, it is advisable to not use absolute angles, but
 relative angles as states. A user can define relative variables as states
 explicitly with component
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.RelativeStates\">RelativeStates</a>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Components.RelativeStates\">RelativeStates</a>.
 Furthermore, all compliant components, such as
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.SpringDamper\">SpringDamper</a> are
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Components.SpringDamper\">SpringDamper</a> are
 defining the relative angle and the relative angular velocity as preferred states.
 Therefore, a tool will select in most cases relative angles as states.
 </p>
@@ -84,7 +84,7 @@ explicitly a nominal value on the relative angle. This definition is provided in
 &quot;Advanced&quot; menu of the compliant components with parameter &quot;phi_nominal&quot;.
 The default value is 1e-4&nbsp;rad, to be in the order of a compliant deformation of a
 drive. For some components, like
-a <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Clutch\">Clutch</a>,
+a <a href=\"modelica:/Modelica.Mechanics.Rotational.Components.Clutch\">Clutch</a>,
 this might be too small and a value of phi_nominal&nbsp;=&nbsp;1&nbsp;rad might be more appropriate
 (a value of phi_nominal&nbsp;=&nbsp;1e-4&nbsp;rad does not hurt, but just makes the error control
 unnecessarily stringent).

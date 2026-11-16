@@ -55,7 +55,7 @@ equation
     Documentation(info="<html>
 <p>
 If useFixedTemperature = false, this sensor acts just as a normal
-<a href=\"modelica://Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor\">HeatFlowSensor</a>.
+<a href=\"modelica:/Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor\">HeatFlowSensor</a>.
 </p>
 <p>
 If useFixedTemperature = true, it is assumed that the connections to both heatPorts of this sensor are conditionally removed;

@@ -43,21 +43,21 @@ equation
 <p>This model determines the absolute and relative permeability from two real inputs:</p>
 <ul>
 <li>RMS magnetic potential difference,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realV_m.png\" alt=\"V_m\"></li>
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realV_m.png\" alt=\"V_m\"></li>
 <li>RMS magnetic flux,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realPhi.png\" alt=\"Phi\"></li>
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realPhi.png\" alt=\"Phi\"></li>
 </ul>
 <p>In order to calculate the permeabilities, the area of cross section,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A.png\" alt=\"l\">,
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A.png\" alt=\"l\">,
 and the geometric length,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\" alt=\"l\">,
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\" alt=\"l\">,
 of the flux path have to be take into account</p>
 <dl><dd>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities.png\" alt=\"Permeabilities\">
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities.png\" alt=\"Permeabilities\">
 </dd></dl>
 <p>In case that the magnetic potential difference is close to zero, permeabilities yield:</p>
 <dl><dd>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities-0.png\" alt=\"Permeabilities=0\">
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities-0.png\" alt=\"Permeabilities=0\">
 </dd></dl>
 </html>"));
 end Permeability;

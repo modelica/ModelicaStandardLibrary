@@ -61,12 +61,12 @@ protected
 Model <strong>DoubleArrow</strong> defines a double arrow that is dynamically
 visualized at the defined location (see variables below).
 Nonetheless, visualizing physical vectors by means of
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a>
 can be better option in many cases.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
 </div>
 
 <p>
@@ -88,7 +88,7 @@ Variable <strong>color</strong> is an Integer vector with 3&nbsp;elements,
 {r,&nbsp;g,&nbsp;b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot; color parts.
 Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
 The predefined type
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
 contains a&nbsp;menu definition of the colors used in the MultiBody
 library together with a&nbsp;color editor.
 </p>

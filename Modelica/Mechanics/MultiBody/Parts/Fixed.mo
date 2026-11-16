@@ -122,7 +122,7 @@ component animation and that the animation may be switched off via parameter
 animation = <strong>false</strong>.
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Fixed.png\" alt=\"Parts.Fixed\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Parts/Fixed.png\" alt=\"Parts.Fixed\">
 </div>
 
 </html>"));

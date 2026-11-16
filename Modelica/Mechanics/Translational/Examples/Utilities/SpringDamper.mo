@@ -66,7 +66,7 @@ equation
                 extent={{-150,-118},{150,-148}},
                 textString="c=%c
 d=%d"),   Bitmap(extent={{-72,-44},{84,46}},
-            fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/SpringDamper.png"),
+            fileName="modelica:/Modelica/Resources/Images/Mechanics/Translational/SpringDamper.png"),
           Text( extent={{12,96},{96,66}},
                 horizontalAlignment=TextAlignment.Right,
           textString="s2"),      Text(

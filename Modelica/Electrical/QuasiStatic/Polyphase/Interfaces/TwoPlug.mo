@@ -34,11 +34,11 @@ equation
   i = plug_p.pin.i;
   annotation (Documentation(info="<html>
 <p>
-This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">positive</a>
-and <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug\">negative plug</a>,
+This partial model uses a <a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">positive</a>
+and <a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug\">negative plug</a>,
 but no complex voltage and complex current.
-A <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p\">positive</a> and
-a <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n\">negative adapter</a>
+A <a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p\">positive</a> and
+a <a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n\">negative adapter</a>
 are used to give easy access to the single pins of both plugs. Additionally, the angular velocity of the
 quasi-static system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
 </p>
@@ -46,10 +46,10 @@ quasi-static system is explicitly defined as variable. This model is mainly inte
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug\">NegativePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug\">TwoPlugElementary</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.OnePort\">OnePort</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug\">NegativePlug</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug\">TwoPlugElementary</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.OnePort\">OnePort</a>
 </p>
 </html>"));
 end TwoPlug;

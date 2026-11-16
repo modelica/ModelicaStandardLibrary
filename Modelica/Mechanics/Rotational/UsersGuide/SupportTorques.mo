@@ -11,11 +11,11 @@ support flange is enabled or disabled. If it is enabled, it must be connected.
 If it is disabled, it needs not be connected.
 Enabled support flanges offer, e.g., the possibility to model gearboxes mounted on
 the ground via spring-damper-systems (cf. example
-<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.ElasticBearing\">ElasticBearing</a>).
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Examples.ElasticBearing\">ElasticBearing</a>).
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/bearing1.png\" alt=\"bearing1\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/bearing1.png\" alt=\"bearing1\">
 </div>
 
 <p>
@@ -26,7 +26,7 @@ identical results.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/bearing2.png\" alt=\"bearing2\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/bearing2.png\" alt=\"bearing2\">
 </div>
 </html>"));
 

@@ -23,7 +23,7 @@ connect(ramp.y, assignClock1.u) annotation (Line(
 annotation (experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"modelica://Modelica.Clocked.RealSignals.TimeBasedSources.Ramp\">Modelica.Clocked.RealSignals.TimeBasedSources.Ramp</a>.
+<a href=\"modelica:/Modelica.Clocked.RealSignals.TimeBasedSources.Ramp\">Modelica.Clocked.RealSignals.TimeBasedSources.Ramp</a>.
 </p>
 </html>"));
 end TimeBasedRamp;

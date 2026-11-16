@@ -23,7 +23,7 @@ equation
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleClocked\">Modelica.Clocked.RealSignals.Sampler.SampleClocked</a>.
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.SampleClocked\">Modelica.Clocked.RealSignals.Sampler.SampleClocked</a>.
 </p>
 </html>"));
 end SampleClocked;

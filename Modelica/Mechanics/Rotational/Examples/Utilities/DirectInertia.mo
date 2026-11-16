@@ -59,7 +59,7 @@ equation
                 textString="a"),Text(
                 extent={{-150,-110},{150,-140}},
                 textString="J=%J"),Bitmap(extent={{-96,-42},{64,54}},
-            fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/DirectInertia.png"),
+            fileName="modelica:/Modelica/Resources/Images/Mechanics/Rotational/DirectInertia.png"),
           Text( extent={{10,-60},{94,-90}},
                 horizontalAlignment=TextAlignment.Right,
           textString="tau")}), Documentation(info="<html>
@@ -74,7 +74,7 @@ on the other side of it.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia\">InverseInertia</a>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia\">InverseInertia</a>.
 </p>
 </html>"));
 end DirectInertia;

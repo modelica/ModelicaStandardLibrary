@@ -206,10 +206,10 @@ equation
 <p>
 
 An ideal frequency inverter is modeled by using a
-<a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
-and a three-phase <a href=\"modelica://Modelica.Electrical.Polyphase.Sources.SignalVoltage\">SignalVoltage</a>.
+<a href=\"modelica:/Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
+and a three-phase <a href=\"modelica:/Modelica.Electrical.Polyphase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">permanent magnet synchronous machine</a> to start,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">permanent magnet synchronous machine</a> to start,
 and accelerate the inertias.</p>
 
 <p>At time tStep a load step is applied. Simulate for 1.5 seconds and plot (versus time):</p>

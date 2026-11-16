@@ -92,7 +92,7 @@ The decay time to half value <code>T2</code> is defined as the time span between
   <caption><strong>Fig. 1:</strong> Parameters of the lightning current</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/Lightning.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Sources/Lightning.png\">
     </td>
   </tr>
 </table>

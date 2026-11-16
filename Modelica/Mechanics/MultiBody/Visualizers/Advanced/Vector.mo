@@ -13,7 +13,7 @@ location (see variables below). Thus, the arrow length does not represent
 a&nbsp;physical length (except, of course, for quantity&nbsp;= <strong>RelativePosition</strong>),
 but a&nbsp;different 3-dimensional quantity
 (such as force, torque, speed, &hellip;), defined by
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.VectorQuantity\">MultiBody.Types.VectorQuantity</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Types.VectorQuantity\">MultiBody.Types.VectorQuantity</a>.
 
 That allows the vectors of similar quantities to be scaled appropriately during post-processing.
 This is useful even for <strong>RelativePosition</strong>, and in that case to disable or
@@ -38,7 +38,7 @@ Variable <code>color</code> is an Integer vector with 3&nbsp;elements,
 {r,&nbsp;g,&nbsp;b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot; color parts.
 Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
 The predefined type
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
 contains a&nbsp;menu definition of the colors used in the MultiBody
 library together with a&nbsp;color editor.
 </p>

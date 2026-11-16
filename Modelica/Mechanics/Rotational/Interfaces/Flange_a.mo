@@ -18,13 +18,13 @@ tau: Cut-torque in the shaft flange in [Nm].
 
 <p>
 There is a second connector for flanges:
-<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_b\">Flange_b</a>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces.Flange_b\">Flange_b</a>.
 The connectors
 Flange_a and Flange_b are completely identical. There is only a difference
 in the icons, in order to easier identify a flange variable in a diagram.
 For a discussion on the actual direction of the cut-torque tau and
 of the rotation angle, see section
-<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign Conventions</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign Conventions</a>
 in the user's guide of Rotational.
 </p>
 

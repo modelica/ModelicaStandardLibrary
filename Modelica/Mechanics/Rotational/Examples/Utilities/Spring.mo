@@ -52,7 +52,7 @@ equation
           textString="phi1"),      Text(
                 extent={{-150,-114},{150,-144}},
                 textString="c=%c"),Bitmap(extent={{-88,-36},{92,56}},
-            fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/Spring.png"),
+            fileName="modelica:/Modelica/Resources/Images/Mechanics/Rotational/Spring.png"),
           Text( extent={{12,96},{96,66}},
                 horizontalAlignment=TextAlignment.Right,
           textString="phi2"),      Text(

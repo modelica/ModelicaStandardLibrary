@@ -154,20 +154,20 @@ equation
     Documentation(info="<html>
 <p>
 The symmetrical polyphase winding consists of a symmetrical winding
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor\">resistor</a>, a
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance\">stray reluctance</a>, a symmetrical
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">polyphase electromagnetic coupling</a> and a
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.EddyCurrent\">core loss</a> model including
-heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">port</a>.
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor\">resistor</a>, a
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance\">stray reluctance</a>, a symmetrical
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">polyphase electromagnetic coupling</a> and a
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.EddyCurrent\">core loss</a> model including
+heat <a href=\"modelica:/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">port</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.QuasiStaticAnalogWinding\">
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.QuasiStaticAnalogWinding\">
 QuasiStaticAnalogWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
 Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">
 Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding</a>
 </p>
 </html>"));

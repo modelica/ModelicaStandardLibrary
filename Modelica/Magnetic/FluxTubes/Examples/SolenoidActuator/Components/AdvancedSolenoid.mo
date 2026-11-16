@@ -4,7 +4,7 @@ model AdvancedSolenoid
 
   parameter Real N=957 "Number of turns" annotation (Dialog(group=
           "Parameters", groupImage=
-          "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png"));
+          "modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png"));
   parameter SI.Resistance R=5 "Coil resistance";
   parameter SI.Resistance R_par=1e5
     "Resistance parallel to the coil, in series to C_par";
@@ -381,11 +381,11 @@ equation
         textColor={0,0,255},
         textString="%name")}), Documentation(info="<html>
 <p>
-Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> for a general description of this actuator. Unlike in that simple magnetic network model, the coil is split into two lumped elements here. This enables for more realistic modelling of the radial leakage flux between armature and yoke (leakage permeance G_mLeakRad). Especially for large air gaps, the influence of this leakage flux on the actuator's inductance and its electromagnetic force is rather strong. Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStatic\">ComparisonQuasiStatic</a> for a comparison of both models with FEA-based results included as reference.
+Please have a look at <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> for a general description of this actuator. Unlike in that simple magnetic network model, the coil is split into two lumped elements here. This enables for more realistic modelling of the radial leakage flux between armature and yoke (leakage permeance G_mLeakRad). Especially for large air gaps, the influence of this leakage flux on the actuator's inductance and its electromagnetic force is rather strong. Please have a look at <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStatic\">ComparisonQuasiStatic</a> for a comparison of both models with FEA-based results included as reference.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/AdvancedSolenoidModel_fluxTubePartitioning.png\" alt=\"Assigned flux tubes and field plot of the solenoid actuator\">
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/AdvancedSolenoidModel_fluxTubePartitioning.png\" alt=\"Assigned flux tubes and field plot of the solenoid actuator\">
 </div>
 
 <p>

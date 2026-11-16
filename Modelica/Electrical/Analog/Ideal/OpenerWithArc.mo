@@ -16,10 +16,10 @@ equation
         Line(points={{40,40},{32,30},{48,26},{40,20}}, color={255,0,0})}),
     Documentation(info="<html>
 <p>
-This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
+This model is an extension to the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
 </p>
 <p>
-For details of the arc effect, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc\">IdealSwitchWithArc</a>.
+For details of the arc effect, see partial model <a href=\"modelica:/Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc\">IdealSwitchWithArc</a>.
 </p>
 </html>",
         revisions="<html>

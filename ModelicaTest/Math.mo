@@ -936,7 +936,7 @@ extends Modelica.Icons.ExamplesPackage;
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1021,7 +1021,7 @@ extends Modelica.Icons.ExamplesPackage;
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1106,7 +1106,7 @@ extends Modelica.Icons.ExamplesPackage;
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1204,7 +1204,7 @@ extends Modelica.Icons.ExamplesPackage;
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1365,7 +1365,7 @@ Implementation is according to Abramowitz and Stegun
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1438,7 +1438,7 @@ The relative error is less than 1e-9.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1467,7 +1467,7 @@ The relative error is less than 1e-9.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1518,7 +1518,7 @@ For more details of this distribution see
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1557,7 +1557,7 @@ For more details of this distribution see
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1595,7 +1595,7 @@ For more details of this distribution see
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1615,7 +1615,7 @@ For more details of this distribution see
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>

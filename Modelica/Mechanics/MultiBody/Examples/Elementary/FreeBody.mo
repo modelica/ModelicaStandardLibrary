@@ -78,7 +78,7 @@ This example demonstrates:
     body \"body1\" in the left part (click on \"Initialization\").</li>
 </ul>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/FreeBody.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/FreeBody.png\"
 alt=\"model Examples.Elementary.FreeBody\">
 </html>"));
 end FreeBody;

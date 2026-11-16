@@ -6,7 +6,7 @@ model CuboidOrthogonalFlux
 
   SI.Length l=s "Length in direction of motion (orthogonal to flux)"
     annotation (Dialog(group="Variable geometry", groupImage=
-          "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidOrthogonalFlux.png"));
+          "modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidOrthogonalFlux.png"));
   parameter SI.Length a=0.01 "Width of rectangular cross-section";
   parameter SI.Length b=0.01
     "Height of rectangular cross-section (in flux direction)";
@@ -26,7 +26,7 @@ equation
 
   annotation (defaultComponentName="force", Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force\">Force</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.Force\">Force</a> for a description of all elements of this package and to <a href=\"modelica:/Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 end CuboidOrthogonalFlux;

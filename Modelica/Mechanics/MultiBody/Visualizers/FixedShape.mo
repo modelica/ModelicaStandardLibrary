@@ -64,7 +64,7 @@ parameter <strong>shapeType</strong> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape\">
 </div>
 
 <p>
@@ -89,7 +89,7 @@ Additionally, <strong>external shapes</strong> can be specified as (not all opti
 <li> \"<strong>modelica:</strong>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
      characterizes the file that is stored under the location of the
      &lt;Modelica-name&gt; library path with the given relative file name.
-     Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
+     Example:<br> shapeType = \"modelica:/Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
 
 <li> \"<strong>file:</strong>///&lt;absolute-file-name&gt;\"<br>
      characterizes an absolute file name in the file system. Example:<br>
@@ -155,7 +155,7 @@ Parameter <strong>color</strong> is a vector with 3 elements,
 {r,&nbsp;g,&nbsp;b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r, g and b are given as Integer[3] in the ranges 0&nbsp;&hellip;&nbsp;255,
 respectively. The predefined type
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
 </p>
 </html>"),

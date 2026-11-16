@@ -57,19 +57,19 @@ equation
     Documentation(info="<html>
 <p>The admittance model represents a <strong>parallel</strong> connection of a resistor and either a capacitor or inductor
 in each phase.<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/GB_admittance.png\"></p>
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/GB_admittance.png\"></p>
 
 <p>
 The linear admittance connects the complex voltage <code><u>v</u></code> with the
 complex current <code><u>i</u></code> by <code><u>v</u>*<u>Y</u> = <u>i</u></code> in each phase,
 using <code>m</code>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance\">
 variable single-phase admittances</a>.
 The admittances <code>Y_ref = G_ref + j*B_ref</code> are given as complex input signals, representing the
 resistive and reactive components of the input admittances. The resistive
 components are modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> are determined from
 the actual operating temperatures and the reference input conductances <code>real(Y_ref)</code>.
-<a href=\"modelica://Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort\">Conditional heat ports</a> are considered.
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort\">Conditional heat ports</a> are considered.
 The reactive components <code>B_actual = imag(<u>Y</u>)</code>
 are equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
 Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
@@ -90,17 +90,17 @@ singularities due to the actual structure of the connected network.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor\">Variable inductor</a>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance\">Variable impedance</a>,
 </p>
 </html>"));
 end VariableAdmittance;

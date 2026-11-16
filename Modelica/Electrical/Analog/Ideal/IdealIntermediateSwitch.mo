@@ -46,14 +46,14 @@ equation
 <p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2.</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch1.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch1.png\"
      alt=\"IdealIntermediateSwitch1.png\">
 </div>
 
 <p>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch2.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch2.png\"
      alt=\"IdealIntermediateSwitch2.png\">
 </div>
 

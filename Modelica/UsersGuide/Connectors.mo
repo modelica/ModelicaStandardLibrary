@@ -27,80 +27,80 @@ variables is explained in section \"Connector Equations\" below):
    <td>electrical potential</td>
    <td>electrical current</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Electrical.Analog.Interfaces\">Modelica.Electrical.Analog.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Electrical.Analog.Interfaces\">Modelica.Electrical.Analog.Interfaces</a>
      <br>Pin, PositivePin, NegativePin</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPins.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/ElectricalPins.png\"></td></tr>
 
 <tr><td><strong>electrical<br>polyphase</strong></td>
    <td colspan=\"3\">vector of electrical pins</td>
-   <td><a href=\"modelica://Modelica.Electrical.Polyphase.Interfaces\">Modelica.Electrical.Polyphase.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Electrical.Polyphase.Interfaces\">Modelica.Electrical.Polyphase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
 
 <tr><td><strong>electrical<br>space phasor</strong></td>
    <td>2 electrical potentials</td>
    <td>2 electrical currents</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Electrical.Machines.Interfaces\">Modelica.Electrical.Machines.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Electrical.Machines.Interfaces\">Modelica.Electrical.Machines.Interfaces</a>
      <br>SpacePhasor</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
 <tr><td><strong>quasi-static<br>single-phase</strong></td>
    <td>complex electrical potential</td>
    <td>complex electrical current</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces\">
+   <td><a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces\">
                                        Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces</a>
      <br>Pin, PositivePin, NegativePin</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticSinglePhasePins.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/QuasiStaticSinglePhasePins.png\"></td></tr>
 
 <tr><td><strong>quasi-static<br>polyphase</strong></td>
    <td colspan=\"3\">vector of quasi-static single-phase pins</td>
-   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces\">Modelica.Electrical.QuasiStatic.Polyphase.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces\">Modelica.Electrical.QuasiStatic.Polyphase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticPolyphasePlugs.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/QuasiStaticPolyphasePlugs.png\"></td></tr>
 
 <tr><td><strong>electrical<br>digital</strong></td>
    <td>Integer (1..9)</td>
    <td></td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Electrical.Digital.Interfaces\">Modelica.Electrical.Digital.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Electrical.Digital.Interfaces\">Modelica.Electrical.Digital.Interfaces</a>
      <br>DigitalSignal, DigitalInput, DigitalOutput</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Digital.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Digital.png\"></td></tr>
 
 <tr><td><strong>magnetic<br>flux tubes</strong></td>
    <td>magnetic potential</td>
    <td>magnetic flux</td>
    <td></td>
    <td>
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces\">Modelica.Magnetic.FluxTubes.Interfaces</a>
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Interfaces\">Modelica.Magnetic.FluxTubes.Interfaces</a>
      <br>MagneticPort, PositiveMagneticPort,<br>NegativeMagneticPort</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MagneticPorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/MagneticPorts.png\"></td></tr>
 
 <tr><td><strong>magnetic<br>fundamental<br>wave</strong></td>
    <td>complex magnetic potential</td>
    <td>complex magnetic flux</td>
    <td></td>
    <td>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces\">Modelica.Magnetic.FundamentalWave.Interfaces</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Interfaces\">Modelica.Magnetic.FundamentalWave.Interfaces</a>
      <br>MagneticPort, PositiveMagneticPort,<br>NegativeMagneticPort</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FundamentalWavePorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/FundamentalWavePorts.png\"></td></tr>
 
 <tr><td><strong>translational</strong></td>
    <td>distance</td>
    <td>cut-force</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces\">Modelica.Mechanics.Translational.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Mechanics.Translational.Interfaces\">Modelica.Mechanics.Translational.Interfaces</a>
      <br>Flange_a, Flange_b</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
 
 <tr><td><strong>rotational</strong></td>
    <td>angle</td>
    <td>cut-torque</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces\">Modelica.Mechanics.Rotational.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Mechanics.Rotational.Interfaces\">Modelica.Mechanics.Rotational.Interfaces</a>
      <br>Flange_a, Flange_b</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/RotationalFlanges.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/RotationalFlanges.png\"></td></tr>
 
 <tr><td><strong>3-dim.<br>mechanics</strong></td>
    <td>position vector<br>
@@ -108,9 +108,9 @@ variables is explained in section \"Connector Equations\" below):
    <td>cut-force vector<br>
     cut-torque vector</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Mechanics.MultiBody.Interfaces\">Modelica.Mechanics.MultiBody.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Interfaces\">Modelica.Mechanics.MultiBody.Interfaces</a>
      <br>Frame, Frame_a, Frame_b, Frame_resolve</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MultiBodyFrames.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/MultiBodyFrames.png\"></td></tr>
 
 <tr><td><strong>simple<br>fluid flow</strong></td>
    <td>pressure<br>
@@ -118,26 +118,26 @@ variables is explained in section \"Connector Equations\" below):
    <td>mass flow rate<br>
     enthalpy flow rate</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces\">Modelica.Thermal.FluidHeatFlow.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Thermal.FluidHeatFlow.Interfaces\">Modelica.Thermal.FluidHeatFlow.Interfaces</a>
      <br>FlowPort, FlowPort_a, FlowPort_b</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
 
 <tr><td><strong>thermo<br>fluid flow</strong></td>
    <td>pressure</td>
    <td>mass flow rate</td>
    <td>specific enthalpy<br>mass fractions</td>
    <td>
-<a href=\"modelica://Modelica.Fluid.Interfaces\">Modelica.Fluid.Interfaces</a>
+<a href=\"modelica:/Modelica.Fluid.Interfaces\">Modelica.Fluid.Interfaces</a>
      <br>FluidPort, FluidPort_a, FluidPort_b</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FluidPorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/FluidPorts.png\"></td></tr>
 
 <tr><td><strong>heat<br>transfer</strong></td>
    <td>temperature</td>
    <td>heat flow rate</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces\">Modelica.Thermal.HeatTransfer.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Thermal.HeatTransfer.Interfaces\">Modelica.Thermal.HeatTransfer.Interfaces</a>
      <br>HeatPort, HeatPort_a, HeatPort_b</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
 
 <tr><td><strong>blocks</strong></td>
    <td>
@@ -146,21 +146,21 @@ variables is explained in section \"Connector Equations\" below):
     Boolean variable</td>
    <td></td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Blocks.Interfaces\">Modelica.Blocks.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.Blocks.Interfaces\">Modelica.Blocks.Interfaces</a>
      <br>
       RealSignal, RealInput, RealOutput<br>
       IntegerSignal, IntegerInput, IntegerOutput<br>
       BooleanSignal, BooleanInput, BooleanOutput</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Signals.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Signals.png\"></td></tr>
 
 <tr><td><strong>complex<br>blocks</strong></td>
    <td>
     Complex variable</td>
    <td></td>
    <td></td>
-   <td><a href=\"modelica://Modelica.ComplexBlocks.Interfaces\">Modelica.ComplexBlocks.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.ComplexBlocks.Interfaces\">Modelica.ComplexBlocks.Interfaces</a>
      <br>ComplexSignal, ComplexInput, ComplexOutput</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ComplexSignals.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/ComplexSignals.png\"></td></tr>
 
 <tr><td><strong>state<br>machine</strong></td>
    <td>Boolean variables<br>
@@ -168,9 +168,9 @@ variables is explained in section \"Connector Equations\" below):
      available, reset)</td>
    <td></td>
    <td></td>
-   <td><a href=\"modelica://Modelica.StateGraph.Interfaces\">Modelica.StateGraph.Interfaces</a>
+   <td><a href=\"modelica:/Modelica.StateGraph.Interfaces\">Modelica.StateGraph.Interfaces</a>
      <br>Step_in, Step_out, Transition_in, Transition_out</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/StateGraphPorts.png\"></td></tr>
+   <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/StateGraphPorts.png\"></td></tr>
 </table>
 
 <p>

@@ -18,7 +18,7 @@ model SawToothCurrent "Saw tooth current source"
         info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/SawToothCurrent.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Sources/SawToothCurrent.png\"
      alt=\"SawToothCurrent.png\">
 </div>
 </html>"));

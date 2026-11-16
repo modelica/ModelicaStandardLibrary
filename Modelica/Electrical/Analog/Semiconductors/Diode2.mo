@@ -41,7 +41,7 @@ equation
   assert(Vt>0, "Vt must be greater than zero");
   annotation (defaultComponentName="diode",
     Documentation(info="<html>
-<p>This diode model is an improved version of the <a href=\"modelica://Modelica.Electrical.Analog.Semiconductors.Diode\">simple diode</a> model. It includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
+<p>This diode model is an improved version of the <a href=\"modelica:/Modelica.Electrical.Analog.Semiconductors.Diode\">simple diode</a> model. It includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
 <ul>
 <li>lower half of reversed bias region including breakdown: -Ids&middot;(exp(-(vd+Bv)/(N&middot;Vt)) + 1 - 2&middot;exp(-Bv/(2&middot;N&middot;Vt)))</li>
 <li>upper half of reverse biased region and forward biased region before conduction: Ids&middot;(exp(vd/(N&middot;Vt)) - 1)</li>

@@ -95,10 +95,10 @@ equation
     Both receive the very same clock inputs, produced by two rotational clocks
     with slightly shifted input angle waves (sine and cosine respectively). The
     configuration and results of the rotational clocks are explained in the
-    <a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample\">rotational clocks example</a>.
+    <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample\">rotational clocks example</a>.
     The generated clocked signals of the disjunctive and conjunctive clock are
     therefore:
     </p>
-    <div><img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/LogicalSample_Result.png\" alt=\"LogicalSample_Result.png\"></div>.
+    <div><img src=\"modelica:/Modelica/Resources/Images/Clocked/Examples/LogicalSample_Result.png\" alt=\"LogicalSample_Result.png\"></div>.
     </html>"));
 end LogicalSample;

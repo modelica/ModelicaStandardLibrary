@@ -14,7 +14,7 @@ Modelica composition diagram, resulting in:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/PendulumSchematic1.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/PendulumSchematic1.png\"
 alt=\"Modelica composition diagram of simple pendulum\">
 </div>
 
@@ -25,7 +25,7 @@ and connect them according to the figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/PendulumSchematic2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/PendulumSchematic2.png\">
 </div>
 
 <p>
@@ -62,9 +62,9 @@ is shown in the parameter menus of the revolute joint and the body:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ActuatedRevoluteParameters.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ActuatedRevoluteParameters.png\">
 <br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/BodyParameters.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/BodyParameters.png\">
 </div>
 
 <p>
@@ -81,7 +81,7 @@ With default settings, the following animation is defined:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Pendulum.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Pendulum.png\">
 </div>
 
 <p>

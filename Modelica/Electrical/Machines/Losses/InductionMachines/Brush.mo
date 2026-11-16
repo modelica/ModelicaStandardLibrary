@@ -31,7 +31,7 @@ equation
                 textString="%name")}), Documentation(info="<html>
 <p>
 Model of voltage drop and losses of carbon brushes. This three-phase model uses three
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">DC Brush</a> loss models.
+<a href=\"modelica:/Modelica.Electrical.Machines.Losses.DCMachines.Brush\">DC Brush</a> loss models.
 </p>
 </html>"));
 end Brush;

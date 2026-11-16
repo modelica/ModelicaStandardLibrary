@@ -29,23 +29,23 @@ equation
 <p>
 The linear capacitor connects the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor\">single-phase Capacitors</a>.
+using <code>m</code> <a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor\">single-phase Capacitors</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor\">Variable inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
 end Capacitor;

@@ -12,7 +12,7 @@ uses(Complex(version="4.2.0 dev"), ModelicaServices(version="4.2.0 dev")),
 conversion(
  noneFromVersion="4.1.0",
  noneFromVersion="4.0.0",
- from(version={"3.0", "3.0.1", "3.1", "3.2", "3.2.1", "3.2.2", "3.2.3"}, script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_3.2.3_to_4.0.0.mos")),
+ from(version={"3.0", "3.0.1", "3.1", "3.2", "3.2.1", "3.2.2", "3.2.3"}, script="modelica:/Modelica/Resources/Scripts/Conversion/ConvertModelica_from_3.2.3_to_4.0.0.mos")),
 Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
   Polygon(
     origin={-6.9888,20.048},
@@ -28,7 +28,7 @@ Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     extent={{-17.8562,-17.8563},{17.8563,17.8562}})}),
 Documentation(info="<html>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Logos/Modelica_Libraries.svg\" width=\"250\">
+<img src=\"modelica:/Modelica/Resources/Images/Logos/Modelica_Libraries.svg\" width=\"250\">
 </div>
 
 <p>
@@ -44,19 +44,19 @@ in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png\">
+<img src=\"modelica:/Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png\">
 </div>
 
 <p>
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"modelica://Modelica.UsersGuide.Overview\">Overview</a>
+<li> <a href=\"modelica:/Modelica.UsersGuide.Overview\">Overview</a>
   provides an overview of the Modelica Standard Library
-  inside the <a href=\"modelica://Modelica.UsersGuide\">User's Guide</a>.</li>
-<li><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
+  inside the <a href=\"modelica:/Modelica.UsersGuide\">User's Guide</a>.</li>
+<li><a href=\"modelica:/Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
  summarizes the changes of new versions of this package.</li>
-<li> <a href=\"modelica://Modelica.UsersGuide.Contact\">Contact</a>
+<li> <a href=\"modelica:/Modelica.UsersGuide.Contact\">Contact</a>
   lists the contributors of the Modelica Standard Library.</li>
 <li> The <strong>Examples</strong> packages in the various libraries, demonstrate
   how to use the components of the corresponding sublibrary.</li>
@@ -78,7 +78,7 @@ and it has been tested with Modelica tools from different vendors.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 1998-2025, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
+Copyright &copy; 1998-2025, Modelica Association and <a href=\"modelica:/Modelica.UsersGuide.Contact\">contributors</a>.
 </p>
 
 <p>

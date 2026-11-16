@@ -44,7 +44,7 @@ The resistance <code>R</code> is given as input signal.
 
 <p>
 The variable resistor model also has an optional
-<a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
+<a href=\"modelica:/Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
 A linear temperature dependency of the resistance is also taken into account.
 </p>
 
@@ -55,17 +55,17 @@ A zero crossing of the R signal could cause singularities due to the actual stru
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
 end VariableResistor;

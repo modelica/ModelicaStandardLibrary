@@ -29,17 +29,17 @@ The capacitance <code>C</code> is allowed to be positive, zero, or negative.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
 end Capacitor;

@@ -22,7 +22,7 @@ connect(step.y, assignClock1.u)       annotation (Line(
 annotation (experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"modelica://Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.
+<a href=\"modelica:/Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.
 </p>
 </html>"));
 end TickBasedStep;

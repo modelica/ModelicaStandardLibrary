@@ -28,7 +28,7 @@ R = Frames.<strong>axesRotations</strong>(sequence, angles, der_angles);
 <h4>Description</h4>
 <p>
 This function returns
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
 that describes the orientation defined by three elementary rotations in
 a given <strong>sequence</strong>, each rotated by <strong>angles</strong>.
 The angular velocity vector R.w is calculated from the angle derivatives
@@ -37,7 +37,7 @@ The angular velocity vector R.w is calculated from the angle derivatives
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotations\">TransformationMatrices.axesRotations</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotations\">TransformationMatrices.axesRotations</a>.
 </p>
 </html>"));
 end axesRotations;

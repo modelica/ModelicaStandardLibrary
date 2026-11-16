@@ -97,7 +97,7 @@ equation
               textString="%name")}),
     Documentation(info="<html>
 <p>
-Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">.
+Each phase <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">.
 </p>
 
 <p>
@@ -105,7 +105,7 @@ The total complex magnetic potential difference of the polyphase winding is dete
 </p>
 
 <p>
-&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/polyphaseconverter_vm.png\">
+&nbsp;&nbsp;<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/polyphaseconverter_vm.png\">
 </p>
 
 <p>
@@ -113,19 +113,19 @@ In this equation each contribution of a winding magnetomotive force on the total
 </p>
 
 <p>
-The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v_k.png\"> induced in each winding depend on the cosines between the orientation of the winding and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are proportional to the respective number of turns. This relationship can be modeled by means of</p>
+The voltages <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/v_k.png\"> induced in each winding depend on the cosines between the orientation of the winding and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are proportional to the respective number of turns. This relationship can be modeled by means of</p>
 
 <p>
-&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/polyphaseconverter_phi.png\">
+&nbsp;&nbsp;<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/polyphaseconverter_phi.png\">
 </p>
 
-<p>for <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_in_1_m.png\"> and is also illustrated by the following figure:</p>
+<p>for <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/k_in_1_m.png\"> and is also illustrated by the following figure:</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption><strong>Fig:</strong> Orientation of winding and location of complex magnetic flux</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/coupling.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/coupling.png\">
     </td>
   </tr>
 </table>
@@ -136,7 +136,7 @@ The converter model optionally (if <code>useStrayPermeance = true</code>) consid
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
 </p>
 </html>"));
 end PolyphaseElectroMagneticConverter;

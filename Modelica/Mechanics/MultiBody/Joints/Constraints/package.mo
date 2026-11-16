@@ -9,7 +9,7 @@ constrain the motion between frames by means of kinematic constraints. The const
 elements are especially aimed to be used for multibody models which contain <strong>kinematic loops</strong>.
 Usually, kinematic loops are automatically handled. However, the performance might be improved
 by either solving certain kinds of loops analytically with the help of the components of
-subpackage  <a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">Assemblies</a>, or
+subpackage  <a href=\"modelica:/Modelica.Mechanics.MultiBody.Joints.Assemblies\">Assemblies</a>, or
 by providing numerically better loop constraint formulations with the help of the components
 of this subpackage.
 </p>

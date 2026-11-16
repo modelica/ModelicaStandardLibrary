@@ -8,10 +8,10 @@ class ReleaseNotes "Release Notes"
   <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
   <li>Added new example
-      <a href=\"modelica://Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL\">SMEE_DOL</a>, see
+      <a href=\"modelica:/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL\">SMEE_DOL</a>, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a></li>
   <li>Fixed bug of wrong smooth order in
-      <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a>, see
+      <a href=\"modelica:/Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a>, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2315\">#2315</a></li>
   <li>Unified communication interval, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2279\">#2279</a></li>
@@ -68,7 +68,7 @@ class ReleaseNotes "Release Notes"
 <h5>Version 2.1.2, 2010-02-09 (Anton Haumer)</h5>
 <ul>
   <li>Included new Examples:
-<a href=\"modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Transformer\">
+<a href=\"modelica:/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Transformer\">
 IMC_Transformer</a>,
 DC_Comparison</li>
 </ul>
@@ -76,9 +76,9 @@ DC_Comparison</li>
 <h5>Version 2.1.1, 2010-02-05 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Included
-<a href=\"modelica://Modelica.Electrical.Machines.Utilities.SwitchedRheostat\">
+<a href=\"modelica:/Modelica.Electrical.Machines.Utilities.SwitchedRheostat\">
 SwitchedRheostat</a>,
-<a href=\"modelica://Modelica.Electrical.Machines.Utilities.RampedRheostat\">
+<a href=\"modelica:/Modelica.Electrical.Machines.Utilities.RampedRheostat\">
 RampedRheostat</a></li>
 </ul>
 
@@ -190,7 +190,7 @@ RampedRheostat</a></li>
 <h5>Version 1.60, 2005-11-04 (Anton Haumer)</h5>
 <ul>
   <li>Added
-      <a href=\"modelica://Modelica.Electrical.Machines.SpacePhasors.Components.Rotator\">
+      <a href=\"modelica:/Modelica.Electrical.Machines.SpacePhasors.Components.Rotator\">
       Rotator</a></li>
   <li>Corrected consistent naming of parameters and variables</li>
 </ul>
@@ -203,10 +203,10 @@ RampedRheostat</a></li>
 <h5>Version 1.52, 2005-10-12 (Anton Haumer)</h5>
 <ul>
   <li>Added
-      <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
+      <a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
 SM_ElectricalExcited</a>
       using new
-      <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation\">
+      <a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation\">
       ElectricalExcitation</a>
       as well as a new example</li>
 </ul>

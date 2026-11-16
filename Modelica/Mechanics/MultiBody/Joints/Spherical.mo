@@ -232,7 +232,7 @@ frame_b of the joint.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Spherical.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Spherical.png\">
 </div>
 </html>"),
     Icon(coordinateSystem(

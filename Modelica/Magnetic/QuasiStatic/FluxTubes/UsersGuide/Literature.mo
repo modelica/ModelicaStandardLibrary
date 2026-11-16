@@ -19,7 +19,7 @@ class Literature "Literature"
 <h4>Additional References</h4>
 <p>
 Additional reference on magnetic flux tubes are listed in
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">Modelica.Magnetic.FluxTubes</a>.
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">Modelica.Magnetic.FluxTubes</a>.
 </p>
 </html>"));
 end Literature;

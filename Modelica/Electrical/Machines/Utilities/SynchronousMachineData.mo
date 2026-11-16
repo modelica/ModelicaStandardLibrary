@@ -139,7 +139,7 @@ record SynchronousMachineData
     defaultComponentPrefixes="parameter",
     Documentation(info="<html>
 <p>The parameters of the
-<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
+<a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
 synchronous machine model with electrical excitation (and damper)</a> are calculated from parameters
 normally given in a technical description, according to the standard EN&nbsp;60034-4:2008&nbsp;Appendix&nbsp;C.</p>
 </html>"));

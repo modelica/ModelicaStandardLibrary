@@ -22,18 +22,18 @@ Q2 = Quaternions.<strong>absoluteRotation</strong>(Q1, Q_rel);
 <h4>Description</h4>
 <p>
 This function returns
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q2
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q2
 that describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q1
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q1
 that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the relative
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a> Q_rel
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a> Q_rel
 that describes the orientation to rotate from frame&nbsp;1 to frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.absoluteRotation\">Frames.absoluteRotation</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.absoluteRotation\">TransformationMatrices.absoluteRotation</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.absoluteRotation\">Frames.absoluteRotation</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.absoluteRotation\">TransformationMatrices.absoluteRotation</a>.
 </p>
 </html>"));
 end absoluteRotation;

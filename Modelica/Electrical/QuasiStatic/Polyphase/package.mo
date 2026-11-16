@@ -28,12 +28,12 @@ package Polyphase "Polyphase AC components"
           extent={{-20,-74},{0,-54}})}), Documentation(info="<html>
 <p>This package hosts models for quasi-static polyphase circuits.
 Quasi-static theory can be found in
-[<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Vaske1973</a>]
+[<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.References\">Vaske1973</a>]
 and other
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase\">SinglePhase</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase\">SinglePhase</a>
 
 </html>"));
 end Polyphase;

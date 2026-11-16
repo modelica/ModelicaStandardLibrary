@@ -19,7 +19,7 @@ record Vacoflux17 "Vacoflux17"
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_Vacoflux17.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_Vacoflux17.png\">
    </td>
   </tr>
 </table>

@@ -51,7 +51,7 @@ equation
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch1.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch1.png\"
      alt=\"ControlledIdealIntermediateSwitch1.png\">
 </div>
 
@@ -60,7 +60,7 @@ In order to prevent singularities during switching, the opened switch has a (ver
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch2.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch2.png\"
      alt=\"ControlledIdealIntermediateSwitch2.png\">
 </div>
 

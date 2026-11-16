@@ -19,19 +19,19 @@ R = Frames.<strong>from_T_inv</strong>(T_inv, w);
 <h4>Description</h4>
 <p>
 This function returns an
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
 assembled from an inverse transformation matrix T_inv and a correspondent angular velocity vector&nbsp;w.
 Generally, the transformation matrix T_inv can be gained using a function from the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a>
-package, e.g. using T_inv = <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation\">inverseRotation</a>(T).
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a>
+package, e.g. using T_inv = <a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation\">inverseRotation</a>(T).
 Note that the velocity vector&nbsp;w has to be calculated accordingly.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T\">from_T</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv\">TransformationMatrices.from_T_inv</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv\">Quaternions.from_T_inv</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.from_T\">from_T</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv\">TransformationMatrices.from_T_inv</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv\">Quaternions.from_T_inv</a>.
 </p>
 </html>"));
 end from_T_inv;

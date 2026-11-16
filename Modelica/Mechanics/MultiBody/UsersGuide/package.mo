@@ -10,13 +10,13 @@ Library <strong>MultiBody</strong> is a <strong>free</strong> Modelica package p
 This package contains the User's Guide for the MultiBody library.
 </p>
 <ol>
-<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial\">Tutorial</a>
+<li> <a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Tutorial\">Tutorial</a>
 gives an introduction into the most important aspects of the library.
 </li>
-<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">Literature</a> provides
+<li> <a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Literature\">Literature</a> provides
   references that have been used to design and implement this library.
 </li>
-<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Contact\">Contact</a> provides
+<li> <a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Contact\">Contact</a> provides
   information about the author of the library as well as acknowledgments.
 </li>
 </ol>

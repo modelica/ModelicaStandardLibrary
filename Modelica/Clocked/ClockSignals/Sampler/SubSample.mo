@@ -90,16 +90,16 @@ The clock y is factor-times slower than the clock u. The first activation of clo
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample\">example</a>
 generates a periodic clock of 20 ms period, and
 then sub-samples the resulting clock signal with a factor of 3:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SubSample_Model.png\" alt=\"SubSample_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/ClockSignals/SubSample_Model.png\" alt=\"SubSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SubSample_Result.png\" alt=\"SubSample_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/ClockSignals/SubSample_Result.png\" alt=\"SubSample_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

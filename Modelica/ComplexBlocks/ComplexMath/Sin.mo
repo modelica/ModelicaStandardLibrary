@@ -35,7 +35,7 @@ y = <strong>sin</strong>(uInternal);
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/sin.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/sin.png\"
      alt=\"sin.png\">
 </div>
 

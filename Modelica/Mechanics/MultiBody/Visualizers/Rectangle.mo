@@ -87,7 +87,7 @@ so that the rectangle is rotated about the z-axis of frame_a.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Rectangle.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Rectangle.png\">
 </blockquote>
 </html>"));
 end Rectangle;

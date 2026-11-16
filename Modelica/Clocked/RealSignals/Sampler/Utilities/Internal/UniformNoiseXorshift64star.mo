@@ -19,21 +19,21 @@ equation
 <p>
 It is based on the xorshift64* algorithm.
 For more details, see the documentation to
-<a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>.
 </p>
 <h4>Example</h4>
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoiseXorshift64star\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoiseXorshift64star\">example</a>
 samples zero signal with a periodic clock of 20 ms period, and adds
 noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UniformNoiseXorshift64star_Model.png\" alt=\"UniformNoiseXorshift64star_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/UniformNoiseXorshift64star_Model.png\" alt=\"UniformNoiseXorshift64star_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UniformNoiseXorshift64star_Result.png\" alt=\"UniformNoiseXorshift64star_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/UniformNoiseXorshift64star_Result.png\" alt=\"UniformNoiseXorshift64star_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

@@ -58,7 +58,7 @@ equation
                 textString="a"),Text(
                 extent={{-150,-110},{150,-140}},
           textString="m=%m"),      Bitmap(extent={{-96,-42},{64,54}},
-            fileName="modelica://Modelica/Resources/Images/Mechanics/Translational/DirectMass.png"),
+            fileName="modelica:/Modelica/Resources/Images/Mechanics/Translational/DirectMass.png"),
           Text( extent={{10,-60},{94,-90}},
                 horizontalAlignment=TextAlignment.Right,
           textString="f")}), Documentation(info="<html>
@@ -73,7 +73,7 @@ on the other side of it.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.Translational.Examples.Utilities.InverseMass\">InverseMass</a>.
+<a href=\"modelica:/Modelica.Mechanics.Translational.Examples.Utilities.InverseMass\">InverseMass</a>.
 </p>
 </html>"));
 end DirectMass;

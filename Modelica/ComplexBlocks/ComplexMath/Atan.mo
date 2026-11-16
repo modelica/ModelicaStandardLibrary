@@ -33,7 +33,7 @@ y= <strong>atan</strong>(uInternal);
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/atan.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/atan.png\"
      alt=\"atan.png\">
 </div>
 

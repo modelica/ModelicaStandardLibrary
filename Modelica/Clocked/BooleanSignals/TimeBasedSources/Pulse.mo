@@ -149,7 +149,7 @@ equation
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
-<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.BooleanPulse\">Modelica.Blocks.Sources.BooleanPulse</a>,
+<p>The block is similar to the block in <a href=\"modelica:/Modelica.Blocks.Sources.BooleanPulse\">Modelica.Blocks.Sources.BooleanPulse</a>,
 but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).
 </p>
 <p>
@@ -157,11 +157,11 @@ The Boolean output y is a pulse signal:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Pulse.png\" alt=\"Pulse.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Sources/Pulse.png\" alt=\"Pulse.png\">
 </div>
 <h4>Example</h4>
 <p>
-See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse</a>.
+See model <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse</a>.
 <br>
 </p>
 </html>"));

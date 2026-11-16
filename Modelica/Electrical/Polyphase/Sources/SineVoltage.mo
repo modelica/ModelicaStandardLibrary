@@ -49,7 +49,7 @@ equation
 <p>
 Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
 with a default phase shift determined by
-<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </html>"));
 end SineVoltage;

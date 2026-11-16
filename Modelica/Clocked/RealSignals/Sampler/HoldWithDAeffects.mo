@@ -133,7 +133,7 @@ equation
     Documentation(info="<html>
 <p>
 This block is similar to the
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Hold\">Hold</a>
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.Hold\">Hold</a>
 block. The only difference is that simulated real-world effects are applied on the
 clocked input signal u before transforming the signal to a continuous-time signal
 with a zero-order hold. In particular:
@@ -158,7 +158,7 @@ with a zero-order hold. In particular:
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1\">example</a>
 samples a sine signal with an amplitude of 2.0 with a periodic clock of 20 ms period
 and delays it for 2 sample periods.
 The resulting signal is hold with the HoldWithDAeffects block. As a result, the clock of hold.u starts
@@ -173,9 +173,9 @@ the following effects are added to the hold block:</p>
 </ul>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/HoldWithDAeffects1_Model.png\" alt=\"HoldWithDAeffects1_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/HoldWithDAeffects1_Model.png\" alt=\"HoldWithDAeffects1_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/HoldWithDAeffects1_Result.png\" alt=\"HoldWithDAeffects1_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/HoldWithDAeffects1_Result.png\" alt=\"HoldWithDAeffects1_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>
@@ -192,15 +192,15 @@ the following effects are added to the hold block:</p>
 If the hold output is delayed by one sample period, then the <strong>previous</strong>(&hellip;) value of the
 input is output, and the first tick is delayed by one sample period,
 as shown by the
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2\">modified example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2\">modified example</a>
 from above:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/HoldWithDAeffects2_Model.png\" alt=\"HoldWithDAeffects2_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/HoldWithDAeffects2_Model.png\" alt=\"HoldWithDAeffects2_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/HoldWithDAeffects2_Result.png\" alt=\"HoldWithDAeffects2_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/HoldWithDAeffects2_Result.png\" alt=\"HoldWithDAeffects2_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

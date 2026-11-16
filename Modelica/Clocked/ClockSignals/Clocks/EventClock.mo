@@ -29,7 +29,7 @@ clock signal <strong>y</strong> ticks.
 
 <p>
 For an introduction to clocks see
-<a href=\"modelica://Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
+<a href=\"modelica:/Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
 </p>
 
 <p>
@@ -39,7 +39,7 @@ to the current clock tick. This is performed by setting parameter <strong>useSol
 = <strong>true</strong> and defining the integration method as String with
 parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>.
 For an example, see
-<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
+<a href=\"modelica:/Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 </p>
 </html>"));
 end EventClock;

@@ -84,16 +84,16 @@ and provides u as vector output signal y.
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockVectorized\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockVectorized\">example</a>
 shows two discrete counters. In order to execute the counters with a sample period of 20ms an AssignClockVectorized block is used. Due to clock inference all equations within the blocks are deduced to be active at the clock ticks given by the periodicClock block.
 <br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/AssignClockVectorized_Model.png\" alt=\"AssignClockVectorized_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/AssignClockVectorized_Model.png\" alt=\"AssignClockVectorized_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/AssignClockVectorized_Result.png\" alt=\"AssignClockVectorized_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/AssignClockVectorized_Result.png\" alt=\"AssignClockVectorized_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

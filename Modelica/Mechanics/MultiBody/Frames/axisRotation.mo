@@ -23,7 +23,7 @@ R = Frames.<strong>axisRotation</strong>(axis, angle, der_angle);
 <h4>Description</h4>
 <p>
 The function call <code>Frames.<strong>axisRotation</strong>(axis, angle, der_angle)</code> returns
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
 that describes the orientation to rotate along unit axis <strong>axis</strong>
 from frame&nbsp;1 into frame&nbsp;2 with angle <strong>angle</strong> and derivative of angle <strong>der_angle</strong>.
 For example, Frames.axisRotation(2, phi, der_phi) returns the same orientation object as with the call
@@ -32,8 +32,8 @@ Frames.planarRotation({0,1,0}, phi, der_phi)
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.planarRotation\">planarRotation</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axisRotation\">TransformationMatrices.axisRotation</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.planarRotation\">planarRotation</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axisRotation\">TransformationMatrices.axisRotation</a>.
 </p>
 </html>"));
 end axisRotation;

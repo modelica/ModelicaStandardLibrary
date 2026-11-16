@@ -25,13 +25,13 @@ equation
           textString="m=%m")}), Documentation(info="<html>
 <p>
 This model describes <em>m</em> simple idle branches considering the complex currents <em><u>i</u></em> = 0;
-it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle\">single-phase idle branches</a>.
+it uses <em>m</em> <a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle\">single-phase idle branches</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle\">Idle</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Short\">Short</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle\">Idle</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Short\">Short</a>
 </p>
 </html>"));
 end Idle;

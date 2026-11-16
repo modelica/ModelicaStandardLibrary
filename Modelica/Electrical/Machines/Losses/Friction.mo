@@ -105,7 +105,7 @@ in the range <code> -wLinear &le; w &le; wLinear</code> with <code>wLinear = 0.0
 and angular velocity is depicted in Fig. 1
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/frictiontorque.png\"
+  <tr><td> <img src=\"modelica:/Modelica/Resources/Images/Electrical/Machines/frictiontorque.png\"
                 alt=\"frictiontorque.png\"> </td>
   </tr>
   <tr><td> <strong> Fig. 1: </strong>Friction loss torque versus angular velocity for <code>power_w = 2</code></td>
@@ -113,7 +113,7 @@ and angular velocity is depicted in Fig. 1
 </table>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.FrictionParameters\">FrictionParameters</a>
+<a href=\"modelica:/Modelica.Electrical.Machines.Losses.FrictionParameters\">FrictionParameters</a>
 </p>
 <p>
 If it is desired to neglect friction losses, set <code>frictionParameters.PRef = 0</code> (this is the default).

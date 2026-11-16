@@ -20,7 +20,7 @@ equation
 
 <p>
 The absolute sensor partial model relies on the a
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">positive plug</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">positive plug</a>
 to measure the complex potential, frequency, angular frequency. Additionally this model contains
 a proper icon and a definition of the angular velocity.
 </p>
@@ -28,9 +28,9 @@ a proper icon and a definition of the angular velocity.
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary\">RelativeSensorElementary</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary\">SinglePhase.Interfaces.RelativeSensorElementary</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary\">RelativeSensorElementary</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary\">SinglePhase.Interfaces.RelativeSensorElementary</a>
 </p>
 
 </html>"));

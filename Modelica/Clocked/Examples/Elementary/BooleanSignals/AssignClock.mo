@@ -35,7 +35,7 @@ connect(unitDelay1.y, xor.u1) annotation (Line(
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.AssignClock\">Modelica.Clocked.BooleanSignals.Sampler.AssignClock</a>.
+<a href=\"modelica:/Modelica.Clocked.BooleanSignals.Sampler.AssignClock\">Modelica.Clocked.BooleanSignals.Sampler.AssignClock</a>.
 </p>
 </html>"));
 end AssignClock;
