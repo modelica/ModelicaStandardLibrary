@@ -11,7 +11,7 @@ model IMS_Start_Polyphase
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=aimsData3.fsNominal "Nominal frequency";
   parameter SI.Time tOn=0.1 "Start time of machine";
-  parameter SI.Resistance RStart=0.16/aimsData3.turnsRatio^2
+  parameter SI.Resistance RStart=0.16'Ohm'/aimsData3.turnsRatio^2
     "Starting resistance";
   parameter SI.Time tRheostat=1.0
     "Time of shortening the rheostat";
