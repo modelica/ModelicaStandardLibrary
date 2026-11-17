@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Sat Nov 14 13:06:11 2026)
+
+dymosim started
+... "Modelica.Magnetic.FluxTubes.Examples.BasicExamples.CompareModels" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 0.1
+   CPU-time for integration                : 0.614 seconds
+   CPU-time for one grid interval          : 0.0614 milliseconds
+   CPU-time for initialization             : 0.000167 seconds
+   Number of result points                 : 10053
+   Number of grid points                   : 10001
+   Number of accepted steps                : 2637
+   Number of f-evaluations (dynamics)      : 5227
+   Number of crossing function evaluations : 12884
+   Number of Jacobian-evaluations          : 642
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 30
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.04e-09
+   Maximum integration stepsize            : 0.000347
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Magnetic.FluxTubes.Examples.BasicExamples.CompareModels

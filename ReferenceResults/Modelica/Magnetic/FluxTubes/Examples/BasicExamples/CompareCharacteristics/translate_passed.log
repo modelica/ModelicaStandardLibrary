@@ -1,0 +1,31 @@
+Translation of <a href="Modelica://Modelica.Magnetic.FluxTubes.Examples.BasicExamples.CompareCharacteristics">Modelica.Magnetic.FluxTubes.Examples.BasicExamples.CompareCharacteristics</a>
+The DAE has 14 scalar unknowns and 14 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 5
+  Variables: 56
+  Constants: 1 (1 scalars)
+  Parameters: 41 (362 scalars)
+  Unknowns: 14 (14 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 16
+  Nontrivial: 15
+Translated Model
+  Constants: 10 scalars
+  Free parameters: 213 scalars
+  Parameter depending: 140 scalars
+  Time-varying variables: 10 scalars
+  Alias variables: 4 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Finished

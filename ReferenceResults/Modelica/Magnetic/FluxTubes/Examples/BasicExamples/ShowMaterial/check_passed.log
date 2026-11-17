@@ -1,0 +1,5 @@
+Check of <a href="Modelica://Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ShowMaterial">Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ShowMaterial</a>
+The model has the same number of unknowns and equations: 130
+The model has the same number of unknowns and equations:
+  129+size(combiTable1Ds.columns, 1)
+Check of <a href="Modelica://Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ShowMaterial">Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ShowMaterial</a> successful.
