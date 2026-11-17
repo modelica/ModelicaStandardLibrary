@@ -56,11 +56,13 @@ equation
         Rectangle(
           extent={{-85,10},{-36,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{35,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillColor={192,192,192},
+          pattern=LinePattern.None),
         Ellipse(
           extent={{-40,40},{40,-40}},
           fillColor={255,255,255},

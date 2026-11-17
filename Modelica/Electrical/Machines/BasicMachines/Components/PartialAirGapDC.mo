@@ -56,7 +56,8 @@ equation
                 fillPattern=FillPattern.Solid),Rectangle(
                 extent={{-10,90},{10,-80}},
                 fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128}),Text(
+                fillColor={128,128,128},
+          pattern=LinePattern.None),     Text(
                 extent={{0,40},{80,-40}},
                 textString="E"),Text(
                 extent={{-150,-160},{150,-120}},

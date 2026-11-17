@@ -125,7 +125,8 @@ initial equation
             extent=DynamicSelect({{-100,-100},{100,10}}, {{-100,-100},{100,(-100
                  + 200*level/height)}}),
             fillColor={85,170,255},
-            fillPattern=FillPattern.VerticalCylinder),
+            fillPattern=FillPattern.VerticalCylinder,
+            pattern=LinePattern.None),
           Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}),
           Text(
             extent={{-95,60},{95,40}},

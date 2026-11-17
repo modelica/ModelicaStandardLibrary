@@ -5,15 +5,18 @@ partial model Drive "Generic icon of an electric drive"
         Rectangle(
           extent={{-40,60},{80,-60}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={215,215,215}),
+          fillColor={215,215,215},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-40,60},{-60,-60}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={128,128,128}),
+          fillColor={128,128,128},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{80,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={95,95,95}),
+          fillColor={95,95,95},
+          pattern=LinePattern.None),
         Rectangle(
           extent={{-40,100},{40,50}},
           lineColor={95,95,95},
