@@ -1157,7 +1157,6 @@ SE-22370 Lund, Sweden<br>
         // implement e.g., water-only steam tables when mode == 1
       protected
         Boolean hsubcrit;
-        SI.Temperature Ttest;
         constant Real[5] n=data.n;
         SI.SpecificEnthalpy hl "Bubble enthalpy";
         SI.SpecificEnthalpy hv "Dew enthalpy";
@@ -1273,7 +1272,6 @@ SE-22370 Lund, Sweden<br>
         //    implement e.g., water-only steam tables when mode == 1
       protected
         Boolean ssubcrit;
-        SI.Temperature Ttest;
         constant Real[5] n=data.n;
         SI.SpecificEntropy sl "Bubble entropy";
         SI.SpecificEntropy sv "Dew entropy";
