@@ -4,7 +4,7 @@ model CylinderLeakage "Testing cylinder leakage models"
   import Modelica.Constants.pi;
   parameter SI.RelativePermeability mu_rConst = 100
   "Relative permeability";
-  Shapes.Leakage.QuarterCylinder quarterCylinder1(l=2*pi*0.1)
+  Shapes.Leakage.QuarterCylinder quarterCylinder1(l=2*pi*0.1'm')
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Shapes.FixedShape.HollowCylinderAxialFlux hollowCylinderAxialFlux1(
     r_i=0,
@@ -18,7 +18,7 @@ model CylinderLeakage "Testing cylinder leakage models"
     r_o=0.05,
     mu_rConst=mu_rConst)
            annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-  Shapes.Leakage.QuarterCylinder quarterCylinder2(l=2*pi*0.1)
+  Shapes.Leakage.QuarterCylinder quarterCylinder2(l=2*pi*0.1'm')
     annotation (Placement(transformation(extent={{50,-10},{70,10}})));
   Sources.ConstantMagneticFlux constantSource(
     gamma(fixed=true, start=0), f=50, Phi=Complex(re=5E-3, im=0))

@@ -5943,7 +5943,7 @@ and plot gasForce.press over gasForce.s_rel.
       MultiBody.Joints.Revolute revolute2(
         n={1,0,0},
         phi(fixed=true, start=0),
-        w(fixed=true, start=2*Modelica.Constants.pi))
+        w(fixed=true, start=2*Modelica.Constants.pi*1'Hz'))
         annotation (Placement(transformation(extent={{-122,40},{-102,60}})));
       MultiBody.Parts.FixedRotation fixedRotation(n={0,1,0},
           angle=90)

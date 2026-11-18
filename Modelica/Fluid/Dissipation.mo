@@ -4484,7 +4484,7 @@ Generally this function is numerically best used for the <strong>compressible ca
         extends Modelica.Icons.Record;
 
         //generic variables
-        SI.Area A_cross=Modelica.Constants.pi*0.1^2/4 "Cross sectional area"
+        SI.Area A_cross=Modelica.Constants.pi*(0.1'm')^2/4 "Cross sectional area"
           annotation (Dialog(group="Generic variables"));
 
         //linearisation
@@ -10049,9 +10049,9 @@ documentation available in this package.
               annotation (Dialog(group="Choices"));
 
             //geometry
-            input SI.Area A_cross(min=Modelica.Constants.eps) = PI*0.1^2/4
+            input SI.Area A_cross(min=Modelica.Constants.eps) = PI*(0.1'm')^2/4
               "Cross sectional area" annotation (Dialog(group="Geometry"));
-            input SI.Length perimeter(min=Modelica.Constants.eps) = PI*0.1
+            input SI.Length perimeter(min=Modelica.Constants.eps) = PI*0.1'm'
               "Perimeter"
               annotation (Dialog(group="Geometry"));
 
@@ -12511,7 +12511,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           SI.Area A_cross=A_cross_nom "Cross sectional area"
             annotation (Dialog(group="Generic variables"));
-          SI.Area A_cross_nom=Modelica.Constants.pi*0.1^2/4
+          SI.Area A_cross_nom=Modelica.Constants.pi*(0.1'm')^2/4
             "Nominal cross sectional area"
             annotation (Dialog(group="Generic variables"));
 
@@ -12564,9 +12564,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record TwoPhaseFlow_con "Base record for two phase Flow"
           extends Modelica.Icons.Record;
 
-          SI.Area A_cross=PI*0.1^2/4 "Cross sectional area"
+          SI.Area A_cross=PI*(0.1'm')^2/4 "Cross sectional area"
             annotation (Dialog(group="Geometry"));
-          SI.Length perimeter=PI*0.1 "Wetted perimeter"
+          SI.Length perimeter=PI*0.1'm' "Wetted perimeter"
             annotation (Dialog(group="Geometry"));
           SI.Length length=1 "Length in fluid flow direction"
             annotation (Dialog(group="Geometry"));
@@ -12628,7 +12628,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           parameter SI.Area A_cross=A_cross_nom "Cross sectional area"
             annotation (Dialog(group="Generic variables"));
-          parameter SI.Area A_cross_nom=Modelica.Constants.pi*0.1^2/4
+          parameter SI.Area A_cross_nom=Modelica.Constants.pi*(0.1'm')^2/4
             "Nominal cross sectional area"
             annotation (Dialog(group="Generic variables"));
 
@@ -12704,9 +12704,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Target correlation" annotation (Dialog(group="Generic variables"));
 
           //geometry
-          SI.Area A_cross=Modelica.Constants.pi*0.1^2/4 "Cross sectional area"
+          SI.Area A_cross=Modelica.Constants.pi*(0.1'm')^2/4 "Cross sectional area"
             annotation (Dialog(group="Generic variables"));
-          SI.Length perimeter=Modelica.Constants.pi*0.1 "Wetted perimeter"
+          SI.Length perimeter=Modelica.Constants.pi*0.1'm' "Wetted perimeter"
             annotation (Dialog(group="Generic variables"));
         end General;
 
@@ -12749,9 +12749,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Choice of (horizontal/vertical) boiling or (horizontal) condensation in pipe"
             annotation (Dialog(group="Choices"));
 
-          SI.Area A_cross=Modelica.Constants.pi*0.1^2/4 "Cross sectional area"
+          SI.Area A_cross=Modelica.Constants.pi*(0.1'm')^2/4 "Cross sectional area"
             annotation (Dialog(group="Geometry"));
-          SI.Length perimeter=Modelica.Constants.pi*0.1 "Wetted perimeter"
+          SI.Length perimeter=Modelica.Constants.pi*0.1'm' "Wetted perimeter"
             annotation (Dialog(group="Geometry"));
 
           Modelica.Fluid.Dissipation.Utilities.Types.MolarMass_gpmol MM=18.02
@@ -12884,9 +12884,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Orifice"));
           SI.Length C_0=0.1*C_1 "Perimeter of vena contraction"
             annotation (Dialog(group="Orifice"));
-          SI.Area A_1=PI*0.01^2/4 "Large cross sectional area of orifice"
+          SI.Area A_1=PI*(0.01'm')^2/4 "Large cross sectional area of orifice"
             annotation (Dialog(group="Orifice"));
-          SI.Length C_1=PI*0.01 "Large perimeter of orifice"
+          SI.Length C_1=PI*0.01'm' "Large perimeter of orifice"
             annotation (Dialog(group="Orifice"));
           SI.Length L=1e-3 "Length of vena contraction"
             annotation (Dialog(group="Orifice"));
@@ -12949,13 +12949,13 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Angle alpha=PI*45/180 "Diffuser diverging angle"
             annotation (Dialog(group="Diffuser"));
 
-          SI.Area A_1=PI*0.01^2/4
+          SI.Area A_1=PI*(0.01'm')^2/4
             "Small constant cross sectional area before diffuser section"
             annotation (Dialog(group="Diffuser"));
           SI.Area A_2=2*A_1
             "Large constant cross sectional area after diffuser section"
             annotation (Dialog(group="Diffuser"));
-          SI.Length C_1=PI*0.01 "Small perimeter before diffuser section"
+          SI.Length C_1=PI*0.01'm' "Small perimeter before diffuser section"
             annotation (Dialog(group="Diffuser"));
           SI.Length C_2=2*C_1 "Large perimeter after diffuser section"
             annotation (Dialog(group="Diffuser"));
@@ -12995,11 +12995,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           extends Modelica.Icons.Record;
 
-          SI.Area A_1=PI*0.01^2/4 "Small cross sectional area of orifice"
+          SI.Area A_1=PI*(0.01'm')^2/4 "Small cross sectional area of orifice"
             annotation (Dialog(group="Orifice"));
           SI.Area A_2=A_1 "Large cross sectional area of orifice"
             annotation (Dialog(group="Orifice"));
-          SI.Length C_1=PI*0.01 "Small perimeter of orifice"
+          SI.Length C_1=PI*0.01'm' "Small perimeter of orifice"
             annotation (Dialog(group="Orifice"));
           SI.Length C_2=C_1 "Large perimeter of orifice"
             annotation (Dialog(group="Orifice"));

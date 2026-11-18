@@ -8,7 +8,7 @@ model ShowSaturatingInductor
   parameter SI.Current Inom=1 "Nominal current";
   parameter SI.Inductance Linf=0.5 "Inductance at large currents";
   parameter SI.Voltage U=1.25 "Source voltage (peak)";
-  parameter SI.Frequency f=1/(2*Modelica.Constants.pi)
+  parameter SI.Frequency f=1'Hz'/(2*Modelica.Constants.pi)
     "Source frequency";
   parameter SI.Angle phase=Modelica.Constants.pi/2
     "Source voltage phase shift";

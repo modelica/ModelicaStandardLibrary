@@ -1015,9 +1015,9 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //generic variables
-          parameter SI.Area A_cross=Modelica.Constants.pi*0.1^2/4
+          parameter SI.Area A_cross=Modelica.Constants.pi*(0.1'm')^2/4
             "Cross sectional area";
-          parameter SI.Length perimeter=Modelica.Constants.pi*0.1
+          parameter SI.Length perimeter=Modelica.Constants.pi*0.1'm'
             "Wetted perimeter";
           //parameter SI.Diameter d_hyd=4*A_cross/perimeter "Hydraulic diameter";
 
@@ -1164,9 +1164,9 @@ extends Modelica.Icons.ExamplesPackage;
            parameter Integer n=size(cp, 1);
 
            //generic variables
-           parameter SI.Area A_cross=Modelica.Constants.pi*0.1^2/4
+           parameter SI.Area A_cross=Modelica.Constants.pi*(0.1'm')^2/4
             "Cross sectional area";
-           parameter SI.Length perimeter=Modelica.Constants.pi*0.1
+           parameter SI.Length perimeter=Modelica.Constants.pi*0.1'm'
             "Wetted perimeter";
            //parameter SI.Diameter d_hyd=4*A_cross/perimeter "Hydraulic diameter";
 
@@ -5228,7 +5228,7 @@ extends Modelica.Icons.ExamplesPackage;
           //general variables
           SI.Area A_cross=A_cross_nom "Cross sectional area"
             annotation (Dialog(group="Generic variables"));
-          SI.Area A_cross_nom=Modelica.Constants.pi*0.1^2/4
+          SI.Area A_cross_nom=Modelica.Constants.pi*(0.1'm')^2/4
             "Nominal cross sectional area"
             annotation (Dialog(group="Generic variables"));
           SI.Pressure dp_nom=50
@@ -5368,7 +5368,7 @@ extends Modelica.Icons.ExamplesPackage;
           //general variables
           parameter Integer n=3 "Number of grid points";
 
-          parameter SI.Area A_cross=Modelica.Constants.pi*0.1^2/4
+          parameter SI.Area A_cross=Modelica.Constants.pi*(0.1'm')^2/4
             "Circular cross sectional area";
           parameter
             Modelica.Fluid.Dissipation.Utilities.Types.PressureLossCoefficient
