@@ -10587,6 +10587,29 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
           thickness=0.5));
       annotation (experiment(StopTime=1));
     end Planes;
+
+    model Meshes "Test and show meshes from file"
+      extends Modelica.Icons.Example;
+
+
+      inner MultiBody.World world(animateWorld=true, animateGravity=false)
+                                annotation (Placement(transformation(extent={{-60,0},
+                {-40,20}})));
+      MultiBody.Visualizers.FixedShape fixedShape(
+        shapeType=
+            "modelica://ModelicaTest/Resources/Data/Meshes/GlassHurricane_yUP.stl",
+        length=1,
+        width=1,
+        height=1)
+        annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+    equation
+      connect(world.frame_b, fixedShape.frame_a) annotation (Line(
+          points={{-40,10},{-20,10}},
+          color={95,95,95},
+          thickness=0.5));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+            coordinateSystem(preserveAspectRatio=false)));
+    end Meshes;
   end Visualizers;
 
   package InitializationConversion "Test conversion of the initialization"
