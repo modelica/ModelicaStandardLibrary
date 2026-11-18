@@ -1,0 +1,49 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive">ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive</a>
+The DAE has 829 scalar unknowns and 829 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 112
+  Variables: 1179
+  Constants: 30 (47 scalars)
+  Parameters: 427 (495 scalars)
+  Unknowns: 722 (829 scalars)
+  Differentiated variables: 31 scalars
+  Equations: 504
+  Nontrivial: 417
+Translated Model
+  Constants: 336 scalars
+  Free parameters: 71 scalars
+  Parameter depending: 235 scalars
+  Continuous time states: 13 scalars
+  Time-varying variables: 213 scalars
+  Alias variables: 516 scalars
+  Number of mixed real/discrete systems of equations: 3
+  Sizes of linear systems of equations: {3, 11, 11, 11, 14, 2, 2}
+  Sizes after manipulation of the linear systems: {2, 4, 4, 4, 4, 0, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+  Initialization problem
+    Sizes of linear systems of equations: {2}
+    Sizes after manipulation of the linear systems: {2}
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$h01I.mean1:x">h01I.mean1.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$h01I.mean2:x">h01I.mean2.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$h01V.mean1:x">h01V.mean1.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$h01V.mean2:x">h01V.mean2.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$imc:idq_rr">imc.idq_rr[1]</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$imc:idq_rr">imc.idq_rr[2]</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$imc:idq_sr">imc.idq_sr[1]</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$imc:idq_sr">imc.idq_sr[2]</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$loadInertia:phi">loadInertia.phi</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$loadInertia:w">loadInertia.w</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$rmsI.mean:x">rmsI.mean.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$rmsV.mean:x">rmsV.mean.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.IdealInverterDrive#text$vfController:x">vfController.x</a>
+Finished

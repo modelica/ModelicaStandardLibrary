@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Fri Sep 27 08:38:31 2024)
+(generated: Tue Nov 10 18:15:10 2026)
 
 dymosim started
 ... "Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM" simulating
@@ -9,23 +9,23 @@ dymosim started
 Integration started at T = 0 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
 
-Integration terminated successfully at T = 2
-   CPU-time for integration                : 0.203 seconds
-   CPU-time for one grid interval          : 0.0508 milliseconds
-   CPU-time for initialization             : 0 seconds
-   Number of result points                 : 6569
-   Number of grid points                   : 4001
-   Number of accepted steps                : 18136
-   Number of f-evaluations (dynamics)      : 21293
-   Number of crossing function evaluations : 23320
-   Number of Jacobian-evaluations          : 15541
-   Number of model time events             : 1384
+Integration terminated successfully at T = 0.1
+   CPU-time for integration                : 0.621 seconds
+   CPU-time for one grid interval          : 6.21 milliseconds
+   CPU-time for initialization             : 0.000193 seconds
+   Number of result points                 : 3511
+   Number of grid points                   : 101
+   Number of accepted steps                : 35920
+   Number of f-evaluations (dynamics)      : 50745
+   Number of crossing function evaluations : 37700
+   Number of Jacobian-evaluations          : 24859
+   Number of model time events             : 1730
    Number of input time events             : 0
    Number of state events                  : 0
    Number of step events                   : 0
-   Minimum integration stepsize            : 5.48e-10
-   Maximum integration stepsize            : 0.00124
-   Maximum integration order               : 3
+   Minimum integration stepsize            : 1.59e-12
+   Maximum integration stepsize            : 3.46e-05
+   Maximum integration order               : 5
 Calling terminal section
 ... "dsfinal.txt" creating (final states)
 
