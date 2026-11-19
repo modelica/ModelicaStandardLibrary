@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Thu Nov 19 12:14:36 2026)
+(generated: Thu Nov 19 13:59:09 2026)
 
 dymosim started
 ... "Modelica.Electrical.Analog.Examples.OpAmps.MeasureRiseTime" simulating
@@ -10,9 +10,9 @@ Integration started at T = 0 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
 
 Integration terminated successfully at T = 0.003
-   CPU-time for integration                : 0.122 seconds
-   CPU-time for one grid interval          : 0.00407 milliseconds
-   CPU-time for initialization             : 6.3e-05 seconds
+   CPU-time for integration                : 0.0631 seconds
+   CPU-time for one grid interval          : 0.0021 milliseconds
+   CPU-time for initialization             : 5.8e-05 seconds
    Number of result points                 : 30012
    Number of grid points                   : 30001
    Number of accepted steps                : 250

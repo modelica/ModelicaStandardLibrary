@@ -3,10 +3,10 @@ modelName = "Modelica.Electrical.Analog.Examples.OpAmps.MeasureRiseTime"
 
 // Test info
 generationTool = Dymola Version 2025x Refresh 1, 2025-04-11
-generationDateAndTime = 2026-11-19 12:14:36
+generationDateAndTime = 2026-11-19 13:59:09
 gitURL = https://github.com/Modelica/ModelicaStandardLibrary
-gitRevision = 8a93a5c8
-testPC = 7c433d2a06d7
+gitRevision = afa9a624
+testPC = 4240007009ec
 testOS = Linux [Version #20-Ubuntu SMP PREEMPT Mon Oct 19 22:41:16 UTC 2026]
 testUser = resimuser
 testDescription = Testing Pull Request PR_4869
