@@ -1,29 +1,29 @@
-﻿ = true
-Translation of Modelica.Electrical.Analog.Examples.OpAmps.SchmittTrigger:
-The DAE has 49 scalar unknowns and 49 scalar equations.
- 
+Translation of <a href="Modelica://Modelica.Electrical.Analog.Examples.OpAmps.SchmittTrigger">Modelica.Electrical.Analog.Examples.OpAmps.SchmittTrigger</a>
+The DAE has 55 scalar unknowns and 55 scalar equations.
+
 Statistics
- 
+
 Original Model
   Number of components: 8
-  Variables: 92
-  Parameters: 43 (43 scalars)
-  Unknowns: 49 (49 scalars)
-  Equations: 45
-  Nontrivial: 35
+  Variables: 102
+  Parameters: 47 (47 scalars)
+  Unknowns: 55 (55 scalars)
+  Equations: 50
+  Nontrivial: 39
 Translated Model
-  Constants: 15 scalars
-  Free parameters: 12 scalars
-  Parameter depending: 28 scalars
-  Time-varying variables: 12 scalars
-  Alias variables: 25 scalars
+  Constants: 16 scalars
+  Free parameters: 14 scalars
+  Parameter depending: 31 scalars
+  Time-varying variables: 15 scalars
+  Alias variables: 26 scalars
   Number of mixed real/discrete systems of equations: 0
   Sizes of linear systems of equations: { }
   Sizes after manipulation of the linear systems: { }
-  Sizes of nonlinear systems of equations: {5}
+  Sizes of nonlinear systems of equations: {6}
   Sizes after manipulation of the nonlinear systems: {1}
   Number of numerical Jacobians: 0
- 
+
 Settings
 Advanced.StoreProtectedVariables = true
 Selected continuous time states
+Finished

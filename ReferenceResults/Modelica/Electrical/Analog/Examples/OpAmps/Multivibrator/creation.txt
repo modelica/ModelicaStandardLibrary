@@ -1,49 +1,50 @@
 [ResultCreationLog]
-modelName="Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator"
+modelName = "Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator"
 
 // Test info
-generationTool="Dymola Version 2020x (64-bit), 2019-10-10"
-generationDateAndTime="2020-05-05T00:48:16Z"
-gitURL="https://github.com/modelica/ModelicaStandardLibrary.git"
-gitRevision=bd753330a
-gitStatus="D Modelica/Resources/C-Sources/ModelicaInternal.c, M ModelicaServices/package.mo"
-testPC="LAPTOP"
-testOS="Microsoft Windows [Version 10.0.18363.815]"
-testUser="tbeu"
-testDescription="Reg test MSL v4.0.0-rc.1"
+generationTool = Dymola Version 2025x Refresh 1, 2025-04-11
+generationDateAndTime = 2026-11-19 12:14:31
+gitURL = https://github.com/Modelica/ModelicaStandardLibrary
+gitRevision = 8a93a5c8
+testPC = 7c433d2a06d7
+testOS = Linux [Version #20-Ubuntu SMP PREEMPT Mon Oct 19 22:41:16 UTC 2026]
+testUser = resimuser
+testDescription = Testing Pull Request PR_4869
+compiler = gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
 
 // Experiment settings (standardized annotation)
-StartTime=0 // from model
-StopTime=1 // from model
-Interval=0.0005 // used annotation from model, multiplied by 0.5
-Tolerance=1e-07 // used annotation from model, multiplied by 0.1
+StartTime = 0.0    // from experiment annotation
+StopTime = 1.0    // from experiment annotation
+Interval = 0.001    // from experiment annotation
+Tolerance = 1e-06    // from experiment annotation
 
 // Experiment settings (tool specific)
 // The following lines can be used as mos-script in Dymola
-Advanced.PedanticModelica := false;
-SetDymolaCompiler("vs", {"MSVCDir=c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Auxiliary/Build"});
-Evaluate := false;
-OutputCPUtime := false;
-translateModel("Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator");
+clearFlags();
+openModel("/opt/dymola-2025xRefresh1-x86_64/Modelica/Library/ModelicaServices 4.1.0/package.mo",true, false);
+openModel("/home/runner/work/MSL_CI/MSL_CI/Complex.mo",true, false);
+openModel("/home/runner/work/MSL_CI/MSL_CI/Modelica/package.mo",true,false);
+openModel("/home/runner/work/MSL_CI/MSL_CI/Modelica/package.mo",true,true);Advanced.PlaceDymolaSourceFirst := 2;
 Advanced.StoreProtectedVariables := true;
-Advanced.EfficientMinorEvents := false;
-Advanced.PlaceDymolaSourceFirst := 2;
+Advanced.UI.DemandLoadClassesGUI := false;
+SetDymolaCompiler("vs", {"CCompiler=MSVC","MSVCDir=."});
 experimentSetupOutput(
-  textual=false,
-  doublePrecision=true,
-  states=true,
-  derivatives=true,
-  inputs=true,
-  outputs=true,
-  auxiliaries=true,
-  equidistant=true,
-  events=true,
-  debug=false);
+    textual=false,
+    doublePrecision=false,
+    states=true,
+    derivatives=true,
+    inputs=true,
+    outputs=true,
+    auxiliaries=true,
+    equidistant=true,
+    events=true,
+    onlyStopTime=false,
+    debug=false);
 simulateModel(
-  problem="Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator",
-  startTime=0,
-  stopTime=1,
-  outputInterval=0.0005,
-  method="Dassl",
-  tolerance=1e-07,
-  resultFile="Multivibrator");
+    problem="Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator",
+    startTime=0.0,
+    stopTime=1.0,
+    method="Dassl",
+    tolerance=1e-06,
+    resultFile="result",
+    outputInterval=0.001);

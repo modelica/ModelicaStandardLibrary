@@ -1,21 +1,20 @@
-﻿ = true
-Translation of Modelica.Electrical.Analog.Examples.OpAmps.Comparator:
-The DAE has 61 scalar unknowns and 61 scalar equations.
- 
+Translation of <a href="Modelica://Modelica.Electrical.Analog.Examples.OpAmps.Comparator">Modelica.Electrical.Analog.Examples.OpAmps.Comparator</a>
+The DAE has 67 scalar unknowns and 67 scalar equations.
+
 Statistics
- 
+
 Original Model
   Number of components: 11
-  Variables: 105
-  Parameters: 44 (44 scalars)
-  Unknowns: 61 (61 scalars)
-  Equations: 51
-  Nontrivial: 38
+  Variables: 115
+  Parameters: 48 (48 scalars)
+  Unknowns: 67 (67 scalars)
+  Equations: 56
+  Nontrivial: 42
 Translated Model
-  Constants: 26 scalars
-  Free parameters: 10 scalars
-  Parameter depending: 34 scalars
-  Time-varying variables: 5 scalars
+  Constants: 28 scalars
+  Free parameters: 12 scalars
+  Parameter depending: 37 scalars
+  Time-varying variables: 8 scalars
   Alias variables: 30 scalars
   Number of mixed real/discrete systems of equations: 0
   Sizes of linear systems of equations: { }
@@ -26,7 +25,8 @@ Translated Model
   Initialization problem
     Sizes of linear systems of equations: {2}
     Sizes after manipulation of the linear systems: {0}
- 
+
 Settings
 Advanced.StoreProtectedVariables = true
 Selected continuous time states
+Finished

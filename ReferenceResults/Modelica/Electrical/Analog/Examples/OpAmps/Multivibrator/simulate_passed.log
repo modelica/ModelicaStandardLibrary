@@ -1,27 +1,32 @@
 Log-file of program ./dymosim
-(generated: Tue May  5 00:48:24 2020)
+(generated: Thu Nov 19 12:14:31 2026)
 
 dymosim started
+... "Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator" simulating
 ... "dsin.txt" loading (dymosim input file)
-... "Multivibrator.mat" creating (simulation result file)
+... "result.mat" creating (simulation result file)
 
 Integration started at T = 0 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
 Integration terminated successfully at T = 1
-   CPU-time for integration                : 0.034 seconds
-   CPU-time for one grid interval          : 0.017 milliseconds
-   CPU-time for initialization             : 0.001 seconds
-   Number of result points                 : 2002
-   Number of grid points                   : 2001
-   Number of accepted steps                : 1301
-   Number of f-evaluations (dynamics)      : 2954
-   Number of Jacobian-evaluations          : 688
+   CPU-time for integration                : 0.0958 seconds
+   CPU-time for one grid interval          : 0.0958 milliseconds
+   CPU-time for initialization             : 0.000104 seconds
+   Number of result points                 : 1054
+   Number of grid points                   : 1001
+   Number of accepted steps                : 1131
+   Number of f-evaluations (dynamics)      : 2244
+   Number of crossing function evaluations : 3711
+   Number of Jacobian-evaluations          : 781
    Number of model time events             : 0
    Number of input time events             : 0
-   Number of state events                  : 0
+   Number of state events                  : 26
    Number of step events                   : 0
-   Minimum integration stepsize            : 2.84e-10
-   Maximum integration stepsize            : 0.00339
+   Minimum integration stepsize            : 2.84e-09
+   Maximum integration stepsize            : 0.00532
    Maximum integration order               : 5
 Calling terminal section
 ... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Electrical.Analog.Examples.OpAmps.Multivibrator

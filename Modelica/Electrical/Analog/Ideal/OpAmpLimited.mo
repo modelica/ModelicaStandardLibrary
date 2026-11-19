@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Ideal;
-model OpAmpLimited "Pperational amplifier with limitation and optional slew rate"
+model OpAmpLimited "Operational amplifier with limitation and optional slew rate"
   import Modelica.Constants.pi;
   parameter Real V0=15000.0 "No-load amplification";
   parameter Boolean useSupply=false
