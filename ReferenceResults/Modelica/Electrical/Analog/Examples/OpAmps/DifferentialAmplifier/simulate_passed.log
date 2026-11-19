@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Thu Nov 19 14:52:40 2026)
+(generated: Thu Nov 19 18:30:37 2026)
 
 dymosim started
 ... "Modelica.Electrical.Analog.Examples.OpAmps.DifferentialAmplifier" simulating
@@ -18,9 +18,9 @@ Solver will attempt to handle this problem.
 
 
 Integration terminated successfully at T = 0.2
-   CPU-time for integration                : 0.619 seconds
-   CPU-time for one grid interval          : 0.31 milliseconds
-   CPU-time for initialization             : 0.00218 seconds
+   CPU-time for integration                : 0.267 seconds
+   CPU-time for one grid interval          : 0.133 milliseconds
+   CPU-time for initialization             : 0.00235 seconds
    Number of result points                 : 2011
    Number of grid points                   : 2001
    Number of accepted steps                : 911

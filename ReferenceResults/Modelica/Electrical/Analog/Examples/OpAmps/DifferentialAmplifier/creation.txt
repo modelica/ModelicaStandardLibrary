@@ -3,10 +3,10 @@ modelName = "Modelica.Electrical.Analog.Examples.OpAmps.DifferentialAmplifier"
 
 // Test info
 generationTool = Dymola Version 2025x Refresh 1, 2025-04-11
-generationDateAndTime = 2026-11-19 14:52:40
+generationDateAndTime = 2026-11-19 18:30:37
 gitURL = https://github.com/Modelica/ModelicaStandardLibrary
-gitRevision = b2d82307
-testPC = 4bbd4cdc24c5
+gitRevision = 1e35f578
+testPC = a7ef7e5a7244
 testOS = Linux [Version #20-Ubuntu SMP PREEMPT Mon Oct 19 22:41:16 UTC 2026]
 testUser = resimuser
 testDescription = Testing Pull Request PR_4869
