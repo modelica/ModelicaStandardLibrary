@@ -1,0 +1,35 @@
+Translation of <a href="Modelica://Modelica.Blocks.Examples.DemoUnwrapAngle">Modelica.Blocks.Examples.DemoUnwrapAngle</a>
+The DAE has 49 scalar unknowns and 49 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 15
+  Variables: 75
+  Constants: 2 (2 scalars)
+  Parameters: 29 (29 scalars)
+  Unknowns: 44 (49 scalars)
+  Differentiated variables: 3 scalars
+  Equations: 39
+  Nontrivial: 36
+Translated Model
+  Constants: 21 scalars
+  Free parameters: 14 scalars
+  Parameter depending: 6 scalars
+  Continuous time states: 2 scalars
+  Time-varying variables: 17 scalars
+  Alias variables: 22 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Blocks.Examples.DemoUnwrapAngle#diagram$:f2pos.y">f2pos.y</a>
+<a href="Modelica://Modelica.Blocks.Examples.DemoUnwrapAngle#diagram$unwrapAngle:integralController.y">unwrapAngle.integralController.y</a>
+Finished
