@@ -327,14 +327,14 @@ y = u(time - delayTime) for time &gt; time.start + delayTime
   end FixedDelay;
 
   block PadeDelay
-    "Pade approximation of delay block with fixed delayTime (use balance=true; this is not the default to be backwards compatible)"
+    "Pade approximation of delay block with fixed delayTime"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Time delayTime(start=1)
       "Delay time of output with respect to input signal";
     parameter Integer n(min=1) = 1 "Order of Pade delay";
     parameter Integer m(min=1,max=n) = n
       "Order of numerator (usually m=n, or m=n-1)";
-    parameter Boolean balance=false
+    parameter Boolean balance=true
       "= true, if state space system is balanced (highly recommended), otherwise textbook version"
       annotation(choices(checkBox=true));
     final output Real x[n]
@@ -420,13 +420,7 @@ y = u(time - delayTime) for time &gt; time.start + delayTime
 
   initial equation
     (a1,b11,c,d,s) = padeCoefficients2(delayTime, n, m, balance);
-
-    if balance then
-       der(x) = zeros(n);
-    else
-       // In order to be backwards compatible
-       x[n] = u;
-    end if;
+    der(x) = zeros(n);
     annotation (
       Documentation(info="<html>
 <p>
@@ -465,10 +459,7 @@ also the default setting of this block. The setting
 
 <p>
 It is strongly recommended to always set parameter <strong>balance</strong> = true,
-in order to arrive at a much better reliable numerical computation.
-This is not the default, in order to be backwards compatible, so you have
-to explicitly set it. Besides better numerics, also all states are initialized
-with <strong>balance</strong> = true (in steady-state, so der(x)=0). Longer explanation:
+in order to arrive at a much better reliable numerical computation. Longer explanation:
 </p>
 
 <p>
@@ -495,6 +486,12 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 <th>Date</th>
 <th>Author</th>
 <th>Comment</th>
+</tr>
+<tr>
+<td>2020-02-28</td>
+<td>Francesco Casella (Politecnico di Milano)</td>
+<td>Made balance = true default for version 4.0.0 of MSL; added steady-state
+initialization also to balance = false case</td>
 </tr>
 <tr>
 <td>2015-01-05</td>
