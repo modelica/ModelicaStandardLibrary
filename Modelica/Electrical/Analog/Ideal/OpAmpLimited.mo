@@ -78,8 +78,8 @@ equation
   //either dynamic output rise or simple gain
   if enableOutputRise then
     dv = (V0*v_in - v_int)/Tau;
-    //limit slew rate
-    dv_slew = smooth(0, min(slewRate, max(-slewRate, dv)));
+    //limit slew rate without smooth(0, ) to achieve correct events
+    dv_slew = min(slewRate, max(-slewRate, dv));
     //first order with anti-windup (stop integrator)
     der(v_int)= if (satPos and dv_slew>0) or (satNeg and dv_slew<0) then 0
       else dv_slew;
