@@ -254,5 +254,16 @@ equation
 the set point depends on speed. The generator is loaded with a rectifier.</p>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMEE Rectifier",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = voltageController.u_s),
+          Curve(x = time, y = voltageController.u_m),
+          Curve(x = time, y = smee.ve),
+          Curve(x = time, y = smee.ie)})})}));
 end SMEE_Rectifier;

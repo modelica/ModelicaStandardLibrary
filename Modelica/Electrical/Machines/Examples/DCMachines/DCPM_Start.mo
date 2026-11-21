@@ -78,5 +78,15 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcpm.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "DCPM Start",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = dcpm.ia),
+          Curve(x = time, y = dcpm.tauElectrical),
+          Curve(x = time, y = dcpm.wMechanical)})})}));
 end DCPM_Start;
