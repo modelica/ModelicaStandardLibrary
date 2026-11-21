@@ -14,7 +14,7 @@ model Multivibrator "Multivibrator with Schmitt trigger"
   Modelica.Electrical.Analog.Ideal.OpAmpLimited opAmp(
     Vps=Vps,
     Vns=Vns,
-    useFirstOrder=true,
+    enableOutputRise=true,
     initOpAmp=Modelica.Electrical.Analog.Types.InitOpAmp.LowerLimit)
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Electrical.Analog.Basic.Ground ground
