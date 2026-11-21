@@ -114,10 +114,14 @@ equation
     Documentation(info="<html>
 <p>Operational amplifier with saturation:</p>
 <ul>
-<li>Input currents are zero.</li>
-<li>No-load amplification is high (but not infinite).</li>
+<li>Input currents are zero, i.e. input impedance is infinite.</li>
+<li>Output current is not limited, ie. output impedance is zero.</li>
+<li>Open loop amplification is high (but not infinite).</li>
+<li>Common mode rejection ratio is infinite.</li>
+<li>Offset voltage is zero.</li>
 <li>Output voltage is limited between positive and negative supply.</li>
 <li>Transient rise of the output voltage can be enabled and limited to given slew rate.</li>
+<li>This leads to frequency dependent open loop amplification.</li>
 </ul>
 <p>Supply voltage is either defined by parameter <code>Vps</code> and <code>Vns</code> or by (optional) pins <code>s_p</code> and <code>s_n</code>.<br>
 In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
@@ -136,12 +140,26 @@ Intermediate voltage <code>v_int</code> is limited between positive supply and n
 </p>
 <h4>Relationship between the parameters (which could be taken from manufacturer's datasheet):</h4>
 <table>
-<tr><td>Open-loop amplification       </td><td><code>V0</code></td></tr>
+<tr><td>Open-loop DC amplification    </td><td><code>V0</code></td></tr>
 <tr><td>Gain-bandwidth product        </td><td><code>G_BW</code></td></tr>
 <tr><td>Cut-off frequency (open loop) </td><td><code>fc = G_BW/V0</code></td></tr>
-<tr><td>Time constant of voltage rise </td><td><code>T = 1/(2*&pi;*fc)</code></td></tr>
+<tr><td>Time constant of voltage rise </td><td><code>Tau = 1/(2*&pi;*fc)</code></td></tr>
 <tr><td>Slew rate                     </td><td><code>slewRate</code></td></tr>
 </table>
+<h4>Typical parameter values:</h4>
+<table>
+<tr><td>Value             </td><td>  LM324</td><td>  LM741</td><td>default</td><td>Unit</td></tr>
+<tr><td><code>V0  =</code></td><td>    100</td><td>    200</td><td>     15</td><td>V/mV</td></tr>
+<tr><td><code>G_BW=</code></td><td>   1.20</td><td>   1.50</td><td>   0.15</td><td>GHz </td></tr>
+<tr><td><code>fc  =</code></td><td>   12.0</td><td>    7.5</td><td>   10.0</td><td>Hz  </td></tr>
+<tr><td><code>Tau =</code></td><td>  13.26</td><td>  21.22</td><td>  15.91</td><td>ms  </td></tr>
+<tr><td>Slew rate =       </td><td>    0.5</td><td>    0.5</td><td>    0.1</td><td>V/&micro;s</td></tr>
+</table>
+<h4>Note about open-loop amplification</h4>
+<p>
+Open-loop amplification can be specified as <code>V/mV</code>. Just multiply by 1000 to get <code>V0</code>, e.g. <code>150,000 V/V = 150 V/mv</code><br>
+Open-loop amplification can be specified as <code>dB</code>. Calculate <code>V0=10<sup>dB/20</sup></code>, e.g. <code>150 V/mV &wedgeq; 103.522 dB</p>
+</p>
 <h4>Initialization</h4>
 <p>
 <code>v_in.start</code> and <code>i_out.start</code> are just helpful starting values during initialization,

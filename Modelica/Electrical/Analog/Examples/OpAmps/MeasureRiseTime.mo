@@ -74,7 +74,7 @@ The measured rise time from 10&percnt; to 90&percnt; allows the calculation of t
 <tr><td>Open-loop amplification       </td><td><code>V0</code></td></tr>
 <tr><td>Gain-bandwidth product        </td><td><code>G_BW</code></td></tr>
 <tr><td>Cut-off frequency (open loop) </td><td><code>fc = G_BW/V0</code></td></tr>
-<tr><td>Time constant of voltage rise </td><td><code>T = 1/(2*&pi;*fc)</code></td></tr>
+<tr><td>Time constant of voltage rise </td><td><code>Tau = 1/(2*&pi;*fc)</code></td></tr>
 <tr><td>Slew rate                     </td><td><code>slewRate</code></td></tr>
 </table>
 </html>"),
