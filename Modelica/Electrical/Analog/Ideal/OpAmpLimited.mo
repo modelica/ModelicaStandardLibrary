@@ -158,7 +158,7 @@ Intermediate voltage <code>v_int</code> is limited between positive supply and n
 <h4>Note about open-loop amplification</h4>
 <p>
 Open-loop amplification can be specified as <code>V/mV</code>. Just multiply by 1000 to get <code>V0</code>, e.g. <code>150,000 V/V = 150 V/mv</code><br>
-Open-loop amplification can be specified as <code>dB</code>. Calculate <code>V0=10<sup>dB/20</sup></code>, e.g. <code>150 V/mV &wedgeq; 103.522 dB</p>
+Open-loop amplification can be specified as <code>dB</code>. Calculate <code>V0=10<sup>dB/20</sup></code>, e.g. <code>150 V/mV &wedgeq; 103.522 dB</code>
 </p>
 <h4>Initialization</h4>
 <p>
