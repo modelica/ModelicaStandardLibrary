@@ -1,5 +1,5 @@
 time
-angleSensor.phi
+f2Pos.y
 unwrapAngle.y
-speedSensor.w
+refFrequency.y
 unwrapAngle.w

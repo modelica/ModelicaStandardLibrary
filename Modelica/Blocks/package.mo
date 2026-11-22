@@ -1459,57 +1459,42 @@ If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
       nperiod=2,
       offset=-50,
       startTime=-0.5)
-      annotation (Placement(transformation(extent={{-70,22},{-50,42}})));
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
     Modelica.Blocks.Continuous.Integrator f2pos(k=2*pi,   y_start=0)
-      annotation (Placement(transformation(extent={{-40,22},{-20,42}})));
-    Modelica.Mechanics.Rotational.Sources.Position position(exact=true)
-      annotation (Placement(transformation(extent={{-10,22},{10,42}})));
-    Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
-      annotation (Placement(transformation(extent={{20,22},{40,42}})));
+      annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
     Modelica.Blocks.Math.UnwrapAngle unwrapAngle
-      annotation (Placement(transformation(extent={{22,-50},{42,-30}})));
+      annotation (Placement(transformation(extent={{60,-10},{80,10}})));
     Modelica.Blocks.Math.Cos cos1
-      annotation (Placement(transformation(extent={{-50,-70},{-30,-50}})));
+      annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
     Modelica.Blocks.Math.Sin sin1
-      annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
+      annotation (Placement(transformation(extent={{-10,10},{10,30}})));
     Modelica.Blocks.Math.Atan2 atan2_1
-      annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
-    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
-      annotation (Placement(transformation(extent={{20,50},{40,70}})));
+      annotation (Placement(transformation(extent={{30,-10},{50,10}})));
   equation
-    connect(f2pos.y, position.phi_ref)
-      annotation (Line(points={{-19,32},{-12,32}},
-                                                 color={0,0,127}));
-    connect(position.flange, angleSensor.flange)
-      annotation (Line(points={{10,32},{20,32}},              color={0,0,0}));
     connect(refFrequency.y, f2pos.u)
-      annotation (Line(points={{-49,32},{-42,32}},
-                                                 color={0,0,127}));
-    connect(angleSensor.phi, sin1.u) annotation (Line(points={{41,32},{50,32},{50,
-            0},{-60,0},{-60,-20},{-52,-20}}, color={0,0,127}));
-    connect(angleSensor.phi, cos1.u) annotation (Line(points={{41,32},{50,32},{50,
-            0},{-60,0},{-60,-60},{-52,-60}}, color={0,0,127}));
-    connect(sin1.y, atan2_1.u1) annotation (Line(points={{-29,-20},{-20,-20},{-20,
-            -34},{-12,-34}}, color={0,0,127}));
-    connect(cos1.y, atan2_1.u2) annotation (Line(points={{-29,-60},{-20,-60},{-20,
-            -46},{-12,-46}}, color={0,0,127}));
+      annotation (Line(points={{-59,0},{-52,0}}, color={0,0,127}));
+    connect(sin1.y, atan2_1.u1) annotation (Line(points={{11,20},{20,20},{20,6},
+              {28,6}},       color={0,0,127}));
+    connect(cos1.y, atan2_1.u2) annotation (Line(points={{11,-20},{20,-20},{20,
+              -6},{28,-6}},  color={0,0,127}));
     connect(atan2_1.y, unwrapAngle.u)
-      annotation (Line(points={{11,-40},{20,-40}}, color={0,0,127}));
-    connect(position.flange, speedSensor.flange)
-      annotation (Line(points={{10,32},{20,32},{20,60}}, color={0,0,0}));
+      annotation (Line(points={{51,0},{58,0}},     color={0,0,127}));
+      connect(f2pos.y, cos1.u) annotation (Line(points={{-29,0},{-20,0},{-20,
+              -20},{-12,-20}}, color={0,0,127}));
+      connect(f2pos.y, sin1.u) annotation (Line(points={{-29,0},{-20,0},{-20,20},
+              {-12,20}}, color={0,0,127}));
     annotation (experiment(
         StopTime=3,
         Interval=1e-05,
         Tolerance=1e-06), Documentation(info="<html>
 <p>
-The reference frequency signal is integrated to obtain the angle, which is measured by an ideal AngleSensor. 
-The angle is used to build a phasor with real and imaginary part. 
+The reference frequency signal is integrated to obtain the angle, which is used to build a phasor with real and imaginary part. 
 From this phasor, the (wrapped angle) is calculated which gets unwrapped using an angle tracking observer. 
-Compare angleSensor.phi and unwrapAngle.y.
+Compare <code>f2pos.y</code> and <code>unwrapAngle.y</code>.
 </p>
 <p>
 Additionally, it is possible to detect the angular velocity of the phasor. 
-Compare speedSensor.w and unwrapAngle.w.
+Compare <code>refFrequency.y</code> and <code>unwrapAngle.w</code>.
 </p>
 <p>
 An ATO (angle tracking observer) is a robust method to evaluate the signals of a sin/cos-encoder.
