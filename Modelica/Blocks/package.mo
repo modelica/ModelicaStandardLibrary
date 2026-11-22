@@ -1494,7 +1494,7 @@ Compare <code>f2pos.y</code> and <code>unwrapAngle.y</code>.
 </p>
 <p>
 Additionally, it is possible to detect the angular velocity of the phasor. 
-Compare <code>refFrequency.y</code> and <code>unwrapAngle.w</code>.
+Compare <code>refFrequency.y</code> and <code>unwrapAngle.der_y</code>.
 </p>
 <p>
 An ATO (angle tracking observer) is a robust method to evaluate the signals of a sin/cos-encoder.

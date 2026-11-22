@@ -1933,8 +1933,8 @@ Otherwise the input angle <code>u</code> is wrapped to the <a href=\"https://en.
   block UnwrapAngle "Angle tracking observer"
     extends Modelica.Blocks.Interfaces.SISO(u(final unit="rad", displayUnit="deg"),
       y(final unit="rad", displayUnit="deg"));
-    Modelica.Blocks.Interfaces.RealOutput w(final unit="rad/s", displayUnit="rpm")
-      "Angular velocity"
+    Modelica.Blocks.Interfaces.RealOutput der_y(final unit="rad/s")
+      "Derivative of angle y"
       annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
     parameter Modelica.Units.SI.Time Ti=1e-6 "Integral time constant of controller";
     parameter Modelica.Units.SI.Angle phi0=0 "Initial angle";
@@ -1968,8 +1968,8 @@ Otherwise the input angle <code>u</code> is wrapped to the <a href=\"https://en.
             0},{-32,0}}, color={0,0,127}));
     connect(integralController.y, y)
       annotation (Line(points={{61,0},{110,0}}, color={0,0,127}));
-    connect(gain.y, w) annotation (Line(points={{21,0},{30,0},{30,-60},{110,-60}},
-          color={0,0,127}));
+    connect(gain.y, der_y) annotation (Line(points={{21,0},{30,0},{30,-60},{110,
+            -60}}, color={0,0,127}));
     annotation (
       Icon(graphics={
           Polygon(
@@ -2022,7 +2022,7 @@ determined as:
 <code>y&nbsp;=&nbsp;u&nbsp;/&nbsp;(1&nbsp;+&nbsp;s*Ti)</code>.
 </p>
 <p>
-The derivative of the output&nbsp;<code>y</code> is the angular velocity&nbsp;<code>w</code>,
+The derivative of the output&nbsp;<code>y</code> is the angular velocity&nbsp;<code>der_y</code>,
 provided as an output signal as well.
 </p>
 </html>"));
