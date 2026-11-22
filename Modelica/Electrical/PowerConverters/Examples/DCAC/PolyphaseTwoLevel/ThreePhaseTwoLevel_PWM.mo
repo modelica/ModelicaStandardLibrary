@@ -51,7 +51,7 @@ model ThreePhaseTwoLevel_PWM "Test of pulse width modulation methods"
     annotation (Placement(transformation(extent={{10,-50},{30,-30}})));
   Modelica.Blocks.Continuous.Filter filter2[2](
     each init=Modelica.Blocks.Types.Init.InitialOutput,
-    each analogFilter=Modelica.Blocks.Types.AnalogFilter.Bessel,
+    each analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
     y_start={VNom*sqrt(2),0},
     each order=2,
     each f_cut=0.5*fRef)
@@ -60,7 +60,7 @@ model ThreePhaseTwoLevel_PWM "Test of pulse width modulation methods"
     annotation (Placement(transformation(extent={{70,-50},{90,-30}})));
   Blocks.Continuous.Filter          filter1[3](
     each init=Modelica.Blocks.Types.Init.InitialOutput,
-    each analogFilter=Modelica.Blocks.Types.AnalogFilter.Bessel,
+    each analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
     each order=2,
     each f_cut=0.1*f_sw)
     annotation (Placement(transformation(extent={{70,10},{90,30}})));
