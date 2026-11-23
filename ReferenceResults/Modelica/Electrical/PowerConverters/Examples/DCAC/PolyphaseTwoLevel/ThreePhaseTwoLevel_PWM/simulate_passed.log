@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Tue Nov 10 18:15:10 2026)
+(generated: Mon Nov 23 07:34:52 2026)
 
 dymosim started
 ... "Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM" simulating
@@ -10,21 +10,21 @@ Integration started at T = 0 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
 
 Integration terminated successfully at T = 0.1
-   CPU-time for integration                : 0.621 seconds
-   CPU-time for one grid interval          : 6.21 milliseconds
-   CPU-time for initialization             : 0.000193 seconds
+   CPU-time for integration                : 0.376 seconds
+   CPU-time for one grid interval          : 3.76 milliseconds
+   CPU-time for initialization             : 0.000173 seconds
    Number of result points                 : 3511
    Number of grid points                   : 101
-   Number of accepted steps                : 35920
-   Number of f-evaluations (dynamics)      : 50745
-   Number of crossing function evaluations : 37700
-   Number of Jacobian-evaluations          : 24859
+   Number of accepted steps                : 37760
+   Number of f-evaluations (dynamics)      : 54747
+   Number of crossing function evaluations : 39540
+   Number of Jacobian-evaluations          : 24478
    Number of model time events             : 1730
    Number of input time events             : 0
    Number of state events                  : 0
    Number of step events                   : 0
-   Minimum integration stepsize            : 1.59e-12
-   Maximum integration stepsize            : 3.46e-05
+   Minimum integration stepsize            : 1.5e-12
+   Maximum integration stepsize            : 3.59e-05
    Maximum integration order               : 5
 Calling terminal section
 ... "dsfinal.txt" creating (final states)

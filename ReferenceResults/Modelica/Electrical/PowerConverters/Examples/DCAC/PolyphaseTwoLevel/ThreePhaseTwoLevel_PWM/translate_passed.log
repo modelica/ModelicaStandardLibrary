@@ -1,5 +1,5 @@
 Translation of <a href="Modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM">Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM</a>
-The DAE has 429 scalar unknowns and 429 scalar equations.
+The DAE has 434 scalar unknowns and 434 scalar equations.
 
 Statistics
 
@@ -7,18 +7,18 @@ Original Model
   Number of components: 59
   Variables: 708
   Constants: 28 (45 scalars)
-  Parameters: 324 (367 scalars)
-  Unknowns: 356 (429 scalars)
+  Parameters: 324 (362 scalars)
+  Unknowns: 356 (434 scalars)
   Differentiated variables: 13 scalars
   Equations: 289
   Nontrivial: 260
 Translated Model
   Constants: 229 scalars
   Free parameters: 73 scalars
-  Parameter depending: 132 scalars
+  Parameter depending: 127 scalars
   Continuous time states: 13 scalars
   Time-varying variables: 160 scalars
-  Alias variables: 247 scalars
+  Alias variables: 252 scalars
   Number of mixed real/discrete systems of equations: 3
   Sizes of linear systems of equations: {11, 11, 11}
   Sizes after manipulation of the linear systems: {4, 4, 4}
