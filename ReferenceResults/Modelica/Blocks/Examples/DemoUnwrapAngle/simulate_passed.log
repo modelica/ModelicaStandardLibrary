@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Sat Nov 14 09:40:51 2026)
+(generated: Mon Nov 23 07:48:13 2026)
 
 dymosim started
 ... "Modelica.Blocks.Examples.DemoUnwrapAngle" simulating
@@ -10,9 +10,9 @@ Integration started at T = 0 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
 
 Integration terminated successfully at T = 3
-   CPU-time for integration                : 2.18 seconds
-   CPU-time for one grid interval          : 0.00728 milliseconds
-   CPU-time for initialization             : 0.00107 seconds
+   CPU-time for integration                : 1.23 seconds
+   CPU-time for one grid interval          : 0.00409 milliseconds
+   CPU-time for initialization             : 0.00044 seconds
    Number of result points                 : 300003
    Number of grid points                   : 300001
    Number of accepted steps                : 131
