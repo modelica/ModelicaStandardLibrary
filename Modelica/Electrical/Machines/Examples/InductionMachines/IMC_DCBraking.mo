@@ -58,7 +58,7 @@ model IMC_DCBraking "Induction machine with DC current braking"
     annotation (Placement(transformation(extent={{-20,30},{-40,50}})));
   Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin3(m=m, k=3)
     annotation (Placement(transformation(extent={{-20,-10},{-40,10}})));
-  Analog.Sources.ConstantVoltage
+  Modelica.Electrical.Analog.Sources.ConstantVoltage
     constantVoltage(V=settings.Vdc)
     annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
@@ -66,9 +66,9 @@ model IMC_DCBraking "Induction machine with DC current braking"
         origin={-50,62})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
-  Blocks.Sources.BooleanConstant          booleanConstant(k=settings.layout == "Y2")
+  Modelica.Blocks.Sources.BooleanConstant booleanConstant(k=settings.layout == "Y2")
     annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
-  Analog.Ideal.IdealOpeningSwitch                     switch annotation (
+  Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch switch annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
