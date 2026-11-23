@@ -24,7 +24,8 @@ model OpAmpLimited "Operational amplifier with limitation and optional slew rate
     "Initialization of firstOrder rise of output voltage"
     annotation (Evaluate=true, Dialog(tab="Advanced", enable=enableOutputRise));
   //Indicate saturation and provide events without being involved in limitation
-  Boolean slewLim=abs(dv)>=slewRate "Saturation of voltage rise";
+  Boolean slewPos=dv>=+slewRate "Pos. saturation of voltage rise";
+  Boolean slewNeg=dv<=-slewRate "Neg. saturation of voltage rise";
   Boolean satPos=v_int>=vps "Positive Saturation";
   Boolean satNeg=v_int<=vns "Negative Saturation";
   SI.Voltage vps "Positive supply voltage";
@@ -79,7 +80,8 @@ equation
   if enableOutputRise then
     dv = (V0*v_in - v_int)/Tau;
     //limit slew rate without smooth(0, ) to achieve correct events
-    dv_slew = min(slewRate, max(-slewRate, dv));
+    dv_slew = smooth(0, if slewPos then +slewRate
+                    elseif slewNeg then -slewRate else dv);
     //first order with anti-windup (stop integrator)
     der(v_int)= if (satPos and dv_slew>0) or (satNeg and dv_slew<0) then 0
       else dv_slew;
