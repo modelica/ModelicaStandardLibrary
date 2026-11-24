@@ -896,8 +896,7 @@ where the signal sizes of the input and output vector are identical.
             extent={{110,-50},{250,-70}},
             textString=DynamicSelect(" ", String(
                   y,
-                  minimumLength=1,
-                  significantDigits=0))),
+                  minimumLength=1))),
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
@@ -927,8 +926,7 @@ where the signal sizes of the input and output vector are identical.
             extent={{110,-50},{250,-70}},
             textString=DynamicSelect(" ", String(
                   y,
-                  minimumLength=1,
-                  significantDigits=0))),
+                  minimumLength=1))),
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
