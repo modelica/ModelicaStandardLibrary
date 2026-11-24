@@ -1,24 +1,24 @@
 Translation of <a href="Modelica://ModelicaTest.Rotational.AllComponents">ModelicaTest.Rotational.AllComponents</a>
-The DAE has 553 scalar unknowns and 553 scalar equations.
+The DAE has 630 scalar unknowns and 630 scalar equations.
 
 Statistics
 
 Original Model
-  Number of components: 79
-  Variables: 825
-  Constants: 40 (40 scalars)
-  Parameters: 243 (258 scalars)
-  Unknowns: 542 (553 scalars)
-  Differentiated variables: 79 scalars
-  Equations: 489
-  Nontrivial: 394
+  Number of components: 93
+  Variables: 942
+  Constants: 42 (42 scalars)
+  Parameters: 281 (296 scalars)
+  Unknowns: 619 (630 scalars)
+  Differentiated variables: 92 scalars
+  Equations: 554
+  Nontrivial: 449
 Translated Model
-  Constants: 161 scalars
-  Free parameters: 145 scalars
-  Parameter depending: 38 scalars
-  Continuous time states: 31 scalars
-  Time-varying variables: 230 scalars
-  Alias variables: 277 scalars
+  Constants: 184 scalars
+  Free parameters: 167 scalars
+  Parameter depending: 40 scalars
+  Continuous time states: 35 scalars
+  Time-varying variables: 244 scalars
+  Alias variables: 333 scalars
   Number of mixed real/discrete systems of equations: 5
   Sizes of linear systems of equations: {5, 3, 12, 4, 10}
   Sizes after manipulation of the linear systems: {2, 0, 2, 0, 2}
@@ -55,10 +55,14 @@ Statically selected continuous time states
 <a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia15:phi">inertia15.phi</a>
 <a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia17:phi">inertia17.phi</a>
 <a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia17:w">inertia17.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia21:phi">inertia21.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$inertia21:w">inertia21.w</a>
 <a href="Modelica://ModelicaTest.Rotational.AllComponents#text$position:phi">position.phi</a>
 <a href="Modelica://ModelicaTest.Rotational.AllComponents#text$position:w">position.w</a>
 <a href="Modelica://ModelicaTest.Rotational.AllComponents#text$speed:phi">speed.phi</a>
 <a href="Modelica://ModelicaTest.Rotational.AllComponents#text$speed:w">speed.w</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$speed1:phi">speed1.phi</a>
+<a href="Modelica://ModelicaTest.Rotational.AllComponents#text$speed2:phi">speed2.phi</a>
 <a href="Modelica://ModelicaTest.Rotational.AllComponents#text$springDamper:phi_rel">springDamper.phi_rel</a>
 <a href="Modelica://ModelicaTest.Rotational.AllComponents#text$springDamper:w_rel">springDamper.w_rel</a>
 Finished

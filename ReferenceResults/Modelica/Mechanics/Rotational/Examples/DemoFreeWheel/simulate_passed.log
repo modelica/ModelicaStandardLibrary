@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Tue Nov 24 08:53:45 2026)
+
+dymosim started
+... "Modelica.Mechanics.Rotational.Examples.DemoFreeWheel" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 1
+   CPU-time for integration                : 0.00683 seconds
+   CPU-time for one grid interval          : 0.00683 milliseconds
+   CPU-time for initialization             : 7.1e-05 seconds
+   Number of result points                 : 1022
+   Number of grid points                   : 1001
+   Number of accepted steps                : 568
+   Number of f-evaluations (dynamics)      : 1112
+   Number of crossing function evaluations : 1630
+   Number of Jacobian-evaluations          : 142
+   Number of model time events             : 0
+   Number of input time events             : 0
+   Number of state events                  : 10
+   Number of step events                   : 0
+   Minimum integration stepsize            : 1.2e-07
+   Maximum integration stepsize            : 0.00793
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Mechanics.Rotational.Examples.DemoFreeWheel

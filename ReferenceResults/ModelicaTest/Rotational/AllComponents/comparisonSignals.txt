@@ -31,3 +31,5 @@ brake.mode
 clutch.mode
 gear2_1.lossyGear.mode
 lossyGear.mode
+freeWheel.w_rel
+freeWheel.tau

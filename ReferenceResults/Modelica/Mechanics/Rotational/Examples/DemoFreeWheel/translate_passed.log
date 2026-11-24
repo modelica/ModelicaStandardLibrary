@@ -1,0 +1,36 @@
+Translation of <a href="Modelica://Modelica.Mechanics.Rotational.Examples.DemoFreeWheel">Modelica.Mechanics.Rotational.Examples.DemoFreeWheel</a>
+The DAE has 37 scalar unknowns and 37 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 7
+  Variables: 59
+  Constants: 2 (2 scalars)
+  Parameters: 20 (20 scalars)
+  Unknowns: 37 (37 scalars)
+  Differentiated variables: 7 scalars
+  Equations: 32
+  Nontrivial: 27
+Translated Model
+  Constants: 12 scalars
+  Free parameters: 12 scalars
+  Parameter depending: 1 scalars
+  Continuous time states: 3 scalars
+  Time-varying variables: 9 scalars
+  Alias variables: 25 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Mechanics.Rotational.Examples.DemoFreeWheel#text$inertia2:phi">inertia2.phi</a>
+<a href="Modelica://Modelica.Mechanics.Rotational.Examples.DemoFreeWheel#text$inertia2:w">inertia2.w</a>
+<a href="Modelica://Modelica.Mechanics.Rotational.Examples.DemoFreeWheel#text$speed:phi">speed.phi</a>
+Finished
