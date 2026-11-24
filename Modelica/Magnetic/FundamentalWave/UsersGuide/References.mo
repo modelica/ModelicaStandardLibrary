@@ -67,6 +67,13 @@ class References "References"
         Springer-Verlag, Berlin, Heidelberg, New York, 1973.</td>
     </tr>
 
+    <tr>
+      <td>[VAC]</td>
+      <td>Vacuumschmelze,
+        <a href=\"https://vacuumschmelze.de/03_Documents/Brochures/VACODYM-VACOMAX%20en.pdf\"><em>Rare Earth Permanent Magnets</em></a>
+        </td>
+    </tr>
+
 </table>
 </html>"));
 end References;
