@@ -497,7 +497,8 @@ with exception of boundary pressure, do not have an effect.
           Rectangle(
             extent={{35,45},{100,-45}},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={0,127,255}),
+            fillColor={0,127,255},
+            pattern=LinePattern.None),
           Ellipse(
             extent={{-100,80},{60,-80}},
             lineColor={0,0,255},
@@ -644,7 +645,8 @@ with exception of boundary flow rate, do not have an effect.
           Rectangle(
             extent={{36,45},{100,-45}},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={0,127,255}),
+            fillColor={0,127,255},
+            pattern=LinePattern.None),
           Ellipse(
             extent={{-100,80},{60,-80}},
             lineColor={0,0,255},

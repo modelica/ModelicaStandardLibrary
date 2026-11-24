@@ -886,7 +886,8 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
               extent=DynamicSelect({{-200,-100},{0,0}}, {{-200,-100},{0,(-100
                    + 200*level/height)}}),
               fillColor={85,170,255},
-              fillPattern=FillPattern.VerticalCylinder),
+              fillPattern=FillPattern.VerticalCylinder,
+              pattern=LinePattern.None),
             Line(points={{-200,100},{-200,-100},{0,-100},{0,100}}),
             Text(
               extent={{-200,84},{0,48}},
@@ -1692,7 +1693,8 @@ end for;
               extent=DynamicSelect({{-100,-100},{100,0}}, {{-100,-100},{100,(-100
                    + 200*level/height)}}),
               fillColor={85,170,255},
-              fillPattern=FillPattern.VerticalCylinder),
+              fillPattern=FillPattern.VerticalCylinder,
+              pattern=LinePattern.None),
             Text(
               extent={{-94,90},{95,60}},
               textColor={0,0,255},

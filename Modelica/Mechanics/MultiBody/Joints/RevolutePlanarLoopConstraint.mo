@@ -121,13 +121,15 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           lineColor={64,64,64},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={255,255,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(
           extent={{20,-60},{100,60}},
           lineColor={64,64,64},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={255,255,255},
-          radius=10),
+          radius=10,
+          pattern=LinePattern.None),
         Rectangle(extent={{-100,60},{-20,-60}}, lineColor={64,64,64}, radius=10),
         Rectangle(extent={{20,60},{100,-60}}, lineColor={64,64,64}, radius=10),
         Text(
