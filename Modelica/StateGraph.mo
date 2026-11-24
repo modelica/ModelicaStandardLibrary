@@ -1563,7 +1563,7 @@ buttons:
                 extent=DynamicSelect({{-60,-40},{-60,-40}}, {{-60,-40},{80,(-40
                      + level*100)}}),
                 lineThickness=0.5,
-                fillPattern=FillPattern.HorizontalCylinder,
+                fillPattern=FillPattern.VerticalCylinder,
                 fillColor={191,0,95})}));
     end Tank;
 
