@@ -837,6 +837,7 @@ i.e. dividing the interval [a, b] into sub-intervals and apply the Newton-Cotes 
     Real c "Intermediate point a <= c <= b";
     Real d;
     Real e "b - a";
+    Real ePrevious "Value of e before the current step";
     Real m;
     Real s;
     Real p;
@@ -912,9 +913,9 @@ i.e. dividing the interval [a, b] into sub-intervals and apply the Newton-Cotes 
             p := -p;
           end if;
 
-          s := e;
+          ePrevious := e;
           e := d;
-          if 2*p < 3*m*q - abs(tol*q) and p < abs(0.5*s*q) then
+          if 2*p < 3*m*q - abs(tol*q) and p < abs(0.5*ePrevious*q) then
             // interpolation successful
             d := p/q;
           else
