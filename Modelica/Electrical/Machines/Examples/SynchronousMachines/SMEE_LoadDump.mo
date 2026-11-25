@@ -237,5 +237,15 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
 <p>Default machine parameters are used.</p>
 
 <p>One could try to optimize the controller parameters.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMEE LoadDump",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = voltageQuasiRMSSensor.V),
+          Curve(x = time, y = smee.tauElectrical),
+          Curve(x = time, y = smee.ie)})})}));
 end SMEE_LoadDump;

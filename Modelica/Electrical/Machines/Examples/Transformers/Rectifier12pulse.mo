@@ -73,6 +73,15 @@ Test example with polyphase components:<br>
 Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode bridge rectifiers with a single DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
-</html>"),
+</html>",
+figures = {
+  Figure(
+        title = "Rectifier 12pulse",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentSensor.i[1]),
+          Curve(x = time, y = load.v)})})}),
      experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6));
 end Rectifier12pulse;

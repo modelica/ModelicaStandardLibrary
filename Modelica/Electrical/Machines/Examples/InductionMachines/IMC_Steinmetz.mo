@@ -178,5 +178,15 @@ equation
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "IMC Steinmetz",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = aimc.tauElectrical),
+          Curve(x = time, y = aimc.wMechanical)})})}));
 end IMC_Steinmetz;

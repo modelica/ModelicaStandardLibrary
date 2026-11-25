@@ -15,5 +15,15 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <em>IM_SquirrelCage</em> are used.
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "IMC Transformer",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = aimc.tauElectrical),
+          Curve(x = time, y = aimc.wMechanical)})})}));
 end IMC_Transformer;

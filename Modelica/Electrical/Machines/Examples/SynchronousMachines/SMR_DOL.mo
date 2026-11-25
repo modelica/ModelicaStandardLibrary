@@ -135,5 +135,15 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
 </ul>
 Default machine parameters of model <em>SM_ReluctanceRotor</em> are used.
-</html>"));
+</html>",
+figures = {
+  Figure(
+    title = "SMR DOL",
+    preferred = true,
+    plots = {
+      Plot(
+        curves = {
+          Curve(x = time, y = currentQuasiRMSSensor.I),
+          Curve(x = time, y = smr.tauElectrical),
+          Curve(x = time, y = smr.wMechanical)})})}));
 end SMR_DOL;
