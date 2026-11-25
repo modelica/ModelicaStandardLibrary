@@ -19,6 +19,21 @@ equation
   annotation (Documentation(info="<html>
 <p>A Complex signal is defined by its length and angle, both linearly rising with time.
 Plotting the imaginary part versus the real part, you will see an Archimedean spiral.</p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Imaginary vs. real part",
+          identifier = "cba46",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = polarToComplex.y.im, y = polarToComplex.y.re, legend = "Imaginary vs. real part")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=1.01, Interval=0.001));
 end TestConversionBlock;
