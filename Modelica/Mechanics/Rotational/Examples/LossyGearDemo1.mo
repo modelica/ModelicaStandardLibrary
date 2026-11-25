@@ -80,6 +80,32 @@ should be identical, or the difference should be close to zero, if model
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.LossyGear\">LossyGear</a>
 is correctly implemented.
 </p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Velocities and power loss",
+          identifier = "9bae1",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = Inertia1.w, legend = "Angular velocity of Inertia1"),
+                Curve(y = Inertia2.w, legend = "Angular velocity of Inertia2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = PowerLoss, legend = "PowerLoss in gear")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = gear.mode, legend = "Mode of gear (-1/0/+1 = backward sliding/locked/forward sliding)")
+              }
+            )
+          }
+        )
+      }
+    ),
        experiment(StopTime=0.5, Interval=0.001));
 end LossyGearDemo1;

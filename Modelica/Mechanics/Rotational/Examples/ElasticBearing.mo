@@ -66,6 +66,27 @@ housing dynamics.</p>
 <p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <code>housing.w</code>,
 <code>shaft.w</code> and <code>load.w</code>.</p>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Angular velocities",
+          identifier = "855c3",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = housing.w, legend = "Angular velocity of housing")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = shaft.w, legend = "Angular velocity of shaft"),
+                Curve(y = load.w, legend = "Angular velocity of load")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(StopTime=10, Interval=0.01));
 end ElasticBearing;
