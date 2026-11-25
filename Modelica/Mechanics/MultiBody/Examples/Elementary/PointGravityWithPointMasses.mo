@@ -63,5 +63,27 @@ a default value, when the physical system does not provide the equations.
 </p>
 
 <div><img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\"></div>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Body positions",
+          identifier = "681b4",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = body1.r_0[1], y = body1.r_0[2], legend = "Position of body1 in the x-y plane"),
+                Curve(x = body2.r_0[1], y = body2.r_0[2], legend = "Position of body2 in the x-y plane")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(x = body3.r_0[1], y = body3.r_0[2], legend = "Position of body3 in the x-y plane"),
+                Curve(x = body4.r_0[1], y = body4.r_0[2], legend = "Position of body4 in the x-y plane")
+              }
+            )
+          }
+        )
+      }
+    ));
 end PointGravityWithPointMasses;

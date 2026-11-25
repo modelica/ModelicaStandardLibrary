@@ -56,5 +56,20 @@ object to <strong>false</strong> to switch off animation of all components.
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
 alt=\"model Examples.Elementary.DoublePendulum\">
 </blockquote>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "End point position",
+          identifier = "42aee",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = boxBody2.frame_b.r_0[1], y = boxBody2.frame_b.r_0[2], legend = "End point position of pendulum in the x and y plane")
+              }
+            )
+          }
+        )
+      }
+    ));
 end DoublePendulum;

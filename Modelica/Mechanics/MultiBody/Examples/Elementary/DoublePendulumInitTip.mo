@@ -87,5 +87,38 @@ In this example, it is simply done by <code>revolute2.phi.start&nbsp;=&nbsp;Mode
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumInitTip.png\">
 </blockquote>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Initial conditions",
+          identifier = "78253",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = boxBody2.frame_b.r_0[1], legend = "Position of end point of pendulum along the x axis"),
+                Curve(y = boxBody2.frame_b.r_0[2], legend = "Position of end point of pendulum along the y axis")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = der(boxBody2.r_0[1]), legend = "Velocity of end point of pendulum along the x axis"),
+                Curve(y = der(boxBody2.r_0[2]), legend = "Velocity of end point of pendulum along the y axis")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "End point position",
+          identifier = "dc6f6",
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = boxBody2.frame_b.r_0[1], y = boxBody2.frame_b.r_0[2], legend = "End point position of pendulum in the x and y plane")
+              }
+            )
+          }
+        )
+      }
+    ));
 end DoublePendulumInitTip;

@@ -80,5 +80,28 @@ This example demonstrates:
 
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/FreeBody.png\"
 alt=\"model Examples.Elementary.FreeBody\">
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Body position and spring forces",
+          identifier = "a2b4a",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = body.body.frame_a.r_0[1], legend = "Body position along x axis"),
+                Curve(y = body.body.frame_a.r_0[2], legend = "Body position along y axis"),
+                Curve(y = body.body.frame_a.r_0[3], legend = "Body position along z axis")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = spring1.spring.f, legend = "Force from left spring"),
+                Curve(y = spring2.spring.f, legend = "Force from right spring")
+              }
+            )
+          }
+        )
+      }
+    ));
 end FreeBody;
