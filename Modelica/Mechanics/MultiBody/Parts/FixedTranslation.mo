@@ -1,7 +1,6 @@
 within Modelica.Mechanics.MultiBody.Parts;
 model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
   import Modelica.Mechanics.MultiBody.Types;
-  import Modelica.Units.Conversions.to_unit1;
 
   Interfaces.Frame_a frame_a
     "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -24,7 +23,7 @@ model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
       tab="Animation",
       group="if animation = true",
       enable=animation));
-  parameter Types.Axis lengthDirection = to_unit1(r - r_shape)
+  parameter Types.Axis lengthDirection = (r - r_shape) / 1'm'
     "Vector in length direction of shape, resolved in frame_a" annotation (
       Evaluate=true, Dialog(
       tab="Animation",

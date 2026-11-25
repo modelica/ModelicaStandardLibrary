@@ -1,7 +1,6 @@
 within Modelica.Mechanics.MultiBody.Forces;
 model Torque
   "Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
-  import Modelica.Units.Conversions.to_unit1;
   extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
   Interfaces.Frame_resolve frame_resolve if
        resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
@@ -46,7 +45,7 @@ protected
     coordinates=-frame_b.t) if world.enableAnimation and animation;
   Visualizers.Advanced.Shape connectionLine(
     shapeType="cylinder",
-    lengthDirection = to_unit1(basicTorque.r_0),
+    lengthDirection = basicTorque.r_0 / 1'm',
     widthDirection={0,1,0},
     length=Modelica.Math.Vectors.length(basicTorque.r_0),
     width=connectionLineDiameter,

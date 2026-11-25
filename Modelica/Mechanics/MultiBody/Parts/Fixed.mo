@@ -1,7 +1,6 @@
 within Modelica.Mechanics.MultiBody.Parts;
 model Fixed "Frame fixed in the world frame at a given position"
   import Modelica.Mechanics.MultiBody.Types;
-  import Modelica.Units.Conversions.to_unit1;
 
   Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame"
     annotation (Placement(transformation(extent={{84,-16},{116,16}})));
@@ -20,7 +19,7 @@ model Fixed "Frame fixed in the world frame at a given position"
       tab="Animation",
       group="if animation = true",
       enable=animation));
-  parameter Types.Axis lengthDirection = to_unit1(r - r_shape)
+  parameter Types.Axis lengthDirection = (r - r_shape) / 1'm'
     "Vector in length direction of shape, resolved in world frame"
     annotation (Dialog(
       tab="Animation",

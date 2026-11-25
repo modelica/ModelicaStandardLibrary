@@ -4,7 +4,6 @@ model Body
 
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Mechanics.MultiBody.Frames;
-  import Modelica.Units.Conversions.to_unit1;
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
     "Coordinate system fixed at body" annotation (Placement(transformation(
@@ -167,7 +166,7 @@ protected
         sphereDiameter then sphereDiameter/2 else 0) else 0,
     width=cylinderDiameter,
     height=cylinderDiameter,
-    lengthDirection = to_unit1(r_CM),
+    lengthDirection = r_CM / 1'm',
     widthDirection={0,1,0},
     r=frame_a.r_0,
     R=frame_a.R) if world.enableAnimation and animation;

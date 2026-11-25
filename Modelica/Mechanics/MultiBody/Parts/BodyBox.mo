@@ -4,7 +4,6 @@ model BodyBox
 
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Math.Vectors.normalizeWithAssert;
-  import Modelica.Units.Conversions.to_unit1;
 
   Interfaces.Frame_a frame_a
     "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -19,7 +18,7 @@ model BodyBox
   parameter SI.Position r_shape[3]={0,0,0}
     "Vector from frame_a to box origin, resolved in frame_a";
   parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=
-     to_unit1(r - r_shape)
+     (r - r_shape) / 1'm'
     "Vector in length direction of box, resolved in frame_a"
     annotation (Evaluate=true);
   parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0}

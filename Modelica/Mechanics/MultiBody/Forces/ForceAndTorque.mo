@@ -3,7 +3,6 @@ model ForceAndTorque
   "Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
 
   import Modelica.Mechanics.MultiBody.Types;
-  import Modelica.Units.Conversions.to_unit1;
 
   extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
@@ -66,7 +65,7 @@ protected
     coordinates=-frame_b.t) if world.enableAnimation and animation;
   Visualizers.Advanced.Shape connectionLine(
     shapeType="cylinder",
-    lengthDirection = to_unit1(basicForce.r_0),
+    lengthDirection = basicForce.r_0 / 1'm',
     widthDirection={0,1,0},
     length=Modelica.Math.Vectors.length(basicForce.r_0),
     width=connectionLineDiameter,
