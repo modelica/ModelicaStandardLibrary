@@ -78,7 +78,7 @@ model DCPM_Drive
         origin={10,70})));
   Analog.Sources.ConstantVoltage constantVoltage(V=dcpmData.VaNominal)
     annotation (Placement(transformation(extent={{-10,30},{-30,50}})));
-  Analog.Basic.Resistor resistor(R=0.05*dcpmData.VaNominal/1000)
+  Analog.Basic.Resistor resistor(R=0.05*dcpmData.VaNominal/1000'A')
     annotation (Placement(
         transformation(
         extent={{10,10},{-10,-10}},

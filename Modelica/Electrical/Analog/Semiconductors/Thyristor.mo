@@ -50,7 +50,7 @@ equation
   iGK = Gate.i;
   vGK = smooth(0,(if vGK < vRef then VGT/IGT*iGK else
         vRef^2/VGT+iGK*(VGT-vRef)/IGT));
-  vContot = vConmain + smooth(0, if iGK < 0.95 * IGT then 0 else if iGK < 0.95*IGT + 1e-3 then 10000*(iGK-0.95*IGT)*vAK else 10* vAK);
+  vContot = vConmain + smooth(0, if iGK < 0.95 * IGT then 0 else if iGK < 0.95*IGT + 1e-3 then 10*vAK*(iGK-0.95*IGT)/1e-3'A' else 10* vAK);
   der(vControl)= (vContot - vControl) / (if (vContot - vControl) > 0 then 1.87*TON else 0.638*TOFF);
 
   // Anode-Cathode characteristics
