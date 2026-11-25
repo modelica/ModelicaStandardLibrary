@@ -638,20 +638,20 @@ Specific enthalpy of dry air is computed from temperature.
     output SI.SpecificEnthalpy h "Specific enthalpy of water";
   algorithm
     /*simple model assuming constant properties:
-  heat capacity of liquid water:4200 J/kg
-  heat capacity of solid water: 2050 J/kg
+  heat capacity of liquid water:4200 J/(kg.K)
+  heat capacity of solid water: 2050 J/(kg.K)
   enthalpy of fusion (liquid=>solid): 333000 J/kg*/
 
     h := Utilities.spliceFunction(
-          4200*(T - 273.15),
-          2050*(T - 273.15) - 333000,
-          T - 273.16,
-          0.1);
+          4200'J/(kg.K)'*(T - 273.15'K'),
+          2050'J/(kg.K)'*(T - 273.15'K') - 333000'J/kg',
+          T - 273.16'K',
+          0.1'K');
     annotation (derivative=enthalpyOfWater_der, Documentation(info="<html>
 Specific enthalpy of water (liquid and solid) is computed from temperature using constant properties as follows:<br>
 <ul>
-<li>heat capacity of liquid water:4200 J/kg</li>
-<li>heat capacity of solid water: 2050 J/kg</li>
+<li>heat capacity of liquid water:4200 J/(kg.K)</li>
+<li>heat capacity of solid water: 2050 J/(kg.K)</li>
 <li>enthalpy of fusion (liquid=>solid): 333000 J/kg</li>
 </ul>
 Pressure is assumed to be around 1 bar. This function is usually used to determine the specific enthalpy of the liquid or solid fraction of moist air.
@@ -665,18 +665,18 @@ Pressure is assumed to be around 1 bar. This function is usually used to determi
     output Real dh(unit="J/(kg.s)") "Time derivative of specific enthalpy";
   algorithm
     /*simple model assuming constant properties:
-  heat capacity of liquid water:4200 J/kg
-  heat capacity of solid water: 2050 J/kg
+  heat capacity of liquid water:4200 J/(kg.K)
+  heat capacity of solid water: 2050 J/(kg.K)
   enthalpy of fusion (liquid=>solid): 333000 J/kg*/
 
     //h:=Utilities.spliceFunction(4200*(T-273.15),2050*(T-273.15)-333000,T-273.16,0.1);
     dh := Utilities.spliceFunction_der(
-          4200*(T - 273.15),
-          2050*(T - 273.15) - 333000,
-          T - 273.16,
-          0.1,
-          4200*dT,
-          2050*dT,
+          4200'J/(kg.K)'*(T - 273.15'K'),
+          2050'J/(kg.K)'*(T - 273.15'K') - 333000'J/kg',
+          T - 273.16'K',
+          0.1'K',
+          4200'J/(kg.K)'*dT,
+          2050'J/(kg.K)'*dT,
           dT,
           0);
     annotation (Documentation(info="<html>
