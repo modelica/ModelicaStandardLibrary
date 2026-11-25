@@ -1052,7 +1052,7 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
      used to exchange signals between different components. It is
      defined as \"expandable connector\" in order that <strong>no</strong> central definition
      of the connector is needed but is automatically constructed by the
-     signals connected to it (see also <a href=\"https://specification.modelica.org/maint/3.6/connectors-and-connections.html#expandable-connectors\">Section&nbsp;9.1.3 <em>Expandable Connectors</em> of the Modelica&nbsp;3.6 specification</a>).</li>
+     signals connected to it (see also <a href=\"https://specification.modelica.org/maint/3.7/connectors-and-connections.html#expandable-connectors\">Section&nbsp;9.1.3 <em>Expandable Connectors</em> of the Modelica&nbsp;3.7 specification</a>).</li>
 <li> Input/output signals can be directly connected to the \"controlBus\".</li>
 <li> A component, such as \"part\", can be directly connected to the \"controlBus\",
      provided it has also a bus connector, or the \"part\" connector is a
