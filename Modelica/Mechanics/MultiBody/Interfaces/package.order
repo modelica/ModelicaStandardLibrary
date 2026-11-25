@@ -8,6 +8,7 @@ PartialTwoFrames
 PartialTwoFramesDoubleSize
 PartialOneFrame_a
 PartialOneFrame_b
+PartialConstraint
 PartialElementaryJoint
 PartialForce
 LineForceBase
