@@ -335,7 +335,7 @@ reference 01IS07022B). The project was started in October 2007 and ended in June
       protected
         type TYP = Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         Real laminar=2200 "Maximum Reynolds number of laminar flow regime";
 
@@ -399,7 +399,7 @@ reference 01IS07022B). The project was started in October 2007 and ended in June
       protected
         type TYP = Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=max(MIN, IN_con.s*IN_con.h)
           "Cross sectional area of gap";
@@ -497,7 +497,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
       protected
         type TYP = Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         Real laminar=2200 "Maximum Reynolds number for laminar regime";
         Real turbulent=1e4 "Minimum Reynolds number for turbulent regime";
@@ -566,7 +566,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           "Output for function kc_evenGapOverall_KC";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         Real laminar=2200 "Maximum Reynolds number for laminar regime";
         Real turbulent=1e4 "Minimum Reynolds number for turbulent regime";
@@ -660,7 +660,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           annotation (Dialog(group="Output"));
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         Real prandtlMax=100 "Maximum Prandtl number";
         Real prandtlMin=0.6 "Minimum Prandtl number";
@@ -725,7 +725,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           "Output for function kc_evenGapTurbulent_KC";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=max(MIN, IN_con.s*IN_con.h)
           "Cross sectional area of gap";
@@ -833,7 +833,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
       protected
         type TYP = Modelica.Fluid.Dissipation.Utilities.Types.kc_general;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         Real prandtlMax[3]={120,16700,500} "Maximum Prandtl number";
         Real prandtlMin[3]={0.7,0.7,1.5} "Minimum Prandtl number";
@@ -917,7 +917,7 @@ Note that additionally a failure status is observed in this function to check if
       protected
         type TYP = Modelica.Fluid.Dissipation.Utilities.Types.kc_general;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=max(MIN, 4*IN_con.A_cross/max(MIN, IN_con.perimeter))
           "Hydraulic diameter";
@@ -1088,7 +1088,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
         type TYP =
             Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
         Real Phi=IN_con.Phi*180/PI "Louver angle";
 
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
@@ -1303,7 +1303,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
         type TYP =
             Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.ReynoldsNumber Re_i "Reynolds number at transition to linearized calculation for wavy fins";
 
@@ -1530,7 +1530,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           annotation (Dialog(group="Output"));
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=IN_con.d_hyd "Hydraulic diameter";
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Circular cross sectional area";
@@ -1595,7 +1595,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           "Output for function kc_laminar_KC";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=IN_con.d_hyd "Hydraulic diameter";
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Circular cross sectional area";
@@ -1681,7 +1681,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           annotation (Dialog(group="Output"));
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Cross sectional area";
 
@@ -1729,7 +1729,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           "Output for function kc_overall_KC";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
         Real laminar=2e3 "Maximum Reynolds number for laminar regime";
         Real turbulent=2.2e4 "Minimum Reynolds number for turbulent regime";
 
@@ -1829,7 +1829,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           annotation (Dialog(group="Output"));
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         Real turbulent=2.2e4 "Minimum Reynolds number for turbulent regime";
 
@@ -1888,7 +1888,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           "Output for function kc_turbulent_KC";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
         Real turbulent=2.2e4 "Minimum Reynolds number for turbulent regime";
 
         SI.Diameter d_hyd=IN_con.d_hyd "Hydraulic diameter";
@@ -1992,7 +1992,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           annotation (Dialog(group="Output"));
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         Real laminar=1e5 "Maximum Reynolds number of laminar flow regime";
         Real prandtlMax=2000 "Maximum Prandtl number";
@@ -2046,7 +2046,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           "Output for function kc_laminar_KC";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Length L=max(MIN, IN_con.L);
 
@@ -2124,7 +2124,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           annotation (Dialog(group="Output"));
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         Real prandtlMax=2000 "Maximum Prandtl number";
         Real prandtlMin=0.6 "Minimum Prandtl number";
@@ -2252,7 +2252,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           annotation (Dialog(group="Output"));
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         Real prandtlMax=2000 "Maximum Prandtl number";
         Real prandtlMin=0.6 "Minimum Prandtl number";
@@ -2307,7 +2307,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           "Output for function kc_turbulent_KC";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Length L=max(MIN, IN_con.L);
 
@@ -2399,7 +2399,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           annotation (Dialog(group="Output"));
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         Real laminar=2e3 "Maximum Reynolds number of laminar flow regime";
         Real prandtlMax=1000 "Maximum Prandtl number";
@@ -2460,7 +2460,7 @@ Calculation of mean convective heat transfer coefficient <strong>kc</strong> of 
         type TYP =
             Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Circular cross sectional area";
 
@@ -2561,7 +2561,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
       protected
         type TYP = Modelica.Fluid.Dissipation.Utilities.Types.Roughness;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Cross sectional area";
 
@@ -2633,7 +2633,7 @@ Calculation of mean convective heat transfer coefficient <strong>kc</strong> of 
           "Output for function kc_overall_KC";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
         Real laminar=2200 "Maximum Reynolds number for laminar regime";
         Real turbulent=1e4 "Minimum Reynolds number for turbulent regime";
 
@@ -2728,7 +2728,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
       protected
         type TYP = Modelica.Fluid.Dissipation.Utilities.Types.Roughness;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Cross sectional area";
 
@@ -2800,7 +2800,7 @@ Calculation of mean convective heat transfer coefficient <strong>kc</strong> of 
       protected
         type TYP = Modelica.Fluid.Dissipation.Utilities.Types.Roughness;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Circular cross sectional area";
 
@@ -2875,7 +2875,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           "Local two phase heat transfer coefficient";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         //Documentation
       algorithm
@@ -2960,7 +2960,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
         output SI.Pressure DP "Output for function dp_curvedOverall_DP";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=max(MIN, IN_con.d_hyd) "Hydraulic diameter";
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Circular cross sectional area";
@@ -3101,7 +3101,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           "Output for function dp_curvedOverall_MFLOW";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=max(MIN, IN_con.d_hyd) "Hydraulic diameter";
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Circular cross sectional area";
@@ -3306,7 +3306,7 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
         output SI.Pressure DP "Output for function dp_edgedOverall_DP";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=max(MIN, IN_con.d_hyd) "Hydraulic diameter";
         SI.Area A_cross=PI*d_hyd^2/4 "Circular cross sectional area";
@@ -3433,7 +3433,7 @@ Generally this function is numerically best used for the <strong>incompressible 
           "Output for function dp_edgedOverall_MFLOW";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=IN_con.d_hyd "Hydraulic diameter";
         SI.Area A_cross=PI*d_hyd^2/4 "Circular cross sectional area";
@@ -3669,7 +3669,7 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
         type TYP =
             Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=max(MIN, if IN_con.geometry == TYP.Annular then (PI/4)*((
             IN_con.D_ann)^2 - (IN_con.d_ann)^2) else if IN_con.geometry == TYP.Circular then
@@ -3796,7 +3796,7 @@ Generally this function is numerically best used for the <strong>incompressible 
             Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow;
         type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.Roughness;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=max(MIN, if IN_con.geometry == TYP1.Annular then (PI/4)*((
             IN_con.D_ann)^2 - (IN_con.d_ann)^2) else if IN_con.geometry == TYP1.Circular then
@@ -4737,7 +4737,7 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
         output SI.Pressure DP "Output for function dp_suddenChange_DP";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
         SI.ReynoldsNumber Re_min=1
           "Minimum Reynolds number for linear smoothing";
         //restriction of local resistance coefficient zeta_LOC >> numerical improvement
@@ -4832,7 +4832,7 @@ Generally this function is numerically best used for the <strong>incompressible 
           "Output for function dp_suddenChange_MFLOW";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
         SI.Pressure dp_min=1 "Pressure loss for linear smoothing";
         //restriction of local resistance coefficient zeta_LOC >> numerical improvement
         TYP.LocalResistanceCoefficient zeta_LOC_min=1e-3
@@ -4942,7 +4942,7 @@ This record is used as <strong>input record</strong> for the pressure loss funct
         output SI.Pressure DP "Output for function dp_thickEdgedOverall_DP";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         TYP.DarcyFrictionFactor lambda_FRI=0.02
           "Assumption for Darcy friction factor in vena contraction according to SOURCE_1";
@@ -5023,7 +5023,7 @@ Generally this function is numerically best used for the <strong>incompressible 
           "Output for function dp_thickEdgedOverall_MFLOW";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
         TYP.DarcyFrictionFactor lambda_FRI=0.02
           "Assumption for Darcy friction factor in vena contraction according to SOURCE_1";
         SI.ReynoldsNumber Re_lim=1e3
@@ -5145,7 +5145,7 @@ Calculation of pressure loss in thick edged orifices with sharp corners at overa
         output SI.Pressure DP "Output for function dp_laminar_DP";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=IN_con.d_hyd "Hydraulic diameter";
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Circular cross sectional area";
@@ -5194,7 +5194,7 @@ Generally this function is numerically best used for the <strong>incompressible 
         output SI.MassFlowRate M_FLOW "Output for function dp_laminar_MFLOW";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=max(MIN, IN_con.d_hyd) "Hydraulic diameter";
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Circular cross sectional area";
@@ -5267,7 +5267,7 @@ This record is used as <strong>input record</strong> for the pressure loss funct
         output SI.Pressure DP "Output for function dp_overall_DP";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=max(MIN, IN_con.d_hyd) "Hydraulic diameter";
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Circular cross sectional area";
@@ -5344,7 +5344,7 @@ Generally this function is numerically best used for the <strong>incompressible 
         output SI.MassFlowRate M_FLOW "Output of function dp_overall_MFLOW";
 
       protected
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=max(MIN, IN_con.d_hyd) "Hydraulic diameter";
         SI.Area A_cross=max(MIN, PI*IN_con.d_hyd^2/4)
@@ -5478,7 +5478,7 @@ This record is used as <strong>input record</strong> for the pressure loss funct
       protected
         type TYP1 = Modelica.Fluid.Dissipation.Utilities.Types.Roughness;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.ReynoldsNumber Re_min=1;
         SI.Velocity v_min=Re_min*IN_var.eta/(IN_var.rho*IN_con.d_hyd);
@@ -5573,7 +5573,7 @@ Generally this function is numerically best used for the <strong>incompressible 
       protected
         type TYP1 = Modelica.Fluid.Dissipation.Utilities.Types.Roughness;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
         SI.ReynoldsNumber Re_min=1;
 
         SI.Diameter d_hyd=max(MIN, IN_con.d_hyd) "Hydraulic diameter";
@@ -5703,7 +5703,7 @@ This record is used as <strong>input record</strong> for the pressure loss funct
       protected
         type TYP = Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=max(MIN, IN_con.A_cross) "Cross sectional area";
         SI.Diameter d_hyd=max(MIN, 4*A_cross/max(MIN, IN_con.perimeter))
@@ -5904,7 +5904,7 @@ Calculation of pressure loss for <strong>two phase flow</strong> in a horizontal
             Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
         type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area Av=if IN_con.valveCoefficient == TYP1.AV then IN_con.Av else if
             IN_con.valveCoefficient == TYP1.KV then IN_con.Kv*27.7e-6 else if IN_con.valveCoefficient
@@ -6013,7 +6013,7 @@ Generally this function is numerically best used for the <strong>incompressible 
             Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
         type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
 
-        Real MIN=Modelica.Constants.eps;
+        constant Real MIN=Modelica.Constants.eps;
 
         SI.Area Av=if IN_con.valveCoefficient == TYP1.AV then IN_con.Av else if
             IN_con.valveCoefficient == TYP1.KV then IN_con.Kv*27.7e-6 else if IN_con.valveCoefficient
@@ -9876,7 +9876,7 @@ documentation available in this package.
             output SI.Pressure DP "Output for function dp_twoPhaseChisholm_DP";
 
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con
               IN_con_1ph(
@@ -9928,7 +9928,7 @@ documentation available in this package.
             output SI.Pressure DP "Output for function dp_twoPhaseFriedel_DP";
 
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             SI.Area A_cross=max(MIN, IN_con.A_cross) "Cross sectional area";
             SI.Diameter d_hyd=max(MIN, 4*A_cross/max(MIN, IN_con.perimeter))
@@ -10075,7 +10075,7 @@ documentation available in this package.
             output SI.Pressure DP_mom "Momentum pressure loss";
 
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             SI.Area Across=max(MIN, A_cross) "Cross sectional area";
             SI.Diameter d_hyd=max(MIN, 4*A_cross/max(MIN, perimeter))
@@ -10195,7 +10195,7 @@ documentation available in this package.
             output Real phi "Two phase multiplier w.r.t. Friedel";
 
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             SI.Area A_cross=max(MIN, IN_con.A_cross) "Cross sectional area";
             SI.Diameter d_hyd=max(MIN, 4*A_cross/max(MIN, IN_con.perimeter))
@@ -10295,7 +10295,7 @@ documentation available in this package.
             output Real phi "Two phase multiplier w.r.t. Chisholm";
 
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             SI.Area A_cross=max(MIN, IN_con.A_cross) "Cross sectional area";
             SI.Diameter d_hyd=max(MIN, 4*A_cross/max(MIN, IN_con.perimeter))
@@ -10388,7 +10388,7 @@ documentation available in this package.
 
             output SI.Density rho_2ph "Mean density of two phase flow";
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             Real epsilonA=min(1, max(0, abs(epsilon_A)))
               "Void fraction (cross sectional averaged)";
@@ -10473,7 +10473,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             output Real slipRatio "Slip ratio";
 
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             Real xflow=min(1, max(0, abs(x_flow))) "Mass flow rate quality";
 
@@ -10514,7 +10514,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             output Real SR "Slip ratio";
 
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             //SOURCE_1: p.Lba 3, sec. 3.2
             Real SR_hom=1 "Slip ratio w.r.t. homogeneous approach";
@@ -10564,7 +10564,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               "Local two phase heat transfer coefficient";
 
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             SI.Area A_cross=max(MIN, IN_con.A_cross) "Cross sectional area";
             SI.Diameter d_hyd=max(MIN, 4*A_cross/max(MIN, IN_con.perimeter))
@@ -10613,7 +10613,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               "Local two phase heat transfer coefficient";
 
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             SI.Area A_cross=max(MIN, IN_con.A_cross) "Cross sectional area";
             SI.Diameter d_hyd=max(MIN, 4*A_cross/max(MIN, IN_con.perimeter))
@@ -10690,7 +10690,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               "Local two phase heat transfer coefficient";
 
           protected
-            Real MIN=Modelica.Constants.eps;
+            constant Real MIN=Modelica.Constants.eps;
 
             SI.Area A_cross=max(MIN, IN_con.A_cross) "Cross sectional area";
             SI.Diameter d_hyd=max(MIN, 4*A_cross/max(MIN, IN_con.perimeter))
