@@ -7,7 +7,7 @@ model IMS_Characteristics "Characteristic curves of induction machine with slip 
   parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=imsData.fsNominal "Nominal frequency";
-  parameter SI.Resistance Rr=0.16/imsData.turnsRatio^2 "Starting resistance";
+  parameter SI.Resistance Rr=0.16'Ohm'/imsData.turnsRatio^2 "Starting resistance";
   parameter Integer p=imsData.p "Number of pole pairs";
   parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
        Modelica.Units.Conversions.from_rpm(1440.45)

@@ -51,7 +51,7 @@ model IM_SlipRing "Induction machine with slipring rotor"
   parameter SI.Voltage VsNominal(start=100)
     "Nominal stator voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));
-  parameter SI.Voltage VrLockedRotor(start=100*(2*pi*
+  parameter SI.Voltage VrLockedRotor(start=100'V'*(2*pi*
         fsNominal*Lm)/sqrt(Rs^2 + (2*pi*fsNominal*(Lm + Lssigma))^2))
     "Locked-rotor voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));

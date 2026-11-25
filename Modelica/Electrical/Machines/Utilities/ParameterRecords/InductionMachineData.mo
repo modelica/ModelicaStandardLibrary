@@ -20,7 +20,7 @@ record InductionMachineData "Common parameters for induction machines"
   parameter SI.Inductance Lszero=Lssigma
     "Stator zero sequence inductance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Inductance Lssigma=3*(1 - sqrt(1 - 0.0667))/
+  parameter SI.Inductance Lssigma=3'Ohm'*(1 - sqrt(1 - 0.0667))/
       (2*pi*fsNominal) "Stator stray inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Real ratioCommonStatorLeakage(final min=0, final max=1)=1

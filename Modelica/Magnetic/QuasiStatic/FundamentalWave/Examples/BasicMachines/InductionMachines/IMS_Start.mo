@@ -8,7 +8,7 @@ model IMS_Start "Starting of induction machine with slip rings"
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=ims.fsNominal "Nominal frequency";
   parameter SI.Time tOn=0.1 "Start time of machine";
-  parameter SI.Resistance RStart=0.16/imsData.turnsRatio^
+  parameter SI.Resistance RStart=0.16'Ohm'/imsData.turnsRatio^
       2 "Starting resistance";
   parameter SI.Time tRheostat=1.0
     "Time of shortening the rheostat";
