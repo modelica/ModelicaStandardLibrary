@@ -30,6 +30,9 @@
 */
 
 /* Changelog:
+      Apr. 29, 2026: by Dag Brueck, Dassault Systemes AB
+                     Initialize pointer variables to NULL
+                     (ticket #4783)
       Oct. 20, 2024: by Thomas Beutlich
                      Removed legacy behaviour in ModelicaInternal_stat for
                      MSVC Visual Studio >= 2015 (ticket #4473)
@@ -755,7 +758,7 @@ FALLBACK_getcwd:
 
 _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
     /* Get full path name of a temporary file name which does not exist */
-    char* fullName;
+    char* fullName = NULL;
 
     char* tempName = tmpnam(NULL);
     if (tempName == NULL) {
@@ -834,7 +837,7 @@ static void G2_FUNCNAME(ModelicaInternal_deleteCS)(void) {
 #endif
 
 static void CacheFileForReading(FILE* fp, const char* fileName, int lineNumber, char* buf, int bufLen) {
-    FileCache* fv;
+    FileCache* fv = NULL;
     size_t len;
     if (fileName == NULL) {
         /* Do not add, close file */
@@ -878,7 +881,7 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int lineNumber, 
 }
 
 static void CloseCachedFile(const char* fileName) {
-    FileCache* fv;
+    FileCache* fv = NULL;
     size_t len = strlen(fileName);
     MUTEX_LOCK();
     HASH_FIND(hh, fileCache, fileName, (unsigned)len, fv);
@@ -896,8 +899,8 @@ static void CloseCachedFile(const char* fileName) {
 
 static FILE* ModelicaStreams_openFileForReading(const char* fileName, int lineNumber, int* lineNumberOffset, char** buf, int* bufLen) {
     /* Open text file for reading */
-    FILE* fp;
-    FileCache* fv;
+    FILE* fp = NULL;
+    FileCache* fv = NULL;
     size_t len = strlen(fileName);
     *lineNumberOffset = 0;
     *buf = NULL;
@@ -954,7 +957,7 @@ void ModelicaStreams_closeFile(_In_z_ const char* fileName) {
 
 static FILE* ModelicaStreams_openFileForWriting(const char* fileName) {
     /* Open text file for writing (with append) */
-    FILE* fp;
+    FILE* fp = NULL;
 
     /* Check fileName */
     if ( fileName[0] == '\0' ) {
@@ -973,8 +976,8 @@ static FILE* ModelicaStreams_openFileForWriting(const char* fileName) {
 }
 
 static int readLine(_In_ char** buf, _In_ int* bufLen, _In_ FILE* fp) {
-    char* offset;
-    int oldBufLen;
+    char* offset = NULL;
+    int oldBufLen = 0;
 
     if (fgets(*buf, *bufLen, fp) == NULL) {
         return EOF;
@@ -1041,7 +1044,7 @@ int ModelicaInternal_countLines(_In_z_ const char* fileName) {
     /* Get number of lines of a file */
     int lineNumberOffset;
     int bufLen;
-    char* buf;
+    char* buf = NULL;
     int c;
     int nLines = 0;
     int start_of_line = 1;
@@ -1068,9 +1071,9 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
     /* Read file into string vector string[nLines] */
     int lineNumberOffset;
     int bufLen;
-    char* buf;
+    char* buf = NULL;
     FILE* fp = ModelicaStreams_openFileForReading(fileName, 0, &lineNumberOffset, &buf, &bufLen);
-    char* line;
+    char* line = NULL;
     size_t iLines = 1;
 
     if (buf == NULL) {
@@ -1184,8 +1187,8 @@ void ModelicaInternal_chdir(_In_z_ const char* directoryName) {
 }
 
 _Ret_z_ const char* ModelicaInternal_getcwd(int dummy) {
-    const char* cwd;
-    char* directory;
+    const char* cwd = NULL;
+    char* directory = NULL;
 
 #if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_POSIX_) || defined(__GNUC__)
     char localbuf[BUFFER_LENGTH];
@@ -1212,9 +1215,9 @@ _Ret_z_ const char* ModelicaInternal_getcwd(int dummy) {
 void ModelicaInternal_getenv(_In_z_ const char* name, int convertToSlash,
                              _Out_ const char** content, _Out_ int* exist) {
     /* Get content of environment variable */
-    char* result;
+    char* result = NULL;
 #if defined(_MSC_VER) && _MSC_VER >= 1400
-    char* value;
+    char* value = NULL;
     size_t len = 0;
     errno_t err = _dupenv_s(&value, &len, name);
     if (err) {
