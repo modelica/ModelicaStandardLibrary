@@ -100,5 +100,39 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-1
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"), experiment(StopTime=6));
+</html>",
+      figures = {
+        Figure(
+          title = "Ideal thyristors table input",
+          identifier = "11ab7",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = IdealThyristor1.v, legend = "Ideal thyristor voltage"),
+                Curve(y = IdealGTOThyristor1.v, legend = "Ideal GTO thyristor voltage")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = IdealThyristor1.off, legend = "Ideal thyristor off signal"),
+                Curve(y = IdealGTOThyristor1.off, legend = "Ideal GTO thyristor off signal")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Ideal thyristors periodic input",
+          identifier = "9c2a0",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = IdealThyristor2.v, legend = "Ideal thyristor voltage"),
+                Curve(y = IdealGTOThyristor2.v, legend = "Ideal GTO thyristor voltage")
+              }
+            )
+          }
+        )
+      }
+    ), experiment(StopTime=6));
 end CharacteristicThyristors;

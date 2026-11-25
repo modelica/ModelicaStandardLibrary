@@ -58,5 +58,21 @@ equation
 <ul>
 <li><em>October 13, 2009  </em>by Matthias Franke</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltage conversion",
+          identifier = "a190f",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = aD_Converter.p.v, legend = "Voltage at the aD_Converter"),
+                Curve(y = dA_Converter.p.v, legend = "Voltage at the dA_Converter")
+              }
+            )
+          }
+        )
+      }
+    ));
 end AD_DA_conversion;

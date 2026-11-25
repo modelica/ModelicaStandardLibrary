@@ -58,5 +58,21 @@ equation
     Documentation(info="<html>
 <p>This simple circuit uses the saturating inductor which has a changing inductance.</p>
 <p>This circuit should be simulated until 1 s. Compare <code>SaturatingInductance1.p.i</code> with <code>Inductance1.p.i</code> to see the difference between saturating and ideal inductor.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Inductor currents",
+          identifier = "76d05",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = SaturatingInductance1.p.i, legend = "Current in the inductor SaturatingInductance1"),
+                Curve(y = Inductance1.p.i, legend = "Current in the inductor Inductance1")
+              }
+            )
+          }
+        )
+      }
+    ));
 end ShowSaturatingInductor;

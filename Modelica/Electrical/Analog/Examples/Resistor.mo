@@ -40,5 +40,30 @@ equation
       points={{14,34},{32,34}}, color={191,0,0}));
 annotation (Documentation(info="<html>
 <p>This is a very simple circuit consisting of a voltage source and a resistor. The loss power in the resistor is transported to the environment via its heatPort.</p>
-</html>"), experiment(StopTime=5));
+</html>",
+      figures = {
+        Figure(
+          title = "Power loss",
+          identifier = "4910e",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = SineVoltage1.p.v, legend = "Source voltage")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = resistor.heatPort.T, legend = "Temperature in resistor")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = resistor.LossPower, legend = "Power loss in resistor")
+              }
+            )
+          }
+        )
+      }
+    ), experiment(StopTime=5));
 end Resistor;
