@@ -6,7 +6,7 @@ impure function getWorkDirectory "Get full path name of work directory"
   extends Modelica.Icons.Function;
   output String directory "Full path name of work directory";
 // POSIX function "getcwd"
-  external "C" directory = ModelicaInternal_getcwd(0) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" directory = ModelicaInternal_getcwd(0) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 
 </html>"));
@@ -16,7 +16,7 @@ impure function setWorkDirectory "Set work directory"
   extends Modelica.Icons.Function;
   input String directory "New work directory";
 // POSIX function "chdir"
-external "C" ModelicaInternal_chdir(directory) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+external "C" ModelicaInternal_chdir(directory) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 
 </html>"));
@@ -31,7 +31,7 @@ impure function getEnvironmentVariable "Get content of environment variable"
       "Content of environment variable (empty, if not existent)";
   output Boolean exist
       "= true, if environment variable exists; = false, if it does not exist";
-  external "C" ModelicaInternal_getenv(name, convertToSlash, content, exist) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" ModelicaInternal_getenv(name, convertToSlash, content, exist) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 
 </html>"));
@@ -43,7 +43,7 @@ impure function setEnvironmentVariable "Set content of local environment variabl
   input String content "Value of the environment variable";
   input Boolean convertFromSlash =  false
       "True, if '/' in environment variable shall be changed to native directory separators";
-external "C" ModelicaInternal_setenv(name, content, convertFromSlash) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+external "C" ModelicaInternal_setenv(name, content, convertFromSlash) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 
 </html>"));
@@ -59,7 +59,7 @@ end setEnvironmentVariable;
     output Integer mon "Month";
     output Integer year "Year";
     external "C" ModelicaInternal_getTime(ms,sec,min,hour,day,mon,year)
-      annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+      annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -131,7 +131,7 @@ All returned values are of type Integer and have the following meaning:
   impure function getPid "Retrieve the current process id"
     extends Modelica.Icons.Function;
     output Integer pid "Process ID";
-    external "C" pid = ModelicaInternal_getpid() annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+    external "C" pid = ModelicaInternal_getpid() annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC", License={"modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaInternal.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_uthash.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_stdint_msvc.txt", "modelica:/Modelica/Resources/Licenses/Third-party/LICENSE_win32_dirent.txt"});
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>

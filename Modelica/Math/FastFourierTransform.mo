@@ -642,7 +642,7 @@ See detailed example model:
     protected
       Real work[3*size(u,1) + 2*(div(size(u,1),2)+1)];
       external "C" info = ModelicaFFT_kiss_fftr(u, size(u,1), work, size(work,1), amplitudes, phases)
-                   annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaFFT.h\"", Library="ModelicaExternalC");
+                   annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaFFT.h\"", Library="ModelicaExternalC", License="modelica:/Modelica/Resources/Licenses/LICENSE_ModelicaKissFFT.txt");
       annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
