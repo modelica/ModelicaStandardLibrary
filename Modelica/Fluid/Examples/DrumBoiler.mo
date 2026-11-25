@@ -70,9 +70,9 @@ package DrumBoiler
     Modelica.Blocks.Interfaces.RealOutput V_l(unit="m3") "Liquid volume inside drum"
       annotation (Placement(transformation(extent={{100,74},{112,86}})));
   public
-    Modelica.Blocks.Math.Gain MW2W(k=1e6)
+    Modelica.Blocks.Math.Gain MW2W(final k=1e6)
       annotation (Placement(transformation(extent={{-54,-75.5},{-44,-64.5}})));
-    Modelica.Blocks.Math.Gain Pa2bar(k=1e-5) annotation (Placement(
+    Modelica.Blocks.Math.Gain Pa2bar(final k=1e-5) annotation (Placement(
           transformation(extent={{37,23},{47,33}})));
     Modelica.Thermal.HeatTransfer.Celsius.FromKelvin K2degC
       annotation (Placement(transformation(extent={{38,49},{48,59}})));
