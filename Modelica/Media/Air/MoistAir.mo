@@ -1269,13 +1269,19 @@ end thermalConductivity;
     end f_nonlinear;
 
   algorithm
-    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
-      function f_nonlinear(p=p, s=s, X=X[1:nX]), 190, 647);
+      if size(X, 1) == nX then
+        T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+          function f_nonlinear(p=p, s=s, X=X), 190, 647);
+      else
+        T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+          function f_nonlinear(p=p, s=s, X=cat(1,X[1:nXi],{1 - sum(X[1:nXi])})), 190, 647);
+      end if;
     annotation (Documentation(info="<html>
 Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.s_pTX\">s_pTX</a>.
 </html>",
         revisions="<html>
 <p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
+<p>2026-04-08 Corentin Lepais: Fixed the algorithm to append X[Air] to the vector X when size(X,1) differs from nX.</p>
 </html>"));
   end T_psX;
 
