@@ -1,16 +1,11 @@
 within Modelica.Mechanics.MultiBody.Visualizers;
 model FixedShape2
   "Visualizing an elementary shape with dynamically varying shape attributes (has two frame connectors)"
+  extends Interfaces.TwoFrames;
 
   import Modelica.Mechanics.MultiBody.Frames;
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Units.Conversions.to_unit1;
-
-  Interfaces.Frame_a frame_a
-    "Coordinate system a (all shape definition vectors are resolved in this frame)"
-     annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b "Coordinate system b"
-     annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   parameter Boolean animation=true "= true, if animation shall be enabled";
   parameter Types.ShapeType shapeType="box" "Type of shape"

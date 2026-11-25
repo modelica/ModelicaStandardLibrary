@@ -1,8 +1,7 @@
 within Modelica.Mechanics.MultiBody.Forces.Internal;
 model ZeroForceAndTorque "Set force and torque to zero"
-   extends Modelica.Blocks.Icons.Block;
-  Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
+  extends Modelica.Blocks.Icons.Block;
+  extends Interfaces.PartialOneFrame_a;
 equation
   frame_a.f = zeros(3);
   frame_a.t = zeros(3);

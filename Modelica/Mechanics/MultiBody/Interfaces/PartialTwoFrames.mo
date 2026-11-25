@@ -1,11 +1,8 @@
 within Modelica.Mechanics.MultiBody.Interfaces;
 partial model PartialTwoFrames
   "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected"
+  extends TwoFrames;
 
-  Interfaces.Frame_a frame_a "Coordinate system a fixed to the component with one cut-force and cut-torque" annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b "Coordinate system b fixed to the component with one cut-force and cut-torque" annotation (Placement(transformation(extent={{84,-16},{116,16}})));
-protected
-  outer Modelica.Mechanics.MultiBody.World world;
 equation
   assert(cardinality(frame_a) > 0,
     "Connector frame_a of component is not connected");
