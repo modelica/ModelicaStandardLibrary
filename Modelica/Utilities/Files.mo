@@ -655,7 +655,7 @@ Function <strong>splitPathName</strong>(..) splits a path name into its parts.
 end splitPathName;
 
 impure function temporaryFileName
-    "Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)"
+    "Return arbitrary name of an empty file freshly created in a directory where access rights allow to write to this file (useful for temporary output of files)"
   extends Modelica.Icons.Function;
   output String fileName "Full path name of temporary file";
   external "C" fileName=ModelicaInternal_temporaryFileName() annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
@@ -666,24 +666,19 @@ fileName = Files.<strong>temporaryFileName</strong>();
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Return arbitrary name of a file that does not exist
-and is in a directory where access rights allow to
-write to this file (useful for temporary output of files).
+Atomically create an empty file with an arbitrary name in a directory
+where access rights allow to write to this file (useful for temporary
+output of files), and return its full path name.
 </p>
 <p>
 The created temporary file is not automatically deleted when closed, but needs to be explicitly deleted, e.g. by <strong><a href=\"modelica://Modelica.Utilities.Files.removeFile\">removeFile</a></strong>(fileName).
 </p>
-<p>
-<strong>Warning:</strong>
-The underlying C implementation of <strong>ModelicaInternal_temporaryFileName</strong> calls the standard C function <strong>tmpnam</strong>, which has a race condition security problem in the case another process creates a file with the same fileName just after <strong>tmpnam</strong> generated the full path name.
-</p>
 <h4>Example</h4>
 <blockquote><pre>
 fileName = Files.temporaryFileName();
-   -> fileName is the absolute path name of the temporary file
+   -> fileName is the absolute path name of the (empty) temporary file
 Streams.print(String(System.getPid()), fileName);
-   -> Create the temporary file
-      Warning: Possible race condition on file access
+   -> Write to the temporary file
 Files.removeFile(fileName);
    -> Explicitly delete the temporary file (after use)
 </pre></blockquote>
@@ -782,8 +777,8 @@ In the table below an example call to every function is given:
       <td> Split path name in directory, file name kernel, file name extension.</td>
   </tr>
   <tr><td>fileName = <a href=\"modelica://Modelica.Utilities.Files.temporaryFileName\">temporaryFileName</a>()</td>
-      <td> Return arbitrary name of a file that does not exist<br>
-           and is in a directory where access rights allow to<br>
+      <td> Return arbitrary name of an empty file freshly created<br>
+           in a directory where access rights allow to<br>
            write to this file (useful for temporary output of files).</td>
   </tr>
   <tr><td>fileReference = <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>(uri)</td>
