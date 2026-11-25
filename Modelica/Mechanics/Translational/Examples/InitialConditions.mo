@@ -96,7 +96,29 @@ combination). In this case the system is not at rest.
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/InitialConditions.png\" alt=\"Initial conditions\">
 </blockquote>
-</html>"),
+</html>",
+      figures = {
+        Figure(
+          title = "Mass positions",
+          identifier = "f49c2",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = m1.s, legend = "Position of mass m1"),
+                Curve(y = m2.s, legend = "Position of mass m2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = m3.s, legend = "Position of mass m3"),
+                Curve(y = m4.s, legend = "Position of mass m4")
+              }
+            )
+          }
+        )
+      }
+    ),
     experiment(StopTime=5.0, Interval=0.001),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={

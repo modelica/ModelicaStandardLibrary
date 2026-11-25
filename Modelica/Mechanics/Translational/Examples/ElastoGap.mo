@@ -77,5 +77,27 @@ While mass1 is moved by both spring/damper forces all the time, this is not the 
 since elastoGap1 lifts off at s&nbsp;&gt;&nbsp;-0.5 m and elastoGap2 lifts off at s&nbsp;&lt;&nbsp;+0.5 m.
 Therefore, mass2 moves freely as long as -0.5&nbsp;m&nbsp;&lt;&nbsp;s&nbsp;&lt;&nbsp;+0.5&nbsp;m.
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Positions and velocitites",
+          identifier = "00623",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = mass1.s, legend = "Position of mass1"),
+                Curve(y = mass2.s, legend = "Position of mass2")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = mass1.v, legend = "Velocity of mass1"),
+                Curve(y = mass2.v, legend = "Velocity of mass2")
+              }
+            )
+          }
+        )
+      }
+    ));
 end ElastoGap;
