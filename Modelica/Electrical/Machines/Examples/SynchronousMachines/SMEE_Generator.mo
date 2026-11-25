@@ -173,5 +173,34 @@ rotor angle is very slowly increased. This allows to see several characteristics
 </ul>
 
 <p>Default machine parameters are used.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Power vs. rotor displacement angle",
+          identifier = "48c9a",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = rotorDisplacementAngle.rotorDisplacementAngle, y = electricalPowerSensor.P, legend = "Electric power sensor P vs. rotor displacement angle"),
+                Curve(x = rotorDisplacementAngle.rotorDisplacementAngle, y = electricalPowerSensor.Q, legend = "Electric power sensor Q vs. rotor displacement angle"),
+                Curve(x = rotorDisplacementAngle.rotorDisplacementAngle, y = mechanicalPowerSensor.P, legend = "Mechanical power sensor P vs. rotor displacement angle")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Current and torque vs. rotor displacement angle",
+          identifier = "c3184",
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = rotorDisplacementAngle.rotorDisplacementAngle, y = smee.tauElectrical, legend = "Motor torque vs. rotor displacement angle"),
+                Curve(x = rotorDisplacementAngle.rotorDisplacementAngle, y = currentQuasiRMSSensor.I, legend = "Stator current RMS vs. rotor displacement angle")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SMEE_Generator;

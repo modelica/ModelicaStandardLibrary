@@ -28,5 +28,27 @@ equation
     Documentation(info="<html>
 <p>This example demonstrates the operational behavior of a single-phase controlled rectifier with constant firing angle and resistive load.</p>
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Voltage and current",
+          identifier = "4d927",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentSensor.i, legend = "Measured current value"),
+                Curve(y = meanCurrent.y, legend = "Mean value of current")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = voltagesensor.v, legend = "Measured voltage value"),
+                Curve(y = meanVoltage.y, legend = "Mean value of voltage")
+              }
+            )
+          }
+        )
+      }
+    ));
 end Thyristor1Pulse_R;
