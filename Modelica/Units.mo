@@ -1411,8 +1411,10 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
       extends Modelica.Units.Icons.Conversion;
       input SI.Angle radian "Value in radian";
       output Modelica.Units.NonSI.Angle_deg degree "Value in degree";
+    protected
+      constant Real unitConversionFactor(unit = "deg/rad") = 1'1';
     algorithm
-      degree := (180.0/Modelica.Constants.pi)*radian;
+      degree := unitConversionFactor * radian;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{10,100},{-100,46}},
@@ -1425,8 +1427,10 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
       extends Modelica.Units.Icons.Conversion;
       input Modelica.Units.NonSI.Angle_deg degree "Value in degree";
       output SI.Angle radian "Value in radian";
+    protected
+      constant Real unitConversionFactor(unit = "rad/deg") = 1'1';
     algorithm
-      radian := (Modelica.Constants.pi/180.0)*degree;
+      radian := unitConversionFactor * degree;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{4,100},{-102,46}},
