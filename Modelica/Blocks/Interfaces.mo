@@ -355,6 +355,28 @@ continuous Real output signal y.
 
   end SI2SO;
 
+  partial block SI2SO2
+    "2 Single Input / 2 Single Output continuous control block"
+    extends Modelica.Blocks.Icons.Block;
+
+    RealInput u1 "Connector of Real input signal 1" annotation (Placement(
+          transformation(extent={{-140,40},{-100,80}})));
+    RealInput u2 "Connector of Real input signal 2" annotation (Placement(
+          transformation(extent={{-140,-80},{-100,-40}})));
+    RealOutput y1 "Connector of Real output signal 1" annotation (Placement(
+          transformation(extent={{100,50},{120,70}})));
+    RealOutput y2 "Connector of Real output signal 2" annotation (Placement(
+          transformation(extent={{100,-70},{120,-50}})));
+
+    annotation (Documentation(info="<html>
+<p>
+Block has two continuous Real input signals u1 and u2 and two
+continuous Real output signals y1 and y2.
+</p>
+</html>"));
+
+  end SI2SO2;
+
   partial block SIMO "Single Input Multiple Output continuous control block"
     extends Modelica.Blocks.Icons.Block;
     parameter Integer nout=1 "Number of outputs";
@@ -369,6 +391,22 @@ continuous Real output signal y.
 
 </html>"));
   end SIMO;
+
+  partial block SI2MO "2 Single Input / 1 Multiple Output continuous control block"
+    extends Modelica.Blocks.Icons.Block;
+    parameter Integer nout=1 "Number of outputs";
+    RealInput u1 "Connector of Real input signal 1" annotation (Placement(
+          transformation(extent={{-140,40},{-100,80}}, rotation=0)));
+    RealInput u2 "Connector of Real input signal 2" annotation (Placement(
+          transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
+    RealOutput y[nout] "Connector of Real output signal" annotation (Placement(
+          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+
+    annotation (Documentation(info="<html>
+<p>Block has two continuous Real input signals and a vector of continuous Real output signals.</p>
+</html>"));
+
+  end SI2MO;
 
   partial block MISO "Multiple Input Single Output continuous control block"
 
@@ -385,6 +423,24 @@ one continuous Real output signal.
 </p>
 </html>"));
   end MISO;
+
+  partial block MI2SO
+    "2 Multiple Input / Single Output continuous control block"
+    extends Modelica.Blocks.Icons.Block;
+    parameter Integer n=1 "Dimension of input vector.";
+    RealInput u1[n] "Connector 1 of Real input signals" annotation (Placement(
+          transformation(extent={{-140,40},{-100,80}})));
+    RealInput u2[n] "Connector 2 of Real input signals" annotation (Placement(
+          transformation(extent={{-140,-80},{-100,-40}})));
+    RealOutput y "Connector of Real output signals" annotation (Placement(
+          transformation(extent={{100,-10},{120,10}})));
+
+    annotation (Documentation(info="<html>
+<p>Block has two continuous Real input vectors u1 and u2 and one
+continuous Real output signal y. All input vectors have the same number of elements.
+</p>
+</html>"));
+  end MI2SO;
 
   partial block PartialRealMISO
     "Partial block with a RealVectorInput and a RealOutput signal"
