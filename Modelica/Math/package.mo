@@ -4885,7 +4885,11 @@ A_fud  = [-1, 2, -3;
               X,
               n,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -4904,24 +4908,24 @@ A_fud  = [-1, 2, -3;
 
     N       (input) INTEGER
             The number of linear equations, i.e., the order of the
-            matrix A.  N >= 0.
+            matrix A.  N &ge; 0.
 
     KL      (input) INTEGER
-            The number of subdiagonals within the band of A.  KL >= 0.
+            The number of subdiagonals within the band of A.  KL &ge; 0.
 
     KU      (input) INTEGER
-            The number of superdiagonals within the band of A.  KU >= 0.
+            The number of superdiagonals within the band of A.  KU &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of columns
-            of the matrix B.  NRHS >= 0.
+            of the matrix B.  NRHS &ge; 0.
 
     AB      (input/output) DOUBLE PRECISION array, dimension (LDAB,N)
             On entry, the matrix A in band storage, in rows KL+1 to
             2*KL+KU+1; rows 1 to KL of the array need not be set.
             The j-th column of A is stored in the j-th column of the
             array AB as follows:
-            AB(KL+KU+1+i-j,j) = A(i,j) for max(1,j-KU)<=i<=min(N,j+KL)
+            AB(KL+KU+1+i-j,j) = A(i,j) for max(1,j-KU) &le; i &le; min(N,j+KL)
             On exit, details of the factorization: U is stored as an
             upper triangular band matrix with KL+KU superdiagonals in
             rows 1 to KL+KU+1, and the multipliers used during the
@@ -4929,7 +4933,7 @@ A_fud  = [-1, 2, -3;
             See below for further details.
 
     LDAB    (input) INTEGER
-            The leading dimension of the array AB.  LDAB >= 2*KL+KU+1.
+            The leading dimension of the array AB.  LDAB &ge; 2*KL+KU+1.
 
     IPIV    (output) INTEGER array, dimension (N)
             The pivot indices that define the permutation matrix P;
@@ -4940,12 +4944,12 @@ A_fud  = [-1, 2, -3;
             On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB >= max(1,N).
+            The leading dimension of the array B.  LDB &ge; max(1,N).
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-            > 0:  if INFO = i, U(i,i) is exactly zero.  The factorization
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+            &gt; 0:  if INFO = i, U(i,i) is exactly zero.  The factorization
                   has been completed, but the factor U is exactly
                   singular, and the solution has not been computed.
 
@@ -4967,7 +4971,8 @@ A_fud  = [-1, 2, -3;
     Array elements marked * are not used by the routine; elements marked
     + need not be set on entry, but are required by the routine to store
     elements of U because of fill-in resulting from the row interchanges.
-"));
+</pre>
+</html>"));
     end dgbsv;
 
     pure function dgbsv_vec
@@ -4997,10 +5002,13 @@ A_fud  = [-1, 2, -3;
               x,
               n,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="
-Same as function LAPACK.dgbsv, but right hand side is a vector and not a matrix.
+      annotation (Documentation(info="<html>
+<p>
+Same as function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgbsv\">LAPACK.dgbsv</a>,
+but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgbsv.
-"));
+</p>
+</html>"));
     end dgbsv_vec;
 
     pure function dgecon
@@ -5030,7 +5038,11 @@ For details of the arguments, see documentation of dgbsv.
               work,
               iwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5052,14 +5064,14 @@ For details of the arguments, see documentation of dgbsv.
             = 'I':         Infinity-norm.
 
     N       (input) INTEGER
-            The order of the matrix A.  N >= 0.
+            The order of the matrix A.  N &ge; 0.
 
     A       (input) DOUBLE PRECISION array, dimension (LDA,N)
             The factors L and U from the factorization A = P*L*U
             as computed by DGETRF.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     ANORM   (input) DOUBLE PRECISION
             If NORM = '1' or 'O', the 1-norm of the original matrix A.
@@ -5075,8 +5087,9 @@ For details of the arguments, see documentation of dgbsv.
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+</pre>
+</html>"));
     end dgecon;
 
     pure function dgees
@@ -5117,7 +5130,11 @@ For details of the arguments, see documentation of dgbsv.
               lwork,
               bwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5136,7 +5153,7 @@ For details of the arguments, see documentation of dgbsv.
             [  a  b  ]
             [  c  a  ]
 
-    where b*c < 0. The eigenvalues of such a block are a +- sqrt(bc).
+    where b*c &lt; 0. The eigenvalues of such a block are a +- sqrt(bc).
 
     Arguments
     =========
@@ -5167,14 +5184,14 @@ For details of the arguments, see documentation of dgbsv.
             case INFO is set to N+2 (see INFO below).
 
     N       (input) INTEGER
-            The order of the matrix A. N >= 0.
+            The order of the matrix A. N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N matrix A.
             On exit, A has been overwritten by its real Schur form T.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     SDIM    (output) INTEGER
             If SORT = 'N', SDIM = 0.
@@ -5198,14 +5215,14 @@ For details of the arguments, see documentation of dgbsv.
             If JOBVS = 'N', VS is not referenced.
 
     LDVS    (input) INTEGER
-            The leading dimension of the array VS.  LDVS >= 1; if
-            JOBVS = 'V', LDVS >= N.
+            The leading dimension of the array VS.  LDVS &ge; 1; if
+            JOBVS = 'V', LDVS &ge; N.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) contains the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK >= max(1,3*N).
+            The dimension of the array WORK.  LWORK &ge; max(1,3*N).
             For good performance, LWORK must generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5218,9 +5235,9 @@ For details of the arguments, see documentation of dgbsv.
 
     INFO    (output) INTEGER
             = 0: successful exit
-            < 0: if INFO = -i, the i-th argument had an illegal value.
-            > 0: if INFO = i, and i is
-               <= N: the QR algorithm failed to compute all the
+            &lt; 0: if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0: if INFO = i, and i is
+               &le; N: the QR algorithm failed to compute all the
                      eigenvalues; elements 1:ILO-1 and i+1:N of WR and WI
                      contain those eigenvalues which have converged; if
                      JOBVS = 'V', VS contains the matrix which reduces A
@@ -5232,7 +5249,8 @@ For details of the arguments, see documentation of dgbsv.
                      complex eigenvalues so that leading eigenvalues in
                      the Schur form no longer satisfy SELECT=.TRUE.  This
                      could also be caused by underflow due to scaling.
-"));
+</pre>
+</html>"));
     end dgees;
 
     pure function dgeev
@@ -5267,11 +5285,17 @@ For details of the arguments, see documentation of dgbsv.
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="This function is not a full interface to the LAPACK function DGEEV,
+      annotation (Documentation(info="<html>
+<p>
+This function is not a full interface to the LAPACK function DGEEV,
 but calls it in such a way that only eigenvalues and right eigenvectors
 are computed.
+</p>
 
+<p>
 Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5300,14 +5324,14 @@ Lapack documentation
             = 'V': right eigenvectors of A are computed.
 
     N       (input) INTEGER
-            The order of the matrix A. N >= 0.
+            The order of the matrix A. N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N matrix A.
             On exit, A has been overwritten.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     WR      (output) DOUBLE PRECISION array, dimension (N)
     WI      (output) DOUBLE PRECISION array, dimension (N)
@@ -5329,8 +5353,8 @@ Lapack documentation
             u(j+1) = VL(:,j) - i*VL(:,j+1).
 
     LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL >= 1; if
-            JOBVL = 'V', LDVL >= N.
+            The leading dimension of the array VL.  LDVL &ge; 1; if
+            JOBVL = 'V', LDVL &ge; N.
 
     VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
             If JOBVR = 'V', the right eigenvectors v(j) are stored one
@@ -5344,15 +5368,15 @@ Lapack documentation
             v(j+1) = VR(:,j) - i*VR(:,j+1).
 
     LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR >= 1; if
-            JOBVR = 'V', LDVR >= N.
+            The leading dimension of the array VR.  LDVR &ge; 1; if
+            JOBVR = 'V', LDVR &ge; N.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK >= max(1,3*N), and
-            if JOBVL = 'V' or JOBVR = 'V', LWORK >= 4*N.  For good
+            The dimension of the array WORK.  LWORK &ge; max(1,3*N), and
+            if JOBVL = 'V' or JOBVR = 'V', LWORK &ge; 4*N.  For good
             performance, LWORK must generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5362,12 +5386,13 @@ Lapack documentation
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  if INFO = i, the QR algorithm failed to compute all the
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  if INFO = i, the QR algorithm failed to compute all the
                   eigenvalues, and no eigenvectors have been computed;
                   elements i+1:N of WR and WI contain eigenvalues which
                   have converged.
-"));
+</pre>
+</html>"));
     end dgeev;
 
     pure function dgeev_eigenValues
@@ -5410,7 +5435,11 @@ Lapack documentation
               lwork,
               info) annotation (Library="lapack");
 
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5439,14 +5468,14 @@ Lapack documentation
             = 'V': right eigenvectors of A are computed.
 
     N       (input) INTEGER
-            The order of the matrix A. N >= 0.
+            The order of the matrix A. N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N matrix A.
             On exit, A has been overwritten.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     WR      (output) DOUBLE PRECISION array, dimension (N)
     WI      (output) DOUBLE PRECISION array, dimension (N)
@@ -5468,8 +5497,8 @@ Lapack documentation
             u(j+1) = VL(:,j) - i*VL(:,j+1).
 
     LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL >= 1; if
-            JOBVL = 'V', LDVL >= N.
+            The leading dimension of the array VL.  LDVL &ge; 1; if
+            JOBVL = 'V', LDVL &ge; N.
 
     VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
             If JOBVR = 'V', the right eigenvectors v(j) are stored one
@@ -5483,15 +5512,15 @@ Lapack documentation
             v(j+1) = VR(:,j) - i*VR(:,j+1).
 
     LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR >= 1; if
-            JOBVR = 'V', LDVR >= N.
+            The leading dimension of the array VR.  LDVR &ge; 1; if
+            JOBVR = 'V', LDVR &ge; N.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK >= max(1,3*N), and
-            if JOBVL = 'V' or JOBVR = 'V', LWORK >= 4*N.  For good
+            The dimension of the array WORK.  LWORK &ge; max(1,3*N), and
+            if JOBVL = 'V' or JOBVR = 'V', LWORK &ge; 4*N.  For good
             performance, LWORK must generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5501,12 +5530,13 @@ Lapack documentation
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  if INFO = i, the QR algorithm failed to compute all the
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  if INFO = i, the QR algorithm failed to compute all the
                   eigenvalues, and no eigenvectors have been computed;
                   elements i+1:N of WR and WI contain eigenvalues which
                   have converged.
-"));
+</pre>
+</html>"));
     end dgeev_eigenValues;
 
     pure function dgeevx
@@ -5561,7 +5591,11 @@ Lapack documentation
               lwork,
               iwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5636,7 +5670,7 @@ Lapack documentation
             must also be computed (JOBVL = 'V' and JOBVR = 'V').
 
     N       (input) INTEGER
-            The order of the matrix A. N >= 0.
+            The order of the matrix A. N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N matrix A.
@@ -5645,7 +5679,7 @@ Lapack documentation
             version of the input matrix A.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     WR      (output) DOUBLE PRECISION array, dimension (N)
     WI      (output) DOUBLE PRECISION array, dimension (N)
@@ -5667,8 +5701,8 @@ Lapack documentation
             u(j+1) = VL(:,j) - i*VL(:,j+1).
 
     LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL >= 1; if
-            JOBVL = 'V', LDVL >= N.
+            The leading dimension of the array VL.  LDVL &ge; 1; if
+            JOBVL = 'V', LDVL &ge; N.
 
     VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
             If JOBVR = 'V', the right eigenvectors v(j) are stored one
@@ -5682,13 +5716,13 @@ Lapack documentation
             v(j+1) = VR(:,j) - i*VR(:,j+1).
 
     LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR >= 1, and if
-            JOBVR = 'V', LDVR >= N.
+            The leading dimension of the array VR.  LDVR &ge; 1, and if
+            JOBVR = 'V', LDVR &ge; N.
 
     ILO     (output) INTEGER
     IHI     (output) INTEGER
             ILO and IHI are integer values determined when A was
-            balanced.  The balanced A(i,j) = 0 if I > J and
+            balanced.  The balanced A(i,j) = 0 if I &gt; J and
             J = 1,...,ILO-1 or I = IHI+1,...,N.
 
     SCALE   (output) DOUBLE PRECISION array, dimension (N)
@@ -5719,8 +5753,8 @@ Lapack documentation
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.   If SENSE = 'N' or 'E',
-            LWORK >= max(1,2*N), and if JOBVL = 'V' or JOBVR = 'V',
-            LWORK >= 3*N.  If SENSE = 'V' or 'B', LWORK >= N*(N+6).
+            LWORK &ge; max(1,2*N), and if JOBVL = 'V' or JOBVR = 'V',
+            LWORK &ge; 3*N.  If SENSE = 'V' or 'B', LWORK &ge; N*(N+6).
             For good performance, LWORK must generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5733,12 +5767,13 @@ Lapack documentation
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  if INFO = i, the QR algorithm failed to compute all the
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  if INFO = i, the QR algorithm failed to compute all the
                   eigenvalues, and no eigenvectors or condition numbers
                   have been computed; elements 1:ILO-1 and i+1:N of WR
                   and WI contain eigenvalues which have converged.
-"));
+</pre>
+</html>"));
     end dgeevx;
 
     pure function dgehrd
@@ -5771,7 +5806,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5782,7 +5821,7 @@ Lapack documentation
     =========
 
     N       (input) INTEGER
-            The order of the matrix A.  N >= 0.
+            The order of the matrix A.  N &ge; 0.
 
     ILO     (input) INTEGER
     IHI     (input) INTEGER
@@ -5790,7 +5829,7 @@ Lapack documentation
             and columns 1:ILO-1 and IHI+1:N. ILO and IHI are normally
             set by a previous call to DGEBAL; otherwise they should be
             set to 1 and N respectively. See Further Details.
-            1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.
+            1 &le; ILO &le; IHI &le; N, if N &gt; 0; ILO=1 and IHI=0, if N=0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N general matrix to be reduced.
@@ -5801,7 +5840,7 @@ Lapack documentation
             reflectors. See Further Details.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     TAU     (output) DOUBLE PRECISION array, dimension (N-1)
             The scalar factors of the elementary reflectors (see Further
@@ -5812,8 +5851,8 @@ Lapack documentation
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The length of the array WORK.  LWORK >= max(1,N).
-            For optimum performance LWORK >= N*NB, where NB is the
+            The length of the array WORK.  LWORK &ge; max(1,N).
+            For optimum performance LWORK &ge; N*NB, where NB is the
             optimal blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5823,7 +5862,7 @@ Lapack documentation
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
 
     Further Details
     ===============
@@ -5857,7 +5896,8 @@ Lapack documentation
     where a denotes an element of the original matrix A, h denotes a
     modified element of the upper Hessenberg matrix H, and vi denotes an
     element of the vector defining H(i).
-"));
+</pre>
+</html>"));
     end dgehrd;
 
     pure function dgels_vec
@@ -5892,7 +5932,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5902,17 +5946,17 @@ Lapack documentation
 
     The following options are provided:
 
-    1. If TRANS = 'N' and m >= n:  find the least squares solution of
+    1. If TRANS = 'N' and m &ge; n:  find the least squares solution of
        an overdetermined system, i.e., solve the least squares problem
                     minimize || B - A*X ||.
 
-    2. If TRANS = 'N' and m < n:  find the minimum norm solution of
+    2. If TRANS = 'N' and m &lt; n:  find the minimum norm solution of
        an underdetermined system A * X = B.
 
-    3. If TRANS = 'T' and m >= n:  find the minimum norm solution of
+    3. If TRANS = 'T' and m &ge; n:  find the minimum norm solution of
        an undetermined system A**T * X = B.
 
-    4. If TRANS = 'T' and m < n:  find the least squares solution of
+    4. If TRANS = 'T' and m &lt; n:  find the least squares solution of
        an overdetermined system, i.e., solve the least squares problem
                     minimize || B - A**T * X ||.
 
@@ -5929,25 +5973,25 @@ Lapack documentation
             = 'T': the linear system involves A**T.
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M >= 0.
+            The number of rows of the matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N >= 0.
+            The number of columns of the matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of
-            columns of the matrices B and X. NRHS >=0.
+            columns of the matrices B and X. NRHS &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
             On exit,
-              if M >= N, A is overwritten by details of its QR
+              if M &ge; N, A is overwritten by details of its QR
                          factorization as returned by DGEQRF;
-              if M <  N, A is overwritten by details of its LQ
+              if M &lt;  N, A is overwritten by details of its LQ
                          factorization as returned by DGELQF.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
             On entry, the matrix B of right hand side vectors, stored
@@ -5955,30 +5999,30 @@ Lapack documentation
             if TRANS = 'T'.
             On exit, if INFO = 0, B is overwritten by the solution
             vectors, stored columnwise:
-            if TRANS = 'N' and m >= n, rows 1 to n of B contain the least
+            if TRANS = 'N' and m &ge; n, rows 1 to n of B contain the least
             squares solution vectors; the residual sum of squares for the
             solution in each column is given by the sum of squares of
             elements N+1 to M in that column;
-            if TRANS = 'N' and m < n, rows 1 to N of B contain the
+            if TRANS = 'N' and m &lt; n, rows 1 to N of B contain the
             minimum norm solution vectors;
-            if TRANS = 'T' and m >= n, rows 1 to M of B contain the
+            if TRANS = 'T' and m &ge; n, rows 1 to M of B contain the
             minimum norm solution vectors;
-            if TRANS = 'T' and m < n, rows 1 to M of B contain the
+            if TRANS = 'T' and m &lt; n, rows 1 to M of B contain the
             least squares solution vectors; the residual sum of squares
             for the solution in each column is given by the sum of
             squares of elements M+1 to N in that column.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B. LDB >= MAX(1,M,N).
+            The leading dimension of the array B. LDB &ge; MAX(1,M,N).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            LWORK >= max( 1, MN + max( MN, NRHS ) ).
+            LWORK &ge; max( 1, MN + max( MN, NRHS ) ).
             For optimal performance,
-            LWORK >= max( 1, MN + max( MN, NRHS )*NB ).
+            LWORK &ge; max( 1, MN + max( MN, NRHS )*NB ).
             where MN = min(M,N) and NB is the optimum block size.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -5988,12 +6032,13 @@ Lapack documentation
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-            > 0:  if INFO =  i, the i-th diagonal element of the
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+            &gt; 0:  if INFO =  i, the i-th diagonal element of the
                   triangular factor of A is zero, so that A does not have
                   full rank; the least squares solution could not be
                   computed.
-"));
+</pre>
+</html>"));
     end dgels_vec;
 
     pure function dgelsy
@@ -6035,7 +6080,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6080,14 +6129,14 @@ Lapack documentation
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M >= 0.
+            The number of rows of the matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N >= 0.
+            The number of columns of the matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of
-            columns of matrices B and X. NRHS >= 0.
+            columns of matrices B and X. NRHS &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
@@ -6095,14 +6144,14 @@ Lapack documentation
             complete orthogonal factorization.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
             On entry, the M-by-NRHS right hand side matrix B.
             On exit, the N-by-NRHS solution matrix X.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B. LDB >= max(1,M,N).
+            The leading dimension of the array B. LDB &ge; max(1,M,N).
 
     JPVT    (input/output) INTEGER array, dimension (N)
             On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
@@ -6114,7 +6163,7 @@ Lapack documentation
             RCOND is used to determine the effective rank of A, which
             is defined as the order of the largest leading triangular
             submatrix R11 in the QR factorization with pivoting of A,
-            whose estimated condition number < 1/RCOND.
+            whose estimated condition number &lt; 1/RCOND.
 
     RANK    (output) INTEGER
             The effective rank of A, i.e., the order of the submatrix
@@ -6127,10 +6176,10 @@ Lapack documentation
     LWORK   (input) INTEGER
             The dimension of the array WORK.
             The unblocked strategy requires that:
-               LWORK >= MAX( MN+3*N+1, 2*MN+NRHS ),
+               LWORK &ge; MAX( MN+3*N+1, 2*MN+NRHS ),
             where MN = min( M, N ).
             The block algorithm requires that:
-               LWORK >= MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ),
+               LWORK &ge; MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ),
             where NB is an upper bound on the blocksize returned
             by ILAENV for the routines DGEQP3, DTZRZF, STZRQF, DORMQR,
             and DORMRZ.
@@ -6142,8 +6191,9 @@ Lapack documentation
 
     INFO    (output) INTEGER
             = 0: successful exit
-            < 0: If INFO = -i, the i-th argument had an illegal value.
-"));
+            &lt; 0: If INFO = -i, the i-th argument had an illegal value.
+</pre>
+</html>"));
     end dgelsy;
 
     pure function dgelsy_vec
@@ -6185,115 +6235,13 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
-    Purpose
-    =======
-
-    DGELSY computes the minimum-norm solution to a real linear least
-    squares problem:
-        minimize || A * X - B ||
-    using a complete orthogonal factorization of A.  A is an M-by-N
-    matrix which may be rank-deficient.
-
-    Several right hand side vectors b and solution vectors x can be
-    handled in a single call; they are stored as the columns of the
-    M-by-NRHS right hand side matrix B and the N-by-NRHS solution
-    matrix X.
-
-    The routine first computes a QR factorization with column pivoting:
-        A * P = Q * [ R11 R12 ]
-                    [  0  R22 ]
-    with R11 defined as the largest leading submatrix whose estimated
-    condition number is less than 1/RCOND.  The order of R11, RANK,
-    is the effective rank of A.
-
-    Then, R22 is considered to be negligible, and R12 is annihilated
-    by orthogonal transformations from the right, arriving at the
-    complete orthogonal factorization:
-       A * P = Q * [ T11 0 ] * Z
-                   [  0  0 ]
-    The minimum-norm solution is then
-       X = P * Z' [ inv(T11)*Q1'*B ]
-                  [        0       ]
-    where Q1 consists of the first RANK columns of Q.
-
-    This routine is basically identical to the original xGELSX except
-    three differences:
-      o The call to the subroutine xGEQPF has been substituted by
-        the call to the subroutine xGEQP3. This subroutine is a Blas-3
-        version of the QR factorization with column pivoting.
-      o Matrix B (the right hand side) is updated with Blas-3.
-      o The permutation of matrix B (the right hand side) is faster and
-        more simple.
-
-    Arguments
-    =========
-
-    M       (input) INTEGER
-            The number of rows of the matrix A.  M >= 0.
-
-    N       (input) INTEGER
-            The number of columns of the matrix A.  N >= 0.
-
-    NRHS    (input) INTEGER
-            The number of right hand sides, i.e., the number of
-            columns of matrices B and X. NRHS >= 0.
-
-    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
-            On entry, the M-by-N matrix A.
-            On exit, A has been overwritten by details of its
-            complete orthogonal factorization.
-
-    LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
-
-    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
-            On entry, the M-by-NRHS right hand side matrix B.
-            On exit, the N-by-NRHS solution matrix X.
-
-    LDB     (input) INTEGER
-            The leading dimension of the array B. LDB >= max(1,M,N).
-
-    JPVT    (input/output) INTEGER array, dimension (N)
-            On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
-            to the front of AP, otherwise column i is a free column.
-            On exit, if JPVT(i) = k, then the i-th column of AP
-            was the k-th column of A.
-
-    RCOND   (input) DOUBLE PRECISION
-            RCOND is used to determine the effective rank of A, which
-            is defined as the order of the largest leading triangular
-            submatrix R11 in the QR factorization with pivoting of A,
-            whose estimated condition number < 1/RCOND.
-
-    RANK    (output) INTEGER
-            The effective rank of A, i.e., the order of the submatrix
-            R11.  This is the same as the order of the submatrix T11
-            in the complete orthogonal factorization of A.
-
-    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
-            On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-    LWORK   (input) INTEGER
-            The dimension of the array WORK.
-            The unblocked strategy requires that:
-               LWORK >= MAX( MN+3*N+1, 2*MN+NRHS ),
-            where MN = min( M, N ).
-            The block algorithm requires that:
-               LWORK >= MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ),
-            where NB is an upper bound on the blocksize returned
-            by ILAENV for the routines DGEQP3, DTZRZF, STZRQF, DORMQR,
-            and DORMRZ.
-
-            If LWORK = -1, then a workspace query is assumed; the routine
-            only calculates the optimal size of the WORK array, returns
-            this value as the first entry of the WORK array, and no error
-            message related to LWORK is issued by XERBLA.
-
-    INFO    (output) INTEGER
-            = 0: successful exit
-            < 0: If INFO = -i, the i-th argument had an illegal value.
-"));
+      annotation (Documentation(info="<html>
+<p>
+Same as function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgelsy\">LAPACK.dgelsy</a>,
+but right hand side is a vector and not a matrix.
+For details of the arguments, see documentation of dgelsy.
+</p>
+</html>"));
     end dgelsy_vec;
 
     pure function dgeqp3 "Compute QR factorization with column pivoting of square or rectangular matrix A"
@@ -6323,7 +6271,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6334,10 +6286,10 @@ Lapack documentation
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix A. M >= 0.
+            The number of rows of the matrix A. M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N >= 0.
+            The number of columns of the matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
@@ -6348,7 +6300,7 @@ Lapack documentation
             reflectors.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A. LDA >= max(1,M).
+            The leading dimension of the array A. LDA &ge; max(1,M).
 
     JPVT    (input/output) INTEGER array, dimension (N)
             On entry, if JPVT(J).ne.0, the J-th column of A is permuted
@@ -6364,8 +6316,8 @@ Lapack documentation
             On exit, if INFO=0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK >= 3*N+1.
-            For optimal performance LWORK >= 2*N+( N+1 )*NB, where NB
+            The dimension of the array WORK. LWORK &ge; 3*N+1.
+            For optimal performance LWORK &ge; 2*N+( N+1 )*NB, where NB
             is the optimal blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -6375,7 +6327,7 @@ Lapack documentation
 
     INFO    (output) INTEGER
             = 0: successful exit.
-            < 0: if INFO = -i, the i-th argument had an illegal value.
+            &lt; 0: if INFO = -i, the i-th argument had an illegal value.
 
     Further Details
     ===============
@@ -6395,7 +6347,8 @@ Lapack documentation
     Based on contributions by
       G. Quintana-Orti, Depto. de Informatica, Universidad Jaime I, Spain
       X. Sun, Computer Science Dept., Duke University, USA
-"));
+</pre>
+</html>"));
     end dgeqp3;
 
     pure function dgeqrf "Compute a QR factorization without pivoting"
@@ -6423,7 +6376,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6434,22 +6391,22 @@ Lapack documentation
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M >= 0.
+            The number of rows of the matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N >= 0.
+            The number of columns of the matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
             On exit, the elements on and above the diagonal of the array
             contain the min(M,N)-by-N upper trapezoidal matrix R (R is
-            upper triangular if m >= n); the elements below the diagonal,
+            upper triangular if m &ge; n); the elements below the diagonal,
             with the array TAU, represent the orthogonal matrix Q as a
             product of min(m,n) elementary reflectors (see Further
             Details).
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     TAU     (output) DOUBLE PRECISION array, dimension (min(M,N))
             The scalar factors of the elementary reflectors (see Further
@@ -6459,8 +6416,8 @@ Lapack documentation
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK >= max(1,N).
-            For optimum performance LWORK >= N*NB, where NB is
+            The dimension of the array WORK.  LWORK &ge; max(1,N).
+            For optimum performance LWORK &ge; N*NB, where NB is
             the optimal blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -6470,7 +6427,7 @@ Lapack documentation
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
 
     Further Details
     ===============
@@ -6486,7 +6443,8 @@ Lapack documentation
     where tau is a real scalar, and v is a real vector with
     v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i),
     and tau in TAU(i).
-"));
+</pre>
+</html>"));
     end dgeqrf;
 
     pure function dgesdd "Determine singular value decomposition"
@@ -6526,7 +6484,11 @@ Lapack documentation
               lwork,
               iwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6565,7 +6527,7 @@ Lapack documentation
             = 'S':  the first min(M,N) columns of U and the first
                     min(M,N) rows of V**T are returned in the arrays U
                     and VT;
-            = 'O':  If M >= N, the first N columns of U are overwritten
+            = 'O':  If M &ge; N, the first N columns of U are overwritten
                     on the array A and all rows of V**T are returned in
                     the array VT;
                     otherwise, all columns of U are returned in the
@@ -6574,65 +6536,65 @@ Lapack documentation
             = 'N':  no columns of U or rows of V**T are computed.
 
     M       (input) INTEGER
-            The number of rows of the input matrix A.  M >= 0.
+            The number of rows of the input matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the input matrix A.  N >= 0.
+            The number of columns of the input matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
             On exit,
             if JOBZ = 'O',  A is overwritten with the first N columns
                             of U (the left singular vectors, stored
-                            columnwise) if M >= N;
+                            columnwise) if M &ge; N;
                             A is overwritten with the first M rows
                             of V**T (the right singular vectors, stored
                             rowwise) otherwise.
             if JOBZ .ne. 'O', the contents of A are destroyed.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     S       (output) DOUBLE PRECISION array, dimension (min(M,N))
-            The singular values of A, sorted so that S(i) >= S(i+1).
+            The singular values of A, sorted so that S(i) &ge; S(i+1).
 
     U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
-            UCOL = M if JOBZ = 'A' or JOBZ = 'O' and M < N;
+            UCOL = M if JOBZ = 'A' or JOBZ = 'O' and M &lt; N;
             UCOL = min(M,N) if JOBZ = 'S'.
-            If JOBZ = 'A' or JOBZ = 'O' and M < N, U contains the M-by-M
+            If JOBZ = 'A' or JOBZ = 'O' and M &lt; N, U contains the M-by-M
             orthogonal matrix U;
             if JOBZ = 'S', U contains the first min(M,N) columns of U
             (the left singular vectors, stored columnwise);
-            if JOBZ = 'O' and M >= N, or JOBZ = 'N', U is not referenced.
+            if JOBZ = 'O' and M &ge; N, or JOBZ = 'N', U is not referenced.
 
     LDU     (input) INTEGER
-            The leading dimension of the array U.  LDU >= 1; if
-            JOBZ = 'S' or 'A' or JOBZ = 'O' and M < N, LDU >= M.
+            The leading dimension of the array U.  LDU &ge; 1; if
+            JOBZ = 'S' or 'A' or JOBZ = 'O' and M &lt; N, LDU &ge; M.
 
     VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
-            If JOBZ = 'A' or JOBZ = 'O' and M >= N, VT contains the
+            If JOBZ = 'A' or JOBZ = 'O' and M &ge; N, VT contains the
             N-by-N orthogonal matrix V**T;
             if JOBZ = 'S', VT contains the first min(M,N) rows of
             V**T (the right singular vectors, stored rowwise);
-            if JOBZ = 'O' and M < N, or JOBZ = 'N', VT is not referenced.
+            if JOBZ = 'O' and M &lt; N, or JOBZ = 'N', VT is not referenced.
 
     LDVT    (input) INTEGER
-            The leading dimension of the array VT.  LDVT >= 1; if
-            JOBZ = 'A' or JOBZ = 'O' and M >= N, LDVT >= N;
-            if JOBZ = 'S', LDVT >= min(M,N).
+            The leading dimension of the array VT.  LDVT &ge; 1; if
+            JOBZ = 'A' or JOBZ = 'O' and M &ge; N, LDVT &ge; N;
+            if JOBZ = 'S', LDVT &ge; min(M,N).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK >= 1.
+            The dimension of the array WORK. LWORK &ge; 1.
             If JOBZ = 'N',
-              LWORK >= 3*min(M,N) + max(max(M,N),7*min(M,N)).
+              LWORK &ge; 3*min(M,N) + max(max(M,N),7*min(M,N)).
             If JOBZ = 'O',
-              LWORK >= 3*min(M,N) +
+              LWORK &ge; 3*min(M,N) +
                        max(max(M,N),5*min(M,N)*min(M,N)+4*min(M,N)).
             If JOBZ = 'S' or 'A'
-              LWORK >= 3*min(M,N) +
+              LWORK &ge; 3*min(M,N) +
                        max(max(M,N),4*min(M,N)*min(M,N)+4*min(M,N)).
             For good performance, LWORK should generally be larger.
             If LWORK = -1 but other input arguments are legal, WORK(1)
@@ -6642,8 +6604,8 @@ Lapack documentation
 
     INFO    (output) INTEGER
             = 0:  successful exit.
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  DBDSDC did not converge, updating process failed.
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  DBDSDC did not converge, updating process failed.
 
     Further Details
     ===============
@@ -6651,7 +6613,8 @@ Lapack documentation
     Based on contributions by
        Ming Gu and Huan Ren, Computer Science Division, University of
        California at Berkeley, USA
-"));
+</pre>
+</html>"));
     end dgesdd;
 
     pure function dgesv
@@ -6678,7 +6641,11 @@ Lapack documentation
               X,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6698,11 +6665,11 @@ Lapack documentation
 
     N       (input) INTEGER
             The number of linear equations, i.e., the order of the
-            matrix A.  N >= 0.
+            matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of columns
-            of the matrix B.  NRHS >= 0.
+            of the matrix B.  NRHS &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N coefficient matrix A.
@@ -6710,7 +6677,7 @@ Lapack documentation
             A = P*L*U; the unit diagonal elements of L are not stored.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     IPIV    (output) INTEGER array, dimension (N)
             The pivot indices that define the permutation matrix P;
@@ -6721,15 +6688,16 @@ Lapack documentation
             On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB >= max(1,N).
+            The leading dimension of the array B.  LDB &ge; max(1,N).
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-            > 0:  if INFO = i, U(i,i) is exactly zero.  The factorization
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+            &gt; 0:  if INFO = i, U(i,i) is exactly zero.  The factorization
                   has been completed, but the factor U is exactly
                   singular, so the solution could not be computed.
-"));
+</pre>
+</html>"));
     end dgesv;
 
     pure function dgesv_vec
@@ -6756,10 +6724,13 @@ Lapack documentation
               x,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="
-Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
+      annotation (Documentation(info="<html>
+<p>
+Same as function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgesv\">LAPACK.dgesv</a>,
+but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgesv.
-"));
+</p>
+</html>"));
     end dgesv_vec;
 
     pure function dgesvd "Determine singular value decomposition"
@@ -6791,7 +6762,11 @@ For details of the arguments, see documentation of dgesv.
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6837,10 +6812,10 @@ For details of the arguments, see documentation of dgesv.
             JOBVT and JOBU cannot both be 'O'.
 
     M       (input) INTEGER
-            The number of rows of the input matrix A.  M >= 0.
+            The number of rows of the input matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the input matrix A.  N >= 0.
+            The number of columns of the input matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
@@ -6855,10 +6830,10 @@ For details of the arguments, see documentation of dgesv.
                             are destroyed.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     S       (output) DOUBLE PRECISION array, dimension (min(M,N))
-            The singular values of A, sorted so that S(i) >= S(i+1).
+            The singular values of A, sorted so that S(i) &ge; S(i+1).
 
     U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
             (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
@@ -6868,8 +6843,8 @@ For details of the arguments, see documentation of dgesv.
             if JOBU = 'N' or 'O', U is not referenced.
 
     LDU     (input) INTEGER
-            The leading dimension of the array U.  LDU >= 1; if
-            JOBU = 'S' or 'A', LDU >= M.
+            The leading dimension of the array U.  LDU &ge; 1; if
+            JOBU = 'S' or 'A', LDU &ge; M.
 
     VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
             If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
@@ -6879,12 +6854,12 @@ For details of the arguments, see documentation of dgesv.
             if JOBVT = 'N' or 'O', VT is not referenced.
 
     LDVT    (input) INTEGER
-            The leading dimension of the array VT.  LDVT >= 1; if
-            JOBVT = 'A', LDVT >= N; if JOBVT = 'S', LDVT >= min(M,N).
+            The leading dimension of the array VT.  LDVT &ge; 1; if
+            JOBVT = 'A', LDVT &ge; N; if JOBVT = 'S', LDVT &ge; min(M,N).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
-            if INFO > 0, WORK(2:MIN(M,N)) contains the unconverged
+            if INFO &gt; 0, WORK(2:MIN(M,N)) contains the unconverged
             superdiagonal elements of an upper bidiagonal matrix B
             whose diagonal is in S (not necessarily sorted). B
             satisfies A = U * B * VT, so it has the same singular values
@@ -6892,7 +6867,7 @@ For details of the arguments, see documentation of dgesv.
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            LWORK >= MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
+            LWORK &ge; MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
             For good performance, LWORK should generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -6902,12 +6877,13 @@ For details of the arguments, see documentation of dgesv.
 
     INFO    (output) INTEGER
             = 0:  successful exit.
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  if DBDSQR did not converge, INFO specifies how many
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  if DBDSQR did not converge, INFO specifies how many
                   superdiagonals of an intermediate bidiagonal form B
                   did not converge to zero. See the description of WORK
                   above for details.
-"));
+</pre>
+</html>"));
     end dgesvd;
 
     pure function dgesvd_sigma "Determine singular values"
@@ -6939,7 +6915,11 @@ For details of the arguments, see documentation of dgesv.
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6985,10 +6965,10 @@ For details of the arguments, see documentation of dgesv.
             JOBVT and JOBU cannot both be 'O'.
 
     M       (input) INTEGER
-            The number of rows of the input matrix A.  M >= 0.
+            The number of rows of the input matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the input matrix A.  N >= 0.
+            The number of columns of the input matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
@@ -7003,10 +6983,10 @@ For details of the arguments, see documentation of dgesv.
                             are destroyed.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     S       (output) DOUBLE PRECISION array, dimension (min(M,N))
-            The singular values of A, sorted so that S(i) >= S(i+1).
+            The singular values of A, sorted so that S(i) &ge; S(i+1).
 
     U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
             (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
@@ -7016,8 +6996,8 @@ For details of the arguments, see documentation of dgesv.
             if JOBU = 'N' or 'O', U is not referenced.
 
     LDU     (input) INTEGER
-            The leading dimension of the array U.  LDU >= 1; if
-            JOBU = 'S' or 'A', LDU >= M.
+            The leading dimension of the array U.  LDU &ge; 1; if
+            JOBU = 'S' or 'A', LDU &ge; M.
 
     VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
             If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
@@ -7027,12 +7007,12 @@ For details of the arguments, see documentation of dgesv.
             if JOBVT = 'N' or 'O', VT is not referenced.
 
     LDVT    (input) INTEGER
-            The leading dimension of the array VT.  LDVT >= 1; if
-            JOBVT = 'A', LDVT >= N; if JOBVT = 'S', LDVT >= min(M,N).
+            The leading dimension of the array VT.  LDVT &ge; 1; if
+            JOBVT = 'A', LDVT &ge; N; if JOBVT = 'S', LDVT &ge; min(M,N).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
-            if INFO > 0, WORK(2:MIN(M,N)) contains the unconverged
+            if INFO &gt; 0, WORK(2:MIN(M,N)) contains the unconverged
             superdiagonal elements of an upper bidiagonal matrix B
             whose diagonal is in S (not necessarily sorted). B
             satisfies A = U * B * VT, so it has the same singular values
@@ -7040,7 +7020,7 @@ For details of the arguments, see documentation of dgesv.
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            LWORK >= MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
+            LWORK &ge; MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
             For good performance, LWORK should generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -7050,12 +7030,13 @@ For details of the arguments, see documentation of dgesv.
 
     INFO    (output) INTEGER
             = 0:  successful exit.
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  if DBDSQR did not converge, INFO specifies how many
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  if DBDSQR did not converge, INFO specifies how many
                   superdiagonals of an intermediate bidiagonal form B
                   did not converge to zero. See the description of WORK
                   above for details.
-"));
+</pre>
+</html>"));
     end dgesvd_sigma;
 
     pure function dgesvx
@@ -7109,7 +7090,11 @@ For details of the arguments, see documentation of dgesv.
               work,
               iwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7183,11 +7168,11 @@ For details of the arguments, see documentation of dgesv.
 
     N       (input) INTEGER
             The number of linear equations, i.e., the order of the
-            matrix A.  N >= 0.
+            matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of columns
-            of the matrices B and X.  NRHS >= 0.
+            of the matrices B and X.  NRHS &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the N-by-N matrix A.  If FACT = 'F' and EQUED is
@@ -7201,7 +7186,7 @@ For details of the arguments, see documentation of dgesv.
             EQUED = 'B':  A := diag(R) * A * diag(C).
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     AF      (input or output) DOUBLE PRECISION array, dimension (LDAF,N)
             If FACT = 'F', then AF is an input argument and on entry
@@ -7219,7 +7204,7 @@ For details of the arguments, see documentation of dgesv.
             the form of the equilibrated matrix).
 
     LDAF    (input) INTEGER
-            The leading dimension of the array AF.  LDAF >= max(1,N).
+            The leading dimension of the array AF.  LDAF &ge; max(1,N).
 
     IPIV    (input or output) INTEGER array, dimension (N)
             If FACT = 'F', then IPIV is an input argument and on entry
@@ -7271,7 +7256,7 @@ For details of the arguments, see documentation of dgesv.
             overwritten by diag(C)*B.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB >= max(1,N).
+            The leading dimension of the array B.  LDB &ge; max(1,N).
 
     X       (output) DOUBLE PRECISION array, dimension (LDX,NRHS)
             If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X
@@ -7282,14 +7267,14 @@ For details of the arguments, see documentation of dgesv.
             and EQUED = 'R' or 'B'.
 
     LDX     (input) INTEGER
-            The leading dimension of the array X.  LDX >= max(1,N).
+            The leading dimension of the array X.  LDX &ge; max(1,N).
 
     RCOND   (output) DOUBLE PRECISION
             The estimate of the reciprocal condition number of the matrix
             A after equilibration (if done).  If RCOND is less than the
             machine precision (in particular, if RCOND = 0), the matrix
             is singular to working precision.  This condition is
-            indicated by a return code of INFO > 0.
+            indicated by a return code of INFO &gt; 0.
 
     FERR    (output) DOUBLE PRECISION array, dimension (NRHS)
             The estimated forward error bound for each solution vector
@@ -7313,7 +7298,7 @@ For details of the arguments, see documentation of dgesv.
             of the LU factorization of the (equilibrated) matrix A
             could be poor. This also means that the solution X, condition
             estimator RCOND, and forward error bound FERR could be
-            unreliable. If factorization fails with 0<INFO<=N, then
+            unreliable. If factorization fails with 0 &lt; INFO &le; N, then
             WORK(1) contains the reciprocal pivot growth factor for the
             leading INFO columns of A.
 
@@ -7321,9 +7306,9 @@ For details of the arguments, see documentation of dgesv.
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-            > 0:  if INFO = i, and i is
-                  <= N:  U(i,i) is exactly zero.  The factorization has
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+            &gt; 0:  if INFO = i, and i is
+                  &le; N:   U(i,i) is exactly zero.  The factorization has
                          been completed, but the factor U is exactly
                          singular, so the solution and error bounds
                          could not be computed. RCOND = 0 is returned.
@@ -7334,7 +7319,8 @@ For details of the arguments, see documentation of dgesv.
                          there are a number of situations where the
                          computed solution can be more accurate than the
                          value of RCOND would suggest.
-"));
+</pre>
+</html>"));
     end dgesvx;
 
     pure function dgetrf
@@ -7357,7 +7343,11 @@ For details of the arguments, see documentation of dgesv.
               lda,
               pivots,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7367,8 +7357,8 @@ For details of the arguments, see documentation of dgesv.
     The factorization has the form
        A = P * L * U
     where P is a permutation matrix, L is lower triangular with unit
-    diagonal elements (lower trapezoidal if m > n), and U is upper
-    triangular (upper trapezoidal if m < n).
+    diagonal elements (lower trapezoidal if m &gt; n), and U is upper
+    triangular (upper trapezoidal if m &lt; n).
 
     This is the right-looking Level 3 BLAS version of the algorithm.
 
@@ -7376,10 +7366,10 @@ For details of the arguments, see documentation of dgesv.
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M >= 0.
+            The number of rows of the matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N >= 0.
+            The number of columns of the matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix to be factored.
@@ -7387,20 +7377,21 @@ For details of the arguments, see documentation of dgesv.
             A = P*L*U; the unit diagonal elements of L are not stored.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
+            The leading dimension of the array A.  LDA &ge; max(1,M).
 
     IPIV    (output) INTEGER array, dimension (min(M,N))
-            The pivot indices; for 1 <= i <= min(M,N), row i of the
+            The pivot indices; for 1 &le; i &le; min(M,N), row i of the
             matrix was interchanged with row IPIV(i).
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-            > 0:  if INFO = i, U(i,i) is exactly zero. The factorization
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+            &gt; 0:  if INFO = i, U(i,i) is exactly zero. The factorization
                   has been completed, but the factor U is exactly
                   singular, and division by zero will occur if it is used
                   to solve a system of equations.
-"));
+</pre>
+</html>"));
     end dgetrf;
 
     pure function dgetri
@@ -7428,7 +7419,11 @@ For details of the arguments, see documentation of dgesv.
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7442,7 +7437,7 @@ For details of the arguments, see documentation of dgesv.
     =========
 
     N       (input) INTEGER
-            The order of the matrix A.  N >= 0.
+            The order of the matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the factors L and U from the factorization
@@ -7450,18 +7445,18 @@ For details of the arguments, see documentation of dgesv.
             On exit, if INFO = 0, the inverse of the original matrix A.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     IPIV    (input) INTEGER array, dimension (N)
-            The pivot indices from DGETRF; for 1<=i<=N, row i of the
+            The pivot indices from DGETRF; for 1 &le; i &le; N, row i of the
             matrix was interchanged with row IPIV(i).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO=0, then WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK >= max(1,N).
-            For optimal performance LWORK >= N*NB, where NB is
+            The dimension of the array WORK.  LWORK &ge; max(1,N).
+            For optimal performance LWORK &ge; N*NB, where NB is
             the optimal blocksize returned by ILAENV.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -7471,14 +7466,15 @@ For details of the arguments, see documentation of dgesv.
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-            > 0:  if INFO = i, U(i,i) is exactly zero; the matrix is
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+            &gt; 0:  if INFO = i, U(i,i) is exactly zero; the matrix is
                   singular and its inverse could not be computed.
-"));
+</pre>
+</html>"));
     end dgetri;
 
     pure function dgetrs
-      "Solve a system of linear equations with the LU decomposition from dgetrf"
+      "Solve a system of linear equations with B matrix and the LU decomposition from dgetrf"
 
       extends Modelica.Icons.Function;
       input Real LU[:, size(LU, 1)]
@@ -7504,7 +7500,11 @@ For details of the arguments, see documentation of dgesv.
               X,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7523,21 +7523,21 @@ For details of the arguments, see documentation of dgesv.
             = 'C':  A'* X = B  (Conjugate transpose = Transpose)
 
     N       (input) INTEGER
-            The order of the matrix A.  N >= 0.
+            The order of the matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of columns
-            of the matrix B.  NRHS >= 0.
+            of the matrix B.  NRHS &ge; 0.
 
     A       (input) DOUBLE PRECISION array, dimension (LDA,N)
             The factors L and U from the factorization A = P*L*U
             as computed by DGETRF.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     IPIV    (input) INTEGER array, dimension (N)
-            The pivot indices from DGETRF; for 1<=i<=N, row i of the
+            The pivot indices from DGETRF; for 1 &le; i &le; N, row i of the
             matrix was interchanged with row IPIV(i).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
@@ -7545,16 +7545,17 @@ For details of the arguments, see documentation of dgesv.
             On exit, the solution matrix X.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB >= max(1,N).
+            The leading dimension of the array B.  LDB &ge; max(1,N).
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+</pre>
+</html>"));
     end dgetrs;
 
     pure function dgetrs_vec
-      "Solve a system of linear equations with the LU decomposition from dgetrf"
+      "Solve a system of linear equations with b vector and the LU decomposition from dgetrf"
 
       extends Modelica.Icons.Function;
       input Real LU[:, size(LU, 1)]
@@ -7581,53 +7582,13 @@ For details of the arguments, see documentation of dgesv.
               x,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
-    Purpose
-    =======
-
-    DGETRS solves a system of linear equations
-       A * X = B  or  A' * X = B
-    with a general N-by-N matrix A using the LU factorization computed
-    by DGETRF.
-
-    Arguments
-    =========
-
-    TRANS   (input) CHARACTER*1
-            Specifies the form of the system of equations:
-            = 'N':  A * X = B  (No transpose)
-            = 'T':  A'* X = B  (Transpose)
-            = 'C':  A'* X = B  (Conjugate transpose = Transpose)
-
-    N       (input) INTEGER
-            The order of the matrix A.  N >= 0.
-
-    NRHS    (input) INTEGER
-            The number of right hand sides, i.e., the number of columns
-            of the matrix B.  NRHS >= 0.
-
-    A       (input) DOUBLE PRECISION array, dimension (LDA,N)
-            The factors L and U from the factorization A = P*L*U
-            as computed by DGETRF.
-
-    LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
-
-    IPIV    (input) INTEGER array, dimension (N)
-            The pivot indices from DGETRF; for 1<=i<=N, row i of the
-            matrix was interchanged with row IPIV(i).
-
-    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
-            On entry, the right hand side matrix B.
-            On exit, the solution matrix X.
-
-    LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB >= max(1,N).
-
-    INFO    (output) INTEGER
-            = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+      annotation (Documentation(info="<html>
+<p>
+Same as function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgetrs\">LAPACK.dgetrs</a>,
+but right hand side is a vector and not a matrix.
+For details of the arguments, see documentation of dgetrs.
+</p>
+</html>"));
     end dgetrs_vec;
 
     pure function dggev
@@ -7674,7 +7635,11 @@ For details of the arguments, see documentation of dgesv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7712,21 +7677,21 @@ For details of the arguments, see documentation of dgesv.
             = 'V':  compute the right generalized eigenvectors.
 
     N       (input) INTEGER
-            The order of the matrices A, B, VL, and VR.  N >= 0.
+            The order of the matrices A, B, VL, and VR.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA, N)
             On entry, the matrix A in the pair (A,B).
             On exit, A has been overwritten.
 
     LDA     (input) INTEGER
-            The leading dimension of A.  LDA >= max(1,N).
+            The leading dimension of A.  LDA &ge; max(1,N).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB, N)
             On entry, the matrix B in the pair (A,B).
             On exit, B has been overwritten.
 
     LDB     (input) INTEGER
-            The leading dimension of B.  LDB >= max(1,N).
+            The leading dimension of B.  LDB &ge; max(1,N).
 
     ALPHAR  (output) DOUBLE PRECISION array, dimension (N)
     ALPHAI  (output) DOUBLE PRECISION array, dimension (N)
@@ -7756,8 +7721,8 @@ For details of the arguments, see documentation of dgesv.
             Not referenced if JOBVL = 'N'.
 
     LDVL    (input) INTEGER
-            The leading dimension of the matrix VL. LDVL >= 1, and
-            if JOBVL = 'V', LDVL >= N.
+            The leading dimension of the matrix VL. LDVL &ge; 1, and
+            if JOBVL = 'V', LDVL &ge; N.
 
     VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
             If JOBVR = 'V', the right eigenvectors v(j) are stored one
@@ -7771,14 +7736,14 @@ For details of the arguments, see documentation of dgesv.
             Not referenced if JOBVR = 'N'.
 
     LDVR    (input) INTEGER
-            The leading dimension of the matrix VR. LDVR >= 1, and
-            if JOBVR = 'V', LDVR >= N.
+            The leading dimension of the matrix VR. LDVR &ge; 1, and
+            if JOBVR = 'V', LDVR &ge; N.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK >= max(1,8*N).
+            The dimension of the array WORK.  LWORK &ge; max(1,8*N).
             For good performance, LWORK must generally be larger.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -7788,14 +7753,15 @@ For details of the arguments, see documentation of dgesv.
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
             = 1,...,N:
                   The QZ iteration failed.  No eigenvectors have been
                   calculated, but ALPHAR(j), ALPHAI(j), and BETA(j)
                   should be correct for j=INFO+1,...,N.
-            > N:  =N+1: other than QZ iteration failed in DHGEQZ.
+            &gt; N:  =N+1: other than QZ iteration failed in DHGEQZ.
                   =N+2: error return from DTGEVC.
-"));
+</pre>
+</html>"));
     end dggev;
 
     pure function dggevx
@@ -7860,7 +7826,11 @@ For details of the arguments, see documentation of dgesv.
               iwork,
               bwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7922,7 +7892,7 @@ For details of the arguments, see documentation of dgesv.
             = 'B': computed for eigenvalues and eigenvectors.
 
     N       (input) INTEGER
-            The order of the matrices A, B, VL, and VR.  N >= 0.
+            The order of the matrices A, B, VL, and VR.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA, N)
             On entry, the matrix A in the pair (A,B).
@@ -7931,7 +7901,7 @@ For details of the arguments, see documentation of dgesv.
             form of the \"balanced\" versions of the input A and B.
 
     LDA     (input) INTEGER
-            The leading dimension of A.  LDA >= max(1,N).
+            The leading dimension of A.  LDA &ge; max(1,N).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB, N)
             On entry, the matrix B in the pair (A,B).
@@ -7940,7 +7910,7 @@ For details of the arguments, see documentation of dgesv.
             form of the \"balanced\" versions of the input A and B.
 
     LDB     (input) INTEGER
-            The leading dimension of B.  LDB >= max(1,N).
+            The leading dimension of B.  LDB &ge; max(1,N).
 
     ALPHAR  (output) DOUBLE PRECISION array, dimension (N)
     ALPHAI  (output) DOUBLE PRECISION array, dimension (N)
@@ -7970,8 +7940,8 @@ For details of the arguments, see documentation of dgesv.
             Not referenced if JOBVL = 'N'.
 
     LDVL    (input) INTEGER
-            The leading dimension of the matrix VL. LDVL >= 1, and
-            if JOBVL = 'V', LDVL >= N.
+            The leading dimension of the matrix VL. LDVL &ge; 1, and
+            if JOBVL = 'V', LDVL &ge; N.
 
     VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
             If JOBVR = 'V', the right eigenvectors v(j) are stored one
@@ -7985,13 +7955,13 @@ For details of the arguments, see documentation of dgesv.
             Not referenced if JOBVR = 'N'.
 
     LDVR    (input) INTEGER
-            The leading dimension of the matrix VR. LDVR >= 1, and
-            if JOBVR = 'V', LDVR >= N.
+            The leading dimension of the matrix VR. LDVR &ge; 1, and
+            if JOBVR = 'V', LDVR &ge; N.
 
     ILO     (output) INTEGER
     IHI     (output) INTEGER
             ILO and IHI are integer values such that on exit
-            A(i,j) = 0 and B(i,j) = 0 if i > j and
+            A(i,j) = 0 and B(i,j) = 0 if i &gt; j and
             j = 1,...,ILO-1 or i = IHI+1,...,N.
             If BALANC = 'N' or 'S', ILO = 1 and IHI = N.
 
@@ -8046,11 +8016,11 @@ For details of the arguments, see documentation of dgesv.
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK >= max(1,2*N).
+            The dimension of the array WORK. LWORK &ge; max(1,2*N).
             If BALANC = 'S' or 'B', or JOBVL = 'V', or JOBVR = 'V',
-            LWORK >= max(1,6*N).
-            If SENSE = 'E' or 'B', LWORK >= max(1,10*N).
-            If SENSE = 'V' or 'B', LWORK >= 2*N*N+8*N+16.
+            LWORK &ge; max(1,6*N).
+            If SENSE = 'E' or 'B', LWORK &ge; max(1,10*N).
+            If SENSE = 'V' or 'B', LWORK &ge; 2*N*N+8*N+16.
 
             If LWORK = -1, then a workspace query is assumed; the routine
             only calculates the optimal size of the WORK array, returns
@@ -8065,12 +8035,12 @@ For details of the arguments, see documentation of dgesv.
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
             = 1,...,N:
                   The QZ iteration failed.  No eigenvectors have been
                   calculated, but ALPHAR(j), ALPHAI(j), and BETA(j)
                   should be correct for j=INFO+1,...,N.
-            > N:  =N+1: other than QZ iteration failed in DHGEQZ.
+            &gt; N:  =N+1: other than QZ iteration failed in DHGEQZ.
                   =N+2: error return from DTGEVC.
 
     Further Details
@@ -8089,7 +8059,7 @@ For details of the arguments, see documentation of dgesv.
     computed generalized eigenvalue w and the corresponding exact
     eigenvalue lambda is
 
-         chord(w, lambda) <= EPS * norm(ABNRM, BBNRM) / RCONDE(I)
+         chord(w, lambda) &le; EPS * norm(ABNRM, BBNRM) / RCONDE(I)
 
     An approximate error bound for the angle between the i-th computed
     eigenvector VL(i) or VR(i) is given by
@@ -8098,7 +8068,8 @@ For details of the arguments, see documentation of dgesv.
 
     For further explanation of the reciprocal condition numbers RCONDE
     and RCONDV, see section 4.11 of LAPACK User's Guide.
-"));
+</pre>
+</html>"));
     end dggevx;
 
     pure function dgglse_vec
@@ -8137,7 +8108,11 @@ For details of the arguments, see documentation of dgesv.
               lwork,
               info) annotation (Library="lapack");
 
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8148,7 +8123,7 @@ For details of the arguments, see documentation of dgesv.
 
     where A is an M-by-N matrix, B is a P-by-N matrix, c is a given
     M-vector, and d is a given P-vector. It is assumed that
-    P <= N <= M+P, and
+    P &le; N &le; M+P, and
 
              rank(B) = P and  rank( (A) ) = N.
                                   ( (B) )
@@ -8163,13 +8138,13 @@ For details of the arguments, see documentation of dgesv.
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M >= 0.
+            The number of rows of the matrix A.  M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrices A and B. N >= 0.
+            The number of columns of the matrices A and B. N &ge; 0.
 
     P       (input) INTEGER
-            The number of rows of the matrix B. 0 <= P <= N <= M+P.
+            The number of rows of the matrix B. 0 &le; P &le; N &le; M+P.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the M-by-N matrix A.
@@ -8177,7 +8152,7 @@ For details of the arguments, see documentation of dgesv.
             contain the min(M,N)-by-N upper trapezoidal matrix T.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A. LDA >= max(1,M).
+            The leading dimension of the array A. LDA &ge; max(1,M).
 
     B       (input/output) DOUBLE PRECISION array, dimension (LDB,N)
             On entry, the P-by-N matrix B.
@@ -8185,7 +8160,7 @@ For details of the arguments, see documentation of dgesv.
             contains the P-by-P upper triangular matrix R.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B. LDB >= max(1,P).
+            The leading dimension of the array B. LDB &ge; max(1,P).
 
     C       (input/output) DOUBLE PRECISION array, dimension (M)
             On entry, C contains the right hand side vector for the
@@ -8206,8 +8181,8 @@ For details of the arguments, see documentation of dgesv.
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK >= max(1,M+N+P).
-            For optimum performance LWORK >= P+min(M,N)+max(M,N)*NB,
+            The dimension of the array WORK. LWORK &ge; max(1,M+N+P).
+            For optimum performance LWORK &ge; P+min(M,N)+max(M,N)*NB,
             where NB is an upper bound for the optimal blocksizes for
             DGEQRF, SGERQF, DORMQR and SORMRQ.
 
@@ -8218,18 +8193,19 @@ For details of the arguments, see documentation of dgesv.
 
     INFO    (output) INTEGER
             = 0:  successful exit.
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
             = 1:  the upper triangular factor R associated with B in the
                   generalized RQ factorization of the pair (B, A) is
-                  singular, so that rank(B) < P; the least squares
+                  singular, so that rank(B) &lt; P; the least squares
                   solution could not be computed.
             = 2:  the (N-P) by (N-P) part of the upper trapezoidal factor
                   T associated with A in the generalized RQ factorization
                   of the pair (B, A) is singular, so that
-                  rank( (A) ) < N; the least squares solution could not
+                  rank( (A) ) &lt; N; the least squares solution could not
                       ( (B) )
                   be computed.
-"));
+</pre>
+</html>"));
     end dgglse_vec;
 
     pure function dgtsv
@@ -8259,7 +8235,11 @@ For details of the arguments, see documentation of dgesv.
               X,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8277,11 +8257,11 @@ For details of the arguments, see documentation of dgesv.
     =========
 
     N       (input) INTEGER
-            The order of the matrix A.  N >= 0.
+            The order of the matrix A.  N &ge; 0.
 
     NRHS    (input) INTEGER
             The number of right hand sides, i.e., the number of columns
-            of the matrix B.  NRHS >= 0.
+            of the matrix B.  NRHS &ge; 0.
 
     DL      (input/output) DOUBLE PRECISION array, dimension (N-1)
             On entry, DL must contain the (n-1) sub-diagonal elements of
@@ -8308,15 +8288,16 @@ For details of the arguments, see documentation of dgesv.
             On exit, if INFO = 0, the N by NRHS solution matrix X.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B.  LDB >= max(1,N).
+            The leading dimension of the array B.  LDB &ge; max(1,N).
 
     INFO    (output) INTEGER
             = 0: successful exit
-            < 0: if INFO = -i, the i-th argument had an illegal value
-            > 0: if INFO = i, U(i,i) is exactly zero, and the solution
+            &lt; 0: if INFO = -i, the i-th argument had an illegal value
+            &gt; 0: if INFO = i, U(i,i) is exactly zero, and the solution
                  has not been computed.  The factorization has not been
                  completed unless i = N.
-"));
+</pre>
+</html>"));
     end dgtsv;
 
     pure function dgtsv_vec
@@ -8346,10 +8327,13 @@ For details of the arguments, see documentation of dgesv.
               x,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="
-Same as function LAPACK.dgtsv, but right hand side is a vector and not a matrix.
+      annotation (Documentation(info="<html>
+<p>
+Same as function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgtsv\">LAPACK.dgtsv</a>,
+but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgtsv.
-"));
+</p>
+</html>"));
     end dgtsv_vec;
 
     pure function dhgeqz "Compute generalized eigenvalues for a (A,B) system"
@@ -8398,7 +8382,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8428,7 +8416,7 @@ For details of the arguments, see documentation of dgtsv.
     Additionally, the 2-by-2 upper triangular diagonal blocks of P
     corresponding to 2-by-2 blocks of S are reduced to positive diagonal
     form, i.e., if S(j+1,j) is non-zero, then P(j+1,j) = P(j,j+1) = 0,
-    P(j,j) > 0, and P(j+1,j+1) > 0.
+    P(j,j) &gt; 0, and P(j+1,j+1) &gt; 0.
 
     Optionally, the orthogonal matrix Q from the generalized Schur
     factorization may be postmultiplied into an input matrix Q1, and the
@@ -8479,14 +8467,14 @@ For details of the arguments, see documentation of dgtsv.
                    the product Z1*Z is returned.
 
     N       (input) INTEGER
-            The order of the matrices H, T, Q, and Z.  N >= 0.
+            The order of the matrices H, T, Q, and Z.  N &ge; 0.
 
     ILO     (input) INTEGER
     IHI     (input) INTEGER
             ILO and IHI mark the rows and columns of H which are in
             Hessenberg form.  It is assumed that A is already upper
             triangular in rows and columns 1:ILO-1 and IHI+1:N.
-            If N > 0, 1 <= ILO <= IHI <= N; if N = 0, ILO=1 and IHI=0.
+            If N &gt; 0, 1 &le; ILO &le; IHI &le; N; if N = 0, ILO=1 and IHI=0.
 
     H       (input/output) DOUBLE PRECISION array, dimension (LDH, N)
             On entry, the N-by-N upper Hessenberg matrix H.
@@ -8494,12 +8482,12 @@ For details of the arguments, see documentation of dgtsv.
             matrix S from the generalized Schur factorization;
             2-by-2 diagonal blocks (corresponding to complex conjugate
             pairs of eigenvalues) are returned in standard form, with
-            H(i,i) = H(i+1,i+1) and H(i+1,i)*H(i,i+1) < 0.
+            H(i,i) = H(i+1,i+1) and H(i+1,i)*H(i,i+1) &lt; 0.
             If JOB = 'E', the diagonal blocks of H match those of S, but
             the rest of H is unspecified.
 
     LDH     (input) INTEGER
-            The leading dimension of the array H.  LDH >= max( 1, N ).
+            The leading dimension of the array H.  LDH &ge; max( 1, N ).
 
     T       (input/output) DOUBLE PRECISION array, dimension (LDT, N)
             On entry, the N-by-N upper triangular matrix T.
@@ -8507,13 +8495,13 @@ For details of the arguments, see documentation of dgtsv.
             matrix P from the generalized Schur factorization;
             2-by-2 diagonal blocks of P corresponding to 2-by-2 blocks of S
             are reduced to positive diagonal form, i.e., if H(j+1,j) is
-            non-zero, then T(j+1,j) = T(j,j+1) = 0, T(j,j) > 0, and
-            T(j+1,j+1) > 0.
+            non-zero, then T(j+1,j) = T(j,j+1) = 0, T(j,j) &gt; 0, and
+            T(j+1,j+1) &gt; 0.
             If JOB = 'E', the diagonal blocks of T match those of P, but
             the rest of T is unspecified.
 
     LDT     (input) INTEGER
-            The leading dimension of the array T.  LDT >= max( 1, N ).
+            The leading dimension of the array T.  LDT &ge; max( 1, N ).
 
     ALPHAR  (output) DOUBLE PRECISION array, dimension (N)
             The real parts of each scalar alpha defining an eigenvalue
@@ -8543,8 +8531,8 @@ For details of the arguments, see documentation of dgtsv.
             Not referenced if COMPZ = 'N'.
 
     LDQ     (input) INTEGER
-            The leading dimension of the array Q.  LDQ >= 1.
-            If COMPQ='V' or 'I', then LDQ >= N.
+            The leading dimension of the array Q.  LDQ &ge; 1.
+            If COMPQ='V' or 'I', then LDQ &ge; N.
 
     Z       (input/output) DOUBLE PRECISION array, dimension (LDZ, N)
             On entry, if COMPZ = 'V', the orthogonal matrix Z1 used in
@@ -8555,14 +8543,14 @@ For details of the arguments, see documentation of dgtsv.
             Not referenced if COMPZ = 'N'.
 
     LDZ     (input) INTEGER
-            The leading dimension of the array Z.  LDZ >= 1.
-            If COMPZ='V' or 'I', then LDZ >= N.
+            The leading dimension of the array Z.  LDZ &ge; 1.
+            If COMPZ='V' or 'I', then LDZ &ge; N.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
-            On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
+            On exit, if INFO &ge; 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK >= max(1,N).
+            The dimension of the array WORK.  LWORK &ge; max(1,N).
 
             If LWORK = -1, then a workspace query is assumed; the routine
             only calculates the optimal size of the WORK array, returns
@@ -8571,7 +8559,7 @@ For details of the arguments, see documentation of dgtsv.
 
     INFO    (output) INTEGER
             = 0: successful exit
-            < 0: if INFO = -i, the i-th argument had an illegal value
+            &lt; 0: if INFO = -i, the i-th argument had an illegal value
             = 1,...,N: the QZ iteration did not converge.  (H,T) is not
                        in Schur form, but ALPHAR(i), ALPHAI(i), and
                        BETA(i), i=INFO+1,...,N should be correct.
@@ -8588,7 +8576,8 @@ For details of the arguments, see documentation of dgtsv.
     IITER  -- counts iterations run since ILAST was last
               changed.  This is therefore reset only when a 1-by-1 or
               2-by-2 block deflates off the bottom.
-"));
+</pre>
+</html>"));
     end dhgeqz;
 
     pure function dhseqr
@@ -8634,7 +8623,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8663,7 +8656,7 @@ For details of the arguments, see documentation of dgtsv.
                   the product Q*Z is returned.
 
     N     (input) INTEGER
-          The order of the matrix H.  N >= 0.
+          The order of the matrix H.  N &ge; 0.
 
     ILO   (input) INTEGER
     IHI   (input) INTEGER
@@ -8672,7 +8665,7 @@ For details of the arguments, see documentation of dgtsv.
           set by a previous call to DGEBAL, and then passed to DGEHRD
           when the matrix output by DGEBAL is reduced to Hessenberg
           form. Otherwise ILO and IHI should be set to 1 and N
-          respectively.  If N>0, then 1<=ILO<=IHI<=N.
+          respectively.  If N &gt; 0, then 1 &le; ILO &le; IHI &le; N.
           If N = 0, then ILO = 1 and IHI = 0.
 
     H     (input/output) DOUBLE PRECISION array, dimension (LDH,N)
@@ -8682,25 +8675,25 @@ For details of the arguments, see documentation of dgtsv.
           (the Schur form); 2-by-2 diagonal blocks (corresponding to
           complex conjugate pairs of eigenvalues) are returned in
           standard form, with H(i,i) = H(i+1,i+1) and
-          H(i+1,i)*H(i,i+1)<0. If INFO = 0 and JOB = 'E', the
+          H(i+1,i)*H(i,i+1)&lt;0. If INFO = 0 and JOB = 'E', the
           contents of H are unspecified on exit.  (The output value of
-          H when INFO>0 is given under the description of INFO
+          H when INFO&gt;0 is given under the description of INFO
           below.)
 
           Unlike earlier versions of DHSEQR, this subroutine may
-          explicitly H(i,j) = 0 for i>j and j = 1, 2, ... ILO-1
+          explicitly H(i,j) = 0 for i&gt;j and j = 1, 2, ... ILO-1
           or j = IHI+1, IHI+2, ... N.
 
     LDH   (input) INTEGER
-          The leading dimension of the array H. LDH >= max(1,N).
+          The leading dimension of the array H. LDH &ge; max(1,N).
 
     WR    (output) DOUBLE PRECISION array, dimension (N)
     WI    (output) DOUBLE PRECISION array, dimension (N)
           The real and imaginary parts, respectively, of the computed
           eigenvalues. If two eigenvalues are computed as a complex
           conjugate pair, they are stored in consecutive elements of
-          WR and WI, say the i-th and (i+1)th, with WI(i) > 0 and
-          WI(i+1) < 0. If JOB = 'S', the eigenvalues are stored in
+          WR and WI, say the i-th and (i+1)th, with WI(i) &gt; 0 and
+          WI(i+1) &lt; 0. If JOB = 'S', the eigenvalues are stored in
           the same order as on the diagonal of the Schur form returned
           in H, with WR(i) = H(i,i) and, if H(i:i+1,i:i+1) is a 2-by-2
           diagonal block, WI(i) = sqrt(-H(i+1,i)*H(i,i+1)) and
@@ -8716,19 +8709,19 @@ For details of the arguments, see documentation of dgtsv.
           if INFO = 0, Z contains Q*Z.
           Normally Q is the orthogonal matrix generated by DORGHR
           after the call to DGEHRD which formed the Hessenberg matrix
-          H. (The output value of Z when INFO>0 is given under
+          H. (The output value of Z when INFO&gt;0 is given under
           the description of INFO below.)
 
     LDZ   (input) INTEGER
           The leading dimension of the array Z.  if COMPZ = 'I' or
-          COMPZ = 'V', then LDZ>=MAX(1,N).  Otherwise, LDZ>=1.
+          COMPZ = 'V', then LDZ &ge; MAX(1,N).  Otherwise, LDZ &ge; 1.
 
     WORK  (workspace/output) DOUBLE PRECISION array, dimension (LWORK)
           On exit, if INFO = 0, WORK(1) returns an estimate of
           the optimal value for LWORK.
 
     LWORK (input) INTEGER
-          The dimension of the array WORK.  LWORK >= max(1,N)
+          The dimension of the array WORK.  LWORK &ge; max(1,N)
           is sufficient and delivers very good and sometimes
           optimal performance.  However, LWORK as large as 11*N
           may be required for optimal performance.  A workspace
@@ -8744,20 +8737,20 @@ For details of the arguments, see documentation of dgtsv.
 
     INFO  (output) INTEGER
           = 0: successful exit
-          < 0: if INFO = -i, the i-th argument had an illegal
+          &lt; 0: if INFO = -i, the i-th argument had an illegal
                value
-          > 0: if INFO = i, DHSEQR failed to compute all of
+          &gt; 0: if INFO = i, DHSEQR failed to compute all of
                the eigenvalues.  Elements 1:ilo-1 and i+1:n of WR
                and WI contain those eigenvalues which have been
                successfully computed.  (Failures are rare.)
 
-               If INFO > 0 and JOB = 'E', then on exit, the
+               If INFO &gt; 0 and JOB = 'E', then on exit, the
                remaining unconverged eigenvalues are the eigen-
                values of the upper Hessenberg matrix rows and
                columns ILO through INFO of the final, output
                value of H.
 
-               If INFO > 0 and JOB   = 'S', then on exit
+               If INFO &gt; 0 and JOB   = 'S', then on exit
 
           (*)  (initial value of H)*U  = U*(final value of H)
 
@@ -8765,21 +8758,22 @@ For details of the arguments, see documentation of dgtsv.
                value of H is upper Hessenberg and quasi-triangular
                in rows and columns INFO+1 through IHI.
 
-               If INFO > 0 and COMPZ = 'V', then on exit
+               If INFO &gt; 0 and COMPZ = 'V', then on exit
 
                  (final value of Z)  =  (initial value of Z)*U
 
                where U is the orthogonal matrix in (*) (regard-
                less of the value of JOB.)
 
-               If INFO > 0 and COMPZ = 'I', then on exit
+               If INFO &gt; 0 and COMPZ = 'I', then on exit
                      (final value of Z)  = U
                where U is the orthogonal matrix in (*) (regard-
                less of the value of JOB.)
 
-               If INFO > 0 and COMPZ = 'N', then Z is not
+               If INFO &gt; 0 and COMPZ = 'N', then Z is not
                accessed.
-"));
+</pre>
+</html>"));
     end dhseqr;
 
     pure function dlange "Norm of a matrix"
@@ -8801,7 +8795,11 @@ For details of the arguments, see documentation of dgtsv.
               A,
               lda,
               work) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8835,23 +8833,24 @@ For details of the arguments, see documentation of dgtsv.
             above.
 
     M       (input) INTEGER
-            The number of rows of the matrix A.  M >= 0.  When M = 0,
+            The number of rows of the matrix A.  M &ge; 0.  When M = 0,
             DLANGE is set to zero.
 
     N       (input) INTEGER
-            The number of columns of the matrix A.  N >= 0.  When N = 0,
+            The number of columns of the matrix A.  N &ge; 0.  When N = 0,
             DLANGE is set to zero.
 
     A       (input) DOUBLE PRECISION array, dimension (LDA,N)
             The m by n matrix A.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(M,1).
+            The leading dimension of the array A.  LDA &ge; max(M,1).
 
     WORK    (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
-            where LWORK >= M when NORM = 'I'; otherwise, WORK is not
+            where LWORK &ge; M when NORM = 'I'; otherwise, WORK is not
             referenced.
-"));
+</pre>
+</html>"));
 
     end dlange;
 
@@ -8886,7 +8885,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8900,14 +8903,14 @@ For details of the arguments, see documentation of dgtsv.
     =========
 
     N       (input) INTEGER
-            The order of the matrix Q. N >= 0.
+            The order of the matrix Q. N &ge; 0.
 
     ILO     (input) INTEGER
     IHI     (input) INTEGER
             ILO and IHI must have the same values as in the previous call
             of DGEHRD. Q is equal to the unit matrix except in the
             submatrix Q(ilo+1:ihi,ilo+1:ihi).
-            1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.
+            1 &le; ILO &le; IHI &le; N, if N &gt; 0; ILO=1 and IHI=0, if N=0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the vectors which define the elementary reflectors,
@@ -8915,7 +8918,7 @@ For details of the arguments, see documentation of dgtsv.
             On exit, the N-by-N orthogonal matrix Q.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A. LDA >= max(1,N).
+            The leading dimension of the array A. LDA &ge; max(1,N).
 
     TAU     (input) DOUBLE PRECISION array, dimension (N-1)
             TAU(i) must contain the scalar factor of the elementary
@@ -8925,8 +8928,8 @@ For details of the arguments, see documentation of dgtsv.
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK >= IHI-ILO.
-            For optimum performance LWORK >= (IHI-ILO)*NB, where NB is
+            The dimension of the array WORK. LWORK &ge; IHI-ILO.
+            For optimum performance LWORK &ge; (IHI-ILO)*NB, where NB is
             the optimal blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -8936,8 +8939,9 @@ For details of the arguments, see documentation of dgtsv.
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+</pre>
+</html>"));
     end dorghr;
 
     pure function dorgqr
@@ -8969,7 +8973,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8985,14 +8993,14 @@ For details of the arguments, see documentation of dgtsv.
     =========
 
     M       (input) INTEGER
-            The number of rows of the matrix Q. M >= 0.
+            The number of rows of the matrix Q. M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix Q. M >= N >= 0.
+            The number of columns of the matrix Q. M &ge; N &ge; 0.
 
     K       (input) INTEGER
             The number of elementary reflectors whose product defines the
-            matrix Q. N >= K >= 0.
+            matrix Q. N &ge; K &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the i-th column must contain the vector which
@@ -9002,7 +9010,7 @@ For details of the arguments, see documentation of dgtsv.
             On exit, the M-by-N matrix Q.
 
     LDA     (input) INTEGER
-            The first dimension of the array A. LDA >= max(1,M).
+            The first dimension of the array A. LDA &ge; max(1,M).
 
     TAU     (input) DOUBLE PRECISION array, dimension (K)
             TAU(i) must contain the scalar factor of the elementary
@@ -9012,8 +9020,8 @@ For details of the arguments, see documentation of dgtsv.
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK >= max(1,N).
-            For optimum performance LWORK >= N*NB, where NB is the
+            The dimension of the array WORK. LWORK &ge; max(1,N).
+            For optimum performance LWORK &ge; N*NB, where NB is the
             optimal blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -9023,8 +9031,9 @@ For details of the arguments, see documentation of dgtsv.
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument has an illegal value
-"));
+            &lt; 0:  if INFO = -i, the i-th argument has an illegal value
+</pre>
+</html>"));
     end dorgqr;
 
     pure function dormhr
@@ -9067,7 +9076,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9095,19 +9108,19 @@ For details of the arguments, see documentation of dgtsv.
             = 'T':  Transpose, apply Q**T.
 
     M       (input) INTEGER
-            The number of rows of the matrix C. M >= 0.
+            The number of rows of the matrix C. M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix C. N >= 0.
+            The number of columns of the matrix C. N &ge; 0.
 
     ILO     (input) INTEGER
     IHI     (input) INTEGER
             ILO and IHI must have the same values as in the previous call
             of DGEHRD. Q is equal to the unit matrix except in the
             submatrix Q(ilo+1:ihi,ilo+1:ihi).
-            If SIDE = 'L', then 1 <= ILO <= IHI <= M, if M > 0, and
+            If SIDE = 'L', then 1 &le; ILO &le; IHI &le; M, if M &gt; 0, and
             ILO = 1 and IHI = 0, if M = 0;
-            if SIDE = 'R', then 1 <= ILO <= IHI <= N, if N > 0, and
+            if SIDE = 'R', then 1 &le; ILO &le; IHI &le; N, if N &gt; 0, and
             ILO = 1 and IHI = 0, if N = 0.
 
     A       (input) DOUBLE PRECISION array, dimension
@@ -9118,7 +9131,7 @@ For details of the arguments, see documentation of dgtsv.
 
     LDA     (input) INTEGER
             The leading dimension of the array A.
-            LDA >= max(1,M) if SIDE = 'L'; LDA >= max(1,N) if SIDE = 'R'.
+            LDA &ge; max(1,M) if SIDE = 'L'; LDA &ge; max(1,N) if SIDE = 'R'.
 
     TAU     (input) DOUBLE PRECISION array, dimension
                                  (M-1) if SIDE = 'L'
@@ -9131,17 +9144,17 @@ For details of the arguments, see documentation of dgtsv.
             On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 
     LDC     (input) INTEGER
-            The leading dimension of the array C. LDC >= max(1,M).
+            The leading dimension of the array C. LDC &ge; max(1,M).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            If SIDE = 'L', LWORK >= max(1,N);
-            if SIDE = 'R', LWORK >= max(1,M).
-            For optimum performance LWORK >= N*NB if SIDE = 'L', and
-            LWORK >= M*NB if SIDE = 'R', where NB is the optimal
+            If SIDE = 'L', LWORK &ge; max(1,N);
+            if SIDE = 'R', LWORK &ge; max(1,M).
+            For optimum performance LWORK &ge; N*NB if SIDE = 'L', and
+            LWORK &ge; M*NB if SIDE = 'R', where NB is the optimal
             blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -9151,8 +9164,9 @@ For details of the arguments, see documentation of dgtsv.
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+</pre>
+</html>"));
     end dormhr;
 
     pure function dormqr
@@ -9192,7 +9206,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9222,16 +9240,16 @@ For details of the arguments, see documentation of dgtsv.
             = 'T':  Transpose, apply Q**T.
 
     M       (input) INTEGER
-            The number of rows of the matrix C. M >= 0.
+            The number of rows of the matrix C. M &ge; 0.
 
     N       (input) INTEGER
-            The number of columns of the matrix C. N >= 0.
+            The number of columns of the matrix C. N &ge; 0.
 
     K       (input) INTEGER
             The number of elementary reflectors whose product defines
             the matrix Q.
-            If SIDE = 'L', M >= K >= 0;
-            if SIDE = 'R', N >= K >= 0.
+            If SIDE = 'L', M &ge; K &ge; 0;
+            if SIDE = 'R', N &ge; K &ge; 0.
 
     A       (input) DOUBLE PRECISION array, dimension (LDA,K)
             The i-th column must contain the vector which defines the
@@ -9241,8 +9259,8 @@ For details of the arguments, see documentation of dgtsv.
 
     LDA     (input) INTEGER
             The leading dimension of the array A.
-            If SIDE = 'L', LDA >= max(1,M);
-            if SIDE = 'R', LDA >= max(1,N).
+            If SIDE = 'L', LDA &ge; max(1,M);
+            if SIDE = 'R', LDA &ge; max(1,N).
 
     TAU     (input) DOUBLE PRECISION array, dimension (K)
             TAU(i) must contain the scalar factor of the elementary
@@ -9253,17 +9271,17 @@ For details of the arguments, see documentation of dgtsv.
             On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 
     LDC     (input) INTEGER
-            The leading dimension of the array C. LDC >= max(1,M).
+            The leading dimension of the array C. LDC &ge; max(1,M).
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            If SIDE = 'L', LWORK >= max(1,N);
-            if SIDE = 'R', LWORK >= max(1,M).
-            For optimum performance LWORK >= N*NB if SIDE = 'L', and
-            LWORK >= M*NB if SIDE = 'R', where NB is the optimal
+            If SIDE = 'L', LWORK &ge; max(1,N);
+            if SIDE = 'R', LWORK &ge; max(1,M).
+            For optimum performance LWORK &ge; N*NB if SIDE = 'L', and
+            LWORK &ge; M*NB if SIDE = 'R', where NB is the optimal
             blocksize.
 
             If LWORK = -1, then a workspace query is assumed; the routine
@@ -9273,8 +9291,9 @@ For details of the arguments, see documentation of dgtsv.
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+</pre>
+</html>"));
     end dormqr;
 
     pure function dpotrf
@@ -9296,7 +9315,11 @@ For details of the arguments, see documentation of dgtsv.
               Acholesky,
               lda,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9318,7 +9341,7 @@ For details of the arguments, see documentation of dgtsv.
             = 'L':  Lower triangle of A is stored.
 
     N       (input) INTEGER
-            The order of the matrix A.  N >= 0.
+            The order of the matrix A.  N &ge; 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
             On entry, the symmetric matrix A.  If UPLO = 'U', the leading
@@ -9333,15 +9356,16 @@ For details of the arguments, see documentation of dgtsv.
             factorization A = U**T*U or A = L*L**T.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA &ge; max(1,N).
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
-            > 0:  if INFO = i, the leading minor of order i is not
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+            &gt; 0:  if INFO = i, the leading minor of order i is not
                   positive definite, and the factorization could not be
                   completed.
-"));
+</pre>
+</html>"));
     end dpotrf;
 
     pure function dtrevc
@@ -9383,7 +9407,11 @@ For details of the arguments, see documentation of dgtsv.
               n,
               work,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9435,13 +9463,13 @@ For details of the arguments, see documentation of dgtsv.
             Not referenced if HOWMNY = 'A' or 'B'.
 
     N       (input) INTEGER
-            The order of the matrix T. N >= 0.
+            The order of the matrix T. N &ge; 0.
 
     T       (input) DOUBLE PRECISION array, dimension (LDT,N)
             The upper quasi-triangular matrix T in Schur canonical form.
 
     LDT     (input) INTEGER
-            The leading dimension of the array T. LDT >= max(1,N).
+            The leading dimension of the array T. LDT &ge; max(1,N).
 
     VL      (input/output) DOUBLE PRECISION array, dimension (LDVL,MM)
             On entry, if SIDE = 'L' or 'B' and HOWMNY = 'B', VL must
@@ -9460,8 +9488,8 @@ For details of the arguments, see documentation of dgtsv.
             Not referenced if SIDE = 'R'.
 
     LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL >= 1, and if
-            SIDE = 'L' or 'B', LDVL >= N.
+            The leading dimension of the array VL.  LDVL &ge; 1, and if
+            SIDE = 'L' or 'B', LDVL &ge; N.
 
     VR      (input/output) DOUBLE PRECISION array, dimension (LDVR,MM)
             On entry, if SIDE = 'R' or 'B' and HOWMNY = 'B', VR must
@@ -9480,11 +9508,11 @@ For details of the arguments, see documentation of dgtsv.
             Not referenced if SIDE = 'L'.
 
     LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR >= 1, and if
-            SIDE = 'R' or 'B', LDVR >= N.
+            The leading dimension of the array VR.  LDVR &ge; 1, and if
+            SIDE = 'R' or 'B', LDVR &ge; N.
 
     MM      (input) INTEGER
-            The number of columns in the arrays VL and/or VR. MM >= M.
+            The number of columns in the arrays VL and/or VR. MM &ge; M.
 
     M       (output) INTEGER
             The number of columns in the arrays VL and/or VR actually
@@ -9497,7 +9525,7 @@ For details of the arguments, see documentation of dgtsv.
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
 
     Further Details
     ===============
@@ -9509,7 +9537,8 @@ For details of the arguments, see documentation of dgtsv.
     Each eigenvector is normalized so that the element of largest
     magnitude has magnitude 1; here the magnitude of a complex number
     (x,y) is taken to be |x| + |y|.
-"));
+</pre>
+</html>"));
     end dtrevc;
 
     pure function dtrsen "Reorder the real Schur factorization of a real matrix"
@@ -9565,7 +9594,11 @@ For details of the arguments, see documentation of dgtsv.
               iwork,
               liwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9609,7 +9642,7 @@ For details of the arguments, see documentation of dgtsv.
             either both included in the cluster or both excluded.
 
     N       (input) INTEGER
-            The order of the matrix T. N >= 0.
+            The order of the matrix T. N &ge; 0.
 
     T       (input/output) DOUBLE PRECISION array, dimension (LDT,N)
             On entry, the upper quasi-triangular matrix T, in Schur
@@ -9619,7 +9652,7 @@ For details of the arguments, see documentation of dgtsv.
             leading diagonal blocks.
 
     LDT     (input) INTEGER
-            The leading dimension of the array T. LDT >= max(1,N).
+            The leading dimension of the array T. LDT &ge; max(1,N).
 
     Q       (input/output) DOUBLE PRECISION array, dimension (LDQ,N)
             On entry, if COMPQ = 'V', the matrix Q of Schur vectors.
@@ -9631,21 +9664,21 @@ For details of the arguments, see documentation of dgtsv.
 
     LDQ     (input) INTEGER
             The leading dimension of the array Q.
-            LDQ >= 1; and if COMPQ = 'V', LDQ >= N.
+            LDQ &ge; 1; and if COMPQ = 'V', LDQ &ge; N.
 
     WR      (output) DOUBLE PRECISION array, dimension (N)
     WI      (output) DOUBLE PRECISION array, dimension (N)
             The real and imaginary parts, respectively, of the reordered
             eigenvalues of T. The eigenvalues are stored in the same
             order as on the diagonal of T, with WR(i) = T(i,i) and, if
-            T(i:i+1,i:i+1) is a 2-by-2 diagonal block, WI(i) > 0 and
+            T(i:i+1,i:i+1) is a 2-by-2 diagonal block, WI(i) &gt; 0 and
             WI(i+1) = -WI(i). Note that if a complex eigenvalue is
             sufficiently ill-conditioned, then its value may differ
             significantly from its value before reordering.
 
     M       (output) INTEGER
             The dimension of the specified invariant subspace.
-            0 < = M <= N.
+            0 &lt; = M &le; N.
 
     S       (output) DOUBLE PRECISION
             If JOB = 'E' or 'B', S is a lower bound on the reciprocal
@@ -9665,9 +9698,9 @@ For details of the arguments, see documentation of dgtsv.
 
     LWORK   (input) INTEGER
             The dimension of the array WORK.
-            If JOB = 'N', LWORK >= max(1,N);
-            if JOB = 'E', LWORK >= max(1,M*(N-M));
-            if JOB = 'V' or 'B', LWORK >= max(1,2*M*(N-M)).
+            If JOB = 'N', LWORK &ge; max(1,N);
+            if JOB = 'E', LWORK &ge; max(1,M*(N-M));
+            if JOB = 'V' or 'B', LWORK &ge; max(1,2*M*(N-M)).
 
             If LWORK = -1, then a workspace query is assumed; the routine
             only calculates the optimal size of the WORK array, returns
@@ -9679,8 +9712,8 @@ For details of the arguments, see documentation of dgtsv.
 
     LIWORK  (input) INTEGER
             The dimension of the array IWORK.
-            If JOB = 'N' or 'E', LIWORK >= 1;
-            if JOB = 'V' or 'B', LIWORK >= max(1,M*(N-M)).
+            If JOB = 'N' or 'E', LIWORK &ge; 1;
+            if JOB = 'V' or 'B', LIWORK &ge; max(1,M*(N-M)).
 
             If LIWORK = -1, then a workspace query is assumed; the
             routine only calculates the optimal size of the IWORK array,
@@ -9689,7 +9722,7 @@ For details of the arguments, see documentation of dgtsv.
 
     INFO    (output) INTEGER
             = 0: successful exit
-            < 0: if INFO = -i, the i-th argument had an illegal value
+            &lt; 0: if INFO = -i, the i-th argument had an illegal value
             = 1: reordering of T failed because some eigenvalues are too
                  close to separate (the problem is very ill-conditioned);
                  T may have been partially reordered, and WR and WI
@@ -9767,7 +9800,8 @@ For details of the arguments, see documentation of dgtsv.
     error in the computed right invariant subspace is
 
                         EPS * norm(T) / SEP
-"));
+</pre>
+</html>"));
     end dtrsen;
 
     pure function dtrsm
@@ -9807,7 +9841,11 @@ For details of the arguments, see documentation of dgtsv.
               lda,
               X,
               ldb) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9917,7 +9955,8 @@ For details of the arguments, see documentation of dgtsv.
              Unchanged on exit.
 
     Level 3 Blas routine.
-"));
+</pre>
+</html>"));
     end dtrsm;
 
     pure function dtrsyl
@@ -9958,7 +9997,11 @@ For details of the arguments, see documentation of dgtsv.
               lda,
               scale,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9999,41 +10042,42 @@ For details of the arguments, see documentation of dgtsv.
 
     M       (input) INTEGER
             The order of the matrix A, and the number of rows in the
-            matrices X and C. M >= 0.
+            matrices X and C. M &ge; 0.
 
     N       (input) INTEGER
             The order of the matrix B, and the number of columns in the
-            matrices X and C. N >= 0.
+            matrices X and C. N &ge; 0.
 
     A       (input) DOUBLE PRECISION array, dimension (LDA,M)
             The upper quasi-triangular matrix A, in Schur canonical form.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A. LDA >= max(1,M).
+            The leading dimension of the array A. LDA &ge; max(1,M).
 
     B       (input) DOUBLE PRECISION array, dimension (LDB,N)
             The upper quasi-triangular matrix B, in Schur canonical form.
 
     LDB     (input) INTEGER
-            The leading dimension of the array B. LDB >= max(1,N).
+            The leading dimension of the array B. LDB &ge; max(1,N).
 
     C       (input/output) DOUBLE PRECISION array, dimension (LDC,N)
             On entry, the M-by-N right hand side matrix C.
             On exit, C is overwritten by the solution matrix X.
 
     LDC     (input) INTEGER
-            The leading dimension of the array C. LDC >= max(1,M)
+            The leading dimension of the array C. LDC &ge; max(1,M)
 
     SCALE   (output) DOUBLE PRECISION
-            The scale factor, scale, set <= 1 to avoid overflow in X.
+            The scale factor, scale, set &le; 1 to avoid overflow in X.
 
     INFO    (output) INTEGER
             = 0: successful exit
-            < 0: if INFO = -i, the i-th argument had an illegal value
+            &lt; 0: if INFO = -i, the i-th argument had an illegal value
             = 1: A and B have common or very close eigenvalues; perturbed
                  values were used to solve the equation (but the matrices
                  A and B are unchanged).
-"));
+</pre>
+</html>"));
     end dtrsyl;
 
     annotation (Documentation(info="<html>
