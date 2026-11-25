@@ -790,10 +790,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Modelica.Media.Common.NewtonDerivatives_ph nDerivs
             "Derivatives needed in Newton iteration";
           Boolean found=false "Flag for iteration success";
+          constant SI.SpecificHeatCapacity cp_guess=1000
+            "Approximate specific heat capacity for the initial guess";
 
         algorithm
           // Stefan Wischhusen: better guess for high temperatures:
-          T := h/1000 + 273.15;
+          T := h/cp_guess + 273.15;
           d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R_s*T);
           i := 0;
 
@@ -879,26 +881,31 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Real tau=ReferenceAir.Air_Utilities.Basic.Constants.Tred/T
             "Reciprocal reduced temperature";
           Real Omega "Collision integral";
-          SI.DynamicViscosity eta_0=0 "Dilute gas viscosity";
-          SI.DynamicViscosity eta_r=0 "Residual fluid viscosity";
+          Real eta_0=0 "Reduced dilute gas viscosity";
+          Real eta_r=0 "Reduced residual fluid viscosity";
           final constant Real[5] b={0.431,-0.4623,0.08406,0.005341,-0.00331};
           final constant Real[5] Nvis={10.72,1.122,0.002019,-8.876,-0.02916};
           final constant Real[5] tvis={0.2,0.05,2.4,0.6,3.6};
           final constant Integer[5] dvis={1,4,9,1,8};
           final constant Integer[5] lvis={0,0,0,1,1};
           final constant Integer[5] gammavis={0,0,0,1,1};
+          constant SI.Temperature epsilon_k=103.3
+            "Lennard-Jones energy parameter divided by the Boltzmann constant";
+          constant SI.Temperature Tstar=1.0 "Reference temperature";
+          constant SI.MolarMass Mstar=1E-003 "Reference molar mass";
+          constant SI.DynamicViscosity etastar=1E-006 "Reference viscosity";
 
         algorithm
           Omega := exp(
             Modelica.Math.Polynomials.evaluate(
-            {b[5],b[4],b[3],b[2],b[1]}, log(T/103.3)));
-          eta_0 := 0.0266958*sqrt(1000*ReferenceAir.Air_Utilities.Basic.Constants.MM
-            *T)/(0.36^2*Omega);
+            {b[5],b[4],b[3],b[2],b[1]}, log(T/epsilon_k)));
+          eta_0 := 0.0266958*sqrt(ReferenceAir.Air_Utilities.Basic.Constants.MM/Mstar
+            *T/Tstar)/(0.36^2*Omega);
           for i in 1:5 loop
             eta_r := eta_r + (Nvis[i]*(tau^tvis[i])*(delta^dvis[i])*exp(-
               gammavis[i]*(delta^lvis[i])));
           end for;
-          eta := (eta_0 + eta_r)*1E-006;
+          eta := (eta_0 + eta_r)*etastar;
         end eta_dT;
 
         function lambda_dT
@@ -911,18 +918,17 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         protected
           Modelica.Media.Common.HelmholtzDerivs f
             "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
-          SI.ThermalConductivity lambda_0=0 "Dilute gas thermal conductivity";
-          SI.ThermalConductivity lambda_r=0
-            "Residual fluid thermal conductivity";
-          SI.ThermalConductivity lambda_c=0
-            "Thermal conductivity critical enhancement";
+          Real lambda_0=0 "Reduced dilute gas thermal conductivity";
+          Real lambda_r=0 "Reduced residual fluid thermal conductivity";
+          Real lambda_c=0 "Reduced thermal conductivity critical enhancement";
           Real Omega "Collision integral";
-          SI.DynamicViscosity eta_0=0 "Dilute gas viscosity";
+          Real eta_0=0 "Reduced dilute gas viscosity";
           Real pddT;
           Real pddTref;
           Real pdTp;
-          Real xi;
-          Real xiref;
+          Real chi;
+          Real chiref;
+          Real xi "Reduced correlation length";
           Real Omega_tilde;
           Real Omega_0_tilde;
           Real cv;
@@ -934,24 +940,34 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           final constant Integer[9] dcon={0,0,0,1,2,3,7,7,11};
           final constant Integer[9] lcon={0,0,0,0,0,2,2,2,2};
           final constant Integer[9] gammacon={0,0,0,0,0,1,1,1,1};
+          constant SI.Temperature epsilon_k=103.3
+            "Lennard-Jones energy parameter divided by the Boltzmann constant";
+          constant SI.Temperature Tref=265.262
+            "Reference temperature of the critical enhancement";
+          constant Real k_B(unit="J/K")=1.380658E-023 "Boltzmann constant";
+          constant SI.Temperature Tstar=1.0 "Reference temperature";
+          constant SI.MolarMass Mstar=1E-003 "Reference molar mass";
+          constant SI.Length xistar=1E-009 "Reference length";
+          constant SI.ThermalConductivity lambdastar=1E-003
+            "Reference thermal conductivity";
 
         algorithm
           //chi_tilde in at the reference temperature 265.262
-          f := Basic.Helmholtz(d, 265.262);
-          pddTref := ReferenceAir.Air_Utilities.Basic.Constants.R_bar*265.262*(
+          f := Basic.Helmholtz(d, Tref);
+          pddTref := ReferenceAir.Air_Utilities.Basic.Constants.R_bar*Tref*(
             1 + 2*f.delta*(f.fdelta - 1/f.delta) + f.delta^2*(f.fdeltadelta + 1
             /f.delta^2));
-          xiref := ReferenceAir.Air_Utilities.Basic.Constants.pred*(d/
+          chiref := ReferenceAir.Air_Utilities.Basic.Constants.pred*(d/
             ReferenceAir.Air_Utilities.Basic.Constants.MM)/ReferenceAir.Air_Utilities.Basic.Constants.rhored
             ^2/pddTref;
           //calculating f at the given state
           f := Basic.Helmholtz(d, T);
           Omega := exp(
             Modelica.Math.Polynomials.evaluate(
-            {b[5],b[4],b[3],b[2],b[1]}, log(T/103.3)));
+            {b[5],b[4],b[3],b[2],b[1]}, log(T/epsilon_k)));
           //Ideal-gas part of dynamic viscosity
-          eta_0 := 0.0266958*sqrt(1000*ReferenceAir.Air_Utilities.Basic.Constants.MM
-            *T)/(0.36^2*Omega);
+          eta_0 := 0.0266958*sqrt(ReferenceAir.Air_Utilities.Basic.Constants.MM/Mstar
+            *T/Tstar)/(0.36^2*Omega);
           //Ideal-gas part of thermal conductivity
           lambda_0 := Ncon[1]*eta_0 + Ncon[2]*f.tau^tcon[2] + Ncon[3]*f.tau^
             tcon[3];
@@ -964,15 +980,15 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           pddT := ReferenceAir.Air_Utilities.Basic.Constants.R_s*T*(1 + 2*f.delta
             *(f.fdelta - 1/f.delta) + f.delta^2*(f.fdeltadelta + 1/f.delta^2));
           //chi_tilde at the given state
-          xi := ReferenceAir.Air_Utilities.Basic.Constants.pred*(d/ReferenceAir.Air_Utilities.Basic.Constants.MM)
+          chi := ReferenceAir.Air_Utilities.Basic.Constants.pred*(d/ReferenceAir.Air_Utilities.Basic.Constants.MM)
             /ReferenceAir.Air_Utilities.Basic.Constants.rhored^2/(pddT*
             ReferenceAir.Air_Utilities.Basic.Constants.MM);
           //Thermal conductivity critical enhancement
-          xi := xi - xiref*265.262/T;
-          if (xi <= 0) then
+          chi := chi - chiref*Tref/T;
+          if (chi <= 0) then
             lambda_c := 0;
           else
-            xi := 0.11*(xi/0.055)^(0.63/1.2415);
+            xi := 0.11*(chi/0.055)^(0.63/1.2415);
             //Derivative of p w.r.t. T at constant p
             pdTp := ReferenceAir.Air_Utilities.Basic.Constants.R_s*d*(1 + f.delta
               *(f.fdelta - 1/f.delta) - f.delta*f.tau*f.fdeltatau);
@@ -985,10 +1001,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
             Omega_0_tilde := 2/Modelica.Constants.pi*(1 - exp(-1/((0.31/xi) + 1
               /3*(xi/0.31)^2*(ReferenceAir.Air_Utilities.Basic.Constants.rhored
               /(d/ReferenceAir.Air_Utilities.Basic.Constants.MM))^2)));
-            lambda_c := d*cp*1.380658E-023*1.01*T/(6*Modelica.Constants.pi*xi*
-              eta_dT(d, T))*(Omega_tilde - Omega_0_tilde)*1E012;
+            lambda_c := d*cp*k_B*1.01*T/(6*Modelica.Constants.pi*xi*xistar*
+              eta_dT(d, T))*(Omega_tilde - Omega_0_tilde)/lambdastar;
           end if;
-          lambda := (lambda_0 + lambda_r + lambda_c)/1000;
+          lambda := (lambda_0 + lambda_r + lambda_c)*lambdastar;
         end lambda_dT;
       end Transport;
 
