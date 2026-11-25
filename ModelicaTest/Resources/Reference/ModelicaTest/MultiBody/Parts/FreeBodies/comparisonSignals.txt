@@ -1,6 +1,5 @@
 time
 body.Q[1]
-body.Q[2]
 body.Q[3]
 body.Q[4]
 body.r_0[1]
