@@ -220,5 +220,27 @@ and accelerate the inertias.</p>
 <li><code>smpmM|E.tauElectrical</code>: machine torque</li>
 <li><code>rotorAnglepmsmM|E.rotorDisplacementAngle</code>: rotor displacement angle</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "6c7bc",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentRMSsensorM.I, legend = "Stator current RMS"),
+                Curve(y = smpmM.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = smpmM.tauElectrical, legend = "Motor torque")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = rotorAngleM.rotorDisplacementAngle, legend = "Rotor displacement angle")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SMPM_Inverter;

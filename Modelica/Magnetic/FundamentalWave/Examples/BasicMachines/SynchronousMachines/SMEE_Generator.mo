@@ -298,5 +298,25 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
 <li><code>speedM|E.tauElectrical</code>: machine torque</li>
 <li><code>mechanicalPowerSensorM|E.P</code>: mechanical power</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Torque and power vs. rotor displacement angle",
+          identifier = "c7d67",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = rotorAngleM.rotorDisplacementAngle, y = smeeM.tauElectrical, legend = "Motor torque vs. rotor displacement angle")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(x = rotorAngleM.rotorDisplacementAngle, y = mechanicalPowerSensorM.P, legend = "Mechanical power vs. rotor displacement angle")
+              }
+            )
+          }
+        )
+      }
+    ));
 end SMEE_Generator;

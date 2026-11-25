@@ -221,5 +221,22 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimsM/E.wMechanical</code>: machine speed</li>
 <li><code>aimsM|E.tauElectrical</code>: machine torque</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Machine variables",
+          identifier = "23d18",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = currentRMSsensorM.I, legend = "Stator current RMS"),
+                Curve(y = aimsM.wMechanical, legend = "Motor angular velocity of rotor against stator"),
+                Curve(y = aimsM.tauElectrical, legend = "Motor torque")
+              }
+            )
+          }
+        )
+      }
+    ));
 end IMS_Start;

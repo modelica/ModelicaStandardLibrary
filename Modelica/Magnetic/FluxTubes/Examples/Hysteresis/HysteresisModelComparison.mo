@@ -125,5 +125,48 @@ Compared to the complex Preisach hysteresis model the Tellinen model is very sim
     </td>
   </tr>
 </table>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Flux density vs. field strength",
+          identifier = "10449",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(x = tellinenSoft.H, y = tellinenSoft.B, legend = "Magnetic flux density vs. magnetic field strength from TellinenSoft model")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(x = tellinenTable.H, y = tellinenTable.B, legend = "Magnetic flux density vs. magnetic field strength from TellinenTable model")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(x = preisachEverett.H, y = preisachEverett.B, legend = "Magnetic flux density vs. magnetic field strength from PreisachEverett model")
+              }
+            )
+          }
+        ),
+        Figure(
+          title = "Flux density and field strength",
+          identifier = "9bb26",
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = preisachEverett.H, legend = "Magnetic field strength for all models")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = tellinenSoft.B, legend = "Magnetic flux density for TellinenSoft model"),
+                Curve(y = tellinenTable.B, legend = "Magnetic flux density for TellinenTable model"),
+                Curve(y = preisachEverett.B, legend = "Magnetic flux density for PreisachEverett model")
+              }
+            )
+          }
+        )
+      }
+    ));
 end HysteresisModelComparison;

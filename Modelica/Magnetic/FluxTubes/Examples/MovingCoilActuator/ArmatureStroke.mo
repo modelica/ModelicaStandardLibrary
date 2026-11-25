@@ -95,5 +95,31 @@ The initial current rise in both actuator models is due to the inductance of the
 <p>
 Whereas the steady state current is the same in both models, the steady state actuator force is not due to the neglect of the non-linear force component in the converter constant model. Differences in the current rise of both models are due to the neglect of the coil inductance variation in the converter constant model.
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          title = "Constant actuator vs. permeance actuator",
+          identifier = "eeca9",
+          preferred = true,
+          plots = {
+            Plot(
+              curves = {
+                Curve(y = cActuator.p.i, legend = "Input current to constant actuator model"),
+                Curve(y = pmActuator.p.i, legend = "Input current to permeance actuator model"),
+                Curve(y = cActuator.armature.flange_a.f, legend = "Actuator force of constant actuator model"),
+                Curve(y = pmActuator.armature.flange_a.f, legend = "Actuator force of permeance actuator model")
+              }
+            ),
+            Plot(
+              curves = {
+                Curve(y = cActuator.x, legend = "Armature position of constant actuator model"),
+                Curve(y = pmActuator.x, legend = "Armature position of permeance actuator model"),
+                Curve(y = cActuator.L, legend = "Inductance of constant actuator model"),
+                Curve(y = pmActuator.L, legend = "Inductance of permeance actuator model")
+              }
+            )
+          }
+        )
+      }
+    ));
 end ArmatureStroke;
