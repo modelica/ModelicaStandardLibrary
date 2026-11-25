@@ -16,9 +16,7 @@ model TestSensors
   Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource sineVoltage(
     final m=m,
     f=f,
-    V=fill(VRMS, m),
-    gamma(fixed=true, start=0))
-                       annotation (Placement(transformation(
+    V=fill(VRMS, m))   annotation (Placement(transformation(
         origin={-20,-30},
         extent={{10,-10},{-10,10}},
         rotation=90)));
