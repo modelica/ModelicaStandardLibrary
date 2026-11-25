@@ -13,7 +13,7 @@ at hand of the following figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive2.png\" alt=\"drive2\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive2.png\" alt=\"drive2\">
 </div>
 
 <p>
@@ -30,7 +30,7 @@ vector direction displayed according to this rule:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive3.png\" alt=\"drive3\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive3.png\" alt=\"drive3\">
 </div>
 <p>
 The cut-force <code>mass2.flange_a.f</code>

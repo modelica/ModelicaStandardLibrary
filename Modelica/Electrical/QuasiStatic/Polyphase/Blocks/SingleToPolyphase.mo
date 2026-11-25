@@ -34,7 +34,7 @@ equation
           rotation=-90)}),
     Documentation(info="<html>
 <p>
-This function propagates the input phasor to m output phasors with <a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">symmetricOrientation</a>.
+This function propagates the input phasor to m output phasors with <a href=\"modelica:/Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">symmetricOrientation</a>.
 </p>
 </html>"));
 end SingleToPolyphase;

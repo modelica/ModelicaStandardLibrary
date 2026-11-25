@@ -25,18 +25,18 @@ T = Quaternions.<strong>to_T</strong>(Q);
 <h4>Description</h4>
 <p>
 This function returns a real matrix&nbsp;T
-<!--<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T-->
+<!--<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T-->
 computed from a
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q.
 The matrix&nbsp;T is considered to be an object transformation matrix.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T\">from_T</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv\">to_T_inv</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T\">Frames.to_T</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T\">TransformationMatrices.to_T</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T\">from_T</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv\">to_T_inv</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.to_T\">Frames.to_T</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T\">TransformationMatrices.to_T</a>.
 </p>
 </html>"));
 end to_T;

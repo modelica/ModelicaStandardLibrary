@@ -16,7 +16,7 @@ equation
     Documentation(info="<html>
 <p>
 The switching behaviour of the ideal opening switch is controlled by the input signal control: off = control.<br>
-For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
+For further details, see partial model <a href=\"modelica:/Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
 </p>
 </html>",
         revisions="<html>

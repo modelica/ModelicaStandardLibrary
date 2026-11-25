@@ -130,12 +130,12 @@ The Boolean output y is a step signal. The signal is defined in terms of clock t
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/BooleanSignals/TickBasedSources_Step.png\" alt=\"TickBasedSources_Step\">
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/BooleanSignals/TickBasedSources_Step.png\" alt=\"TickBasedSources_Step\">
 </div>
 
 <h4>Example</h4>
 <p>
-See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep</a>.
+See model <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep</a>.
 </p>
 </html>"));
 end Step;

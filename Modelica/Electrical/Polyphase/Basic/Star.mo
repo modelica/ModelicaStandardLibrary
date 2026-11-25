@@ -40,9 +40,9 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Delta\">Delta</a>,
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiStar\">MultiStar</a>,
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a>
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.Delta\">Delta</a>,
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.MultiStar\">MultiStar</a>,
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a>
 </p>
 
 </html>"));

@@ -6,30 +6,30 @@ class ReleaseNotes "Release Notes"
 <h5>Version 3.2.2, 2014-12-05 (Johannes&nbsp;Ziske, Thomas&nbsp;B&ouml;drich)</h5>
 
 <ul>
-<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a></li>
-<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">FluxTubes.Examples.Hysteresis</a></li>
-<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
-<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a></li>
-<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a></li>
-<li>Updated <a href=\"modelica://Modelica.Magnetic.FluxTubes.BaseClasses.FixedShape\">FluxTubes.BaseClasses.FixedShape</a> for differentiability</li>
-<li>Updated <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">FluxTubes.UsersGuide.Literature</a></li>
+<li>Added package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a></li>
+<li>Added package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">FluxTubes.Examples.Hysteresis</a></li>
+<li>Added package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
+<li>Added package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a></li>
+<li>Added package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a></li>
+<li>Updated <a href=\"modelica:/Modelica.Magnetic.FluxTubes.BaseClasses.FixedShape\">FluxTubes.BaseClasses.FixedShape</a> for differentiability</li>
+<li>Updated <a href=\"modelica:/Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">FluxTubes.UsersGuide.Literature</a></li>
 </ul>
 
 <h5>Version 3.2.2, 2014-01-15 (Christian&nbsp;Kral)</h5>
 
 <ul>
 <li>Added constant
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ConstantPermeance\">permeance model</a></li>
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Basic.ConstantPermeance\">permeance model</a></li>
 <li>Added
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube\">GenericFluxTube</a></li>
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube\">GenericFluxTube</a></li>
 <li>Added parameter <code>useConductance</code> including alternative parameterization in
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">EddyCurrent</a></li>
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">EddyCurrent</a></li>
 <li>Added
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Idle\">Idle</a></li>
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Basic.Idle\">Idle</a></li>
 <li>Added
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Short\">Short</a></li>
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Basic.Short\">Short</a></li>
 <li>Added
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Crossing\">Crossing</a></li>
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Basic.Crossing\">Crossing</a></li>
 </ul>
 
 <h5>Version 1.5, 2013-01-04 (Martin&nbsp;Otter, Thomas&nbsp;B&ouml;drich, Johannes&nbsp;Ziske)</h5>

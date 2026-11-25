@@ -73,7 +73,7 @@ equation
 input u and the output y
 as an n-th order filter with <em>critical damping</em>
 characteristics and cut-off frequency f. It is
-a slightly simplified version of the <a href=\"modelica://Modelica.Blocks.Continuous.CriticalDamping\">Modelica.Blocks.Continuous.CriticalDamping</a> block.
+a slightly simplified version of the <a href=\"modelica:/Modelica.Blocks.Continuous.CriticalDamping\">Modelica.Blocks.Continuous.CriticalDamping</a> block.
 It doesn't provide the same initialization capabilities as the continuous block, since the initialization of
 clocked partitions is currently performed differently to the continuous time partitions.
 </p>

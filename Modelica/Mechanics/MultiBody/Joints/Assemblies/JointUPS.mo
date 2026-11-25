@@ -314,7 +314,7 @@ are not part of the default animation):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUPS.png\" alt=\"model Joints.Assemblies.JointUPS\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUPS.png\" alt=\"model Joints.Assemblies.JointUPS\">
 </div>
 
 <p>

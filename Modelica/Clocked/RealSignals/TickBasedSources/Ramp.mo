@@ -174,7 +174,7 @@ The Real output y is a ramp signal. The signal is defined in terms of clock tick
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/TickBasedSources_Ramp.png\" alt=\"TickBasedSources_Ramp.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/TickBasedSources_Ramp.png\" alt=\"TickBasedSources_Ramp.png\"/>
 </div>
 </html>"));
 end Ramp;

@@ -6,7 +6,7 @@ expandable connector StackBus "Measurement signal bus for a stack"
   CellBus cellBus[Ns,Np] "Cell buses";
   annotation (Documentation(info="<html>
 <p>
-Measurement bus of a stack, containing a <a href=\"modelica://Modelica.Electrical.Batteries.Interfaces.CellBus\">cellBus</a> per cell.
+Measurement bus of a stack, containing a <a href=\"modelica:/Modelica.Electrical.Batteries.Interfaces.CellBus\">cellBus</a> per cell.
 </p>
 </html>"));
 end StackBus;

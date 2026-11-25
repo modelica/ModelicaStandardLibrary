@@ -15,7 +15,7 @@ equation
     Documentation(info="<html>
 <p>
 The switching behaviour of the controlled ideal closing switch is controlled by the control pin: off = control.v &lt; level<br>
-For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
+For further details, see partial model <a href=\"modelica:/Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
 </p>
 
 </html>",

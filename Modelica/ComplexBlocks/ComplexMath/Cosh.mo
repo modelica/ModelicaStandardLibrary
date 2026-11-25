@@ -35,7 +35,7 @@ y = <strong>cosh</strong>(uInternal);
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/cosh.png\"
      alt=\"cosh.png\">
 </div>
 

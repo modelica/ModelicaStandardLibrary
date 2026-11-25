@@ -31,7 +31,7 @@ equation
     Documentation(info="<html>
 <p>
 This is a model for transport of heat without storing it, same as the
-<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ThermalConductor\">ThermalConductor</a>
+<a href=\"modelica:/Modelica.Thermal.HeatTransfer.Components.ThermalConductor\">ThermalConductor</a>
 but using the thermal resistance instead of the thermal conductance as a parameter.
 This is advantageous for series connections of ThermalResistors,
 especially if it shall be allowed that a ThermalResistance is defined to be zero (i.e. no temperature difference).

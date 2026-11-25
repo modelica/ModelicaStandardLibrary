@@ -146,12 +146,12 @@ equation
 This is a V6 engine with 6 cylinders. It is hierarchically built
 up by using instances of one cylinder. For more details on the
 modeling of one cylinder, see example
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b\">Engine1b</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b\">Engine1b</a>.
 An animation of the engine is shown in the figure below.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6.png\" alt=\"model Examples.Loops.EngineV6\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6.png\" alt=\"model Examples.Loops.EngineV6\">
 </div>
 
 <p>

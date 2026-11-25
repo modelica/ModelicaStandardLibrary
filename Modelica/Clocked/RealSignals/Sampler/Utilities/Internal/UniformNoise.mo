@@ -40,22 +40,22 @@ While of much higher quality than the rand() function supplied by
 most C libraries, the theoretical properties are much the same
 as for a single linear congruential generator of large modulus.
 For more details, see the underlying function
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.random\">Internal.random</a>.
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.random\">Internal.random</a>.
 </p>
 
 <h4>Example</h4>
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise\">example</a>
 samples zero signal with a periodic clock of 20 ms period, and adds
 noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UniformNoise_Model.png\" alt=\"UniformNoise_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/UniformNoise_Model.png\" alt=\"UniformNoise_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UniformNoise_Result.png\" alt=\"UniformNoise_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/UniformNoise_Result.png\" alt=\"UniformNoise_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

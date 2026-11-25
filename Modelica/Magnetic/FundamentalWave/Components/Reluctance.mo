@@ -20,18 +20,18 @@ equation
               textString="%name")}), Documentation(info="<html>
 <p>
 The salient reluctance models the relationship between the complex magnetic potential difference
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">,
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">,
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/reluctance.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/reluctance.png\"
       alt=\"reluctance.png\">
 </blockquote>
 
 <p>which can also be expressed in terms complex phasors:</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/reluctance_alt.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FundamentalWave/Components/reluctance_alt.png\"
      alt=\"reluctance_alt.png\">
 </blockquote>
 

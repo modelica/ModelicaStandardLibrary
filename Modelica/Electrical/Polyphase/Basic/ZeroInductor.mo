@@ -16,7 +16,7 @@ equation
   annotation (defaultComponentName="inductor", Documentation(info="<html>
 <p>
 Model of a polyphase zero sequence inductor.
-For a short explanation of the zero system see <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ZeroSystem\">the User&apos;s Guide of the FundamentalWave library</a>.
+For a short explanation of the zero system see <a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide.ZeroSystem\">the User&apos;s Guide of the FundamentalWave library</a>.
 </p>
 <h4>Implementation</h4>
 <blockquote><pre>

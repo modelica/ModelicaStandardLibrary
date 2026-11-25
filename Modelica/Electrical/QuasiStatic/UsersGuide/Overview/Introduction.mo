@@ -11,19 +11,19 @@ The purely sinusoidal voltage
 <div>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img1.png\"
+ src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img1.png\"
  alt=\"v=\\sqrt{2}V_{\\mathrm{RMS}}\\cos(\\omega t+\\varphi_{v})\">
 </div>
 
 <p>
 in the time domain can be represented by a complex
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Glossar\">rms</a> phasor
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.Glossar\">rms</a> phasor
 </p>
 
 <div>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img2.png\"
+ src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img2.png\"
  alt=\"\\underline{v}=V_{\\mathrm{RMS}}e^{j\\varphi_{v}}.\">
 </div>
 
@@ -33,7 +33,7 @@ phasor the following relationship applies:</p>
 <div>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img3.png\"
+ src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img3.png\"
  alt=\"\\begin{displaymath}
 v=\\mathrm{Re}(\\sqrt{2}\\underline{v}e^{j\\omega t})\\end{displaymath}\">
 </div>
@@ -45,7 +45,7 @@ This equation is also illustrated in Fig. 1.
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/phasor_voltage.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/phasor_voltage.png\"
            alt=\"phasor_voltage.png\">
     </td>
   </tr>
@@ -64,11 +64,11 @@ The explanation given for sinusoidal voltages can certainly also be applied
 to sinusoidal currents.</p>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power\">
           Power</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem\">
           Reference system</a>
 
 </html>"));

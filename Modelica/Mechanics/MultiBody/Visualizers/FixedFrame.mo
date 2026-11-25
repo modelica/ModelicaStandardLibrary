@@ -194,7 +194,7 @@ labels. A typical example is shown in the following figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedFrame.png\" alt=\"model Visualizers.FixedFrame\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedFrame.png\" alt=\"model Visualizers.FixedFrame\">
 </div>
 
 <p>

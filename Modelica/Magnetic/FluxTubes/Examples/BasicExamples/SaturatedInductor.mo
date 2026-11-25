@@ -81,7 +81,7 @@ r_mFe.B vs. r_mFe.H       // magnetisation curve B(H); hysteresis neglected
 </pre></blockquote>
 
 <p>
-The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (nonLinearPermeability set to false and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g., selection of one of the electric sheets in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient initial design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.
+The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (nonLinearPermeability set to false and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g., selection of one of the electric sheets in <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient initial design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.
 </p>
 
 <h4>Note</h4>

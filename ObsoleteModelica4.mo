@@ -36,7 +36,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
           obsolete = "Obsolete block - use expandable connectors instead");
@@ -68,7 +68,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
           obsolete = "Obsolete block - use expandable connectors instead");
@@ -100,7 +100,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
           obsolete = "Obsolete block - use expandable connectors instead");
@@ -132,7 +132,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
           obsolete = "Obsolete block - use expandable connectors instead");
@@ -164,7 +164,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
           obsolete = "Obsolete block - use expandable connectors instead");
@@ -196,7 +196,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
           obsolete = "Obsolete block - use expandable connectors instead");
@@ -218,7 +218,7 @@ for signal buses, see example
           input Boolean verboseRead = true
             "= true: Print info message; = false: No info message";
           external "C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
-            annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
           annotation(__ModelicaAssociation_Impure=true);
         end readTimeTableData;
 
@@ -232,7 +232,7 @@ for signal buses, see example
             "= true: Print info message; = false: No info message";
           output Real readSuccess "Table read success";
           external "C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
-            annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
           annotation(__ModelicaAssociation_Impure=true);
         end readTable1DData;
 
@@ -246,7 +246,7 @@ for signal buses, see example
             "= true: Print info message; = false: No info message";
           output Real readSuccess "Table read success";
           external "C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
-            annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
           annotation(__ModelicaAssociation_Impure=true);
         end readTable2DData;
       end Internal;
@@ -347,7 +347,7 @@ for signal buses, see example
 This model linearly transforms the input voltage signal into a duty cycle. For the unipolar case the input voltage range is between zero and <code>vMax</code>. In case of bipolar input the input voltage is in the range between <code>-vMax</code> and <code>vMax</code>.
 </p>
 <p>
-Note: This block is replaced by the improved <a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle\">Voltage2DutyCycle</a> block.
+Note: This block is replaced by the improved <a href=\"modelica:/Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle\">Voltage2DutyCycle</a> block.
 </p>
 </html>"));
           end VoltageToDutyCycle;
@@ -390,18 +390,18 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
                 Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort\">OnePort</a> to measure the complex voltage or current. Additionally this model contains a proper icon and a definition of the angular velocity.
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort\">OnePort</a> to measure the complex voltage or current. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor\">AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">Polyphase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary\">Polyphase.Interfaces.RelativeSensorElementary</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor\">AbsoluteSensor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">Polyphase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary\">Polyphase.Interfaces.RelativeSensorElementary</a>
 </p>
 
 </html>"));
@@ -436,15 +436,15 @@ The relative sensor partial model relies on the
                     textString="%name")}), Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug\">TwoPlug</a> to measure the complex voltages and currents. Additionally this model contains a proper icon and a definition of the angular velocity.
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug\">TwoPlug</a> to measure the complex voltages and currents. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary\">SinglePhase.Interfaces.RelativeSensorElementary</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">AbsoluteSensor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary\">SinglePhase.Interfaces.RelativeSensorElementary</a>
 </p>
 
 </html>"));
@@ -653,7 +653,7 @@ Optionally, two additional 1-dimensional mechanical flanges
 flange \"support\" represents the bearing) can be enabled via
 parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
 driven with elements of the
-<a href=\"modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
+<a href=\"modelica:/Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
 library.
 
 </p>
@@ -678,7 +678,7 @@ vector \"n\" defining the translation axis
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
 </div>
 
 </html>"));
@@ -907,7 +907,7 @@ Optionally, two additional 1-dimensional mechanical flanges
 flange \"support\" represents the bearing) can be enabled via
 parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
 driven with elements of the
-<a href=\"modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
 library.
 </p>
 
@@ -945,7 +945,7 @@ vector \"n\" defining the translation axis
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Revolute.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Revolute.png\">
 </div>
 
 </html>"));
@@ -1000,7 +1000,7 @@ This shape visualizes the x-y plane by a box.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Ground.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Ground.png\">
 </blockquote>
 </html>"));
         end Ground;
@@ -1502,7 +1502,7 @@ connector is not connected).
           Documentation(info="<html>
 <p>
 This package was used in Modelica.Media of MSL &le; 3.2.3 and was replaced by
-the function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">
+the function <a href=\"modelica:/Modelica.Math.Nonlinear.solveOneNonlinearEquation\">
 Modelica.Math.Nonlinear.solveOneNonlinearEquation</a>.
 </p>
 
@@ -1632,9 +1632,9 @@ with scalar c, |c| = ||<strong>a</strong>|| / ||<strong>b</strong>||. <strong>Q<
                                // {-5, 0, 0, 0} = -5*b
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a><br>
-<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
-<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
+<a href=\"modelica:/ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a><br>
+<a href=\"modelica:/ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
+<a href=\"modelica:/ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
 </html>", revisions="<html>
 <ul>
 <li><em>2010/04/30 </em>
@@ -1703,9 +1703,9 @@ u = {0.837, -0.478, -0.239, -0.119};
 <strong>householderReflection</strong>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Utilities.householderVector</a><br>
-<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
-<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
+<a href=\"modelica:/ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Utilities.householderVector</a><br>
+<a href=\"modelica:/ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
+<a href=\"modelica:/ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
 
 </html>", revisions="<html>
 <ul>
@@ -2400,9 +2400,9 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.housholderSimilarityTransformation</a>,<br>
-<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
-<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
+<a href=\"modelica:/ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.housholderSimilarityTransformation</a>,<br>
+<a href=\"modelica:/ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
+<a href=\"modelica:/ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
 </p>
 </html>", revisions="<html>
 <ul>
@@ -2486,9 +2486,9 @@ This transformation is widely used for transforming non-symmetric matrices to a 
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a>,<br>
-<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
-<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
+<a href=\"modelica:/ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a>,<br>
+<a href=\"modelica:/ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
+<a href=\"modelica:/ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
 </p>
 </html>", revisions="<html>
 <ul>
@@ -2747,7 +2747,7 @@ This transformation is widely used for transforming non-symmetric matrices to a 
 Obsolete symmetric cage model, see
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a> instead.
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a> instead.
 </p>
 </html>"));
           end SymmetricMultiPhaseCageWinding;
@@ -2867,7 +2867,7 @@ Obsolete symmetric cage model, see
 Obsolete saliency cage model, see
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a> instead.
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a> instead.
 </p>
 </html>"));
           end SaliencyCageWinding;

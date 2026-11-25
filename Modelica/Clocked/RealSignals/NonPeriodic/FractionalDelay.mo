@@ -63,23 +63,23 @@ equation
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
-This block delays a signal. Similar to the <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.ShiftSample\">ShiftSample</a> block the first activation of the clock of the output y is delayed by <strong>shiftCounter</strong>/<strong>resolution</strong>*interval(u) relative to the input u (interval(u) is the sample period of the clock associated to input u). However, in contrast to ShiftSample, the block provides a buffer for the input values and truly delays the input signal.
+This block delays a signal. Similar to the <a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.ShiftSample\">ShiftSample</a> block the first activation of the clock of the output y is delayed by <strong>shiftCounter</strong>/<strong>resolution</strong>*interval(u) relative to the input u (interval(u) is the sample period of the clock associated to input u). However, in contrast to ShiftSample, the block provides a buffer for the input values and truly delays the input signal.
 </p>
 
 <h4>Example</h4>
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay\">example</a>
 shows how a sample sine signal is delayed.
 <br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/FractionalDelay_Model.png\" alt=\"FractionalDelay_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/FractionalDelay_Model.png\" alt=\"FractionalDelay_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/FractionalDelay_Result.png\" alt=\"FractionalDelay_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/FractionalDelay_Result.png\" alt=\"FractionalDelay_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

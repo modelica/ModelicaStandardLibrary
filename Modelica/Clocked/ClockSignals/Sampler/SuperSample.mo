@@ -101,16 +101,16 @@ Clock y is factor-times faster than clock u. The first activation of clock y coi
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample\">example</a>
 generates a periodic clock of 20 ms period, and
 then super-samples the resulting clock with a factor of 3:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SuperSample_Model.png\" alt=\"SuperSample_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/ClockSignals/SuperSample_Model.png\" alt=\"SuperSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SuperSample_Result.png\" alt=\"SuperSample_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/ClockSignals/SuperSample_Result.png\" alt=\"SuperSample_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

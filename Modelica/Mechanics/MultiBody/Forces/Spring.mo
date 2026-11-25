@@ -155,7 +155,7 @@ spring characterizes the location of the point mass.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png\"
 alt=\"model Examples.Elementary.SpringWithMass\">
 </div>
 

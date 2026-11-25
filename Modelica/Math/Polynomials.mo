@@ -296,7 +296,7 @@ To compute the roots, the eigenvalues of the corresponding companion matrix <str
 <p>
 are calculated. These are the roots of the polynomial.<br>
 Since the companion matrix has already Hessenberg form, the transformation to Hessenberg form has not to be performed.
-Function <a href=\"modelica://Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg\">eigenvaluesHessenberg</a><br>
+Function <a href=\"modelica:/Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg\">eigenvaluesHessenberg</a><br>
 provides efficient eigenvalue computation for those matrices.
 </p>
 <h4>Example</h4>

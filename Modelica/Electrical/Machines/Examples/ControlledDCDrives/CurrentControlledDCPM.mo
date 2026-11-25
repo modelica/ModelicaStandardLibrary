@@ -28,7 +28,7 @@ The current controller is parameterized according to the absolute optimum.
 <p>At time=0.2 s a reference torque step is applied, causing the drive to accelerate until motor torque and load torque are at an equilibrium.</p>
 <p>
 Further reading:
-<a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
+<a href=\"modelica:/Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
 </html>"),
     Diagram(coordinateSystem(extent={{-200,-100},{100,100}})));

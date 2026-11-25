@@ -57,15 +57,15 @@ A particular use-case in which that block might be useful is the combination of 
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold\">example</a>
-samples a sine signal with a periodic clock of 20 ms period. After that a continuous time Boolean trigger signal is generated at every clock tick of that sampled signal. The generated signal is used as trigger signal for an \"old-style\" <a href=\"modelica://Modelica.Blocks.Discrete.TriggeredSampler\">TriggeredSampler</a>  block from the Modelica.Blocks.Discrete package:<br>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold\">example</a>
+samples a sine signal with a periodic clock of 20 ms period. After that a continuous time Boolean trigger signal is generated at every clock tick of that sampled signal. The generated signal is used as trigger signal for an \"old-style\" <a href=\"modelica:/Modelica.Blocks.Discrete.TriggeredSampler\">TriggeredSampler</a>  block from the Modelica.Blocks.Discrete package:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/AssignClockToTriggerHold_Model.png\" alt=\"AssignClockToTriggerHold_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/AssignClockToTriggerHold_Model.png\" alt=\"AssignClockToTriggerHold_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/AssignClockToTriggerHold_Result.png\" alt=\"AssignClockToTriggerHold_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/AssignClockToTriggerHold_Result.png\" alt=\"AssignClockToTriggerHold_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

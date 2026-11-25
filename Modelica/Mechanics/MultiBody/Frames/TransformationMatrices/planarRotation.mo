@@ -20,7 +20,7 @@ T = TransformationMatrices.<strong>planarRotation</strong>(e, angle);
 <h4>Description</h4>
 <p>
 This function returns
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate in the plane along unit
 axis <strong>e</strong> from frame 1 into frame 2 with angle <strong>angle</strong>.
 Note, \"e\" must be a unit vector. However, this is not checked in this function and the function will
@@ -29,9 +29,9 @@ return a wrong result, if length(e) is not one.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotationAngle\">planarRotationAngle</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.planarRotation\">Frames.planarRotation</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotation\">Quaternions.planarRotation</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotationAngle\">planarRotationAngle</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.planarRotation\">Frames.planarRotation</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.planarRotation\">Quaternions.planarRotation</a>.
 </p>
 </html>"));
 end planarRotation;

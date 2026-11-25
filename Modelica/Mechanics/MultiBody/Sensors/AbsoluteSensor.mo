@@ -371,7 +371,7 @@ frame_a and the yellow arrow is the animated sensor.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
 </div>
 
 <p>

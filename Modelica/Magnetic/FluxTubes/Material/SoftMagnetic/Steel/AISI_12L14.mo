@@ -10,7 +10,7 @@ record AISI_12L14 "AISI 12L14 (1.0718)"
   annotation (defaultComponentPrefixes="parameter",
     Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
 end AISI_12L14;

@@ -33,7 +33,7 @@ y = <strong>tanh</strong>(uInternal);
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/tanh.png\"
      alt=\"tanh.png\">
 </div>
 

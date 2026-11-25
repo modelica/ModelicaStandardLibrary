@@ -71,7 +71,7 @@ equation
           horizontalAlignment=TextAlignment.Right,
           textString="v[Ns,Np] ")}),   Documentation(info="<html>
 <p>
-Transfers the information from the <a href=\"modelica://Modelica.Electrical.Batteries.Interfaces.StackBus\">stackBus</a> to the <a href=\"modelica://Modelica.Electrical.Batteries.Interfaces.StackBusArrays\">stackBusArrays</a>.
+Transfers the information from the <a href=\"modelica:/Modelica.Electrical.Batteries.Interfaces.StackBus\">stackBus</a> to the <a href=\"modelica:/Modelica.Electrical.Batteries.Interfaces.StackBusArrays\">stackBusArrays</a>.
 </p>
 </html>"));
 end BusTranscription;

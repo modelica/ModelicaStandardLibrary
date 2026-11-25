@@ -17,37 +17,37 @@ since they all have frame connectors).
 </p>
 <h4>Content</h4>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
       <td>Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.Advanced.Arrow\">
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.Advanced.Arrow\">
       </td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a></td>
       <td>Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
       </td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a></td>
       <td>Visualizing a vector quantity. The following vector quantity types are supported:<br>
       force, torque, velocity, acceleration, angular velocity, angular acceleration and relative position
       </td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
       <td>Visualizing an elementary object with variable size.
       The following shape types are supported:<br>&nbsp;<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"model Visualizers.Advanced.Shape\">
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"model Visualizers.Advanced.Shape\">
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a></td>
       <td>Visualizing a moveable parameterized surface:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/Surface_small.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/Surface_small.png\">
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField\">PipeWithScalarField</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField\">PipeWithScalarField</a></td>
       <td>Visualizing a pipe with a scalar field represented by a color coding:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
       </td>
   </tr>
 </table>

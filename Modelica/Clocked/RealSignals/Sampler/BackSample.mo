@@ -95,7 +95,7 @@ available value of u.
 
 <p>
 Note, for
-<a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks.EventClock\">EventClock</a>s
+<a href=\"modelica:/Modelica.Clocked.ClockSignals.Clocks.EventClock\">EventClock</a>s
 there is the restriction that
 block <strong>BackSample</strong> can only shift the number of ticks of the EventClock clock,
 but cannot introduce new ticks, due to the restriction of operator <strong>superSample</strong> on
@@ -114,16 +114,16 @@ block cannot be used to recover the input signal of ShiftSample
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.BackSample\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.BackSample\">example</a>
 samples a sine signal with a periodic clock of 20 ms period,
 shift-samples it with shiftCounter = 4 and resolution = 3 and then back-samples it with backCounter=4 and resolution = 3:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/BackSample_Model.png\" alt=\"BackSample_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/BackSample_Model.png\" alt=\"BackSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/BackSample_Result.png\" alt=\"BackSample_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/BackSample_Result.png\" alt=\"BackSample_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

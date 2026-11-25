@@ -16,13 +16,13 @@ vec = Frames.<strong>to_vector</strong>(R);
 <p>
 This function returns a vector vec which contains elements of a transformation matrix&nbsp;T
 computed from an
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T\">to_T</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_vector\">TransformationMatrices.to_vector</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.to_T\">to_T</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_vector\">TransformationMatrices.to_vector</a>.
 </p>
 </html>"));
 end to_vector;

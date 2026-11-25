@@ -6,7 +6,7 @@ annotation (Documentation(info="<html>
 <p>
 This package contains models that have been used to produce
 the figures in the documentation of the
-<a href=\"modelica://Modelica.Clocked.RealSignals\">Modelica.Clocked.RealSignals</a>
+<a href=\"modelica:/Modelica.Clocked.RealSignals\">Modelica.Clocked.RealSignals</a>
 sub-library.
 </p>
 </html>"));

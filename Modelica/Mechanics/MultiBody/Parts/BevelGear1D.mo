@@ -197,7 +197,7 @@ correct support torque, as the axes of rotation of <code>flange_a</code> and
 are different in general.</p>
 <p>Note: The name BevelGear1D is kept only for simplicity. Regardless,
 this component could be used to model any kind of gearbox with non-parallel axes.
-For a usage example, see <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D\">Examples.Rotational3DEffects.BevelGear1D</a>.</p>
+For a usage example, see <a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D\">Examples.Rotational3DEffects.BevelGear1D</a>.</p>
 
 <p><strong>Reference</strong><br>
 <span style=\"font-variant:small-caps\">Schweiger</span>, Christian ;

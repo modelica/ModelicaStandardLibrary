@@ -576,14 +576,14 @@ package AST_BatchPlant
         points={{-8,99},{-8,20},{-8,20}}, color={0,127,255}));
     annotation (experiment(StopTime=3600,Interval=1),
       __Dymola_Commands(file=
-            "modelica://Modelica/Resources/Scripts/Dymola/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
+            "modelica:/Modelica/Resources/Scripts/Dymola/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
           "plot level"),
       Documentation(info="<html>
 <p>
-Documentation for this example can be found on the <a href=\"modelica://Modelica.Fluid.Examples.AST_BatchPlant\">enclosing package</a>.
+Documentation for this example can be found on the <a href=\"modelica:/Modelica.Fluid.Examples.AST_BatchPlant\">enclosing package</a>.
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant/BatchPlant_StandardWater.png\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant/BatchPlant_StandardWater.png\" border=\"1\"
      alt=\"BatchPlant_StandardWater.png\">
 </div>
 </html>"),
@@ -2235,7 +2235,7 @@ below.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant/AST_BatchPlant1.jpg\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant/AST_BatchPlant1.jpg\" border=\"1\"
      alt=\"AST_BatchPlant1.jpg\">
 </div>
 
@@ -2244,7 +2244,7 @@ The flow sheet diagram is shown in the next figure.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant/AST_BatchPlant2.png\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant/AST_BatchPlant2.png\" border=\"1\"
      alt=\"AST_BatchPlant2.png\">
 </div>
 

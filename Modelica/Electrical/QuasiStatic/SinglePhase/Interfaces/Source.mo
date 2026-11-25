@@ -19,17 +19,17 @@ equation
                                         Documentation(info="<html>
 <p>
 The source partial model relies on the
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort\">OnePort</a> and contains a proper icon.
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort\">OnePort</a> and contains a proper icon.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource\">CurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Source\">Polyphase.Interfaces.Source</a>.
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource\">CurrentSource</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Source\">Polyphase.Interfaces.Source</a>.
 </p>
 </html>"));
 end Source;

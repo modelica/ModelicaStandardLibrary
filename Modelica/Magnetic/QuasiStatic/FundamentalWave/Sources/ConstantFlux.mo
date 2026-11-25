@@ -48,11 +48,11 @@ Source of constant magnetic flux.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
 ConstantMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
 SignalMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalFlux\">
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalFlux\">
 SignalFlux</a>
 </p>
 

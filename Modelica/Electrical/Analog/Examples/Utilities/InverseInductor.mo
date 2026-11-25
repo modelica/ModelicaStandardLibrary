@@ -49,7 +49,7 @@ equation
           textString="di"),     Text(
                 extent={{-150,-110},{150,-140}},
           textString="L=%L"),      Bitmap(extent={{-58,-42},{98,48}},
-            fileName="modelica://Modelica/Resources/Images/Electrical/Analog/InverseInductor.png"),
+            fileName="modelica:/Modelica/Resources/Images/Electrical/Analog/InverseInductor.png"),
           Text( extent={{-90,-64},{-6,-94}},
                 horizontalAlignment=TextAlignment.Left,
           textString="i")}));

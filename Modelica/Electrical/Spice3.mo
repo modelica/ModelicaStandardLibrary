@@ -176,7 +176,7 @@ connect(p_out, n2);
 </tr>
 <tr>
 <td><p>[Johnson1991]</p></td>
-<td><p>B. Johnson, T. Quarles, A. R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <em>SPICE3 Version 3f User's Manual</em>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA, 1991, <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a> (&copy; Regents of the University of California).</p></td>
+<td><p>B. Johnson, T. Quarles, A. R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <em>SPICE3 Version 3f User's Manual</em>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA, 1991, <a href=\"modelica:/Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a> (&copy; Regents of the University of California).</p></td>
 </tr>
 <tr>
 <td><p>[Kielkowski1994]</p></td>
@@ -2099,7 +2099,7 @@ RC 3 4 1K<br>
 <p>This Four Bit Binary Adder model is one of the five benchmark circuits described in the SPICE3 Version e3 User&#39;s Manual (see information of package Spice3).</p>
 <p>The model adds two 4-bit numbers (Number A and Number B). It has eight inputs where the first one is the lowest-order bit of the first number (Number A Bit0), the second is the lowest-order bit of the second number (Number B Bit0), the third one is the second-order bit of the first number (Number A Bit1) and so on. The Four Bit Binary Adder has four outputs where the first one (Sum Bit0) is the lowest-order bit, the second and the third one (Sum Bit1 and Sum Bit2) are the next two bits and the last one (Sum Bit3) is the highest-order bit. The picture illustrates the pin-assignment.</p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Spice3/FourBitBinaryAdder.jpg\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Spice3/FourBitBinaryAdder.jpg\"
      alt=\"segment.png\">
 </blockquote>
 
@@ -2442,7 +2442,7 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
 <code>k</code> is the coefficient of coupling which must be in range [0,1].
 </p>
 <p>
-The usage is demonstrated in the example <a href=\"modelica://Modelica.Electrical.Spice3.Examples.CoupledInductors\">CoupledInductors</a>.
+The usage is demonstrated in the example <a href=\"modelica:/Modelica.Electrical.Spice3.Examples.CoupledInductors\">CoupledInductors</a>.
 </p>
 </html>"));
     end K_CoupledInductors;

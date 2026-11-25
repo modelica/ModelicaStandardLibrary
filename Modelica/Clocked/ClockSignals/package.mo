@@ -8,7 +8,7 @@ package ClockSignals "Library of blocks for clocked signals"
 This package contains blocks that transform a clock signal, by
 sub-, super-, and shift-sampling a clock. For an introduction
 to clocks see
-<a href=\"modelica://Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
+<a href=\"modelica:/Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
 </p>
 </html>"));
 end ClockSignals;

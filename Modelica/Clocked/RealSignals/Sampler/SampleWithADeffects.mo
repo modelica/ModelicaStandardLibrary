@@ -131,7 +131,7 @@ equation
     Documentation(info="<html>
 <p>
 This block is similar to the
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Sample</a>
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.Sample\">Sample</a>
 block. The only difference is that after the sampling of the input signal,
 simulated real-world effects are applied on the sampled signal. In particular:
 </p>
@@ -151,7 +151,7 @@ simulated real-world effects are applied on the sampled signal. In particular:
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.SampleWithADeffects\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.SampleWithADeffects\">example</a>
 samples a sine signal with a periodic clock of 20 ms period, and adds the following effects:
 </p>
 <ul>
@@ -161,9 +161,9 @@ samples a sine signal with a periodic clock of 20 ms period, and adds the follow
 </ul>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SampleWithADeffects_Model.png\" alt=\"SampleWithADeffects_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/SampleWithADeffects_Model.png\" alt=\"SampleWithADeffects_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SampleWithADeffects_Result.png\" alt=\"SampleWithADeffects_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/SampleWithADeffects_Result.png\" alt=\"SampleWithADeffects_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

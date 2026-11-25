@@ -59,7 +59,7 @@ equation
     Documentation(info="<html>
 <p>
 This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; same as the
-<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.Convection\">Convection</a> component
+<a href=\"modelica:/Modelica.Thermal.HeatTransfer.Components.Convection\">Convection</a> component
 but using the convective resistance instead of the convective conductance as an input.
 This is advantageous for series connections of ConvectiveResistors,
 especially if it shall be allowed that a convective resistance is defined to be zero (i.e. no temperature difference).

@@ -21,15 +21,15 @@ w = Quaternions.<strong>angularVelocity1</strong>(Q, der_Q);
 <p>
 This function returns the angular velocity&nbsp;w of frame&nbsp;2 with
 respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
 and from its first time derivative der_Q.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.angularVelocity1\">Frames.angularVelocity1</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity1\">TransformationMatrices.angularVelocity1</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.angularVelocity1\">Frames.angularVelocity1</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity1\">TransformationMatrices.angularVelocity1</a>.
 </p>
 </html>"));
 end angularVelocity1;

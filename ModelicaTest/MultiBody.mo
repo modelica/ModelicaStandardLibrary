@@ -263,7 +263,7 @@ to <strong>false</strong> or by setting <strong>enableAnimation</strong> in the 
 object to <strong>false</strong> to switch off animation of all components.
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
 alt=\"model Examples.Elementary.DoublePendulum\">
 </div>
 </html>"));
@@ -378,7 +378,7 @@ This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" alt=\"model Examples.Loops.Fourbar2\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" alt=\"model Examples.Loops.Fourbar2\">
 </div>
 
 <p>
@@ -2597,7 +2597,7 @@ component):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
 alt=\"model Examples.Elementary.ForceWithMasses\">
 </div>
 
@@ -2769,7 +2769,7 @@ component):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
 alt=\"model Examples.Elementary.ForceWithMasses\">
 </div>
 
@@ -4505,7 +4505,7 @@ a linear damper is connected here.
       annotation (experiment(StopTime=1), Documentation(info="<html>
 <p>
 Simple model to test gasForce element used in some multi-body examples,
-see <a href=\"modelica://MultiBody.Examples.Loops\">MultiBody.Examples.Loops</a>.
+see <a href=\"modelica:/MultiBody.Examples.Loops\">MultiBody.Examples.Loops</a>.
 </p>
 <p>
 To generate the pressure-stroke diagram, simulate the example for 1&nbsp;s

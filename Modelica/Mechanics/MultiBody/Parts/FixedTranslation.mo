@@ -131,7 +131,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/FixedTranslation.png\" alt=\"Parts.FixedTranslation\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Parts/FixedTranslation.png\" alt=\"Parts.FixedTranslation\">
 </div>
 </html>"));
 end FixedTranslation;

@@ -6,7 +6,7 @@ model SaturatingInductor "Simple model of an inductor with saturation"
   import Modelica.Constants.small;
   import Modelica.Math.atan;
   parameter SI.Current Inom(start=1) "Nominal current" annotation(Dialog(
-    groupImage="modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i_tight.png"));
+    groupImage="modelica:/Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i_tight.png"));
   parameter SI.Inductance Lnom(start=1)
     "Nominal inductance at Nominal current";
   parameter SI.Inductance Lzer(start=2*Lnom)
@@ -109,7 +109,7 @@ Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
   <caption><strong>Fig.&nbsp;1:</strong> Actual inductance <code>Lact</code> versus current <code>i</code></caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i.png\" alt=\"Lact vs. i\">
+      <img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i.png\" alt=\"Lact vs. i\">
     </td>
   </tr>
 </table>
@@ -118,7 +118,7 @@ Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
   <caption><strong>Fig.&nbsp;2:</strong> Actual flux linkage <code>Psi</code> versus current <code>i</code></caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Psi_i.png\" alt=\"Psi vs. i\">
+      <img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Psi_i.png\" alt=\"Psi vs. i\">
     </td>
   </tr>
 </table>

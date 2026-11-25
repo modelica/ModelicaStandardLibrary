@@ -22,7 +22,7 @@ orientation object R12 that describes the orientation to rotate frame&nbsp;1 int
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade2\">TransformationMatrices.resolveDyade2</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade2\">TransformationMatrices.resolveDyade2</a>.
 </p>
 </html>"));
 end resolveDyade2;

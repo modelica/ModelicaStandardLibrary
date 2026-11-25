@@ -29,12 +29,12 @@ Image of the \"hot\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/hot.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/hot.png\">
 </blockquote>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">ColorMaps</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">ColorMaps</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
 </html>"));
 end hot;

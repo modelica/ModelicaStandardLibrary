@@ -112,7 +112,7 @@ equation
     Documentation(info="<html>
 <p>
 This model demonstrates how a moving drive train modelled with 3-dim. multi-body elements
-(revolute, bodyCylinder) can alternatively be modeled with component <a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Rotor1D\">rotor1D</a> to speed up
+(revolute, bodyCylinder) can alternatively be modeled with component <a href=\"modelica:/Modelica.Mechanics.MultiBody.Parts.Rotor1D\">rotor1D</a> to speed up
 simulation. The movement of the two systems is identical and also the cut-torques in the
 various frames (such as: r1.frame_b.t and r2.frame_b.t).
 </p>

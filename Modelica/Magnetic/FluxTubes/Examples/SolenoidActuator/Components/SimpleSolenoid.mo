@@ -8,7 +8,7 @@ model SimpleSolenoid
   //yoke
   parameter SI.Radius r_yokeOut=15e-3 "Outer yoke radius" annotation (
       Dialog(group="Parameters", groupImage=
-          "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png"));
+          "modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png"));
   parameter SI.Radius r_yokeIn=13.5e-3 "Inner yoke radius";
   parameter SI.Length l_yoke=35e-3 "Axial yoke length";
   parameter SI.Length t_yokeBot=3.5e-3 "Axial thickness of yoke bottom";
@@ -292,7 +292,7 @@ In the half-section below, the flux tube elements of the actuator's magnetic cir
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/SimpleSolenoidModel_fluxTubePartitioning.png\" alt=\"Field lines and assigned flux tubes of the simple solenoid model\">
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/SimpleSolenoidModel_fluxTubePartitioning.png\" alt=\"Field lines and assigned flux tubes of the simple solenoid model\">
 </div>
 
 <p>

@@ -33,7 +33,7 @@ that is used for animation. This object is specified by:
 The parameter values (u,v) are given by the ordinal numbers of the
 corresponding control point in u- or in v-direction, respectively.
 The surface is then defined by the replaceable function \"surfaceCharacteristic\" with the
-interface <a href=\"modelica://Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic\">partialSurfaceCharacteristic</a>
+interface <a href=\"modelica:/Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic\">partialSurfaceCharacteristic</a>
 that returns the x-, y-, z- coordinate of every control point in form of 3 arrays X, Y, Z, and an optional color array C, if every control point shall have a different color:
 </p>
 
@@ -46,16 +46,16 @@ An example of a parameterized surface with color coding is shown in the next fig
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/Surface.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/Surface.png\">
 </blockquote>
 
 <p>
-Models <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a>,
+Models <a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a>,
 demonstrate how new visualizer objects can be constructed with the Surface model.<br>
 The direct usage of the Surface model, as well as of the Torus and the VoluminousWheel models, are demonstrated with example
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces\">Examples.Elementary.Surfaces</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces\">Examples.Elementary.Surfaces</a>.
 </p>
 </html>"));
 end Surface;

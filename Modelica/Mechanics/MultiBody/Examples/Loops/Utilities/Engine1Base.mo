@@ -122,6 +122,6 @@ well-formed.
 <p>
 An animation of this example is shown in the figure below.
 </p><div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
 </div></html>"));
 end Engine1Base;

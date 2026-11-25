@@ -12,7 +12,7 @@ The user can easily build up a collection of different battery types by creating
 Do not forget to add the <code>annotation(defaultComponentPrefixes=\"parameter\");</code> in each individual parameter record.
 </p>
 <p>
-Record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">RCData</a> is used in record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">CellData</a>.
+Record <a href=\"modelica:/Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">RCData</a> is used in record <a href=\"modelica:/Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">CellData</a>.
 </p>
 </html>"));
 end TransientData;

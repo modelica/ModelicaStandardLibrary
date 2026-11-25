@@ -21,7 +21,7 @@ equation
 <p>
 Ground of a single-phase circuit. The potential at the ground node is zero.
 Every electrical circuit, e.g., a series resonance
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance\">
           example</a>, has to contain at least one ground object.
 </p>
 

@@ -49,7 +49,7 @@ connect(xor1.u2, xor.y) annotation (Line(
     Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Sample\">Modelica.Clocked.BooleanSignals.Sampler.Sample</a>.
+<a href=\"modelica:/Modelica.Clocked.BooleanSignals.Sampler.Sample\">Modelica.Clocked.BooleanSignals.Sampler.Sample</a>.
 </p>
 </html>"));
 end Sample2;

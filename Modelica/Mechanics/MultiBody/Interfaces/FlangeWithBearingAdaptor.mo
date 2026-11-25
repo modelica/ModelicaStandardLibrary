@@ -43,7 +43,7 @@ equation
 <p>
 Adaptor object to make a more visible connection to the flange and frame
 subconnectors of a
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearing\">FlangeWithBearing</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearing\">FlangeWithBearing</a>
 connector.
 </p>
 </html>"));

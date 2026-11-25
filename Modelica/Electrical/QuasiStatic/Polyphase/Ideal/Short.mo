@@ -26,13 +26,13 @@ equation
                        Documentation(info="<html>
 <p>
 This model describes <em>m</em> simple short branches considering the complex voltages <em><u>v</u></em> = 0;
-it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short\">single-phase short branches</a>.
+it uses <em>m</em> <a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short\">single-phase short branches</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short\">Short</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Idle\">Idle</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short\">Short</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Idle\">Idle</a>
 </p>
 </html>"));
 end Short;

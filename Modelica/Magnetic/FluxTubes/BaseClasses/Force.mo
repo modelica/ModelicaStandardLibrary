@@ -70,7 +70,7 @@ equation
         fillColor={0,127,0},
         fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
-Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force\">Shapes.Force</a> for utilisation of this partial model.
+Please refer to the description of  the sub-package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.Force\">Shapes.Force</a> for utilisation of this partial model.
 </p>
 </html>"));
 end Force;

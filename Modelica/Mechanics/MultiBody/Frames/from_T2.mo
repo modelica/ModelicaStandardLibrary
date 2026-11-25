@@ -26,7 +26,7 @@ is not possible or too difficult to compute, use function from_T2(&hellip;).
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T\">from_T</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.from_T\">from_T</a>.
 </p>
 </html>"));
 end from_T2;

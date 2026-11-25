@@ -49,6 +49,6 @@ equation
   annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz3
 <br>Typical parameters see:
-<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
+<a href=\"modelica:/Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
 end Yz03;

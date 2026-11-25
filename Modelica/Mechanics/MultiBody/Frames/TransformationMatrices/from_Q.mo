@@ -25,14 +25,14 @@ T = TransformationMatrices.<strong>from_Q</strong>(Q);
 <h4>Description</h4>
 <p>
 This function returns a
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
-computed from a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternion object</a>&nbsp;Q
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+computed from a <a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternion object</a>&nbsp;Q
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_Q\">to_Q</a>.
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_Q\">Frames.from_Q</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_Q\">to_Q</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.from_Q\">Frames.from_Q</a>.
 </p>
 </html>"));
 end from_Q;

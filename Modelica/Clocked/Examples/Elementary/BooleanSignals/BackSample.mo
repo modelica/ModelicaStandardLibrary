@@ -34,7 +34,7 @@ connect(backSample1.u, shiftSample1.y) annotation (Line(
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.BackSample\">Modelica.Clocked.BooleanSignals.Sampler.BackSample</a>.
+<a href=\"modelica:/Modelica.Clocked.BooleanSignals.Sampler.BackSample\">Modelica.Clocked.BooleanSignals.Sampler.BackSample</a>.
 </p>
 </html>"));
 end BackSample;

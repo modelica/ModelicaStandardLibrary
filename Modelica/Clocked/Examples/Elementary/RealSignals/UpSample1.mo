@@ -40,7 +40,7 @@ connect(upSample1.y, add.u1) annotation (Line(
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
 end UpSample1;

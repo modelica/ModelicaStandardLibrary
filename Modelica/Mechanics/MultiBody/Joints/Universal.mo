@@ -109,7 +109,7 @@ phi_b.start = 45<sup>o</sup>).
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Universal.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Universal.png\">
 </div>
 </html>"),
     Icon(coordinateSystem(

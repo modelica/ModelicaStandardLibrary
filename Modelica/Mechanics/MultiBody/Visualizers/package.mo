@@ -10,50 +10,50 @@ animation features of the MultiBody library.
 </p>
 <h4>Content</h4>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape\">FixedShape</a><br>
-             <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape2\">FixedShape2</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.FixedShape\">FixedShape</a><br>
+             <a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.FixedShape2\">FixedShape2</a></td>
       <td>Visualizing an elementary shape with dynamically varying shape attributes.
       FixedShape has one connector frame_a, whereas FixedShape2 has additionally
           a frame_b for easier connection to further visual objects.
           The following shape types are supported:<br>&nbsp;<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"model Visualizers.FixedShape\">
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"model Visualizers.FixedShape\">
       </td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedFrame\">FixedFrame</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.FixedFrame\">FixedFrame</a></td>
       <td>Visualizing a coordinate system including axes labels with fixed sizes:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedFrame_small.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedFrame_small.png\"
        alt=\"model Visualizers.FixedFrame2\">
       </td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedArrow\">FixedArrow</a>,<br>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.SignalArrow\">SignalArrow</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.FixedArrow\">FixedArrow</a>,<br>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.SignalArrow\">SignalArrow</a></td>
       <td>Visualizing an arrow. Model \"FixedArrow\" provides
       a fixed sized arrow, model \"SignalArrow\" provides
       an arrow with dynamically varying length that is defined
       by an input signal vector:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\">
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a></td>
       <td>Visualizing a torus:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/TorusIcon.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/TorusIcon.png\">
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a></td>
       <td>Visualizing a wheel:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheelIcon.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheelIcon.png\">
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a></td>
+  <tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a></td>
       <td>Visualizing a pipe with a scalar field represented by a color coding:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
       </td>
   </tr>
 
-<tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced\">Advanced</a></td>
+<tr><td><a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced\">Advanced</a></td>
       <td> <strong>Package</strong> that contains components to visualize
           3-dimensional shapes where all parts of the shape
           can vary dynamically. Basic knowledge of Modelica is

@@ -5,7 +5,7 @@ package BasicMachines "Basic machine components and models"
   annotation (Documentation(info="<html>
 <p>
 This package contains electric machine models and
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components\">components</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components\">components</a>
 for electric machines.
 </p>
 </html>"));

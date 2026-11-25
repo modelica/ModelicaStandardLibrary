@@ -115,11 +115,11 @@ equation
 <p>
 This example demonstrates coupling a quasi-static circuit with a DC circuit.
 The QS voltage is rectified (using an
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter\">
 ideal AC DC converter</a>), loaded by a variable load conductor.
 The <em>conversionFactor = DC voltage / AC rms voltage</em> in this case is the root mean square of a rectified sine, i.e., 1.
 You may compare the quasi-static results with that of a fully transient model (using a
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.GraetzRectifier\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.GraetzRectifier\">
 Graetz rectifier</a>), plotting:
 </p>
 <ul>

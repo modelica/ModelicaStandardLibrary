@@ -16,17 +16,17 @@ T_inv = TransformationMatrices.<strong>inverseRotation</strong>(T);
 <h4>Description</h4>
 <p>
 This function returns
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a> T_inv
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a> T_inv
 that describes the orientation to rotate from frame&nbsp;2 to frame&nbsp;1
 from the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate from frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.inverseRotation\">Frames.inverseRotation</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.inverseRotation\">Quaternions.inverseRotation</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.inverseRotation\">Frames.inverseRotation</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.inverseRotation\">Quaternions.inverseRotation</a>.
 </p>
 </html>"));
 end inverseRotation;

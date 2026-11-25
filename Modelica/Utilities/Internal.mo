@@ -38,7 +38,7 @@ package PartialModelicaServices
       Documentation(info="<html>
 <p>
 This model is documented at
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
 </html>"));
 
@@ -66,7 +66,7 @@ This model is documented at
         Documentation(info="<html>
 <p>
 This model is documented at
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>.
 </p>
 </html>"));
     end PartialVector;
@@ -104,7 +104,7 @@ This model is documented at
       annotation (Documentation(info="<html>
 <p>
 This model is documented at
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>.
 </p>
 </html>"));
     end PartialSurface;
@@ -121,7 +121,7 @@ This model is documented at
 <p>
 This partial function defines the function interface of a tool-specific implementation
 in package ModelicaServices. The interface is documented at
-<a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Internal.FileSystem.loadResource</a>.
+<a href=\"modelica:/Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Internal.FileSystem.loadResource</a>.
 </p>
 
 </html>"));
@@ -162,33 +162,33 @@ package FileSystem
   impure function mkdir "Make directory (POSIX: 'mkdir')"
     extends Modelica.Icons.Function;
     input String directoryName "Make a new directory";
-  external "C" ModelicaInternal_mkdir(directoryName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" ModelicaInternal_mkdir(directoryName) annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end mkdir;
 
   impure function rmdir "Remove empty directory (POSIX function 'rmdir')"
     extends Modelica.Icons.Function;
     input String directoryName "Empty directory to be removed";
-  external "C" ModelicaInternal_rmdir(directoryName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" ModelicaInternal_rmdir(directoryName) annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end rmdir;
 
   impure function stat "Inquire file information (POSIX function 'stat')"
     extends Modelica.Icons.Function;
     input String name "Name of file, directory, pipe etc.";
     output Types.FileType fileType "Type of file";
-  external "C" fileType = ModelicaInternal_stat(name) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" fileType = ModelicaInternal_stat(name) annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end stat;
 
   impure function rename "Rename existing file or directory (C function 'rename')"
     extends Modelica.Icons.Function;
     input String oldName "Current name";
     input String newName "New name";
-  external "C" ModelicaInternal_rename(oldName, newName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" ModelicaInternal_rename(oldName, newName) annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end rename;
 
   impure function removeFile "Remove existing file (C function 'remove')"
     extends Modelica.Icons.Function;
     input String fileName "File to be removed";
-  external "C" ModelicaInternal_removeFile(fileName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" ModelicaInternal_removeFile(fileName) annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end removeFile;
 
   impure function copyFile
@@ -196,7 +196,7 @@ package FileSystem
     extends Modelica.Icons.Function;
     input String fromName "Name of file to be copied";
     input String toName "Name of copy of file";
-  external "C" ModelicaInternal_copyFile(fromName, toName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" ModelicaInternal_copyFile(fromName, toName) annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end copyFile;
 
   impure function readDirectory
@@ -208,7 +208,7 @@ package FileSystem
         "Number of names that are returned (inquire with getNumberOfFiles)";
     output String names[nNames]
         "All file and directory names in any order from the desired directory";
-    external "C" ModelicaInternal_readDirectory(directory,nNames,names) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+    external "C" ModelicaInternal_readDirectory(directory,nNames,names) annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end readDirectory;
 
 impure function getNumberOfFiles
@@ -217,7 +217,7 @@ impure function getNumberOfFiles
   input String directory "Directory name";
   output Integer result
         "Number of files and directories present in 'directory'";
-  external "C" result = ModelicaInternal_getNumberOfFiles(directory) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" result = ModelicaInternal_getNumberOfFiles(directory) annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
 end getNumberOfFiles;
 
   annotation (

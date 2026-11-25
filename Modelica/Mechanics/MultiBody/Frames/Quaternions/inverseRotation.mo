@@ -16,17 +16,17 @@ Q_inv = Quaternions.<strong>inverseRotation</strong>(Q);
 <h4>Description</h4>
 <p>
 This function returns
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q_inv
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q_inv
 that describes the orientation to rotate from frame&nbsp;2 to frame&nbsp;1
 from the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q
 that describes the orientation to rotate from frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.inverseRotation\">Frames.inverseRotation</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation\">TransformationMatrices.inverseRotation</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.inverseRotation\">Frames.inverseRotation</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation\">TransformationMatrices.inverseRotation</a>.
 
 </p>
 </html>"));

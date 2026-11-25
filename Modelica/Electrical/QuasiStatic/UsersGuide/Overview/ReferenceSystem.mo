@@ -21,11 +21,11 @@ Designing new components, the guidelines of <a href=\"https://specification.mode
 </p>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction\">
           Introduction</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power\">
           Power</a>
 
 </html>"));

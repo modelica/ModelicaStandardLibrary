@@ -23,7 +23,7 @@ If <code>useLinearSOCDependency=true</code>, the OCV versus SOC table is built u
 Otherwise, the OCV versus SOC table has to be specified: 1st column = SOC values in ascending order, 2nd column = corresponding OCV values with respect to OCVmax.
 </p>
 <p>
-The size of the array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">rcData</a> has to be defined as parameter <code>nRC</code>.
+The size of the array <a href=\"modelica:/Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">rcData</a> has to be defined as parameter <code>nRC</code>.
 The sum of the resistances <code>rcData.R</code> must not exceed the total inner resistance <code>Ri</code>.
 </p>
 </html>"));

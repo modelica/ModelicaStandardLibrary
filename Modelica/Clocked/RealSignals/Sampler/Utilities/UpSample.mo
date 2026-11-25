@@ -125,16 +125,16 @@ For signal interpolation an <em>upsample</em> should be followed by an appropria
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.UpSample1\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.UpSample1\">example</a>
 samples a sine signal with a periodic clock of 20 ms period, and
 then upsamples the resulting clocked signal with a factor of 3:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UpSample1_Model.png\" alt=\"UpSample1_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/UpSample1_Model.png\" alt=\"UpSample1_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UpSample1_Result.png\" alt=\"UpSample1_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/UpSample1_Result.png\" alt=\"UpSample1_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>
@@ -150,7 +150,7 @@ clocks of their outputs is faster than the clocks of their inputs.
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.UpSample2\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.UpSample2\">example</a>
 samples a sine signal with a periodic clock of 20 ms period,
 upsamples the resulting clocked signal with a factor of 3
 and applies varies filters on this signal:<br>
@@ -158,19 +158,19 @@ and applies varies filters on this signal:<br>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UpSample2_Model.png\" alt=\"UpSample2_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/UpSample2_Model.png\" alt=\"UpSample2_Model.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model<br></td>
    </tr>
 <tr><td></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UpSample2_Result1.png\" alt=\"UpSample2_Result1.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/UpSample2_Result1.png\" alt=\"UpSample2_Result1.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">simulation result 1<br></td>
    </tr>
 <tr><td></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UpSample2_Result2.png\" alt=\"UpSample2_Result2.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/UpSample2_Result2.png\" alt=\"UpSample2_Result2.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">simulation result 2</td>
@@ -187,7 +187,7 @@ block FIR2 using FIR coefficients {1/3, 2/3, 1, 2/3, 1/3}, then
 the result is a linearly interpolated super-sampled signal
 (see signal FIR2.y in figure \"simulation result 2\").
 The same result can be achieved with block
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a>
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a>
 (see signal superSampleIpo1.y in figure \"simulation result 2\").
 The only difference are the first clock ticks, since the FIR2 signal is
 initialized a bit differently.

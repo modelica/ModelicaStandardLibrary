@@ -15,8 +15,8 @@ record StrayLoadParameters "Parameter record for stray load losses"
     "Reference stray load torque at reference angular velocity and reference current";
   annotation (defaultComponentPrefixes="parameter ", Documentation(info="<html>
 <p>
-Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad\">three-phase</a> and
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.StrayLoad\">DC</a> stray load losses.
+Parameter record for <a href=\"modelica:/Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad\">three-phase</a> and
+<a href=\"modelica:/Modelica.Electrical.Machines.Losses.DCMachines.StrayLoad\">DC</a> stray load losses.
 </p>
 </html>"));
 end StrayLoadParameters;

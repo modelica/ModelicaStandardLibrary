@@ -31,7 +31,7 @@ equation
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Hold\">Modelica.Clocked.RealSignals.Sampler.Hold</a>.
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.Hold\">Modelica.Clocked.RealSignals.Sampler.Hold</a>.
 </p>
 </html>"));
 end Hold;

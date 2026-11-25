@@ -36,7 +36,7 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxy\">TransformationMatrices.from_nxy</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxy\">TransformationMatrices.from_nxy</a>.
 </p>
 </html>"));
 end from_nxy;

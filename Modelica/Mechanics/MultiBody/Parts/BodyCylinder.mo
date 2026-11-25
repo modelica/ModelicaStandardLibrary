@@ -186,13 +186,13 @@ the animation may be switched off via parameter animation = <strong>false</stron
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/BodyCylinder.png\" alt=\"Parts.BodyCylinder\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Parts/BodyCylinder.png\" alt=\"Parts.BodyCylinder\">
 </div>
 
 <p>
 A BodyCylinder component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</p></html>"),
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</p></html>"),
       Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={

@@ -23,8 +23,8 @@ equation
   i = pin_p.i;
   annotation (Documentation(info="<html>
 <p>
-This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">positive</a>
-and <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines
+This partial model uses a <a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">positive</a>
+and <a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines
 the complex voltage difference as well as the complex current (into the positive pin).
 Additionally, the angular velocity of the quasi-static system is explicitly defined as variable.
 This model is mainly intended to be used with graphical representation of user models.
@@ -33,10 +33,10 @@ This model is mainly intended to be used with graphical representation of user m
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary\">TwoPinElementary</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort\">OnePort</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary\">TwoPinElementary</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort\">OnePort</a>
 </p>
 </html>"));
 end TwoPin;

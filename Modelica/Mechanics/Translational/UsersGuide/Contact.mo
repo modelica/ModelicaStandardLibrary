@@ -7,7 +7,7 @@ class Contact "Contact"
 
 <p>
 For current information on library officers please refer to the main
-<a href=\"modelica://Modelica.UsersGuide.Contact\">Contact</a> section.
+<a href=\"modelica:/Modelica.UsersGuide.Contact\">Contact</a> section.
 </p>
 
 <h4>Main contributors</h4>

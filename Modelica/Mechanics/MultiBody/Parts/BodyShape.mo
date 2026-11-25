@@ -242,7 +242,7 @@ Note, that
 the animation may be switched off via parameter animation = <strong>false</strong>.
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/BodyShape.png\" alt=\"Parts.BodyShape\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Parts/BodyShape.png\" alt=\"Parts.BodyShape\">
 </div>
 
 <p>
@@ -251,13 +251,13 @@ e.g., shapeType=\"cone\":
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"Visualizers.FixedShape\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"Visualizers.FixedShape\">
 </div>
 
 <p>
 A BodyShape component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.
 </p>
 </html>"),
     Icon(coordinateSystem(

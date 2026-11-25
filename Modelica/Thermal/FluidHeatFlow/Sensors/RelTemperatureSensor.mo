@@ -13,7 +13,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>The RelTemperatureSensor measures the temperature difference between flowPort_a and flowPort_b.</p>
-<p>Thermodynamic equations are defined by <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensorBase\">Interfaces.RelativeSensorBase</a>.</p>
+<p>Thermodynamic equations are defined by <a href=\"modelica:/Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensorBase\">Interfaces.RelativeSensorBase</a>.</p>
 <p>
 <strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)!
 Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.

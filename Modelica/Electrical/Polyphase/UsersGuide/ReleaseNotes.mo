@@ -9,10 +9,10 @@ class ReleaseNotes "Release Notes"
   <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
 <li>Removed redundant (and not identical) parameter m from
-    <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MutualInductor\">MutualInductor</a>,
+    <a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.MutualInductor\">MutualInductor</a>,
     see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2202\">#2202</a></li>
 <li>Changed epsilon from constant to parameter in
-    <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MutualInductor\">MutualInductor</a>,
+    <a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.MutualInductor\">MutualInductor</a>,
     see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2200\">#2200</a></li>
 <li>Added User's Guide</li>
 <li>Added blocks and functions for multiple base systems</li>

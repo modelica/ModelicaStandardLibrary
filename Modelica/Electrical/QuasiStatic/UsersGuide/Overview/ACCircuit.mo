@@ -5,7 +5,7 @@ class ACCircuit "AC circuit"
   annotation (Documentation(info="<html>
 <p>
 A simple
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance\">
           example</a> of a series connection of a resistor, an inductor and a capacitor
 as depicted in Fig. 1 should be explained in the following. For various frequencies,
 the voltage drops across the resistor, the inductor and the capacitor should be determined.
@@ -14,7 +14,7 @@ the voltage drops across the resistor, the inductor and the capacitor should be 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/resonance_circuit.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/resonance_circuit.png\"
            alt=\"resonance_circuit.png\">
     </td>
   </tr>
@@ -28,7 +28,7 @@ The voltage drop across the resistor
 <div>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img1.png\"
+ src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img1.png\"
  alt=\"\\underline{v}_{r}=R\\underline{i}\">
 </div>
 
@@ -39,7 +39,7 @@ and the inductor
 <div>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img2.png\"
+ src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img2.png\"
  alt=\"\\underline{v}_{l}=j\\omega L\\underline{i}\">
 </div>
 
@@ -50,7 +50,7 @@ and the capacitor
 <div>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img3.png\"
+ src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img3.png\"
  alt=\"\\underline{v}_{l}=j\\omega L\\underline{i}\">
 </div>
 
@@ -61,7 +61,7 @@ add up to the total voltage
 <div>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img4.png\"
+ src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img4.png\"
  alt=\"\\underline{v}=\\underline{v}_{r}+\\underline{v}_{l}\">
 </div>
 
@@ -72,7 +72,7 @@ as illustrated in the phasor diagram of Fig. 2.
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/phasor_diagram.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/phasor_diagram.png\"
            alt=\"phasor_diagram.png\">
     </td>
   </tr>
@@ -83,16 +83,16 @@ as illustrated in the phasor diagram of Fig. 2.
 
 <div>
 <img border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img5.png\"
+ src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img5.png\"
  alt=\"img5.png\">
 </div>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction\">
           Introduction</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power\">
           Power</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem\">
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem\">
           Reference system</a>
 
 </html>"));

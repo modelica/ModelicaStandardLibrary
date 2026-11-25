@@ -8,7 +8,7 @@ partial function partialColorMap
 <p>
 This partial function defines the interface of a function that returns
 a color map. Predefined color map functions are defined in package
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps</a>.
 </p>
 </html>"));
 end partialColorMap;

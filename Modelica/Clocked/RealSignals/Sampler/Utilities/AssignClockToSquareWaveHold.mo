@@ -52,15 +52,15 @@ This block creates a Boolean, continuous time, square-wave output. Whenever the 
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToSquareWaveHold\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToSquareWaveHold\">example</a>
 samples a sine signal with a periodic clock of 20 ms period. After that a Boolean, continuous time, square-wave signal is generated that changes its value at every clock tick of the sampled signal:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/AssignClockToSquareWaveHold_Model.png\" alt=\"AssignClockToSquareWaveHold_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/AssignClockToSquareWaveHold_Model.png\" alt=\"AssignClockToSquareWaveHold_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/AssignClockToSquareWaveHold_Result.png\" alt=\"AssignClockToSquareWaveHold_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/AssignClockToSquareWaveHold_Result.png\" alt=\"AssignClockToSquareWaveHold_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

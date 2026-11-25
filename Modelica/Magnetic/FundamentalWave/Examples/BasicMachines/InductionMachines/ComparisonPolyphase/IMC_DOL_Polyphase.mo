@@ -238,7 +238,7 @@ equation
     Documentation(info="<html>
 <p>
 At start time tStart voltages are supplied to the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">polyphase induction machines with squirrel cage</a>.
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">polyphase induction machines with squirrel cage</a>.
 The machines starts from standstill, accelerating
 inertias against load torque quadratic dependent on speed, finally reaching nominal speed. Two equivalent machines with different numbers of phases are compared and their equal behavior is demonstrated.</p>
 

@@ -113,16 +113,16 @@ equation
               textString="%name")}),   Documentation(info="<html>
 <p>
 The single-phase winding consists of a winding
-<a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>, a
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single-phase electromagnetic coupling</a> and a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">stray reluctance</a>.
+<a href=\"modelica:/Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>, a
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single-phase electromagnetic coupling</a> and a <a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.Reluctance\">stray reluctance</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">SymmetricPolyphaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">SymmetricPolyphaseWinding</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
 end SinglePhaseWinding;

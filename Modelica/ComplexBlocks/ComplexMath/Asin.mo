@@ -32,7 +32,7 @@ y = <strong>asin</strong>(uInternal);
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/asin.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/asin.png\"
      alt=\"asin.png\">
 </div>
 

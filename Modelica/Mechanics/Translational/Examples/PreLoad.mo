@@ -119,9 +119,9 @@ Drawing of spool.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad1.png\" alt=\"Preload 1\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad3.png\" alt=\"Preload 3\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad4.png\" alt=\"Preload 4\"><br>
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad1.png\" alt=\"Preload 1\"><br>
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad3.png\" alt=\"Preload 3\"><br>
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad4.png\" alt=\"Preload 4\"><br>
 </div>
 
 <p>
@@ -132,7 +132,7 @@ the start value <code>spool.s.start</code> influences the offset.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad2.png\" alt=\"Preload 2\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad2.png\" alt=\"Preload 2\">
 </div>
 </html>"),
     experiment(StopTime=100, Interval=0.1));

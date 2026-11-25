@@ -26,7 +26,7 @@ equation
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SuperSample\">Modelica.Clocked.BooleanSignals.Sampler.SuperSample</a>.
+<a href=\"modelica:/Modelica.Clocked.BooleanSignals.Sampler.SuperSample\">Modelica.Clocked.BooleanSignals.Sampler.SuperSample</a>.
 </p>
 </html>"));
 end SuperSample;

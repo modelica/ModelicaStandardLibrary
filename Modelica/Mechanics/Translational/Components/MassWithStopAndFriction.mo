@@ -191,7 +191,7 @@ f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/Stribeck.png\" alt=\"Stribeck friction\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/Components/Stribeck.png\" alt=\"Stribeck friction\">
 </div>
 
 <p>
@@ -222,7 +222,7 @@ to the Stop element, other sliding masses, dampers or hydraulic chambers must be
 <p>The friction model is implemented in a \"clean\" way by state events and leads to
 continuous/discrete systems of equations which have to be solved by appropriate
 numerical methods. The method is described in
-(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
+(see also a short sketch in <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 
 <dl>

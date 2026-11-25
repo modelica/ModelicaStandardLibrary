@@ -28,7 +28,7 @@ of this example:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Thermal/HeatTransfer/driveWithHeatTransfer.png\" alt=\"driveWithHeatTransfer\">
+<img src=\"modelica:/Modelica/Resources/Images/Thermal/HeatTransfer/driveWithHeatTransfer.png\" alt=\"driveWithHeatTransfer\">
 </div>
 
 <p>
@@ -67,6 +67,6 @@ the Modelica design group is discussing a general scheme to describe material pr
 </p>
 <p>
 For technical details in the design of this library, see
-[<a href=\"modelica://Modelica.Thermal.HeatTransfer.UsersGuide.References\">Tiller2001</a>].</p>
+[<a href=\"modelica:/Modelica.Thermal.HeatTransfer.UsersGuide.References\">Tiller2001</a>].</p>
 </html>"));
 end UsersGuide;

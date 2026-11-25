@@ -42,7 +42,7 @@ This is a simple model of an inductor with a ferromagnetic core. The used Generi
   <caption><strong>Fig. 1: </strong>Results Core.B(t) and Core.B(H) of the magnetic Core.</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/InductorWithHysteresis/plot1.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/InductorWithHysteresis/plot1.png\">
     </td>
   </tr>
 </table>

@@ -11,7 +11,7 @@ algorithm
   annotation(Inline=true, Documentation(info="<html>
 <p>
 This is a derivative of function
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.resolve1\">resolve1</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.resolve1\">resolve1</a>.
 </p>
 </html>"));
 end resolve1_der;

@@ -85,7 +85,7 @@ y = <strong>if</strong> i==0 <strong>then</strong> (<strong>if</strong> use_pre_
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
 </html>"));
@@ -116,7 +116,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
 <p>
@@ -151,7 +151,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
 <p>
@@ -188,7 +188,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
 <p>
@@ -224,7 +224,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
 <p>
@@ -260,7 +260,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
 <p>
@@ -294,7 +294,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 </html>"));
   end Not;
@@ -318,7 +318,7 @@ time instant. At all other time instants, y = <strong>false</strong>.
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
 </html>"));
@@ -345,7 +345,7 @@ time instant. At all other time instants, y = <strong>false</strong>.
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
 </html>"));
@@ -374,7 +374,7 @@ time instant. At all other time instants, y = <strong>false</strong>.
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
 </html>"));
@@ -427,16 +427,16 @@ is shown in the next figure.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/MathBoolean/OnDelay1.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/MathBoolean/OnDelay1.png\"
      alt=\"OnDelay1.png\">
 <br>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/MathBoolean/OnDelay2.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/MathBoolean/OnDelay2.png\"
      alt=\"OnDelay2.png\">
 </div>
 
 <p>
 The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+<a href=\"modelica:/Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
 </html>"));

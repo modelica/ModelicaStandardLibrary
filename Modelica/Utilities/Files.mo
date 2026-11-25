@@ -569,7 +569,7 @@ impure function fullPathName "Get full path name of file or directory name"
   extends Modelica.Icons.Function;
   input String name "Absolute or relative file or directory name";
   output String fullName "Full path of 'name'";
-external "C" fullName = ModelicaInternal_fullPathName(name) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+external "C" fullName = ModelicaInternal_fullPathName(name) annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -658,7 +658,7 @@ impure function temporaryFileName
     "Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)"
   extends Modelica.Icons.Function;
   output String fileName "Full path name of temporary file";
-  external "C" fileName=ModelicaInternal_temporaryFileName() annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  external "C" fileName=ModelicaInternal_temporaryFileName() annotation(IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -671,7 +671,7 @@ and is in a directory where access rights allow to
 write to this file (useful for temporary output of files).
 </p>
 <p>
-The created temporary file is not automatically deleted when closed, but needs to be explicitly deleted, e.g. by <strong><a href=\"modelica://Modelica.Utilities.Files.removeFile\">removeFile</a></strong>(fileName).
+The created temporary file is not automatically deleted when closed, but needs to be explicitly deleted, e.g. by <strong><a href=\"modelica:/Modelica.Utilities.Files.removeFile\">removeFile</a></strong>(fileName).
 </p>
 <p>
 <strong>Warning:</strong>
@@ -720,7 +720,7 @@ as well as absolute local file path names are supported.
 
 <h4>Example</h4>
 <blockquote><pre>
-file1 = loadResource(\"modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt\")
+file1 = loadResource(\"modelica:/Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt\")
         // file1 is the absolute path name of the file
 file2 = loadResource(\"C:\\\\data\\\\readParameters.txt\")
         file2 = \"C:/data/readParameters.txt\"
@@ -749,44 +749,44 @@ In the table below an example call to every function is given:
 </p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td><a href=\"modelica://Modelica.Utilities.Files.list\">list</a>(name)</td>
+  <tr><td><a href=\"modelica:/Modelica.Utilities.Files.list\">list</a>(name)</td>
       <td> List content of file or of directory.</td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Utilities.Files.copy\">copy</a>(oldName, newName)<br>
-          <a href=\"modelica://Modelica.Utilities.Files.copy\">copy</a>(oldName, newName, replace=false)</td>
+  <tr><td><a href=\"modelica:/Modelica.Utilities.Files.copy\">copy</a>(oldName, newName)<br>
+          <a href=\"modelica:/Modelica.Utilities.Files.copy\">copy</a>(oldName, newName, replace=false)</td>
       <td> Generate a copy of a file or of a directory.</td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Utilities.Files.move\">move</a>(oldName, newName)<br>
-          <a href=\"modelica://Modelica.Utilities.Files.move\">move</a>(oldName, newName, replace=false)</td>
+  <tr><td><a href=\"modelica:/Modelica.Utilities.Files.move\">move</a>(oldName, newName)<br>
+          <a href=\"modelica:/Modelica.Utilities.Files.move\">move</a>(oldName, newName, replace=false)</td>
       <td> Move a file or a directory to another place.</td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Utilities.Files.remove\">remove</a>(name)</td>
+  <tr><td><a href=\"modelica:/Modelica.Utilities.Files.remove\">remove</a>(name)</td>
       <td> Remove file or directory (ignore call, if it does not exist).</td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Utilities.Files.removeFile\">removeFile</a>(name)</td>
+  <tr><td><a href=\"modelica:/Modelica.Utilities.Files.removeFile\">removeFile</a>(name)</td>
       <td> Remove file (ignore call, if it does not exist)</td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Utilities.Files.createDirectory\">createDirectory</a>(name)</td>
+  <tr><td><a href=\"modelica:/Modelica.Utilities.Files.createDirectory\">createDirectory</a>(name)</td>
       <td> Create directory (if directory already exists, ignore call).</td>
   </tr>
-  <tr><td>result = <a href=\"modelica://Modelica.Utilities.Files.exist\">exist</a>(name)</td>
+  <tr><td>result = <a href=\"modelica:/Modelica.Utilities.Files.exist\">exist</a>(name)</td>
       <td> Inquire whether file or directory exists.</td>
   </tr>
-  <tr><td><a href=\"modelica://Modelica.Utilities.Files.assertNew\">assertNew</a>(name,message)</td>
+  <tr><td><a href=\"modelica:/Modelica.Utilities.Files.assertNew\">assertNew</a>(name,message)</td>
       <td> Trigger an assert, if a file or directory exists.</td>
   </tr>
-  <tr><td>fullName = <a href=\"modelica://Modelica.Utilities.Files.fullPathName\">fullPathName</a>(name)</td>
+  <tr><td>fullName = <a href=\"modelica:/Modelica.Utilities.Files.fullPathName\">fullPathName</a>(name)</td>
       <td> Get full path name of file or directory name.</td>
   </tr>
-  <tr><td>(directory, name, extension) = <a href=\"modelica://Modelica.Utilities.Files.splitPathName\">splitPathName</a>(name)</td>
+  <tr><td>(directory, name, extension) = <a href=\"modelica:/Modelica.Utilities.Files.splitPathName\">splitPathName</a>(name)</td>
       <td> Split path name in directory, file name kernel, file name extension.</td>
   </tr>
-  <tr><td>fileName = <a href=\"modelica://Modelica.Utilities.Files.temporaryFileName\">temporaryFileName</a>()</td>
+  <tr><td>fileName = <a href=\"modelica:/Modelica.Utilities.Files.temporaryFileName\">temporaryFileName</a>()</td>
       <td> Return arbitrary name of a file that does not exist<br>
            and is in a directory where access rights allow to<br>
            write to this file (useful for temporary output of files).</td>
   </tr>
-  <tr><td>fileReference = <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>(uri)</td>
+  <tr><td>fileReference = <a href=\"modelica:/Modelica.Utilities.Files.loadResource\">loadResource</a>(uri)</td>
       <td>Return the absolute path name of a URI or local file name.</td>
   </tr>
 </table>

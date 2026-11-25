@@ -39,7 +39,7 @@ Model of voltage drop and losses of carbon brushes. For currents between <code>-
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/brush.png\"
+  <tr><td> <img src=\"modelica:/Modelica/Resources/Images/Electrical/Machines/brush.png\"
                 alt=\"brush.png\"> </td> </tr>
   <tr><td> <strong> Fig. 1: </strong>Model of voltage drop of carbon brushes</td> </tr>
 </table>
@@ -51,7 +51,7 @@ The voltage drop <code>v</code> is the total voltage drop of all series connecte
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.BrushParameters\">BrushParameters</a>
+<a href=\"modelica:/Modelica.Electrical.Machines.Losses.BrushParameters\">BrushParameters</a>
 </p>
 <p>
 If it is desired to neglect brush losses, set <code>brushParameters.V = 0</code> (this is the default).

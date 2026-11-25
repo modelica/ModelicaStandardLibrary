@@ -86,10 +86,10 @@ equation
           rotation=-90)}),
     Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SubSample\">RealSignals.Sampler.SubSample</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.SubSample\">RealSignals.Sampler.SubSample</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.SubSample\">example</a> for this Boolean block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.BooleanSignals.SubSample\">example</a> for this Boolean block.
 </p>
 </html>"));
 end SubSample;

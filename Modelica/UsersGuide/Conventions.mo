@@ -73,15 +73,15 @@ In a more equation oriented case, additional equations or code segments can be a
 <ul>
   <li>if <code>usePolar == true</code>, assign magnitude and angle to output<br>
 
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"
+  <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"
        alt=\"y[i,1] = sqrt( a[i]^2 + b[i]^2 )\"><br>
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\"
+  <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\"
        alt=\"y[i,2] = atan2( b[i], a[i] )\">
   </li>
   <li>if <code>usePolar == false</code>, assign cosine and sine to output<br>
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"
+  <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"
        alt=\"y[i,1] = a[i]\"><br>
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\"
+  <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\"
        alt=\" y[i,2] = b[i]\">
   </li>
 </ul>
@@ -94,7 +94,7 @@ In a more equation oriented case, additional equations or code segments can be a
 
         annotation (Documentation(info="<html>
 <p>
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> conventions of class and instance names,
+<a href=\"modelica:/Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> conventions of class and instance names,
 parameters and variables are specified separately. In this section it is summarized how to refer to
 Modelica code in the HTML documentation.
 </p>
@@ -165,15 +165,15 @@ or <a href=\"http://www.codecogs.com/latex/eqneditor.php\">codecogs</a> can be u
 <p>
 A typical equation, e.g., of a Fourier synthesis, could look like<br>
 <img
- src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"><br>
+ src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"><br>
 or<br>
 <img
- src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
+ src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
  alt=\"y=a_1+a_2\"><br>
 In an <code>alt</code> tag the original equation should be stored, e.g.,</p>
 <blockquote><pre>
 &lt;img
-&nbsp;src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+&nbsp;src=&quot;modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
 &nbsp;alt=&quot;y=a_1+a_2&quot;&gt;
 </pre></blockquote>
 
@@ -199,7 +199,7 @@ Vector and array indices should be typeset as subscripts using the
 &lt;table border=&quot;0&quot; cellspacing=&quot;10&quot; cellpadding=&quot;2&quot;&gt;
   &lt;tr&gt;
     &lt;td&gt;&lt;img
-    src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+    src=&quot;modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
     alt=&quot;y=a_1+a_2&quot;&gt; &lt;/td&gt;
     &lt;td&gt;(1)&lt;/td&gt;
   &lt;/tr&gt;
@@ -211,7 +211,7 @@ Vector and array indices should be typeset as subscripts using the
 <table border=\"0\" cellspacing=\"10\" cellpadding=\"2\">
   <tr>
     <td><img
-         src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
+         src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
          alt=\"y=a_1+a_2\"></td>
     <td>(1)</td>
   </tr>
@@ -246,12 +246,12 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <h5>Example 1</h5>
 
 <p>This example shows how an illustration should be embedded in the Example
-<a href=\"modelica://Modelica.Blocks.Examples.PID_Controller\">PID_Controller</a> of the
-<a href=\"modelica://Modelica.Blocks\">Blocks</a> package.
+<a href=\"modelica:/Modelica.Blocks.Examples.PID_Controller\">PID_Controller</a> of the
+<a href=\"modelica:/Modelica.Blocks\">Blocks</a> package.
 </p>
 
 <blockquote><pre>
-&lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+&lt;img src=&quot;modelica:/Modelica/Resources/Images/Blocks/PID_controller.png&quot;
      alt=&quot;PID_controller.png&quot;&gt;
 </pre></blockquote>
 
@@ -264,7 +264,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   &lt;caption&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+      &lt;img src=&quot;modelica:/Modelica/Resources/Images/Blocks/PID_controller.png&quot;
            alt=&quot;PID_controller.png&quot;&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
@@ -282,7 +282,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   &lt;caption&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+      &lt;img src=&quot;modelica:/Modelica/Resources/Images/Blocks/PID_controller.png&quot;
            alt=&quot;PID_controller.png&quot;&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
@@ -299,7 +299,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <li> Hyperlinks should always be made when referring to a component or package.</li>
 <li> The hyperlink text in between <code>&lt;a href=&quot;...&quot;&gt;</code> and <code>&lt;/a&gt;</code> should include the full main package name.</li>
 <li> A link to an external component should include the full name of the package that it is referred to.</li>
-<li> Modelica hyperlinks have to use the scheme <code>&quot;modelica://...&quot;</code></li>
+<li> Modelica hyperlinks have to use the scheme <code>&quot;modelica:/...&quot;</code></li>
 <li> For hyperlinks referring to a Modelica component, see Example 1 and 2.</li>
 <li> No links to commercial web sites are allowed.</li>
 </ol>
@@ -309,11 +309,11 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <h5>Example 1</h5>
 
 <blockquote><pre>
-&lt;a href=&quot;modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&quot;&gt;
+&lt;a href=&quot;modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&quot;&gt;
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;
 </pre></blockquote>
 <p>appears as</p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
 
 <h5>Example 2</h5>
@@ -321,14 +321,14 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <blockquote><pre>
 &lt;p&gt;
   The feeder cables are connected to an
-  &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage&quot;&gt;
+  &lt;a href=&quot;modelica:/Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage&quot;&gt;
   induction machine&lt;/a&gt;.
 &lt;/p&gt;
 </pre></blockquote>
 <p>appears as</p>
 <p>
   The feeder cables are connected to an
-  <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage\">
+  <a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage\">
   induction machine</a>.
 </p>
 </html>"));
@@ -389,7 +389,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
         annotation (Documentation(info="<html>
 <ol>
 <li> Refer to references by [1], [Andronov1973], etc. by hyperlink and summarize literature in the references subsection of
-     <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Conventions.UsersGuide.References</a>.</li>
+     <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References\">Conventions.UsersGuide.References</a>.</li>
 <li> There has to be made at least one citation to each reference.</li>
 </ol>
 
@@ -400,17 +400,17 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <blockquote><pre>
 &lt;p&gt;
 More details about electric machine modeling
-can be found in [&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Gao2008&lt;/a&gt;]
+can be found in [&lt;a href=&quot;modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Gao2008&lt;/a&gt;]
 and
-[&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Kral2018&lt;/a&gt;, p. 149].
+[&lt;a href=&quot;modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Kral2018&lt;/a&gt;, p. 149].
 &lt;/p&gt;
 </pre></blockquote>
 <p>appears as</p>
 <p>
 More details about electric machine modeling
-can be found in [<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Gao2008</a>]
+can be found in [<a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References\">Gao2008</a>]
 and
-[<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Kral2018</a>, p. 149].
+[<a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References\">Kral2018</a>, p. 149].
 </p>
 </html>"));
       end References;
@@ -512,7 +512,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
 
 <p>
 In this section the format UsersGuide of the HTML documentation are specified.
-The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Structure\">structure</a> of the documentation is specified separately.
+The <a href=\"modelica:/Modelica.UsersGuide.Conventions.Documentation.Structure\">structure</a> of the documentation is specified separately.
 </p>
 
 <h4>Paragraphs</h4>
@@ -902,7 +902,7 @@ Full class definitions shall be separated by an empty line.
 
 <li> A <strong>connector class</strong> has the instance
      name definition in the diagram layer and not in the
-     <a href=\"modelica://Modelica.UsersGuide.Conventions.Icons\">icon</a> layer.</li>
+     <a href=\"modelica:/Modelica.UsersGuide.Conventions.Icons\">icon</a> layer.</li>
 </ol>
 
 <h4>Variable names</h4>
@@ -1195,7 +1195,7 @@ This class summarizes general information about the implementation which is not 
 <li> Technical report [Marlino2005]</li>
 </ul>
 
-<p>The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Format.References\">citation</a> is also explained.</p>
+<p>The <a href=\"modelica:/Modelica.UsersGuide.Conventions.Documentation.Format.References\">citation</a> is also explained.</p>
 
 <h4>Example</h4>
 
@@ -1317,7 +1317,7 @@ This class summarizes contact information of the contributing persons.
 &lt;p&gt;
 Library officers responsible for the maintenance and for the
 organization of the development of this library are listed in
-&lt;a href=\"modelica://Modelica.UsersGuide.Contact\"&gt;Modelica.UsersGuide.Contact&lt;/a&gt;.
+&lt;a href=\"modelica:/Modelica.UsersGuide.Contact\"&gt;Modelica.UsersGuide.Contact&lt;/a&gt;.
 &lt;/p&gt;
 
 &lt;h4&gt;Main authors&lt;/h4&gt;
@@ -1369,7 +1369,7 @@ OR whatever
 <p>
 Library officers responsible for the maintenance and for the
 organization of the development of this library are listed in
-<a href=\"modelica://Modelica.UsersGuide.Contact\">Modelica.UsersGuide.Contact</a>.
+<a href=\"modelica:/Modelica.UsersGuide.Contact\">Modelica.UsersGuide.Contact</a>.
 </p>
 
 <h4>Main authors</h4>
@@ -1506,11 +1506,11 @@ The authors would like to thank following persons for their support ...
   annotation (Documentation(info="<html>
 <p>The UsersGuide of each package should consist of the following classes</p>
 <ol>
-<li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.Contact\">Contact</a> information of
+<li> <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.Contact\">Contact</a> information of
      the library officer and the co-authors</li>
-<li> Optional <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.Implementation\">Implementation Notes</a> to give general information about the implementation</li>
-<li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">References</a> for summarizing the literature of the package</li>
-<li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.RevisionHistory\">Revision history </a> to summarize the most important changes and improvements of the package</li>
+<li> Optional <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.Implementation\">Implementation Notes</a> to give general information about the implementation</li>
+<li> <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.References\">References</a> for summarizing the literature of the package</li>
+<li> <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide.RevisionHistory\">Revision history </a> to summarize the most important changes and improvements of the package</li>
 </ol>
 </html>"));
   end UsersGuide;
@@ -1537,87 +1537,87 @@ In the Modelica Standard Library the following color schemes apply:</p>
   <tr>
     <td>Modelica.Blocks</td>
     <td>{0,0,127}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleBlocks.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleBlocks.png\"></td>
   </tr>
   <tr>
     <td>Modelica.ComplexBlocks</td>
     <td>{85,170,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleComplexBlocks.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleComplexBlocks.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Clocked</td>
     <td>{95,95,95}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleClocked.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleClocked.png\"></td>
   </tr>
   <tr>
     <td>Modelica.StateGraph</td>
     <td>{0,0,0}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleStateGraph.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleStateGraph.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Analog</td>
     <td>{0,0,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalAnalog.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalAnalog.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Digital</td>
     <td>{128,0,128}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalDigital.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalDigital.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Machines</td>
     <td>{0,0,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalMachines.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalMachines.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Polyphase</td>
     <td>{0,0,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalPolyphase.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalPolyphase.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.QuasiStatic</td>
     <td>{85,170,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalQuasiStatic.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalQuasiStatic.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Spice3</td>
     <td> {170,85,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalSpice3.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalSpice3.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Magnetic.FluxTubes</td>
     <td>{255,127,0}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticFluxTubes.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticFluxTubes.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Magnetic.FundamentalWave</td>
     <td>{255,127,0}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticFundamentalWave.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticFundamentalWave.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Magnetic.QuasiStatic</td>
     <td>{255,170,85}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticQuasiStatic.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMagneticQuasiStatic.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Mechanics.MultiBody</td>
     <td>{192,192,192}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsMultiBody.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsMultiBody.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Mechanics.Rotational</td>
     <td>{95,95,95}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsRotational.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsRotational.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Mechanics.Translational</td>
     <td>{0,127,0}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsTranslational.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleMechanicsTranslational.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Fluid</td>
     <td>{0,127,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleFluid.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleFluid.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Media</td>
@@ -1627,12 +1627,12 @@ In the Modelica Standard Library the following color schemes apply:</p>
   <tr>
     <td>Modelica.Thermal.FluidHeatFlow</td>
     <td>{0,0,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleThermalFluidHeatFlow.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleThermalFluidHeatFlow.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Thermal.HeatTransfer</td>
     <td>{191,0,0}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleThermalHeatTransfer.png\"></td>
+    <td><img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleThermalHeatTransfer.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Math</td>
@@ -1680,11 +1680,11 @@ and the most significant parameter can be displayed within the vertical Diagram 
   <caption><strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions</caption>
   <tr>
     <td> (a)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
            alt=\"Typical placement of component name\">
     </td>
     <td> (b)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"
            alt=\"Typical dimensions of icon and its entities\">
     </td>
   </tr>
@@ -1707,7 +1707,7 @@ the component name shall be placed above the icon with vertical 10 units of spac
   <caption><strong>Fig. 2</strong>: Block component name</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"
            alt=\"Placement of block component name\">
     </td>
   </tr>
@@ -1722,7 +1722,7 @@ the line shall be interrupted such that this line does not interfere with compon
   <caption><strong>Fig. 3</strong>: Component name between actual icon and connector</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"
            alt=\"Component name placed between actual icon and connector\">
     </td>
   </tr>
@@ -1734,7 +1734,7 @@ the line shall be interrupted such that this line does not interfere with compon
   <caption><strong>Fig. 4</strong>: Component name below actual icon</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"
            alt=\"Icon with name placed below it\">
     </td>
   </tr>
@@ -1764,7 +1764,7 @@ Preferred connector locations are:</p>
   <caption><strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"
            alt=\"Icon of connector corner\">
     </td>
   </tr>
@@ -1779,19 +1779,19 @@ design of sensors apply:
 
 <ul>
 <li>The sensor outputs shall be indicated by its SI unit, not its quantity; the proper SI unit shall be compliant with the unit definitions of
-    <a href=\"modelica://Modelica.Units.SI\">Modelica.Units.SI</a>,
+    <a href=\"modelica:/Modelica.Units.SI\">Modelica.Units.SI</a>,
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
 <li>For a sensor with a single output signal the SI unit shall be placed within the sensor,
     see <strong>Fig.&nbsp;6</strong> and <strong>7</strong>
     <ul>
-    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be
+    <li>In a <a href=\"modelica:/Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be
         <ul>
         <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
         <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readability</li>
         </ul></li>
 
-    <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be
+    <li>In a <a href=\"modelica:/Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be
         <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
     </ul></li>
 <li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal;
@@ -1806,11 +1806,11 @@ design of sensors apply:
   <caption><strong>Fig. 6</strong>: Round sensor with (a) short and (b) longer SI unit</caption>
   <tr>
     <td> (a)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
            alt=\"Icon of connector corner\">
     </td>
     <td> (b)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round2.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round2.png\"
            alt=\"Icon of connector corner\">
     </td>
   </tr>
@@ -1820,7 +1820,7 @@ design of sensors apply:
   <caption><strong>Fig. 7</strong>: Rectangular sensor </caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
            alt=\"Icon of connector corner\">
     </td>
   </tr>
@@ -1830,7 +1830,7 @@ design of sensors apply:
   <caption><strong>Fig. 8</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
+      <img src=\"modelica:/Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
            alt=\"Icon of connector corner\">
     </td>
   </tr>
@@ -1846,11 +1846,11 @@ Graphical illustrations shall not be added in the diagram layer, but can be adde
   annotation (DocumentationClass=true,Documentation(info="<html>
 <p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
-<li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a></li>
-<li> Consistent <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">HTML documentation</a></li>
+<li> Conventions of the <a href=\"modelica:/Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a></li>
+<li> Consistent <a href=\"modelica:/Modelica.UsersGuide.Conventions.Documentation\">HTML documentation</a></li>
 <li> Structure to be provided by a main package
 <ul>
-     <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
+     <li> <a href=\"modelica:/Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
      <li> <strong>Examples</strong> containing models demonstrating the usage of the library.</li>
      <li> <strong>Components</strong> -- in case of a complex library a more detailed structure can be established.</li>
      <li> <strong>Sensors</strong></li>
