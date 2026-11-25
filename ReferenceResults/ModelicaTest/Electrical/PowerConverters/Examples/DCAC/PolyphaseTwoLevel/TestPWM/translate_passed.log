@@ -1,0 +1,37 @@
+Translation of <a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.TestPWM">ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.TestPWM</a>
+The DAE has 799 scalar unknowns and 799 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 114
+  Variables: 1154
+  Constants: 51 (68 scalars)
+  Parameters: 395 (471 scalars)
+  Unknowns: 708 (799 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 490
+  Nontrivial: 434
+Translated Model
+  Constants: 342 scalars
+  Free parameters: 75 scalars
+  Parameter depending: 221 scalars
+  Continuous time states: 4 scalars
+  Time-varying variables: 246 scalars
+  Alias variables: 454 scalars
+  Number of mixed real/discrete systems of equations: 6
+  Sizes of linear systems of equations: {11, 11, 11, 11, 11, 11}
+  Sizes after manipulation of the linear systems: {4, 4, 4, 4, 4, 4}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.TestPWM#text$h01V1.mean1:x">h01V1.mean1.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.TestPWM#text$h01V1.mean2:x">h01V1.mean2.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.TestPWM#text$h01V2.mean1:x">h01V2.mean1.x</a>
+<a href="Modelica://ModelicaTest.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.TestPWM#text$h01V2.mean2:x">h01V2.mean2.x</a>
+Finished

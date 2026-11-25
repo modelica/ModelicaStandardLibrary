@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Wed Nov 11 18:08:18 2026)
+
+dymosim started
+... "ModelicaTest.Electrical.PowerConverters.Examples.DCAC.TestIntersectivePWM" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 0.2
+   CPU-time for integration                : 0.00562 seconds
+   CPU-time for one grid interval          : 0.0281 milliseconds
+   CPU-time for initialization             : 0.000108 seconds
+   Number of result points                 : 220
+   Number of grid points                   : 201
+   Number of accepted steps                : 139
+   Number of f-evaluations (dynamics)      : 139
+   Number of crossing function evaluations : 380
+   Number of Jacobian-evaluations          : 128
+   Number of model time events             : 7
+   Number of input time events             : 0
+   Number of state events                  : 4
+   Number of step events                   : 0
+   Minimum integration stepsize            : 9.84e-08
+   Maximum integration stepsize            : 0.046
+   Maximum integration order               : 1
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of ModelicaTest.Electrical.PowerConverters.Examples.DCAC.TestIntersectivePWM

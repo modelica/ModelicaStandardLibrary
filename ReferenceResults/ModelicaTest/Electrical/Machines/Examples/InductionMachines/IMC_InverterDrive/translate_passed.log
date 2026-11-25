@@ -1,27 +1,28 @@
 Translation of <a href="Modelica://ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive">ModelicaTest.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive</a>
-The DAE has 1067 scalar unknowns and 1067 scalar equations.
+The DAE has 1072 scalar unknowns and 1072 scalar equations.
 
 Statistics
 
 Original Model
   Number of components: 120
-  Variables: 1465
+  Variables: 1476
   Constants: 47 (64 scalars)
-  Parameters: 490 (618 scalars)
-  Unknowns: 928 (1067 scalars)
+  Parameters: 496 (624 scalars)
+  Unknowns: 933 (1072 scalars)
   Differentiated variables: 29 scalars
-  Equations: 599
+  Equations: 600
   Nontrivial: 502
 Translated Model
-  Constants: 451 scalars
-  Free parameters: 58 scalars
-  Parameter depending: 260 scalars
+  Constants: 453 scalars
+  Free parameters: 60 scalars
+  Parameter depending: 262 scalars
+  Outputs: 1 scalars
   Continuous time states: 11 scalars
-  Time-varying variables: 279 scalars
+  Time-varying variables: 284 scalars
   Alias variables: 701 scalars
   Number of mixed real/discrete systems of equations: 6
-  Sizes of linear systems of equations: {6, 6, 6, 6, 5, 11, 11, 11, 14, 2, 2}
-  Sizes after manipulation of the linear systems: {2, 2, 2, 2, 3, 4, 4, 4, 4, 0, 2}
+  Sizes of linear systems of equations: {6, 6, 12, 5, 11, 11, 11, 14, 2, 2}
+  Sizes after manipulation of the linear systems: {2, 2, 4, 3, 4, 4, 4, 4, 0, 2}
   Sizes of nonlinear systems of equations: { }
   Sizes after manipulation of the nonlinear systems: { }
   Number of numerical Jacobians: 0
