@@ -40,7 +40,7 @@ package Examples
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(J=2) annotation (
         Placement(transformation(extent={{60,-20},{80,0}})));
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP(
-      startTime=0.5,
+      startTime=1,
       deltaq={driveAngle},
       qd_max={1},
       qdd_max={1}) annotation (Placement(transformation(extent={{-92,20},{-72,
