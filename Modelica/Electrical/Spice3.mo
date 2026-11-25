@@ -8729,17 +8729,11 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       algorithm
         // limit grading coeff to max of 0.9
-        if (in_p.m_gradingCoeff > 0.9) then
-          out_v.m_gradingCoeff := 0.9;
-        end if;
+        out_v.m_gradingCoeff := if (in_p.m_gradingCoeff > 0.9) then 0.9 else in_p.m_gradingCoeff;
         // limit activation energy to min of 0.1
-        if (in_p.m_activationEnergy < 0.1) then
-          out_v.m_activationEnergy := 0.1;
-        end if;
+        out_v.m_activationEnergy := if (in_p.m_activationEnergy < 0.1) then 0.1 else in_p.m_activationEnergy;
         // limit depletion cap coeff to max of 0.95
-        if (in_p.m_depletionCapCoeff > 0.95) then
-          out_v.m_depletionCapCoeff := 0.95;
-        end if;
+        out_v.m_depletionCapCoeff := if (in_p.m_depletionCapCoeff > 0.95) then 0.95 else in_p.m_depletionCapCoeff;
 
         out_v.m_conductance := if (in_p.m_resist == 0.0) then 0.0 else 1.0 / in_p.m_resist;
 
