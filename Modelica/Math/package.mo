@@ -694,7 +694,7 @@ package Matrices "Library of functions operating on matrices"
   package Examples
     "Examples demonstrating the usage of the Math.Matrices functions"
     extends Modelica.Icons.ExamplesPackage;
-    function solveLinearEquations
+    impure function solveLinearEquations
       "Demonstrate the solution of linear equation systems"
       extends Modelica.Icons.Function;
       import Modelica.Utilities.Streams.print;

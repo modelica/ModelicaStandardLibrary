@@ -5,7 +5,7 @@ package Nonlinear "Library of functions operating on nonlinear equations"
     "Examples demonstrating the usage of the functions in package Nonlinear"
     extends Modelica.Icons.ExamplesPackage;
 
-    function quadratureLobatto1 "Integrate integral with fixed inputs"
+    impure function quadratureLobatto1 "Integrate integral with fixed inputs"
       extends Modelica.Icons.Function;
       import Modelica.Utilities.Streams.print;
 
@@ -87,7 +87,7 @@ The following integrals are computed:
 </html>"));
     end quadratureLobatto1;
 
-    function quadratureLobatto2 "Integrate integral with user dependent inputs"
+    impure function quadratureLobatto2 "Integrate integral with user dependent inputs"
       extends Modelica.Icons.Function;
       import Modelica.Utilities.Streams.print;
 
@@ -159,7 +159,7 @@ The following integrals are computed:
 </html>"));
     end quadratureLobatto2;
 
-    function solveNonlinearEquations1
+    impure function solveNonlinearEquations1
       "Solve nonlinear equations with fixed inputs"
       extends Modelica.Icons.Function;
       import Modelica.Utilities.Streams.print;
@@ -238,7 +238,7 @@ The following nonlinear equations are solved:
 </html>"));
     end solveNonlinearEquations1;
 
-    function solveNonlinearEquations2
+    impure function solveNonlinearEquations2
       "Solve nonlinear equations with user dependent inputs"
       extends Modelica.Icons.Function;
       import Modelica.Utilities.Streams.print;
