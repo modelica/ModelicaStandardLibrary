@@ -1,0 +1,32 @@
+Log-file of program ./dymosim
+(generated: Tue Nov 24 22:04:26 2026)
+
+dymosim started
+... "Modelica.Electrical.Analog.Examples.OpAmps.MeasureRiseTime" simulating
+... "dsin.txt" loading (dymosim input file)
+... "result.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
+Integration terminated successfully at T = 0.005
+   CPU-time for integration                : 0.142 seconds
+   CPU-time for one grid interval          : 0.00283 milliseconds
+   CPU-time for initialization             : 7.2e-05 seconds
+   Number of result points                 : 50007
+   Number of grid points                   : 50001
+   Number of accepted steps                : 117
+   Number of f-evaluations (dynamics)      : 197
+   Number of crossing function evaluations : 50134
+   Number of Jacobian-evaluations          : 44
+   Number of model time events             : 1
+   Number of input time events             : 0
+   Number of state events                  : 2
+   Number of step events                   : 0
+   Minimum integration stepsize            : 2.28e-11
+   Maximum integration stepsize            : 0.000419
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Electrical.Analog.Examples.OpAmps.MeasureRiseTime

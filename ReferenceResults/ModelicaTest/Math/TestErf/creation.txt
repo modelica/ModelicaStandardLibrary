@@ -1,0 +1,53 @@
+[ResultCreationLog]
+modelName = "ModelicaTest.Math.TestErf"
+
+// Test info
+generationTool = Dymola Version 2025x Refresh 1, 2025-04-11
+gitURL = https://github.com/modelica/ModelicaStandardLibrary
+gitRevision = 6503997e
+gitStatus =  ""
+
+testPC = 72256e142fd9
+testOS = Linux [Version #149-Ubuntu SMP PREEMPT_DYNAMIC Fri Oct 23 13:21:10 UTC 2026]
+testUser = resimuser
+testDescription = ModelicaTest (master) with Dymola
+compiler = gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+generationDateAndTime = 2026-11-25 05:20:45
+
+// Experiment settings (standardized annotation)
+StartTime = 0.0    // set by user or program default value
+StopTime = 10.0    // from experiment annotation
+Interval = 0.0001    // from experiment annotation
+Tolerance = 1e-09    // from experiment annotation
+
+// Experiment settings (tool specific)
+// The following lines can be used as mos-script in Dymola
+clearFlags();
+Advanced.PlaceDymolaSourceFirst=2;Advanced.StoreProtectedVariables = true;Advanced.UI.DemandLoadClassesGUI = false;
+openModel("/opt/dymola-2025xRefresh1-x86_64/Modelica/Library/ModelicaServices 4.1.0/package.mo",true, false);
+openModel("/shared_data/repos/ModelicaStandardLibrary/Complex.mo",true, false);
+openModel("/shared_data/repos/ModelicaStandardLibrary/Modelica/package.mo",true,false);
+Advanced.PlaceDymolaSourceFirst := 2;
+Advanced.StoreProtectedVariables := true;
+Advanced.UI.DemandLoadClassesGUI := false;
+SetDymolaCompiler("gcc", {"CCompiler=GCC","GCC64Path=."});
+experimentSetupOutput(
+    textual=false,
+    doublePrecision=false,
+    states=true,
+    derivatives=true,
+    inputs=true,
+    outputs=true,
+    auxiliaries=true,
+    equidistant=true,
+    events=true,
+    onlyStopTime=false,
+    debug=false);
+simulateModel(
+    problem="ModelicaTest.Math.TestErf",
+    startTime=0.0,
+    stopTime=10.0,
+    method="Dassl",
+    tolerance=1e-09,
+    resultFile="result",
+    outputInterval=0.0001);
