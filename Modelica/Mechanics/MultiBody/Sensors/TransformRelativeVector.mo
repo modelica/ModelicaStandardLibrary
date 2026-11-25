@@ -3,10 +3,11 @@ model TransformRelativeVector "Transform relative vector in to another frame"
   extends Internal.PartialRelativeSensor;
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if
-   (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) or
-   (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+    (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) or
+    (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
     "Coordinate system in which r_in or r_out is optionally resolved"
-    annotation (Placement(transformation(extent={{84,64},{116,96}})));
+    annotation (Placement(transformation(extent={{84,64},{116,96}})),
+      mustBeConnected="An enabled frame_resolve connector should be connected");
 
   Blocks.Interfaces.RealInput r_in[3]
     "Input vector resolved in frame defined by frame_r_in"

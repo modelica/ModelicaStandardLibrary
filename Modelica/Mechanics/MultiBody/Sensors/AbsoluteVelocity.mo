@@ -15,7 +15,8 @@ model AbsoluteVelocity
     "Coordinate system in which output vector v is optionally resolved"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
         rotation=-90,
-        origin={0,-100})));
+        origin={0,-100})),
+      mustBeConnected="An enabled frame_resolve connector should be connected");
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
@@ -58,11 +59,11 @@ equation
       thickness=0.5));
   connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
     annotation (Line(
-      points={{49.9,-10},{50,-10},{50,-50},{60,-50}},
+      points={{50,-10},{50,-10},{50,-50},{60,-50}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
-      points={{49.9,-10},{50,-10},{50,-50},{0,-50},{0,-100}},
+      points={{50,-10},{50,-10},{50,-50},{0,-50},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   annotation (Icon(coordinateSystem(

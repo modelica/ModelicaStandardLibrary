@@ -14,7 +14,8 @@ model RelativePosition
   Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
     "Coordinate system in which r_rel is optionally resolved"
-    annotation (Placement(transformation(extent={{84,64},{116,96}})));
+    annotation (Placement(transformation(extent={{84,64},{116,96}})),
+      mustBeConnected="An enabled frame_resolve connector should be connected");
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
