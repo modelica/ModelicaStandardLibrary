@@ -1,28 +1,32 @@
 Log-file of program ./dymosim
-(generated: Tue May  5 00:47:57 2020)
+(generated: Thu Nov 19 12:14:24 2026)
 
 dymosim started
+... "Modelica.Electrical.Analog.Examples.OpAmps.Comparator" simulating
 ... "dsin.txt" loading (dymosim input file)
-... "Comparator.mat" creating (simulation result file)
+... "result.mat" creating (simulation result file)
 
 Integration started at T = 0 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+
 Integration terminated successfully at T = 1
-   CPU-time for integration                : 0.029 seconds
-   CPU-time for one grid interval          : 0.0145 milliseconds
-   CPU-time for initialization             : 0 seconds
-   Number of result points                 : 2067
-   Number of grid points                   : 2001
-   Number of accepted steps                : 654
-   Number of f-evaluations (dynamics)      : 654
-   Number of crossing function evaluations : 2721
-   Number of Jacobian-evaluations          : 602
-   Number of model time events             : 30
+   CPU-time for integration                : 0.0369 seconds
+   CPU-time for one grid interval          : 0.0369 milliseconds
+   CPU-time for initialization             : 0.00227 seconds
+   Number of result points                 : 1109
+   Number of grid points                   : 1001
+   Number of accepted steps                : 1093
+   Number of f-evaluations (dynamics)      : 1093
+   Number of crossing function evaluations : 2327
+   Number of Jacobian-evaluations          : 991
+   Number of model time events             : 40
    Number of input time events             : 0
-   Number of state events                  : 10
+   Number of state events                  : 40
    Number of step events                   : 0
-   Minimum integration stepsize            : 5e-07
-   Maximum integration stepsize            : 0.0164
+   Minimum integration stepsize            : 2e-09
+   Maximum integration stepsize            : 0.0136
    Maximum integration order               : 1
 Calling terminal section
 ... "dsfinal.txt" creating (final states)
+
+SUCCESSFUL simulation of Modelica.Electrical.Analog.Examples.OpAmps.Comparator

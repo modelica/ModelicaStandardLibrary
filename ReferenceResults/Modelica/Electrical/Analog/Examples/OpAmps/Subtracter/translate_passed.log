@@ -1,32 +1,32 @@
-﻿ = true
-Translation of Modelica.Electrical.Analog.Examples.OpAmps.Subtracter:
-The DAE has 87 scalar unknowns and 87 scalar equations.
- 
+Translation of <a href="Modelica://Modelica.Electrical.Analog.Examples.OpAmps.Subtracter">Modelica.Electrical.Analog.Examples.OpAmps.Subtracter</a>
+The DAE has 93 scalar unknowns and 93 scalar equations.
+
 Statistics
- 
+
 Original Model
   Number of components: 12
-  Variables: 132
-  Parameters: 45 (45 scalars)
-  Unknowns: 87 (87 scalars)
-  Equations: 79
-  Nontrivial: 62
+  Variables: 143
+  Parameters: 50 (50 scalars)
+  Unknowns: 93 (93 scalars)
+  Equations: 84
+  Nontrivial: 66
 Translated Model
-  Constants: 23 scalars
-  Free parameters: 18 scalars
-  Parameter depending: 29 scalars
-  Time-varying variables: 12 scalars
-  Alias variables: 50 scalars
+  Constants: 25 scalars
+  Free parameters: 20 scalars
+  Parameter depending: 32 scalars
+  Time-varying variables: 15 scalars
+  Alias variables: 51 scalars
   Number of mixed real/discrete systems of equations: 0
   Sizes of linear systems of equations: { }
   Sizes after manipulation of the linear systems: { }
-  Sizes of nonlinear systems of equations: {5}
+  Sizes of nonlinear systems of equations: {6}
   Sizes after manipulation of the nonlinear systems: {1}
   Number of numerical Jacobians: 0
   Initialization problem
     Sizes of linear systems of equations: {3}
     Sizes after manipulation of the linear systems: {0}
- 
+
 Settings
 Advanced.StoreProtectedVariables = true
 Selected continuous time states
+Finished

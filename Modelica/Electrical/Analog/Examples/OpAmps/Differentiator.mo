@@ -41,6 +41,13 @@ equation
     annotation (Line(points={{10,-10},{40,-10}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>This is a (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
+<h4>Note</h4>
+<p>
+A real differentiator requires additional components, such as a damping resistor at the input and a noise-filtering capacitor 
+in parallel with the resistor in the feedback branch.<br>
+Therefore, it is not recommend to use the advanced option <code>enableOutputRise = true</code> with this basic circuit, 
+since this could induce unwanted oscillations.
+</p>
 </html>"),
     experiment(
       StartTime=0,
