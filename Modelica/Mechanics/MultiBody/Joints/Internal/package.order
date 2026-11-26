@@ -4,3 +4,4 @@ RollingConstraintVerticalWheel
 InitPosition
 InitAngle
 InitAngularVelocity
+InitAngleAndDerivatives
