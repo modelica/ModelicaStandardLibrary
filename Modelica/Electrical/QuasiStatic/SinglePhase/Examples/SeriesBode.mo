@@ -18,7 +18,7 @@ model SeriesBode "Series circuit with Bode analysis"
     annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
   QuasiStatic.SinglePhase.Basic.Resistor resistor(R_ref=1)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-  QuasiStatic.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
+  QuasiStatic.SinglePhase.Basic.Inductor inductor(L=1'H'/(2*Modelica.Constants.pi))
     annotation (Placement(transformation(extent={{50,-10},{70,10}})));
   Modelica.ComplexBlocks.Sources.ComplexConstant complexConst(k=Complex(1, 0))
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));

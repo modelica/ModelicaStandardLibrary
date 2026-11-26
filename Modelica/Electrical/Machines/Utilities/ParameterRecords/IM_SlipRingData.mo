@@ -35,7 +35,7 @@ record IM_SlipRingData
   parameter SI.Voltage VsNominal=100
     "Nominal stator voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));
-  parameter SI.Voltage VrLockedRotor=100*(2*pi*fsNominal*Lm)
+  parameter SI.Voltage VrLockedRotor=100'V'*(2*pi*fsNominal*Lm)
       /sqrt(Rs^2 + (2*pi*fsNominal*(Lm + Lssigma))^2)
     "Locked-rotor voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));
