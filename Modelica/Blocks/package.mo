@@ -1447,6 +1447,61 @@ If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
 </html>"));
   end SinCosEncoder;
 
+  model DemoUnwrapAngle "Demonstrate unwrap angle"
+    extends Modelica.Icons.Example;
+    import Modelica.Constants.pi;
+    Modelica.Blocks.Sources.Trapezoid refFrequency(
+      amplitude=100,
+      rising=1,
+      width=0.5,
+      falling=1,
+      period=3,
+      nperiod=2,
+      offset=-50,
+      startTime=-0.5)
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    Modelica.Blocks.Continuous.Integrator f2pos(k=2*pi,   y_start=0)
+      annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+    Modelica.Blocks.Math.UnwrapAngle unwrapAngle
+      annotation (Placement(transformation(extent={{60,-10},{80,10}})));
+    Modelica.Blocks.Math.Cos cos1
+      annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
+    Modelica.Blocks.Math.Sin sin1
+      annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+    Modelica.Blocks.Math.Atan2 atan2_1
+      annotation (Placement(transformation(extent={{30,-10},{50,10}})));
+  equation
+    connect(refFrequency.y, f2pos.u)
+      annotation (Line(points={{-59,0},{-52,0}}, color={0,0,127}));
+    connect(sin1.y, atan2_1.u1) annotation (Line(points={{11,20},{20,20},{20,6},
+              {28,6}},       color={0,0,127}));
+    connect(cos1.y, atan2_1.u2) annotation (Line(points={{11,-20},{20,-20},{20,
+              -6},{28,-6}},  color={0,0,127}));
+    connect(atan2_1.y, unwrapAngle.u)
+      annotation (Line(points={{51,0},{58,0}},     color={0,0,127}));
+      connect(f2pos.y, cos1.u) annotation (Line(points={{-29,0},{-20,0},{-20,
+              -20},{-12,-20}}, color={0,0,127}));
+      connect(f2pos.y, sin1.u) annotation (Line(points={{-29,0},{-20,0},{-20,20},
+              {-12,20}}, color={0,0,127}));
+    annotation (experiment(
+        StopTime=3,
+        Interval=1e-05,
+        Tolerance=1e-06), Documentation(info="<html>
+<p>
+The reference frequency signal is integrated to obtain the angle, which is used to build a phasor with real and imaginary part. 
+From this phasor, the (wrapped angle) is calculated which gets unwrapped using an angle tracking observer. 
+Compare <code>f2pos.y</code> and <code>unwrapAngle.y</code>.
+</p>
+<p>
+Additionally, it is possible to detect the angular velocity of the phasor. 
+Compare <code>refFrequency.y</code> and <code>unwrapAngle.der_y</code>.
+</p>
+<p>
+An ATO (angle tracking observer) is a robust method to evaluate the signals of a sin/cos-encoder.
+</p>
+</html>"));
+  end DemoUnwrapAngle;
+
   model CompareSincExpSine "Compare sinc and exponential sine signal"
     extends Modelica.Icons.Example;
     Sources.Sinc sinc(f=5)
