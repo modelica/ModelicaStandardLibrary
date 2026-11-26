@@ -2,20 +2,17 @@ within Modelica.Mechanics.MultiBody.Forces;
 model Force
   "Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
   import Modelica.Units.Conversions.to_unit1;
-  extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-  Interfaces.Frame_resolve frame_resolve if
-       resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
-    "The input signals are optionally resolved in this frame"
-    annotation (Placement(transformation(
-        origin={40,100},
-        extent={{-16,-16},{16,16}},
-        rotation=90)));
+  extends Interfaces.PartialTwoFramesResolve(
+    break frame_resolve);
+  extends Interfaces.PartialFrameResolveConditional(
+    final enableFrameResolve = resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve);
+
   Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit="N")
     "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
-        origin={-60,120},
+        origin={-60,-120},
         extent={{-20,-20},{20,20}},
-        rotation=270)));
+        rotation=90)));
   parameter Boolean animation=true "= true, if animation shall be enabled";
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
     resolveInFrame=
@@ -69,43 +66,40 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(force, basicForce.force) annotation (Line(
-      points={{-60,120},{-60,40},{4,40},{4,12}}, color={0,0,127}));
+      points={{-60,-120},{-60,40},{4,40},{4,-12}},
+                                                 color={0,0,127}));
   connect(basicForce.frame_resolve, frame_resolve) annotation (Line(
-      points={{14,10},{14,40},{40,40},{40,100}},
+      points={{10,-10},{10,40},{0,40},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, basicForce.frame_resolve) annotation (
       Line(
-      points={{40,20},{27,20},{27,10},{14,10}},
+      points={{40,20},{27,20},{27,-10},{10,-10}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
             100}}), graphics={
-        Text(
-          extent={{-80,70},{100,40}},
-          textColor={192,192,192},
-          textString="resolve"),
-        Text(
-          extent={{-150,-55},{150,-95}},
-          textString="%name",
-          textColor={0,0,255}),
         Line(
-          points={{40,100},{40,0}},
+          points={{40,0},{40,-100},{-60,-100}},
           color={95,95,95},
           pattern=LinePattern.Dot),
+        Line(points={{-80,0},{-20,0}}),
+        Line(points={{20,0},{80,0}}),
         Polygon(
           points={{-94,0},{-64,11},{-64,-10},{-94,0}},
           fillPattern=FillPattern.Solid),
-        Line(
-          points={{-60,100},{40,100}},
-          color={95,95,95},
-          pattern=LinePattern.Dot),
         Polygon(
           points={{94,0},{65,12},{65,-11},{94,0}},
           fillPattern=FillPattern.Solid),
-        Line(points={{-64,0},{-20,0}}),
-        Line(points={{20,0},{65,0}})}),
+        Text(
+          extent={{-100,-40},{80,-70}},
+          textColor={192,192,192},
+          textString="resolve"),
+        Text(
+          extent={{-150,80},{150,40}},
+          textString="%name",
+          textColor={0,0,255})}),
     Documentation(info="<html>
 <p>
 The <strong>3</strong> signals of the <strong>force</strong> connector are interpreted
