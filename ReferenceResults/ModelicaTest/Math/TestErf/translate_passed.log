@@ -1,0 +1,29 @@
+Translation of <a href="Modelica://ModelicaTest.Math.TestErf">ModelicaTest.Math.TestErf</a>
+The DAE has 5 scalar unknowns and 5 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 1
+  Variables: 5
+  Unknowns: 5 (5 scalars)
+  Differentiated variables: 4 scalars
+  Equations: 7
+  Nontrivial: 6
+Translated Model
+  Continuous time states: 2 scalars
+  Time-varying variables: 5 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: { }
+  Sizes after manipulation of the linear systems: { }
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://ModelicaTest.Math.TestErf#text:y1i">y1i</a>
+<a href="Modelica://ModelicaTest.Math.TestErf#text:y2i">y2i</a>
+Finished

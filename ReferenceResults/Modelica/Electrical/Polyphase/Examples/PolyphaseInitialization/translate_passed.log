@@ -1,0 +1,43 @@
+Translation of <a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization">Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization</a>
+The DAE has 518 scalar unknowns and 518 scalar equations.
+
+Statistics
+
+Original Model
+  Number of components: 79
+  Variables: 752
+  Constants: 1 (1 scalars)
+  Parameters: 265 (305 scalars)
+  Unknowns: 486 (518 scalars)
+  Differentiated variables: 12 scalars
+  Equations: 332
+  Nontrivial: 250
+Translated Model
+  Constants: 127 scalars
+  Free parameters: 57 scalars
+  Parameter depending: 182 scalars
+  Continuous time states: 10 scalars
+  Time-varying variables: 88 scalars
+  Alias variables: 370 scalars
+  Number of mixed real/discrete systems of equations: 0
+  Sizes of linear systems of equations: {6, 6}
+  Sizes after manipulation of the linear systems: {2, 2}
+  Sizes of nonlinear systems of equations: { }
+  Sizes after manipulation of the nonlinear systems: { }
+  Number of numerical Jacobians: 0
+
+Settings
+Advanced.StoreProtectedVariables = true
+Selected continuous time states
+Statically selected continuous time states
+<a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization#text$inductor3.inductor:i">inductor3.inductor[2].i</a>
+<a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization#text$inductor3.inductor:i">inductor3.inductor[3].i</a>
+<a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization#text$inductor4.inductor:i">inductor4.inductor[1].i</a>
+<a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization#text$inductor4.inductor:i">inductor4.inductor[2].i</a>
+<a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization#text$inductor4.inductor:i">inductor4.inductor[3].i</a>
+<a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization#text$inductor12:i">inductor12.i</a>
+<a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization#text$inductor13:i">inductor13.i</a>
+<a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization#text$inductor21:i">inductor21.i</a>
+<a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization#text$inductor22:i">inductor22.i</a>
+<a href="Modelica://Modelica.Electrical.Polyphase.Examples.PolyphaseInitialization#text$inductor23:i">inductor23.i</a>
+Finished
